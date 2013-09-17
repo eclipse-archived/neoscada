@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.utils">
+    <properties:properties properties:name="org.eclipse.scada.utils.concurrent.noDefaultLogger" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.defaultStringInterner"/>
+    <properties:properties properties:name="org.eclipse.scada.ScriptExecutor.disableCompile" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

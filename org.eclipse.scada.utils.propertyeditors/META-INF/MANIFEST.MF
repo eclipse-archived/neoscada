@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.utils.propertyeditors;version="0.1.0"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Property Editors
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.utils.propertyeditors
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

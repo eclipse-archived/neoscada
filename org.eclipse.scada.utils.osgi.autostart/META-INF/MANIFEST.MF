@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA OSGi AutoStart Bundles
+Bundle-Activator: org.eclipse.scada.utils.osgi.autostart.Activator
+Bundle-ManifestVersion: 2
+Import-Package: org.osgi.framework;version="1.3.0",org.osgi.framework.
+ startlevel;version="1.0.0",org.osgi.service.log;version="1.3.0"
+Bundle-SymbolicName: org.eclipse.scada.utils.osgi.autostart
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
