@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.scada.base</groupId>
+	<artifactId>org.eclipse.scada.base-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho-version>0.18.1</tycho-version>
+		<tychoExtrasVersion>0.18.1</tychoExtrasVersion>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>eclipse.kepler</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/kepler</url>
+		</repository>
+		<repository>
+			<id>eclipse.orbit</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/</url>
+		</repository>
+	</repositories>
+
+	<build>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-file</artifactId>
+				<version>2.2</version>
+			</extension>
+		</extensions>
+
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.eclipse.scada.base-target</groupId>
+							<artifactId>org.eclipse.scada.base</artifactId>
+							<version>0.1.0-SNAPSHOT</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<!-- source bundles -->
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<modules>
+
+		<module>../org.eclipse.scada.base-target</module> <!-- holds the p2 repository -->
+		<module>../org.eclipse.scada.base-p2</module> <!-- holds the p2 repository -->
+
+		<module>../org.eclipse.scada.base.feature</module>
+		<module>../org.eclipse.scada.base.sdk.feature</module>
+
+		<module>../org.eclipse.scada.base.doc.isv</module>
+		<module>../org.eclipse.scada.core</module>
+		<module>../org.eclipse.scada.core.info</module>
+		<module>../org.eclipse.scada.ds</module>
+		<module>../org.eclipse.scada.ds.feature</module>
+		<module>../org.eclipse.scada.ds.sdk.feature</module>
+		<module>../org.eclipse.scada.ds.storage</module>
+		<module>../org.eclipse.scada.ds.storage.file</module>
+		<module>../org.eclipse.scada.ds.storage.jdbc</module>
+		<module>../org.eclipse.scada.hds</module>
+		<module>../org.eclipse.scada.hds.feature</module>
+		<module>../org.eclipse.scada.sec</module>
+		<module>../org.eclipse.scada.sec.audit.log.slf4j</module>
+		<module>../org.eclipse.scada.sec.auth.logon</module>
+		<module>../org.eclipse.scada.sec.authn.osgi.cfg.priority</module>
+		<module>../org.eclipse.scada.sec.equinox</module>
+		<module>../org.eclipse.scada.sec.feature</module>
+		<module>../org.eclipse.scada.sec.osgi</module>
+		<module>../org.eclipse.scada.sec.provider.dummy</module>
+		<module>../org.eclipse.scada.sec.provider.plain.property</module>
+		<module>../org.eclipse.scada.sec.sdk.feature</module>
+		<module>../org.eclipse.scada.sec.utils</module>
+	</modules>
+
+</project>

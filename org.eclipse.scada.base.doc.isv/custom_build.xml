@@ -56,7 +56,7 @@
 	</target>
 
 	<target name="pre.@dot">
-		<ant antfile="${source.root}/org.eclipse.scada.aurora.doc.isv/javadoc.xml" inheritrefs="true" taskname="javadoc">
+		<ant antfile="${source.root}/org.eclipse.scada.base.doc.isv/javadoc.xml" inheritrefs="true" taskname="javadoc">
 		</ant>
 	</target>
 
