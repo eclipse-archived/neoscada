@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" name="Priority Based Authentication Configuration">
+   <implementation class="org.eclipse.scada.sec.authn.osgi.cfg.priority.Authenticator"/>
+   <service>
+      <provide interface="org.eclipse.scada.sec.AuthenticationImplementation"/>
+   </service>
+</scr:component>

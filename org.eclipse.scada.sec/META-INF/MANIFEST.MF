@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.sec;version="1.1.0"; uses:="org.ecli
+ pse.scada.utils.concurrent,  org.eclipse.scada.sec.authz,  org.eclips
+ e.scada.utils.statuscodes,  org.eclipse.scada.sec.callback,  org.ecli
+ pse.scada.sec.authn",org.eclipse.scada.sec.audit;version="1.1.0";uses
+ :="org.eclipse.scada.sec.authz,org.eclipse.scada.sec",org.eclipse.sca
+ da.sec.authn;version="1.1.0";uses:="org.eclipse.scada.sec.utils.passw
+ ord,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",org.eclipse
+ .scada.sec.authz;version="1.1.0";uses:="org.eclipse.scada.utils.concu
+ rrent,org.eclipse.scada.sec.callback,org.eclipse.scada.sec",org.eclip
+ se.scada.sec.callback;version="1.1.0";uses:="org.eclipse.scada.utils.
+ concurrent,javax.security.auth.callback,org.eclipse.scada.sec.utils.p
+ assword"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Security
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.sec.utils.password;version="1.0.0",o
+ rg.eclipse.scada.utils.concurrent;version="1.0.0",org.eclipse.scada.u
+ tils.lang;version="1.0.0",org.eclipse.scada.utils.statuscodes;version
+ ="1.0.0",org.eclipse.scada.utils.str;version="1.0.0",org.slf4j;versio
+ n="1.6.0"
+Bundle-SymbolicName: org.eclipse.scada.sec
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

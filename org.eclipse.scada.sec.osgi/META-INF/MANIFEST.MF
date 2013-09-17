@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.sec.osgi;version="1.1.0"; uses:="org
+ .eclipse.scada.utils.concurrent,  org.eclipse.scada.sec.authz,  org.e
+ clipse.scada.sec.audit,  org.eclipse.scada.sec.callback,  org.osgi.fr
+ amework,  org.eclipse.scada.sec"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Security OSGi
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.sec;version="1.1.0",org.eclipse.scad
+ a.sec.audit;version="1.1.0",org.eclipse.scada.sec.authn;version="1.1.
+ 0",org.eclipse.scada.sec.authz;version="1.1.0",org.eclipse.scada.sec.
+ callback;version="1.1.0",org.eclipse.scada.utils.concurrent;version="
+ 1.1.0",org.eclipse.scada.utils.lang;version="1.0.0",org.eclipse.scada
+ .utils.osgi;version="1.0.0",org.eclipse.scada.utils.statuscodes;versi
+ on="1.0.0",org.osgi.framework;version="1.6.0",org.osgi.util.tracker;v
+ ersion="1.5.0",org.slf4j;version="1.5.0"
+Bundle-SymbolicName: org.eclipse.scada.sec.osgi
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

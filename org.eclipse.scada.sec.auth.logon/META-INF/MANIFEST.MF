@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/component.xml
+Export-Package: org.eclipse.scada.sec.auth.logon;version="1.1.0";uses:
+ ="org.eclipse.scada.utils.concurrent,org.eclipse.scada.sec.authz,org.
+ eclipse.scada.sec"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Security Logon Authorization
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.sec;version="1.1.0",org.eclipse.scad
+ a.sec.authz;version="1.1.0",org.eclipse.scada.sec.callback;version="1
+ .1.0",org.eclipse.scada.sec.osgi;version="1.0.0",org.eclipse.scada.ut
+ ils.concurrent;version="1.1.0",org.osgi.framework;version="1.7.0",org
+ .slf4j;version="1.6.0"
+Bundle-SymbolicName: org.eclipse.scada.sec.auth.logon
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

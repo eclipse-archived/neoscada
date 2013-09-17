@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.pde.core
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Documentation
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.aurora.doc.isv;singleton:=true
+

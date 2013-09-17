@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.sec">
+    <properties:properties properties:name="org.eclipse.scada.sec.callback.defaultTimeout" properties:dataType="INTEGER" properties:shortDescription="The maximum amount of time in milliseconds the callback may take until it is automatically aborted.">
+      <properties:defaultValue>20000</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.sec.callback.XMLSignatureCallback.maxKeepKeyOpenTimeout" properties:dataType="INTEGER">
+      <properties:defaultValue>300000</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

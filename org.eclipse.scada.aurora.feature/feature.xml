@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.eclipse.scada.aurora" label="%featureName" license-feature="org.eclipse.scada.license" license-feature-version="0.1.0.qualifier" plugin="org.eclipse.scada.core" provider-name="%providerName" version="0.1.0.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes id="org.eclipse.scada.sec" version="0.0.0"/>
+
+   <includes id="org.eclipse.scada.ds" version="0.0.0"/>
+
+   <includes id="org.eclipse.scada.hds" version="0.0.0"/>
+
+   <includes id="org.eclipse.scada.license" version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.slf4j.api"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import match="greaterOrEqual" plugin="org.apache.mina.core" version="2.0.0"/>
+   </requires>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.propertyeditors" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.filter" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.jaxws" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.pidfile" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.jdbc" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.autostart" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.jdbc.pool" install-size="0" unpack="false" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.utils.osgi.exporter" install-size="0" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.core" install-size="0" version="0.0.0"/>
+
+   <plugin download-size="0" id="org.eclipse.scada.core.info" install-size="0" version="0.0.0"/>
+
+</feature>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.sec.audit.log.slf4j">
+   <implementation class="org.eclipse.scada.sec.audit.log.slf4j.LogServiceImpl"/>
+   <service>
+      <provide interface="org.eclipse.scada.sec.audit.AuditLogService"/>
+   </service>
+   <property name="service.vendor" type="String" value="Eclipse.org"/>
+   <property name="service.description" type="String" value="An audit log which forwards logs messages to SLF4J"/>
+</scr:component>

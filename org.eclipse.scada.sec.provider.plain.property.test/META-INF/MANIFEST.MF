@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test for org.eclipse.scada.sec.provider.plain.property
+Bundle-SymbolicName: org.eclipse.scada.sec.provider.plain.property.test
+Bundle-Version: 1.2.0.qualifier
+Fragment-Host: org.eclipse.scada.sec.provider.plain.property;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit;bundle-version="4.8.0"

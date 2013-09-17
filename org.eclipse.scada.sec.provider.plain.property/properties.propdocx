@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.sec.provider.plain.property">
+    <properties:properties properties:name="org.eclipse.scada.sec.provider.plain.property.priority" properties:dataType="INTEGER">
+      <properties:defaultValue>0</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.sec.provider.plain.property.data" properties:dataType="CUSTOM">
+    <properties:customDataTypeDescription>A double token format, records are split by | and fields by #</properties:customDataTypeDescription>
+      <properties:defaultValue>empty</properties:defaultValue>
+      <properties:longDescription><![CDATA[
+Defines a list of known users. Contains the a table of users in the format <user1>#<password1>#<role1>,<role2>|<user2>#<password2>#|…. The password is in plaintext.
+      ]]>
+      </properties:longDescription>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

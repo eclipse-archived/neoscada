@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/component.xml
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Security Dummy Provider
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.sec;version="1.1.0",org.eclipse.scad
+ a.sec.authn;version="1.1.0",org.eclipse.scada.sec.callback;version="1
+ .1.0",org.eclipse.scada.utils.concurrent;version="1.1.0",org.osgi.fra
+ mework;version="1.6.0"
+Bundle-SymbolicName: org.eclipse.scada.sec.provider.dummy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

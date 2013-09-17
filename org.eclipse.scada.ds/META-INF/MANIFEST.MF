@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.ds;version="1.0.0";uses:="org.eclips
+ e.scada.utils.concurrent,org.osgi.framework"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA DA
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.utils.concurrent;version="1.0.0",org
+ .eclipse.scada.utils.concurrent.task;version="1.0.0",org.eclipse.scad
+ a.utils.lang;version="1.0.0",org.eclipse.scada.utils.osgi;version="1.
+ 0.0",org.osgi.framework;version="1.6.0";resolution:=optional
+Bundle-SymbolicName: org.eclipse.scada.ds
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.core.info;version="1.0.0"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Core Information
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.utils.lang;version="1.0.0"
+Bundle-SymbolicName: org.eclipse.scada.core.info
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

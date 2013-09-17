@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA DS JDBC Storage
+Bundle-Activator: org.eclipse.scada.ds.storage.jdbc.Activator
+Bundle-ManifestVersion: 2
+Import-Package: org.eclipse.scada.ds;version="1.0.0",org.eclipse.scada
+ .ds.storage;version="1.0.0",org.eclipse.scada.utils;version="1.0.0",o
+ rg.eclipse.scada.utils.codec;version="1.0.0",org.eclipse.scada.utils.
+ concurrent;version="1.0.0",org.eclipse.scada.utils.osgi;version="1.0.
+ 0",org.eclipse.scada.utils.osgi.jdbc;version="1.0.0",org.eclipse.scad
+ a.utils.osgi.jdbc.pool;version="1.0.0",org.eclipse.scada.utils.osgi.j
+ dbc.task;version="1.0.0",org.osgi.framework;version="1.3.0",org.osgi.
+ service.jdbc;version="1.0.0",org.slf4j;version="[1.5.0,2.0.0)"
+Bundle-SymbolicName: org.eclipse.scada.ds.storage.jdbc
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

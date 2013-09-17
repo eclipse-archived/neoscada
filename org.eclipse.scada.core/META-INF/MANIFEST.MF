@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.core;version="1.1.0";uses:="org.ecli
+ pse.scada.utils.statuscodes"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA Core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.core
+Import-Package: org.eclipse.scada.sec;version="1.1.0",org.eclipse.scad
+ a.utils.lang;version="1.0.0",org.eclipse.scada.utils.statuscodes;vers
+ ion="1.0.0",org.eclipse.scada.utils.str;version="1.0.0",org.slf4j;ver
+ sion="[1.5.8,2.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

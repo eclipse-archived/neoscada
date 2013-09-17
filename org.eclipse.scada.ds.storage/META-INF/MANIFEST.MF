@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.ds.storage;version="1.0.0";uses:="or
+ g.eclipse.scada.utils.concurrent,org.eclipse.scada.ds"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Eclipse SCADA DS Storage
+Bundle-ManifestVersion: 2
+Import-Package: com.google.common.collect;version="1.0.0",org.eclipse.
+ scada.ds;version="1.0.0",org.eclipse.scada.utils.concurrent;version="
+ 1.0.0",org.slf4j;version="[1.5.8,2.0.0)"
+Bundle-SymbolicName: org.eclipse.scada.ds.storage
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

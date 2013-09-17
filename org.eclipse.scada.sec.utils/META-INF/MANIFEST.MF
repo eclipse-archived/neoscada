@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Export-Package: org.eclipse.scada.sec.utils.password;version="1.1.0"
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Version: 0.1.0.qualifier
+Bundle-Name: Security Utilities
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.sec.utils
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
