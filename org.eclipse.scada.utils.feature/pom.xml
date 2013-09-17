@@ -7,11 +7,11 @@
     <relativePath>../org.eclipse.scada.utils-parent</relativePath>
   </parent>
   <groupId>org.eclipse.scada.utils.features</groupId>
-  <artifactId>org.eclipse.scada.license</artifactId>
+  <artifactId>org.eclipse.scada.utils</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>eclipse-feature</packaging>
   
-  <!-- source features -->
+   <!-- source features -->
 
 	<build>
 		<plugins>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature id="org.eclipse.scada.utils.sdk"
+	label="%featureName"
+	plugin="org.eclipse.scada.utils"
+	provider-name="%providerName" version="0.1.0.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <includes id="org.eclipse.scada.utils" version="0.0.0"/>
+
+   <includes id="org.eclipse.scada.utils.source" version="0.0.0"/>
+
+</feature>
