@@ -25,10 +25,14 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/</url>
 		</repository>
+		<repository>
+			<id>eclipse.scada.utils</id>
+			<layout>p2</layout>
+			<url>http://to.be.named/org.eclipse.scada.utils-p2</url>
+		</repository>
 	</repositories>
 
 	<build>
-
 		<extensions>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
