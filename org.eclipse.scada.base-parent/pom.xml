@@ -108,7 +108,7 @@
 
 	<modules>
 
-		<module>../org.eclipse.scada.base-target</module> <!-- holds the p2 repository -->
+		<module>../org.eclipse.scada.base-target</module>
 		<module>../org.eclipse.scada.base-p2</module> <!-- holds the p2 repository -->
 
 		<module>../org.eclipse.scada.base.feature</module>
