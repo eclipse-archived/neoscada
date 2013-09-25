@@ -28,7 +28,7 @@
 		<repository>
 			<id>eclipse.scada.utils</id>
 			<layout>p2</layout>
-			<url>http://to.be.named/org.eclipse.scada.utils-p2</url>
+			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/org.eclipse.scada.utils-p2/target/repository</url>
 		</repository>
 	</repositories>
 
