@@ -3,7 +3,7 @@ Require-Bundle: org.eclipse.equinox.security;bundle-version="1.1.0"
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-ActivationPolicy: lazy
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA Security Equinox JAAS Integration
+Bundle-Name: Eclipse SCADA Security Equinox JAAS Integration (Incubation)
 Bundle-Activator: org.eclipse.scada.sec.equinox.Activator
 Bundle-ManifestVersion: 2
 Import-Package: javax.security.auth.spi,

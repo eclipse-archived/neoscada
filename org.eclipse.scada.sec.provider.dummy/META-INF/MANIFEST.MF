@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Service-Component: OSGI-INF/component.xml
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA Security Dummy Provider
+Bundle-Name: Eclipse SCADA Security Dummy Provider (Incubation)
 Bundle-ManifestVersion: 2
 Import-Package: org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.sec.authn;version="0.1.0",

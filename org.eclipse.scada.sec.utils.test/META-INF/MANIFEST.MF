@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Security Utilities Unit Test
+Bundle-Name: Security Utilities Unit Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.utils.test
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

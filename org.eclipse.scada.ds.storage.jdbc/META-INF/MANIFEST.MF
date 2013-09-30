@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA DS JDBC Storage
+Bundle-Name: Eclipse SCADA DS JDBC Storage (Incubation)
 Bundle-Activator: org.eclipse.scada.ds.storage.jdbc.Activator
 Bundle-ManifestVersion: 2
 Import-Package: org.eclipse.scada.ds;version="0.1.0",
