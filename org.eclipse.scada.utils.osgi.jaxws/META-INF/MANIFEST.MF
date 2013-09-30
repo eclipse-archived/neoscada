@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Export-Package: org.eclipse.scada.utils.osgi.jaxws;version="0.1.0";uses:="org.osgi.framework,org.eclipse.scada.utils.osgi.exporter"
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA Utils OSGi JAX-WS Exporter
+Bundle-Name: Eclipse SCADA Utils OSGi JAX-WS Exporter (Incubation)
 Bundle-Activator: org.eclipse.scada.utils.osgi.jaxws.Activator
 Bundle-ManifestVersion: 2
 Import-Package: javax.jws,javax.xml.ws,org.eclipse.scada.utils.osgi.ex

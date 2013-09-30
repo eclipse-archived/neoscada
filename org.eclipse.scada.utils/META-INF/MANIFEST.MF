@@ -17,7 +17,7 @@ Export-Package: org.eclipse.scada.utils;version="0.1.0",
  org.eclipse.scada.utils.str;version="0.1.0";uses:="org.eclipse.scada.utils.lang"
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA Common Utilities
+Bundle-Name: Eclipse SCADA Common Utilities (Incubation)
 Bundle-ManifestVersion: 2
 Bundle-Description: Utility classes for use throughout the Eclipse SCA
  DA project

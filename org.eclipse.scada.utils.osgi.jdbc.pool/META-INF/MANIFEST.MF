@@ -3,7 +3,7 @@ Export-Package: org.eclipse.scada.utils.osgi.jdbc.pool;version="0.1.0"
  ;uses:="org.eclipse.scada.utils.osgi.jdbc,org.osgi.service.jdbc"
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
-Bundle-Name: Eclipse SCADA Connection Pool
+Bundle-Name: Eclipse SCADA Connection Pool (Incubation)
 Bundle-ManifestVersion: 2
 Import-Package: org.apache.commons.dbcp;version="1.4.0",org.apache.com
  mons.dbcp.datasources;version="1.4.0",org.apache.commons.pool;version
