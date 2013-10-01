@@ -155,7 +155,7 @@
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
 	</modules>
 
-
+	<!-- sign -->
 	<profiles>
 		<profile>
 			<id>eclipse-sign</id>
