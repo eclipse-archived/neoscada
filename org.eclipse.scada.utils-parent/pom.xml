@@ -232,6 +232,8 @@
 								<phase>verify</phase>
 							</execution>
 						</executions>
+						
+						<!-- FIXME: not sure if this is really needed -->
 						<!-- 
 						<configuration>
 							<defaultP2Metadata>false</defaultP2Metadata>
