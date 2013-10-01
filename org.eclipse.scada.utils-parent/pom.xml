@@ -45,6 +45,7 @@
 				<extensions>true</extensions>
 			</plugin>
 
+			<!-- build qualifier -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-packaging-plugin</artifactId>
