@@ -10,7 +10,7 @@
 
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
-		<tychoExtrasVersion>0.18.1</tychoExtrasVersion>
+		<tycho-extras-version>0.18.1</tycho-extras-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
