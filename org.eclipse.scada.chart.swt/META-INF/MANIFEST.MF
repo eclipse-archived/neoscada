@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: openSCADA SWT Chart View
+Bundle-Name: Eclipse SCADA SWT Chart View
 Bundle-SymbolicName: org.eclipse.scada.chart.swt
 Bundle-Version: 0.1.0.qualifier
-Bundle-Vendor: openSCADA.org
+Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.chart.swt;version="0.1.0",
  org.eclipse.scada.chart.swt.controller;version="0.1.0",
  org.eclipse.scada.chart.swt.manager;version="0.1.0",
