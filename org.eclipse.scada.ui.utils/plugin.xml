@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Open a new view"
+            id="org.eclipse.scada.ui.utils.showView"
+            name="Show View">
+         <commandParameter
+               id="org.eclipse.scada.ui.utils.showView.viewId"
+               name="viewId"
+               optional="false">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.scada.ui.utils.showView">
+         <class
+               class="org.eclipse.scada.ui.utils.handler.ShowViewHandler">
+         </class>
+      </handler>
+   </extension>
+
+</plugin>
