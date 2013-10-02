@@ -154,6 +154,8 @@
 		<module>../org.eclipse.scada.utils.osgi.jdbc</module>
 		<module>../org.eclipse.scada.utils.osgi.jdbc.pool</module>
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
+		
+		<module>../org.eclipse.scada.utils.test</module>
 	</modules>
 
 	<!-- sign -->
