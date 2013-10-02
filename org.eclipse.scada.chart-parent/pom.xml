@@ -141,7 +141,7 @@
 		<module>../org.eclipse.scada.chart.sdk.feature</module>
 		<module>../org.eclipse.scada.chart</module>
 		<module>../org.eclipse.scada.chart.swt</module>
-		<module>../org.eclipse.scada.chart.swt.test</module>
+		<module>../org.eclipse.scada.chart.swt.sample</module>
 	</modules>
 	
 	<!-- sign -->

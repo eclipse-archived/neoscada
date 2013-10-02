@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Chart Test
-Bundle-SymbolicName: org.eclipse.scada.chart.swt.test;singleton:=true
+Bundle-Name: Eclipse SCADA Chart Sample
+Bundle-SymbolicName: org.eclipse.scada.chart.swt.sample;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.equinox.app;bundle-version="1.3.0",
