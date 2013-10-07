@@ -19,5 +19,9 @@
    <includes id="org.eclipse.scada.utils" version="0.0.0"/>
 
    <includes id="org.eclipse.scada.utils.source" version="0.0.0"/>
+   
+   <includes id="org.eclipse.scada.ui.utils" version="0.0.0"/>
+
+   <includes id="org.eclipse.scada.ui.utils.source" version="0.0.0"/>
 
 </feature>

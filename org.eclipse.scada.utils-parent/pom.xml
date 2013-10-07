@@ -153,8 +153,14 @@
 		<module>../org.eclipse.scada.utils.osgi.jdbc</module>
 		<module>../org.eclipse.scada.utils.osgi.jdbc.pool</module>
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
-		
+
 		<module>../org.eclipse.scada.utils.test</module>
+		
+		<module>../org.eclipse.scada.ui.blink</module>
+		<module>../org.eclipse.scada.ui.databinding</module>
+		<module>../org.eclipse.scada.ui.localization</module>
+		<module>../org.eclipse.scada.ui.utils</module>
+		<module>../org.eclipse.scada.ui.utils.feature</module>
 	</modules>
 
 	<!-- sign -->
@@ -234,13 +240,9 @@
 								<phase>verify</phase>
 							</execution>
 						</executions>
-						
+
 						<!-- FIXME: not sure if this is really needed -->
-						<!-- 
-						<configuration>
-							<defaultP2Metadata>false</defaultP2Metadata>
-						</configuration>
-						 -->
+						<!-- <configuration> <defaultP2Metadata>false</defaultP2Metadata> </configuration> -->
 					</plugin>
 				</plugins>
 			</build>
