@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.scada.external_0.1.0.qualifier.jar" id="org.eclipse.scada.external" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.external.category"/>
+   </feature>
+   <feature url="features/org.eclipse.scada.external.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.external.sdk" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.external.sdk.category"/>
+   </feature>
+   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse SCADA (Incubating)">
+   </category-def>
+   <category-def name="org.eclipse.scada.external.sdk.category" label="3rd party libraries used by Eclipse SCADA (SDK) (Incubating)">
+   </category-def>
+</site>
