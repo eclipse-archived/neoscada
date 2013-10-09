@@ -143,7 +143,6 @@
 
 		<module>../org.eclipse.scada.base.doc.isv</module>
 		<module>../org.eclipse.scada.core</module>
-		<module>../org.eclipse.scada.core.info</module>
 		<module>../org.eclipse.scada.ds</module>
 		<module>../org.eclipse.scada.ds.feature</module>
 		<module>../org.eclipse.scada.ds.sdk.feature</module>
