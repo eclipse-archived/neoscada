@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.protocol.ngp.cagetory"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolModelWizardID"
+            name="%_UI_ProtocolModelWizard_label"
+            class="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolModelWizard"
+            category="org.eclipse.scada.protocol.ngp.cagetory"
+            icon="icons/full/obj16/ProtocolModelFile.gif">
+         <description>%_UI_ProtocolModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolEditorID"
+            name="%_UI_ProtocolEditor_label"
+            icon="icons/full/obj16/ProtocolModelFile.gif"
+            extensions="protocol"
+            class="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolEditor"
+            contributorClass="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

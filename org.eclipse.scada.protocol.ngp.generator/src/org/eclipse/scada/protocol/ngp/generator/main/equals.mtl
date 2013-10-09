@@ -1,0 +1,118 @@
+[comment encoding = UTF-8 /]
+[module equals('urn:eclipse:scada:protocol:ngp')]
+
+[import common/]
+
+[comment constructor /]
+
+[template public generateEquality(className : String, attributes : OrderedSet(Attribute)) post (trim())]
+[if (not attributes->select(attribute: Attribute| attribute.equality)->isEmpty())]
+
+@Override
+public boolean equals ( Object obj )
+{
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+
+	if (!(obj instanceof [className/]))
+		return false;
+	[className/] other = ([className/]) obj;
+
+[for (attribute : Attribute | attributes->select(attribute:Attribute|attribute.equality))]
+	[equals(attribute)/]
+
+[/for]
+
+	return true;
+}
+
+@Override
+public int hashCode ()
+{
+[if ( not attributes->select ( attribute:Attribute|attribute.equality and attribute.type = Type::SCALAR and attribute.oclIsTypeOf(FloatAttribute) )->isEmpty () )]
+	long temp;
+
+[/if]
+	final int prime = 31;
+	int result = 1;
+
+[for (attribute : Attribute | attributes->select(attribute:Attribute|attribute.equality))]
+	[hashCode(attribute)/]
+[/for]
+
+	return result;
+}
+[/if][/template]
+
+[comment   ---- equals ----- /]
+
+[template public objectEquals ( attribute : Attribute ) post (trim())]
+if ( this.[attribute.name/] == null )
+{
+	if ( other.[attribute.name/] != null )
+		return false;
+}
+else if ( !this.[attribute.name/].equals ( other.[attribute.name/] ) )
+	return false;
+[/template]
+
+[template public primitiveEquals ( attribute : Attribute ) post (trim())]
+if ( this.[attribute.name/] != other.[attribute.name/])
+	return false;
+[/template]
+
+[template public equals ( attribute : Attribute ) ][objectEquals(attribute)/][/template] 
+
+[template public equals(attribute : BooleanAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectEquals(attribute)/][else][primitiveEquals(attribute)/][/if]
+[/template]
+
+[template public equals(attribute : IntegerAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectEquals(attribute)/][else][primitiveEquals(attribute)/][/if]
+[/template]
+
+[template public equals(attribute : LongAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectEquals(attribute)/][else][primitiveEquals(attribute)/][/if]
+[/template]
+
+[template public equals(attribute : FloatAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectEquals(attribute)/][else][primitiveEquals(attribute)/][/if]
+[/template]
+
+[comment   ---- hashCode ----- /]
+
+
+[template public objectHashCode(attribute : Attribute) post (trim())]
+result = prime * result + ( this.[attribute.name/] == null ? 0 : this.[attribute.name/].hashCode () );
+[/template]
+
+[template public hashCode(attribute : Attribute) post (trim())]
+[objectHashCode(attribute)/]
+[/template]
+
+[template public hashCode(attribute : BooleanAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectHashCode(attribute)/][else]
+	result = prime * result + (this.[attribute.name/] ? 1231 : 1237);
+	[/if]
+[/template]
+
+[template public hashCode(attribute : IntegerAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectHashCode(attribute)/][else]
+	result = prime * result + this.[attribute.name/];
+	[/if]
+[/template]
+
+[template public hashCode(attribute : LongAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectHashCode(attribute)/][else]
+	result = prime * result + (int) (this.[attribute.name/] ^ (this.[attribute.name/] >>> 32));
+	[/if]
+[/template]
+
+[template public hashCode(attribute : FloatAttribute) post (trim())]
+	[if ( attribute.type <> Type::SCALAR )][objectHashCode(attribute)/][else]
+temp = Double.doubleToLongBits ( this.[attribute.name/] );
+result = prime * result + (int) ( temp ^ temp >>> 32 );
+	[/if]
+[/template]

@@ -1,0 +1,11 @@
+[comment encoding = UTF-8 /]
+[module generate('urn:eclipse:scada:protocol:ngp')]
+
+[import data /]
+[import codec /]
+
+[template public generateElement(protocol : Protocol)]
+[comment @main/]
+	[dataClasses(protocol)/]
+	[codec(protocol)/]
+[/template]

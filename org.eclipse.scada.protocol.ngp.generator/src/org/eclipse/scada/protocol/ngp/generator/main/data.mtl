@@ -1,0 +1,101 @@
+[comment encoding = UTF-8 /]
+[module data('urn:eclipse:scada:protocol:ngp')]
+
+[import common /]
+[import getters /]
+[import ctor /]
+[import equals /]
+
+[template public dataClasses(protocol : Protocol)]
+
+[for (message : Message | protocol.messages)]
+	[generateMessage(message)/]
+[/for]
+[for (structure : Structure | protocol.structures ) ]
+	[generateStructure(structure)/]
+[/for]
+
+[/template]
+
+[template public interfaces ( protocol : Protocol ) ]
+
+[for (interface : Interface | protocol.interfaces)]
+	[generateInterface(interface)/]
+[/for]
+
+[/template]
+
+[comment ---- interface ---- /]
+
+[template public generateInterface ( interface : Interface )
+{
+fullQualifiedClassName : String = packageDataPrefix ( interface.protocol) +'.' + interface.name;
+}
+]
+[file ( fullClassFileName ( fullQualifiedClassName ), false, 'UTF-8') ]
+[protocol.licenseHeader/]
+package [packageName(fullQualifiedClassName)/];
+
+public interface [className(fullQualifiedClassName)/]
+{
+[for (attribute : Attribute | attributes)]
+
+	[generateInterfaceAttributeGetter(attribute)/]
+[/for]
+}
+[/file]
+[/template]
+
+[comment ---- classes ---- /]
+
+[template public generateMessage ( message : Message ) ]
+	[generateClass ( protocol, fqnMessage ( message ), message.attributes , message.interfaces)/]
+[/template]
+
+[template public generateStructure ( structure : Structure ) ]
+	[generateClass ( protocol, packageDataPrefix ( structure.protocol) +'.' + structure.name, structure.attributes, OrderedSet(Interface){} )/]
+[/template]
+
+[template public generateClass ( protocol : Protocol, fullQualifiedClassName : String, attributes : OrderedSet(Attribute), interfaces : OrderedSet(Interface) )]
+[file ( fullClassFileName ( fullQualifiedClassName ), false, 'UTF-8') ]
+[protocol.licenseHeader/]
+package [packageName(fullQualifiedClassName)/];
+
+public class [className(fullQualifiedClassName)/] implements java.io.Serializable[interfaces(interfaces)/]
+{
+	private static final long serialVersionUID = 1L;
+
+	[generateConstructor ( className ( fullQualifiedClassName ), attributes)/]
+[for (attribute : Attribute | attributes)]
+
+	[generateAttributeGetter(attribute)/]
+[/for]
+	[generateEquality ( className ( fullQualifiedClassName ), attributes )/]
+	[generateToString ( className ( fullQualifiedClassName ), attributes )/]
+}
+[/file]
+[/template]
+
+[template private interfaces (interfaces : OrderedSet(Interface) ) post (trim())]
+[if (not interfaces->isEmpty())]
+, [for (interface : Interface | interfaces) separator (', ')][packageDataPrefix ( interface.protocol) +'.' + interface.name/][/for]
+[/if]
+[/template]
+
+[template public generateToString ( className : String, attributes : OrderedSet(Attribute) ) post (trim())]
+@Override
+public String toString ()
+{
+[if ( not attributes->isEmpty() ) ]
+	return "[ '[' /][className/] - " + 
+[for (attribute : Attribute | attributes) separator (' + ", " +')]
+		"[attribute.name/]: " + this.[attribute.name/]
+[/for]
+		+ "[ ']' /]";
+[/if]
+[if ( attributes->isEmpty () )]
+	return "[ '[' /][className/][ ']' /]";
+[/if]
+}
+[/template]
+

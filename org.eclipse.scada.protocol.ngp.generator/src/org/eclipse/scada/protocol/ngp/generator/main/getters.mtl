@@ -1,0 +1,39 @@
+[comment encoding = UTF-8 /]
+[module getters('urn:eclipse:scada:protocol:ngp')]
+
+[import common/]
+
+[template private generateAttributeGetterByType ( attribute : Attribute, typeName : String )]
+[if attribute.description <> null ]
+/**
+ * [attribute.description/]
+ */
+[/if]
+private final [if(attribute.transient)]transient [/if][typeName/] [attribute.name/];
+
+public [typeName/] [attribute.getterPrefix()/][attribute.name.toUpperFirst()/] ()
+{
+	return this.[attribute.name/];
+}
+[/template]
+
+[template public generateAttributeGetter ( attribute : Attribute )][generateAttributeGetterByType(attribute, typeName(attribute))/][/template]
+
+[template private generateInterfaceAttributeGetterByType ( attribute : Attribute, typeName : String )]
+[if attribute.description <> null ]
+/**
+ * [attribute.description/]
+ */
+[/if]
+public [typeName/] [attribute.getterPrefix()/][attribute.name.toUpperFirst()/] ();
+[/template]
+
+[template public generateInterfaceAttributeGetter ( attribute : Attribute )][generateInterfaceAttributeGetterByType(attribute, typeName(attribute))/][/template]
+
+[query public getterPrefix ( attribute : Attribute ) : String =
+	if ( attribute.oclIsTypeOf(BooleanAttribute) and attribute.type = Type::SCALAR ) then
+		 'is'
+	else
+		'get'
+	endif
+/]

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Protocol TKPT
+Bundle-SymbolicName: org.eclipse.scada.protocol.tkpt
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.protocols.tkpt;version="0.1.0";uses:="org.apache.mina.core.session,org.apache.mina.core.filterchain,org.apache.mina.core.write"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.mina.core.buffer,
+ org.apache.mina.core.filterchain,
+ org.apache.mina.core.session,
+ org.apache.mina.core.write,
+ org.osgi.framework;version="1.3.0",
+ org.slf4j

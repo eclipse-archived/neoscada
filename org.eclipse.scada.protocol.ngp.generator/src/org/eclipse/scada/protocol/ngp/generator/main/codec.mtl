@@ -1,0 +1,540 @@
+[comment encoding = UTF-8 /]
+[module codec('urn:eclipse:scada:protocol:ngp')]
+
+[import common /]
+[import getters /]
+
+[template public codec(protocol : Protocol)]
+
+[protocolBase(protocol)/]
+
+[for (message : Message | protocol.messages)]
+	[protocolMessage(message)/]
+[/for]
+
+[/template]
+
+[template public protocolBase ( protocol : Protocol ) ]
+
+[file ( packagePath ( packageCodecPrefix ( protocol ) ) + '/Structures.java', false, 'UTF-8') ]
+[protocol.licenseHeader/]
+package [packageCodecPrefix(protocol)/];
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.mina.core.buffer.IoBuffer;
+
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryContext;
+
+import org.eclipse.scada.protocol.ngp.common.utils.ArrayListAllocator;
+import org.eclipse.scada.protocol.ngp.common.utils.CollectionAllocator;
+import org.eclipse.scada.protocol.ngp.common.utils.HashSetAllocator;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public final class Structures
+{
+
+	private final static Logger logger = LoggerFactory.getLogger ( Structures.class );
+
+	private Structures ()
+	{
+	}
+
+[for (structure : Structure | protocol.structures)]
+
+	private static final ArrayListAllocator<[fqn(structure)/]> ALLOC_[structure.name.toUpper()/]_LIST = new ArrayListAllocator<[fqn(structure)/]> ();
+
+    private static final HashSetAllocator<[fqn(structure)/]> ALLOC_[structure.name.toUpper()/]_SET = new HashSetAllocator<[fqn(structure)/]> ();
+
+	protected static void inlineEncode[structure.name/] ( final BinaryContext context, final IoBuffer data, final [fqn(structure)/] value ) throws Exception
+	{
+        // number of fields
+		data.put ( ((byte)[structure.attributes->persistentAttributes()->size()/]) );
+
+        // encode attributes
+		[encodeAttributes ( structure.attributes->persistentAttributes() )/]
+	} 
+
+	protected static [fqn(structure)/] inlindeDecode[structure.name/] ( final BinaryContext _context, final IoBuffer _data ) throws Exception
+	{
+		// number of fields
+		final byte numberOfFields = _data.get ();
+
+		// decode attributes
+		[decodeAttributes ( structure.attributes->persistentAttributes() )/]
+
+		// create object
+		[constructObject ( fqn ( structure ), attributes )/]
+	}
+
+	public static void encode[structure.name/] ( final BinaryContext context, final IoBuffer data, final byte fieldNumber, final [fqn(structure)/] value ) throws Exception
+	{
+		context.beginWriteStructure ( data, fieldNumber, value == null );
+
+		if ( value != null )
+		{
+			inlineEncode[structure.name/] ( context, data, value );
+		}
+	}
+
+	public static void encodeCollection[structure.name/] ( final BinaryContext context, final IoBuffer data, final byte fieldNumber, final Collection<[fqn(structure)/]> values ) throws Exception
+	{
+		context.beginWriteStructureList ( data, fieldNumber, values );
+
+		if ( values == null )
+		{
+			return;
+		}
+
+		for ( [fqn(structure)/] entry : values )
+		{
+			inlineEncode[structure.name/] ( context, data, entry );
+		}
+	}
+
+	public static [fqn(structure)/] decode[structure.name/] ( final BinaryContext context, final IoBuffer data, boolean allowNull ) throws Exception
+	{
+		final boolean isNull = context.beginReadStructure ( data, allowNull );
+
+		if ( isNull )
+		{
+			return null;
+		}
+	
+		return inlindeDecode[structure.name/] ( context, data );
+	}
+
+	protected static void fill[structure.name/]Collection ( BinaryContext context, final IoBuffer data, final int items, final Collection<[fqn(structure)/]> values ) throws Exception
+    {
+        for ( int i = 0; i < items; i++ )
+        {
+            values.add ( inlindeDecode[structure.name/] ( context, data ) );
+        }
+    }
+
+    protected static <T extends Collection<[fqn(structure)/]>> T decode[structure.name/]Collection ( final BinaryContext context, final IoBuffer data, final CollectionAllocator<[fqn(structure)/], T> allactor, final boolean allowNull ) throws Exception
+    {
+		final Integer len = context.beginReadStructureList ( data, allowNull );
+
+        if ( len == null )
+        {
+            return null;
+        }
+        else
+        {
+            final T result = allactor.allocate ( len );
+            fill[structure.name/]Collection ( context, data, len, result );
+            return result;
+        }
+    }
+
+    public static List<[fqn(structure)/]> decodeList[structure.name/] ( final BinaryContext context, final IoBuffer data, final boolean allowNull ) throws Exception
+    {
+        return decode[structure.name/]Collection ( context, data, ALLOC_[structure.name.toUpper()/]_LIST, allowNull );
+    }
+
+    public static Set<[fqn(structure)/]> decodeSet[structure.name/] ( final BinaryContext context, final IoBuffer data, final boolean allowNull ) throws Exception
+    {
+        return decode[structure.name/]Collection ( context, data, ALLOC_[structure.name.toUpper()/]_SET, allowNull );
+    }
+
+[/for]
+}
+[/file]
+
+[file ( packagePath ( packageCodecPrefix ( protocol ) ) + '/ProtocolFactory.java', false, 'UTF-8') ]
+[protocol.licenseHeader/]
+package [packageCodecPrefix(protocol)/];
+
+import java.util.Collection;
+import java.util.LinkedList;
+
+
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryContext;
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryMessageCodec;
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryProtocolDescriptor;
+
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.DefaultBinaryContext;
+
+public final class ProtocolFactory
+{
+	private ProtocolFactory ()
+	{
+	}
+
+	public static final String VERSION = "[protocolVersionString(protocol)/]";
+
+	private final static class ProtocolDescriptor extends BinaryProtocolDescriptor
+	{
+		public ProtocolDescriptor ()
+        {
+            super ( new DefaultBinaryContext () );
+        }
+
+		public ProtocolDescriptor ( final BinaryContext binaryContext )
+        {
+            super ( binaryContext );
+        }
+
+		@Override
+        public String getProtocolId ()
+        {
+           	return this.binaryContext.getProtocolIdPart () + '/' + VERSION;
+        }
+
+        @Override
+        protected Collection<BinaryMessageCodec> getCodecs ()
+        {
+            final Collection<BinaryMessageCodec> codecs = new LinkedList<BinaryMessageCodec> ();
+
+			ProtocolFactory.fillCodecs ( codecs );
+
+            return codecs;
+        }
+	}
+
+	public static org.eclipse.scada.protocol.ngp.common.mc.protocol.ProtocolDescriptor createProtocolDescriptor ()
+	{
+		return new ProtocolDescriptor ();
+	}
+
+	public static org.eclipse.scada.protocol.ngp.common.mc.protocol.ProtocolDescriptor createProtocolDescriptor ( final BinaryContext binaryContext )
+	{
+		return new ProtocolDescriptor ( binaryContext );
+	}
+
+	public static void fillCodecs ( Collection<BinaryMessageCodec> codecs )
+	{
+		// local messages 
+		[for ( message : Message | protocol.messages ) ]
+		[addCodec ( message )/]
+		[/for]
+
+		[if ( not protocol.includedProtocols->isEmpty() ) ]
+		// included messages
+		[for (protocol : Protocol | protocol.includedProtocols)]
+		[packageCodecPrefix ( protocol )/].ProtocolFactory.fillCodecs ( codecs );
+		[/for]
+		[/if]
+	}
+}
+
+[/file]
+
+[/template]
+
+[template private addCodec ( message : Message ) ]
+codecs.add ( new [fullCodecClassName(message)/] () );
+[/template]
+
+[query public fullCodecClassName ( message : Message ) : String =
+	packageCodecPrefix ( message.protocol ) + '.impl.' + message.name
+/]
+
+[template public protocolMessage( message : Message ) ]
+
+[file ( packagePath ( fullCodecClassName ( message ) ) + '.java', false, 'UTF-8') ]
+[protocol.licenseHeader/]
+package [packageCodecPrefix(message.protocol)/].impl;
+
+import org.apache.mina.core.buffer.IoBuffer;
+
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryContext;
+import org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.BinaryMessageCodec;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class [message.name/] implements BinaryMessageCodec
+{
+	private final static Logger logger = LoggerFactory.getLogger ( [message.name/].class );
+
+	public static final int MESSAGE_CODE = [message.code/];
+
+	@Override
+    public int getMessageCode ()
+    {
+    	return MESSAGE_CODE;
+    }
+
+	@Override
+    public Class<?> getMessageClass ()
+    {
+       	return [fqnMessage(message)/].class;
+    }
+
+	@Override
+    public [fqnMessage(message)/] decodeMessage ( final BinaryContext _context, final IoBuffer _data ) throws Exception
+    {
+		// message code
+		{
+			final int messageCode = _data.getInt ();
+	
+			if ( messageCode != MESSAGE_CODE )
+				throw new IllegalStateException ( String.format ( "Expected messageCode %s but found %s", MESSAGE_CODE, messageCode ) );
+		}
+
+		final byte numberOfFields = _data.get ();
+
+		// decode attributes
+		[decodeAttributes ( message.attributes->persistentAttributes() )/]
+
+		// create object
+		[constructObject ( fqnMessage(message), attributes )/]
+    }
+
+    @Override
+    public IoBuffer encodeMessage ( final BinaryContext context, final Object objectMessage ) throws Exception
+    {
+		[if ( not message.attributes->isEmpty () ) ]
+		final [fqnMessage(message)/] value = ([fqnMessage(message)/])objectMessage;
+
+		final IoBuffer data = IoBuffer.allocate ( 64 );
+		data.setAutoExpand ( true );
+
+		// encode message base
+		data.putInt ( MESSAGE_CODE );
+
+        // number of fields 
+		data.put ( ((byte)[message.attributes->persistentAttributes()->size()/]) );
+
+		// encode attributes
+		[encodeAttributes ( message.attributes->persistentAttributes() )/]
+
+		[/if] 
+		[if (message.attributes->isEmpty ()) ]
+		final IoBuffer data = IoBuffer.allocate ( 5 );
+		data.putInt ( MESSAGE_CODE );
+		data.put ( (byte)0 ); // number of fields 
+		[/if]
+
+		data.flip ();
+		return data;
+    }
+
+}
+[/file]
+
+[/template]
+
+[comment ---- structure /]
+
+[template public encodeAttributes (  attributes : OrderedSet(Attribute) ) ]
+[for (attribute : Attribute | attributes )]
+[encodeAttribute ( attribute)/]
+[/for]
+[/template]
+
+[template public decodeAttributes (  attributes : OrderedSet(Attribute) ) ]
+
+[for (attribute : Attribute | attributes )]
+[decodeAttributeInit ( attribute)/]
+[/for]
+
+logger.trace ( "Decoding {} fields", numberOfFields );
+
+for ( int i = 0; i < numberOfFields; i++ )
+{
+
+	final byte fieldNumber = _data.get ();
+	switch ( fieldNumber ) {
+	    [for (attribute : Attribute | attributes )]
+	    [decodeAttributeSwitch ( attribute)/]
+	    [/for]
+		default:
+			logger.warn ( "Received unknown field number: {}", fieldNumber ); 
+			break;
+	}
+
+}
+[/template]
+
+[template public constructObject ( className : String, attributes : OrderedSet(Attribute) ) ]
+return new [className/] (
+		[for (attribute : Attribute | attributes ) separator (', ')]
+		[constructResult( attribute)/]
+		[/for]
+	);
+[/template]
+
+[comment ---- encoders /]
+
+[template public encodeAttribute (  attribute : Attribute)]
+context.encode[encodeTypeName(attribute)/] ( data, ((byte)[attribute.fieldNumber/]), value.[getterPrefix(attribute)/][attribute.name.toUpperFirst()/] () );
+[/template]
+
+[template public encodeAttribute ( attribute : StructureAttribute)]
+[packageCodecPrefix(attribute.structure.protocol)/].Structures.encode[encodeMultiName(attribute)/][attribute.structure.name/] ( context, data, ((byte)[attribute.fieldNumber/]), value.[getterPrefix(attribute)/][attribute.name.toUpperFirst()/] () );
+[/template]
+
+[template public encodeAttribute (  attribute : EnumAttribute)]
+context.encodeEnum[decodeMultiName(attribute)/] ( data, ((byte)[attribute.fieldNumber/]), value.[getterPrefix(attribute)/][attribute.name.toUpperFirst()/] () );
+[/template]
+
+[comment ---- decoders - init /]
+
+[template public decodeAttributeInit ( attribute : Attribute)]
+[typeName(attribute)/] [attribute.name/] = [transientInitValue(attribute)/];
+[/template]
+
+[template public decodeAttributeInit ( attribute : StructureAttribute)]
+[typeName(attribute)/] [attribute.name/] = null;
+[/template]
+
+[template public decodeAttributeInit ( attribute : EnumAttribute)]
+[typeName(attribute)/] [attribute.name/] = null;
+[/template]
+
+[comment ---- decoders - switch /]
+
+[template public decodeAttributeSwitch ( attribute : Attribute)]
+case [attribute.fieldNumber/]:
+	{
+		[attribute.name/] = _context.decode[decodeTypeName(attribute)/] ( _data );
+	}
+	break;
+[/template]
+
+[template public decodeAttributeSwitch ( attribute : StructureAttribute)]
+case [attribute.fieldNumber/]:
+	{
+		[attribute.name/] = [packageCodecPrefix(attribute.structure.protocol)/].Structures.decode[decodeMultiName(attribute)/][attribute.structure.name/] ( _context, _data, [attribute.allowNull()/] );
+	}
+	break;
+[/template]
+
+[template public decodeAttributeSwitch ( attribute : EnumAttribute)]
+case [attribute.fieldNumber/]:
+	{
+		[attribute.name/] = _context.decodeEnum[decodeMultiName(attribute)/] ( _data, [fqnEnum(attribute.enumType)/].class );
+	}
+	break;
+[/template]
+
+[comment ---- construct /]
+
+[template public constructResult ( attribute : Attribute) post (trim())]
+	[if(not attribute.transient)]
+	[attribute.name/]
+	[/if]
+	[if(attribute.transient)]
+	[transientInitValue(attribute)/]
+	[/if]
+[/template]
+
+[comment ---- version string /]
+[template private protocolVersionString ( protocol : Protocol ) post (trim())][protocol.name/].[protocol.version/][for (includedProtocol : Protocol | protocol.includedProtocols) before('/') separator ('/')][protocolVersionString(includedProtocol)/][/for][/template]
+
+[query public transientInitValue(attribute:Attribute ) : String =
+	if attribute.type = Type::SCALAR and attribute.oclIsTypeOf(IntegerAttribute) then
+		'0'
+	else if attribute.type = Type::SCALAR and attribute.oclIsTypeOf(LongAttribute) then
+		'0L'
+	else if attribute.type = Type::SCALAR and attribute.oclIsTypeOf(BooleanAttribute) then
+		'false'
+	else if attribute.type = Type::SCALAR and attribute.oclIsTypeOf(FloatAttribute) then
+		'0.0'
+	else
+		'null'
+	endif
+	endif
+	endif
+	endif 
+/]
+
+[query public allowNull ( attribute : Attribute ) : String =
+	if attribute.type = Type::SCALAR then
+		'false'
+	else
+		'true'
+	endif
+/]
+
+[query public encodeMultiName ( attribute : Attribute ) : String =
+ 	if attribute.type = Type::ORDERED then
+		'Collection'
+	else if attribute.type = Type::UNIQUE then
+		'Collection'
+	else
+		''
+	endif
+	endif
+/]
+
+[query public decodeMultiName ( attribute : Attribute ) : String =
+ 	if attribute.type = Type::ORDERED then
+		'List'
+	else if attribute.type = Type::UNIQUE then
+		'Set'
+	else
+		''
+	endif
+	endif
+/]
+
+[query public encodeTypeName ( attribute : Attribute ) : String =
+	baseCodecTypeName(attribute) + encodeMultiName (attribute) 
+/]
+
+[query public decodeTypeName ( attribute : Attribute ) : String =
+	baseCodecTypeName(attribute) + decodeMultiName (attribute) 
+/]
+
+[query public baseCodecTypeName ( attribute : Attribute  ) : String =
+	if attribute.oclIsTypeOf(StringAttribute) then
+		'String'
+
+	else if attribute.oclIsTypeOf(IntegerAttribute) then
+		intTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(LongAttribute) then
+		longTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(FloatAttribute) then
+		floatTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(BooleanAttribute) then
+		booleanTypeName(attribute)
+
+	else if attribute.oclIsTypeOf(VariantAttribute) then
+		'Variant'
+
+	else if attribute.oclIsTypeOf(VariantMapAttribute) then
+		'VariantMap'
+
+	else if attribute.oclIsTypeOf(PropertiesAttribute) then
+		'Properties'
+
+	else if attribute.oclIsTypeOf(EnumAttribute) then
+		'Enum'
+
+	else
+		'xxx'
+	
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+	endif
+/]
+
+[query public intTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Integer' else 'PrimitiveInt' endif
+/]
+[query public booleanTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Boolean' else 'PrimitiveBoolean' endif
+/]
+[query public longTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Long' else 'PrimitiveLong' endif
+/]
+[query public floatTypeName ( attribute : Attribute ) : String =
+	if ( attribute.type <> Type::SCALAR ) then 'Double' else 'PrimitiveDouble' endif
+/]

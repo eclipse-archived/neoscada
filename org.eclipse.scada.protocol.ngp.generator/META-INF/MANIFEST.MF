@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Acceleo Generator Module Runtime Plug-in
+Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.generator
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.protocol.ngp.generator.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.ocl,
+ org.eclipse.ocl.ecore,
+ org.eclipse.acceleo.common;bundle-version="3.1.2",
+ org.eclipse.acceleo.parser;bundle-version="3.1.2";resolution:=optional,
+ org.eclipse.acceleo.model;bundle-version="3.1.2",
+ org.eclipse.acceleo.profiler;bundle-version="3.1.2",
+ org.eclipse.acceleo.engine;bundle-version="3.1.2",
+ org.eclipse.scada.protocol.ngp.model;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Eclipse-LazyStart: true
+Export-Package: org.eclipse.scada.protocol.ngp.generator.main;
+  uses:="org.eclipse.emf.ecore.resource,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.eclipse.acceleo.engine.generation.strategy,
+   org.eclipse.acceleo.engine.service"
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IFile"
+            nameFilter="*.protocol"
+            id="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.contribution.IFile">
+         <menu id="org.eclipse.scada.oxygen.protocols" label="Eclipse SCADA Protocols" path="additionsAcceleo">
+               <groupMarker name="acceleo"/> 
+         </menu>
+         <action
+               enablesFor="+"
+               icon="icons/default.gif"
+               id="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.acceleoGenerateGeneratorAction"
+               label="Generate NGP Codec"
+               menubarPath="org.eclipse.scada.oxygen.protocols/acceleo">
+            <class
+                  class="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.AcceleoGenerateGeneratorAction">
+               <parameter
+                     name="generatorName"
+                     value="org.eclipse.scada.protocol.ngp.generator.main.GenerateCodec">
+               </parameter>
+               <parameter
+                     name="projectFormat"
+                     value="%s.%s.protocol.ngp.codec">
+               </parameter>
+            </class>
+         </action>
+         <action
+               enablesFor="+"
+               icon="icons/default.gif"
+               id="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.acceleoGenerateGeneratorAction"
+               label="Generate NGP Data Classes"
+               menubarPath="org.eclipse.scada.oxygen.protocols/acceleo">
+            <class
+                  class="org.eclipse.scada.protocol.ngp.generator.ui.popupMenus.AcceleoGenerateGeneratorAction">
+               <parameter
+                     name="generatorName"
+                     value="org.eclipse.scada.protocol.ngp.generator.main.GenerateData">
+               </parameter>
+               <parameter
+                     name="projectFormat"
+                     value="%s.%s.data">
+               </parameter>
+            </class>
+         </action>
+      </objectContribution>
+   </extension>
+</plugin>

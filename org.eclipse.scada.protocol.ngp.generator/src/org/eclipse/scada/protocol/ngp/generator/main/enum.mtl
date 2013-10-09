@@ -1,0 +1,26 @@
+[comment encoding = UTF-8 /]
+[module enum('urn:eclipse:scada:protocol:ngp')]
+
+[import common /]
+[import getters /]
+[import ctor /]
+[import equals /]
+
+[template public enums(protocol : Protocol)]
+
+[for (enum : Enum | protocol.enums)]
+[file ( fullClassFileName ( packageDataPrefix ( protocol) +'.' + enum.name ), false, 'UTF-8')]
+[protocol.licenseHeader/]
+package [packageDataPrefix ( protocol)/];
+
+public enum [enum.name/]
+{
+[for (literal : String | enum.literals) separator (',')]
+	[literal/]
+[/for]
+}
+
+[/file]
+[/for]
+
+[/template]
