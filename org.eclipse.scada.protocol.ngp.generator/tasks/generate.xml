@@ -6,9 +6,9 @@
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.scada.protocol.ngp.generator.libraryclasspath">
         <pathelement location="${ECLIPSE_WORKSPACE}/org.eclipse.scada.protocol.ngp.generator/bin"/>
+        <pathelement location="${ECLIPSE_WORKSPACE}//org.openscada.external/builder_external/builder/lib/javax.transaction_1.1.1.v201105210645.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.transforms.hook_1.0.401.v20130327-1442.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.equinox.weaving.hook_1.0.200.v20130327-1442.jar"/>
-        <pathelement location="${ECLIPSE_WORKSPACE}//org.openscada.external/builder_external/builder/lib/javax.transaction_1.1.1.v201105210645.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl_3.3.0.v20130610-1317.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/lpg.runtime.java_2.0.17.v201004271640.jar"/>
         <pathelement location="${ECLIPSE_WORKSPACE}//.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.eclipse.ocl.common_1.1.0.v20130531-0544.jar"/>

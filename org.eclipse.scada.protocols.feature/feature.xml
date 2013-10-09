@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.eclipse.scada.protocols" label="%featureName" license-feature="org.eclipse.scada.license" license-feature-version="0.1.0.qualifier" provider-name="%providerName" version="0.1.0.qualifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.protocols"
+      label="%featureName"
+      version="0.1.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.scada.license"
+      license-feature-version="0.1.0.qualifier">
 
    <description>
       %description
@@ -14,52 +21,90 @@
 
    <requires>
       <import plugin="org.apache.mina.core"/>
+      <import plugin="org.eclipse.scada.utils"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.slf4j.api"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="org.apache.mina.filter.compression"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.scada.protocol.ngp.model" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.scada.protocol.ngp.model.edit" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit.ui" version="2.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
    </requires>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocol.dave" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.dave"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocol.iso8073" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.iso8073"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocol.tkpt" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.tkpt"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocols" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocols"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocol.arduino" install-size="0" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.arduino"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.core.data" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.ngp.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.hd.data" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.ngp.model"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.core.protocol.ngp.codec" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.ngp.model.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.hd.protocol.ngp.codec" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.ngp.model.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <plugin download-size="0" id="org.eclipse.scada.protocol.ngp.common" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.ca.data" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.ca.protocol.ngp.codec" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.ae.data" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.ae.protocol.ngp.codec" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.da.data" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.da.protocol.ngp.codec" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.ngp.model" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.ngp.model.edit" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.ngp.model.editor" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.sfp" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.common" install-size="0" unpack="false" version="0.0.0"/>
-
-   <plugin download-size="0" id="org.eclipse.scada.protocol.modbus" install-size="0" unpack="false" version="0.0.0"/>
+   <plugin
+         id="org.eclipse.scada.protocol.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

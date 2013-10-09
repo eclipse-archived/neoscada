@@ -10,8 +10,8 @@ Export-Package: org.eclipse.scada.protocol.iso8073;version="0.1.0";
    org.apache.mina.core.filterchain,
    org.apache.mina.core.write"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.apache.mina.core.buffer,
- org.apache.mina.core.filterchain,
- org.apache.mina.core.session,
- org.apache.mina.core.write,
- org.slf4j
+Import-Package: org.apache.mina.core.buffer;version="2.0.2",
+ org.apache.mina.core.filterchain;version="2.0.2",
+ org.apache.mina.core.session;version="2.0.2",
+ org.apache.mina.core.write;version="2.0.2",
+ org.slf4j;version="1.7.0"

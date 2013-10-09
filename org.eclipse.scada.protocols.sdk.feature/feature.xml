@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><feature id="org.eclipse.scada.protocols.sdk" label="%featureName" license-feature="org.eclipse.scada.license" license-feature-version="0.1.0.qualifier" provider-name="%providerName" version="0.1.0.qualifier">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<feature
+	id="org.eclipse.scada.protocols.sdk"
+	label="%featureName"
+	license-feature="org.eclipse.scada.license"
+	license-feature-version="0.1.0.qualifier"
+	provider-name="%providerName"
+	version="0.1.0.qualifier">
 
    <description>
       %description
