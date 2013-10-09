@@ -155,12 +155,13 @@
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
 
 		<module>../org.eclipse.scada.utils.test</module>
-		
+
 		<module>../org.eclipse.scada.ui.blink</module>
 		<module>../org.eclipse.scada.ui.databinding</module>
 		<module>../org.eclipse.scada.ui.localization</module>
 		<module>../org.eclipse.scada.ui.utils</module>
 		<module>../org.eclipse.scada.ui.utils.feature</module>
+		<module>../org.eclipse.scada.utils.stats</module>
 	</modules>
 
 	<!-- sign -->
