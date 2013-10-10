@@ -19,6 +19,6 @@ Import-Package: org.apache.mina.core.buffer;version="2.0.7",
  org.eclipse.scada.core.protocol.ngp.codec;version="0.1.0",
  org.eclipse.scada.protocol.ngp.common;version="0.1.0",
  org.eclipse.scada.protocol.ngp.common.mc.protocol;version="0.1.0",
- org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp;version="0.1.0",
+ org.eclipse.scada.ngp.common.codec.osbp;version="0.1.0",
  org.eclipse.scada.protocol.ngp.common.utils;version="0.1.0",
  org.slf4j;version="1.6.0"
