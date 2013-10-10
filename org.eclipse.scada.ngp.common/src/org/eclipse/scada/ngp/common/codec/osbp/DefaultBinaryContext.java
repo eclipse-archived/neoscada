@@ -137,7 +137,7 @@ public class DefaultBinaryContext implements BinaryContext
 
     public DefaultBinaryContext ()
     {
-        this ( Charset.forName ( "UTF-8" ), InternerHelper.makeInterner ( "org.eclipse.scada.protocol.ngp.common.mc.protocol.osbp.stringInterner", "java" ) );
+        this ( Charset.forName ( "UTF-8" ), InternerHelper.makeInterner ( "org.eclipse.scada.ngp.common.codec.osbp.stringInterner", "java" ) );
     }
 
     @Override
