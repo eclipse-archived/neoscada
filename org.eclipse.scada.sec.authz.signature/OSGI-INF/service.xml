@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" name="org.eclipse.scada.sec.authz.signature">
+   <implementation class="org.eclipse.scada.sec.authz.signature.SignatureAuthorizationService"/>
+   <service>
+      <provide interface="org.eclipse.scada.sec.AuthorizationService"/>
+   </service>
+   <reference bind="setAuditLogService" cardinality="1..1" interface="org.eclipse.scada.sec.audit.AuditLogService" name="AuditLogService" policy="static"/>
+   <property name="rule.types" type="String" value="signature"/>
+   <property name="service.vendor" type="String" value="Eclipse SCADA Project"/>
+   <property name="service.description" type="String" value="An PKI based authorization module"/>
+   <reference bind="setAuthenticationImplementation" cardinality="1..1" interface="org.eclipse.scada.sec.AuthenticationImplementation" name="AuthenticationImplementation" policy="static"/>
+</scr:component>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 Jens Reimann and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Jens Reimann - initial API and implementation"
+    modelDirectory="/org.eclipse.scada.da.server.exec/emfsrc" modelPluginID="org.eclipse.scada.da.server.exec"
+    modelName="Exec" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" containmentProxies="true"
+    complianceLevel="6.0" runtimeVersion="2.8" usedGenPackages="../../org.eclipse.scada.da.server.common/model/Common.genmodel#//common"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>exec.xsd</foreignModel>
+  <genPackages prefix="Configuration" basePackage="org.openscada.da.exec" resource="XML"
+      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//VariantTypeType">
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/LONG"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/STRING"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="configuration.ecore#//ClassType"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//NameType"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//NameType1"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//PeriodType"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//PeriodTypeObject"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//RestartDelayType"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//RestartDelayTypeObject"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//TypeType"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//VariantTypeTypeObject"/>
+    <genClasses image="false" ecoreClass="configuration.ecore#//CommandType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//CommandType/process"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//CommandType/extractor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//CommandType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ContinuousCommandType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ContinuousCommandType/maxInputBuffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ContinuousCommandType/restartDelay"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//CustomExtractorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//CustomExtractorType/any"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//CustomExtractorType/class"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/root"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//EnvEntryType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//EnvEntryType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//EnvEntryType/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//ExtractorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ExtractorType/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//FieldExtractorType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//FieldExtractorType/field"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//FieldType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//FieldType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//FieldType/variantType"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//HiveProcessCommandType"/>
+    <genClasses ecoreClass="configuration.ecore#//NagiosReturnCodeExtractorType"/>
+    <genClasses ecoreClass="configuration.ecore#//PlainStreamExtractorType"/>
+    <genClasses ecoreClass="configuration.ecore#//ProcessType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ProcessType/argument"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ProcessType/env"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ProcessType/exec"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//QueueType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//QueueType/command"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//QueueType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//RegExExtractorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//RegExExtractorType/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//RegExExtractorType/requireFullMatch"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ReturnCodeExtractorType"/>
+    <genClasses ecoreClass="configuration.ecore#//RootType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//RootType/group"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//RootType/queue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//RootType/command"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//RootType/hiveProcess"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//RootType/trigger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//RootType/additionalConfigurationDirectory"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//SimpleExtractorType"/>
+    <genClasses ecoreClass="configuration.ecore#//SingleCommandType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SingleCommandType/period"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SplitContinuousCommandType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//SplitContinuousCommandType/splitter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitContinuousCommandType/ignoreStartLines"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SplitterExtractorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitterExtractorType/splitExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SplitterType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitterType/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitterType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//TriggerCommandType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TriggerCommandType/argumentPlaceholder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TriggerCommandType/fork"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//TriggerCommandType/skipIfNull"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

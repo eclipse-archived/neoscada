@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA CA Servlet Console Plug-in
+Bundle-SymbolicName: org.eclipse.scada.ca.servlet
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.ca.servlet.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: javax.servlet;version="2.4.0",
+ javax.servlet.http;version="2.4.0",
+ org.eclipse.scada.ca;version="0.1.0",
+ org.eclipse.scada.ca.data;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent.task;version="0.1.0",
+ org.osgi.framework;version="1.6.0",
+ org.osgi.service.http;version="1.2.0",
+ org.osgi.util.tracker;version="1.5.0",
+ org.slf4j;version="1.5.8"

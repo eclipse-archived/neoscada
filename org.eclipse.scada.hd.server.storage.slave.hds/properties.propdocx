@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.hd.server.storage.slave.hds">
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.slave.hds.instanceCountTarget" properties:dataType="INTEGER" properties:shortDescription="The limit of open files for the HDS slave">
+      <properties:defaultValue>10</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.slave.hds.basePath" properties:shortDescription="The base path where the replicated archives are located">
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.slave.hds.checkBaseSeconds" properties:dataType="INTEGER" properties:shortDescription="The period time of checks for new archives, in seconds">
+      <properties:defaultValue>60</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

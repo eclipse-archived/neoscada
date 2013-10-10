@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA DA Core Common
+Bundle-SymbolicName: org.eclipse.scada.da.core.common
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.da.core;version="0.1.0",
+ org.eclipse.scada.da.core.browser;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.commons.beanutils;version="1.8.0",
+ org.apache.commons.beanutils.converters;version="1.8.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.da.data;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.utils.lang;version="0.1.0",
+ org.eclipse.scada.utils.str;version="0.1.0"

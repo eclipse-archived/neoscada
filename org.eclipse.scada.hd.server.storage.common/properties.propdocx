@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.hd.server.storage.common">
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.useNaNs" properties:dataType="BOOLEAN">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.renderWhileLoading" properties:dataType="BOOLEAN" properties:shortDescription="Send data to the client while the data is still loading">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.updateListMax" properties:dataType="INTEGER">
+      <properties:defaultValue>10</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.updateTimeMax" properties:dataType="LONG">
+      <properties:defaultValue>1000</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

@@ -1,0 +1,19 @@
+TABLE.factories > TBODY > TR > TH {
+}
+	
+TABLE.factories {
+	border-spacing: 0px;
+}
+
+TABLE.factories > TBODY > TR > TD {
+	border-top: 1px solid black;
+}
+
+TABLE.configuration tr:nth-child(2n+1) {
+	background: #EEEEEE;
+}
+
+TABLE.configuration tr:nth-child(2n) {
+	background: #DDDDDD;
+}
+

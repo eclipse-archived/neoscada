@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exporter:configuration
+	xmlns:exporter="http://openscada.org/DA/Server/Exporter"
+	xmlns:exec="http://openscada.org/DA/Exec/Configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://openscada.org/DA/Server/Exporter schema/exporter.xsd
+	http://openscada.org/DA/Exec/Configuration ../org.openscada.da.server.exec/schema/exec.xsd
+	">
+
+	<exporter:hive ref="org.openscada.da.server.exec.Hive">
+		<exporter:configuration>
+			<exec:root xmlns:exec="http://openscada.org/DA/Exec/Configuration">
+				<exec:queue name="Q1">
+				
+					<exec:command id="CMD1">
+						<exec:process exec="cmd">
+							<exec:argument>cmd</exec:argument>
+							<exec:argument>/C</exec:argument>
+							<exec:argument>date /T</exec:argument>
+						</exec:process>
+						<exec:extractor name="A" xsi:type="exec:PlainStreamExtractorType"/>
+					</exec:command>
+					
+					<exec:command id="CMD2">
+						<exec:process exec="cmd">
+							<exec:argument>cmd</exec:argument>
+							<exec:argument>/C</exec:argument>
+							<exec:argument>time /T</exec:argument>
+						</exec:process>
+						<exec:extractor name="A" xsi:type="exec:PlainStreamExtractorType"/>
+					</exec:command>
+					
+				</exec:queue>
+			</exec:root>
+		</exporter:configuration>
+		<exporter:export uri="da:net://0.0.0.0:1202"/>
+	</exporter:hive>
+</exporter:configuration>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exec:root xmlns:exec="http://openscada.org/DA/Exec/Configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://openscada.org/DA/Exec/Configuration schema/exec.xsd ">
+	
+	<!-- 
+	<exec:queue name="Q1">
+		<exec:command id="TEST" period="1000">
+			<exec:process exec="date">
+			</exec:process>
+			<exec:extractor name="A" xsi:type="exec:PlainStreamExtractorType"/>
+		</exec:command>
+	</exec:queue>
+	 -->
+	 
+	 <!-- 
+	 <exec:hiveProcess id="PING" restartDelay="1000" maxInputBuffer="10000">
+	 	<exec:process exec="/home/jens/workspace_os_exec/openscada_ping/Debug/openscada_ping">
+	 		<exec:argument>localhost</exec:argument>
+	 		<exec:argument>192.168.1.1</exec:argument>
+	 		<exec:argument>google.de</exec:argument>
+	 		<exec:argument>microsoft.com</exec:argument>
+	 		<exec:argument>imdb.org</exec:argument>
+	 		<exec:argument>yahoo.de</exec:argument>
+	 		<exec:argument>slashdot.org</exec:argument>
+	 		<exec:argument>heise.de</exec:argument>
+	 		<exec:argument>sametime.inavare.net</exec:argument>
+	 		<exec:argument>quasispace.de</exec:argument>
+	 	</exec:process>
+	 </exec:hiveProcess>
+ -->
+ 
+<!-- mac os x -->
+<!-- 
+	<exec:command id="TEST2" restartDelay="1000" ignoreStartLines="2" maxInputBuffer="1024">
+		<exec:process exec="vm_stat">
+			<exec:argument>1</exec:argument>
+		</exec:process>
+		<exec:extractor name="A" xsi:type="exec:SplitterExtractorType" splitExpression=" ">
+			<exec:field name="free" variantType="LONG"/>
+			<exec:field name="active" variantType="LONG"/>
+			<exec:field name="inactive" variantType="LONG"/>
+			<exec:field name="wired" variantType="LONG"/>
+			<exec:field name="pageFaults" variantType="LONG"/>
+			<exec:field name="copy" variantType="LONG"/>
+			<exec:field name="zerofill" variantType="LONG"/>
+			<exec:field name="reactive" variantType="LONG"/>
+			<exec:field name="pageIns" variantType="LONG"/>
+			<exec:field name="pageOuts" variantType="LONG"/>
+		</exec:extractor>
+		<exec:splitter type="newline"/>
+	</exec:command>
+	-->
+	<!-- 
+	<exec:queue name="Q2">
+		<exec:command id="uptime" period="1000">
+			<exec:process exec="uptime"/>
+			<exec:extractor name="A" xsi:type="exec:RegExExtractorType" requireFullMatch="false">
+
+				<exec:field/>
+				<exec:field name="days" variantType="INTEGER"/>
+				<exec:field name="users" variantType="INTEGER"/>
+				<exec:field name="loadAvg1" variantType="DOUBLE"/>
+				<exec:field name="loadAvg5" variantType="DOUBLE"/>
+				<exec:field name="loadAvg15" variantType="DOUBLE"/>
+				
+				<exec:expression><![CDATA[up ([0-9]+) days?.* ([0-9]+) user.*averages?: +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*),? +([0-9]+[,\.][0-9]*)]]></exec:expression>
+			</exec:extractor>
+		</exec:command>
+	</exec:queue>
+	
+	<exec:queue name="Q3">
+		<exec:command id="uptime_quasispace" period="1000">
+			<exec:process exec="ssh">
+				<exec:argument>vps1.inavare.net</exec:argument>
+				<exec:argument>uptime</exec:argument>
+			</exec:process>
+			<exec:extractor name="A" xsi:type="exec:RegExExtractorType" requireFullMatch="false">
+				<exec:field/>
+				<exec:field name="days" variantType="INTEGER"/>
+				<exec:field name="users" variantType="INTEGER"/>
+				<exec:field name="loadAvg1" variantType="DOUBLE"/>
+				<exec:field name="loadAvg5" variantType="DOUBLE"/>
+				<exec:field name="loadAvg15" variantType="DOUBLE"/>
+				
+				<exec:expression><![CDATA[up ([0-9]+) days?.* ([0-9]+) user.*averages?: +([0-9,\.]+), +([0-9,\.]+), +([0-9,\.]+)]]></exec:expression>
+			</exec:extractor>
+		</exec:command>
+	</exec:queue>
+	-->
+	<exec:command restartDelay="1000" id="vmstat" ignoreStartLines="2" maxInputBuffer="2000">
+		<exec:process exec="vmstat">
+			<exec:argument>-n</exec:argument>
+			<exec:argument>1</exec:argument>
+		</exec:process>
+		<exec:extractor name="B" xsi:type="exec:SplitterExtractorType" splitExpression=" ">
+			<exec:field name="procs.read" variantType="LONG"/>
+			<exec:field name="procs.write" variantType="LONG"/>
+			<exec:field name="memory.swapped" variantType="LONG"/>
+			<exec:field name="memory.free" variantType="LONG"/>
+			<exec:field name="memory.buffers" variantType="LONG"/>
+			<exec:field name="memory.caches" variantType="LONG"/>
+			<exec:field name="swap.in" variantType="LONG"/>
+			<exec:field name="swap.out" variantType="LONG"/>
+			<exec:field name="io.blockIn" variantType="LONG"/>
+			<exec:field name="io.blockOut" variantType="LONG"/>
+			<exec:field name="system.interrupts" variantType="LONG"/>
+			<exec:field name="system.cs" variantType="LONG"/>
+			<exec:field name="cpu.user" variantType="LONG"/>
+			<exec:field name="cpu.system" variantType="LONG"/>
+			<exec:field name="cpu.idle" variantType="LONG"/>
+			<exec:field name="cpu.wait" variantType="LONG"/>
+		</exec:extractor>
+		<exec:splitter type="newline"/>
+	</exec:command>
+
+	 <exec:hiveProcess id="PING2" restartDelay="1000" maxInputBuffer="10000">
+	 	<exec:process exec="/home/jens/workspace_os_exec/openscada_ping/Debug/openscada_ping">
+	 		<exec:argument>192.168.1.125</exec:argument>
+	 	</exec:process>
+	 </exec:hiveProcess>
+
+	<exec:queue>
+		<exec:command id="PING1" period="5000">
+			<exec:process exec="/usr/lib/nagios/plugins/check_icmp">
+				<exec:argument>192.168.1.125</exec:argument>
+			</exec:process>
+			<exec:extractor xsi:type="exec:NagiosReturnCodeExtractorType" name="nagios"/>
+		</exec:command>
+		
+		<exec:command id="ENV">
+			<exec:process exec="env">
+				<exec:env name="DISPLAY"/>
+				<exec:env name="FOO" value="BAR"/>
+				<exec:env name="USERNAME" value="someonelese"/>
+			</exec:process>
+		</exec:command>
+	</exec:queue>
+		
+
+</exec:root>

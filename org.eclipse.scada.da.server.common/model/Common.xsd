@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://openscada.org/Common"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:common="http://openscada.org/Common">
+
+	<simpleType name="ClassType">
+		<restriction base="string">
+			<pattern value="[a-zA-Z]+(\.[a-zA-Z0-9]+)*"></pattern>
+		</restriction>
+	</simpleType>
+
+
+	<complexType name="AttributesType">
+		<sequence>
+			<element name="attribute" type="common:AttributeType"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="AttributeType">
+		<complexContent>
+			<extension base="common:VariantType">
+				<sequence></sequence>
+				<attribute name="name" use="required" type="string"></attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="VariantType">
+		<choice minOccurs="1" maxOccurs="1">
+			<element name="null" type="common:VariantNullType"></element>
+			<element name="string" type="string"></element>
+			<element name="int32" type="common:VariantInt32Type"></element>
+			<element name="double" type="common:VariantDoubleType"></element>
+			<element name="boolean" type="common:VariantBooleanType"></element>
+			<element name="int64" type="common:VariantInt64Type"></element>
+		</choice>
+	</complexType>
+
+	<complexType name="VariantNullType"></complexType>
+	<complexType name="VariantBooleanType">
+		<simpleContent>
+			<extension base="boolean"></extension>
+		</simpleContent>
+	</complexType>
+
+
+
+	<complexType name="VariantDoubleType">
+		<simpleContent>
+			<extension base="double"></extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="VariantInt32Type">
+		<simpleContent>
+			<extension base="int"></extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="VariantInt64Type">
+		<simpleContent>
+			<extension base="long"></extension>
+		</simpleContent>
+	</complexType>
+
+</schema>

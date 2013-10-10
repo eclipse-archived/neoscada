@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA A&E Net Base Plug-in
+Bundle-SymbolicName: org.eclipse.scada.ae.net
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.ae.net;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ae;version="0.1.0",
+ org.eclipse.scada.ae.data;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.net;version="0.1.0",
+ org.eclipse.scada.net.base;version="0.1.0",
+ org.eclipse.scada.net.base.data;version="0.1.0",
+ org.eclipse.scada.net.base.handlers;version="0.1.0",
+ org.eclipse.scada.net.utils;version="0.1.0"

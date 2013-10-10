@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA AE Audit Log
+Bundle-SymbolicName: org.eclipse.scada.sec.audit.log.ae
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Service-Component: OSGI-INF/service.xml
+Import-Package: org.eclipse.scada.ae;version="0.1.0",
+ org.eclipse.scada.ae.data;version="0.1.0",
+ org.eclipse.scada.ae.event;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.sec.audit;version="0.1.0",
+ org.eclipse.scada.sec.authz;version="0.1.0",
+ org.eclipse.scada.utils;version="0.1.0",
+ org.eclipse.scada.utils.statuscodes;version="0.1.0",
+ org.slf4j;version="1.6.0",
+ org.slf4j.helpers;version="1.6.0"

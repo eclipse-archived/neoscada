@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Event Plug-in
+Bundle-SymbolicName: org.eclipse.scada.ae.event
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.ae.event.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.ae.event;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ae;version="0.1.0",
+ org.eclipse.scada.ae.server.storage;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.utils.filter;version="0.1.0",
+ org.eclipse.scada.utils.osgi;version="0.1.0",
+ org.eclipse.scada.utils.propertyeditors;version="0.1.0",
+ org.osgi.framework;version="1.0.0",
+ org.osgi.util.tracker;version="1.5.0",
+ org.slf4j;version="[1.5.0,2.0.0)"
+Bundle-ActivationPolicy: lazy

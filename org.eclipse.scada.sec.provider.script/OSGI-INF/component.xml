@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.sec.provider.script">
+   <implementation class="org.eclipse.scada.sec.provider.script.ScriptAuthorizationProvider"/>
+   <property name="service.description" type="String" value="A script based authorization service"/>
+   <property name="service.vendor" type="String" value="Eclipse SCADA Project"/>
+   <service>
+      <provide interface="org.eclipse.scada.sec.AuthorizationService"/>
+   </service>
+   <property name="rule.types" type="String" value="script"/>
+   <reference bind="setAuthenticationImplementation" cardinality="1..1" interface="org.eclipse.scada.sec.AuthenticationImplementation" name="AuthenticationImplementation" policy="static"/>
+</scr:component>

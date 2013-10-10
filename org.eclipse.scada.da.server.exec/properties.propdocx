@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+	<properties:properties properties:name="line.separator"/>
+</properties:properties>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Testing org.eclipse.scada.da.datasource.sum
+Bundle-SymbolicName: org.eclipse.scada.da.datasource.sum.testing
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Fragment-Host: org.eclipse.scada.da.datasource.sum;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.core.data;version="0.1.0",
+ org.junit;version="4.8.2"

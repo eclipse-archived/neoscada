@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Monitor Plug-in
+Bundle-SymbolicName: org.eclipse.scada.ae.monitor
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.ae.monitor;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ae;version="0.1.0",
+ org.eclipse.scada.ae.data;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.osgi.framework;version="1.7.0"

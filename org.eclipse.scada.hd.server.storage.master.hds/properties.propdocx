@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.hd.server.storage.master.hds">
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.master.hds.basePath">
+      <properties:defaultValue>Defaults to system property: org.eclipse.scada.hd.server.storage.hds.basePath</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.basePath" properties:shortDescription="The base path of the value archive"/>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.master.hds.instanceCountTarget" properties:dataType="INTEGER" properties:shortDescription="The limit of open files for the HDS archvie">
+      <properties:defaultValue>10</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.hd.server.storage.hds.heartbeatFrequency" properties:dataType="INTEGER" properties:shortDescription="The period time in second in which heartbeats will be writte to the archives">
+      <properties:defaultValue>3</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

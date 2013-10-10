@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.da.master.analyzer">
+    <properties:properties properties:name="org.eclipse.scada.da.master.analyzer.statisticsDelay" properties:dataType="LONG" properties:shortDescription="The delay for refreshing statistics information in seconds">
+      <properties:defaultValue>5</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

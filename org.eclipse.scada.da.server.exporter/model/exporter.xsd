@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://openscada.org/DA/Server/Exporter" xmlns:exporter="http://openscada.org/DA/Server/Exporter" elementFormDefault="qualified">
+
+    <element name="configuration" type="exporter:ConfigurationType"></element>
+    
+    <complexType name="ConfigurationType">
+    	<sequence>
+    		<element name="hive" type="exporter:HiveType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+            <element name="announcer" type="exporter:AnnouncerType" maxOccurs="unbounded" minOccurs="0"></element>
+        </sequence>
+    </complexType>
+
+    <complexType name="ExportType">
+    	<attribute name="uri" type="string" use="required">
+    		<annotation>
+    			<documentation>The connection string URI</documentation>
+    		</annotation></attribute>
+    </complexType>
+
+
+    <complexType name="HiveType">
+    	<sequence>
+    		<element name="configuration"
+    			type="exporter:HiveConfigurationType" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="export" type="exporter:ExportType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    	</sequence>
+    	<attribute name="ref" type="string" use="required">
+    		<annotation>
+    			<documentation>
+    				The reference to the hive to export. By default the
+    				class factory is used so this is a class name to
+    				instantiate and export.
+    			</documentation>
+    		</annotation>
+    	</attribute>
+    </complexType>
+
+    <complexType name="HiveConfigurationType" mixed="true">
+    	<sequence>
+    		<any minOccurs="0" maxOccurs="1" processContents="lax"></any>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AnnouncerType">
+    	<attribute name="class" type="string"></attribute>
+    </complexType>
+</schema>

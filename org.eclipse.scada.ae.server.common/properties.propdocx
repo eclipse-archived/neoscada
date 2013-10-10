@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.ae.server.common">
+    <properties:properties properties:name="org.eclipse.scada.ae.server.common.loadinitial" properties:dataType="INTEGER" properties:shortDescription="Number of entries to load when the query is created">
+      <properties:defaultValue>500</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.common.event.pool.chunkSize" properties:dataType="INTEGER" properties:shortDescription="The number of entries to load with the next() method">
+      <properties:defaultValue>100</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

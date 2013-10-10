@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.ae.server.storage">
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.allowExternalEntryTimestamp" properties:dataType="BOOLEAN" properties:shortDescription="Allow the event produce to set the entry timestamp">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.nodeId" properties:shortDescription="The name of this node used for storing events">
+    	<properties:defaultValue>The local hostname</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

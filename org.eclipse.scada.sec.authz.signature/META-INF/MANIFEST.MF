@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Request Signature Module
+Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.sec.authz.signature;version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.ca;version="0.1.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.sec.audit;version="0.1.0",
+ org.eclipse.scada.sec.authz;version="0.1.0",
+ org.eclipse.scada.sec.callback;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.script;version="0.1.0",
+ org.eclipse.scada.utils.statuscodes;version="0.1.0",
+ org.slf4j;version="1.6.0"
+Service-Component: OSGI-INF/service.xml

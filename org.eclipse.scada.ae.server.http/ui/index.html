@@ -1,0 +1,66 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="jquery.json-2.2.min.js"></script>
+<script type="text/javascript">
+  function serializeForm() {
+    result = new Object();
+    result.sourceTimestamp = $('#sourceTimestamp').val();
+    if (result.sourceTimestamp == null || result.sourceTimestamp == '') {
+        now = new Date();
+        result.sourceTimestamp = "" + now.getFullYear() + "-" + now.get;
+    }
+    result.attributes = new Object();
+    if ($('#message').val()) {
+      result.attributes['message'] = $('#message').val();
+    }
+    if ($('#eventType').val()) {
+      result.attributes['eventType'] = $('#eventType').val();
+    }
+    if ($('#source').val()) {
+      result.attributes['source'] = $('#source').val();
+    }
+    return $.toJSON(result);
+  }
+  
+  function sendNewEvent() {
+    $.post('../publish', serializeForm(), function(data, textStatus, request) {
+        alert(data)
+    });
+  }
+  
+  function ISODateString(d){
+  function pad(n){return n<10 ? '0'+n : n}
+  function pad2(n){return n<10 ? '00'+n : n < 100 ? '0'+n : n}
+  return d.getFullYear()+'-'
+       + pad(d.getMonth()+1)+'-'
+       + pad(d.getDate())+' '
+       + pad(d.getHours())+':'
+       + pad(d.getMinutes())+':'
+       + pad(d.getSeconds())+'.'
+       + pad2(d.getMilliseconds())}
+ 
+  
+  function setNow() {
+	  $('#sourceTimestamp').val( ISODateString(new Date()) );
+  }
+</script>
+</head>
+<body>
+<h1>Publish Event</h1>
+
+<div>
+<form action="javascript:sendNewEvent();">
+  
+  <label for="sourceTimestamp">sourceTimestamp</label> <input id="sourceTimestamp" value="2010-04-01 10:00:00.000" /> <a href="#" onclick="setNow();">Now</a><br />
+  <label for="message">message</label> <input id="message" value="" /> <br />
+  <label for="eventType">eventType</label> <input id="eventType" value="" /><br />
+  <label for="source">source</label> <input id="source" value="" /><br /><br />
+  
+  <button type="submit">SEND</button>
+</form>
+</div>
+</body>
+</html>
+

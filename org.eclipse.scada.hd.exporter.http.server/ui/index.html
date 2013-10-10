@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="dygraph-combined.js"></script>
+    <script type="text/javascript" src="jquery-1.4.1.min.js"></script>
+    <script type="text/javascript">
+      function doRequest() {
+        //url = '../items/example/AVG?from=2009-01-01%2001:00:00.000&to=2009-08-01%2001:00:00.000&no=150';
+        url = document.getElementById("url").value;  
+        $.getJSON(url, function(data) {
+          csv = "Date,Value\n";
+          $(data).each(function (i, el) {
+              ts = el.timestamp.slice(0, 10);
+              csv += ts + ",";
+              csv += el.value + "\n";
+          });
+          new Dygraph(
+            // containing div
+            document.getElementById("graphdiv"),
+            // CSV or path to a CSV file.
+            csv
+          );
+        });
+      };
+
+      function updateUri() {
+          itemId = document.getElementById("itemId").value;
+          series = document.getElementById("series").value;
+          from = document.getElementById("from").value;
+          to = document.getElementById("to").value;
+          no = document.getElementById("no").value;
+          url = '../items/' + itemId + "/" + series + "?from=" + from + "&to=" + to + "&no=" + no;
+          document.getElementById("url").value = url;
+      }
+    </script>
+  </head>
+<body>
+  <h1>dygraph demo</h1>
+
+  <div id="">
+    <div>Item: <input type="input" id="itemId" value="example" onchange="updateUri();" /></div>
+    <div>Series: <input type="input" id="series" value="AVG" onchange="updateUri();" /></div>
+    <div>from: <input type="input" id="from" value="2009-01-01 01:00:00.000" onchange="updateUri();" /></div>
+    <div>to: <input type="input" id="to" value="2009-08-01 01:00:00.000" onchange="updateUri();" /></div>
+    <div>no: <input type="input" id="no" value="150" onchange="updateUri();" /></div>
+    <div><button onclick="doRequest();">request</button></div>
+    <div>url: <input type="input" id="url" value="" style="width:800px;" /></div>
+  </div>
+  
+  <div id="graphdiv"></div>
+  <script type="text/javascript">
+  $(document).ready(updateUri);
+  </script>
+</body>
+</html>
+

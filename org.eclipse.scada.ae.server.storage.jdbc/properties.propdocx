@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<properties:properties xmlns:properties="urn:openscada:doc:content:properties">
+  <properties:groups properties:prefix="org.eclipse.scada.ae.server.storage.jdbc">
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.fields.nodeId.length" properties:dataType="INTEGER" properties:shortDescription="The length of the nodeId field">
+      <properties:defaultValue>32</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.replicationDataFormat"/>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.replicationNodeId"/>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.query.autoCommit" properties:dataType="BOOLEAN" properties:shortDescription="Wether to use auto-commit mode">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.query.fetchSize" properties:dataType="INTEGER">
+      <properties:defaultValue>1000</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.archiveDays" properties:dataType="INTEGER" properties:shortDescription="The number of days the events will be kept">
+      <properties:defaultValue>-1</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.instance" properties:shortDescription="The name of the database instance">
+      <properties:defaultValue>default</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.maxlength" properties:dataType="INTEGER"/>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.schema" properties:shortDescription="The database schema to use">
+      <properties:defaultValue></properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.enableReplication" properties:dataType="BOOLEAN" properties:shortDescription="Enable to not only store event entries but to also write replication entries">
+      <properties:defaultValue>false</properties:defaultValue>
+    </properties:properties>
+    <properties:properties properties:name="org.eclipse.scada.ae.server.storage.jdbc.cleanupPeriodSeconds" properties:dataType="LONG" properties:shortDescription="The period time for cleanup runs in seconds">
+      <properties:defaultValue>3600</properties:defaultValue>
+    </properties:properties>
+  </properties:groups>
+</properties:properties>

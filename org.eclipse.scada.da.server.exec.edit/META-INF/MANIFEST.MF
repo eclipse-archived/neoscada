@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.scada.da.server.exec.edit;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipse.scada.da.exec.configuration.provider;version="0.1.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.scada.da.server.exec;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.scada.da.server.common;bundle-version="0.1.0";visibility:=reexport,
+ org.eclipse.scada.da.server.common.edit;bundle-version="0.1.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://openscada.org/DA/Exec/Configuration"
+	elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:exec="http://openscada.org/DA/Exec/Configuration"
+	xmlns:common="http://openscada.org/Common">
+
+    <import schemaLocation="../../org.eclipse.scada.da.server.common/model/Common.xsd" namespace="http://openscada.org/Common"/>
+	
+    <element name="root" type="exec:RootType"></element>
+    
+    <complexType name="RootType">
+        <choice maxOccurs="unbounded" minOccurs="0">
+        	<element name="queue" type="exec:QueueType"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="command"
+        		type="exec:SplitContinuousCommandType" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="hiveProcess"
+        		type="exec:HiveProcessCommandType" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="trigger" type="exec:TriggerCommandType"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="additionalConfigurationDirectory" type="string" minOccurs="0" maxOccurs="unbounded"></element>
+        </choice>
+
+
+    </complexType>
+
+
+
+    <complexType name="CommandType" abstract="true">
+    	<sequence>
+    		<element name="process" type="exec:ProcessType"
+    			maxOccurs="1" minOccurs="1">
+    		</element>
+    		<element name="extractor" type="exec:ExtractorType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    	</sequence>
+        <attribute name="id" type="ID" use="required"></attribute>
+    </complexType>
+
+    <complexType name="SingleCommandType">
+    	<complexContent>
+    		<extension base="exec:CommandType">
+    			<attribute name="period">
+    				<simpleType>
+    					<restriction base="int">
+    						<minExclusive value="0"></minExclusive>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="ContinuousCommandType">
+    	<complexContent>
+    		<extension base="exec:CommandType">
+    			<sequence>
+    			</sequence>
+    			<attribute name="restartDelay" use="required">
+    				<simpleType>
+    					<restriction base="int"></restriction>
+    				</simpleType>
+    			</attribute>
+                <attribute name="maxInputBuffer" type="int" use="optional" default="4000"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="QueueType">
+    	<sequence>
+    		<element name="command" type="exec:SingleCommandType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="name">
+    		<simpleType>
+    			<restriction base="string">
+    				<pattern value="\w+"></pattern>
+    				<whiteSpace value="collapse"></whiteSpace>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    </complexType>
+
+    <complexType name="ProcessType">
+    	<sequence>
+    		<element name="argument" type="string" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="env" type="exec:EnvEntryType"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    	</sequence>
+    	<attribute name="exec" type="string"></attribute>
+    </complexType>
+
+    <complexType name="ExtractorType" abstract="true">
+    	<sequence></sequence>
+    	<attribute name="name" type="string" use="required"></attribute>
+    </complexType>
+    
+    <complexType name="CustomExtractorType">
+    	<complexContent>
+    		<extension base="exec:ExtractorType">
+                <sequence>
+                	<any minOccurs="0" maxOccurs="1" processContents="lax"></any>
+                </sequence>
+                <attribute name="class">
+    				<simpleType>
+    					<restriction base="string">
+    						<pattern value="\w+(\.\w+)*"></pattern>
+    					</restriction>
+    				</simpleType>
+    			</attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="SimpleExtractorType" abstract="true">
+    	<complexContent>
+    		<extension base="exec:ExtractorType">
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="SplitterExtractorType">
+    	<complexContent>
+    		<extension base="exec:FieldExtractorType">
+    			<attribute name="splitExpression" type="string" use="required"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="PlainStreamExtractorType">
+    	<complexContent>
+    		<extension base="exec:ExtractorType"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="ReturnCodeExtractorType">
+    	<complexContent>
+    		<extension base="exec:ExtractorType"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="SplitterType" abstract="false">
+    	<attribute name="type" use="required">
+     
+            <simpleType>
+       <annotation>
+       	<documentation>The splitter type to use:
+
+ - newline
+ - split
+ - regexpSplit
+ - regexpMatcher
+ - class#className</documentation>
+       </annotation>
+       <restriction base="string">
+    				<pattern value="(newline|regexpMatch|regexpSplit|split|class#.*)"></pattern>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    	<attribute name="parameter" type="string" use="optional"></attribute>
+    </complexType>
+
+    <complexType name="RegExExtractorType">
+    	<complexContent>
+    		<extension base="exec:FieldExtractorType">
+    			<sequence>
+    				<element name="expression" type="string"
+    					maxOccurs="1" minOccurs="1">
+    				</element>
+    			</sequence>
+    			<attribute name="requireFullMatch" type="boolean"
+    				use="required">
+    			</attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="FieldType">
+        <attribute name="name" use="optional">
+        	<simpleType>
+        		<restriction base="string">
+        			<whiteSpace value="collapse"></whiteSpace>
+        		</restriction>
+        	</simpleType>
+        </attribute>
+        <attribute name="variantType" use="optional" default="STRING">
+    		<simpleType>
+    			<restriction base="string">
+    				<enumeration value="BOOLEAN"></enumeration>
+    				<enumeration value="INTEGER"></enumeration>
+    				<enumeration value="LONG"></enumeration>
+    				<enumeration value="DOUBLE"></enumeration>
+    				<enumeration value="STRING"></enumeration>
+    			</restriction>
+    		</simpleType>
+    	</attribute>
+    </complexType>
+
+    <complexType name="FieldExtractorType" abstract="true">
+    	<complexContent>
+    		<extension base="exec:ExtractorType">
+    			<sequence>
+    				<element name="field" type="exec:FieldType"
+    					maxOccurs="unbounded" minOccurs="0">
+    					<annotation>
+    						<documentation>
+    							Each regular expression group must be
+    							named. The name will be the data item
+    							name. If a regular expression group is
+    							not named it will not be extracted.
+    						</documentation>
+    					</annotation>
+    				</element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+
+    <complexType name="SplitContinuousCommandType">
+    	<complexContent>
+    		<extension base="exec:ContinuousCommandType">
+    			<sequence>
+    				<element name="splitter" type="exec:SplitterType" maxOccurs="1" minOccurs="1"></element>
+    			</sequence>
+    			<attribute name="ignoreStartLines" type="int"
+    				use="optional" default="0">
+    			</attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="HiveProcessCommandType">
+    	<complexContent>
+    		<extension base="exec:ContinuousCommandType"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="NagiosReturnCodeExtractorType">
+        <annotation>
+        	<documentation>Defines an extractor which handles the nagios style return code</documentation>
+        </annotation>
+        <complexContent>
+    		<extension base="exec:ExtractorType"></extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="EnvEntryType">
+    	<attribute name="name" type="string" use="required"></attribute>
+    	<attribute name="value" type="string"></attribute>
+    </complexType>
+
+    <complexType name="TriggerCommandType">
+    	<complexContent>
+    		<extension base="exec:CommandType">
+    			<attribute name="argumentPlaceholder" type="string"
+    				use="optional">
+    			</attribute>
+    			<attribute name="skipIfNull" type="boolean"
+    				use="optional">
+    			</attribute>
+    			<attribute name="fork" type="boolean" default="true"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+</schema>

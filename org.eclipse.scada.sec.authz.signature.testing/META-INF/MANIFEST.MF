@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Testing Fragment for org.eclipse.scada.sec.authz.signature
+Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature.testing
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: org.eclipse.scada.sec.authz.signature;bundle-version="0.1.0"
+Require-Bundle: org.junit;bundle-version="4.8.0",
+ com.google.guava;bundle-version="10.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.utils.collection;version="0.1.0"
+Bundle-Vendor: Eclipse SCADA Project

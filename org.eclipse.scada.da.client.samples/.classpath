@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="bin" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.core"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.da.client.net"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.da.client"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.core.client"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.da.core.common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.core.subscription"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.eclipse.scada.core.data"/>
+	<classpathentry kind="lib" path="/builder_external/builder/lib/ch.qos.logback.classic_1.0.7.v20121108-1250.jar"/>
+	<classpathentry kind="lib" path="/builder_external/builder/lib/ch.qos.logback.core_1.0.7.v20121108-1250.jar"/>
+	<classpathentry kind="lib" path="/builder_external/builder/lib/ch.qos.logback.slf4j_1.0.7.v20121108-1250.jar"/>
+	<classpathentry kind="lib" path="/builder_external/builder/lib/org.slf4j.api_1.7.2.v20121108-1250.jar"/>
+	<classpathentry kind="lib" path="/builder_external/builder/lib/org.slf4j.ext_1.7.2.v20121108-1250.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.pde.ui.EquinoxLauncher">
+<booleanAttribute key="append.args" value="true"/>
+<booleanAttribute key="automaticAdd" value="false"/>
+<booleanAttribute key="automaticValidate" value="true"/>
+<stringAttribute key="bootstrap" value=""/>
+<stringAttribute key="checked" value="[NONE]"/>
+<booleanAttribute key="clearConfig" value="false"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/openSCADA Arduino"/>
+<booleanAttribute key="default" value="true"/>
+<booleanAttribute key="default_auto_start" value="true"/>
+<intAttribute key="default_start_level" value="4"/>
+<booleanAttribute key="includeOptional" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -console"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Declipse.ignoreApp=true -Dosgi.noShutdown=true&#10;-Dorg.openscada.utils.osgi.jaxws.baseAddress=http://0.0.0.0:9240&#10;-Dorg.openscada.ca.file.root=/home/jens/cas/arduino"/>
+<stringAttribute key="pde.version" value="3.3"/>
+<booleanAttribute key="show_selected_only" value="false"/>
+<stringAttribute key="target_bundles" value="ch.qos.logback.classic@default:default,ch.qos.logback.core@default:default,com.google.guava*10.0.1.v201203051515@default:default,com.google.guava*12.0.0.v201212092141@default:default,org.apache.mina.core*2.0.2.v201108120515@default:default,org.apache.mina.core*2.0.7@default:default,org.apache.mina.filter.compression@default:default,org.apache.mina.transport.socket.apr@default:default,org.apache.tomcat-apr@default:default,org.eclipse.osgi@-1:true,org.hamcrest.core@default:default"/>
+<booleanAttribute key="tracing" value="false"/>
+<booleanAttribute key="useCustomFeatures" value="false"/>
+<booleanAttribute key="useDefaultConfigArea" value="true"/>
+<stringAttribute key="workspace_bundles" value="org.openscada.ae.event@default:default,org.openscada.ae.server.storage@default:default,org.openscada.ae@default:default,org.eclipse.scada.ca.common@default:default,org.eclipse.scada.ca.file@default:default,org.eclipse.scada.ca.servlet.jaxws@default:default,org.eclipse.scada.ca@default:default,org.openscada.core.client@default:default,org.openscada.core.net@default:default,org.eclipse.scada.core.server.common@default:default,org.eclipse.scada.core.server.exporter@default:default,org.eclipse.scada.core.server.net@default:default,org.eclipse.scada.core.server@default:default,org.eclipse.scada.da.core.common@default:default,org.eclipse.scada.da.core.server@default:default,org.openscada.da.net@default:default,org.eclipse.scada.da.server.arduino@default:default,org.openscada.da.server.common.test@default:false,org.openscada.da.server.common@default:default,org.openscada.da.server.net@default:default,org.openscada.da.server.osgi.exporter.net@default:default,org.openscada.da.server.osgi@default:default,org.openscada.external.logback.default@default:false,org.openscada.net@default:default,org.eclipse.scada.protocol.arduino@default:default"/>
+</launchConfiguration>
