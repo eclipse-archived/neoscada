@@ -14,10 +14,10 @@ package org.eclipse.scada.ae.protocol.ngp.codec;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryContext;
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryMessageCodec;
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryProtocolDescriptor;
-import org.eclipse.scada.ngp.common.codec.osbp.DefaultBinaryContext;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryContext;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryMessageCodec;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryProtocolDescriptor;
+import org.eclipse.scada.core.ngp.common.codec.osbp.DefaultBinaryContext;
 
 public final class ProtocolFactory
 {

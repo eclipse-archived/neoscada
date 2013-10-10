@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.mina.core.buffer.IoBuffer;
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryContext;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryContext;
 import org.eclipse.scada.protocol.ngp.common.utils.ArrayListAllocator;
 import org.eclipse.scada.protocol.ngp.common.utils.CollectionAllocator;
 import org.eclipse.scada.protocol.ngp.common.utils.HashSetAllocator;

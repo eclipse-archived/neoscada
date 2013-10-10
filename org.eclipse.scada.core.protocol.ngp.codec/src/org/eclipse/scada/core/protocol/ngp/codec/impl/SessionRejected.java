@@ -12,8 +12,8 @@
 package org.eclipse.scada.core.protocol.ngp.codec.impl;
 
 import org.apache.mina.core.buffer.IoBuffer;
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryContext;
-import org.eclipse.scada.ngp.common.codec.osbp.BinaryMessageCodec;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryContext;
+import org.eclipse.scada.core.ngp.common.codec.osbp.BinaryMessageCodec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
