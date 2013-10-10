@@ -151,6 +151,7 @@
 		<module>../org.eclipse.scada.protocol.ngp.model</module>
 		<module>../org.eclipse.scada.protocol.ngp.model.edit</module>
 		<module>../org.eclipse.scada.protocol.ngp.model.editor</module>
+		<module>../org.eclipse.scada.protocol.modbus</module>
 		<module>../org.eclipse.scada.protocol.tkpt</module>
 		<module>../org.eclipse.scada.protocols</module>
 	</modules>
