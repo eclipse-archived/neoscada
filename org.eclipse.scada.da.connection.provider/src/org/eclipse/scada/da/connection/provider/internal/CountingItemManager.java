@@ -13,7 +13,7 @@ package org.eclipse.scada.da.connection.provider.internal;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.eclipse.scada.core.info.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.da.client.ItemManager;
 import org.eclipse.scada.da.client.ItemUpdateListener;
 

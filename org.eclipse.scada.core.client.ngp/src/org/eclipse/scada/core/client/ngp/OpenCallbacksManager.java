@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.scada.core.info.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.sec.callback.Callback;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.sec.callback.Callbacks;

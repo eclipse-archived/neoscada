@@ -13,7 +13,7 @@ package org.eclipse.scada.core.client.ngp;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.scada.core.info.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 
 public class CallbackHandlerManager

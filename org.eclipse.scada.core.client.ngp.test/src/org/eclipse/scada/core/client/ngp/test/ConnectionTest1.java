@@ -16,7 +16,7 @@ import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.common.ClientBaseConnection;
 import org.eclipse.scada.core.client.ngp.ProtocolIoHandlerFactory;
-import org.eclipse.scada.protocol.ngp.common.DefaultProtocolConfigurationFactory;
+import org.eclipse.scada.core.ngp.common.DefaultProtocolConfigurationFactory;
 import org.eclipse.scada.protocol.ngp.common.FilterChainBuilder;
 import org.eclipse.scada.protocol.ngp.common.ProtocolConfiguration;
 import org.eclipse.scada.protocol.ngp.common.ProtocolConfigurationFactory;

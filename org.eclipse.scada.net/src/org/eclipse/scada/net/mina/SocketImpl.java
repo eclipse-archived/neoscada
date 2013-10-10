@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - remove APR mode
  *******************************************************************************/
 package org.eclipse.scada.net.mina;
 
@@ -16,8 +17,6 @@ import java.nio.channels.UnresolvedAddressException;
 
 import org.apache.mina.core.service.IoAcceptor;
 import org.apache.mina.core.service.IoConnector;
-import org.apache.mina.transport.socket.apr.AprSocketAcceptor;
-import org.apache.mina.transport.socket.apr.AprSocketConnector;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.apache.mina.transport.vmpipe.VmPipeAcceptor;
@@ -26,28 +25,6 @@ import org.apache.mina.transport.vmpipe.VmPipeConnector;
 
 public enum SocketImpl
 {
-    APR
-    {
-        @Override
-        public SocketAddress doLookup ( final String address, final int port )
-        {
-            return NIO.doLookup ( address, port );
-        }
-
-        @Override
-        public IoConnector createConnector ()
-        {
-            return new AprSocketConnector ();
-        }
-
-        @Override
-        public IoAcceptor createAcceptor ()
-        {
-            final AprSocketAcceptor acceptor = new AprSocketAcceptor ();
-            acceptor.setReuseAddress ( true );
-            return acceptor;
-        }
-    },
     NIO
     {
         @Override
@@ -127,10 +104,6 @@ public enum SocketImpl
         }
 
         // check defined aliases
-        if ( "apr".equals ( name ) )
-        {
-            return APR;
-        }
         if ( "vm".equals ( name ) )
         {
             return VMPIPE;

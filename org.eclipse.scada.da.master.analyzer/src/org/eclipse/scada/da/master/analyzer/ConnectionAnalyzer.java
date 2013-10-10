@@ -25,7 +25,7 @@ import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.connection.provider.ConnectionService;
 import org.eclipse.scada.core.connection.provider.info.ConnectionInformationProvider;
-import org.eclipse.scada.core.info.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticEntry;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
 import org.eclipse.scada.utils.ExceptionHelper;

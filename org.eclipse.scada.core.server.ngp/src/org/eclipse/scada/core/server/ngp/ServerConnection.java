@@ -18,8 +18,8 @@ import javax.net.ssl.SSLSession;
 
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.ssl.SslFilter;
-import org.eclipse.scada.core.info.StatisticEntry;
-import org.eclipse.scada.core.info.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.core.server.common.stats.ManagedConnection;
 import org.eclipse.scada.protocol.common.StatisticsFilter;
 import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelFilter;

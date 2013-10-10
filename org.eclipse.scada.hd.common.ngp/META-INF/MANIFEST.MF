@@ -9,6 +9,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.data.message;version="0.1.0",
+ org.eclipse.scada.core.ngp.common;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",
  org.eclipse.scada.hd.data.message;version="0.1.0",
  org.eclipse.scada.hd.protocol.ngp.codec;version="0.1.0",

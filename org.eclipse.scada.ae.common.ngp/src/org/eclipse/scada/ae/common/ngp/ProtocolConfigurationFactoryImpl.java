@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.eclipse.scada.ae.protocol.ngp.codec.ProtocolFactory;
 import org.eclipse.scada.core.ConnectionInformation;
-import org.eclipse.scada.protocol.ngp.common.DefaultProtocolConfigurationFactory;
+import org.eclipse.scada.core.ngp.common.DefaultProtocolConfigurationFactory;
 import org.eclipse.scada.protocol.ngp.common.ProtocolConfiguration;
 
 public class ProtocolConfigurationFactoryImpl extends DefaultProtocolConfigurationFactory

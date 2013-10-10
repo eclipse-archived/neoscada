@@ -22,7 +22,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.future.WriteFuture;
-import org.eclipse.scada.core.info.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.net.base.MessageListener;
 import org.eclipse.scada.net.base.MessageStateListener;
 import org.eclipse.scada.net.base.data.Message;

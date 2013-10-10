@@ -12,7 +12,7 @@ package org.eclipse.scada.core.connection.provider.info;
 
 import java.util.Collection;
 
-import org.eclipse.scada.core.info.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticEntry;
 
 public interface ConnectionInformationProvider
 {

@@ -18,9 +18,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.core.ConnectionInformation;
-import org.eclipse.scada.core.info.StatisticEntry;
-import org.eclipse.scada.core.info.StatisticsImpl;
-import org.eclipse.scada.core.info.StatisticsProvider;
+import org.eclipse.scada.utils.stats.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsProvider;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 
 public class BaseConnection implements StatisticsProvider
