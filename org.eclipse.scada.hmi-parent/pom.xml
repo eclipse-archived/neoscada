@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.eclipse.scada.hmi</groupId>
@@ -163,7 +165,7 @@
 
 		<module>../org.eclipse.scada.hmi.feature</module>
 		<module>../org.eclipse.scada.hmi.sdk.feature</module>
-		
+
 		<module>../org.eclipse.scada.ae.ui</module>
 		<module>../org.eclipse.scada.ae.ui.connection</module>
 		<module>../org.eclipse.scada.ae.ui.connection.creator.net</module>
@@ -235,10 +237,29 @@
 		<module>../org.eclipse.scada.vi.ui.draw2d</module>
 		<module>../org.eclipse.scada.vi.ui.user</module>
 		<module>../org.eclipse.scada.vi.ui.viewer.ext</module>
-	<module>../org.eclipse.scada.ca.ui</module><module>../org.eclipse.scada.ca.ui.connection</module><module>../org.eclipse.scada.ca.ui.connection.creator.jaxws</module><module>../org.eclipse.scada.ca.ui.connection.creator.ngp</module><module>../org.eclipse.scada.ca.ui.editor</module><module>../org.eclipse.scada.ca.ui.editor.forms.arduino</module><module>../org.eclipse.scada.ca.ui.editor.forms.common</module><module>../org.eclipse.scada.ca.ui.editor.wizard</module><module>../org.eclipse.scada.ca.ui.exporter</module><module>../org.eclipse.scada.ca.ui.importer</module></modules>
+		<module>../org.eclipse.scada.ca.ui</module>
+		<module>../org.eclipse.scada.ca.ui.connection</module>
+		<module>../org.eclipse.scada.ca.ui.connection.creator.jaxws</module>
+		<module>../org.eclipse.scada.ca.ui.connection.creator.ngp</module>
+		<module>../org.eclipse.scada.ca.ui.editor</module>
+		<module>../org.eclipse.scada.ca.ui.editor.forms.arduino</module>
+		<module>../org.eclipse.scada.ca.ui.editor.forms.common</module>
+		<module>../org.eclipse.scada.ca.ui.editor.wizard</module>
+		<module>../org.eclipse.scada.ca.ui.exporter</module>
+		<module>../org.eclipse.scada.ca.ui.importer</module>
+
+		<!-- product -->
+
+		<module>../org.eclipse.scada.ui.singleViewer.app.feature</module>
+
+		<module>../org.eclipse.scada.ui.singleViewer.app</module>
+		
+		<module>../org.eclipse.scada.ui.singleViewer.app-product</module>
+		
+	</modules>
 
 	<!-- sign -->
-	
+
 	<profiles>
 		<profile>
 			<id>eclipse-sign</id>
