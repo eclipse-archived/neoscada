@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - refactor statistics
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.information;
 
@@ -18,7 +19,7 @@ import java.util.Set;
 
 import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.scada.core.connection.provider.info.ConnectionInformationProvider;
-import org.eclipse.scada.core.info.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticEntry;
 
 public class ConnectionInformationWrapper extends WritableSet
 {

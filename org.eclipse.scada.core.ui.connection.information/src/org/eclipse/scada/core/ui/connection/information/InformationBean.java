@@ -7,11 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - refactor statistics
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.information;
 
-import org.eclipse.scada.core.info.StatisticEntry;
 import org.eclipse.scada.utils.beans.AbstractPropertyChange;
+import org.eclipse.scada.utils.stats.StatisticEntry;
 
 public class InformationBean extends AbstractPropertyChange implements Comparable<InformationBean>
 {
