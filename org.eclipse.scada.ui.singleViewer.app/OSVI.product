@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Eclipse SCADA Visual Interface" uid="org.eclipse.scada.ui.singleViewer.application" id="org.eclipse.scada.ui.singleViewer.app.product" application="org.eclipse.scada.ui.singleViewer.app.application" version="1.2.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Eclipse SCADA Visual Interface (Incubating)" uid="org.eclipse.scada.ui.singleViewer.application" id="org.eclipse.scada.ui.singleViewer.app.product" application="org.eclipse.scada.ui.singleViewer.app.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.scada.ui.singleViewer.app/branding/about.png"/>
@@ -40,7 +40,7 @@
    </vm>
 
    <license>
-        <url>http://eclipse.org</url>
+        <url>http://projects.eclipse.org/projects/technology.eclipsescada</url>
    </license>
 
    <plugins>
