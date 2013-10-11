@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Exports configured items over MQTT
 Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.mqtt
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.exporter.mqtt.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
