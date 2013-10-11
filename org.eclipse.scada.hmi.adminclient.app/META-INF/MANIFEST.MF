@@ -6,6 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hmi.app.adminclient.app.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.ui.intro
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

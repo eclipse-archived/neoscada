@@ -21,7 +21,7 @@
 
    <splash
       location="org.eclipse.scada.hmi.adminclient.app" />
-   <launcher>
+   <launcher name="esac">
       <linux icon="/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon.xpm"/>
       <macosx icon="/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon.icns"/>
       <solaris/>
@@ -31,6 +31,7 @@
       </win>
    </launcher>
 
+   <intro introId="org.eclipse.scada.hmi.adminclient.app.intro"/>
 
    <vm>
    </vm>
@@ -133,7 +134,16 @@ This Agreement is governed by the laws of the State of New York and the intellec
    <features>
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.scada.hmi.adminclient.app"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.e4.rcp"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
+   </configurations>
 
 </product>

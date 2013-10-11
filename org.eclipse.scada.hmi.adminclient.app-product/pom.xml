@@ -12,11 +12,11 @@
 	<groupId>org.eclipse.scada.hmi.products</groupId>
 	<artifactId>adminclient.app</artifactId>
 	<packaging>eclipse-repository</packaging>
-	
+
 	<build>
 		<plugins>
-		
-		<plugin>
+
+			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<executions>
 					<execution>
@@ -37,7 +37,16 @@
 					</execution>
 				</executions>
 			</plugin>
-		
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>

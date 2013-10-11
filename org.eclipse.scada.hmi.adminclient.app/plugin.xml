@@ -5,7 +5,8 @@
    <extension
          id="application"
          point="org.eclipse.core.runtime.applications">
-      <application>
+      <application
+            icon="icons/app/icon.ico">
          <run
                class="org.eclipse.scada.hmi.app.adminclient.app.Application">
          </run>
@@ -29,7 +30,61 @@
                name="windowImages"
                value="icons/alt_window_16.gif,icons/alt_window_32.gif">
          </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="introBrandingImage"
+               value="product:branding/about.png"/>
+          <property
+       	       name="introBrandingImageText"
+               value="Eclipse SCADA Admin Client"/>
+         <property
+               name="aboutText"
+               value="%aboutText">
+         </property>
+         <property
+               name="aboutImage"
+               value="branding/about.png">
+       </property>
       </product>
    </extension>
+   
+	<extension
+		point="org.eclipse.ui.menus">
+		<menuContribution
+			allPopups="false"
+			locationURI="menu:file">
+		</menuContribution>
+	</extension>
+
+	<extension
+		point="org.eclipse.ui.intro">
+  <intro
+        class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+        id="org.eclipse.scada.hmi.adminclient.app.intro">
+  </intro>
+  <introProductBinding
+        introId="org.eclipse.scada.hmi.adminclient.app.intro"
+        productId="org.eclipse.scada.hmi.adminclient.app.product">
+  </introProductBinding>
+	</extension>
+ <extension
+       point="org.eclipse.ui.intro.config">
+    <config
+          content="introContent.xml"
+          id="org.eclipse.scada.hmi.adminclient.app.introConfigId"
+          introId="org.eclipse.scada.hmi.adminclient.app.intro">
+       <presentation
+             home-page-id="root">
+          <implementation
+                kind="html"
+                os="win32,linux,macosx"
+                style="content/shared.css">
+          </implementation>
+       </presentation>
+    </config>
+ </extension>
 
 </plugin>
