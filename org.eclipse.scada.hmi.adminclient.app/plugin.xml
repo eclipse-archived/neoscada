@@ -28,7 +28,7 @@
             name="Eclipse SCADA Admin Client (Incubating)">
          <property
                name="windowImages"
-               value="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_16px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_32px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_48px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_64px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_128px.png">
+               value="icons/app/icon_16px.png,icons/app/icon_32px.png,icons/app/icon_48px.png,icons/app/icon_64px.png,icons/app/icon_128px.png">
          </property>
          <property
                name="preferenceCustomization"
@@ -45,11 +45,11 @@
                value="Eclipse SCADA Admin Client"/>
          <property
                name="aboutText"
-               value="%aboutText">
+               value="This is the Eclipse SCADA Admin Client">
          </property>
          <property
                name="aboutImage"
-               value="/org.eclipse.scada.hmi.adminclient.app/branding/about.png">
+               value="branding/about.png">
        </property>
          <property
                name="appName"
