@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Apache MINA Compression Filter
 Bundle-SymbolicName: org.apache.mina.filter.compression
 Bundle-Version: 2.0.7.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
