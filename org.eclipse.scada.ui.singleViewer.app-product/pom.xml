@@ -10,11 +10,34 @@
 		<relativePath>../org.eclipse.scada.hmi-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.hmi.products</groupId>
-	<artifactId>org.eclipse.scada.ui.singleViewer.app-product</artifactId>
+	<artifactId>singleViewer.app</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<build>
 		<plugins>
+		
+		<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/products/${project.groupId}.${project.artifactId}/org.eclipse.scada.ui.singleViewer.app-product/icons</outputDirectory>
+							<resources>
+								<resource>
+									<directory>icons</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-director-plugin</artifactId>
