@@ -24,16 +24,19 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="org.eclipse.scada.hmi.app.adminclient.app.application"
-            name="Eclipse SCADA Admin Client">
+            application="org.eclipse.scada.hmi.adminclient.app.application"
+            name="Eclipse SCADA Admin Client (Incubating)">
          <property
                name="windowImages"
-               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+               value="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_16px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_32px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_48px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_64px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_128px.png">
          </property>
          <property
                name="preferenceCustomization"
                value="plugin_customization.ini">
          </property>
+      	<property
+            name="introTitle"
+            value="Welcome to the Eclipse SCADA Admin Client"/>
          <property
                name="introBrandingImage"
                value="product:branding/about.png"/>
@@ -46,8 +49,12 @@
          </property>
          <property
                name="aboutImage"
-               value="branding/about.png">
+               value="/org.eclipse.scada.hmi.adminclient.app/branding/about.png">
        </property>
+         <property
+               name="appName"
+               value="Eclipse SCADA Admin Client (Incubating)">
+         </property>
       </product>
    </extension>
    
@@ -61,30 +68,36 @@
 
 	<extension
 		point="org.eclipse.ui.intro">
-  <intro
-        class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-        id="org.eclipse.scada.hmi.adminclient.app.intro">
-  </intro>
   <introProductBinding
-        introId="org.eclipse.scada.hmi.adminclient.app.intro"
+        introId="org.eclipse.ui.intro.universal"
         productId="org.eclipse.scada.hmi.adminclient.app.product">
   </introProductBinding>
 	</extension>
- <extension
-       point="org.eclipse.ui.intro.config">
-    <config
-          content="introContent.xml"
-          id="org.eclipse.scada.hmi.adminclient.app.introConfigId"
-          introId="org.eclipse.scada.hmi.adminclient.app.intro">
-       <presentation
-             home-page-id="root">
-          <implementation
-                kind="html"
-                os="win32,linux,macosx"
-                style="content/shared.css">
-          </implementation>
-       </presentation>
-    </config>
- </extension>
+	
+	   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.ui.preferencePages.Workbench"
+            class="org.eclipse.ui.intro.universal.ExtensionFactory:welcomeCustomization"
+            id="org.eclipse.scada.hmi.adminclient.app.introCustomization"
+            name="Intro">
+         <keywordReference id="org.eclipse.ui.ide.appearance"/>
+      </page>
+   </extension>
+    <extension
+          point="org.eclipse.ui.intro.configExtension">
+       <configExtension
+             configId="org.eclipse.ui.intro.universalConfig"
+             content="intro/overview.xml">
+       </configExtension>
+       <configExtension
+             configId="org.eclipse.ui.intro.universalConfig"
+             content="intro/whatsnew.xml">
+       </configExtension>
+       <configExtension
+             configId="org.eclipse.ui.intro.universalConfig"
+             content="intro/migrate.xml">
+       </configExtension>
+    </extension>
 
 </plugin>
