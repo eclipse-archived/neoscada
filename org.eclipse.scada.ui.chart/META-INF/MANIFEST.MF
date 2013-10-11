@@ -12,7 +12,6 @@ Export-Package: org.eclipse.scada.ui.chart.selector;version="0.1.0",
  org.eclipse.scada.ui.chart.viewer.input.composite;version="0.1.0"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.scada.da.client.base;bundle-version="0.1.0",
  org.eclipse.scada.core.client;bundle-version="0.1.0",
  org.eclipse.scada.da.client;bundle-version="0.1.0",
  org.eclipse.scada.da.core.common;bundle-version="0.1.0",
