@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.core.ui.connection.creator">
+      <creator
+            class="org.eclipse.scada.da.ui.connection.creator.ngp.ConnectionCreatorImpl"
+            driver="ngp"
+            id="org.eclipse.scada.da.ui.connection.creator.ngp.ConnectionCreator"
+            interface="da">
+      </creator>
+   </extension>
+</plugin>

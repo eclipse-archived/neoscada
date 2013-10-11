@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.scada.hd.ui.category"
+            name="%category.hd.name">
+      </category>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.hd.ui.category"
+            class="org.eclipse.scada.hd.ui.views.QueryControlView"
+            id="org.eclipse.scada.hd.ui.QueryControlView"
+            name="%view.queryControl.name"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.hd.ui.category"
+            class="org.eclipse.scada.hd.ui.views.QueryDataView"
+            id="org.eclipse.scada.hd.ui.QueryDataView"
+            name="%view.queryData.name"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.scada.hd.ui.category"
+            name="%category.hd.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.hd.ui.category"
+            name="%category.hd.name">
+      </category>
+   </extension>
+</plugin>

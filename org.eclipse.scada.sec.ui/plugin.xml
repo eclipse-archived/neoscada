@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.scada.sec.ui"
+            name="Eclipse SCADA Security">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.sec.callback.TextCallback"
+            class="org.eclipse.scada.sec.ui.CallbackWidgetAdapterFactory">
+         <adapter
+               type="org.eclipse.scada.sec.ui.CallbackWidgetFactory">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.sec.callback.PasswordCallback"
+            class="org.eclipse.scada.sec.ui.CallbackWidgetAdapterFactory">
+         <adapter
+               type="org.eclipse.scada.sec.ui.CallbackWidgetFactory">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.sec.callback.UserNameCallback"
+            class="org.eclipse.scada.sec.ui.CallbackWidgetAdapterFactory">
+         <adapter
+               type="org.eclipse.scada.sec.ui.CallbackWidgetFactory">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

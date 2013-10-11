@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.eclipse.scada.da.ui.category"
+            class="org.eclipse.scada.da.client.test.views.realtime.RealTimeList"
+            id="org.eclipse.scada.da.test.views.RealTimeList"
+            name="%view.realtimeList.name"
+            restorable="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.da.ui.category"
+            defaultHandler="org.eclipse.scada.da.client.test.commands.OpenNewRealtimeList"
+            description="%command.openNewRealtimeList.description"
+            id="org.eclipse.scada.da.client.test.NewRealtimeList"
+            name="%command.openNewRealtimeList.name">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="org.eclipse.scada.da.test.views.RealTimeList.vc1"
+            targetID="org.eclipse.scada.da.test.views.RealTimeList">
+            <action
+               class="org.eclipse.scada.da.client.test.actions.WriteOperationAction"
+               icon="icons/16x16/write_obj.gif"
+               id="org.eclipse.scada.da.client.test.actions.WriteOperationAction"
+               label="Write"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions">
+            <enablement>
+               <objectClass name="org.eclipse.scada.da.ui.widgets.realtime.ListEntry"/>
+            </enablement>
+         </action>
+         <action
+               class="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               icon="icons/16x16/write_obj.gif"
+               id="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               label="Write Attributes"
+               menubarPath="additions"
+               style="push"
+               toolbarPath="additions">
+            <enablement>
+               <objectClass name="org.eclipse.scada.da.ui.widgets.realtime.ListEntry"/>
+            </enablement>
+         </action>
+            </viewContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.scada.da.client.test.popupMenus.oc3"
+            objectClass="org.eclipse.scada.da.ui.widgets.realtime.ListEntry">
+         <action
+               class="org.eclipse.scada.da.client.test.actions.WriteOperationAction"
+               icon="icons/16x16/write_obj.gif"
+               id="org.eclipse.scada.da.client.test.actions.WriteOperationAction"
+               label="Write Operation"
+               menubarPath="additions"/>
+         <action
+               class="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               icon="icons/16x16/write_obj.gif"
+               id="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               label="Write Attributes Operation"
+               menubarPath="additions"/>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.scada.da.client.test.popupMenus.oc4"
+            objectClass="org.eclipse.scada.da.ui.widgets.realtime.AttributePair">
+         <action
+               class="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               icon="icons/16x16/write_obj.gif"
+               id="org.eclipse.scada.da.client.test.actions.WriteAttributesOperationAction"
+               label="Write Attributes Operation"
+               menubarPath="additions">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.scada.da.ui.category"
+            class="org.eclipse.scada.da.client.test.wizards.WriteOperationWizard"
+            hasPages="true"
+            icon="icons/16x16/write_obj.gif"
+            id="org.eclipse.scada.da.client.test.newWizards.NewWriteOperation"
+            name="Write Operation"
+            project="false">
+      </wizard>
+      <wizard
+            category="org.eclipse.scada.da.ui.category"
+            class="org.eclipse.scada.da.client.test.wizards.WriteAttributesOperationWizard"
+            hasPages="true"
+            icon="icons/16x16/write_obj.gif"
+            id="org.eclipse.scada.da.client.test.newWizards.NewWriteAttributesOperation"
+            name="Write Operation Attributes"
+            project="false">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.eclipse.scada.da.client.test.toolbar">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.scada.da.client.test.toolbar">
+            <command
+                  commandId="org.eclipse.scada.da.client.test.NewRealtimeList"
+                  id="org.eclipse.scada.da.test.actions.OpenNewRealtimeView"
+                  label="%command.openNewRealtimeList.name"
+                  style="push"
+                  tooltip="%command.openNewRealtimeList.description">
+            </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.scada.da.ui.perspective">
+      </perspectiveExtension>
+   </extension>
+   
+</plugin>

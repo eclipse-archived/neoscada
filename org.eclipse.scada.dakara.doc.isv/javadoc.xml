@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+	
+	<property name="buildDirectory" location="../builder_dakara/builder/build"/>
+	<property name="transformedRepoLocation" location="${buildDirectory}/transformedRepo"/>
+	
+    <target name="javadoc">
+    	
+    	<path id="classpath">
+    		<fileset dir="${transformedRepoLocation}/plugins">
+    			<include name="**/*.jar"/>
+    		</fileset>
+    	</path>
+    	
+        <javadoc
+        		access="public"
+        		author="true"
+        		classpathref="classpath"
+        		destdir="${buildDirectory}/plugins/org.eclipse.scada.dakara.doc.isv/reference/api"
+        		nodeprecated="false"
+        		nodeprecatedlist="false"
+        		noindex="false"
+        		nonavbar="false"
+        		notree="false"
+        		source="1.6"
+        		splitindex="true"
+        		use="true"
+        		version="true">
+        	<sourcepath location="${buildDirectory}/plugins/org.eclipse.scada.vi.ui.draw2d/src"/>
+        	<sourcepath location="${buildDirectory}/plugins/org.eclipse.scada.vi.ui.user/src"/>
+        	<sourcepath location="${buildDirectory}/plugins/org.eclipse.scada.vi.details/src"/>
+        	<sourcepath location="${buildDirectory}/plugins/org.eclipse.scada.vi.details.swt/src"/>
+    	</javadoc>
+    </target>
+</project>

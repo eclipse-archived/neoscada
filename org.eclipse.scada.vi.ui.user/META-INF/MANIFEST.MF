@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: VI End User UI
+Bundle-SymbolicName: org.eclipse.scada.vi.ui.user;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.vi.ui.user.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.vi.ui.user;version="0.1.0",
+ org.eclipse.scada.vi.ui.user.viewer;version="0.1.0",
+ org.eclipse.scada.vi.ui.user.viewer.ext;version="0.1.0"
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.scada.vi.ui.draw2d;bundle-version="0.1.0",
+ org.eclipse.core.databinding;bundle-version="1.4.0",
+ org.eclipse.jface.databinding;bundle-version="1.5.0",
+ org.eclipse.core.databinding.beans;bundle-version="1.2.100",
+ org.eclipse.core.databinding.property;bundle-version="1.4.0",
+ org.eclipse.scada.ui.databinding;bundle-version="0.1.0",
+ org.eclipse.core.expressions;bundle-version="3.4.300"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: com.google.common.base;version="10.0.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.ui.styles;version="0.1.0",
+ org.eclipse.scada.da.client;version="0.1.0",
+ org.eclipse.scada.da.ui.connection.data;version="0.1.0",
+ org.eclipse.scada.da.ui.styles;version="0.1.0",
+ org.eclipse.scada.ui.blink;version="0.1.0",
+ org.eclipse.scada.ui.databinding;version="0.1.0",
+ org.eclipse.scada.ui.utils;version="0.1.0",
+ org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils.str;version="0.1.0",
+ org.eclipse.scada.vi.data;version="0.1.0",
+ org.slf4j;version="1.5.0"
+Bundle-ActivationPolicy: lazy

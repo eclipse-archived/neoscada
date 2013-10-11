@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    TH4 SYSTEMS GmbH - initial API and implementation&#xA;    IBH SYSTEMS GmbH - prepare for Eclipse contribution"
+    modelDirectory="/org.eclipse.scada.ui.chart.model/emfsrc" editDirectory="/org.eclipse.scada.ui.chart.model.edit/src"
+    editorDirectory="/org.eclipse.scada.ui.chart.model.editor/src" modelPluginID="org.eclipse.scada.ui.chart.model"
+    modelName="Chart" editPluginClass="org.eclipse.scada.ui.chart.model.provider.ChartEditPlugin"
+    editorPluginClass="org.eclipse.scada.ui.chart.model.presentation.ChartEditorPlugin"
+    nonNLSMarkers="true" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="7.0" copyrightFields="false" editPluginID="org.eclipse.scada.ui.chart.model.edit"
+    editorPluginID="org.eclipse.scada.ui.chart.model.editor" language="">
+  <foreignModel>Chart.ecore</foreignModel>
+  <genPackages prefix="Chart" basePackage="org.eclipse.scada.ui.chart" disposableProviderFactory="true"
+      generateModelWizard="false" ecorePackage="Chart.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Chart.ecore#//ProfileSwitcherType">
+      <genEnumLiterals ecoreEnumLiteral="Chart.ecore#//ProfileSwitcherType/CHECK"/>
+      <genEnumLiterals ecoreEnumLiteral="Chart.ecore#//ProfileSwitcherType/RADIO"/>
+      <genEnumLiterals ecoreEnumLiteral="Chart.ecore#//ProfileSwitcherType/BUTTON"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="Chart.ecore#//RGB"/>
+    <genClasses ecoreClass="Chart.ecore#//Chart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/showCurrentTimeRuler"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/bottom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/top"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/right"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/selectedYAxis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/selectedXAxis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/inputs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/mutable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/controllers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/hoverable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/profiles"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//Chart/activeProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Chart/profileSwitcherType"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//XAxis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//XAxis/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//XAxis/maximum"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//YAxis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//YAxis/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//YAxis/maximum"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Chart.ecore#//Axis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Axis/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Axis/textPadding"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Axis/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Axis/labelVisible"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Axis/format"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Chart.ecore#//DataSeries">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//DataSeries/label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//DataSeries/x"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//DataSeries/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//DataSeries/visible"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//DataItemSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//DataItemSeries/lineProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//ArchiveSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//ArchiveSeries/channels"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+          ecoreFeature="ecore:EReference Chart.ecore#//ArchiveSeries/lineProperties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Chart.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Item/itemId"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//UriItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//UriItem/connectionUri"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//IdItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//IdItem/connectionId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Chart.ecore#//ItemDataSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//ItemDataSeries/item"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//ArchiveChannel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//ArchiveChannel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//ArchiveChannel/label"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//ArchiveChannel/lineProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//LineProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//LineProperties/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//LineProperties/color"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//ScriptSeries">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//ScriptSeries/lineProperties"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute Chart.ecore#//ScriptSeries/script"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Chart.ecore#//Controller"/>
+    <genClasses ecoreClass="Chart.ecore#//CurrentTimeController">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//CurrentTimeController/diff"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//CurrentTimeController/alignDateFormat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//CurrentTimeController/timespan"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//Profile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Chart.ecore#//Profile/controllers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Profile/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//Profile/label"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//TimeShiftAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//TimeShiftAction/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//TimeShiftAction/diff"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//TimeShiftAction/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//TimeNowAction"/>
+    <genClasses ecoreClass="Chart.ecore#//XAxisController">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Chart.ecore#//XAxisController/axis"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//ScaleAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//ScaleAction/timespan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//ScaleAction/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//ScaleAction/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//SeparatorController"/>
+    <genClasses ecoreClass="Chart.ecore#//MouseController"/>
+    <genClasses ecoreClass="Chart.ecore#//ResetController"/>
+    <genClasses ecoreClass="Chart.ecore#//CompositeArchiveQualitySeries">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//CompositeArchiveQualitySeries/threshold"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

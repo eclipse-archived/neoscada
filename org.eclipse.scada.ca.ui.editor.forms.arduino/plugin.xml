@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.ca.ui.editor.form">
+      <form
+            class="org.eclipse.scada.ca.ui.editor.forms.arduino.DeviceEditor"
+            factoryId="org.eclipse.scada.da.server.arduino.device"
+            label="Arduino Device">
+      </form>
+   </extension>
+
+</plugin>

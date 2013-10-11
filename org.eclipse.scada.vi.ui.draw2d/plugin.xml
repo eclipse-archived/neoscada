@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="viewElementFactory" name="View Element Factory" schema="schema/viewElementFactory.exsd"/>
+   <extension
+         point="org.eclipse.equinox.preferences.preferences">
+      <initializer
+            class="org.eclipse.scada.vi.ui.draw2d.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.scada.core.ui.preferences"
+            class="org.eclipse.scada.vi.ui.draw2d.preferences.PreferencePage"
+            id="org.eclipse.scada.vi.ui.draw2d.preferences.PreferencePage"
+            name="%preference.viewSettings.label">
+      </page>
+   </extension>
+
+</plugin>

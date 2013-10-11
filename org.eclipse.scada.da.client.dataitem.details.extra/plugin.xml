@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.da.client.dataitem.details.DetailsViewPart">
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.ManualOverride"
+            name="%detailsPart.manualOverride.name"
+            sortKey="5000">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.LocalLevelPresets"
+            name="%detailsPart.levelPresets.name"
+            sortKey="3000">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.LocalLevelPresetsOld"
+            name="Level Presets (openSCADA 0.18)"
+            sortKey="3001">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.RemoteLevelPresets"
+            name="%detailsPart.remoteLevelPresets.name"
+            sortKey="3010">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.InputScaleDetails"
+            name="%detailsPart.inputScale.name"
+            sortKey="1000">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.RoundDetailsPart"
+            name="%detailsPart.rounding.name"
+            sortKey="1500">
+      </detailsPart>
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.extra.part.BooleanAlarmDetails"
+            name="%detailsPart.booleanAlarm.name"
+            sortKey="1000">
+      </detailsPart>
+   </extension>
+
+</plugin>

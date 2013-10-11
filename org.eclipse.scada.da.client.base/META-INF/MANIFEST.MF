@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Bundle-Name
+Bundle-SymbolicName: org.eclipse.scada.da.client.base;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.da.client.base.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-Localization: plugin
+Export-Package: org.eclipse.scada.da.client.base.action;version="0.1.0",
+ org.eclipse.scada.da.client.base.browser;version="0.1.0",
+ org.eclipse.scada.da.client.base.connection;version="0.1.0"
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.ui.views;bundle-version="3.4.0",
+ org.eclipse.scada.core.client;bundle-version="0.1.0",
+ org.eclipse.scada.da.client;bundle-version="0.1.0",
+ org.eclipse.scada.da.core.common;bundle-version="0.1.0",
+ org.eclipse.scada.da.client.connector;bundle-version="0.1.0",
+ org.eclipse.scada.da.ui.connection;bundle-version="0.1.0",
+ org.eclipse.scada.core;bundle-version="0.1.0",
+ org.eclipse.scada.da.ui.styles;bundle-version="0.1.0",
+ org.eclipse.scada.core.ui.styles;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.slf4j;version="1.5.0"

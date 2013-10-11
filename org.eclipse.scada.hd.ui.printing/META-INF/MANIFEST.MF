@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA HD Printing (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.hd.ui.printing;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.hd.ui.printing.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.scada.hd.ui.connection;bundle-version="0.1.0",
+ org.eclipse.scada.hd.ui;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.hd;version="0.1.0",
+ org.eclipse.scada.hd.data;version="0.1.0",
+ org.eclipse.scada.ui.databinding;version="0.1.0"
+Bundle-ActivationPolicy: lazy

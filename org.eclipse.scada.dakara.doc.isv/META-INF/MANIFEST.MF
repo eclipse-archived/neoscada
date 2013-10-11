@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Documentation
+Bundle-SymbolicName: org.eclipse.scada.dakara.doc.isv;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.pde.core

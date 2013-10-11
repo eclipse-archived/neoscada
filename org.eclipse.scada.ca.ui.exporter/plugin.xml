@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            category="org.eclipse.scada.ca.ui.exporter.category"
+            class="org.eclipse.scada.ca.ui.exporter.wizard.ExportWizard"
+            id="org.eclipse.scada.ca.ui.exporter.wizard"
+            name="%wizard.export.name">
+      </wizard>
+      <category
+            id="org.eclipse.scada.ca.ui.exporter.category"
+            name="%category.export.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
+         <command
+               commandId="org.eclipse.ui.file.export"
+               label="%command.export.label"
+               style="push">
+            <parameter
+                  name="exportWizardId"
+                  value="org.eclipse.scada.ca.ui.exporter.wizard">
+            </parameter>
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="and">
+                     <and>
+                        <or>
+                           <instanceof
+                                 value="org.eclipse.scada.core.connection.provider.ConnectionService">
+                           </instanceof>
+                           <adapt
+                                 type="org.eclipse.scada.core.connection.provider.ConnectionService">
+                           </adapt>
+                        </or>
+                        <test
+                              forcePluginActivation="true"
+                              property="org.eclipse.scada.core.ui.connection.data.ConnectionHolder.interfaceName"
+                              value="ca">
+                        </test>
+                     </and>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

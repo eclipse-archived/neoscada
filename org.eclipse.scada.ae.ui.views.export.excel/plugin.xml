@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.scada.ae.ui.views.views.eventpool">
+         <command
+               commandId="org.eclipse.ui.file.export"
+               label="%command.label"
+               style="push">
+            <parameter
+                  name="exportWizardId"
+                  value="org.eclipse.scada.ae.ui.views.export.excel.ExportWizard">
+            </parameter>
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.scada.ae.ui.views.views.eventhistory">
+         <command
+               commandId="org.eclipse.ui.file.export"
+               label="%command.label"
+               style="push">
+            <parameter
+                  name="exportWizardId"
+                  value="org.eclipse.scada.ae.ui.views.export.excel.ExportWizard">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.exportWizards">
+      <wizard
+            category="org.eclipse.scada.ae"
+            class="org.eclipse.scada.ae.ui.views.export.excel.ExportEventsWizard"
+            id="org.eclipse.scada.ae.ui.views.export.excel.ExportWizard"
+            name="%wizard.name">
+         <description>
+            %wizard.description
+         </description>
+      </wizard>
+   </extension>
+
+</plugin>

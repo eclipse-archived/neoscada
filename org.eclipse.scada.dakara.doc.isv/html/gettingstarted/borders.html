@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Drawing</title>
+</head>
+
+<body>
+<h1>Borders</h1>
+<p>
+Several visual elements may specify a border. The border definition has a special syntax. 
+</p>
+
+<h2>Simple</h2>
+<p>A simple integer specifies a solid x-Pixel border in the default color.</p>
+
+<h2>Type</h2>
+A specific border can be created by prefixing the border type.
+<code>
+TYPE:[argument1=value1,argument2=value2]
+</code>
+If the border type has a simple value argument the argument can simply be specified with out brackets:
+<code>
+TYPE:simpleValue
+</code>
+
+<h3>LINE:</h3>
+<p>The line border type is a simple line.</p>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr>
+	<td>lineSize (simple value)</td>
+	<td>The line size in pixels (might get scaled)</td>
+</tr>
+<tr>
+	<td>color</td>
+	<td>Line color in hex notation</td>
+</tr>
+</table>
+
+<h3>GROUP:</h3>
+<p>A draw2d group border</p>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr>
+	<td>text (simple value)</td>
+	<td>The text of the group border</td>
+</tr>
+<tr>
+	<td>textColor</td>
+	<td>The color of the text</td>
+</tr>
+</table>
+
+<h3>GROUP:</h3>
+<p>A draw2d title border</p>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr>
+	<td>text (simple value)</td>
+	<td>The text of the group border</td>
+</tr>
+<tr>
+	<td>textColor</td>
+	<td>The color of the text</td>
+</tr>
+<tr>
+	<td>backgroundColor</td>
+	<td>The color of the background</td>
+</tr>
+</table>
+
+<h3>MARGIN:</h3>
+<p>A margin border</p>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr>
+	<td>inset (simple value)</td>
+	<td>The inset of the margin border</td>
+</tr>
+</table>
+
+<h2>Compound</h2>
+A compound border can be created by adding multiple border definitions in the following syntax:
+<code>
+COMPOUND:[TYPE:a|TYPE:b]
+</code>
+
+</body>
+</html>

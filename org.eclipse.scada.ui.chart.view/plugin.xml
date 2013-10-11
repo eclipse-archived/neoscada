@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="true"
+            category="org.eclipse.scada.chart.ui"
+            class="org.eclipse.scada.ui.chart.view.ChartView"
+            icon="icons/chartView.gif"
+            id="org.eclipse.scada.ui.chart.ChartView"
+            name="%view.chartView.name"
+            restorable="true"/>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.chart.ui"
+            class="org.eclipse.scada.ui.chart.view.ChartControllerView"
+            id="org.eclipse.scada.ui.chart.ChartController"
+            name="Chart Controller"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.chart.ui"
+            class="org.eclipse.scada.ui.chart.view.ChartConfiguratorView"
+            id="org.eclipse.scada.ui.chart.ChartConfigurator"
+            name="Chart Configurator"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            category="org.eclipse.scada.chart.ui"
+            class="org.eclipse.scada.ui.chart.view.ChartInputSelectorView"
+            id="org.eclipse.scada.ui.chart.selector.ChartConfigurationInputSelector"
+            name="Chart Input Selector"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.scada.ui.chart.oc1"
+            objectClass="org.eclipse.scada.da.ui.connection.data.DataItemHolder">
+         <action
+               class="org.eclipse.scada.ui.chart.view.action.OpenChartAction"
+               id="org.eclipse.scada.da.client.chart.OpenChartAction"
+               label="%action.viewAsChart.label"
+               menubarPath="additions"/>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.eclipse.scada.ui.chart.oc2"
+            objectClass="org.eclipse.scada.da.ui.widgets.realtime.ListEntry">
+         <action
+               class="org.eclipse.scada.ui.chart.view.action.OpenChartAction"
+               id="org.eclipse.scada.da.client.chart.OpenChartAction"
+               label="%action.viewAsChart.label"
+               menubarPath="additions"/>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.ui.chart"
+            id="org.eclipse.scada.ui.chart.commands.OpenCharView"
+            name="Open Chart">
+      </command>
+      <command
+            categoryId="org.eclipse.scada.ui.chart"
+            id="org.eclipse.scada.ui.chart.commands.OpenParametersCharView"
+            name="Open Chart">
+         <commandParameter
+               id="org.eclipse.scada.ui.chart.connectionId"
+               name="Connection Id"
+               optional="true">
+         </commandParameter>
+         <commandParameter
+               id="org.eclipse.scada.ui.chart.connectionString"
+               name="Connection String (Uri)"
+               optional="true">
+         </commandParameter>
+         <commandParameter
+               id="org.eclipse.scada.ui.chart.itemId"
+               name="Item ID"
+               optional="true">
+         </commandParameter>
+         <commandParameter
+               id="org.eclipse.scada.ui.chart.itemType"
+               name="Item Type"
+               optional="false">
+            <values
+                  class="org.eclipse.scada.ui.chart.view.command.ItemTypeParameters">
+            </values>
+         </commandParameter>
+         <commandParameter
+               id="org.eclipse.scada.ui.chart.queryTimespec"
+               name="Query Timespec"
+               optional="true">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.scada.ui.chart.view.command.OpenChartView"
+            commandId="org.eclipse.scada.ui.chart.commands.OpenCharView">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <or>
+                     <instanceof
+                           value="org.eclipse.scada.da.ui.connection.data.Item">
+                     </instanceof>
+                     <adapt
+                           type="org.eclipse.scada.da.ui.connection.data.Item">
+                     </adapt>
+                  </or>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+      <handler
+            class="org.eclipse.scada.ui.chart.view.command.OpenChartViewWithParameters"
+            commandId="org.eclipse.scada.ui.chart.commands.OpenParametersCharView">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
+         <command
+               commandId="org.eclipse.scada.ui.chart.commands.OpenCharView"
+               label="Open Chart View"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <or>
+                     <instanceof
+                           value="org.eclipse.scada.da.ui.connection.data.Item">
+                     </instanceof>
+                     <adapt
+                           type="org.eclipse.scada.da.ui.connection.data.Item">
+                     </adapt>
+                  </or>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+</plugin>

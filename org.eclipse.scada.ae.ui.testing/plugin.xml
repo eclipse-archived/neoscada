@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+   <category
+         id="org.eclipse.scada.ae.ui.testing.category"
+         name="Eclipse SCADA AE Testing">
+   </category>
+      <view
+            allowMultiple="false"
+            category="org.eclipse.scada.ae.ui.testing.category"
+            class="org.eclipse.scada.ae.ui.testing.views.MonitorsView"
+            id="org.eclipse.scada.ae.ui.testing.views.MonitorsView"
+            name="Monitors Debug View"
+            restorable="true">
+      </view>
+	  <view
+            allowMultiple="false"
+            category="org.eclipse.scada.ae.ui.testing.category"
+            class="org.eclipse.scada.ae.ui.testing.views.EventQueryView"
+            id="org.eclipse.scada.ae.ui.testing.views.EventQueryView"
+            name="Event Query Debug View"
+            restorable="true">
+      </view>
+   <view
+         allowMultiple="false"
+         category="org.eclipse.scada.ae.ui.testing.category"
+         class="org.eclipse.scada.ae.ui.testing.views.QueryOfflineViewPart"
+         id="org.eclipse.scada.ae.ui.testing.QueryOfflineView"
+         name="Offline Query Debug View"
+         restorable="true">
+   </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.ae.ui.category"
+            description="Create a new event query"
+            id="org.eclipse.scada.ae.ui.testing.CreateQueryCommand"
+            name="Create Event Query">
+      </command>
+      <command
+            categoryId="org.eclipse.scada.ae.ui.category"
+            id="org.eclipse.scada.ae.ui.testing.loadMoreCommand"
+            name="Load More">
+         <commandParameter
+               id="org.eclipse.scada.ae.ui.testing.loadMore.count"
+               name="count"
+               optional="true">
+         </commandParameter>
+      </command>
+      <command
+            categoryId="org.eclipse.scada.ae.ui.category"
+            id="org.eclipse.scada.ae.ui.testing.removeCommand"
+            name="Remove">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               label="Create Event Query"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="org.eclipse.scada.ae.ui.testing.navigator.QueryListWrapper">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+            <parameter
+                  name="newWizardId"
+                  value="org.eclipse.scada.ae.ui.testing.wizard.CreateQuery">
+            </parameter>
+         </command>
+         <command
+               commandId="org.eclipse.scada.ae.ui.testing.loadMoreCommand"
+               label="Load More"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                  <with variable="selection">
+               <iterate ifEmpty="false">
+                  <instanceof
+                        value="org.eclipse.scada.ae.ui.testing.navigator.QueryBean">
+                  </instanceof>
+               </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="org.eclipse.scada.ae.ui.testing.loadMoreCommand"
+               label="Load Much More"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                  <with variable="selection">
+               <iterate ifEmpty="false">
+                  <instanceof
+                        value="org.eclipse.scada.ae.ui.testing.navigator.QueryBean">
+                  </instanceof>
+               </iterate>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="org.eclipse.scada.ae.ui.testing.loadMore.count"
+                  value="10000">
+            </parameter>
+         </command>
+         <command
+               commandId="org.eclipse.scada.ae.ui.testing.removeCommand"
+               label="Remove Query"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+                  <with
+                        variable="selection">
+	               <iterate ifEmpty="false">
+	                  <instanceof
+	                        value="org.eclipse.scada.ae.ui.testing.navigator.QueryBean">
+	                  </instanceof>
+	               </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.scada.ae.ui.testing.handler.LoadMoreHandler"
+            commandId="org.eclipse.scada.ae.ui.testing.loadMoreCommand">
+      </handler>
+      <handler
+            class="org.eclipse.scada.ae.ui.testing.handler.RemoveHandler"
+            commandId="org.eclipse.scada.ae.ui.testing.removeCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="org.eclipse.scada.ae.ui.testing.navigator.ContentProvider"
+            id="org.eclipse.scada.ae.ui.testing.query.contentExtension"
+            labelProvider="org.eclipse.scada.ae.ui.testing.navigator.LabelProvider"
+            name="Offline Event Queries"
+            priority="normal"
+            providesSaveables="false">
+         <possibleChildren>
+            <or>
+               <instanceof
+                     value="org.eclipse.scada.ae.ui.testing.navigator.QueryBean">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.scada.ae.ui.testing.navigator.QueryListWrapper">
+               </instanceof>
+            </or>
+         </possibleChildren>
+         <triggerPoints>
+            <or>
+               <and>
+                  <instanceof
+                        value="org.eclipse.scada.core.ui.connection.data.ConnectionHolder">
+                  </instanceof>
+                  <test
+                        property="org.eclipse.scada.core.ui.connection.data.ConnectionHolder.interfaceName"
+                        value="ae">
+                  </test>
+               </and>
+               <instanceof
+                     value="org.eclipse.scada.ae.ui.testing.navigator.QueryListWrapper">
+               </instanceof>
+               <instanceof
+                     value="org.eclipse.scada.ae.ui.testing.navigator.QueryBean">
+               </instanceof>
+            </or>
+         </triggerPoints>
+      </navigatorContent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            canFinishEarly="false"
+            category="org.eclipse.scada.ae.ui"
+            class="org.eclipse.scada.ae.ui.testing.wizard.CreateQueryWizard"
+            hasPages="true"
+            id="org.eclipse.scada.ae.ui.testing.wizard.CreateQuery"
+            name="Offline Event Query"
+            project="false">
+      </wizard>
+   </extension>
+</plugin>

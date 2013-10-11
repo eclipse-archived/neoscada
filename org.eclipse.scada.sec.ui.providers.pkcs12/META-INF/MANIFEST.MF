@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Security UI PKCS12 Provider (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.sec.ui.providers.pkcs12;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.sec.ui.providers.pkcs12.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.scada.sec.ui.providers;bundle-version="0.1.0",
+ org.eclipse.core.databinding;bundle-version="1.4.1",
+ org.eclipse.jface.databinding;bundle-version="1.6.0",
+ org.eclipse.scada.ui.databinding;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.scada.sec.callback;version="0.1.0",
+ org.eclipse.scada.sec.ui;version="0.1.0",
+ org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils;version="0.1.0",
+ org.eclipse.scada.utils.beans;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0"
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.ui.chart"
+            name="Eclipse SCADA Chart"/>
+       </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.scada.ui.chart"
+            name="Eclipse SCADA Chart">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.scada.ui.chart"
+            name="Eclipse SCADA Chart">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.CurrentTimeController"
+            class="org.eclipse.scada.ui.chart.viewer.controller.time.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.TimeShiftAction"
+            class="org.eclipse.scada.ui.chart.viewer.controller.actions.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.TimeNowAction"
+            class="org.eclipse.scada.ui.chart.viewer.controller.actions.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.ScaleAction"
+            class="org.eclipse.scada.ui.chart.viewer.controller.actions.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.SeparatorController"
+            class="org.eclipse.scada.ui.chart.viewer.controller.tools.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+		<factory
+            adaptableType="org.eclipse.scada.ui.chart.model.MouseController"
+            class="org.eclipse.scada.ui.chart.viewer.controller.tools.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+         </factory>
+		<factory
+            adaptableType="org.eclipse.scada.ui.chart.model.ResetController"
+            class="org.eclipse.scada.ui.chart.viewer.controller.tools.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
+   </extension>
+
+</plugin>

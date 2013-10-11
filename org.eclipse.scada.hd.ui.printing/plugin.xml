@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            categoryId="org.eclipse.scada.hd.ui.category"
+            id="org.eclipse.scada.hd.ui.printing.PrintCommand"
+            name="Print">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.scada.hd.ui.printing.PrintCommand"
+            commandId="org.eclipse.scada.hd.ui.printing.PrintCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
+         <command
+               commandId="org.eclipse.scada.hd.ui.printing.PrintCommand"
+               label="Print"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="and">
+                     <or>
+                        <adapt
+                              type="org.eclipse.scada.hd.ui.data.QueryBuffer">
+                        </adapt>
+                        <instanceof
+                              value="org.eclipse.scada.hd.ui.data.QueryBuffer">
+                        </instanceof>
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

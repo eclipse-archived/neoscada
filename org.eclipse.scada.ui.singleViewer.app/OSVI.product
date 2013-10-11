@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Eclipse SCADA Visual Interface" uid="org.eclipse.scada.ui.singleViewer.application" id="org.eclipse.scada.ui.singleViewer.app.product" application="org.eclipse.scada.ui.singleViewer.app.application" version="1.2.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/org.eclipse.scada.ui.singleViewer.app/branding/about.png"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon_16px.png" i32="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon_32px.png" i48="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon_48px.png" i64="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon_64px.png" i128="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon_128px.png"/>
+
+   <splash
+      location="org.eclipse.scada.ui.singleViewer.app"
+      startupProgressRect="0,0,455,12"
+      startupMessageRect="18,30,264,49"
+      startupForegroundColor="00519E" />
+   <launcher name="osvi">
+      <linux icon="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon.xpm"/>
+      <macosx icon="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon.icns"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/org.eclipse.scada.ui.singleViewer.app/icons/app/icon.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <intro introId="org.eclipse.ui.intro.universal"/>
+
+   <vm>
+   </vm>
+
+   <license>
+        <url>http://eclipse.org</url>
+   </license>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.scada.ui.singleViewer.app"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.platform"/>
+   </features>
+
+
+</product>

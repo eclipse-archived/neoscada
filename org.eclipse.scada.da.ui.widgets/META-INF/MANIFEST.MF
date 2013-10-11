@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA DA UI Widgets (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.da.ui.widgets;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.da.ui.widgets.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.da.ui.widgets.realtime;version="0.1.0"
+Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ org.eclipse.ui.views;bundle-version="3.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.eclipse.core.expressions,
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.core.subscription;version="0.1.0",
+ org.eclipse.scada.core.ui.connection;version="0.1.0",
+ org.eclipse.scada.core.ui.styles;version="0.1.0",
+ org.eclipse.scada.da.client;version="0.1.0",
+ org.eclipse.scada.da.core;version="0.1.0",
+ org.eclipse.scada.da.ui.connection;version="0.1.0",
+ org.eclipse.scada.da.ui.connection.data;version="0.1.0",
+ org.eclipse.scada.da.ui.connection.dnd;version="0.1.0",
+ org.eclipse.scada.da.ui.styles;version="0.1.0",
+ org.eclipse.scada.sec.callback;version="0.1.0",
+ org.eclipse.scada.sec.ui;version="0.1.0",
+ org.eclipse.scada.ui.blink;version="0.1.0",
+ org.eclipse.scada.ui.databinding;version="0.1.0",
+ org.eclipse.scada.ui.utils;version="0.1.0",
+ org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.concurrent.task;version="0.1.0",
+ org.slf4j;version="[1.5.8,2.0.0)"
+Bundle-ActivationPolicy: lazy

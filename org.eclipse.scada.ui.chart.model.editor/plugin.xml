@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Chart -->
+      <category
+            id="org.eclipse.scada.ui.chart.model"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.scada.ui.chart.model.presentation.ChartModelWizardID"
+            name="%_UI_ChartModelWizard_label"
+            class="org.eclipse.scada.ui.chart.model.presentation.ChartModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ChartModelFile.gif">
+         <description>%_UI_ChartModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Chart -->
+      <editor
+            id="org.eclipse.scada.ui.chart.model.presentation.ChartEditorID"
+            name="%_UI_ChartEditor_label"
+            icon="icons/full/obj16/ChartModelFile.gif"
+            extensions="chart"
+            class="org.eclipse.scada.ui.chart.model.presentation.ChartEditor"
+            contributorClass="org.eclipse.scada.ui.chart.model.presentation.ChartActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

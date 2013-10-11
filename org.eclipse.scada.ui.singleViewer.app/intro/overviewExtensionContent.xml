@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<introContent>
+<!-- 
+  <extensionContent id="org.eclipse.scada.othala.application" name="Client" alt-style="css/swt.properties" style="css/overview.css" path="overview/@">
+    <group style-id="content-group" id="content-group">
+      <link style-id="content-link" label="Eclipse SCADA Client Usage" url="http://org.eclipse.ui.intro/showPage?id=extraOverview"  id="ostc">
+          <text>Learn how to use the Eclipse SCADA RCP Client</text>
+      </link>
+    </group>
+    <page id="extraOverview" style="$theme$/html/overview.css" style-id="page">
+      <title style-id="intro-header">$introTitle$</title>
+      <group id="extra-group1" filteredFrom="swt"/>
+      <include path="overview/navigation-links"/>
+      <group id="page-content">
+            <group id="content-header" label="EXTRA OVERVIEW" filteredFrom="swt">
+            </group>
+            <text style-id="page-title" id="page-title" filteredFrom="html">EXTRA OVERVIEW</text>
+            <text style-id="page-description" id="page-description">Extra overview page description.</text>
+
+      </group>
+   </page>
+  </extensionContent>-->
+  
+  <extensionContent id="org.eclipse.scada.othala.application" name="ostc"
+    alt-style="css/swt.properties" style="css/overview.css"
+    path="overview/@">
+    <group style-id="content-group" id="content-group">
+      <link label="Different perspectives"
+        url="http://org.eclipse.ui.intro/showPage?id=perspectivesOverview"
+        style-id="content-link" id="ostc">
+        <text>Explaining the different perspectives</text>
+      </link>
+    </group>
+  </extensionContent>
+
+  <page id="perspectivesOverview" style="$theme$/html/overview.css"
+    style-id="page">
+    <title style-id="intro-header">$introTitle$</title>
+    <group id="extra-group1" filteredFrom="swt" />
+    <include path="overview/navigation-links" />
+    <group id="page-content">
+      <group id="content-header" label="PERSPECTIVE OVERVIEW" filteredFrom="swt">
+      </group>
+      <text style-id="page-title" id="page-title" filteredFrom="html">
+        PERSPECTIVE OVERVIEW
+      </text>
+      <text style-id="page-description" id="page-description">
+        Explaining different perspectives
+      </text>
+      <html src="html/perspectivesOverview.html" type="inline"></html>
+    </group>
+  </page>
+</introContent>

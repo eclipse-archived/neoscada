@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.eclipse.scada.core.ui.category"
+            name="%category.core.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.scada.core.ui.category"
+            name="%category.core.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.scada.core.ui.category"
+            name="%category.core.name">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.themes">
+      <themeElementCategory
+            id="org.eclipse.scada.theme"
+            label="Eclipse SCADA">
+      </themeElementCategory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+      		class="org.eclipse.scada.core.ui.preferences.PreferencePage"
+            id="org.eclipse.scada.core.ui.preferences"
+            name="Eclipse SCADA">
+      </page>
+   </extension>
+
+</plugin>

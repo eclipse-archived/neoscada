@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.scada.chart.ui.PerspectiveFactory"
+            icon="icons/chartView.gif"
+            id="org.eclipse.scada.chart.ui.perspective"
+            name="Chart">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <perspectiveShortcut
+               id="org.eclipse.scada.chart.ui.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.chart.ui.perspective">
+         <view
+               id="org.eclipse.scada.core.ui.connection.ConnectionView"
+               minimized="false"
+               ratio="0.25"
+               relationship="left"
+               relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="org.eclipse.scada.ui.chart.ChartView"
+               minimized="false"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="org.eclipse.scada.ui.chart.ChartController"
+               minimized="false"
+               ratio="0.75"
+               relationship="bottom"
+               relative="org.eclipse.scada.ui.chart.ChartView">
+         </view>
+         <view
+               id="org.eclipse.scada.ui.chart.ChartConfigurator"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.scada.ui.chart.ChartController">
+         </view>
+         <view
+               id="org.eclipse.ui.views.PropertySheet"
+               minimized="false"
+               ratio="0"
+               relationship="bottom"
+               relative="org.eclipse.scada.core.ui.connection.ConnectionView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="org.eclipse.scada.chart.ui"
+            name="Eclipse SCADA Chart">
+      </category>
+   </extension>
+
+</plugin>

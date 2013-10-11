@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.da.client.dataitem.details.DetailsViewPart">
+      <detailsPart
+            class="org.eclipse.scada.da.client.dataitem.details.chart.DetailsPart"
+            name="%detailsPart.chart.name"
+            sortKey="40">
+      </detailsPart>
+   </extension>
+
+</plugin>

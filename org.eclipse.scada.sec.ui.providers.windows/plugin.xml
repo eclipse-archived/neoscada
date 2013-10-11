@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.sec.ui.providers.key">
+      <factory
+            class="org.eclipse.scada.sec.ui.providers.windows.FactoryImpl"
+            id="org.eclipse.scada.sec.provider.windows"
+            label="Windows">
+      </factory>
+   </extension>
+
+</plugin>
