@@ -28,7 +28,7 @@
             name="Eclipse SCADA Admin Client (Incubating)">
          <property
                name="windowImages"
-               value="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_16px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_32px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_48px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_64px.png,/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon_128px.png">
+               value="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_16px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_32px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_48px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_64px.png,/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_128px.png">
          </property>
          <property
                name="preferenceCustomization"
@@ -55,6 +55,10 @@
                name="appName"
                value="Eclipse SCADA Admin Client (Incubating)">
          </property>
+ 		<property
+				name="cssTheme"
+				value="org.eclipse.e4.ui.css.theme.e4_default">
+		  </property>
       </product>
    </extension>
    
