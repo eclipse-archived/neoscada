@@ -24,10 +24,10 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.scada.ui.singleViewer.app.application"
-            name="Eclipse SCADA Visual Interface">
+            name="Eclipse SCADA Visual Interface (Incubating)">
          <property
                name="windowImages"
-               value="icons/app/Sign_open-Scada_16px.png,icons/app/Sign_open-Scada_32px.png,icons/app/Sign_open-Scada_48px.png,icons/app/Sign_open-Scada_64px.png,icons/app/Sign_open-Scada_128px.png">
+               value="icons/app/icon_16px.png,icons/app/icon_32px.png,icons/app/icon_48px.png,icons/app/icon_64px.png,icons/app/icon_128px.png">
          </property>
          <property
                name="introTitle"
@@ -40,7 +40,7 @@
                value="Eclipse SCADA Project"/>
          <property
                name="appName"
-               value="Eclipse SCADA Visual Interface">
+               value="Eclipse SCADA Visual Interface (Incubating)">
          </property>
          <property
                name="aboutText"

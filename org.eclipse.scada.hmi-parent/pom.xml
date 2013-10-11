@@ -254,12 +254,16 @@
 		<module>../org.eclipse.scada.ca.ui.exporter</module>
 		<module>../org.eclipse.scada.ca.ui.importer</module>
 
-		<!-- product -->
+		<!-- product - admin client -->
+
+		<module>../org.eclipse.scada.hmi.adminclient.app</module>
+		<module>../org.eclipse.scada.hmi.adminclient.app.feature</module>
+		<module>../org.eclipse.scada.hmi.adminclient.app-product</module>
+
+		<!-- product - single viewer -->
 
 		<module>../org.eclipse.scada.ui.singleViewer.app.feature</module>
-
 		<module>../org.eclipse.scada.ui.singleViewer.app</module>
-		
 		<module>../org.eclipse.scada.ui.singleViewer.app-product</module>
 		
 	</modules>
