@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: org.eclipse.scada.dakara.ui;singleton:=true
+Bundle-Name: Eclipse SCADA Human Machine Interface
+Bundle-SymbolicName: org.eclipse.scada.hmi;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.eclipse.scada.dakara.ui.Activator
-Bundle-Vendor: %Bundle-Vendor
+Bundle-Activator: org.eclipse.scada.hmi.Activator
+Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

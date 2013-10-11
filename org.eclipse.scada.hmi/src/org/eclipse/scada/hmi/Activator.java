@@ -1,14 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.dakara.ui;
+package org.eclipse.scada.hmi;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -20,7 +20,7 @@ public class Activator extends AbstractUIPlugin
 {
 
     // The plug-in ID
-    public static final String PLUGIN_ID = "org.eclipse.scada.dakara.ui"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "org.eclipse.scada.hmi"; //$NON-NLS-1$
 
     // The shared instance
     private static Activator plugin;

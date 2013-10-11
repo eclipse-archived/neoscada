@@ -8,7 +8,7 @@
             id="org.eclipse.scada.vi.details.model.presentation.DetailViewModelWizardID"
             name="%_UI_DetailViewModelWizard_label"
             class="org.eclipse.scada.vi.details.model.presentation.DetailViewModelWizard"
-            category="org.eclipse.scada.dakara"
+            category="org.eclipse.scada.hmi"
             icon="icons/full/obj16/DetailViewModelFile.gif">
          <description>%_UI_DetailViewModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

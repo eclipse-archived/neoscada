@@ -3,11 +3,10 @@
 <plugin>
    <extension
          point="org.eclipse.ui.newWizards">
-         
-       <category
-            id="org.eclipse.scada.dakara"
-            name="%newWizard.category.name"/>
-         
+      <category
+            id="org.eclipse.scada.hmi"
+            name="%newWizard.category.name">
+      </category>
    </extension>
 
 </plugin>

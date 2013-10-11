@@ -17,7 +17,7 @@
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated VisualInterface -->
       <category
-            id="org.eclipse.scada.dakara"
+            id="org.eclipse.scada.hmi"
             name="%_UI_Wizard_category"/>
       <wizard
             id="org.eclipse.scada.vi.model.presentation.VisualInterfaceModelWizardID"
