@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA OSGi Hive Exporter
 Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.osgi
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.exporter.osgi.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.da.server.exporter.osgi;version="1.2.0";uses:="org.eclipse.scada.da.core.server,org.osgi.framework,org.eclipse.scada.da.server.exporter"
