@@ -1,3 +1,4 @@
 /files
 /org.eclipse.scada
 /*.log
+/org.eclipse.scada.substvars

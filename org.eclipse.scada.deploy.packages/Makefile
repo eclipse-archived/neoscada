@@ -15,7 +15,7 @@ install:
 	
 	install -d "$(DESTDIR)/etc/default"
 
-	test -f "src/eclipse.scada.$(DIST)" && install -m 0644 "src/eclipse.scada.$(DIST)" "$(DESTDIR)/etc/default/eclipse.scada"
-	test -f "src/eclipse.scada.$(DIST).$(ARCH)" && install -m 0644 "src/eclipse.scada.$(DIST).$(ARCH)" "$(DESTDIR)/etc/default/eclipse.scada"
+	if [ -f "src/eclipse.scada.$(DIST)" ]; then install -m 0644 "src/eclipse.scada.$(DIST)" "$(DESTDIR)/etc/default/eclipse.scada"; fi
+	if [ -f "src/eclipse.scada.$(DIST).$(ARCH)" ]; then install -m 0644 "src/eclipse.scada.$(DIST).$(ARCH)" "$(DESTDIR)/etc/default/eclipse.scada"; fi
 	
 .PHONY: default install

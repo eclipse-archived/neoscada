@@ -3,14 +3,8 @@ Upstream-Name: Eclipse SCADA
 Source: http://projects.eclipse.org/projects/technology.eclipsescada
 
 Files: *
-
-Copyright:
-
-	Copyright (C) 2013 IBH SYSTEMS GmbH and others
-
-License:
-	
-	EPL-1.0
+Copyright: Copyright (C) 2013 IBH SYSTEMS GmbH and others
+License: EPL-1.0
 
 License: EPL-1.0
  Eclipse Public License - v 1.0
