@@ -4,14 +4,15 @@
     modelDirectory="/org.eclipse.scada.da.server.jdbc/emfsrc" modelPluginID="org.eclipse.scada.da.server.jdbc"
     modelName="Jdbc" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" containmentProxies="true"
-    complianceLevel="6.0" runtimeVersion="2.8" operationReflection="true" importOrganizing="true">
+    complianceLevel="7.0" copyrightFields="false" runtimeVersion="2.9" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>jdbc.xsd</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.openscada.da.jdbc" resource="XML"
-      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+  <genPackages prefix="Configuration" basePackage="org.eclipse.scada.da.server.jdbc"
+      resource="XML" disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
     <genDataTypes ecoreDataType="configuration.ecore#//AliasNameType"/>
     <genDataTypes ecoreDataType="configuration.ecore#//ColumnNumberType"/>
     <genDataTypes ecoreDataType="configuration.ecore#//ColumnNumberTypeObject"/>
-    <genClasses ecoreClass="configuration.ecore#//AbstractQueryType">
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractQueryType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/sql"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//AbstractQueryType/columnMapping"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/id"/>

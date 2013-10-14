@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.proxy;
 
-import org.eclipse.scada.da.proxy.configuration.ConfigurationPackage;
+import org.eclipse.scada.da.server.proxy.configuration.ConfigurationPackage;
 import org.eclipse.scada.utils.init.Initializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

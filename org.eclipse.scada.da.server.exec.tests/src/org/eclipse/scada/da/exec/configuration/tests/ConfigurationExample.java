@@ -38,6 +38,13 @@ public class ConfigurationExample
 
     /**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
+     * <!-- begin-user-doc -->
      * Load all the argument file paths or URIs as instances of the model.
      * <!-- end-user-doc -->
      * @param args the file paths or URIs.
@@ -51,11 +58,15 @@ public class ConfigurationExample
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new ConfigurationResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
+                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
+                        new ConfigurationResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put ( ConfigurationPackage.eNS_URI, ConfigurationPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put
+                ( ConfigurationPackage.eNS_URI,
+                        ConfigurationPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //

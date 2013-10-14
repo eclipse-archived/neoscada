@@ -6,7 +6,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated exec -->
       <package
-            uri="http://openscada.org/DA/Exec/Configuration"
+            uri="http://eclipse.org/SCADA/DA/Exec/Configuration"
             class="org.eclipse.scada.da.exec.configuration.ConfigurationPackage"
             genModel="model/exec.genmodel"/>
    </extension>

@@ -32,6 +32,13 @@ public class ConfigurationValidator extends EObjectValidator
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -424,7 +431,13 @@ public class ConfigurationValidator extends EObjectValidator
      * @generated
      * @see #validateClassType_Pattern
      */
-    public static final PatternMatcher[][] CLASS_TYPE__PATTERN__VALUES = new PatternMatcher[][] { new PatternMatcher[] { XMLTypeUtil.createPatternMatcher ( "\\w+(\\.\\w+)*" ) } };
+    public static final PatternMatcher[][] CLASS_TYPE__PATTERN__VALUES = new PatternMatcher[][]
+    {
+            new PatternMatcher[]
+            {
+                    XMLTypeUtil.createPatternMatcher ( "\\w+(\\.\\w+)*" )
+            }
+    };
 
     /**
      * Validates the Pattern constraint of '<em>Class Type</em>'.
@@ -464,7 +477,13 @@ public class ConfigurationValidator extends EObjectValidator
      * @generated
      * @see #validateNameType1_Pattern
      */
-    public static final PatternMatcher[][] NAME_TYPE1__PATTERN__VALUES = new PatternMatcher[][] { new PatternMatcher[] { XMLTypeUtil.createPatternMatcher ( "\\w+" ) } };
+    public static final PatternMatcher[][] NAME_TYPE1__PATTERN__VALUES = new PatternMatcher[][]
+    {
+            new PatternMatcher[]
+            {
+                    XMLTypeUtil.createPatternMatcher ( "\\w+" )
+            }
+    };
 
     /**
      * Validates the Pattern constraint of '<em>Name Type1</em>'.
@@ -558,7 +577,13 @@ public class ConfigurationValidator extends EObjectValidator
      * @generated
      * @see #validateTypeType_Pattern
      */
-    public static final PatternMatcher[][] TYPE_TYPE__PATTERN__VALUES = new PatternMatcher[][] { new PatternMatcher[] { XMLTypeUtil.createPatternMatcher ( "(newline|regexpMatch|regexpSplit|split|class#.*)" ) } };
+    public static final PatternMatcher[][] TYPE_TYPE__PATTERN__VALUES = new PatternMatcher[][]
+    {
+            new PatternMatcher[]
+            {
+                    XMLTypeUtil.createPatternMatcher ( "(newline|regexpMatch|regexpSplit|split|class#.*)" )
+            }
+    };
 
     /**
      * Validates the Pattern constraint of '<em>Type Type</em>'.

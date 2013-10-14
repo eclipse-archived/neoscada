@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://openscada.org/DA/Proxy/Configuration"
-	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
-	xmlns:proxy="http://openscada.org/DA/Proxy/Configuration" xmlns:hive="http://openscada.org/DA/Hive">
+<schema targetNamespace="http://eclipse.org/SCADA/DA/Proxy/Configuration"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:proxy="http://eclipse.org/SCADA/DA/Proxy/Configuration" xmlns:hive="http://openscada.org/DA/Hive">
 
 	
 	<annotation></annotation>

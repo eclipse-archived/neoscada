@@ -58,6 +58,13 @@ public class ConfigurationActionBarContributor extends EditingDomainActionBarCon
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This keeps track of the active editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -197,7 +204,7 @@ public class ConfigurationActionBarContributor extends EditingDomainActionBarCon
     {
         super.contributeToMenu ( menuManager );
 
-        IMenuManager submenuManager = new MenuManager ( ExecEditorPlugin.INSTANCE.getString ( "_UI_ConfigurationEditor_menu" ), "org.openscada.da.exec.configurationMenuID" ); //$NON-NLS-1$ //$NON-NLS-2$
+        IMenuManager submenuManager = new MenuManager ( ExecEditorPlugin.INSTANCE.getString ( "_UI_ConfigurationEditor_menu" ), "org.eclipse.scada.da.exec.configurationMenuID" ); //$NON-NLS-1$ //$NON-NLS-2$
         menuManager.insertAfter ( "additions", submenuManager ); //$NON-NLS-1$
         submenuManager.add ( new Separator ( "settings" ) ); //$NON-NLS-1$
         submenuManager.add ( new Separator ( "actions" ) ); //$NON-NLS-1$
@@ -216,12 +223,14 @@ public class ConfigurationActionBarContributor extends EditingDomainActionBarCon
 
         // Force an update because Eclipse hides empty menus now.
         //
-        submenuManager.addMenuListener ( new IMenuListener () {
-            public void menuAboutToShow ( IMenuManager menuManager )
-            {
-                menuManager.updateAll ( true );
-            }
-        } );
+        submenuManager.addMenuListener
+                ( new IMenuListener ()
+                {
+                    public void menuAboutToShow ( IMenuManager menuManager )
+                    {
+                        menuManager.updateAll ( true );
+                    }
+                } );
 
         addGlobalActions ( submenuManager );
     }

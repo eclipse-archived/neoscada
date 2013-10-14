@@ -12,7 +12,7 @@ package org.eclipse.scada.da.server.proxy;
 
 import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.core.server.HiveCreator;
-import org.eclipse.scada.da.proxy.configuration.RootType;
+import org.eclipse.scada.da.server.proxy.configuration.RootType;
 
 public class HiveCreatorImpl implements HiveCreator
 {

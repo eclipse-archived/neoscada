@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Common -->
       <package
-            uri="http://openscada.org/Common"
-            class="org.eclipse.scada.common.CommonPackage"
+            uri="http://eclipse.org/SCADA/DA/Server/Common"
+            class="org.eclipse.scada.da.server.common.CommonPackage"
             genModel="model/Common.genmodel"/>
    </extension>
 
@@ -18,7 +18,6 @@
       <!-- @generated Common -->
       <parser
             type="common"
-            class="org.eclipse.scada.common.util.CommonResourceFactoryImpl"/>
+            class="org.eclipse.scada.da.server.common.util.CommonResourceFactoryImpl"/>
    </extension>
-
 </plugin>

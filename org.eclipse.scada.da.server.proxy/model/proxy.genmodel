@@ -4,10 +4,10 @@
     modelDirectory="/org.eclipse.scada.da.server.proxy/emfsrc" modelPluginID="org.eclipse.scada.da.server.proxy"
     modelName="Proxy" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" containmentProxies="true"
-    complianceLevel="6.0" operationReflection="true" importOrganizing="true">
+    complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>proxy.xsd</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.openscada.da.proxy" resource="XML"
-      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+  <genPackages prefix="Configuration" basePackage="org.eclipse.scada.da.server.proxy"
+      resource="XML" disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
     <genClasses ecoreClass="configuration.ecore#//ConnectionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConnectionType/folder"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ConnectionType/className"/>

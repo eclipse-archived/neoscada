@@ -34,6 +34,13 @@ public class SimpleExtractorTypeItemProvider extends ExtractorTypeItemProvider i
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -71,8 +78,9 @@ public class SimpleExtractorTypeItemProvider extends ExtractorTypeItemProvider i
     public String getText ( Object object )
     {
         String label = ( (SimpleExtractorType)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_SimpleExtractorType_type" ) : //$NON-NLS-1$
-        getString ( "_UI_SimpleExtractorType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_SimpleExtractorType_type" ) : //$NON-NLS-1$
+                getString ( "_UI_SimpleExtractorType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

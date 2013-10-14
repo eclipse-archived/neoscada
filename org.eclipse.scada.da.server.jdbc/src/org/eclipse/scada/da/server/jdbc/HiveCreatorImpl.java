@@ -12,7 +12,7 @@ package org.eclipse.scada.da.server.jdbc;
 
 import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.core.server.HiveCreator;
-import org.eclipse.scada.da.jdbc.configuration.RootType;
+import org.eclipse.scada.da.server.jdbc.configuration.RootType;
 import org.osgi.framework.BundleContext;
 
 public class HiveCreatorImpl implements HiveCreator

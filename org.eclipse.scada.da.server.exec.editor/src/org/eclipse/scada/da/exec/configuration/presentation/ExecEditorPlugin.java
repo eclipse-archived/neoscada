@@ -13,7 +13,7 @@ package org.eclipse.scada.da.exec.configuration.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.scada.common.provider.CommonEditPlugin;
+import org.eclipse.scada.da.server.common.provider.CommonEditPlugin;
 
 /**
  * This is the central singleton for the Exec editor plugin.
@@ -24,6 +24,13 @@ import org.eclipse.scada.common.provider.CommonEditPlugin;
 public final class ExecEditorPlugin extends EMFPlugin
 {
     //$NON-NLS-1$
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
 
     /**
      * Keep track of the singleton.
@@ -49,7 +56,10 @@ public final class ExecEditorPlugin extends EMFPlugin
      */
     public ExecEditorPlugin ()
     {
-        super ( new ResourceLocator[] { CommonEditPlugin.INSTANCE, } );
+        super ( new ResourceLocator[]
+        {
+                CommonEditPlugin.INSTANCE,
+        } );
     }
 
     /**

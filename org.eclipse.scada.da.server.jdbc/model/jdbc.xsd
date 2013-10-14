@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://openscada.org/DA/JDBC/Configuration"
-	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
-	xmlns:jdbc="http://openscada.org/DA/JDBC/Configuration">
+<schema targetNamespace="http://eclipse.org/SCADA/DA/JDBC/Configuration"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:jdbc="http://eclipse.org/SCADA/DA/JDBC/Configuration">
 
 	<element name="root" type="jdbc:RootType"></element>
 

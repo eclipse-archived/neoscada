@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated proxy -->
       <package
-            uri="http://openscada.org/DA/Proxy/Configuration"
-            class="org.eclipse.scada.da.proxy.configuration.ConfigurationPackage"
+            uri="http://eclipse.org/SCADA/DA/Proxy/Configuration"
+            class="org.eclipse.scada.da.server.proxy.configuration.ConfigurationPackage"
             genModel="model/proxy.genmodel"/>
    </extension>
 
@@ -18,7 +18,6 @@
       <!-- @generated proxy -->
       <parser
             type="configuration"
-            class="org.eclipse.scada.da.proxy.configuration.util.ConfigurationResourceFactoryImpl"/>
+            class="org.eclipse.scada.da.server.proxy.configuration.util.ConfigurationResourceFactoryImpl"/>
    </extension>
-
 </plugin>

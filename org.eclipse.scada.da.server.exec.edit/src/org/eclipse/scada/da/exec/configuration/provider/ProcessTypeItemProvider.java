@@ -42,6 +42,13 @@ public class ProcessTypeItemProvider extends ItemProviderAdapter implements IEdi
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -79,9 +86,19 @@ public class ProcessTypeItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addArgumentPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProcessType_argument_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ProcessType_argument_feature", "_UI_ProcessType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.PROCESS_TYPE__ARGUMENT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ProcessType_argument_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProcessType_argument_feature", "_UI_ProcessType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.PROCESS_TYPE__ARGUMENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -92,9 +109,19 @@ public class ProcessTypeItemProvider extends ItemProviderAdapter implements IEdi
      */
     protected void addExecPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ProcessType_exec_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ProcessType_exec_feature", "_UI_ProcessType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.PROCESS_TYPE__EXEC, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ProcessType_exec_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProcessType_exec_feature", "_UI_ProcessType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.PROCESS_TYPE__EXEC,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -152,8 +179,9 @@ public class ProcessTypeItemProvider extends ItemProviderAdapter implements IEdi
     public String getText ( Object object )
     {
         String label = ( (ProcessType)object ).getExec ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ProcessType_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ProcessType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_ProcessType_type" ) : //$NON-NLS-1$
+                getString ( "_UI_ProcessType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -193,7 +221,10 @@ public class ProcessTypeItemProvider extends ItemProviderAdapter implements IEdi
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.PROCESS_TYPE__ENV, ConfigurationFactory.eINSTANCE.createEnvEntryType () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.PROCESS_TYPE__ENV,
+                        ConfigurationFactory.eINSTANCE.createEnvEntryType () ) );
     }
 
     /**

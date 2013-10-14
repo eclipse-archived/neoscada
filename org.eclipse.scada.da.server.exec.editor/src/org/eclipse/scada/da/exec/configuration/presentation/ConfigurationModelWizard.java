@@ -80,6 +80,13 @@ public class ConfigurationModelWizard extends Wizard implements INewWizard
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * The supported extensions for created files.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -228,48 +235,50 @@ public class ConfigurationModelWizard extends Wizard implements INewWizard
 
             // Do the work within an operation.
             //
-            WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
-                @Override
-                protected void execute ( IProgressMonitor progressMonitor )
-                {
-                    try
+            WorkspaceModifyOperation operation =
+                    new WorkspaceModifyOperation ()
                     {
-                        // Create a resource set
-                        //
-                        ResourceSet resourceSet = new ResourceSetImpl ();
-
-                        // Get the URI of the model file.
-                        //
-                        URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
-
-                        // Create a resource for this file.
-                        //
-                        Resource resource = resourceSet.createResource ( fileURI );
-
-                        // Add the initial model object to the contents.
-                        //
-                        EObject rootObject = createInitialModel ();
-                        if ( rootObject != null )
+                        @Override
+                        protected void execute ( IProgressMonitor progressMonitor )
                         {
-                            resource.getContents ().add ( rootObject );
-                        }
+                            try
+                            {
+                                // Create a resource set
+                                //
+                                ResourceSet resourceSet = new ResourceSetImpl ();
 
-                        // Save the contents of the resource to the file system.
-                        //
-                        Map<Object, Object> options = new HashMap<Object, Object> ();
-                        options.put ( XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding () );
-                        resource.save ( options );
-                    }
-                    catch ( Exception exception )
-                    {
-                        ExecEditorPlugin.INSTANCE.log ( exception );
-                    }
-                    finally
-                    {
-                        progressMonitor.done ();
-                    }
-                }
-            };
+                                // Get the URI of the model file.
+                                //
+                                URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
+
+                                // Create a resource for this file.
+                                //
+                                Resource resource = resourceSet.createResource ( fileURI );
+
+                                // Add the initial model object to the contents.
+                                //
+                                EObject rootObject = createInitialModel ();
+                                if ( rootObject != null )
+                                {
+                                    resource.getContents ().add ( rootObject );
+                                }
+
+                                // Save the contents of the resource to the file system.
+                                //
+                                Map<Object, Object> options = new HashMap<Object, Object> ();
+                                options.put ( XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding () );
+                                resource.save ( options );
+                            }
+                            catch ( Exception exception )
+                            {
+                                ExecEditorPlugin.INSTANCE.log ( exception );
+                            }
+                            finally
+                            {
+                                progressMonitor.done ();
+                            }
+                        }
+                    };
 
             getContainer ().run ( false, false, operation );
 
@@ -281,19 +290,23 @@ public class ConfigurationModelWizard extends Wizard implements INewWizard
             if ( activePart instanceof ISetSelectionTarget )
             {
                 final ISelection targetSelection = new StructuredSelection ( modelFile );
-                getShell ().getDisplay ().asyncExec ( new Runnable () {
-                    public void run ()
-                    {
-                        ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
-                    }
-                } );
+                getShell ().getDisplay ().asyncExec
+                        ( new Runnable ()
+                        {
+                            public void run ()
+                            {
+                                ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
+                            }
+                        } );
             }
 
             // Open an editor on the new file.
             //
             try
             {
-                page.openEditor ( new FileEditorInput ( modelFile ), workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
+                page.openEditor
+                        ( new FileEditorInput ( modelFile ),
+                                workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
             }
             catch ( PartInitException exception )
             {
@@ -485,7 +498,8 @@ public class ConfigurationModelWizard extends Wizard implements INewWizard
          * <!-- end-user-doc -->
          * @generated
          */
-        protected ModifyListener validator = new ModifyListener () {
+        protected ModifyListener validator = new ModifyListener ()
+        {
             public void modifyText ( ModifyEvent e )
             {
                 setPageComplete ( validatePage () );

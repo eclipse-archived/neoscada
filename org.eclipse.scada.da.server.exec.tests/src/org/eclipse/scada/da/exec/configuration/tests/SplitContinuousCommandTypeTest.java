@@ -31,6 +31,13 @@ public class SplitContinuousCommandTypeTest extends ContinuousCommandTypeTest
      * <!-- end-user-doc -->
      * @generated
      */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public static void main ( String[] args )
     {
         TestRunner.run ( SplitContinuousCommandTypeTest.class );

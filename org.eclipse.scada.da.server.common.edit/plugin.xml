@@ -7,8 +7,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated Common -->
       <factory
-            uri="http://openscada.org/Common"
-            class="org.eclipse.scada.common.provider.CommonItemProviderAdapterFactory"
+            uri="http://eclipse.org/SCADA/DA/Server/Common"
+            class="org.eclipse.scada.da.server.common.provider.CommonItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://openscada.org/DA/Exec/Configuration"
-	elementFormDefault="qualified"
-	xmlns="http://www.w3.org/2001/XMLSchema"
-	xmlns:exec="http://openscada.org/DA/Exec/Configuration"
-	xmlns:common="http://openscada.org/Common">
+<schema targetNamespace="http://eclipse.org/SCADA/DA/Exec/Configuration"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:exec="http://eclipse.org/SCADA/DA/Exec/Configuration" xmlns:common="http://eclipse.org/SCADA/DA/Server/Common">
 
-    <import schemaLocation="../../org.eclipse.scada.da.server.common/model/Common.xsd" namespace="http://openscada.org/Common"/>
+    <import schemaLocation="../../org.eclipse.scada.da.server.common/model/Common.xsd" namespace="http://eclipse.org/SCADA/DA/Server/Common"/>
 	
     <element name="root" type="exec:RootType"></element>
     

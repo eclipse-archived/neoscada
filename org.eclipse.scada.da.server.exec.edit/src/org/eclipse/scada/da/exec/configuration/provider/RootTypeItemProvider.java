@@ -43,6 +43,13 @@ public class RootTypeItemProvider extends ItemProviderAdapter implements IEditin
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -79,9 +86,19 @@ public class RootTypeItemProvider extends ItemProviderAdapter implements IEditin
      */
     protected void addAdditionalConfigurationDirectoryPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_RootType_additionalConfigurationDirectory_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_RootType_additionalConfigurationDirectory_feature", "_UI_RootType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.ROOT_TYPE__ADDITIONAL_CONFIGURATION_DIRECTORY, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_RootType_additionalConfigurationDirectory_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_RootType_additionalConfigurationDirectory_feature", "_UI_RootType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.ROOT_TYPE__ADDITIONAL_CONFIGURATION_DIRECTORY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -177,15 +194,39 @@ public class RootTypeItemProvider extends ItemProviderAdapter implements IEditin
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP, FeatureMapUtil.createEntry ( ConfigurationPackage.Literals.ROOT_TYPE__QUEUE, ConfigurationFactory.eINSTANCE.createQueueType () ) ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP,
+                        FeatureMapUtil.createEntry
+                                ( ConfigurationPackage.Literals.ROOT_TYPE__QUEUE,
+                                        ConfigurationFactory.eINSTANCE.createQueueType () ) ) );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP, FeatureMapUtil.createEntry ( ConfigurationPackage.Literals.ROOT_TYPE__COMMAND, ConfigurationFactory.eINSTANCE.createSplitContinuousCommandType () ) ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP,
+                        FeatureMapUtil.createEntry
+                                ( ConfigurationPackage.Literals.ROOT_TYPE__COMMAND,
+                                        ConfigurationFactory.eINSTANCE.createSplitContinuousCommandType () ) ) );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP, FeatureMapUtil.createEntry ( ConfigurationPackage.Literals.ROOT_TYPE__HIVE_PROCESS, ConfigurationFactory.eINSTANCE.createHiveProcessCommandType () ) ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP,
+                        FeatureMapUtil.createEntry
+                                ( ConfigurationPackage.Literals.ROOT_TYPE__HIVE_PROCESS,
+                                        ConfigurationFactory.eINSTANCE.createHiveProcessCommandType () ) ) );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP, FeatureMapUtil.createEntry ( ConfigurationPackage.Literals.ROOT_TYPE__TRIGGER, ConfigurationFactory.eINSTANCE.createTriggerCommandType () ) ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP,
+                        FeatureMapUtil.createEntry
+                                ( ConfigurationPackage.Literals.ROOT_TYPE__TRIGGER,
+                                        ConfigurationFactory.eINSTANCE.createTriggerCommandType () ) ) );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP, FeatureMapUtil.createEntry ( ConfigurationPackage.Literals.ROOT_TYPE__ADDITIONAL_CONFIGURATION_DIRECTORY, "" ) ) ); //$NON-NLS-1$
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.ROOT_TYPE__GROUP,
+                        FeatureMapUtil.createEntry
+                                ( ConfigurationPackage.Literals.ROOT_TYPE__ADDITIONAL_CONFIGURATION_DIRECTORY, "" ) ) ); //$NON-NLS-1$
     }
 
     /**

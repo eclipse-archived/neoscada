@@ -38,6 +38,13 @@ public class ContinuousCommandTypeItemProvider extends CommandTypeItemProvider i
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -75,9 +82,19 @@ public class ContinuousCommandTypeItemProvider extends CommandTypeItemProvider i
      */
     protected void addMaxInputBufferPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ContinuousCommandType_maxInputBuffer_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ContinuousCommandType_maxInputBuffer_feature", "_UI_ContinuousCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.CONTINUOUS_COMMAND_TYPE__MAX_INPUT_BUFFER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ContinuousCommandType_maxInputBuffer_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ContinuousCommandType_maxInputBuffer_feature", "_UI_ContinuousCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.CONTINUOUS_COMMAND_TYPE__MAX_INPUT_BUFFER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -88,9 +105,19 @@ public class ContinuousCommandTypeItemProvider extends CommandTypeItemProvider i
      */
     protected void addRestartDelayPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_ContinuousCommandType_restartDelay_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_ContinuousCommandType_restartDelay_feature", "_UI_ContinuousCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.CONTINUOUS_COMMAND_TYPE__RESTART_DELAY, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ContinuousCommandType_restartDelay_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ContinuousCommandType_restartDelay_feature", "_UI_ContinuousCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.CONTINUOUS_COMMAND_TYPE__RESTART_DELAY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -115,8 +142,9 @@ public class ContinuousCommandTypeItemProvider extends CommandTypeItemProvider i
     public String getText ( Object object )
     {
         String label = ( (ContinuousCommandType)object ).getId ();
-        return label == null || label.length () == 0 ? getString ( "_UI_ContinuousCommandType_type" ) : //$NON-NLS-1$
-        getString ( "_UI_ContinuousCommandType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_ContinuousCommandType_type" ) : //$NON-NLS-1$
+                getString ( "_UI_ContinuousCommandType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

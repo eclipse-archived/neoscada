@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-import org.eclipse.scada.common.CommonPackage;
 import org.eclipse.scada.da.exec.configuration.CommandType;
 import org.eclipse.scada.da.exec.configuration.ConfigurationFactory;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
@@ -56,6 +55,13 @@ import org.eclipse.scada.da.exec.configuration.util.ConfigurationValidator;
 public class ConfigurationPackageImpl extends EPackageImpl implements ConfigurationPackage
 {
     //$NON-NLS-1$
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
 
     /**
      * <!-- begin-user-doc -->
@@ -283,14 +289,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
-     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+     * package
      * package URI value.
-     * <p>Note: the correct way to create the package is via the static
-     * factory method {@link #init init()}, which also performs
-     * initialization of the package, or returns the registered package,
-     * if one already exists.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <p>
+     * Note: the correct way to create the package is via the static factory
+     * method {@link #init init()}, which also performs initialization of the
+     * package, or returns the registered package, if one already exists. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.eclipse.scada.da.exec.configuration.ConfigurationPackage#eNS_URI
      * @see #init()
@@ -309,12 +316,14 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+     * Creates, registers, and initializes the <b>Package</b> for this model,
+     * and for any others upon which it depends.
+     * <p>
+     * This method is used to initialize {@link ConfigurationPackage#eINSTANCE}
+     * when that field is accessed. Clients should not invoke it directly.
+     * Instead, they should simply access that field to obtain the package. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * <p>This method is used to initialize {@link ConfigurationPackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -331,7 +340,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         isInited = true;
 
         // Initialize simple dependencies
-        CommonPackage.eINSTANCE.eClass ();
+        org.eclipse.scada.da.server.common.CommonPackage.eINSTANCE.eClass ();
         XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
@@ -341,12 +350,15 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         theConfigurationPackage.initializePackageContents ();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put ( theConfigurationPackage, new EValidator.Descriptor () {
-            public EValidator getEValidator ()
-            {
-                return ConfigurationValidator.INSTANCE;
-            }
-        } );
+        EValidator.Registry.INSTANCE.put
+                ( theConfigurationPackage,
+                        new EValidator.Descriptor ()
+                        {
+                            public EValidator getEValidator ()
+                            {
+                                return ConfigurationValidator.INSTANCE;
+                            }
+                        } );
 
         // Mark meta-data to indicate it can't be changed
         theConfigurationPackage.freeze ();
@@ -361,6 +373,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCommandType ()
     {
         return commandTypeEClass;
@@ -371,6 +384,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getCommandType_Process ()
     {
         return (EReference)commandTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -381,6 +395,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getCommandType_Extractor ()
     {
         return (EReference)commandTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -391,6 +406,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCommandType_Id ()
     {
         return (EAttribute)commandTypeEClass.getEStructuralFeatures ().get ( 2 );
@@ -401,6 +417,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getContinuousCommandType ()
     {
         return continuousCommandTypeEClass;
@@ -411,6 +428,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getContinuousCommandType_MaxInputBuffer ()
     {
         return (EAttribute)continuousCommandTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -421,6 +439,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getContinuousCommandType_RestartDelay ()
     {
         return (EAttribute)continuousCommandTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -431,6 +450,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getCustomExtractorType ()
     {
         return customExtractorTypeEClass;
@@ -441,6 +461,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCustomExtractorType_Any ()
     {
         return (EAttribute)customExtractorTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -451,6 +472,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getCustomExtractorType_Class ()
     {
         return (EAttribute)customExtractorTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -461,6 +483,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDocumentRoot ()
     {
         return documentRootEClass;
@@ -471,6 +494,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getDocumentRoot_Mixed ()
     {
         return (EAttribute)documentRootEClass.getEStructuralFeatures ().get ( 0 );
@@ -481,6 +505,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_XMLNSPrefixMap ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 1 );
@@ -491,6 +516,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_XSISchemaLocation ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 2 );
@@ -501,6 +527,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_Root ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 3 );
@@ -511,6 +538,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getEnvEntryType ()
     {
         return envEntryTypeEClass;
@@ -521,6 +549,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getEnvEntryType_Name ()
     {
         return (EAttribute)envEntryTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -531,6 +560,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getEnvEntryType_Value ()
     {
         return (EAttribute)envEntryTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -541,6 +571,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getExtractorType ()
     {
         return extractorTypeEClass;
@@ -551,6 +582,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExtractorType_Name ()
     {
         return (EAttribute)extractorTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -561,6 +593,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getFieldExtractorType ()
     {
         return fieldExtractorTypeEClass;
@@ -571,6 +604,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getFieldExtractorType_Field ()
     {
         return (EReference)fieldExtractorTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -581,6 +615,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getFieldType ()
     {
         return fieldTypeEClass;
@@ -591,6 +626,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFieldType_Name ()
     {
         return (EAttribute)fieldTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -601,6 +637,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getFieldType_VariantType ()
     {
         return (EAttribute)fieldTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -611,6 +648,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHiveProcessCommandType ()
     {
         return hiveProcessCommandTypeEClass;
@@ -621,6 +659,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getNagiosReturnCodeExtractorType ()
     {
         return nagiosReturnCodeExtractorTypeEClass;
@@ -631,6 +670,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getPlainStreamExtractorType ()
     {
         return plainStreamExtractorTypeEClass;
@@ -641,6 +681,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getProcessType ()
     {
         return processTypeEClass;
@@ -651,6 +692,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProcessType_Argument ()
     {
         return (EAttribute)processTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -661,6 +703,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getProcessType_Env ()
     {
         return (EReference)processTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -671,6 +714,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getProcessType_Exec ()
     {
         return (EAttribute)processTypeEClass.getEStructuralFeatures ().get ( 2 );
@@ -681,6 +725,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getQueueType ()
     {
         return queueTypeEClass;
@@ -691,6 +736,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getQueueType_Command ()
     {
         return (EReference)queueTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -701,6 +747,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getQueueType_Name ()
     {
         return (EAttribute)queueTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -711,6 +758,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRegExExtractorType ()
     {
         return regExExtractorTypeEClass;
@@ -721,6 +769,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getRegExExtractorType_Expression ()
     {
         return (EAttribute)regExExtractorTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -731,6 +780,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getRegExExtractorType_RequireFullMatch ()
     {
         return (EAttribute)regExExtractorTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -741,6 +791,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getReturnCodeExtractorType ()
     {
         return returnCodeExtractorTypeEClass;
@@ -751,6 +802,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getRootType ()
     {
         return rootTypeEClass;
@@ -761,6 +813,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getRootType_Group ()
     {
         return (EAttribute)rootTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -771,6 +824,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRootType_Queue ()
     {
         return (EReference)rootTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -781,6 +835,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRootType_Command ()
     {
         return (EReference)rootTypeEClass.getEStructuralFeatures ().get ( 2 );
@@ -791,6 +846,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRootType_HiveProcess ()
     {
         return (EReference)rootTypeEClass.getEStructuralFeatures ().get ( 3 );
@@ -801,6 +857,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getRootType_Trigger ()
     {
         return (EReference)rootTypeEClass.getEStructuralFeatures ().get ( 4 );
@@ -811,6 +868,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getRootType_AdditionalConfigurationDirectory ()
     {
         return (EAttribute)rootTypeEClass.getEStructuralFeatures ().get ( 5 );
@@ -821,6 +879,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSimpleExtractorType ()
     {
         return simpleExtractorTypeEClass;
@@ -831,6 +890,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSingleCommandType ()
     {
         return singleCommandTypeEClass;
@@ -841,6 +901,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSingleCommandType_Period ()
     {
         return (EAttribute)singleCommandTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -851,6 +912,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSplitContinuousCommandType ()
     {
         return splitContinuousCommandTypeEClass;
@@ -861,6 +923,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getSplitContinuousCommandType_Splitter ()
     {
         return (EReference)splitContinuousCommandTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -871,6 +934,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSplitContinuousCommandType_IgnoreStartLines ()
     {
         return (EAttribute)splitContinuousCommandTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -881,6 +945,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSplitterExtractorType ()
     {
         return splitterExtractorTypeEClass;
@@ -891,6 +956,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSplitterExtractorType_SplitExpression ()
     {
         return (EAttribute)splitterExtractorTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -901,6 +967,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getSplitterType ()
     {
         return splitterTypeEClass;
@@ -911,6 +978,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSplitterType_Parameter ()
     {
         return (EAttribute)splitterTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -921,6 +989,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getSplitterType_Type ()
     {
         return (EAttribute)splitterTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -931,6 +1000,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getTriggerCommandType ()
     {
         return triggerCommandTypeEClass;
@@ -941,6 +1011,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTriggerCommandType_ArgumentPlaceholder ()
     {
         return (EAttribute)triggerCommandTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -951,6 +1022,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTriggerCommandType_Fork ()
     {
         return (EAttribute)triggerCommandTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -961,6 +1033,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getTriggerCommandType_SkipIfNull ()
     {
         return (EAttribute)triggerCommandTypeEClass.getEStructuralFeatures ().get ( 2 );
@@ -971,6 +1044,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EEnum getVariantTypeType ()
     {
         return variantTypeTypeEEnum;
@@ -981,6 +1055,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getClassType ()
     {
         return classTypeEDataType;
@@ -991,6 +1066,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getNameType ()
     {
         return nameTypeEDataType;
@@ -1001,6 +1077,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getNameType1 ()
     {
         return nameType1EDataType;
@@ -1011,6 +1088,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getPeriodType ()
     {
         return periodTypeEDataType;
@@ -1021,6 +1099,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getPeriodTypeObject ()
     {
         return periodTypeObjectEDataType;
@@ -1031,6 +1110,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getRestartDelayType ()
     {
         return restartDelayTypeEDataType;
@@ -1041,6 +1121,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getRestartDelayTypeObject ()
     {
         return restartDelayTypeObjectEDataType;
@@ -1051,6 +1132,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getTypeType ()
     {
         return typeTypeEDataType;
@@ -1061,6 +1143,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EDataType getVariantTypeTypeObject ()
     {
         return variantTypeTypeObjectEDataType;
@@ -1071,6 +1154,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ConfigurationFactory getConfigurationFactory ()
     {
         return (ConfigurationFactory)getEFactoryInstance ();
@@ -1362,245 +1446,458 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
     protected void createExtendedMetaDataAnnotations ()
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$		
-        addAnnotation ( classTypeEDataType, source, new String[] { "name", "class_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-        "pattern", "\\w+(\\.\\w+)*" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( commandTypeEClass, source, new String[] { "name", "CommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getCommandType_Process (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "process", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getCommandType_Extractor (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "extractor", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getCommandType_Id (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "id" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( continuousCommandTypeEClass, source, new String[] { "name", "ContinuousCommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getContinuousCommandType_MaxInputBuffer (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "maxInputBuffer" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getContinuousCommandType_RestartDelay (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "restartDelay" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( customExtractorTypeEClass, source, new String[] { "name", "CustomExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getCustomExtractorType_Any (), source, new String[] { "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
-        "wildcards", "##any", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", ":1", //$NON-NLS-1$ //$NON-NLS-2$
-        "processing", "lax" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getCustomExtractorType_Class (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "class" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( documentRootEClass, source, new String[] { "name", "", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_Mixed (), source, new String[] { "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_XMLNSPrefixMap (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_XSISchemaLocation (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_Root (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "root", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( envEntryTypeEClass, source, new String[] { "name", "EnvEntryType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getEnvEntryType_Name (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getEnvEntryType_Value (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "value" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( extractorTypeEClass, source, new String[] { "name", "ExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getExtractorType_Name (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( fieldExtractorTypeEClass, source, new String[] { "name", "FieldExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getFieldExtractorType_Field (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "field", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( fieldTypeEClass, source, new String[] { "name", "FieldType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getFieldType_Name (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getFieldType_VariantType (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "variantType" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( hiveProcessCommandTypeEClass, source, new String[] { "name", "HiveProcessCommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( nagiosReturnCodeExtractorTypeEClass, source, new String[] { "name", "NagiosReturnCodeExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( nameTypeEDataType, source, new String[] { "name", "name_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-        "whiteSpace", "collapse" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( nameType1EDataType, source, new String[] { "name", "name_._1_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-        "whiteSpace", "collapse", //$NON-NLS-1$ //$NON-NLS-2$
-        "pattern", "\\w+" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( periodTypeEDataType, source, new String[] { "name", "period_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#int", //$NON-NLS-1$ //$NON-NLS-2$
-        "minExclusive", "0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( periodTypeObjectEDataType, source, new String[] { "name", "period_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "period_._type" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( plainStreamExtractorTypeEClass, source, new String[] { "name", "PlainStreamExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( processTypeEClass, source, new String[] { "name", "ProcessType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getProcessType_Argument (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "argument", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getProcessType_Env (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "env", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getProcessType_Exec (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "exec" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( queueTypeEClass, source, new String[] { "name", "QueueType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getQueueType_Command (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "command", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getQueueType_Name (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( regExExtractorTypeEClass, source, new String[] { "name", "RegExExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRegExExtractorType_Expression (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "expression", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRegExExtractorType_RequireFullMatch (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "requireFullMatch" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( restartDelayTypeEDataType, source, new String[] { "name", "restartDelay_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#int" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( restartDelayTypeObjectEDataType, source, new String[] { "name", "restartDelay_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "restartDelay_._type" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( returnCodeExtractorTypeEClass, source, new String[] { "name", "ReturnCodeExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( rootTypeEClass, source, new String[] { "name", "RootType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_Group (), source, new String[] { "kind", "group", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_Queue (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "queue", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
-        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_Command (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "command", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
-        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_HiveProcess (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "hiveProcess", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
-        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_Trigger (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "trigger", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
-        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getRootType_AdditionalConfigurationDirectory (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "additionalConfigurationDirectory", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
-        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( simpleExtractorTypeEClass, source, new String[] { "name", "SimpleExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( singleCommandTypeEClass, source, new String[] { "name", "SingleCommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSingleCommandType_Period (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "period" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( splitContinuousCommandTypeEClass, source, new String[] { "name", "SplitContinuousCommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSplitContinuousCommandType_Splitter (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "splitter", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSplitContinuousCommandType_IgnoreStartLines (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "ignoreStartLines" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( splitterExtractorTypeEClass, source, new String[] { "name", "SplitterExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSplitterExtractorType_SplitExpression (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "splitExpression" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( splitterTypeEClass, source, new String[] { "name", "SplitterType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSplitterType_Parameter (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "parameter" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getSplitterType_Type (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "type" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( triggerCommandTypeEClass, source, new String[] { "name", "TriggerCommandType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getTriggerCommandType_ArgumentPlaceholder (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "argumentPlaceholder" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getTriggerCommandType_Fork (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "fork" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getTriggerCommandType_SkipIfNull (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "skipIfNull" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( typeTypeEDataType, source, new String[] { "name", "type_._type", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
-        "pattern", "(newline|regexpMatch|regexpSplit|split|class#.*)" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( variantTypeTypeEEnum, source, new String[] { "name", "variantType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( variantTypeTypeObjectEDataType, source, new String[] { "name", "variantType_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
-        "baseType", "variantType_._type" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
+        addAnnotation ( classTypeEDataType,
+                source,
+                new String[]
+                {       "name", "class_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+                        "pattern", "\\w+(\\.\\w+)*" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( commandTypeEClass,
+                source,
+                new String[]
+                {       "name", "CommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getCommandType_Process (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "process", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getCommandType_Extractor (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "extractor", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getCommandType_Id (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "id" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( continuousCommandTypeEClass,
+                source,
+                new String[]
+                {       "name", "ContinuousCommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getContinuousCommandType_MaxInputBuffer (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "maxInputBuffer" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getContinuousCommandType_RestartDelay (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "restartDelay" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( customExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "CustomExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getCustomExtractorType_Any (),
+                source,
+                new String[]
+                {       "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+                        "wildcards", "##any", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", ":1", //$NON-NLS-1$ //$NON-NLS-2$
+                        "processing", "lax" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getCustomExtractorType_Class (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "class" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( documentRootEClass,
+                source,
+                new String[]
+                {       "name", "", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_Mixed (),
+                source,
+                new String[]
+                {       "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_XMLNSPrefixMap (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_XSISchemaLocation (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_Root (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "root", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( envEntryTypeEClass,
+                source,
+                new String[]
+                {       "name", "EnvEntryType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getEnvEntryType_Name (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getEnvEntryType_Value (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "value" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( extractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "ExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getExtractorType_Name (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( fieldExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "FieldExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getFieldExtractorType_Field (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "field", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( fieldTypeEClass,
+                source,
+                new String[]
+                {       "name", "FieldType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getFieldType_Name (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getFieldType_VariantType (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "variantType" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( hiveProcessCommandTypeEClass,
+                source,
+                new String[]
+                {       "name", "HiveProcessCommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( nagiosReturnCodeExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "NagiosReturnCodeExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( nameTypeEDataType,
+                source,
+                new String[]
+                {       "name", "name_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+                        "whiteSpace", "collapse" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( nameType1EDataType,
+                source,
+                new String[]
+                {       "name", "name_._1_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+                        "whiteSpace", "collapse", //$NON-NLS-1$ //$NON-NLS-2$
+                        "pattern", "\\w+" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( periodTypeEDataType,
+                source,
+                new String[]
+                {       "name", "period_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#int", //$NON-NLS-1$ //$NON-NLS-2$
+                        "minExclusive", "0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( periodTypeObjectEDataType,
+                source,
+                new String[]
+                {       "name", "period_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "period_._type" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( plainStreamExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "PlainStreamExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( processTypeEClass,
+                source,
+                new String[]
+                {       "name", "ProcessType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProcessType_Argument (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "argument", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProcessType_Env (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "env", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProcessType_Exec (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "exec" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( queueTypeEClass,
+                source,
+                new String[]
+                {       "name", "QueueType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getQueueType_Command (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "command", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getQueueType_Name (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "name" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( regExExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "RegExExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRegExExtractorType_Expression (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "expression", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRegExExtractorType_RequireFullMatch (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "requireFullMatch" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( restartDelayTypeEDataType,
+                source,
+                new String[]
+                {       "name", "restartDelay_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#int" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( restartDelayTypeObjectEDataType,
+                source,
+                new String[]
+                {       "name", "restartDelay_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "restartDelay_._type" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( returnCodeExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "ReturnCodeExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( rootTypeEClass,
+                source,
+                new String[]
+                {       "name", "RootType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_Group (),
+                source,
+                new String[]
+                {       "kind", "group", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_Queue (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "queue", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+                        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_Command (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "command", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+                        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_HiveProcess (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "hiveProcess", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+                        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_Trigger (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "trigger", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+                        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getRootType_AdditionalConfigurationDirectory (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "additionalConfigurationDirectory", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace", //$NON-NLS-1$ //$NON-NLS-2$
+                        "group", "#group:0" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( simpleExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "SimpleExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( singleCommandTypeEClass,
+                source,
+                new String[]
+                {       "name", "SingleCommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSingleCommandType_Period (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "period" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( splitContinuousCommandTypeEClass,
+                source,
+                new String[]
+                {       "name", "SplitContinuousCommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSplitContinuousCommandType_Splitter (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "splitter", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSplitContinuousCommandType_IgnoreStartLines (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "ignoreStartLines" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( splitterExtractorTypeEClass,
+                source,
+                new String[]
+                {       "name", "SplitterExtractorType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSplitterExtractorType_SplitExpression (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "splitExpression" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( splitterTypeEClass,
+                source,
+                new String[]
+                {       "name", "SplitterType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSplitterType_Parameter (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "parameter" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getSplitterType_Type (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "type" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( triggerCommandTypeEClass,
+                source,
+                new String[]
+                {       "name", "TriggerCommandType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getTriggerCommandType_ArgumentPlaceholder (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "argumentPlaceholder" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getTriggerCommandType_Fork (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "fork" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getTriggerCommandType_SkipIfNull (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "skipIfNull" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( typeTypeEDataType,
+                source,
+                new String[]
+                {       "name", "type_._type", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "http://www.eclipse.org/emf/2003/XMLType#string", //$NON-NLS-1$ //$NON-NLS-2$
+                        "pattern", "(newline|regexpMatch|regexpSplit|split|class#.*)" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( variantTypeTypeEEnum,
+                source,
+                new String[]
+                {       "name", "variantType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( variantTypeTypeObjectEDataType,
+                source,
+                new String[]
+                {       "name", "variantType_._type:Object", //$NON-NLS-1$ //$NON-NLS-2$
+                        "baseType", "variantType_._type" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
     }
 
 } //ConfigurationPackageImpl

@@ -38,6 +38,13 @@ public class FieldExtractorTypeItemProvider extends ExtractorTypeItemProvider im
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -108,8 +115,9 @@ public class FieldExtractorTypeItemProvider extends ExtractorTypeItemProvider im
     public String getText ( Object object )
     {
         String label = ( (FieldExtractorType)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_FieldExtractorType_type" ) : //$NON-NLS-1$
-        getString ( "_UI_FieldExtractorType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_FieldExtractorType_type" ) : //$NON-NLS-1$
+                getString ( "_UI_FieldExtractorType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -145,7 +153,10 @@ public class FieldExtractorTypeItemProvider extends ExtractorTypeItemProvider im
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
-        newChildDescriptors.add ( createChildParameter ( ConfigurationPackage.Literals.FIELD_EXTRACTOR_TYPE__FIELD, ConfigurationFactory.eINSTANCE.createFieldType () ) );
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.FIELD_EXTRACTOR_TYPE__FIELD,
+                        ConfigurationFactory.eINSTANCE.createFieldType () ) );
     }
 
 }

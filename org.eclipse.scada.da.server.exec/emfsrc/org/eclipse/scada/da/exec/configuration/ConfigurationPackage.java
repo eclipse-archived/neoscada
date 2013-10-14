@@ -37,6 +37,13 @@ public interface ConfigurationPackage extends EPackage
 {
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * The package name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -50,7 +57,7 @@ public interface ConfigurationPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNS_URI = "http://openscada.org/DA/Exec/Configuration"; //$NON-NLS-1$
+    String eNS_URI = "http://eclipse.org/SCADA/DA/Exec/Configuration"; //$NON-NLS-1$
 
     /**
      * The package namespace name.

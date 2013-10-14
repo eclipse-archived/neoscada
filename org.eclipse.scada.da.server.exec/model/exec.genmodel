@@ -2,12 +2,15 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 Jens Reimann and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    Jens Reimann - initial API and implementation"
     modelDirectory="/org.eclipse.scada.da.server.exec/emfsrc" modelPluginID="org.eclipse.scada.da.server.exec"
-    modelName="Exec" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.xsd.ecore.importer" containmentProxies="true"
-    complianceLevel="6.0" runtimeVersion="2.8" usedGenPackages="../../org.eclipse.scada.da.server.common/model/Common.genmodel#//common"
+    modelName="Exec" editPluginClass="org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin"
+    editorPluginClass="org.eclipse.scada.da.exec.configuration.presentation.ExecEditorPlugin"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" testSuiteClass="org.eclipse.scada.da.exec.configuration.tests.ExecAllTests"
+    importerID="org.eclipse.xsd.ecore.importer" containmentProxies="true" complianceLevel="7.0"
+    runtimeVersion="2.9" usedGenPackages="../../org.eclipse.scada.da.server.common/model/Common.genmodel#//common"
     operationReflection="true" importOrganizing="true">
   <foreignModel>exec.xsd</foreignModel>
-  <genPackages prefix="Configuration" basePackage="org.openscada.da.exec" resource="XML"
+  <genPackages prefix="Configuration" basePackage="org.eclipse.scada.da.exec" resource="XML"
       disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//VariantTypeType">
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/BOOLEAN"/>

@@ -15,7 +15,7 @@ package org.eclipse.scada.da.core.server;
  */
 public interface HiveCreator
 {
-    public static final String SERVICE_REFERENCE_TYPE = "openscada.hiveReferenceType";
+    public static final String SERVICE_REFERENCE_TYPE = "eclipse.scada.hiveReferenceType";
 
     public Hive createHive ( String reference, Object configuration ) throws Exception;
 }

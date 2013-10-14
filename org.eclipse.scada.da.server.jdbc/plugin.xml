@@ -3,20 +3,6 @@
 
 <plugin>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated jdbc -->
-      <package
-            uri="http://openscada.org/DA/JDBC/Configuration"
-            class="org.eclipse.scada.da.jdbc.configuration.ConfigurationPackage"
-            genModel="model/jdbc.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated jdbc -->
-      <parser
-            type="configuration"
-            class="org.eclipse.scada.da.jdbc.configuration.util.ConfigurationResourceFactoryImpl"/>
-   </extension>
    <extension
          point="org.eclipse.wst.xml.core.catalogContributions">
       <catalogContribution>
@@ -27,4 +13,18 @@
       </catalogContribution>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated jdbc -->
+      <package
+            uri="http://eclipse.org/SCADA/DA/JDBC/Configuration"
+            class="org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage"
+            genModel="model/jdbc.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated jdbc -->
+      <parser
+            type="configuration"
+            class="org.eclipse.scada.da.server.jdbc.configuration.util.ConfigurationResourceFactoryImpl"/>
+   </extension>
 </plugin>

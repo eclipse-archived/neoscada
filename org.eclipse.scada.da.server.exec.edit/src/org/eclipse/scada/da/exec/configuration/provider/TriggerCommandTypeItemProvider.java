@@ -38,6 +38,13 @@ public class TriggerCommandTypeItemProvider extends CommandTypeItemProvider impl
     //$NON-NLS-1$
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static final String copyright = "Copyright (c) 2013 Jens Reimann and others.\nAll rights reserved. This program and the accompanying materials\nare made available under the terms of the Eclipse Public License v1.0\nwhich accompanies this distribution, and is available at\nhttp://www.eclipse.org/legal/epl-v10.html\n\nContributors:\n    Jens Reimann - initial API and implementation"; //$NON-NLS-1$
+
+    /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -76,9 +83,19 @@ public class TriggerCommandTypeItemProvider extends CommandTypeItemProvider impl
      */
     protected void addArgumentPlaceholderPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TriggerCommandType_argumentPlaceholder_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_argumentPlaceholder_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__ARGUMENT_PLACEHOLDER, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_TriggerCommandType_argumentPlaceholder_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_argumentPlaceholder_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__ARGUMENT_PLACEHOLDER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -89,9 +106,19 @@ public class TriggerCommandTypeItemProvider extends CommandTypeItemProvider impl
      */
     protected void addForkPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TriggerCommandType_fork_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_fork_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__FORK, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_TriggerCommandType_fork_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_fork_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__FORK,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -102,9 +129,19 @@ public class TriggerCommandTypeItemProvider extends CommandTypeItemProvider impl
      */
     protected void addSkipIfNullPropertyDescriptor ( Object object )
     {
-        itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_TriggerCommandType_skipIfNull_feature" ), //$NON-NLS-1$
-                getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_skipIfNull_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__SKIP_IF_NULL, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_TriggerCommandType_skipIfNull_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_TriggerCommandType_skipIfNull_feature", "_UI_TriggerCommandType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.TRIGGER_COMMAND_TYPE__SKIP_IF_NULL,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -129,8 +166,9 @@ public class TriggerCommandTypeItemProvider extends CommandTypeItemProvider impl
     public String getText ( Object object )
     {
         String label = ( (TriggerCommandType)object ).getId ();
-        return label == null || label.length () == 0 ? getString ( "_UI_TriggerCommandType_type" ) : //$NON-NLS-1$
-        getString ( "_UI_TriggerCommandType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_TriggerCommandType_type" ) : //$NON-NLS-1$
+                getString ( "_UI_TriggerCommandType_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
