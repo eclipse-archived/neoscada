@@ -1,0 +1,12 @@
+Source: org.eclipse.scada.deploy.packages
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8)
+
+Package: org.eclipse.scada
+Architecture: all
+Depends: ${misc:Depends}, java-runtime-headless, adduser
+Description: Eclipse SCADA base package
+ The base Eclipse SCADA package
