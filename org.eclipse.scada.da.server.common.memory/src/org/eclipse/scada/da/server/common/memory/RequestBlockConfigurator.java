@@ -8,12 +8,9 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - refactored for generic memory driver approach
+ *     IBH SYSTEMS GmbH - fix some issues
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
-
-import org.eclipse.scada.da.server.common.memory.Activator;
-import org.eclipse.scada.da.server.common.memory.Variable;
-import org.eclipse.scada.da.server.common.memory.VariableListener;
 
 public class RequestBlockConfigurator implements VariableListener
 {
@@ -25,11 +22,14 @@ public class RequestBlockConfigurator implements VariableListener
     {
         this.block = block;
         this.type = type;
-
-        Activator.getVariableManager ().addVariableListener ( type, this );
     }
 
-    public void dispose ()
+    public void start ()
+    {
+        Activator.getVariableManager ().addVariableListener ( this.type, this );
+    }
+
+    public void stop ()
     {
         Activator.getVariableManager ().removeVariableListener ( this.type, this );
     }

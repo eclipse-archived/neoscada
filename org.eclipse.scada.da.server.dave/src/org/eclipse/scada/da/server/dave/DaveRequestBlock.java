@@ -7,14 +7,14 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - additional work, bug fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.dave;
 
 import org.eclipse.scada.da.server.common.memory.AbstractRequestBlock;
 import org.eclipse.scada.protocol.dave.DaveReadRequest;
-import org.eclipse.scada.protocol.dave.DaveReadResult;
 import org.eclipse.scada.protocol.dave.DaveReadRequest.Request;
+import org.eclipse.scada.protocol.dave.DaveReadResult;
 import org.eclipse.scada.protocol.dave.DaveReadResult.Result;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
@@ -34,6 +34,8 @@ public class DaveRequestBlock extends AbstractRequestBlock
 
         this.device = device;
         this.request = request;
+
+        initialize ();
     }
 
     @Override

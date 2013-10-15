@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - refactor for generic memory devices
+ *     IBH SYSTEMS GmbH - refactor for generic memory devices, bug fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
@@ -20,14 +20,14 @@ import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.core.WriteAttributeResult;
 import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.data.IODirection;
-import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
-import org.eclipse.scada.utils.concurrent.NotifyFuture;
-import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
 import org.eclipse.scada.da.server.common.AttributeMode;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.chain.item.SumAlarmChainItem;
 import org.eclipse.scada.da.server.common.chain.item.SumErrorChainItem;
 import org.eclipse.scada.da.server.common.chain.item.SumPatternAttributesChainItem;
+import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
+import org.eclipse.scada.utils.concurrent.NotifyFuture;
+import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
 import org.osgi.framework.BundleContext;
 
 public abstract class ScalarVariable implements Variable
@@ -85,7 +85,11 @@ public abstract class ScalarVariable implements Variable
 
         attributes.put ( "communcation.error", Variant.TRUE );
 
-        this.item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
+        MemoryDeviceDataitem item = this.item;
+        if ( item != null )
+        {
+            item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
+        }
     }
 
     @Override
@@ -124,6 +128,7 @@ public abstract class ScalarVariable implements Variable
         {
             itemId = this.name;
         }
+
         this.item = new MemoryDeviceDataitem ( itemId, this.executor, this );
 
         this.item.addChainElement ( IODirection.INPUT, new SumAlarmChainItem () );
@@ -131,8 +136,6 @@ public abstract class ScalarVariable implements Variable
         this.item.addChainElement ( IODirection.INPUT, new SumPatternAttributesChainItem ( "manual", ".*\\.manual\\.active$" ) );
 
         this.itemPool.addService ( itemId, this.item, null );
-        // this.handle = context.registerService ( DataItem.class.getName (), this.item, null );
-
     }
 
     protected NotifyFuture<WriteResult> handleWrite ( final Variant value )
@@ -143,13 +146,19 @@ public abstract class ScalarVariable implements Variable
     @Override
     public void stop ( final BundleContext context )
     {
+        if ( this.item == null )
+        {
+            return;
+        }
+
+        this.itemPool.removeService ( this.item.getInformation ().getName (), this.item );
+
         for ( final Attribute attr : this.attributes )
         {
             attr.stop ();
         }
 
-        this.itemPool.removeService ( this.item.getInformation ().getName (), this.item );
-
+        this.item = null;
     }
 
     protected abstract Variant extractValue ( IoBuffer data, Map<String, Variant> attributes );

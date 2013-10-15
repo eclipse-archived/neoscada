@@ -41,6 +41,8 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
         this.request = request;
         this.slave = slave;
+
+        initialize ();
     }
 
     @Override

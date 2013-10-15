@@ -15,9 +15,9 @@ import java.util.concurrent.Executor;
 import org.apache.commons.collections.buffer.CircularFifoBuffer;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.common.io.PollRequest;
 import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
-import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -165,6 +165,11 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
         this.configurator = new RequestBlockConfigurator ( this, mainTypeName );
     }
 
+    protected void initialize ()
+    {
+        this.configurator.start ();
+    }
+
     /**
      * The the update priority used to find the next block to request
      * 
@@ -274,7 +279,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
 
         if ( this.configurator != null )
         {
-            this.configurator.dispose ();
+            this.configurator.stop ();
         }
 
         if ( this.statistics != null )
