@@ -53,7 +53,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         decodeTimeoutFrame ( session, currentFrame, out );
 
         // flush it
-        NextFilter nextFilter;
+        final NextFilter nextFilter;
         synchronized ( this )
         {
             nextFilter = this.nextFilter;
@@ -81,7 +81,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         final int actualCrc = Checksum.crc16 ( currentFrame.array (), 0, currentFrame.limit () - 2 );
         if ( receivedCrc != actualCrc )
         {
-            logger.info ( "CRC error - received: {}, calculated: {}", receivedCrc, actualCrc );
+            logger.info ( "CRC error - received: {}, calculated: {} - data: {}", receivedCrc, actualCrc, currentFrame.getHexDump () );
             throw new ChecksumProtocolException ( String.format ( "CRC error. received: %04x, but actually was: %04x", receivedCrc, actualCrc ) );
         }
 
