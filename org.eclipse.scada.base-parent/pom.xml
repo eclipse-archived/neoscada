@@ -162,6 +162,8 @@
 		<module>../org.eclipse.scada.sec.provider.plain.property</module>
 		<module>../org.eclipse.scada.sec.sdk.feature</module>
 		<module>../org.eclipse.scada.sec.utils</module>
+		
+		<module>../org.eclipse.scada.core.test</module>
 	</modules>
 
 
