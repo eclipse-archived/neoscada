@@ -59,6 +59,18 @@
 				name="cssTheme"
 				value="org.eclipse.e4.ui.css.theme.e4_default">
 		  </property>
+         <property
+               name="startupForegroundColor"
+               value="646464">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="5,5,450,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,280,455,15">
+         </property>
       </product>
    </extension>
    

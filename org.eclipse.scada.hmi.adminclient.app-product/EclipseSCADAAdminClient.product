@@ -20,7 +20,10 @@
    <windowImages i16="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_16px.png" i32="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_32px.png" i48="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_48px.png" i64="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_64px.png" i128="/org.eclipse.scada.hmi.adminclient.app/icons/app/icon_128px.png"/>
 
    <splash
-      location="org.eclipse.scada.hmi.adminclient.app" />
+      location="org.eclipse.scada.hmi.adminclient.app"
+      startupProgressRect="0,280,455,15"
+      startupMessageRect="5,5,450,20"
+      startupForegroundColor="646464" />
    <launcher name="esac">
       <linux icon="/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon.xpm"/>
       <macosx icon="/org.eclipse.scada.hmi.adminclient.app-product/icons/app/icon.icns"/>
