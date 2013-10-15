@@ -63,12 +63,12 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="org.eclipse.scada.ui.chart"
-            id="org.eclipse.scada.ui.chart.commands.OpenCharView"
+            id="org.eclipse.scada.ui.chart.view.commands.OpenChartView"
             name="Open Chart">
       </command>
       <command
             categoryId="org.eclipse.scada.ui.chart"
-            id="org.eclipse.scada.ui.chart.commands.OpenParametersCharView"
+            id="org.eclipse.scada.ui.chart.view.commands.OpenParametersCharView"
             name="Open Chart">
          <commandParameter
                id="org.eclipse.scada.ui.chart.connectionId"
@@ -104,7 +104,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="org.eclipse.scada.ui.chart.view.command.OpenChartView"
-            commandId="org.eclipse.scada.ui.chart.commands.OpenCharView">
+            commandId="org.eclipse.scada.ui.chart.view.commands.OpenChartView">
          <enabledWhen>
             <with
                   variable="selection">
@@ -125,7 +125,7 @@
       </handler>
       <handler
             class="org.eclipse.scada.ui.chart.view.command.OpenChartViewWithParameters"
-            commandId="org.eclipse.scada.ui.chart.commands.OpenParametersCharView">
+            commandId="org.eclipse.scada.ui.chart.view.commands.OpenParametersCharView">
       </handler>
    </extension>
    <extension
@@ -133,7 +133,7 @@
       <menuContribution
             locationURI="popup:org.eclipse.scada.core.ui.connection.ConnectionView#PopupMenu">
          <command
-               commandId="org.eclipse.scada.ui.chart.commands.OpenCharView"
+               commandId="org.eclipse.scada.ui.chart.view.commands.OpenChartView"
                label="Open Chart View"
                style="push">
             <visibleWhen
