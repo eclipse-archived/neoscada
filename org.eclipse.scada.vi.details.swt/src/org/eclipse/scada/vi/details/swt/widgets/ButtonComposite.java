@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     Jens Reimann - additional work
+ *     Jens Reimann - additional work, fix bugs
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.widgets;
 
@@ -142,7 +142,7 @@ public class ButtonComposite extends GenericComposite
 
         try
         {
-            if ( this.attribute == null )
+            if ( this.attribute == null || this.attribute.isEmpty () )
             {
                 this.registrationManager.startWrite ( this.writeDescriptor.getConnectionInformation (), this.writeDescriptor.getItemId (), this.value, this.callbackHandler );
             }
