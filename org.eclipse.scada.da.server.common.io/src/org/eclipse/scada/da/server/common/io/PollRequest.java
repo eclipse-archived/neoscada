@@ -35,7 +35,7 @@ public interface PollRequest
      */
     public boolean handleMessage ( Object message );
 
-    public void handleFailure ();
+    public void handleFailure ( Throwable e );
 
     public void handleDisconnect ();
 

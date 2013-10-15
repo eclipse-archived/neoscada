@@ -161,6 +161,7 @@ public class ModbusMaster extends AbstractConnectionDevice
         {
             // we don't disconnect on checksum errors
             logger.info ( "Checksum error", error );
+            this.jobManager.handleException ( error );
         }
         else
         {

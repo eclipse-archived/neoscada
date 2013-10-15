@@ -51,6 +51,8 @@ public class JobManager
         public void start ( IoSession session );
 
         public void handleTimeout ();
+
+        public void handleException ( Throwable e );
     }
 
     private static abstract class BaseJob implements Job
@@ -88,7 +90,7 @@ public class JobManager
             if ( !this.block.handleMessage ( message ) )
             {
                 logger.warn ( "Got wrong message as reply: {}", message );
-                this.block.handleFailure ();
+                this.block.handleFailure ( new RuntimeException ( "Wrong reply" ) );
             }
         }
 
@@ -96,6 +98,12 @@ public class JobManager
         public void handleTimeout ()
         {
             this.block.handleTimeout ();
+        }
+
+        @Override
+        public void handleException ( final Throwable e )
+        {
+            this.block.handleFailure ( e );
         }
 
         @Override
@@ -137,6 +145,12 @@ public class JobManager
 
         @Override
         public void handleMessage ( final Object message )
+        {
+            // TODO: no-op for now
+        }
+
+        @Override
+        public void handleException ( final Throwable e )
         {
             // TODO: no-op for now
         }
@@ -248,6 +262,16 @@ public class JobManager
         logger.debug ( "Job timed out: {}", this.currentJob );
 
         this.currentJob.handleTimeout ();
+        this.currentJob = null;
+
+        startNextJob ();
+    }
+
+    public void handleException ( final Throwable e )
+    {
+        logger.debug ( "Job exception: {}", this.currentJob );
+
+        this.currentJob.handleException ( e );
         this.currentJob = null;
 
         startNextJob ();

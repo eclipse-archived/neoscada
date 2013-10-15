@@ -45,6 +45,10 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
 
         private final DataItemInputChained timeoutStateItem;
 
+        private final DataItemInputChained checksumErrorsItem;
+
+        private long checksumErrors;
+
         public Statistics ( final DataItemFactory itemFactory, final int size )
         {
             this.stateItem = itemFactory.createInput ( "state", null );
@@ -52,6 +56,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
             this.lastUpdateItem = itemFactory.createInput ( "lastUpdate", null );
             this.lastTimeDiffItem = itemFactory.createInput ( "lastDiff", null );
             this.avgDiffItem = itemFactory.createInput ( "avgDiff", null );
+            this.checksumErrorsItem = itemFactory.createInput ( "checksumErrors", null );
 
             this.sizeItem = itemFactory.createInput ( "size", null );
             this.sizeItem.updateData ( Variant.valueOf ( size ), null, null );
@@ -62,6 +67,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
 
         public void dispose ()
         {
+            // items will get disposed by the itemFactory
         }
 
         public void receivedError ( final long now )
@@ -82,6 +88,12 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
         {
             this.stateItem.updateData ( Variant.FALSE, null, null );
             this.timeoutStateItem.updateData ( Variant.TRUE, null, null );
+        }
+
+        public void addChecksumError ()
+        {
+            this.checksumErrors++;
+            this.checksumErrorsItem.updateData ( Variant.valueOf ( this.checksumErrors ), null, null );
         }
 
         private void tickNow ( final long now )
@@ -246,7 +258,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
     }
 
     @Override
-    public synchronized void handleFailure ()
+    public synchronized void handleFailure ( final Throwable e )
     {
         if ( this.disposed )
         {
@@ -261,7 +273,7 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
         {
             for ( final Variable reg : this.variables )
             {
-                reg.handleFailure ( new RuntimeException ( "Wrong reply" ) );
+                reg.handleFailure ( e );
             }
         }
     }
@@ -336,6 +348,14 @@ public abstract class AbstractRequestBlock implements PollRequest, MemoryRequest
         }
 
         this.settingVariablesItem.updateData ( Variant.FALSE, null, null );
+    }
+
+    protected void recordChecksumError ()
+    {
+        if ( this.statistics != null )
+        {
+            this.statistics.addChecksumError ();
+        }
     }
 
     protected void recordUpdate ( final boolean error )

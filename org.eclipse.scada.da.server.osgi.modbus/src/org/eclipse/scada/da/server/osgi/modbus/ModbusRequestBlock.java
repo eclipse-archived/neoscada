@@ -14,6 +14,7 @@ package org.eclipse.scada.da.server.osgi.modbus;
 import java.util.concurrent.Executor;
 
 import org.eclipse.scada.da.server.common.memory.AbstractRequestBlock;
+import org.eclipse.scada.protocol.modbus.io.ChecksumProtocolException;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
 import org.eclipse.scada.protocol.modbus.message.WriteDataRequest;
@@ -35,7 +36,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
     public ModbusRequestBlock ( final Executor executor, final String id, final String name, final String mainTypeName, final ModbusSlave slave, final BundleContext context, final Request request, final boolean enableStatistics )
     {
-        super ( context, executor, mainTypeName, "modbus." + id, "modbus." + id, enableStatistics, request.getPeriod (), request.getCount (), slave.getTimeoutQuietPeriod (), request.isEager () );
+        super ( context, executor, mainTypeName, "modbus.data." + id, "modbus.block." + id, enableStatistics, request.getPeriod (), request.getCount (), slave.getTimeoutQuietPeriod (), request.isEager () );
 
         this.id = id;
 
@@ -65,6 +66,16 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     public String toString ()
     {
         return String.format ( "[Request - %s]", this.request );
+    }
+
+    @Override
+    public synchronized void handleFailure ( final Throwable e )
+    {
+        if ( e instanceof ChecksumProtocolException )
+        {
+            recordChecksumError ();
+        }
+        super.handleFailure ( e );
     }
 
     @Override
