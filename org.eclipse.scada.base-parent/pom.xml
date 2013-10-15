@@ -165,6 +165,7 @@
 		
 		<module>../org.eclipse.scada.core.test</module>
 		<module>../org.eclipse.scada.sec.utils.test</module>
+		<module>../org.eclipse.scada.sec.provider.plain.property.test</module>
 	</modules>
 
 
