@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA DS Datasource
+Bundle-Name: Eclipse SCADA DA DS Datasource (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.ds
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.ds.Activator

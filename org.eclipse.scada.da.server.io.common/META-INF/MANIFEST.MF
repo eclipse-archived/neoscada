@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Base IO Functionality
+Bundle-Name: Base IO Functionality (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.server.io.common
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

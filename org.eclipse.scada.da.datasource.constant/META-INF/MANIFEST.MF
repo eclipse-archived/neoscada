@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Constant DA Datasource
+Bundle-Name: Eclipse SCADA Constant DA Datasource (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.constant
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.constant.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Common Server Storage
+Bundle-Name: Eclipse SCADA Common Server Storage (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.common
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

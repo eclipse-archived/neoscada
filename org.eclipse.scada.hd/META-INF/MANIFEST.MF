@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Historical Data
+Bundle-Name: Eclipse SCADA Historical Data (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.hd
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

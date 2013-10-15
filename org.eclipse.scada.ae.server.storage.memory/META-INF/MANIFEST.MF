@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Storage In Memory Plug-in
+Bundle-Name: Eclipse SCADA AE Storage In Memory Plug-in (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.storage.memory
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.storage.memory.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Configuration Admin Plug-in
+Bundle-Name: Eclipse SCADA Configuration Admin Plug-in (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ca
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

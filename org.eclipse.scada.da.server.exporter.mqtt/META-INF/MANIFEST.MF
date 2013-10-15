@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Exports configured items over MQTT
+Bundle-Name: Exports configured items over MQTT (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.mqtt
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.exporter.mqtt.Activator

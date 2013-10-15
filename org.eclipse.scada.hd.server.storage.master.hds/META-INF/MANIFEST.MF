@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HDS Master Storage
+Bundle-Name: Eclipse SCADA HDS Master Storage (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.storage.master.hds
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.server.storage.master.hds.Activator

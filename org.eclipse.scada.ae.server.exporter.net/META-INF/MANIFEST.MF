@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Net Exporter Plug-in
+Bundle-Name: Eclipse SCADA AE Net Exporter Plug-in (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.exporter.net
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.exporter.net.Activator

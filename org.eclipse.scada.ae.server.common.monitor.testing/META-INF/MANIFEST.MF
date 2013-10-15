@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Testing Plug-in
+Bundle-Name: Testing Plug-in (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.common.monitor.testing
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.common.monitor.testing.Activator

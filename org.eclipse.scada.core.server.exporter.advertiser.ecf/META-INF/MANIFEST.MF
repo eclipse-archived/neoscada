@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA ECF Advertiser
+Bundle-Name: Eclipse SCADA ECF Advertiser (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.core.server.exporter.advertiser.ecf
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.core.server.exporter.advertiser.ecf.Activator

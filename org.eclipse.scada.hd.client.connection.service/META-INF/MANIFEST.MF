@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD Client Connection Service
+Bundle-Name: Eclipse SCADA HD Client Connection Service (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.hd.client.connection.service
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.client.connection.service.Activator

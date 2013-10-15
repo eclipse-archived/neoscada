@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Postgres AE storage module
+Bundle-Name: Postgres AE storage module (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.storage.postgres
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.storage.postgres.internal.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Core Server Common
+Bundle-Name: Eclipse SCADA Core Server Common (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.core.server.common
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

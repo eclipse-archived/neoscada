@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Base functionality for memory block based servers
+Bundle-Name: Base functionality for memory block based servers (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.memory
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.common.memory.Activator

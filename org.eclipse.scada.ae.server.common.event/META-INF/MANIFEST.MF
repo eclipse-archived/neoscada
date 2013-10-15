@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Server Event Pool
+Bundle-Name: Eclipse SCADA AE Server Event Pool (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.common.event
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.common.event.internal.Activator

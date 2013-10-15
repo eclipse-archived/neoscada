@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD NET Server Exporter
+Bundle-Name: Eclipse SCADA HD NET Server Exporter (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.exporter.net
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.server.exporter.net.Activator

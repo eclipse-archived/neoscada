@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA OSGi Security Manager
+Bundle-Name: Eclipse SCADA OSGi Security Manager (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.sec.osgi.manager
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

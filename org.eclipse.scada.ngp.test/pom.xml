@@ -20,10 +20,6 @@
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
-				<configuration>
-					<testSuite>org.eclipse.scada.ngp.test</testSuite>
-					<!-- <testClass>FullyQualifiedNameOfTheTestClass</testClass>-->
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

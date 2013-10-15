@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Net Base Testing
+Bundle-Name: Eclipse SCADA Net Base Testing (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.net.testing
 Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

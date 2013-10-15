@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Slave Pull Bundle
+Bundle-Name: Eclipse SCADA AE Slave Pull Bundle (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ae.slave.pull
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.slave.pull.Activator

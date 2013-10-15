@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA JDBC Configuration Administrator
+Bundle-Name: Eclipse SCADA JDBC Configuration Administrator (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.ca.jdbc
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.jdbc.Activator

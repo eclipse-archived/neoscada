@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DAVE Hive
+Bundle-Name: Eclipse SCADA DAVE Hive (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.server.dave
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.dave.Activator

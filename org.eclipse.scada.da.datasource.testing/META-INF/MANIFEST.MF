@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA Testing Datasources
+Bundle-Name: Eclipse SCADA DA Testing Datasources (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.testing
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.testing.Activator
