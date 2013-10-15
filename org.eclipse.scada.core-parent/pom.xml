@@ -319,6 +319,8 @@
 		<module>../org.eclipse.scada.sec.osgi.manager</module>
 		<module>../org.eclipse.scada.sec.provider.jdbc</module>
 		<module>../org.eclipse.scada.sec.provider.script</module>
+		
+		<module>../org.eclipse.scada.ngp.test</module>
 	</modules>
 
 	<!-- sign -->
