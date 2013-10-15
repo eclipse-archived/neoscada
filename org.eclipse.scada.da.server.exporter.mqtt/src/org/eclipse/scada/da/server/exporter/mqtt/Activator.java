@@ -65,7 +65,7 @@ public class Activator implements BundleActivator
 
             final Dictionary<String, String> properties = new Hashtable<String, String> ( 3 );
             properties.put ( Constants.SERVICE_DESCRIPTION, "A factory which creates an MQTT connection" );
-            properties.put ( Constants.SERVICE_VENDOR, "IBH SYSTEMS GmbH" );
+            properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
             properties.put ( ConfigurationAdministrator.FACTORY_ID, context.getBundle ().getSymbolicName () );
 
             this.mqttExporterFactoryRegistration = context.registerService ( ConfigurationFactory.class, this.mqttExporterFactory, properties );
@@ -76,7 +76,7 @@ public class Activator implements BundleActivator
 
             final Dictionary<String, String> properties = new Hashtable<String, String> ( 3 );
             properties.put ( Constants.SERVICE_DESCRIPTION, "A factory which creates items which are published on MQTT" );
-            properties.put ( Constants.SERVICE_VENDOR, "IBH SYSTEMS GmbH" );
+            properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
             properties.put ( ConfigurationAdministrator.FACTORY_ID, context.getBundle ().getSymbolicName () + ".items" );
 
             this.mqttItemToTopicFactoryRegistration = context.registerService ( ConfigurationFactory.class, this.mqttItemToTopicFactory, properties );

@@ -16,11 +16,11 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import org.eclipse.scada.core.ConnectionInformation;
+import org.eclipse.scada.core.server.exporter.ExporterInformation;
+import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.server.ngp.Exporter;
 import org.eclipse.scada.utils.osgi.SingleServiceListener;
 import org.eclipse.scada.utils.osgi.SingleServiceTracker;
-import org.eclipse.scada.core.server.exporter.ExporterInformation;
-import org.eclipse.scada.da.core.server.Hive;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -86,7 +86,7 @@ public class Activator implements BundleActivator
 
             if ( service != null )
             {
-                this.exporter = new Exporter ( service, ConnectionInformation.fromURI ( System.getProperty ( "openscada.da.ngp.exportUri", "da:ngp://0.0.0.0:2101" ) ) );
+                this.exporter = new Exporter ( service, ConnectionInformation.fromURI ( System.getProperty ( "org.eclipse.scada.da.server.exporter.ngp.exportUri", "da:ngp://0.0.0.0:2101" ) ) );
                 this.exporter.start ();
 
                 this.exportedInformation = this.exporter.getExporterInformation ();
