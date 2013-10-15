@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - added logger
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.widgets.control;
 
@@ -27,9 +28,13 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TrendControlImage extends Composite
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( TrendControlImage.class );
 
     private final String connectionId;
 
@@ -86,6 +91,7 @@ public class TrendControlImage extends Composite
         }
         catch ( final Exception e )
         {
+            logger.debug ( "Failed to open view", e );
             StatusManager.getManager ().handle ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, Messages.TrendControlImage_TrendError, e ), StatusManager.BLOCK );
         }
     }
