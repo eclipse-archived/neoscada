@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA ISO 8073
+Bundle-Name: Eclipse SCADA ISO 8073 (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.protocol.iso8073
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

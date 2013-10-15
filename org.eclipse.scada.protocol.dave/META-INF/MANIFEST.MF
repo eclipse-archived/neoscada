@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DAVE Protocol Implementation
+Bundle-Name: Eclipse SCADA DAVE Protocol Implementation (Incubating)
 Bundle-SymbolicName: org.eclipse.scada.protocol.dave
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
