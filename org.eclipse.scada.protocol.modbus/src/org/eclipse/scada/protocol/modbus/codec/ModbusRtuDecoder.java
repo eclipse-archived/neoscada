@@ -75,7 +75,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         }
 
         currentFrame.order ( ByteOrder.LITTLE_ENDIAN );
-        final int receivedCrc = currentFrame.getShort ( currentFrame.limit () - 2 ) & 0xffff;
+        final int receivedCrc = currentFrame.getUnsignedShort ( currentFrame.limit () - 2 );
         currentFrame.order ( ByteOrder.BIG_ENDIAN );
 
         final int actualCrc = Checksum.crc16 ( currentFrame.array (), 0, currentFrame.limit () - 2 );
@@ -104,13 +104,12 @@ public class ModbusRtuDecoder extends TimedEndDecoder
     @Override
     public void decode ( final IoSession session, final IoBuffer in, final ProtocolDecoderOutput out ) throws Exception
     {
+        IoBuffer currentFrame = (IoBuffer)session.getAttribute ( SESSION_KEY_CURRENT_FRAME );
         if ( !session.containsAttribute ( SESSION_KEY_CURRENT_FRAME ) )
         {
-            final IoBuffer newFrame = IoBuffer.allocate ( Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE );
-            newFrame.flip ();
-            session.setAttribute ( SESSION_KEY_CURRENT_FRAME, newFrame );
+            currentFrame = IoBuffer.allocate ( Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE );
+            session.setAttribute ( SESSION_KEY_CURRENT_FRAME, currentFrame );
         }
-        final IoBuffer currentFrame = (IoBuffer)session.getAttribute ( SESSION_KEY_CURRENT_FRAME );
         logger.trace ( "decode () current frame = {} data = {}", currentFrame.toString (), currentFrame.getHexDump () );
         logger.trace ( "decode () new     frame = {} data = {}", in.toString (), in.getHexDump () );
         final int maxSize = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;
@@ -119,7 +118,6 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         {
             throw new ModbusProtocolError ( "received size (" + expectedSize + ") exceeds max size (" + maxSize + ")" );
         }
-        currentFrame.limit ( expectedSize );
         currentFrame.put ( in );
 
         tick ( session, out );
