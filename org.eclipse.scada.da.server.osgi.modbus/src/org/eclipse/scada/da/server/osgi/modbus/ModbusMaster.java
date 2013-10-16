@@ -71,13 +71,9 @@ public class ModbusMaster extends AbstractConnectionDevice
     @Override
     protected void configure ( final Map<String, String> properties ) throws Exception
     {
-        this.name = properties.get ( "name" );
-        if ( this.name == null )
-        {
-            this.name = this.id;
-        }
-
         ConfigurationDataHelper cfg = new ConfigurationDataHelper ( properties );
+
+        this.name = cfg.getString ( this.name, this.id );
 
         this.readTimeout = getTimeout ( properties, "readTimeout", 10000 );
         this.interFrameDelay = cfg.getInteger ( "interFrameDelay", 10 );
