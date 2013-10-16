@@ -21,6 +21,7 @@ import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
+import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.common.io.AbstractConnectionDevice;
 import org.eclipse.scada.da.server.common.io.JobManager;
 import org.eclipse.scada.protocol.modbus.codec.ModbusMasterProtocolFilter;
@@ -44,6 +45,8 @@ public class ModbusMaster extends AbstractConnectionDevice
     private String name;
 
     private int readTimeout;
+
+    private int interFrameDelay = 10;
 
     public ModbusMaster ( final BundleContext context, final String id, final ScheduledExecutorService executor, final NioProcessor processor, final String threadPrefix, final String itemPrefix )
     {
@@ -74,7 +77,10 @@ public class ModbusMaster extends AbstractConnectionDevice
             this.name = this.id;
         }
 
+        ConfigurationDataHelper cfg = new ConfigurationDataHelper ( properties );
+
         this.readTimeout = getTimeout ( properties, "readTimeout", 10000 );
+        this.interFrameDelay = cfg.getInteger ( "interFrameDelay", 10 );
 
         super.configure ( properties );
     }
@@ -90,7 +96,7 @@ public class ModbusMaster extends AbstractConnectionDevice
     {
         logger.debug ( "Configuring connector: {}", connector );
 
-        final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( getExecutor (), 10, TimeUnit.MILLISECONDS );
+        final ModbusRtuDecoder decoder = new ModbusRtuDecoder ( getExecutor (), this.interFrameDelay, TimeUnit.MILLISECONDS );
         connector.getFilterChain ().addLast ( "modbusPdu", new ModbusRtuProtocolCodecFilter ( new ModbusRtuEncoder (), decoder ) );
         connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter () );
 
