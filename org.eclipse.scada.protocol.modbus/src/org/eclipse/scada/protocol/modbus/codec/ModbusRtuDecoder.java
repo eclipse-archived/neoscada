@@ -42,8 +42,8 @@ public class ModbusRtuDecoder extends TimedEndDecoder
     public void timeout ( final IoSession session, final ProtocolDecoderOutput out ) throws Exception
     {
         logger.trace ( "timeout ()" );
-        final IoBuffer currentFrame = (IoBuffer)session.getAttribute ( SESSION_KEY_CURRENT_FRAME );
-        session.removeAttribute ( SESSION_KEY_CURRENT_FRAME );
+
+        final IoBuffer currentFrame = (IoBuffer)session.removeAttribute ( SESSION_KEY_CURRENT_FRAME );
         if ( currentFrame == null )
         {
             throw new ModbusProtocolError ( "no frame found" );
