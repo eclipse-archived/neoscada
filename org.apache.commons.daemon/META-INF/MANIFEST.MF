@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.apache.commons.daemon
+Bundle-Version: 1.0.15.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Name: %pluginName
+Bundle-DocURL: http://commons.apache.org/proper/commons-daemon/
+Export-Package: org.apache.commons.daemon;version="1.0.15",
+ org.apache.commons.daemon.support;version="1.0.15";uses:="org.apache.commons.daemon"
