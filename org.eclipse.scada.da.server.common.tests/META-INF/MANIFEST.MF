@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName (Incubating)
+Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.tests;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
