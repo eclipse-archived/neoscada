@@ -1,11 +1,19 @@
 default:
 
-DIST ?= debian
-ARCH ?= `uname -i`
-VERSION = 0.1.0
-PACKAGE = org.eclipse.scada.deploy.packages
+SHELL := /bin/bash
 
-EXTRA_DIST = $(PACKAGE).spec
+EXTRA_DIST = $(PACKAGE).spec \
+	Makefile.defs
+
+include Makefile.defs
+
+dist: fetch
+	rm -Rf "$(PACKAGE)-$(VERSION)"
+	mkdir "$(PACKAGE)-$(VERSION)"
+	cp -a Makefile debian src fetchSrc "$(PACKAGE)-$(VERSION)"
+	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
+	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"
+	rm -Rf "$(PACKAGE)-$(VERSION)"
 
 install:
 	install -d "$(DESTDIR)/etc/eclipsescada"
@@ -21,16 +29,9 @@ install:
 
 	if [ -f "src/default/eclipsescada.$(DIST)" ]; then install -m 0644 "src/default/eclipsescada.$(DIST)" "$(DESTDIR)/etc/default/eclipsescada"; fi
 	if [ -f "src/default/eclipsescada.$(DIST).$(ARCH)" ]; then install -m 0644 "src/default/eclipsescada.$(DIST).$(ARCH)" "$(DESTDIR)/etc/default/eclipsescada"; fi
-
-dist:
-	rm -Rf "$(PACKAGE)-$(VERSION)"
-	mkdir "$(PACKAGE)-$(VERSION)"
-	cp -a Makefile debian src "$(PACKAGE)-$(VERSION)"
-	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
-	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"
-	rm -Rf "$(PACKAGE)-$(VERSION)"
 	
 clean:
 	-rm *.tar.gz
+	rm -Rf rpmbuild
 	
-.PHONY: default install dist clean
+.PHONY: default install clean dist

@@ -19,11 +19,12 @@ Release:	%{qualifier}
 Summary:	The Eclipse SCADA System
 Group:		System Environment/Base
 License:	EPL
-URL:		http://eclipse.org
+URL:		http://projects.eclipse.org/projects/technology.eclipsescada
 Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{buildroot}
 
-#BuildRequires:
+#BuildRequires: unzip
+#BuildRequires: wget
 
 # for adding the user with "adduser"
 Requires: shadow-utils
@@ -79,6 +80,8 @@ fi
 %dir %attr(775,root,%{es_user}) %{_logdir}/%{es_user}
 %dir %attr(775,root,%{es_user}) %{_rundir}/%{es_user}
 %dir %{_datadir}/%{es_user}
+%dir %{_confdir}/schema
+%{_confdir}/schema/*.xsd
 %doc
 
 %changelog
