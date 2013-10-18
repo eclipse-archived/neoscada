@@ -5,7 +5,7 @@ ARCH ?= `uname -i`
 VERSION = 0.1.0
 PACKAGE = org.eclipse.scada.deploy.packages
 
-EXTRA_DIST = 
+EXTRA_DIST = $(PACKAGE).spec
 
 install:
 	install -d "$(DESTDIR)/etc/eclipse.scada"
@@ -26,7 +26,7 @@ dist:
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 	mkdir "$(PACKAGE)-$(VERSION)"
 	cp -a Makefile debian src "$(PACKAGE)-$(VERSION)"
-	cp "$(PACKAGE).spec" "$(PACKAGE)-$(VERSION)/$(PACKAGE)-$(VERSION).spec"
+	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
 	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 	
