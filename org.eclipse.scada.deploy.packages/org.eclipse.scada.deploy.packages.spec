@@ -82,6 +82,8 @@ fi
 %dir %attr(775,root,%{es_user}) %{_logdir}/%{es_user}
 %dir %attr(775,root,%{es_user}) %{_rundir}/%{es_user}
 %dir %{_datadir}/%{es_user}
+%dir %attr(755,root,root) %{_datadir}/%{es_user}/profiles
+%dir %attr(755,root,root) %{_datadir}/%{es_user}/p2
 %doc
 
 %changelog

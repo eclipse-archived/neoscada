@@ -21,6 +21,8 @@ install:
 	
 	install -d "$(DESTDIR)/usr/jar"
 	install -d "$(DESTDIR)/usr/share/eclipsescada"
+	install -d "$(DESTDIR)/usr/share/eclipsescada/profiles"
+	install -d "$(DESTDIR)/usr/share/eclipsescada/p2"
 	
 	install -d "$(DESTDIR)/var/log/eclipsescada"
 	install -d "$(DESTDIR)/var/run/eclipsescada"
