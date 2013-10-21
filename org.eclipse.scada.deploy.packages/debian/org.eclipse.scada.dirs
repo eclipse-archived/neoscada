@@ -1,4 +1,5 @@
 /etc/eclipsescada
+/etc/eclipsescada/schema
 /usr/jar
 /usr/share/eclipsescada
 /var/log/eclipsescada

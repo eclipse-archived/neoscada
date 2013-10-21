@@ -77,11 +77,10 @@ fi
 %config %{_defaultdir}/%{es_user}
 %dir %{_jardir}
 %dir %{_confdir}
+%dir %{_confdir}/schema
 %dir %attr(775,root,%{es_user}) %{_logdir}/%{es_user}
 %dir %attr(775,root,%{es_user}) %{_rundir}/%{es_user}
 %dir %{_datadir}/%{es_user}
-%dir %{_confdir}/schema
-%{_confdir}/schema/*.xsd
 %doc
 
 %changelog

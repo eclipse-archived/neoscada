@@ -10,13 +10,14 @@ include Makefile.defs
 dist:
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 	mkdir "$(PACKAGE)-$(VERSION)"
-	cp -a Makefile debian src fetchSrc "$(PACKAGE)-$(VERSION)"
+	cp -a Makefile debian src "$(PACKAGE)-$(VERSION)"
 	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
 	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 
 install:
 	install -d "$(DESTDIR)/etc/eclipsescada"
+	install -d "$(DESTDIR)/etc/eclipsescada/schema"
 	
 	install -d "$(DESTDIR)/usr/jar"
 	install -d "$(DESTDIR)/usr/share/eclipsescada"
