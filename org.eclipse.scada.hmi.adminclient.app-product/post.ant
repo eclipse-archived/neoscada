@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Post process build
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+Things to do after the main build
+        
+Called fromt he pom.xml when the profile "eclipse-hudson"
+is active.
+    </description>
+	    
+    <property name="output" location="../output"/>
+    
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="build">
+    </target>
+    
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <mkdir dir="${output}"/>
+        <mkdir dir="${output}/products"/>
+            
+        <move todir="${output}">
+            <fileset dir="target/products">
+                <include name="*.tar.gz"/>
+                <include name="*.zip"/>
+            </fileset>
+            <mapper type="flatten"/>
+        </move>
+    </target>
+
+</project>
