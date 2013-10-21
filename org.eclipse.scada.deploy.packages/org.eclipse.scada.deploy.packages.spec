@@ -22,6 +22,7 @@ License:	EPL
 URL:		http://projects.eclipse.org/projects/technology.eclipsescada
 Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{buildroot}
+BuildArch:	noarch
 
 #BuildRequires: unzip
 #BuildRequires: wget
