@@ -43,13 +43,13 @@
 							</defineStatements>
 							<mappings>
 								<mapping>
-									<directory>/usr/share/eclipsescada/p2</directory>
-									<filemode>0444</filemode>
+									<directory>/usr/share/eclipsescada/p2/${project.groupId}</directory>
+									<filemode>0755</filemode>
 									<username>root</username>
 									<groupname>root</groupname>
 									<sources>
 										<source>
-											<location>target/${project.artifactId}-${project.version}.zip</location>
+											<location>target/repository</location>
 										</source>
 									</sources>
 								</mapping>
