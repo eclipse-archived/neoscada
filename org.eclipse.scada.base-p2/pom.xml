@@ -63,6 +63,32 @@
 			</build>
 		</profile> <!-- rpm -->
 
+		<profile>
+			<id>eclipse-hudson</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>ant-post-proc</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<property name="repo" value="${project.groupId}"/>
+										<ant antfile="post.ant" />
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 	</profiles>
 
 </project>
