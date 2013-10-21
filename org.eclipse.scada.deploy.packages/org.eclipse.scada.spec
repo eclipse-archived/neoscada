@@ -13,7 +13,7 @@
 %define _datadir	/usr/share
 %define _homebasedir	/var/lib
 
-Name:		org.eclipse.scada.deploy.packages
+Name:		org.eclipse.scada
 Version:	%{version}
 Release:	%{qualifier}
 Summary:	The Eclipse SCADA System

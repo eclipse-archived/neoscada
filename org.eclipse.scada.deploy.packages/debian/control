@@ -1,4 +1,4 @@
-Source: org.eclipse.scada.deploy.packages
+Source: org.eclipse.scada
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Section: misc
 Priority: optional
