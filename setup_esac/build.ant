@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        MSI Setup build for Eclipse SCADA Admin Client
+    </description>
+
+    <property file="local.properties" />
+    <property file="build.properties" />
+    
+    <property environment="env"/>
+    
+    <property name="hudson.base" value="https://hudson.eclipse.org/scada"/>
+    <property name="wix.root" value="${env.WIX_ROOT}"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="fetch,build">
+    </target>
+
+	<!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+    </target>
+
+    
+    <!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch">
+        <mkdir dir="fetch"/>
+        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.tar.gz" dest="fetch" />
+        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.tar.gz" dest="fetch" />
+    </target>
+    
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <exec
+            executable="${wix.root}/bin/candle.exe"
+            dir="setup_esac"
+            failifexecutionfails="true"
+            >
+            <arg value="Setup.wxs"/>
+            <arg value="Files.wxs"/>
+        </exec>
+        <exec
+            executable="${wix.root}/bin/light.exe"
+            dir="setup_esac"
+            failifexecutionfails="true"
+            >
+            <arg value="Setup.wixobj"/>
+            <arg value="Files.wixobj"/>
+        	<arg value="-out"/>
+        	<arg value="esac.msi"/>
+            >
+        </exec>
+    </target>
+
+</project>
