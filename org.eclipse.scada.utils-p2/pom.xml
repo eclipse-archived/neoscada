@@ -12,4 +12,46 @@
 	<groupId>org.eclipse.scada.utils</groupId>
 	<artifactId>org.eclipse.scada.utils.p2</artifactId>
 	<packaging>eclipse-repository</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>rpm-maven-plugin</artifactId>
+				<version>2.1-alpha-3</version>
+				<executions>
+					<execution>
+						<id>generate-rpm</id>
+						<goals>
+							<goal>rpm</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<copyright>2013, Eclipse SCADA Project</copyright>
+					<distribution>Eclipse SCADA 2013</distribution>
+					<group>Application/Misc</group>
+					<packager>Eclipse SCADA Project</packager>
+					<changelogFile>rpm/changelog</changelogFile>
+					<defineStatements>
+						<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement>  -->
+					</defineStatements>
+					<mappings>
+						<mapping>
+							<directory>/usr/share/eclipsescada/p2</directory>
+							<filemode>0444</filemode>
+							<username>root</username>
+							<groupname>root</groupname>
+							<sources>
+								<source>
+									<location>target/${project.artifactId}-${project.version}.zip</location>
+								</source>
+							</sources>
+						</mapping>
+					</mappings>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

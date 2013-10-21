@@ -143,6 +143,8 @@
 
 		<module>../org.eclipse.scada.utils.feature</module>
 		<module>../org.eclipse.scada.utils.sdk.feature</module>
+		
+		<module>../org.eclipse.scada.ui.utils.feature</module>
 
 		<module>../org.eclipse.scada.utils</module>
 		<module>../org.eclipse.scada.utils.filter</module>
@@ -153,6 +155,7 @@
 		<module>../org.eclipse.scada.utils.osgi.jdbc</module>
 		<module>../org.eclipse.scada.utils.osgi.jdbc.pool</module>
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
+		<module>../org.eclipse.scada.utils.stats</module>
 
 		<module>../org.eclipse.scada.utils.test</module>
 
@@ -160,8 +163,7 @@
 		<module>../org.eclipse.scada.ui.databinding</module>
 		<module>../org.eclipse.scada.ui.localization</module>
 		<module>../org.eclipse.scada.ui.utils</module>
-		<module>../org.eclipse.scada.ui.utils.feature</module>
-		<module>../org.eclipse.scada.utils.stats</module>
+		
 	</modules>
 
 	<!-- sign -->
