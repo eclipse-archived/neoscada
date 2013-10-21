@@ -7,7 +7,7 @@ EXTRA_DIST = $(PACKAGE).spec \
 
 include Makefile.defs
 
-dist: fetch
+dist:
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 	mkdir "$(PACKAGE)-$(VERSION)"
 	cp -a Makefile debian src fetchSrc "$(PACKAGE)-$(VERSION)"
