@@ -46,6 +46,7 @@
             executable="${wix.root}/bin/candle.exe"
             dir="setup_esac"
             failifexecutionfails="true"
+            failonerror="true"
             >
             <arg value="Setup.wxs"/>
             <arg value="Files.wxs"/>
@@ -54,9 +55,15 @@
             executable="${wix.root}/bin/light.exe"
             dir="setup_esac"
             failifexecutionfails="true"
+            failonerror="true"
             >
+            
+            <arg value="-ext"/>
+            <arg value="WixUIExtension"/>
+            
             <arg value="Setup.wixobj"/>
             <arg value="Files.wixobj"/>
+            
         	<arg value="-out"/>
         	<arg value="esac.msi"/>
         </exec>
