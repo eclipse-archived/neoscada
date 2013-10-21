@@ -3,7 +3,7 @@ Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Section: misc
 Priority: optional
 Standards-Version: 3.9.4
-Build-Depends: debhelper (>=8), cdbs (>=0.4.120)
+Build-Depends: debhelper (>=8), cdbs (>=0.4.100)
 
 Package: org.eclipse.scada
 Architecture: all
