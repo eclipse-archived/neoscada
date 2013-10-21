@@ -113,10 +113,10 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         logger.trace ( "decode () current frame = {} data = {}", currentFrame.toString (), currentFrame.getHexDump () );
         logger.trace ( "decode () new     frame = {} data = {}", in.toString (), in.getHexDump () );
         final int maxSize = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;
-        final int expectedSize = currentFrame.limit () + in.remaining ();
+        final int expectedSize = currentFrame.position () + in.remaining ();
         if ( expectedSize > maxSize + 1 )
         {
-            throw new ModbusProtocolError ( "received size (" + expectedSize + ") exceeds max size (" + maxSize + ")" );
+            throw new ModbusProtocolError ( String.format ( "received size (%s) exceeds max size (%s)", expectedSize, maxSize ) );
         }
         currentFrame.put ( in );
 
