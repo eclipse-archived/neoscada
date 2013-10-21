@@ -25,27 +25,15 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Type;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getFieldNumber
- * <em>Field Number</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isEquality
- * <em>Equality</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getType
- * <em>Type</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isTransient
- * <em>Transient</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isDeleted
- * <em>Deleted</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getFieldNumber <em>Field Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isEquality <em>Equality</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isTransient <em>Transient</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl#isDeleted <em>Deleted</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class AttributeImpl extends DocumentedElementImpl implements Attribute
@@ -54,7 +42,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -65,7 +52,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -73,11 +59,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getFieldNumber() <em>Field Number</em>}
-     * ' attribute.
+     * The default value of the '{@link #getFieldNumber() <em>Field Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getFieldNumber()
      * @generated
      * @ordered
@@ -85,11 +69,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected static final byte FIELD_NUMBER_EDEFAULT = 0x00;
 
     /**
-     * The cached value of the '{@link #getFieldNumber() <em>Field Number</em>}'
-     * attribute.
+     * The cached value of the '{@link #getFieldNumber() <em>Field Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getFieldNumber()
      * @generated
      * @ordered
@@ -97,11 +79,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected byte fieldNumber = FIELD_NUMBER_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isEquality() <em>Equality</em>}'
-     * attribute.
+     * The default value of the '{@link #isEquality() <em>Equality</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isEquality()
      * @generated
      * @ordered
@@ -109,11 +89,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected static final boolean EQUALITY_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isEquality() <em>Equality</em>}'
-     * attribute.
+     * The cached value of the '{@link #isEquality() <em>Equality</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isEquality()
      * @generated
      * @ordered
@@ -124,7 +102,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -135,7 +112,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -143,11 +119,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected Type type = TYPE_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isTransient() <em>Transient</em>}'
-     * attribute.
+     * The default value of the '{@link #isTransient() <em>Transient</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isTransient()
      * @generated
      * @ordered
@@ -155,11 +129,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected static final boolean TRANSIENT_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isTransient() <em>Transient</em>}'
-     * attribute.
+     * The cached value of the '{@link #isTransient() <em>Transient</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isTransient()
      * @generated
      * @ordered
@@ -167,11 +139,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected boolean transient_ = TRANSIENT_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isDeleted() <em>Deleted</em>}'
-     * attribute.
+     * The default value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isDeleted()
      * @generated
      * @ordered
@@ -179,11 +149,9 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     protected static final boolean DELETED_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isDeleted() <em>Deleted</em>}'
-     * attribute.
+     * The cached value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isDeleted()
      * @generated
      * @ordered
@@ -193,7 +161,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected AttributeImpl ()
@@ -204,7 +171,6 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -216,185 +182,160 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public byte getFieldNumber ()
     {
-        return this.fieldNumber;
+        return fieldNumber;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setFieldNumber ( final byte newFieldNumber )
+    public void setFieldNumber ( byte newFieldNumber )
     {
-        final byte oldFieldNumber = this.fieldNumber;
-        this.fieldNumber = newFieldNumber;
+        byte oldFieldNumber = fieldNumber;
+        fieldNumber = newFieldNumber;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__FIELD_NUMBER, oldFieldNumber, this.fieldNumber ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__FIELD_NUMBER, oldFieldNumber, fieldNumber ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isEquality ()
     {
-        return this.equality;
+        return equality;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setEquality ( final boolean newEquality )
+    public void setEquality ( boolean newEquality )
     {
-        final boolean oldEquality = this.equality;
-        this.equality = newEquality;
+        boolean oldEquality = equality;
+        equality = newEquality;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__EQUALITY, oldEquality, this.equality ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__EQUALITY, oldEquality, equality ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Type getType ()
     {
-        return this.type;
+        return type;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setType ( final Type newType )
+    public void setType ( Type newType )
     {
-        final Type oldType = this.type;
-        this.type = newType == null ? TYPE_EDEFAULT : newType;
+        Type oldType = type;
+        type = newType == null ? TYPE_EDEFAULT : newType;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__TYPE, oldType, this.type ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__TYPE, oldType, type ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isTransient ()
     {
-        return this.transient_;
+        return transient_;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setTransient ( final boolean newTransient )
+    public void setTransient ( boolean newTransient )
     {
-        final boolean oldTransient = this.transient_;
-        this.transient_ = newTransient;
+        boolean oldTransient = transient_;
+        transient_ = newTransient;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__TRANSIENT, oldTransient, this.transient_ ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__TRANSIENT, oldTransient, transient_ ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isDeleted ()
     {
-        return this.deleted;
+        return deleted;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setDeleted ( final boolean newDeleted )
+    public void setDeleted ( boolean newDeleted )
     {
-        final boolean oldDeleted = this.deleted;
-        this.deleted = newDeleted;
+        boolean oldDeleted = deleted;
+        deleted = newDeleted;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__DELETED, oldDeleted, this.deleted ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE__DELETED, oldDeleted, deleted ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -417,11 +358,10 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -450,11 +390,10 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -483,26 +422,25 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.ATTRIBUTE__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ProtocolPackage.ATTRIBUTE__FIELD_NUMBER:
-                return this.fieldNumber != FIELD_NUMBER_EDEFAULT;
+                return fieldNumber != FIELD_NUMBER_EDEFAULT;
             case ProtocolPackage.ATTRIBUTE__EQUALITY:
-                return this.equality != EQUALITY_EDEFAULT;
+                return equality != EQUALITY_EDEFAULT;
             case ProtocolPackage.ATTRIBUTE__TYPE:
-                return this.type != TYPE_EDEFAULT;
+                return type != TYPE_EDEFAULT;
             case ProtocolPackage.ATTRIBUTE__TRANSIENT:
-                return this.transient_ != TRANSIENT_EDEFAULT;
+                return transient_ != TRANSIENT_EDEFAULT;
             case ProtocolPackage.ATTRIBUTE__DELETED:
-                return this.deleted != DELETED_EDEFAULT;
+                return deleted != DELETED_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -510,30 +448,27 @@ public abstract class AttributeImpl extends DocumentedElementImpl implements Att
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " );
-        result.append ( this.name );
-        result.append ( ", fieldNumber: " );
-        result.append ( this.fieldNumber );
-        result.append ( ", equality: " );
-        result.append ( this.equality );
-        result.append ( ", type: " );
-        result.append ( this.type );
-        result.append ( ", transient: " );
-        result.append ( this.transient_ );
-        result.append ( ", deleted: " );
-        result.append ( this.deleted );
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", fieldNumber: " ); //$NON-NLS-1$
+        result.append ( fieldNumber );
+        result.append ( ", equality: " ); //$NON-NLS-1$
+        result.append ( equality );
+        result.append ( ", type: " ); //$NON-NLS-1$
+        result.append ( type );
+        result.append ( ", transient: " ); //$NON-NLS-1$
+        result.append ( transient_ );
+        result.append ( ", deleted: " ); //$NON-NLS-1$
+        result.append ( deleted );
         result.append ( ')' );
         return result.toString ();
     }

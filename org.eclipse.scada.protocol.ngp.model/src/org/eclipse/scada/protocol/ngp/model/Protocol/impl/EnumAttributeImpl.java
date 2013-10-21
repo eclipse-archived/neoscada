@@ -25,22 +25,18 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl#getEnumType
- * <em>Enum Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl#getEnumType <em>Enum Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
 {
     /**
-     * The cached value of the '{@link #getEnumType() <em>Enum Type</em>}'
-     * reference.
+     * The cached value of the '{@link #getEnumType() <em>Enum Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getEnumType()
      * @generated
      * @ordered
@@ -50,7 +46,6 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EnumAttributeImpl ()
@@ -61,7 +56,6 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -73,71 +67,61 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public org.eclipse.scada.protocol.ngp.model.Protocol.Enum getEnumType ()
     {
-        if ( this.enumType != null && this.enumType.eIsProxy () )
+        if ( enumType != null && enumType.eIsProxy () )
         {
-            final InternalEObject oldEnumType = (InternalEObject)this.enumType;
-            this.enumType = (org.eclipse.scada.protocol.ngp.model.Protocol.Enum)eResolveProxy ( oldEnumType );
-            if ( this.enumType != oldEnumType )
+            InternalEObject oldEnumType = (InternalEObject)enumType;
+            enumType = (org.eclipse.scada.protocol.ngp.model.Protocol.Enum)eResolveProxy ( oldEnumType );
+            if ( enumType != oldEnumType )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE, oldEnumType, this.enumType ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE, oldEnumType, enumType ) );
             }
         }
-        return this.enumType;
+        return enumType;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public org.eclipse.scada.protocol.ngp.model.Protocol.Enum basicGetEnumType ()
     {
-        return this.enumType;
+        return enumType;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setEnumType ( final org.eclipse.scada.protocol.ngp.model.Protocol.Enum newEnumType )
+    public void setEnumType ( org.eclipse.scada.protocol.ngp.model.Protocol.Enum newEnumType )
     {
-        final org.eclipse.scada.protocol.ngp.model.Protocol.Enum oldEnumType = this.enumType;
-        this.enumType = newEnumType;
+        org.eclipse.scada.protocol.ngp.model.Protocol.Enum oldEnumType = enumType;
+        enumType = newEnumType;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE, oldEnumType, this.enumType ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE, oldEnumType, enumType ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE:
                 if ( resolve )
-                {
                     return getEnumType ();
-                }
                 return basicGetEnumType ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -146,11 +130,10 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -164,11 +147,10 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -182,16 +164,15 @@ public class EnumAttributeImpl extends AttributeImpl implements EnumAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.ENUM_ATTRIBUTE__ENUM_TYPE:
-                return this.enumType != null;
+                return enumType != null;
         }
         return super.eIsSet ( featureID );
     }

@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Documented Element</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public abstract class DocumentedElementTest extends TestCase
@@ -30,7 +29,6 @@ public abstract class DocumentedElementTest extends TestCase
      * The fixture for this Documented Element test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected DocumentedElement fixture = null;
@@ -39,10 +37,9 @@ public abstract class DocumentedElementTest extends TestCase
      * Constructs a new Documented Element test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public DocumentedElementTest ( final String name )
+    public DocumentedElementTest ( String name )
     {
         super ( name );
     }
@@ -51,10 +48,9 @@ public abstract class DocumentedElementTest extends TestCase
      * Sets the fixture for this Documented Element test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void setFixture ( final DocumentedElement fixture )
+    protected void setFixture ( DocumentedElement fixture )
     {
         this.fixture = fixture;
     }
@@ -63,12 +59,11 @@ public abstract class DocumentedElementTest extends TestCase
      * Returns the fixture for this Documented Element test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected DocumentedElement getFixture ()
     {
-        return this.fixture;
+        return fixture;
     }
 
 } //DocumentedElementTest

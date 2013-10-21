@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class StringAttributeImpl extends AttributeImpl implements StringAttribute
@@ -29,7 +29,6 @@ public class StringAttributeImpl extends AttributeImpl implements StringAttribut
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected StringAttributeImpl ()
@@ -40,7 +39,6 @@ public class StringAttributeImpl extends AttributeImpl implements StringAttribut
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

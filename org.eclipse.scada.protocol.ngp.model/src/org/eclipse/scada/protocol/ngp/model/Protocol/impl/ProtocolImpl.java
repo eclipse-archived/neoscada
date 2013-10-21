@@ -35,46 +35,26 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Structure;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getMessages
- * <em>Messages</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getStructures
- * <em>Structures</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getPackagePrefix
- * <em>Package Prefix</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getIncludedProtocols
- * <em>Included Protocols</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getLicenseHeader
- * <em>License Header</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getEnums
- * <em>Enums</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getInterfaces
- * <em>Interfaces</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getVersion
- * <em>Version</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getMessages <em>Messages</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getStructures <em>Structures</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getPackagePrefix <em>Package Prefix</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getIncludedProtocols <em>Included Protocols</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getLicenseHeader <em>License Header</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getEnums <em>Enums</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getInterfaces <em>Interfaces</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProtocolImpl extends DocumentedElementImpl implements Protocol
 {
     /**
-     * The cached value of the '{@link #getMessages() <em>Messages</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getMessages() <em>Messages</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getMessages()
      * @generated
      * @ordered
@@ -85,7 +65,6 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -96,7 +75,6 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -104,11 +82,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getStructures() <em>Structures</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getStructures() <em>Structures</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getStructures()
      * @generated
      * @ordered
@@ -116,11 +92,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected EList<Structure> structures;
 
     /**
-     * The default value of the '{@link #getPackagePrefix()
-     * <em>Package Prefix</em>}' attribute.
+     * The default value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPackagePrefix()
      * @generated
      * @ordered
@@ -128,11 +102,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected static final String PACKAGE_PREFIX_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPackagePrefix()
-     * <em>Package Prefix</em>}' attribute.
+     * The cached value of the '{@link #getPackagePrefix() <em>Package Prefix</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPackagePrefix()
      * @generated
      * @ordered
@@ -140,11 +112,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected String packagePrefix = PACKAGE_PREFIX_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getIncludedProtocols()
-     * <em>Included Protocols</em>}' reference list.
+     * The cached value of the '{@link #getIncludedProtocols() <em>Included Protocols</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getIncludedProtocols()
      * @generated
      * @ordered
@@ -152,11 +122,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected EList<Protocol> includedProtocols;
 
     /**
-     * The default value of the '{@link #getLicenseHeader()
-     * <em>License Header</em>}' attribute.
+     * The default value of the '{@link #getLicenseHeader() <em>License Header</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLicenseHeader()
      * @generated
      * @ordered
@@ -164,11 +132,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected static final String LICENSE_HEADER_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLicenseHeader()
-     * <em>License Header</em>}' attribute.
+     * The cached value of the '{@link #getLicenseHeader() <em>License Header</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLicenseHeader()
      * @generated
      * @ordered
@@ -176,11 +142,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected String licenseHeader = LICENSE_HEADER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getEnums() <em>Enums</em>}' containment
-     * reference list.
+     * The cached value of the '{@link #getEnums() <em>Enums</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getEnums()
      * @generated
      * @ordered
@@ -188,11 +152,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected EList<org.eclipse.scada.protocol.ngp.model.Protocol.Enum> enums;
 
     /**
-     * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getInterfaces()
      * @generated
      * @ordered
@@ -200,11 +162,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected EList<Interface> interfaces;
 
     /**
-     * The default value of the '{@link #getVersion() <em>Version</em>}'
-     * attribute.
+     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getVersion()
      * @generated
      * @ordered
@@ -212,11 +172,9 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     protected static final short VERSION_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}'
-     * attribute.
+     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getVersion()
      * @generated
      * @ordered
@@ -226,7 +184,6 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ProtocolImpl ()
@@ -237,7 +194,6 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -249,208 +205,186 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Message> getMessages ()
     {
-        if ( this.messages == null )
+        if ( messages == null )
         {
-            this.messages = new EObjectContainmentWithInverseEList.Resolving<Message> ( Message.class, this, ProtocolPackage.PROTOCOL__MESSAGES, ProtocolPackage.MESSAGE__PROTOCOL );
+            messages = new EObjectContainmentWithInverseEList.Resolving<Message> ( Message.class, this, ProtocolPackage.PROTOCOL__MESSAGES, ProtocolPackage.MESSAGE__PROTOCOL );
         }
-        return this.messages;
+        return messages;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Protocol> getIncludedProtocols ()
     {
-        if ( this.includedProtocols == null )
+        if ( includedProtocols == null )
         {
-            this.includedProtocols = new EObjectResolvingEList<Protocol> ( Protocol.class, this, ProtocolPackage.PROTOCOL__INCLUDED_PROTOCOLS );
+            includedProtocols = new EObjectResolvingEList<Protocol> ( Protocol.class, this, ProtocolPackage.PROTOCOL__INCLUDED_PROTOCOLS );
         }
-        return this.includedProtocols;
+        return includedProtocols;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getLicenseHeader ()
     {
-        return this.licenseHeader;
+        return licenseHeader;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setLicenseHeader ( final String newLicenseHeader )
+    public void setLicenseHeader ( String newLicenseHeader )
     {
-        final String oldLicenseHeader = this.licenseHeader;
-        this.licenseHeader = newLicenseHeader;
+        String oldLicenseHeader = licenseHeader;
+        licenseHeader = newLicenseHeader;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__LICENSE_HEADER, oldLicenseHeader, this.licenseHeader ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__LICENSE_HEADER, oldLicenseHeader, licenseHeader ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<org.eclipse.scada.protocol.ngp.model.Protocol.Enum> getEnums ()
     {
-        if ( this.enums == null )
+        if ( enums == null )
         {
-            this.enums = new EObjectContainmentWithInverseEList.Resolving<org.eclipse.scada.protocol.ngp.model.Protocol.Enum> ( org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, this, ProtocolPackage.PROTOCOL__ENUMS, ProtocolPackage.ENUM__PROTOCOL );
+            enums = new EObjectContainmentWithInverseEList.Resolving<org.eclipse.scada.protocol.ngp.model.Protocol.Enum> ( org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, this, ProtocolPackage.PROTOCOL__ENUMS, ProtocolPackage.ENUM__PROTOCOL );
         }
-        return this.enums;
+        return enums;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Interface> getInterfaces ()
     {
-        if ( this.interfaces == null )
+        if ( interfaces == null )
         {
-            this.interfaces = new EObjectContainmentWithInverseEList.Resolving<Interface> ( Interface.class, this, ProtocolPackage.PROTOCOL__INTERFACES, ProtocolPackage.INTERFACE__PROTOCOL );
+            interfaces = new EObjectContainmentWithInverseEList.Resolving<Interface> ( Interface.class, this, ProtocolPackage.PROTOCOL__INTERFACES, ProtocolPackage.INTERFACE__PROTOCOL );
         }
-        return this.interfaces;
+        return interfaces;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public short getVersion ()
     {
-        return this.version;
+        return version;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setVersion ( final short newVersion )
+    public void setVersion ( short newVersion )
     {
-        final short oldVersion = this.version;
-        this.version = newVersion;
+        short oldVersion = version;
+        version = newVersion;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__VERSION, oldVersion, this.version ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__VERSION, oldVersion, version ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Structure> getStructures ()
     {
-        if ( this.structures == null )
+        if ( structures == null )
         {
-            this.structures = new EObjectContainmentWithInverseEList.Resolving<Structure> ( Structure.class, this, ProtocolPackage.PROTOCOL__STRUCTURES, ProtocolPackage.STRUCTURE__PROTOCOL );
+            structures = new EObjectContainmentWithInverseEList.Resolving<Structure> ( Structure.class, this, ProtocolPackage.PROTOCOL__STRUCTURES, ProtocolPackage.STRUCTURE__PROTOCOL );
         }
-        return this.structures;
+        return structures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getPackagePrefix ()
     {
-        return this.packagePrefix;
+        return packagePrefix;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setPackagePrefix ( final String newPackagePrefix )
+    public void setPackagePrefix ( String newPackagePrefix )
     {
-        final String oldPackagePrefix = this.packagePrefix;
-        this.packagePrefix = newPackagePrefix;
+        String oldPackagePrefix = packagePrefix;
+        packagePrefix = newPackagePrefix;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__PACKAGE_PREFIX, oldPackagePrefix, this.packagePrefix ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.PROTOCOL__PACKAGE_PREFIX, oldPackagePrefix, packagePrefix ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public NotificationChain eInverseAdd ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -469,11 +403,10 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -492,11 +425,10 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -525,12 +457,11 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -573,11 +504,10 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -615,32 +545,31 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.PROTOCOL__MESSAGES:
-                return this.messages != null && !this.messages.isEmpty ();
+                return messages != null && !messages.isEmpty ();
             case ProtocolPackage.PROTOCOL__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ProtocolPackage.PROTOCOL__STRUCTURES:
-                return this.structures != null && !this.structures.isEmpty ();
+                return structures != null && !structures.isEmpty ();
             case ProtocolPackage.PROTOCOL__PACKAGE_PREFIX:
-                return PACKAGE_PREFIX_EDEFAULT == null ? this.packagePrefix != null : !PACKAGE_PREFIX_EDEFAULT.equals ( this.packagePrefix );
+                return PACKAGE_PREFIX_EDEFAULT == null ? packagePrefix != null : !PACKAGE_PREFIX_EDEFAULT.equals ( packagePrefix );
             case ProtocolPackage.PROTOCOL__INCLUDED_PROTOCOLS:
-                return this.includedProtocols != null && !this.includedProtocols.isEmpty ();
+                return includedProtocols != null && !includedProtocols.isEmpty ();
             case ProtocolPackage.PROTOCOL__LICENSE_HEADER:
-                return LICENSE_HEADER_EDEFAULT == null ? this.licenseHeader != null : !LICENSE_HEADER_EDEFAULT.equals ( this.licenseHeader );
+                return LICENSE_HEADER_EDEFAULT == null ? licenseHeader != null : !LICENSE_HEADER_EDEFAULT.equals ( licenseHeader );
             case ProtocolPackage.PROTOCOL__ENUMS:
-                return this.enums != null && !this.enums.isEmpty ();
+                return enums != null && !enums.isEmpty ();
             case ProtocolPackage.PROTOCOL__INTERFACES:
-                return this.interfaces != null && !this.interfaces.isEmpty ();
+                return interfaces != null && !interfaces.isEmpty ();
             case ProtocolPackage.PROTOCOL__VERSION:
-                return this.version != VERSION_EDEFAULT;
+                return version != VERSION_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -648,26 +577,23 @@ public class ProtocolImpl extends DocumentedElementImpl implements Protocol
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " );
-        result.append ( this.name );
-        result.append ( ", packagePrefix: " );
-        result.append ( this.packagePrefix );
-        result.append ( ", licenseHeader: " );
-        result.append ( this.licenseHeader );
-        result.append ( ", version: " );
-        result.append ( this.version );
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", packagePrefix: " ); //$NON-NLS-1$
+        result.append ( packagePrefix );
+        result.append ( ", licenseHeader: " ); //$NON-NLS-1$
+        result.append ( licenseHeader );
+        result.append ( ", version: " ); //$NON-NLS-1$
+        result.append ( version );
         result.append ( ')' );
         return result.toString ();
     }

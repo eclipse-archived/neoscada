@@ -17,7 +17,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Attribute;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public abstract class AttributeTest extends DocumentedElementTest
@@ -27,10 +26,9 @@ public abstract class AttributeTest extends DocumentedElementTest
      * Constructs a new Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public AttributeTest ( final String name )
+    public AttributeTest ( String name )
     {
         super ( name );
     }
@@ -39,13 +37,12 @@ public abstract class AttributeTest extends DocumentedElementTest
      * Returns the fixture for this Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected Attribute getFixture ()
     {
-        return (Attribute)this.fixture;
+        return (Attribute)fixture;
     }
 
 } //AttributeTest

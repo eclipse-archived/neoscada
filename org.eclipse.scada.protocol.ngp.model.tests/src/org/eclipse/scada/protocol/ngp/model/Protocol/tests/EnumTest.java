@@ -19,7 +19,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Enum</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class EnumTest extends DocumentedElementTest
@@ -28,10 +27,9 @@ public class EnumTest extends DocumentedElementTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( EnumTest.class );
     }
@@ -40,10 +38,9 @@ public class EnumTest extends DocumentedElementTest
      * Constructs a new Enum test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public EnumTest ( final String name )
+    public EnumTest ( String name )
     {
         super ( name );
     }
@@ -52,19 +49,17 @@ public class EnumTest extends DocumentedElementTest
      * Returns the fixture for this Enum test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected org.eclipse.scada.protocol.ngp.model.Protocol.Enum getFixture ()
     {
-        return (org.eclipse.scada.protocol.ngp.model.Protocol.Enum)this.fixture;
+        return (org.eclipse.scada.protocol.ngp.model.Protocol.Enum)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -77,7 +72,6 @@ public class EnumTest extends DocumentedElementTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

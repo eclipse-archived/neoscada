@@ -26,22 +26,18 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl#getStructure
- * <em>Structure</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl#getStructure <em>Structure</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class StructureAttributeImpl extends AttributeImpl implements StructureAttribute
 {
     /**
-     * The cached value of the '{@link #getStructure() <em>Structure</em>}'
-     * reference.
+     * The cached value of the '{@link #getStructure() <em>Structure</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getStructure()
      * @generated
      * @ordered
@@ -51,7 +47,6 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected StructureAttributeImpl ()
@@ -62,7 +57,6 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -74,71 +68,61 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Structure getStructure ()
     {
-        if ( this.structure != null && this.structure.eIsProxy () )
+        if ( structure != null && structure.eIsProxy () )
         {
-            final InternalEObject oldStructure = (InternalEObject)this.structure;
-            this.structure = (Structure)eResolveProxy ( oldStructure );
-            if ( this.structure != oldStructure )
+            InternalEObject oldStructure = (InternalEObject)structure;
+            structure = (Structure)eResolveProxy ( oldStructure );
+            if ( structure != oldStructure )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE, oldStructure, this.structure ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE, oldStructure, structure ) );
             }
         }
-        return this.structure;
+        return structure;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Structure basicGetStructure ()
     {
-        return this.structure;
+        return structure;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setStructure ( final Structure newStructure )
+    public void setStructure ( Structure newStructure )
     {
-        final Structure oldStructure = this.structure;
-        this.structure = newStructure;
+        Structure oldStructure = structure;
+        structure = newStructure;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE, oldStructure, this.structure ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE, oldStructure, structure ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE:
                 if ( resolve )
-                {
                     return getStructure ();
-                }
                 return basicGetStructure ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -147,11 +131,10 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -165,11 +148,10 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -183,16 +165,15 @@ public class StructureAttributeImpl extends AttributeImpl implements StructureAt
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.STRUCTURE_ATTRIBUTE__STRUCTURE:
-                return this.structure != null;
+                return structure != null;
         }
         return super.eIsSet ( featureID );
     }

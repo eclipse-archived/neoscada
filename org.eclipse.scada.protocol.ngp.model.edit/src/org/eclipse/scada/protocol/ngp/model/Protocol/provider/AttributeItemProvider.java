@@ -29,11 +29,9 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Attribute;
 import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class AttributeItemProvider extends DocumentedElementItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -42,10 +40,9 @@ public class AttributeItemProvider extends DocumentedElementItemProvider impleme
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public AttributeItemProvider ( final AdapterFactory adapterFactory )
+    public AttributeItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,13 +51,12 @@ public class AttributeItemProvider extends DocumentedElementItemProvider impleme
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -71,120 +67,183 @@ public class AttributeItemProvider extends DocumentedElementItemProvider impleme
             addTransientPropertyDescriptor ( object );
             addDeletedPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( final Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_name_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_name_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Field Number feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addFieldNumberPropertyDescriptor ( final Object object )
+    protected void addFieldNumberPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_fieldNumber_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_fieldNumber_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__FIELD_NUMBER, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_fieldNumber_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_fieldNumber_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__FIELD_NUMBER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Equality feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addEqualityPropertyDescriptor ( final Object object )
+    protected void addEqualityPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_equality_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_equality_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__EQUALITY, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_equality_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_equality_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__EQUALITY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addTypePropertyDescriptor ( final Object object )
+    protected void addTypePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_type_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__TYPE, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_type_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Transient feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addTransientPropertyDescriptor ( final Object object )
+    protected void addTransientPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_transient_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_transient_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__TRANSIENT, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_transient_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_transient_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__TRANSIENT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Deleted feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addDeletedPropertyDescriptor ( final Object object )
+    protected void addDeletedPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Attribute_deleted_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_deleted_feature", "_UI_Attribute_type" ), ProtocolPackage.Literals.ATTRIBUTE__DELETED, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Attribute_deleted_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Attribute_deleted_feature", "_UI_Attribute_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.ATTRIBUTE__DELETED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This returns Attribute.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Attribute" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Attribute" ) ); //$NON-NLS-1$
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final String label = ( (Attribute)object ).getName ();
-        return label == null || label.length () == 0 ? getString ( "_UI_Attribute_type" ) : getString ( "_UI_Attribute_type" ) + " " + label;
+        String label = ( (Attribute)object ).getName ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_Attribute_type" ) : //$NON-NLS-1$
+                getString ( "_UI_Attribute_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -203,16 +262,14 @@ public class AttributeItemProvider extends DocumentedElementItemProvider impleme
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

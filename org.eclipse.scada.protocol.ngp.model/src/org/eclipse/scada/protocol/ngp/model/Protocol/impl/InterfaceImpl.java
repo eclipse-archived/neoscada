@@ -28,12 +28,10 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl#getProtocol
- * <em>Protocol</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl#getProtocol <em>Protocol</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InterfaceImpl extends AttributeStructureImpl implements Interface
@@ -41,7 +39,6 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected InterfaceImpl ()
@@ -52,7 +49,6 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -64,41 +60,34 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Protocol getProtocol ()
     {
         if ( eContainerFeatureID () != ProtocolPackage.INTERFACE__PROTOCOL )
-        {
             return null;
-        }
         return (Protocol)eContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Protocol basicGetProtocol ()
     {
         if ( eContainerFeatureID () != ProtocolPackage.INTERFACE__PROTOCOL )
-        {
             return null;
-        }
         return (Protocol)eInternalContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetProtocol ( final Protocol newProtocol, NotificationChain msgs )
+    public NotificationChain basicSetProtocol ( Protocol newProtocol, NotificationChain msgs )
     {
         msgs = eBasicSetContainer ( (InternalEObject)newProtocol, ProtocolPackage.INTERFACE__PROTOCOL, msgs );
         return msgs;
@@ -107,55 +96,41 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setProtocol ( final Protocol newProtocol )
+    public void setProtocol ( Protocol newProtocol )
     {
-        if ( newProtocol != eInternalContainer () || eContainerFeatureID () != ProtocolPackage.INTERFACE__PROTOCOL && newProtocol != null )
+        if ( newProtocol != eInternalContainer () || ( eContainerFeatureID () != ProtocolPackage.INTERFACE__PROTOCOL && newProtocol != null ) )
         {
             if ( EcoreUtil.isAncestor ( this, newProtocol ) )
-            {
-                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () );
-            }
+                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
             NotificationChain msgs = null;
             if ( eInternalContainer () != null )
-            {
                 msgs = eBasicRemoveFromContainer ( msgs );
-            }
             if ( newProtocol != null )
-            {
                 msgs = ( (InternalEObject)newProtocol ).eInverseAdd ( this, ProtocolPackage.PROTOCOL__INTERFACES, Protocol.class, msgs );
-            }
             msgs = basicSetProtocol ( newProtocol, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.INTERFACE__PROTOCOL, newProtocol, newProtocol ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( final InternalEObject otherEnd, final int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
             case ProtocolPackage.INTERFACE__PROTOCOL:
                 if ( eInternalContainer () != null )
-                {
                     msgs = eBasicRemoveFromContainer ( msgs );
-                }
                 return basicSetProtocol ( (Protocol)otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
@@ -164,11 +139,10 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -181,11 +155,10 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( final NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {
@@ -198,19 +171,16 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
             case ProtocolPackage.INTERFACE__PROTOCOL:
                 if ( resolve )
-                {
                     return getProtocol ();
-                }
                 return basicGetProtocol ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -219,11 +189,10 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -237,11 +206,10 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -255,11 +223,10 @@ public class InterfaceImpl extends AttributeStructureImpl implements Interface
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {

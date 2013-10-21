@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class IntegerAttributeImpl extends AttributeImpl implements IntegerAttribute
@@ -29,7 +29,6 @@ public class IntegerAttributeImpl extends AttributeImpl implements IntegerAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IntegerAttributeImpl ()
@@ -40,7 +39,6 @@ public class IntegerAttributeImpl extends AttributeImpl implements IntegerAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

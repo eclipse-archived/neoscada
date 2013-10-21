@@ -32,12 +32,9 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement;
 import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement}
- * object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class DocumentedElementItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -46,10 +43,9 @@ public class DocumentedElementItemProvider extends ItemProviderAdapter implement
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public DocumentedElementItemProvider ( final AdapterFactory adapterFactory )
+    public DocumentedElementItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -58,72 +54,91 @@ public class DocumentedElementItemProvider extends ItemProviderAdapter implement
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addDescriptionPropertyDescriptor ( object );
             addShortDescriptionPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addDescriptionPropertyDescriptor ( final Object object )
+    protected void addDescriptionPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DocumentedElement_description_feature" ), getString ( "_UI_DocumentedElement_description_description" ), ProtocolPackage.Literals.DOCUMENTED_ELEMENT__DESCRIPTION, true, true, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_documentationPropertyCategory" ), null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DocumentedElement_description_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_DocumentedElement_description_description" ), //$NON-NLS-1$
+                        ProtocolPackage.Literals.DOCUMENTED_ELEMENT__DESCRIPTION,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_documentationPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Short Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( final Object object )
+    protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_DocumentedElement_shortDescription_feature" ), getString ( "_UI_DocumentedElement_shortDescription_description" ), ProtocolPackage.Literals.DOCUMENTED_ELEMENT__SHORT_DESCRIPTION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, getString ( "_UI_documentationPropertyCategory" ), null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DocumentedElement_shortDescription_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_DocumentedElement_shortDescription_description" ), //$NON-NLS-1$
+                        ProtocolPackage.Literals.DOCUMENTED_ELEMENT__SHORT_DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_documentationPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final String label = crop ( ( (DocumentedElement)object ).getDescription () );
-        return label == null || label.length () == 0 ? getString ( "_UI_DocumentedElement_type" ) : getString ( "_UI_DocumentedElement_type" ) + " " + label;
+        String label = crop ( ( (DocumentedElement)object ).getDescription () );
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_DocumentedElement_type" ) : //$NON-NLS-1$
+                getString ( "_UI_DocumentedElement_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -138,16 +153,14 @@ public class DocumentedElementItemProvider extends ItemProviderAdapter implement
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -156,7 +169,6 @@ public class DocumentedElementItemProvider extends ItemProviderAdapter implement
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

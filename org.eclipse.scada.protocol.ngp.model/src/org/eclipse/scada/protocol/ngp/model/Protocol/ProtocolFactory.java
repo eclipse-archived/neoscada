@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage
  * @generated
  */
@@ -28,7 +27,6 @@ public interface ProtocolFactory extends EFactory
      * The singleton instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     ProtocolFactory eINSTANCE = org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolFactoryImpl.init ();
@@ -37,7 +35,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Message</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Message</em>'.
      * @generated
      */
@@ -47,7 +44,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Protocol</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Protocol</em>'.
      * @generated
      */
@@ -57,7 +53,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Structure</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Structure</em>'.
      * @generated
      */
@@ -67,7 +62,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>String Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>String Attribute</em>'.
      * @generated
      */
@@ -77,7 +71,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Boolean Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Boolean Attribute</em>'.
      * @generated
      */
@@ -87,7 +80,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Structure Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Structure Attribute</em>'.
      * @generated
      */
@@ -97,7 +89,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Variant Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Variant Attribute</em>'.
      * @generated
      */
@@ -107,7 +98,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Integer Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Integer Attribute</em>'.
      * @generated
      */
@@ -117,7 +107,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Long Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Long Attribute</em>'.
      * @generated
      */
@@ -127,7 +116,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Float Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Float Attribute</em>'.
      * @generated
      */
@@ -137,7 +125,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Variant Map Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Variant Map Attribute</em>'.
      * @generated
      */
@@ -147,7 +134,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Properties Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Properties Attribute</em>'.
      * @generated
      */
@@ -157,7 +143,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Enum</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Enum</em>'.
      * @generated
      */
@@ -167,7 +152,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Enum Attribute</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Enum Attribute</em>'.
      * @generated
      */
@@ -177,7 +161,6 @@ public interface ProtocolFactory extends EFactory
      * Returns a new object of class '<em>Interface</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return a new object of class '<em>Interface</em>'.
      * @generated
      */
@@ -187,7 +170,6 @@ public interface ProtocolFactory extends EFactory
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the package supported by this factory.
      * @generated
      */

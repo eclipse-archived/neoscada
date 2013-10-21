@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.util.ProtocolResourceFactoryImpl
  * @generated
  */
@@ -29,12 +28,10 @@ public class ProtocolResourceImpl extends XMIResourceImpl
      * Creates an instance of the resource.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param uri
-     *            the URI of the new resource.
+     * @param uri the URI of the new resource.
      * @generated
      */
-    public ProtocolResourceImpl ( final URI uri )
+    public ProtocolResourceImpl ( URI uri )
     {
         super ( uri );
     }

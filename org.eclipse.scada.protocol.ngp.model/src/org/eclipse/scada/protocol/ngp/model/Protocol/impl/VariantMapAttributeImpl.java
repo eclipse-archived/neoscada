@@ -22,7 +22,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class VariantMapAttributeImpl extends AttributeImpl implements VariantMapAttribute
@@ -30,7 +30,6 @@ public class VariantMapAttributeImpl extends AttributeImpl implements VariantMap
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected VariantMapAttributeImpl ()
@@ -41,7 +40,6 @@ public class VariantMapAttributeImpl extends AttributeImpl implements VariantMap
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

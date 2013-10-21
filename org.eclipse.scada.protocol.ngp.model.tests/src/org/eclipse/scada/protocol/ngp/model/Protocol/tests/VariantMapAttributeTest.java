@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Variant Map Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class VariantMapAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class VariantMapAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( VariantMapAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class VariantMapAttributeTest extends AttributeTest
      * Constructs a new Variant Map Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public VariantMapAttributeTest ( final String name )
+    public VariantMapAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class VariantMapAttributeTest extends AttributeTest
      * Returns the fixture for this Variant Map Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected VariantMapAttribute getFixture ()
     {
-        return (VariantMapAttribute)this.fixture;
+        return (VariantMapAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class VariantMapAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

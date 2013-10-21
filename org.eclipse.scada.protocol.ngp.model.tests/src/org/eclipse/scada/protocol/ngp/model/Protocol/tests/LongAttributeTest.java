@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Long Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class LongAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class LongAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( LongAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class LongAttributeTest extends AttributeTest
      * Constructs a new Long Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public LongAttributeTest ( final String name )
+    public LongAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class LongAttributeTest extends AttributeTest
      * Returns the fixture for this Long Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected LongAttribute getFixture ()
     {
-        return (LongAttribute)this.fixture;
+        return (LongAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class LongAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

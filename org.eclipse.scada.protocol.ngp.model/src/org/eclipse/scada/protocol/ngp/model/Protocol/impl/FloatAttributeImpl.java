@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class FloatAttributeImpl extends AttributeImpl implements FloatAttribute
@@ -29,7 +29,6 @@ public class FloatAttributeImpl extends AttributeImpl implements FloatAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected FloatAttributeImpl ()
@@ -40,7 +39,6 @@ public class FloatAttributeImpl extends AttributeImpl implements FloatAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

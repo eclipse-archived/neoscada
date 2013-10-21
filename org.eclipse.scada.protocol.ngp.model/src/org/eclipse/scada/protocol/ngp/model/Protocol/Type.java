@@ -22,7 +22,6 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getType()
  * @model
  * @generated
@@ -33,7 +32,6 @@ public enum Type implements Enumerator
      * The '<em><b>SCALAR</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #SCALAR_VALUE
      * @generated
      * @ordered
@@ -44,7 +42,6 @@ public enum Type implements Enumerator
      * The '<em><b>OPTIONAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #OPTIONAL_VALUE
      * @generated
      * @ordered
@@ -55,7 +52,6 @@ public enum Type implements Enumerator
      * The '<em><b>ORDERED</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #ORDERED_VALUE
      * @generated
      * @ordered
@@ -66,7 +62,6 @@ public enum Type implements Enumerator
      * The '<em><b>UNIQUE</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #UNIQUE_VALUE
      * @generated
      * @ordered
@@ -81,7 +76,6 @@ public enum Type implements Enumerator
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @see #SCALAR
      * @model
      * @generated
@@ -97,7 +91,6 @@ public enum Type implements Enumerator
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @see #OPTIONAL
      * @model
      * @generated
@@ -113,7 +106,6 @@ public enum Type implements Enumerator
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @see #ORDERED
      * @model
      * @generated
@@ -129,7 +121,6 @@ public enum Type implements Enumerator
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @see #UNIQUE
      * @model
      * @generated
@@ -141,33 +132,35 @@ public enum Type implements Enumerator
      * An array of all the '<em><b>Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    private static final Type[] VALUES_ARRAY = new Type[] { SCALAR, OPTIONAL, ORDERED, UNIQUE, };
+    private static final Type[] VALUES_ARRAY = new Type[]
+    {
+            SCALAR,
+            OPTIONAL,
+            ORDERED,
+            UNIQUE,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final List<Type> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
-     * Returns the '<em><b>Type</b></em>' literal with the specified literal
-     * value.
+     * Returns the '<em><b>Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static Type get ( final String literal )
+    public static Type get ( String literal )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            final Type result = VALUES_ARRAY[i];
+            Type result = VALUES_ARRAY[i];
             if ( result.toString ().equals ( literal ) )
             {
                 return result;
@@ -180,14 +173,13 @@ public enum Type implements Enumerator
      * Returns the '<em><b>Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static Type getByName ( final String name )
+    public static Type getByName ( String name )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            final Type result = VALUES_ARRAY[i];
+            Type result = VALUES_ARRAY[i];
             if ( result.getName ().equals ( name ) )
             {
                 return result;
@@ -197,14 +189,12 @@ public enum Type implements Enumerator
     }
 
     /**
-     * Returns the '<em><b>Type</b></em>' literal with the specified integer
-     * value.
+     * Returns the '<em><b>Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static Type get ( final int value )
+    public static Type get ( int value )
     {
         switch ( value )
         {
@@ -223,7 +213,6 @@ public enum Type implements Enumerator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private final int value;
@@ -231,7 +220,6 @@ public enum Type implements Enumerator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private final String name;
@@ -239,7 +227,6 @@ public enum Type implements Enumerator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private final String literal;
@@ -248,10 +235,9 @@ public enum Type implements Enumerator
      * Only this class can construct instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    private Type ( final int value, final String name, final String literal )
+    private Type ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -261,51 +247,46 @@ public enum Type implements Enumerator
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public int getValue ()
     {
-        return this.value;
+        return value;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getLiteral ()
     {
-        return this.literal;
+        return literal;
     }
 
     /**
-     * Returns the literal value of the enumerator, which is its string
-     * representation.
+     * Returns the literal value of the enumerator, which is its string representation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
-        return this.literal;
+        return literal;
     }
 
 } //Type

@@ -19,7 +19,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test suite for the '<em><b>Protocol</b></em>' package.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolTests extends TestSuite
@@ -28,10 +27,9 @@ public class ProtocolTests extends TestSuite
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( suite () );
     }
@@ -39,22 +37,20 @@ public class ProtocolTests extends TestSuite
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static Test suite ()
     {
-        final TestSuite suite = new ProtocolTests ( "Protocol Tests" );
+        TestSuite suite = new ProtocolTests ( "Protocol Tests" ); //$NON-NLS-1$
         return suite;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ProtocolTests ( final String name )
+    public ProtocolTests ( String name )
     {
         super ( name );
     }

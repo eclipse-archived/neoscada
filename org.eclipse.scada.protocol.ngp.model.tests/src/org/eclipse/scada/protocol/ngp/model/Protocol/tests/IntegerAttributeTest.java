@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Integer Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class IntegerAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class IntegerAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( IntegerAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class IntegerAttributeTest extends AttributeTest
      * Constructs a new Integer Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public IntegerAttributeTest ( final String name )
+    public IntegerAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class IntegerAttributeTest extends AttributeTest
      * Returns the fixture for this Integer Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected IntegerAttribute getFixture ()
     {
-        return (IntegerAttribute)this.fixture;
+        return (IntegerAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class IntegerAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

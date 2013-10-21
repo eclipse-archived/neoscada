@@ -17,19 +17,16 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Message</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode <em>
- * Code</em>}</li>
- * <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol
- * <em>Protocol</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getInterfaces
- * <em>Interfaces</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode <em>Code</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getInterfaces <em>Interfaces</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getMessage()
  * @model
  * @generated
@@ -44,7 +41,6 @@ public interface Message extends AttributeStructure
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Code</em>' attribute.
      * @see #setCode(int)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getMessage_Code()
@@ -54,14 +50,10 @@ public interface Message extends AttributeStructure
     int getCode ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode
-     * <em>Code</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode <em>Code</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Code</em>' attribute.
+     * @param value the new value of the '<em>Code</em>' attribute.
      * @see #getCode()
      * @generated
      */
@@ -69,16 +61,13 @@ public interface Message extends AttributeStructure
 
     /**
      * Returns the value of the '<em><b>Protocol</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getMessages
-     * <em>Messages</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getMessages <em>Messages</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Protocol</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Protocol</em>' container reference.
      * @see #setProtocol(Protocol)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getMessage_Protocol()
@@ -89,14 +78,10 @@ public interface Message extends AttributeStructure
     Protocol getProtocol ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol
-     * <em>Protocol</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol <em>Protocol</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Protocol</em>' container reference.
+     * @param value the new value of the '<em>Protocol</em>' container reference.
      * @see #getProtocol()
      * @generated
      */
@@ -104,15 +89,13 @@ public interface Message extends AttributeStructure
 
     /**
      * Returns the value of the '<em><b>Interfaces</b></em>' reference list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface}.
+     * The list contents are of type {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Interfaces</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Interfaces</em>' reference list.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getMessage_Interfaces()
      * @model

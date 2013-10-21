@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Structure;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Structure</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class StructureTest extends AttributeStructureTest
@@ -29,10 +28,9 @@ public class StructureTest extends AttributeStructureTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( StructureTest.class );
     }
@@ -41,10 +39,9 @@ public class StructureTest extends AttributeStructureTest
      * Constructs a new Structure test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public StructureTest ( final String name )
+    public StructureTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class StructureTest extends AttributeStructureTest
      * Returns the fixture for this Structure test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected Structure getFixture ()
     {
-        return (Structure)this.fixture;
+        return (Structure)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class StructureTest extends AttributeStructureTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

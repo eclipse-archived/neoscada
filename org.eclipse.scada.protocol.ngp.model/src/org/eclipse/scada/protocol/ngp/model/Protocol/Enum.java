@@ -17,18 +17,16 @@ import org.eclipse.emf.common.util.EList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName <em>
- * Name</em>}</li>
- * <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getLiterals
- * <em>Literals</em>}</li>
- * <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol
- * <em>Protocol</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getLiterals <em>Literals</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol <em>Protocol</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnum()
  * @model
  * @generated
@@ -43,7 +41,6 @@ public interface Enum extends DocumentedElement
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnum_Name()
@@ -53,14 +50,10 @@ public interface Enum extends DocumentedElement
     String getName ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName
-     * <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Name</em>' attribute.
+     * @param value the new value of the '<em>Name</em>' attribute.
      * @see #getName()
      * @generated
      */
@@ -75,7 +68,6 @@ public interface Enum extends DocumentedElement
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Literals</em>' attribute list.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnum_Literals()
      * @model
@@ -85,16 +77,13 @@ public interface Enum extends DocumentedElement
 
     /**
      * Returns the value of the '<em><b>Protocol</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getEnums
-     * <em>Enums</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getEnums <em>Enums</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Protocol</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Protocol</em>' container reference.
      * @see #setProtocol(Protocol)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnum_Protocol()
@@ -105,14 +94,10 @@ public interface Enum extends DocumentedElement
     Protocol getProtocol ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol
-     * <em>Protocol</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol <em>Protocol</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Protocol</em>' container reference.
+     * @param value the new value of the '<em>Protocol</em>' container reference.
      * @see #getProtocol()
      * @generated
      */

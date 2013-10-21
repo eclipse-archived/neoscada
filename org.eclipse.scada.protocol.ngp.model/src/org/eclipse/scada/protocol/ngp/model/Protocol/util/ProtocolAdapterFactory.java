@@ -40,7 +40,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage
  * @generated
  */
@@ -50,7 +49,6 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static ProtocolPackage modelPackage;
@@ -59,7 +57,6 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ProtocolAdapterFactory ()
@@ -76,12 +73,11 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
-     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( final Object object )
+    public boolean isFactoryForType ( Object object )
     {
         if ( object == modelPackage )
         {
@@ -98,120 +94,120 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected ProtocolSwitch<Adapter> modelSwitch = new ProtocolSwitch<Adapter> () {
+    protected ProtocolSwitch<Adapter> modelSwitch = new ProtocolSwitch<Adapter> ()
+    {
         @Override
-        public Adapter caseMessage ( final Message object )
+        public Adapter caseMessage ( Message object )
         {
             return createMessageAdapter ();
         }
 
         @Override
-        public Adapter caseAttribute ( final Attribute object )
+        public Adapter caseAttribute ( Attribute object )
         {
             return createAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseProtocol ( final Protocol object )
+        public Adapter caseProtocol ( Protocol object )
         {
             return createProtocolAdapter ();
         }
 
         @Override
-        public Adapter caseStructure ( final Structure object )
+        public Adapter caseStructure ( Structure object )
         {
             return createStructureAdapter ();
         }
 
         @Override
-        public Adapter caseStringAttribute ( final StringAttribute object )
+        public Adapter caseStringAttribute ( StringAttribute object )
         {
             return createStringAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseBooleanAttribute ( final BooleanAttribute object )
+        public Adapter caseBooleanAttribute ( BooleanAttribute object )
         {
             return createBooleanAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseStructureAttribute ( final StructureAttribute object )
+        public Adapter caseStructureAttribute ( StructureAttribute object )
         {
             return createStructureAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseVariantAttribute ( final VariantAttribute object )
+        public Adapter caseVariantAttribute ( VariantAttribute object )
         {
             return createVariantAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseIntegerAttribute ( final IntegerAttribute object )
+        public Adapter caseIntegerAttribute ( IntegerAttribute object )
         {
             return createIntegerAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseLongAttribute ( final LongAttribute object )
+        public Adapter caseLongAttribute ( LongAttribute object )
         {
             return createLongAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseFloatAttribute ( final FloatAttribute object )
+        public Adapter caseFloatAttribute ( FloatAttribute object )
         {
             return createFloatAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseVariantMapAttribute ( final VariantMapAttribute object )
+        public Adapter caseVariantMapAttribute ( VariantMapAttribute object )
         {
             return createVariantMapAttributeAdapter ();
         }
 
         @Override
-        public Adapter casePropertiesAttribute ( final PropertiesAttribute object )
+        public Adapter casePropertiesAttribute ( PropertiesAttribute object )
         {
             return createPropertiesAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseEnum ( final org.eclipse.scada.protocol.ngp.model.Protocol.Enum object )
+        public Adapter caseEnum ( org.eclipse.scada.protocol.ngp.model.Protocol.Enum object )
         {
             return createEnumAdapter ();
         }
 
         @Override
-        public Adapter caseEnumAttribute ( final EnumAttribute object )
+        public Adapter caseEnumAttribute ( EnumAttribute object )
         {
             return createEnumAttributeAdapter ();
         }
 
         @Override
-        public Adapter caseInterface ( final Interface object )
+        public Adapter caseInterface ( Interface object )
         {
             return createInterfaceAdapter ();
         }
 
         @Override
-        public Adapter caseAttributeStructure ( final AttributeStructure object )
+        public Adapter caseAttributeStructure ( AttributeStructure object )
         {
             return createAttributeStructureAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentedElement ( final DocumentedElement object )
+        public Adapter caseDocumentedElement ( DocumentedElement object )
         {
             return createDocumentedElementAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( final EObject object )
+        public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -221,29 +217,24 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param target
-     *            the object to adapt.
+     * @param target the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( final Notifier target )
+    public Adapter createAdapter ( Notifier target )
     {
-        return this.modelSwitch.doSwitch ( (EObject)target );
+        return modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message
-     * <em>Message</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message <em>Message</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Message
      * @generated
@@ -254,16 +245,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute
-     * <em>Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute <em>Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute
      * @generated
@@ -274,16 +262,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol
-     * <em>Protocol</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol
      * @generated
@@ -294,16 +279,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure
-     * <em>Structure</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure <em>Structure</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Structure
      * @generated
@@ -314,16 +296,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute
-     * <em>String Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute <em>String Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute
      * @generated
@@ -334,16 +313,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute
-     * <em>Boolean Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute <em>Boolean Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute
      * @generated
@@ -354,16 +330,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute
-     * <em>Structure Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute <em>Structure Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute
      * @generated
@@ -374,16 +347,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute
-     * <em>Variant Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute <em>Variant Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute
      * @generated
@@ -394,16 +364,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute
-     * <em>Integer Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute <em>Integer Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute
      * @generated
@@ -414,16 +381,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute
-     * <em>Long Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute <em>Long Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute
      * @generated
@@ -434,16 +398,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute
-     * <em>Float Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute <em>Float Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute
      * @generated
@@ -454,16 +415,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute
-     * <em>Variant Map Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute <em>Variant Map Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute
      * @generated
@@ -474,16 +432,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute
-     * <em>Properties Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute <em>Properties Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute
      * @generated
@@ -494,16 +449,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum <em>Enum</em>}
-     * '.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum <em>Enum</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Enum
      * @generated
@@ -514,16 +466,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute
-     * <em>Enum Attribute</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute <em>Enum Attribute</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute
      * @generated
@@ -534,16 +483,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface
-     * <em>Interface</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface <em>Interface</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Interface
      * @generated
@@ -554,16 +500,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure
-     * <em>Attribute Structure</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure <em>Attribute Structure</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure
      * @generated
@@ -574,16 +517,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement
-     * <em>Documented Element</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement <em>Documented Element</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement
      * @generated
@@ -598,7 +538,6 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @generated
      */

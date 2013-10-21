@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Protocol</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolTest extends DocumentedElementTest
@@ -29,10 +28,9 @@ public class ProtocolTest extends DocumentedElementTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( ProtocolTest.class );
     }
@@ -41,10 +39,9 @@ public class ProtocolTest extends DocumentedElementTest
      * Constructs a new Protocol test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ProtocolTest ( final String name )
+    public ProtocolTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class ProtocolTest extends DocumentedElementTest
      * Returns the fixture for this Protocol test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected Protocol getFixture ()
     {
-        return (Protocol)this.fixture;
+        return (Protocol)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class ProtocolTest extends DocumentedElementTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

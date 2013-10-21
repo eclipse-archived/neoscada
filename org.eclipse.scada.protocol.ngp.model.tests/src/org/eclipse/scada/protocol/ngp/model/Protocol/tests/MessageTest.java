@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Message</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class MessageTest extends AttributeStructureTest
@@ -29,10 +28,9 @@ public class MessageTest extends AttributeStructureTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( MessageTest.class );
     }
@@ -41,10 +39,9 @@ public class MessageTest extends AttributeStructureTest
      * Constructs a new Message test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public MessageTest ( final String name )
+    public MessageTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class MessageTest extends AttributeStructureTest
      * Returns the fixture for this Message test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected Message getFixture ()
     {
-        return (Message)this.fixture;
+        return (Message)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class MessageTest extends AttributeStructureTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

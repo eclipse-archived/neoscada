@@ -15,15 +15,14 @@ package org.eclipse.scada.protocol.ngp.model.Protocol;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum Attribute</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType
- * <em>Enum Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType <em>Enum Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnumAttribute()
  * @model
  * @generated
@@ -38,7 +37,6 @@ public interface EnumAttribute extends Attribute
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Enum Type</em>' reference.
      * @see #setEnumType(org.eclipse.scada.protocol.ngp.model.Protocol.Enum)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getEnumAttribute_EnumType()
@@ -48,14 +46,10 @@ public interface EnumAttribute extends Attribute
     org.eclipse.scada.protocol.ngp.model.Protocol.Enum getEnumType ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType
-     * <em>Enum Type</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType <em>Enum Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Enum Type</em>' reference.
+     * @param value the new value of the '<em>Enum Type</em>' reference.
      * @see #getEnumType()
      * @generated
      */

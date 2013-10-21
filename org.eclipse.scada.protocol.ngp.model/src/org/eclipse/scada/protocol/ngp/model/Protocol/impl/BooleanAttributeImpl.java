@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BooleanAttributeImpl extends AttributeImpl implements BooleanAttribute
@@ -29,7 +29,6 @@ public class BooleanAttributeImpl extends AttributeImpl implements BooleanAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected BooleanAttributeImpl ()
@@ -40,7 +39,6 @@ public class BooleanAttributeImpl extends AttributeImpl implements BooleanAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

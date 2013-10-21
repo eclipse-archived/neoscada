@@ -29,11 +29,9 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.Message;
 import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class MessageItemProvider extends AttributeStructureItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -42,10 +40,9 @@ public class MessageItemProvider extends AttributeStructureItemProvider implemen
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public MessageItemProvider ( final AdapterFactory adapterFactory )
+    public MessageItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,57 +51,77 @@ public class MessageItemProvider extends AttributeStructureItemProvider implemen
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addCodePropertyDescriptor ( object );
             addInterfacesPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Code feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addCodePropertyDescriptor ( final Object object )
+    protected void addCodePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Message_code_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Message_code_feature", "_UI_Message_type" ), ProtocolPackage.Literals.MESSAGE__CODE, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Message_code_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Message_code_feature", "_UI_Message_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.MESSAGE__CODE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
      * This adds a property descriptor for the Interfaces feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addInterfacesPropertyDescriptor ( final Object object )
+    protected void addInterfacesPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add ( createItemPropertyDescriptor ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (), getResourceLocator (), getString ( "_UI_Message_interfaces_feature" ), getString ( "_UI_PropertyDescriptor_description", "_UI_Message_interfaces_feature", "_UI_Message_type" ), ProtocolPackage.Literals.MESSAGE__INTERFACES, true, false, true, null, null, null ) );
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Message_interfaces_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Message_interfaces_feature", "_UI_Message_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProtocolPackage.Literals.MESSAGE__INTERFACES,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
      * This returns Message.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Message" ) );
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Message" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -122,17 +139,14 @@ public class MessageItemProvider extends AttributeStructureItemProvider implemen
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -146,16 +160,14 @@ public class MessageItemProvider extends AttributeStructureItemProvider implemen
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

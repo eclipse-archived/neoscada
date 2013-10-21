@@ -15,7 +15,8 @@ package org.eclipse.scada.protocol.ngp.model.Protocol;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Variant Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getVariantAttribute()
  * @model
  * @generated

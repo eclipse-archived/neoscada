@@ -32,15 +32,11 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl#getAttributes
- * <em>Attributes</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class AttributeStructureImpl extends DocumentedElementImpl implements AttributeStructure
@@ -49,7 +45,6 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -60,7 +55,6 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -68,11 +62,9 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getAttributes() <em>Attributes</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getAttributes()
      * @generated
      * @ordered
@@ -82,7 +74,6 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected AttributeStructureImpl ()
@@ -93,7 +84,6 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -105,56 +95,50 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE_STRUCTURE__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.ATTRIBUTE_STRUCTURE__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Attribute> getAttributes ()
     {
-        if ( this.attributes == null )
+        if ( attributes == null )
         {
-            this.attributes = new EObjectContainmentEList.Resolving<Attribute> ( Attribute.class, this, ProtocolPackage.ATTRIBUTE_STRUCTURE__ATTRIBUTES );
+            attributes = new EObjectContainmentEList.Resolving<Attribute> ( Attribute.class, this, ProtocolPackage.ATTRIBUTE_STRUCTURE__ATTRIBUTES );
         }
-        return this.attributes;
+        return attributes;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -167,11 +151,10 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -186,12 +169,11 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -209,11 +191,10 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -230,18 +211,17 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.ATTRIBUTE_STRUCTURE__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ProtocolPackage.ATTRIBUTE_STRUCTURE__ATTRIBUTES:
-                return this.attributes != null && !this.attributes.isEmpty ();
+                return attributes != null && !attributes.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -249,20 +229,17 @@ public abstract class AttributeStructureImpl extends DocumentedElementImpl imple
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " );
-        result.append ( this.name );
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
         result.append ( ')' );
         return result.toString ();
     }

@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Boolean Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BooleanAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class BooleanAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( BooleanAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class BooleanAttributeTest extends AttributeTest
      * Constructs a new Boolean Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public BooleanAttributeTest ( final String name )
+    public BooleanAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class BooleanAttributeTest extends AttributeTest
      * Returns the fixture for this Boolean Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected BooleanAttribute getFixture ()
     {
-        return (BooleanAttribute)this.fixture;
+        return (BooleanAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class BooleanAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

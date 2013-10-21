@@ -15,7 +15,8 @@ package org.eclipse.scada.protocol.ngp.model.Protocol;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Integer Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getIntegerAttribute()
  * @model
  * @generated

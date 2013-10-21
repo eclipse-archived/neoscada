@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class LongAttributeImpl extends AttributeImpl implements LongAttribute
@@ -29,7 +29,6 @@ public class LongAttributeImpl extends AttributeImpl implements LongAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected LongAttributeImpl ()
@@ -40,7 +39,6 @@ public class LongAttributeImpl extends AttributeImpl implements LongAttribute
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

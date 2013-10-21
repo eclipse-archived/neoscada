@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class PropertiesAttributeImpl extends AttributeImpl implements PropertiesAttribute
@@ -29,7 +29,6 @@ public class PropertiesAttributeImpl extends AttributeImpl implements Properties
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected PropertiesAttributeImpl ()
@@ -40,7 +39,6 @@ public class PropertiesAttributeImpl extends AttributeImpl implements Properties
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

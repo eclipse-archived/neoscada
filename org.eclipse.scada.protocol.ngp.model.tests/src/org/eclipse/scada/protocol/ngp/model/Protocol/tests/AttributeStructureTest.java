@@ -17,7 +17,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Attribute Structure</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public abstract class AttributeStructureTest extends DocumentedElementTest
@@ -27,10 +26,9 @@ public abstract class AttributeStructureTest extends DocumentedElementTest
      * Constructs a new Attribute Structure test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public AttributeStructureTest ( final String name )
+    public AttributeStructureTest ( String name )
     {
         super ( name );
     }
@@ -39,13 +37,12 @@ public abstract class AttributeStructureTest extends DocumentedElementTest
      * Returns the fixture for this Attribute Structure test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected AttributeStructure getFixture ()
     {
-        return (AttributeStructure)this.fixture;
+        return (AttributeStructure)fixture;
     }
 
 } //AttributeStructureTest

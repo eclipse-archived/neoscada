@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Float Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class FloatAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class FloatAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( FloatAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class FloatAttributeTest extends AttributeTest
      * Constructs a new Float Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public FloatAttributeTest ( final String name )
+    public FloatAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class FloatAttributeTest extends AttributeTest
      * Returns the fixture for this Float Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected FloatAttribute getFixture ()
     {
-        return (FloatAttribute)this.fixture;
+        return (FloatAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class FloatAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

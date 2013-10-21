@@ -42,7 +42,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
@@ -50,7 +49,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass messageEClass = null;
@@ -58,7 +56,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass attributeEClass = null;
@@ -66,7 +63,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass protocolEClass = null;
@@ -74,7 +70,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass structureEClass = null;
@@ -82,7 +77,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass stringAttributeEClass = null;
@@ -90,7 +84,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass booleanAttributeEClass = null;
@@ -98,7 +91,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass structureAttributeEClass = null;
@@ -106,7 +98,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass variantAttributeEClass = null;
@@ -114,7 +105,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass integerAttributeEClass = null;
@@ -122,7 +112,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass longAttributeEClass = null;
@@ -130,7 +119,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass floatAttributeEClass = null;
@@ -138,7 +126,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass variantMapAttributeEClass = null;
@@ -146,7 +133,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass propertiesAttributeEClass = null;
@@ -154,7 +140,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass enumEClass = null;
@@ -162,7 +147,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass enumAttributeEClass = null;
@@ -170,7 +154,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass interfaceEClass = null;
@@ -178,7 +161,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass attributeStructureEClass = null;
@@ -186,7 +168,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass documentedElementEClass = null;
@@ -194,7 +175,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum typeEEnum = null;
@@ -223,7 +203,6 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -245,12 +224,10 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     public static ProtocolPackage init ()
     {
         if ( isInited )
-        {
             return (ProtocolPackage)EPackage.Registry.INSTANCE.getEPackage ( ProtocolPackage.eNS_URI );
-        }
 
         // Obtain or create and register package
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new ProtocolPackageImpl () );
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new ProtocolPackageImpl () );
 
         isInited = true;
 
@@ -271,583 +248,534 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getMessage ()
     {
-        return this.messageEClass;
+        return messageEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getMessage_Code ()
     {
-        return (EAttribute)this.messageEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)messageEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getMessage_Protocol ()
     {
-        return (EReference)this.messageEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)messageEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getMessage_Interfaces ()
     {
-        return (EReference)this.messageEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)messageEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getAttribute ()
     {
-        return this.attributeEClass;
+        return attributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Name ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_FieldNumber ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Equality ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Type ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Transient ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Deleted ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getProtocol ()
     {
-        return this.protocolEClass;
+        return protocolEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getProtocol_Messages ()
     {
-        return (EReference)this.protocolEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)protocolEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getProtocol_Name ()
     {
-        return (EAttribute)this.protocolEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)protocolEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getProtocol_IncludedProtocols ()
     {
-        return (EReference)this.protocolEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)protocolEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getProtocol_LicenseHeader ()
     {
-        return (EAttribute)this.protocolEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)protocolEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getProtocol_Enums ()
     {
-        return (EReference)this.protocolEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)protocolEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getProtocol_Interfaces ()
     {
-        return (EReference)this.protocolEClass.getEStructuralFeatures ().get ( 7 );
+        return (EReference)protocolEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getProtocol_Version ()
     {
-        return (EAttribute)this.protocolEClass.getEStructuralFeatures ().get ( 8 );
+        return (EAttribute)protocolEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getProtocol_Structures ()
     {
-        return (EReference)this.protocolEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)protocolEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getProtocol_PackagePrefix ()
     {
-        return (EAttribute)this.protocolEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)protocolEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getStructure ()
     {
-        return this.structureEClass;
+        return structureEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getStructure_Protocol ()
     {
-        return (EReference)this.structureEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)structureEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getStringAttribute ()
     {
-        return this.stringAttributeEClass;
+        return stringAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getBooleanAttribute ()
     {
-        return this.booleanAttributeEClass;
+        return booleanAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getStructureAttribute ()
     {
-        return this.structureAttributeEClass;
+        return structureAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getStructureAttribute_Structure ()
     {
-        return (EReference)this.structureAttributeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)structureAttributeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getVariantAttribute ()
     {
-        return this.variantAttributeEClass;
+        return variantAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getIntegerAttribute ()
     {
-        return this.integerAttributeEClass;
+        return integerAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getLongAttribute ()
     {
-        return this.longAttributeEClass;
+        return longAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getFloatAttribute ()
     {
-        return this.floatAttributeEClass;
+        return floatAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getVariantMapAttribute ()
     {
-        return this.variantMapAttributeEClass;
+        return variantMapAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getPropertiesAttribute ()
     {
-        return this.propertiesAttributeEClass;
+        return propertiesAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getEnum ()
     {
-        return this.enumEClass;
+        return enumEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getEnum_Name ()
     {
-        return (EAttribute)this.enumEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)enumEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getEnum_Literals ()
     {
-        return (EAttribute)this.enumEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)enumEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getEnum_Protocol ()
     {
-        return (EReference)this.enumEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)enumEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getEnumAttribute ()
     {
-        return this.enumAttributeEClass;
+        return enumAttributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getEnumAttribute_EnumType ()
     {
-        return (EReference)this.enumAttributeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)enumAttributeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getInterface ()
     {
-        return this.interfaceEClass;
+        return interfaceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getInterface_Protocol ()
     {
-        return (EReference)this.interfaceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)interfaceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getAttributeStructure ()
     {
-        return this.attributeStructureEClass;
+        return attributeStructureEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttributeStructure_Name ()
     {
-        return (EAttribute)this.attributeStructureEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)attributeStructureEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getAttributeStructure_Attributes ()
     {
-        return (EReference)this.attributeStructureEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)attributeStructureEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getDocumentedElement ()
     {
-        return this.documentedElementEClass;
+        return documentedElementEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getDocumentedElement_Description ()
     {
-        return (EAttribute)this.documentedElementEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)documentedElementEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getDocumentedElement_ShortDescription ()
     {
-        return (EAttribute)this.documentedElementEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)documentedElementEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getType ()
     {
-        return this.typeEEnum;
+        return typeEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -859,120 +787,112 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.messageEClass = createEClass ( MESSAGE );
-        createEAttribute ( this.messageEClass, MESSAGE__CODE );
-        createEReference ( this.messageEClass, MESSAGE__PROTOCOL );
-        createEReference ( this.messageEClass, MESSAGE__INTERFACES );
+        messageEClass = createEClass ( MESSAGE );
+        createEAttribute ( messageEClass, MESSAGE__CODE );
+        createEReference ( messageEClass, MESSAGE__PROTOCOL );
+        createEReference ( messageEClass, MESSAGE__INTERFACES );
 
-        this.attributeEClass = createEClass ( ATTRIBUTE );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__NAME );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__FIELD_NUMBER );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__EQUALITY );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__TYPE );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__TRANSIENT );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__DELETED );
+        attributeEClass = createEClass ( ATTRIBUTE );
+        createEAttribute ( attributeEClass, ATTRIBUTE__NAME );
+        createEAttribute ( attributeEClass, ATTRIBUTE__FIELD_NUMBER );
+        createEAttribute ( attributeEClass, ATTRIBUTE__EQUALITY );
+        createEAttribute ( attributeEClass, ATTRIBUTE__TYPE );
+        createEAttribute ( attributeEClass, ATTRIBUTE__TRANSIENT );
+        createEAttribute ( attributeEClass, ATTRIBUTE__DELETED );
 
-        this.protocolEClass = createEClass ( PROTOCOL );
-        createEReference ( this.protocolEClass, PROTOCOL__MESSAGES );
-        createEAttribute ( this.protocolEClass, PROTOCOL__NAME );
-        createEReference ( this.protocolEClass, PROTOCOL__STRUCTURES );
-        createEAttribute ( this.protocolEClass, PROTOCOL__PACKAGE_PREFIX );
-        createEReference ( this.protocolEClass, PROTOCOL__INCLUDED_PROTOCOLS );
-        createEAttribute ( this.protocolEClass, PROTOCOL__LICENSE_HEADER );
-        createEReference ( this.protocolEClass, PROTOCOL__ENUMS );
-        createEReference ( this.protocolEClass, PROTOCOL__INTERFACES );
-        createEAttribute ( this.protocolEClass, PROTOCOL__VERSION );
+        protocolEClass = createEClass ( PROTOCOL );
+        createEReference ( protocolEClass, PROTOCOL__MESSAGES );
+        createEAttribute ( protocolEClass, PROTOCOL__NAME );
+        createEReference ( protocolEClass, PROTOCOL__STRUCTURES );
+        createEAttribute ( protocolEClass, PROTOCOL__PACKAGE_PREFIX );
+        createEReference ( protocolEClass, PROTOCOL__INCLUDED_PROTOCOLS );
+        createEAttribute ( protocolEClass, PROTOCOL__LICENSE_HEADER );
+        createEReference ( protocolEClass, PROTOCOL__ENUMS );
+        createEReference ( protocolEClass, PROTOCOL__INTERFACES );
+        createEAttribute ( protocolEClass, PROTOCOL__VERSION );
 
-        this.structureEClass = createEClass ( STRUCTURE );
-        createEReference ( this.structureEClass, STRUCTURE__PROTOCOL );
+        structureEClass = createEClass ( STRUCTURE );
+        createEReference ( structureEClass, STRUCTURE__PROTOCOL );
 
-        this.stringAttributeEClass = createEClass ( STRING_ATTRIBUTE );
+        stringAttributeEClass = createEClass ( STRING_ATTRIBUTE );
 
-        this.booleanAttributeEClass = createEClass ( BOOLEAN_ATTRIBUTE );
+        booleanAttributeEClass = createEClass ( BOOLEAN_ATTRIBUTE );
 
-        this.structureAttributeEClass = createEClass ( STRUCTURE_ATTRIBUTE );
-        createEReference ( this.structureAttributeEClass, STRUCTURE_ATTRIBUTE__STRUCTURE );
+        structureAttributeEClass = createEClass ( STRUCTURE_ATTRIBUTE );
+        createEReference ( structureAttributeEClass, STRUCTURE_ATTRIBUTE__STRUCTURE );
 
-        this.variantAttributeEClass = createEClass ( VARIANT_ATTRIBUTE );
+        variantAttributeEClass = createEClass ( VARIANT_ATTRIBUTE );
 
-        this.integerAttributeEClass = createEClass ( INTEGER_ATTRIBUTE );
+        integerAttributeEClass = createEClass ( INTEGER_ATTRIBUTE );
 
-        this.longAttributeEClass = createEClass ( LONG_ATTRIBUTE );
+        longAttributeEClass = createEClass ( LONG_ATTRIBUTE );
 
-        this.floatAttributeEClass = createEClass ( FLOAT_ATTRIBUTE );
+        floatAttributeEClass = createEClass ( FLOAT_ATTRIBUTE );
 
-        this.variantMapAttributeEClass = createEClass ( VARIANT_MAP_ATTRIBUTE );
+        variantMapAttributeEClass = createEClass ( VARIANT_MAP_ATTRIBUTE );
 
-        this.propertiesAttributeEClass = createEClass ( PROPERTIES_ATTRIBUTE );
+        propertiesAttributeEClass = createEClass ( PROPERTIES_ATTRIBUTE );
 
-        this.enumEClass = createEClass ( ENUM );
-        createEAttribute ( this.enumEClass, ENUM__NAME );
-        createEAttribute ( this.enumEClass, ENUM__LITERALS );
-        createEReference ( this.enumEClass, ENUM__PROTOCOL );
+        enumEClass = createEClass ( ENUM );
+        createEAttribute ( enumEClass, ENUM__NAME );
+        createEAttribute ( enumEClass, ENUM__LITERALS );
+        createEReference ( enumEClass, ENUM__PROTOCOL );
 
-        this.enumAttributeEClass = createEClass ( ENUM_ATTRIBUTE );
-        createEReference ( this.enumAttributeEClass, ENUM_ATTRIBUTE__ENUM_TYPE );
+        enumAttributeEClass = createEClass ( ENUM_ATTRIBUTE );
+        createEReference ( enumAttributeEClass, ENUM_ATTRIBUTE__ENUM_TYPE );
 
-        this.interfaceEClass = createEClass ( INTERFACE );
-        createEReference ( this.interfaceEClass, INTERFACE__PROTOCOL );
+        interfaceEClass = createEClass ( INTERFACE );
+        createEReference ( interfaceEClass, INTERFACE__PROTOCOL );
 
-        this.attributeStructureEClass = createEClass ( ATTRIBUTE_STRUCTURE );
-        createEAttribute ( this.attributeStructureEClass, ATTRIBUTE_STRUCTURE__NAME );
-        createEReference ( this.attributeStructureEClass, ATTRIBUTE_STRUCTURE__ATTRIBUTES );
+        attributeStructureEClass = createEClass ( ATTRIBUTE_STRUCTURE );
+        createEAttribute ( attributeStructureEClass, ATTRIBUTE_STRUCTURE__NAME );
+        createEReference ( attributeStructureEClass, ATTRIBUTE_STRUCTURE__ATTRIBUTES );
 
-        this.documentedElementEClass = createEClass ( DOCUMENTED_ELEMENT );
-        createEAttribute ( this.documentedElementEClass, DOCUMENTED_ELEMENT__DESCRIPTION );
-        createEAttribute ( this.documentedElementEClass, DOCUMENTED_ELEMENT__SHORT_DESCRIPTION );
+        documentedElementEClass = createEClass ( DOCUMENTED_ELEMENT );
+        createEAttribute ( documentedElementEClass, DOCUMENTED_ELEMENT__DESCRIPTION );
+        createEAttribute ( documentedElementEClass, DOCUMENTED_ELEMENT__SHORT_DESCRIPTION );
 
         // Create enums
-        this.typeEEnum = createEEnum ( TYPE );
+        typeEEnum = createEEnum ( TYPE );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -984,96 +904,96 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.messageEClass.getESuperTypes ().add ( getAttributeStructure () );
-        this.attributeEClass.getESuperTypes ().add ( getDocumentedElement () );
-        this.protocolEClass.getESuperTypes ().add ( getDocumentedElement () );
-        this.structureEClass.getESuperTypes ().add ( getAttributeStructure () );
-        this.stringAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.booleanAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.structureAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.variantAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.integerAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.longAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.floatAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.variantMapAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.propertiesAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.enumEClass.getESuperTypes ().add ( getDocumentedElement () );
-        this.enumAttributeEClass.getESuperTypes ().add ( getAttribute () );
-        this.interfaceEClass.getESuperTypes ().add ( getAttributeStructure () );
-        this.attributeStructureEClass.getESuperTypes ().add ( getDocumentedElement () );
+        messageEClass.getESuperTypes ().add ( this.getAttributeStructure () );
+        attributeEClass.getESuperTypes ().add ( this.getDocumentedElement () );
+        protocolEClass.getESuperTypes ().add ( this.getDocumentedElement () );
+        structureEClass.getESuperTypes ().add ( this.getAttributeStructure () );
+        stringAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        booleanAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        structureAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        variantAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        integerAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        longAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        floatAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        variantMapAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        propertiesAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        enumEClass.getESuperTypes ().add ( this.getDocumentedElement () );
+        enumAttributeEClass.getESuperTypes ().add ( this.getAttribute () );
+        interfaceEClass.getESuperTypes ().add ( this.getAttributeStructure () );
+        attributeStructureEClass.getESuperTypes ().add ( this.getDocumentedElement () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( this.messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getMessage_Code (), this.ecorePackage.getEInt (), "code", null, 1, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getMessage_Protocol (), getProtocol (), getProtocol_Messages (), "protocol", null, 1, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getMessage_Interfaces (), getInterface (), null, "interfaces", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( messageEClass, Message.class, "Message", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMessage_Code (), ecorePackage.getEInt (), "code", null, 1, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMessage_Protocol (), this.getProtocol (), this.getProtocol_Messages (), "protocol", null, 1, 1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMessage_Interfaces (), this.getInterface (), null, "interfaces", null, 0, -1, Message.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.attributeEClass, Attribute.class, "Attribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getAttribute_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAttribute_FieldNumber (), this.ecorePackage.getEByte (), "fieldNumber", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAttribute_Equality (), this.ecorePackage.getEBoolean (), "equality", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAttribute_Type (), getType (), "type", "SCALAR", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAttribute_Transient (), this.ecorePackage.getEBoolean (), "transient", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getAttribute_Deleted (), this.ecorePackage.getEBoolean (), "deleted", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( attributeEClass, Attribute.class, "Attribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAttribute_Name (), ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAttribute_FieldNumber (), ecorePackage.getEByte (), "fieldNumber", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAttribute_Equality (), ecorePackage.getEBoolean (), "equality", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getAttribute_Type (), this.getType (), "type", "SCALAR", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getAttribute_Transient (), ecorePackage.getEBoolean (), "transient", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getAttribute_Deleted (), ecorePackage.getEBoolean (), "deleted", "false", 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.protocolEClass, Protocol.class, "Protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getProtocol_Messages (), getMessage (), getMessage_Protocol (), "messages", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getProtocol_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getProtocol_Structures (), getStructure (), getStructure_Protocol (), "structures", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getProtocol_PackagePrefix (), this.ecorePackage.getEString (), "packagePrefix", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getProtocol_IncludedProtocols (), getProtocol (), null, "includedProtocols", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getProtocol_LicenseHeader (), this.ecorePackage.getEString (), "licenseHeader", null, 0, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getProtocol_Enums (), getEnum (), getEnum_Protocol (), "enums", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getProtocol_Interfaces (), getInterface (), getInterface_Protocol (), "interfaces", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getProtocol_Version (), this.ecorePackage.getEShort (), "version", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( protocolEClass, Protocol.class, "Protocol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getProtocol_Messages (), this.getMessage (), this.getMessage_Protocol (), "messages", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocol_Name (), ecorePackage.getEString (), "name", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProtocol_Structures (), this.getStructure (), this.getStructure_Protocol (), "structures", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocol_PackagePrefix (), ecorePackage.getEString (), "packagePrefix", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProtocol_IncludedProtocols (), this.getProtocol (), null, "includedProtocols", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocol_LicenseHeader (), ecorePackage.getEString (), "licenseHeader", null, 0, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProtocol_Enums (), this.getEnum (), this.getEnum_Protocol (), "enums", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProtocol_Interfaces (), this.getInterface (), this.getInterface_Protocol (), "interfaces", null, 0, -1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocol_Version (), ecorePackage.getEShort (), "version", null, 1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.structureEClass, Structure.class, "Structure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getStructure_Protocol (), getProtocol (), getProtocol_Structures (), "protocol", null, 1, 1, Structure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( structureEClass, Structure.class, "Structure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getStructure_Protocol (), this.getProtocol (), this.getProtocol_Structures (), "protocol", null, 1, 1, Structure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( stringAttributeEClass, StringAttribute.class, "StringAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.booleanAttributeEClass, BooleanAttribute.class, "BooleanAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( booleanAttributeEClass, BooleanAttribute.class, "BooleanAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.structureAttributeEClass, StructureAttribute.class, "StructureAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getStructureAttribute_Structure (), getStructure (), null, "structure", null, 1, 1, StructureAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( structureAttributeEClass, StructureAttribute.class, "StructureAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getStructureAttribute_Structure (), this.getStructure (), null, "structure", null, 1, 1, StructureAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.variantAttributeEClass, VariantAttribute.class, "VariantAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( variantAttributeEClass, VariantAttribute.class, "VariantAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.integerAttributeEClass, IntegerAttribute.class, "IntegerAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( integerAttributeEClass, IntegerAttribute.class, "IntegerAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.longAttributeEClass, LongAttribute.class, "LongAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( longAttributeEClass, LongAttribute.class, "LongAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.floatAttributeEClass, FloatAttribute.class, "FloatAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( floatAttributeEClass, FloatAttribute.class, "FloatAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.variantMapAttributeEClass, VariantMapAttribute.class, "VariantMapAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( variantMapAttributeEClass, VariantMapAttribute.class, "VariantMapAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.propertiesAttributeEClass, PropertiesAttribute.class, "PropertiesAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
+        initEClass ( propertiesAttributeEClass, PropertiesAttribute.class, "PropertiesAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.enumEClass, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getEnum_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getEnum_Literals (), this.ecorePackage.getEString (), "literals", null, 0, -1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getEnum_Protocol (), getProtocol (), getProtocol_Enums (), "protocol", null, 0, 1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( enumEClass, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getEnum_Name (), ecorePackage.getEString (), "name", null, 1, 1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEnum_Literals (), ecorePackage.getEString (), "literals", null, 0, -1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEnum_Protocol (), this.getProtocol (), this.getProtocol_Enums (), "protocol", null, 0, 1, org.eclipse.scada.protocol.ngp.model.Protocol.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.enumAttributeEClass, EnumAttribute.class, "EnumAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getEnumAttribute_EnumType (), getEnum (), null, "enumType", null, 1, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( enumAttributeEClass, EnumAttribute.class, "EnumAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getEnumAttribute_EnumType (), this.getEnum (), null, "enumType", null, 1, 1, EnumAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEReference ( getInterface_Protocol (), getProtocol (), getProtocol_Interfaces (), "protocol", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getInterface_Protocol (), this.getProtocol (), this.getProtocol_Interfaces (), "protocol", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.attributeStructureEClass, AttributeStructure.class, "AttributeStructure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getAttributeStructure_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, AttributeStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEReference ( getAttributeStructure_Attributes (), getAttribute (), null, "attributes", null, 0, -1, AttributeStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( attributeStructureEClass, AttributeStructure.class, "AttributeStructure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAttributeStructure_Name (), ecorePackage.getEString (), "name", null, 1, 1, AttributeStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAttributeStructure_Attributes (), this.getAttribute (), null, "attributes", null, 0, -1, AttributeStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.documentedElementEClass, DocumentedElement.class, "DocumentedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS );
-        initEAttribute ( getDocumentedElement_Description (), this.ecorePackage.getEString (), "description", null, 0, 1, DocumentedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
-        initEAttribute ( getDocumentedElement_ShortDescription (), this.ecorePackage.getEString (), "shortDescription", null, 0, 1, DocumentedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED );
+        initEClass ( documentedElementEClass, DocumentedElement.class, "DocumentedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDocumentedElement_Description (), ecorePackage.getEString (), "description", null, 0, 1, DocumentedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDocumentedElement_ShortDescription (), ecorePackage.getEString (), "shortDescription", null, 0, 1, DocumentedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
-        initEEnum ( this.typeEEnum, Type.class, "Type" );
-        addEEnumLiteral ( this.typeEEnum, Type.SCALAR );
-        addEEnumLiteral ( this.typeEEnum, Type.OPTIONAL );
-        addEEnumLiteral ( this.typeEEnum, Type.ORDERED );
-        addEEnumLiteral ( this.typeEEnum, Type.UNIQUE );
+        initEEnum ( typeEEnum, Type.class, "Type" ); //$NON-NLS-1$
+        addEEnumLiteral ( typeEEnum, Type.SCALAR );
+        addEEnumLiteral ( typeEEnum, Type.OPTIONAL );
+        addEEnumLiteral ( typeEEnum, Type.ORDERED );
+        addEEnumLiteral ( typeEEnum, Type.UNIQUE );
 
         // Create resource
         createResource ( eNS_URI );

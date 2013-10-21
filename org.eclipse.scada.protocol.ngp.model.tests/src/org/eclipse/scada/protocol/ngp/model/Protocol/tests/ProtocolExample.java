@@ -30,7 +30,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.util.ProtocolResourceFactor
  * <!-- begin-user-doc -->
  * A sample utility for the '<em><b>Protocol</b></em>' package.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolExample
@@ -39,38 +38,40 @@ public class ProtocolExample
      * <!-- begin-user-doc -->
      * Load all the argument file paths or URIs as instances of the model.
      * <!-- end-user-doc -->
-     * 
-     * @param args
-     *            the file paths or URIs.
+     * @param args the file paths or URIs.
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         // Create a resource set to hold the resources.
         //
-        final ResourceSet resourceSet = new ResourceSetImpl ();
+        ResourceSet resourceSet = new ResourceSetImpl ();
 
         // Register the appropriate resource factory to handle all file extensions.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put ( Resource.Factory.Registry.DEFAULT_EXTENSION, new ProtocolResourceFactoryImpl () );
+        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
+                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
+                        new ProtocolResourceFactoryImpl () );
 
         // Register the package to ensure it is available during loading.
         //
-        resourceSet.getPackageRegistry ().put ( ProtocolPackage.eNS_URI, ProtocolPackage.eINSTANCE );
+        resourceSet.getPackageRegistry ().put
+                ( ProtocolPackage.eNS_URI,
+                        ProtocolPackage.eINSTANCE );
 
         // If there are no arguments, emit an appropriate usage message.
         //
         if ( args.length == 0 )
         {
-            System.out.println ( "Enter a list of file paths or URIs that have content like this:" );
+            System.out.println ( "Enter a list of file paths or URIs that have content like this:" ); //$NON-NLS-1$
             try
             {
-                final Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.protocol" ) );
-                final Message root = ProtocolFactory.eINSTANCE.createMessage ();
+                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.protocol" ) ); //$NON-NLS-1$
+                Message root = ProtocolFactory.eINSTANCE.createMessage ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );
             }
-            catch ( final IOException exception )
+            catch ( IOException exception )
             {
                 exception.printStackTrace ();
             }
@@ -85,30 +86,30 @@ public class ProtocolExample
                 // The argument is treated as a file path only if it denotes an existing file.
                 // Otherwise, it's directly treated as a URL.
                 //
-                final File file = new File ( args[i] );
-                final URI uri = file.isFile () ? URI.createFileURI ( file.getAbsolutePath () ) : URI.createURI ( args[i] );
+                File file = new File ( args[i] );
+                URI uri = file.isFile () ? URI.createFileURI ( file.getAbsolutePath () ) : URI.createURI ( args[i] );
 
                 try
                 {
                     // Demand load resource for this file.
                     //
-                    final Resource resource = resourceSet.getResource ( uri, true );
-                    System.out.println ( "Loaded " + uri );
+                    Resource resource = resourceSet.getResource ( uri, true );
+                    System.out.println ( "Loaded " + uri ); //$NON-NLS-1$
 
                     // Validate the contents of the loaded resource.
                     //
-                    for ( final EObject eObject : resource.getContents () )
+                    for ( EObject eObject : resource.getContents () )
                     {
-                        final Diagnostic diagnostic = Diagnostician.INSTANCE.validate ( eObject );
+                        Diagnostic diagnostic = Diagnostician.INSTANCE.validate ( eObject );
                         if ( diagnostic.getSeverity () != Diagnostic.OK )
                         {
-                            printDiagnostic ( diagnostic, "" );
+                            printDiagnostic ( diagnostic, "" ); //$NON-NLS-1$
                         }
                     }
                 }
-                catch ( final RuntimeException exception )
+                catch ( RuntimeException exception )
                 {
-                    System.out.println ( "Problem loading " + uri );
+                    System.out.println ( "Problem loading " + uri ); //$NON-NLS-1$
                     exception.printStackTrace ();
                 }
             }
@@ -119,20 +120,17 @@ public class ProtocolExample
      * <!-- begin-user-doc -->
      * Prints diagnostics with indentation.
      * <!-- end-user-doc -->
-     * 
-     * @param diagnostic
-     *            the diagnostic to print.
-     * @param indent
-     *            the indentation for printing.
+     * @param diagnostic the diagnostic to print.
+     * @param indent the indentation for printing.
      * @generated
      */
-    protected static void printDiagnostic ( final Diagnostic diagnostic, final String indent )
+    protected static void printDiagnostic ( Diagnostic diagnostic, String indent )
     {
         System.out.print ( indent );
         System.out.println ( diagnostic.getMessage () );
-        for ( final Diagnostic child : diagnostic.getChildren () )
+        for ( Diagnostic child : diagnostic.getChildren () )
         {
-            printDiagnostic ( child, indent + "  " );
+            printDiagnostic ( child, indent + "  " ); //$NON-NLS-1$
         }
     }
 

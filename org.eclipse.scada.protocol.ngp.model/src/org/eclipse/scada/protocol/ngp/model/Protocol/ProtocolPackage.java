@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory
  * @model kind="package"
  * @generated
@@ -39,7 +38,6 @@ public interface ProtocolPackage extends EPackage
      * The package name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNAME = "Protocol";
@@ -48,7 +46,6 @@ public interface ProtocolPackage extends EPackage
      * The package namespace URI.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_URI = "urn:eclipse:scada:protocol:ngp";
@@ -57,7 +54,6 @@ public interface ProtocolPackage extends EPackage
      * The package namespace name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_PREFIX = "protocol";
@@ -66,18 +62,14 @@ public interface ProtocolPackage extends EPackage
      * The singleton instance of the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     ProtocolPackage eINSTANCE = org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl.init ();
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl
-     * <em>Documented Element</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl <em>Documented Element</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getDocumentedElement()
      * @generated
@@ -88,7 +80,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -98,30 +89,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int DOCUMENTED_ELEMENT__SHORT_DESCRIPTION = 1;
 
     /**
-     * The number of structural features of the '<em>Documented Element</em>'
-     * class.
+     * The number of structural features of the '<em>Documented Element</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int DOCUMENTED_ELEMENT_FEATURE_COUNT = 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl
-     * <em>Attribute Structure</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl <em>Attribute Structure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getAttributeStructure()
      * @generated
@@ -132,7 +117,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -142,7 +126,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -152,41 +135,33 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ATTRIBUTE_STRUCTURE__NAME = DOCUMENTED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Attributes</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ATTRIBUTE_STRUCTURE__ATTRIBUTES = DOCUMENTED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Attribute Structure</em>'
-     * class.
+     * The number of structural features of the '<em>Attribute Structure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ATTRIBUTE_STRUCTURE_FEATURE_COUNT = DOCUMENTED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl
-     * <em>Structure</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl <em>Structure</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStructure()
      * @generated
@@ -194,12 +169,9 @@ public interface ProtocolPackage extends EPackage
     int STRUCTURE = 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl
-     * <em>Message</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl <em>Message</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getMessage()
      * @generated
@@ -210,7 +182,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -220,7 +191,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -230,18 +200,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int MESSAGE__NAME = ATTRIBUTE_STRUCTURE__NAME;
 
     /**
-     * The feature id for the '<em><b>Attributes</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -251,7 +218,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Code</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -261,7 +227,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Protocol</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -271,7 +236,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Interfaces</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -281,19 +245,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Message</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int MESSAGE_FEATURE_COUNT = ATTRIBUTE_STRUCTURE_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl
-     * <em>Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl <em>Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getAttribute()
      * @generated
@@ -304,7 +264,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -314,7 +273,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -324,7 +282,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -334,7 +291,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -344,7 +300,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -354,7 +309,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -364,7 +318,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -374,7 +327,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -384,19 +336,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ATTRIBUTE_FEATURE_COUNT = DOCUMENTED_ELEMENT_FEATURE_COUNT + 6;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl
-     * <em>Protocol</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getProtocol()
      * @generated
@@ -407,7 +355,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -417,18 +364,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROTOCOL__SHORT_DESCRIPTION = DOCUMENTED_ELEMENT__SHORT_DESCRIPTION;
 
     /**
-     * The feature id for the '<em><b>Messages</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Messages</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -438,18 +382,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROTOCOL__NAME = DOCUMENTED_ELEMENT_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Structures</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Structures</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -459,18 +400,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Package Prefix</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROTOCOL__PACKAGE_PREFIX = DOCUMENTED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Included Protocols</b></em>' reference
-     * list.
+     * The feature id for the '<em><b>Included Protocols</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -480,29 +418,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>License Header</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROTOCOL__LICENSE_HEADER = DOCUMENTED_ELEMENT_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Enums</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Enums</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROTOCOL__ENUMS = DOCUMENTED_ELEMENT_FEATURE_COUNT + 6;
 
     /**
-     * The feature id for the '<em><b>Interfaces</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Interfaces</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -512,7 +445,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Version</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -522,7 +454,6 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Protocol</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -532,7 +463,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -542,7 +472,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -552,18 +481,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRUCTURE__NAME = ATTRIBUTE_STRUCTURE__NAME;
 
     /**
-     * The feature id for the '<em><b>Attributes</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -573,7 +499,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Protocol</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -583,19 +508,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Structure</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRUCTURE_FEATURE_COUNT = ATTRIBUTE_STRUCTURE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl
-     * <em>String Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl <em>String Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStringAttribute()
      * @generated
@@ -606,7 +527,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -616,7 +536,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -626,7 +545,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -636,7 +554,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -646,7 +563,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -656,7 +572,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -666,7 +581,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -676,30 +590,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRING_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>String Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>String Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRING_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl
-     * <em>Boolean Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl <em>Boolean Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getBooleanAttribute()
      * @generated
@@ -710,7 +618,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -720,7 +627,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -730,7 +636,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -740,7 +645,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -750,7 +654,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -760,7 +663,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -770,7 +672,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -780,30 +681,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int BOOLEAN_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Boolean Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Boolean Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int BOOLEAN_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl
-     * <em>Structure Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl <em>Structure Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStructureAttribute()
      * @generated
@@ -814,7 +709,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -824,7 +718,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -834,7 +727,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -844,7 +736,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -854,7 +745,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -864,7 +754,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -874,7 +763,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -884,7 +772,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -894,30 +781,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Structure</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRUCTURE_ATTRIBUTE__STRUCTURE = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Structure Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Structure Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int STRUCTURE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl
-     * <em>Variant Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl <em>Variant Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getVariantAttribute()
      * @generated
@@ -928,7 +809,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -938,7 +818,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -948,7 +827,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -958,7 +836,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -968,7 +845,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -978,7 +854,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -988,7 +863,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -998,30 +872,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int VARIANT_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Variant Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Variant Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int VARIANT_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl
-     * <em>Integer Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getIntegerAttribute()
      * @generated
@@ -1032,7 +900,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1042,7 +909,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1052,7 +918,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1062,7 +927,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1072,7 +936,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1082,7 +945,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1092,7 +954,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1102,30 +963,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int INTEGER_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Integer Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Integer Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int INTEGER_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl
-     * <em>Long Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl <em>Long Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getLongAttribute()
      * @generated
@@ -1136,7 +991,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1146,7 +1000,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1156,7 +1009,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1166,7 +1018,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1176,7 +1027,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1186,7 +1036,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1196,7 +1045,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1206,7 +1054,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1216,19 +1063,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Long Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int LONG_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl
-     * <em>Float Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl <em>Float Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getFloatAttribute()
      * @generated
@@ -1239,7 +1082,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1249,7 +1091,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1259,7 +1100,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1269,7 +1109,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1279,7 +1118,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1289,7 +1127,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1299,7 +1136,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1309,30 +1145,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int FLOAT_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Float Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Float Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int FLOAT_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl
-     * <em>Variant Map Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl <em>Variant Map Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getVariantMapAttribute()
      * @generated
@@ -1343,7 +1173,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1353,7 +1182,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1363,7 +1191,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1373,7 +1200,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1383,7 +1209,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1393,7 +1218,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1403,7 +1227,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1413,30 +1236,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int VARIANT_MAP_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Variant Map Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Variant Map Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int VARIANT_MAP_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl
-     * <em>Properties Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl <em>Properties Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getPropertiesAttribute()
      * @generated
@@ -1447,7 +1264,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1457,7 +1273,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1467,7 +1282,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1477,7 +1291,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1487,7 +1300,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1497,7 +1309,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1507,7 +1318,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1517,30 +1327,24 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROPERTIES_ATTRIBUTE__DELETED = ATTRIBUTE__DELETED;
 
     /**
-     * The number of structural features of the '<em>Properties Attribute</em>'
-     * class.
+     * The number of structural features of the '<em>Properties Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PROPERTIES_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl
-     * <em>Enum</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl <em>Enum</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getEnum()
      * @generated
@@ -1551,7 +1355,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1561,7 +1364,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1571,7 +1373,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1581,7 +1382,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Literals</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1591,7 +1391,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Protocol</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1601,19 +1400,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Enum</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ENUM_FEATURE_COUNT = DOCUMENTED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl
-     * <em>Enum Attribute</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getEnumAttribute()
      * @generated
@@ -1624,7 +1419,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1634,7 +1428,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1644,7 +1437,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1654,7 +1446,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Field Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1664,7 +1455,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Equality</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1674,7 +1464,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1684,7 +1473,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Transient</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1694,7 +1482,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Deleted</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1704,7 +1491,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Enum Type</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1714,19 +1500,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Enum Attribute</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int ENUM_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl
-     * <em>Interface</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl <em>Interface</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getInterface()
      * @generated
@@ -1737,7 +1519,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1747,7 +1528,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1757,18 +1537,15 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int INTERFACE__NAME = ATTRIBUTE_STRUCTURE__NAME;
 
     /**
-     * The feature id for the '<em><b>Attributes</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1778,7 +1555,6 @@ public interface ProtocolPackage extends EPackage
      * The feature id for the '<em><b>Protocol</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -1788,19 +1564,15 @@ public interface ProtocolPackage extends EPackage
      * The number of structural features of the '<em>Interface</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int INTERFACE_FEATURE_COUNT = ATTRIBUTE_STRUCTURE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Type <em>Type</em>}'
-     * enum.
+     * The meta object id for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Type <em>Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Type
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getType()
      * @generated
@@ -1808,12 +1580,9 @@ public interface ProtocolPackage extends EPackage
     int TYPE = 18;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message
-     * <em>Message</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message <em>Message</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Message</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Message
      * @generated
@@ -1821,12 +1590,9 @@ public interface ProtocolPackage extends EPackage
     EClass getMessage ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode
-     * <em>Code</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode <em>Code</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Code</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Message#getCode()
      * @see #getMessage()
@@ -1835,12 +1601,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getMessage_Code ();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol
-     * <em>Protocol</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the container reference '<em>Protocol</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Message#getProtocol()
      * @see #getMessage()
@@ -1849,12 +1612,9 @@ public interface ProtocolPackage extends EPackage
     EReference getMessage_Protocol ();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getInterfaces
-     * <em>Interfaces</em>}'.
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Message#getInterfaces <em>Interfaces</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the reference list '<em>Interfaces</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Message#getInterfaces()
      * @see #getMessage()
@@ -1863,12 +1623,9 @@ public interface ProtocolPackage extends EPackage
     EReference getMessage_Interfaces ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute
-     * <em>Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute <em>Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute
      * @generated
@@ -1876,12 +1633,9 @@ public interface ProtocolPackage extends EPackage
     EClass getAttribute ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getName
-     * <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Name</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getName()
      * @see #getAttribute()
@@ -1890,12 +1644,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_Name ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getFieldNumber
-     * <em>Field Number</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getFieldNumber <em>Field Number</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Field Number</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getFieldNumber()
      * @see #getAttribute()
@@ -1904,12 +1655,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_FieldNumber ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isEquality
-     * <em>Equality</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isEquality <em>Equality</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Equality</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isEquality()
      * @see #getAttribute()
@@ -1918,12 +1666,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_Equality ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getType
-     * <em>Type</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Type</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#getType()
      * @see #getAttribute()
@@ -1932,12 +1677,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_Type ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isTransient
-     * <em>Transient</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isTransient <em>Transient</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Transient</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isTransient()
      * @see #getAttribute()
@@ -1946,12 +1688,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_Transient ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isDeleted
-     * <em>Deleted</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isDeleted <em>Deleted</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Deleted</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Attribute#isDeleted()
      * @see #getAttribute()
@@ -1960,12 +1699,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttribute_Deleted ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol
-     * <em>Protocol</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Protocol</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol
      * @generated
@@ -1973,14 +1709,10 @@ public interface ProtocolPackage extends EPackage
     EClass getProtocol ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getMessages
-     * <em>Messages</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getMessages <em>Messages</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Messages</em>'.
+     * @return the meta object for the containment reference list '<em>Messages</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getMessages()
      * @see #getProtocol()
      * @generated
@@ -1988,12 +1720,9 @@ public interface ProtocolPackage extends EPackage
     EReference getProtocol_Messages ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getName
-     * <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Name</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getName()
      * @see #getProtocol()
@@ -2002,14 +1731,10 @@ public interface ProtocolPackage extends EPackage
     EAttribute getProtocol_Name ();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getIncludedProtocols
-     * <em>Included Protocols</em>}'.
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getIncludedProtocols <em>Included Protocols</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the reference list '
-     *         <em>Included Protocols</em>'.
+     * @return the meta object for the reference list '<em>Included Protocols</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getIncludedProtocols()
      * @see #getProtocol()
      * @generated
@@ -2017,12 +1742,9 @@ public interface ProtocolPackage extends EPackage
     EReference getProtocol_IncludedProtocols ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getLicenseHeader
-     * <em>License Header</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getLicenseHeader <em>License Header</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>License Header</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getLicenseHeader()
      * @see #getProtocol()
@@ -2031,14 +1753,10 @@ public interface ProtocolPackage extends EPackage
     EAttribute getProtocol_LicenseHeader ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getEnums
-     * <em>Enums</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getEnums <em>Enums</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Enums</em>'.
+     * @return the meta object for the containment reference list '<em>Enums</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getEnums()
      * @see #getProtocol()
      * @generated
@@ -2046,14 +1764,10 @@ public interface ProtocolPackage extends EPackage
     EReference getProtocol_Enums ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getInterfaces
-     * <em>Interfaces</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getInterfaces <em>Interfaces</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Interfaces</em>'.
+     * @return the meta object for the containment reference list '<em>Interfaces</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getInterfaces()
      * @see #getProtocol()
      * @generated
@@ -2061,12 +1775,9 @@ public interface ProtocolPackage extends EPackage
     EReference getProtocol_Interfaces ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getVersion
-     * <em>Version</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getVersion <em>Version</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Version</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getVersion()
      * @see #getProtocol()
@@ -2075,14 +1786,10 @@ public interface ProtocolPackage extends EPackage
     EAttribute getProtocol_Version ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getStructures
-     * <em>Structures</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getStructures <em>Structures</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Structures</em>'.
+     * @return the meta object for the containment reference list '<em>Structures</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getStructures()
      * @see #getProtocol()
      * @generated
@@ -2090,12 +1797,9 @@ public interface ProtocolPackage extends EPackage
     EReference getProtocol_Structures ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getPackagePrefix
-     * <em>Package Prefix</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getPackagePrefix <em>Package Prefix</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Package Prefix</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getPackagePrefix()
      * @see #getProtocol()
@@ -2104,12 +1808,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getProtocol_PackagePrefix ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure
-     * <em>Structure</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure <em>Structure</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Structure</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Structure
      * @generated
@@ -2117,12 +1818,9 @@ public interface ProtocolPackage extends EPackage
     EClass getStructure ();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure#getProtocol
-     * <em>Protocol</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Structure#getProtocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the container reference '<em>Protocol</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Structure#getProtocol()
      * @see #getStructure()
@@ -2131,12 +1829,9 @@ public interface ProtocolPackage extends EPackage
     EReference getStructure_Protocol ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute
-     * <em>String Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute <em>String Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>String Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.StringAttribute
      * @generated
@@ -2144,12 +1839,9 @@ public interface ProtocolPackage extends EPackage
     EClass getStringAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute
-     * <em>Boolean Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute <em>Boolean Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Boolean Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.BooleanAttribute
      * @generated
@@ -2157,12 +1849,9 @@ public interface ProtocolPackage extends EPackage
     EClass getBooleanAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute
-     * <em>Structure Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute <em>Structure Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Structure Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute
      * @generated
@@ -2170,12 +1859,9 @@ public interface ProtocolPackage extends EPackage
     EClass getStructureAttribute ();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure
-     * <em>Structure</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure <em>Structure</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the reference '<em>Structure</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure()
      * @see #getStructureAttribute()
@@ -2184,12 +1870,9 @@ public interface ProtocolPackage extends EPackage
     EReference getStructureAttribute_Structure ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute
-     * <em>Variant Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute <em>Variant Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Variant Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute
      * @generated
@@ -2197,12 +1880,9 @@ public interface ProtocolPackage extends EPackage
     EClass getVariantAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute
-     * <em>Integer Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute <em>Integer Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Integer Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.IntegerAttribute
      * @generated
@@ -2210,12 +1890,9 @@ public interface ProtocolPackage extends EPackage
     EClass getIntegerAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute
-     * <em>Long Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute <em>Long Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Long Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.LongAttribute
      * @generated
@@ -2223,12 +1900,9 @@ public interface ProtocolPackage extends EPackage
     EClass getLongAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute
-     * <em>Float Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute <em>Float Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Float Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.FloatAttribute
      * @generated
@@ -2236,12 +1910,9 @@ public interface ProtocolPackage extends EPackage
     EClass getFloatAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute
-     * <em>Variant Map Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute <em>Variant Map Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Variant Map Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute
      * @generated
@@ -2249,12 +1920,9 @@ public interface ProtocolPackage extends EPackage
     EClass getVariantMapAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute
-     * <em>Properties Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute <em>Properties Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Properties Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.PropertiesAttribute
      * @generated
@@ -2262,12 +1930,9 @@ public interface ProtocolPackage extends EPackage
     EClass getPropertiesAttribute ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum <em>Enum</em>}
-     * '.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum <em>Enum</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Enum</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Enum
      * @generated
@@ -2275,12 +1940,9 @@ public interface ProtocolPackage extends EPackage
     EClass getEnum ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName
-     * <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Name</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getName()
      * @see #getEnum()
@@ -2289,12 +1951,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getEnum_Name ();
 
     /**
-     * Returns the meta object for the attribute list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getLiterals
-     * <em>Literals</em>}'.
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getLiterals <em>Literals</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute list '<em>Literals</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getLiterals()
      * @see #getEnum()
@@ -2303,12 +1962,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getEnum_Literals ();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol
-     * <em>Protocol</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the container reference '<em>Protocol</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Enum#getProtocol()
      * @see #getEnum()
@@ -2317,12 +1973,9 @@ public interface ProtocolPackage extends EPackage
     EReference getEnum_Protocol ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute
-     * <em>Enum Attribute</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute <em>Enum Attribute</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Enum Attribute</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute
      * @generated
@@ -2330,12 +1983,9 @@ public interface ProtocolPackage extends EPackage
     EClass getEnumAttribute ();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType
-     * <em>Enum Type</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType <em>Enum Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the reference '<em>Enum Type</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.EnumAttribute#getEnumType()
      * @see #getEnumAttribute()
@@ -2344,12 +1994,9 @@ public interface ProtocolPackage extends EPackage
     EReference getEnumAttribute_EnumType ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface
-     * <em>Interface</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface <em>Interface</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Interface</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Interface
      * @generated
@@ -2357,12 +2004,9 @@ public interface ProtocolPackage extends EPackage
     EClass getInterface ();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol
-     * <em>Protocol</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol <em>Protocol</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the container reference '<em>Protocol</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol()
      * @see #getInterface()
@@ -2371,12 +2015,9 @@ public interface ProtocolPackage extends EPackage
     EReference getInterface_Protocol ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure
-     * <em>Attribute Structure</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure <em>Attribute Structure</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Attribute Structure</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure
      * @generated
@@ -2384,12 +2025,9 @@ public interface ProtocolPackage extends EPackage
     EClass getAttributeStructure ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getName
-     * <em>Name</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Name</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getName()
      * @see #getAttributeStructure()
@@ -2398,14 +2036,10 @@ public interface ProtocolPackage extends EPackage
     EAttribute getAttributeStructure_Name ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getAttributes
-     * <em>Attributes</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getAttributes <em>Attributes</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Attributes</em>'.
+     * @return the meta object for the containment reference list '<em>Attributes</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.AttributeStructure#getAttributes()
      * @see #getAttributeStructure()
      * @generated
@@ -2413,12 +2047,9 @@ public interface ProtocolPackage extends EPackage
     EReference getAttributeStructure_Attributes ();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement
-     * <em>Documented Element</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement <em>Documented Element</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for class '<em>Documented Element</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement
      * @generated
@@ -2426,12 +2057,9 @@ public interface ProtocolPackage extends EPackage
     EClass getDocumentedElement ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getDescription
-     * <em>Description</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getDescription <em>Description</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Description</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getDescription()
      * @see #getDocumentedElement()
@@ -2440,12 +2068,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getDocumentedElement_Description ();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getShortDescription
-     * <em>Short Description</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getShortDescription <em>Short Description</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for the attribute '<em>Short Description</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.DocumentedElement#getShortDescription()
      * @see #getDocumentedElement()
@@ -2454,12 +2079,9 @@ public interface ProtocolPackage extends EPackage
     EAttribute getDocumentedElement_ShortDescription ();
 
     /**
-     * Returns the meta object for enum '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Type <em>Type</em>}
-     * '.
+     * Returns the meta object for enum '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Type <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the meta object for enum '<em>Type</em>'.
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.Type
      * @generated
@@ -2470,7 +2092,6 @@ public interface ProtocolPackage extends EPackage
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -2486,18 +2107,14 @@ public interface ProtocolPackage extends EPackage
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     interface Literals
     {
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl
-         * <em>Message</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl <em>Message</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getMessage()
          * @generated
@@ -2505,42 +2122,33 @@ public interface ProtocolPackage extends EPackage
         EClass MESSAGE = eINSTANCE.getMessage ();
 
         /**
-         * The meta object literal for the '<em><b>Code</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute MESSAGE__CODE = eINSTANCE.getMessage_Code ();
 
         /**
-         * The meta object literal for the '<em><b>Protocol</b></em>' container
-         * reference feature.
+         * The meta object literal for the '<em><b>Protocol</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference MESSAGE__PROTOCOL = eINSTANCE.getMessage_Protocol ();
 
         /**
-         * The meta object literal for the '<em><b>Interfaces</b></em>'
-         * reference list feature.
+         * The meta object literal for the '<em><b>Interfaces</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference MESSAGE__INTERFACES = eINSTANCE.getMessage_Interfaces ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl
-         * <em>Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl <em>Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getAttribute()
          * @generated
@@ -2548,72 +2156,57 @@ public interface ProtocolPackage extends EPackage
         EClass ATTRIBUTE = eINSTANCE.getAttribute ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name ();
 
         /**
-         * The meta object literal for the '<em><b>Field Number</b></em>'
-         * attribute feature.
+         * The meta object literal for the '<em><b>Field Number</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__FIELD_NUMBER = eINSTANCE.getAttribute_FieldNumber ();
 
         /**
-         * The meta object literal for the '<em><b>Equality</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Equality</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__EQUALITY = eINSTANCE.getAttribute_Equality ();
 
         /**
-         * The meta object literal for the '<em><b>Type</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type ();
 
         /**
-         * The meta object literal for the '<em><b>Transient</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Transient</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__TRANSIENT = eINSTANCE.getAttribute_Transient ();
 
         /**
-         * The meta object literal for the '<em><b>Deleted</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Deleted</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE__DELETED = eINSTANCE.getAttribute_Deleted ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl
-         * <em>Protocol</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getProtocol()
          * @generated
@@ -2621,102 +2214,81 @@ public interface ProtocolPackage extends EPackage
         EClass PROTOCOL = eINSTANCE.getProtocol ();
 
         /**
-         * The meta object literal for the '<em><b>Messages</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Messages</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference PROTOCOL__MESSAGES = eINSTANCE.getProtocol_Messages ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute PROTOCOL__NAME = eINSTANCE.getProtocol_Name ();
 
         /**
-         * The meta object literal for the '<em><b>Included Protocols</b></em>'
-         * reference list feature.
+         * The meta object literal for the '<em><b>Included Protocols</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference PROTOCOL__INCLUDED_PROTOCOLS = eINSTANCE.getProtocol_IncludedProtocols ();
 
         /**
-         * The meta object literal for the '<em><b>License Header</b></em>'
-         * attribute feature.
+         * The meta object literal for the '<em><b>License Header</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute PROTOCOL__LICENSE_HEADER = eINSTANCE.getProtocol_LicenseHeader ();
 
         /**
-         * The meta object literal for the '<em><b>Enums</b></em>' containment
-         * reference list feature.
+         * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference PROTOCOL__ENUMS = eINSTANCE.getProtocol_Enums ();
 
         /**
-         * The meta object literal for the '<em><b>Interfaces</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Interfaces</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference PROTOCOL__INTERFACES = eINSTANCE.getProtocol_Interfaces ();
 
         /**
-         * The meta object literal for the '<em><b>Version</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute PROTOCOL__VERSION = eINSTANCE.getProtocol_Version ();
 
         /**
-         * The meta object literal for the '<em><b>Structures</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Structures</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference PROTOCOL__STRUCTURES = eINSTANCE.getProtocol_Structures ();
 
         /**
-         * The meta object literal for the '<em><b>Package Prefix</b></em>'
-         * attribute feature.
+         * The meta object literal for the '<em><b>Package Prefix</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute PROTOCOL__PACKAGE_PREFIX = eINSTANCE.getProtocol_PackagePrefix ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl
-         * <em>Structure</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl <em>Structure</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStructure()
          * @generated
@@ -2724,22 +2296,17 @@ public interface ProtocolPackage extends EPackage
         EClass STRUCTURE = eINSTANCE.getStructure ();
 
         /**
-         * The meta object literal for the '<em><b>Protocol</b></em>' container
-         * reference feature.
+         * The meta object literal for the '<em><b>Protocol</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference STRUCTURE__PROTOCOL = eINSTANCE.getStructure_Protocol ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl
-         * <em>String Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl <em>String Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StringAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStringAttribute()
          * @generated
@@ -2747,12 +2314,9 @@ public interface ProtocolPackage extends EPackage
         EClass STRING_ATTRIBUTE = eINSTANCE.getStringAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl
-         * <em>Boolean Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl <em>Boolean Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.BooleanAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getBooleanAttribute()
          * @generated
@@ -2760,12 +2324,9 @@ public interface ProtocolPackage extends EPackage
         EClass BOOLEAN_ATTRIBUTE = eINSTANCE.getBooleanAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl
-         * <em>Structure Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl <em>Structure Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.StructureAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getStructureAttribute()
          * @generated
@@ -2773,22 +2334,17 @@ public interface ProtocolPackage extends EPackage
         EClass STRUCTURE_ATTRIBUTE = eINSTANCE.getStructureAttribute ();
 
         /**
-         * The meta object literal for the '<em><b>Structure</b></em>' reference
-         * feature.
+         * The meta object literal for the '<em><b>Structure</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference STRUCTURE_ATTRIBUTE__STRUCTURE = eINSTANCE.getStructureAttribute_Structure ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl
-         * <em>Variant Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl <em>Variant Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getVariantAttribute()
          * @generated
@@ -2796,12 +2352,9 @@ public interface ProtocolPackage extends EPackage
         EClass VARIANT_ATTRIBUTE = eINSTANCE.getVariantAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl
-         * <em>Integer Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl <em>Integer Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.IntegerAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getIntegerAttribute()
          * @generated
@@ -2809,12 +2362,9 @@ public interface ProtocolPackage extends EPackage
         EClass INTEGER_ATTRIBUTE = eINSTANCE.getIntegerAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl
-         * <em>Long Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl <em>Long Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.LongAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getLongAttribute()
          * @generated
@@ -2822,12 +2372,9 @@ public interface ProtocolPackage extends EPackage
         EClass LONG_ATTRIBUTE = eINSTANCE.getLongAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl
-         * <em>Float Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl <em>Float Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.FloatAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getFloatAttribute()
          * @generated
@@ -2835,12 +2382,9 @@ public interface ProtocolPackage extends EPackage
         EClass FLOAT_ATTRIBUTE = eINSTANCE.getFloatAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl
-         * <em>Variant Map Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl <em>Variant Map Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.VariantMapAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getVariantMapAttribute()
          * @generated
@@ -2848,12 +2392,9 @@ public interface ProtocolPackage extends EPackage
         EClass VARIANT_MAP_ATTRIBUTE = eINSTANCE.getVariantMapAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl
-         * <em>Properties Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl <em>Properties Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.PropertiesAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getPropertiesAttribute()
          * @generated
@@ -2861,12 +2402,9 @@ public interface ProtocolPackage extends EPackage
         EClass PROPERTIES_ATTRIBUTE = eINSTANCE.getPropertiesAttribute ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl
-         * <em>Enum</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl <em>Enum</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getEnum()
          * @generated
@@ -2874,42 +2412,33 @@ public interface ProtocolPackage extends EPackage
         EClass ENUM = eINSTANCE.getEnum ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ENUM__NAME = eINSTANCE.getEnum_Name ();
 
         /**
-         * The meta object literal for the '<em><b>Literals</b></em>' attribute
-         * list feature.
+         * The meta object literal for the '<em><b>Literals</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ENUM__LITERALS = eINSTANCE.getEnum_Literals ();
 
         /**
-         * The meta object literal for the '<em><b>Protocol</b></em>' container
-         * reference feature.
+         * The meta object literal for the '<em><b>Protocol</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference ENUM__PROTOCOL = eINSTANCE.getEnum_Protocol ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl
-         * <em>Enum Attribute</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl <em>Enum Attribute</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.EnumAttributeImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getEnumAttribute()
          * @generated
@@ -2917,22 +2446,17 @@ public interface ProtocolPackage extends EPackage
         EClass ENUM_ATTRIBUTE = eINSTANCE.getEnumAttribute ();
 
         /**
-         * The meta object literal for the '<em><b>Enum Type</b></em>' reference
-         * feature.
+         * The meta object literal for the '<em><b>Enum Type</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference ENUM_ATTRIBUTE__ENUM_TYPE = eINSTANCE.getEnumAttribute_EnumType ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl
-         * <em>Interface</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl <em>Interface</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.InterfaceImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getInterface()
          * @generated
@@ -2940,22 +2464,17 @@ public interface ProtocolPackage extends EPackage
         EClass INTERFACE = eINSTANCE.getInterface ();
 
         /**
-         * The meta object literal for the '<em><b>Protocol</b></em>' container
-         * reference feature.
+         * The meta object literal for the '<em><b>Protocol</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference INTERFACE__PROTOCOL = eINSTANCE.getInterface_Protocol ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl
-         * <em>Attribute Structure</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl <em>Attribute Structure</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.AttributeStructureImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getAttributeStructure()
          * @generated
@@ -2963,32 +2482,25 @@ public interface ProtocolPackage extends EPackage
         EClass ATTRIBUTE_STRUCTURE = eINSTANCE.getAttributeStructure ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute
-         * feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute ATTRIBUTE_STRUCTURE__NAME = eINSTANCE.getAttributeStructure_Name ();
 
         /**
-         * The meta object literal for the '<em><b>Attributes</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EReference ATTRIBUTE_STRUCTURE__ATTRIBUTES = eINSTANCE.getAttributeStructure_Attributes ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl
-         * <em>Documented Element</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl <em>Documented Element</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.DocumentedElementImpl
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getDocumentedElement()
          * @generated
@@ -2996,32 +2508,25 @@ public interface ProtocolPackage extends EPackage
         EClass DOCUMENTED_ELEMENT = eINSTANCE.getDocumentedElement ();
 
         /**
-         * The meta object literal for the '<em><b>Description</b></em>'
-         * attribute feature.
+         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute DOCUMENTED_ELEMENT__DESCRIPTION = eINSTANCE.getDocumentedElement_Description ();
 
         /**
-         * The meta object literal for the '<em><b>Short Description</b></em>'
-         * attribute feature.
+         * The meta object literal for the '<em><b>Short Description</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         EAttribute DOCUMENTED_ELEMENT__SHORT_DESCRIPTION = eINSTANCE.getDocumentedElement_ShortDescription ();
 
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Type
-         * <em>Type</em>}' enum.
+         * The meta object literal for the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Type <em>Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.Type
          * @see org.eclipse.scada.protocol.ngp.model.Protocol.impl.ProtocolPackageImpl#getType()
          * @generated

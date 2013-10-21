@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Variant Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class VariantAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class VariantAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( VariantAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class VariantAttributeTest extends AttributeTest
      * Constructs a new Variant Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public VariantAttributeTest ( final String name )
+    public VariantAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class VariantAttributeTest extends AttributeTest
      * Returns the fixture for this Variant Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected VariantAttribute getFixture ()
     {
-        return (VariantAttribute)this.fixture;
+        return (VariantAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class VariantAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

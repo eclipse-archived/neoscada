@@ -71,7 +71,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
  * This is a simple wizard for creating a new model file.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolModelWizard extends Wizard implements INewWizard
@@ -80,7 +79,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * The supported extensions for created files.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList ( Arrays.asList ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameExtensions" ).split ( "\\s*,\\s*" ) ) );
@@ -89,7 +87,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * A formatted list of supported file extensions, suitable for display.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String FORMATTED_FILE_EXTENSIONS = NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameExtensions" ).replaceAll ( "\\s*,\\s*", ", " );
@@ -98,7 +95,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This caches an instance of the model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ProtocolPackage protocolPackage = ProtocolPackage.eINSTANCE;
@@ -107,16 +103,14 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This caches an instance of the model factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected ProtocolFactory protocolFactory = this.protocolPackage.getProtocolFactory ();
+    protected ProtocolFactory protocolFactory = protocolPackage.getProtocolFactory ();
 
     /**
      * This is the file creation page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ProtocolModelWizardNewFileCreationPage newFileCreationPage;
@@ -125,17 +119,14 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This is the initial object creation page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ProtocolModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
     /**
-     * Remember the selection during initialization for populating the default
-     * container.
+     * Remember the selection during initialization for populating the default container.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IStructuredSelection selection;
@@ -144,7 +135,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * Remember the workbench during initialization.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IWorkbench workbench;
@@ -153,7 +143,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * Caches the names of the types that can be created as the root object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected List<String> initialObjectNames;
@@ -162,57 +151,54 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This just records the information.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void init ( final IWorkbench workbench, final IStructuredSelection selection )
+    public void init ( IWorkbench workbench, IStructuredSelection selection )
     {
         this.workbench = workbench;
         this.selection = selection;
-        setWindowTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_Wizard_label" ) );
-        setDefaultPageImageDescriptor ( ExtendedImageRegistry.INSTANCE.getImageDescriptor ( NextGenerationProtocolEditorPlugin.INSTANCE.getImage ( "full/wizban/NewProtocol" ) ) );
+        setWindowTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_Wizard_label" ) ); //$NON-NLS-1$
+        setDefaultPageImageDescriptor ( ExtendedImageRegistry.INSTANCE.getImageDescriptor ( NextGenerationProtocolEditorPlugin.INSTANCE.getImage ( "full/wizban/NewProtocol" ) ) ); //$NON-NLS-1$
     }
 
     /**
      * Returns the names of the types that can be created as the root object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<String> getInitialObjectNames ()
     {
-        if ( this.initialObjectNames == null )
+        if ( initialObjectNames == null )
         {
-            this.initialObjectNames = new ArrayList<String> ();
-            for ( final EClassifier eClassifier : this.protocolPackage.getEClassifiers () )
+            initialObjectNames = new ArrayList<String> ();
+            for ( EClassifier eClassifier : protocolPackage.getEClassifiers () )
             {
                 if ( eClassifier instanceof EClass )
                 {
-                    final EClass eClass = (EClass)eClassifier;
+                    EClass eClass = (EClass)eClassifier;
                     if ( !eClass.isAbstract () )
                     {
-                        this.initialObjectNames.add ( eClass.getName () );
+                        initialObjectNames.add ( eClass.getName () );
                     }
                 }
             }
-            Collections.sort ( this.initialObjectNames, CommonPlugin.INSTANCE.getComparator () );
+            Collections.sort ( initialObjectNames, CommonPlugin.INSTANCE.getComparator () );
         }
-        return this.initialObjectNames;
+        return initialObjectNames;
     }
 
     /**
      * Create a new model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EObject createInitialModel ()
     {
-        final EClass eClass = (EClass)this.protocolPackage.getEClassifier ( this.initialObjectCreationPage.getInitialObjectName () );
-        final EObject rootObject = this.protocolFactory.create ( eClass );
+        EClass eClass = (EClass)protocolPackage.getEClassifier ( initialObjectCreationPage.getInitialObjectName () );
+        EObject rootObject = protocolFactory.create ( eClass );
         return rootObject;
     }
 
@@ -220,7 +206,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * Do the work after everything is specified.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -234,83 +219,88 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
 
             // Do the work within an operation.
             //
-            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation () {
-                @Override
-                protected void execute ( final IProgressMonitor progressMonitor )
-                {
-                    try
+            WorkspaceModifyOperation operation =
+                    new WorkspaceModifyOperation ()
                     {
-                        // Create a resource set
-                        //
-                        final ResourceSet resourceSet = new ResourceSetImpl ();
-
-                        // Get the URI of the model file.
-                        //
-                        final URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
-
-                        // Create a resource for this file.
-                        //
-                        final Resource resource = resourceSet.createResource ( fileURI );
-
-                        // Add the initial model object to the contents.
-                        //
-                        final EObject rootObject = createInitialModel ();
-                        if ( rootObject != null )
+                        @Override
+                        protected void execute ( IProgressMonitor progressMonitor )
                         {
-                            resource.getContents ().add ( rootObject );
-                        }
+                            try
+                            {
+                                // Create a resource set
+                                //
+                                ResourceSet resourceSet = new ResourceSetImpl ();
 
-                        // Save the contents of the resource to the file system.
-                        //
-                        final Map<Object, Object> options = new HashMap<Object, Object> ();
-                        options.put ( XMLResource.OPTION_ENCODING, ProtocolModelWizard.this.initialObjectCreationPage.getEncoding () );
-                        resource.save ( options );
-                    }
-                    catch ( final Exception exception )
-                    {
-                        NextGenerationProtocolEditorPlugin.INSTANCE.log ( exception );
-                    }
-                    finally
-                    {
-                        progressMonitor.done ();
-                    }
-                }
-            };
+                                // Get the URI of the model file.
+                                //
+                                URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
+
+                                // Create a resource for this file.
+                                //
+                                Resource resource = resourceSet.createResource ( fileURI );
+
+                                // Add the initial model object to the contents.
+                                //
+                                EObject rootObject = createInitialModel ();
+                                if ( rootObject != null )
+                                {
+                                    resource.getContents ().add ( rootObject );
+                                }
+
+                                // Save the contents of the resource to the file system.
+                                //
+                                Map<Object, Object> options = new HashMap<Object, Object> ();
+                                options.put ( XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding () );
+                                resource.save ( options );
+                            }
+                            catch ( Exception exception )
+                            {
+                                NextGenerationProtocolEditorPlugin.INSTANCE.log ( exception );
+                            }
+                            finally
+                            {
+                                progressMonitor.done ();
+                            }
+                        }
+                    };
 
             getContainer ().run ( false, false, operation );
 
             // Select the new file resource in the current view.
             //
-            final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow ();
-            final IWorkbenchPage page = workbenchWindow.getActivePage ();
+            IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow ();
+            IWorkbenchPage page = workbenchWindow.getActivePage ();
             final IWorkbenchPart activePart = page.getActivePart ();
             if ( activePart instanceof ISetSelectionTarget )
             {
                 final ISelection targetSelection = new StructuredSelection ( modelFile );
-                getShell ().getDisplay ().asyncExec ( new Runnable () {
-                    @Override
-                    public void run ()
-                    {
-                        ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
-                    }
-                } );
+                getShell ().getDisplay ().asyncExec
+                        ( new Runnable ()
+                        {
+                            public void run ()
+                            {
+                                ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
+                            }
+                        } );
             }
 
             // Open an editor on the new file.
             //
             try
             {
-                page.openEditor ( new FileEditorInput ( modelFile ), this.workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
+                page.openEditor
+                        ( new FileEditorInput ( modelFile ),
+                                workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
             }
-            catch ( final PartInitException exception )
+            catch ( PartInitException exception )
             {
-                MessageDialog.openError ( workbenchWindow.getShell (), NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_OpenEditorError_label" ), exception.getMessage () );
+                MessageDialog.openError ( workbenchWindow.getShell (), NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_OpenEditorError_label" ), exception.getMessage () ); //$NON-NLS-1$
                 return false;
             }
 
             return true;
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             NextGenerationProtocolEditorPlugin.INSTANCE.log ( exception );
             return false;
@@ -321,7 +311,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This is the one page of the wizard.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public class ProtocolModelWizardNewFileCreationPage extends WizardNewFileCreationPage
@@ -330,10 +319,9 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
          * Pass in the selection.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        public ProtocolModelWizardNewFileCreationPage ( final String pageId, final IStructuredSelection selection )
+        public ProtocolModelWizardNewFileCreationPage ( String pageId, IStructuredSelection selection )
         {
             super ( pageId, selection );
         }
@@ -342,7 +330,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
          * The framework calls this to see if the file is correct.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
@@ -350,10 +337,10 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         {
             if ( super.validatePage () )
             {
-                final String extension = new Path ( getFileName () ).getFileExtension ();
+                String extension = new Path ( getFileName () ).getFileExtension ();
                 if ( extension == null || !FILE_EXTENSIONS.contains ( extension ) )
                 {
-                    final String key = FILE_EXTENSIONS.size () > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+                    String key = FILE_EXTENSIONS.size () > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension"; //$NON-NLS-1$ //$NON-NLS-2$
                     setErrorMessage ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( key, new Object[] { FORMATTED_FILE_EXTENSIONS } ) );
                     return false;
                 }
@@ -365,7 +352,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         public IFile getModelFile ()
@@ -378,7 +364,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * This is the page where the type of object to create is selected.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public class ProtocolModelWizardInitialObjectCreationPage extends WizardPage
@@ -386,7 +371,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo initialObjectField;
@@ -401,7 +385,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo encodingField;
@@ -410,10 +393,9 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
          * Pass in the selection.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        public ProtocolModelWizardInitialObjectCreationPage ( final String pageId )
+        public ProtocolModelWizardInitialObjectCreationPage ( String pageId )
         {
             super ( pageId );
         }
@@ -421,77 +403,76 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public void createControl ( final Composite parent )
+        public void createControl ( Composite parent )
         {
-            final Composite composite = new Composite ( parent, SWT.NONE );
+            Composite composite = new Composite ( parent, SWT.NONE );
             {
-                final GridLayout layout = new GridLayout ();
+                GridLayout layout = new GridLayout ();
                 layout.numColumns = 1;
                 layout.verticalSpacing = 12;
                 composite.setLayout ( layout );
 
-                final GridData data = new GridData ();
+                GridData data = new GridData ();
                 data.verticalAlignment = GridData.FILL;
                 data.grabExcessVerticalSpace = true;
                 data.horizontalAlignment = GridData.FILL;
                 composite.setLayoutData ( data );
             }
 
-            final Label containerLabel = new Label ( composite, SWT.LEFT );
+            Label containerLabel = new Label ( composite, SWT.LEFT );
             {
-                containerLabel.setText ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ModelObject" ) );
+                containerLabel.setText ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ModelObject" ) ); //$NON-NLS-1$
 
-                final GridData data = new GridData ();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 containerLabel.setLayoutData ( data );
             }
 
-            this.initialObjectField = new Combo ( composite, SWT.BORDER );
+            initialObjectField = new Combo ( composite, SWT.BORDER );
             {
-                final GridData data = new GridData ();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                this.initialObjectField.setLayoutData ( data );
+                initialObjectField.setLayoutData ( data );
             }
 
-            for ( final String objectName : getInitialObjectNames () )
+            for ( String objectName : getInitialObjectNames () )
             {
-                this.initialObjectField.add ( getLabel ( objectName ) );
+                initialObjectField.add ( getLabel ( objectName ) );
             }
 
-            if ( this.initialObjectField.getItemCount () == 1 )
+            if ( initialObjectField.getItemCount () == 1 )
             {
-                this.initialObjectField.select ( 0 );
+                initialObjectField.select ( 0 );
             }
-            this.initialObjectField.addModifyListener ( this.validator );
+            initialObjectField.addModifyListener ( validator );
 
-            final Label encodingLabel = new Label ( composite, SWT.LEFT );
+            Label encodingLabel = new Label ( composite, SWT.LEFT );
             {
-                encodingLabel.setText ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_XMLEncoding" ) );
+                encodingLabel.setText ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_XMLEncoding" ) ); //$NON-NLS-1$
 
-                final GridData data = new GridData ();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 encodingLabel.setLayoutData ( data );
             }
-            this.encodingField = new Combo ( composite, SWT.BORDER );
+            encodingField = new Combo ( composite, SWT.BORDER );
             {
-                final GridData data = new GridData ();
+                GridData data = new GridData ();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                this.encodingField.setLayoutData ( data );
+                encodingField.setLayoutData ( data );
             }
 
-            for ( final String encoding : getEncodings () )
+            for ( String encoding : getEncodings () )
             {
-                this.encodingField.add ( encoding );
+                encodingField.add ( encoding );
             }
 
-            this.encodingField.select ( 0 );
-            this.encodingField.addModifyListener ( this.validator );
+            encodingField.select ( 0 );
+            encodingField.addModifyListener ( validator );
 
             setPageComplete ( validatePage () );
             setControl ( composite );
@@ -500,12 +481,11 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        protected ModifyListener validator = new ModifyListener () {
-            @Override
-            public void modifyText ( final ModifyEvent e )
+        protected ModifyListener validator = new ModifyListener ()
+        {
+            public void modifyText ( ModifyEvent e )
             {
                 setPageComplete ( validatePage () );
             }
@@ -514,35 +494,33 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected boolean validatePage ()
         {
-            return getInitialObjectName () != null && getEncodings ().contains ( this.encodingField.getText () );
+            return getInitialObjectName () != null && getEncodings ().contains ( encodingField.getText () );
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public void setVisible ( final boolean visible )
+        public void setVisible ( boolean visible )
         {
             super.setVisible ( visible );
             if ( visible )
             {
-                if ( this.initialObjectField.getItemCount () == 1 )
+                if ( initialObjectField.getItemCount () == 1 )
                 {
-                    this.initialObjectField.clearSelection ();
-                    this.encodingField.setFocus ();
+                    initialObjectField.clearSelection ();
+                    encodingField.setFocus ();
                 }
                 else
                 {
-                    this.encodingField.clearSelection ();
-                    this.initialObjectField.setFocus ();
+                    encodingField.clearSelection ();
+                    initialObjectField.setFocus ();
                 }
             }
         }
@@ -550,14 +528,13 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getInitialObjectName ()
         {
-            final String label = this.initialObjectField.getText ();
+            String label = initialObjectField.getText ();
 
-            for ( final String name : getInitialObjectNames () )
+            for ( String name : getInitialObjectNames () )
             {
                 if ( getLabel ( name ).equals ( label ) )
                 {
@@ -570,28 +547,26 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getEncoding ()
         {
-            return this.encodingField.getText ();
+            return encodingField.getText ();
         }
 
         /**
          * Returns the label for the specified type name.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        protected String getLabel ( final String typeName )
+        protected String getLabel ( String typeName )
         {
             try
             {
-                return NextGenerationProtocolEditPlugin.INSTANCE.getString ( "_UI_" + typeName + "_type" );
+                return NextGenerationProtocolEditPlugin.INSTANCE.getString ( "_UI_" + typeName + "_type" ); //$NON-NLS-1$ //$NON-NLS-2$
             }
-            catch ( final MissingResourceException mre )
+            catch ( MissingResourceException mre )
             {
                 NextGenerationProtocolEditorPlugin.INSTANCE.log ( mre );
             }
@@ -601,20 +576,19 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Collection<String> getEncodings ()
         {
-            if ( this.encodings == null )
+            if ( encodings == null )
             {
-                this.encodings = new ArrayList<String> ();
-                for ( final StringTokenizer stringTokenizer = new StringTokenizer ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_XMLEncodingChoices" ) ); stringTokenizer.hasMoreTokens (); )
+                encodings = new ArrayList<String> ();
+                for ( StringTokenizer stringTokenizer = new StringTokenizer ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_XMLEncodingChoices" ) ); stringTokenizer.hasMoreTokens (); ) //$NON-NLS-1$
                 {
-                    this.encodings.add ( stringTokenizer.nextToken () );
+                    encodings.add ( stringTokenizer.nextToken () );
                 }
             }
-            return this.encodings;
+            return encodings;
         }
     }
 
@@ -622,7 +596,6 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
      * The framework calls this to create the contents of the wizard.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -630,19 +603,19 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
     {
         // Create a page, set the title, and the initial model file name.
         //
-        this.newFileCreationPage = new ProtocolModelWizardNewFileCreationPage ( "Whatever", this.selection );
-        this.newFileCreationPage.setTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_label" ) );
-        this.newFileCreationPage.setDescription ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_description" ) );
-        this.newFileCreationPage.setFileName ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameDefaultBase" ) + "." + FILE_EXTENSIONS.get ( 0 ) );
-        addPage ( this.newFileCreationPage );
+        newFileCreationPage = new ProtocolModelWizardNewFileCreationPage ( "Whatever", selection ); //$NON-NLS-1$
+        newFileCreationPage.setTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_label" ) ); //$NON-NLS-1$
+        newFileCreationPage.setDescription ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_description" ) ); //$NON-NLS-1$
+        newFileCreationPage.setFileName ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameDefaultBase" ) + "." + FILE_EXTENSIONS.get ( 0 ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        addPage ( newFileCreationPage );
 
         // Try and get the resource selection to determine a current directory for the file dialog.
         //
-        if ( this.selection != null && !this.selection.isEmpty () )
+        if ( selection != null && !selection.isEmpty () )
         {
             // Get the resource...
             //
-            final Object selectedElement = this.selection.iterator ().next ();
+            Object selectedElement = selection.iterator ().next ();
             if ( selectedElement instanceof IResource )
             {
                 // Get the resource parent, if its a file.
@@ -659,37 +632,36 @@ public class ProtocolModelWizard extends Wizard implements INewWizard
                 {
                     // Set this for the container.
                     //
-                    this.newFileCreationPage.setContainerFullPath ( selectedResource.getFullPath () );
+                    newFileCreationPage.setContainerFullPath ( selectedResource.getFullPath () );
 
                     // Make up a unique new name here.
                     //
-                    final String defaultModelBaseFilename = NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameDefaultBase" );
-                    final String defaultModelFilenameExtension = FILE_EXTENSIONS.get ( 0 );
-                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+                    String defaultModelBaseFilename = NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolEditorFilenameDefaultBase" ); //$NON-NLS-1$
+                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get ( 0 );
+                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     for ( int i = 1; ( (IContainer)selectedResource ).findMember ( modelFilename ) != null; ++i )
                     {
-                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension; //$NON-NLS-1$
                     }
-                    this.newFileCreationPage.setFileName ( modelFilename );
+                    newFileCreationPage.setFileName ( modelFilename );
                 }
             }
         }
-        this.initialObjectCreationPage = new ProtocolModelWizardInitialObjectCreationPage ( "Whatever2" );
-        this.initialObjectCreationPage.setTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_label" ) );
-        this.initialObjectCreationPage.setDescription ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_Wizard_initial_object_description" ) );
-        addPage ( this.initialObjectCreationPage );
+        initialObjectCreationPage = new ProtocolModelWizardInitialObjectCreationPage ( "Whatever2" ); //$NON-NLS-1$
+        initialObjectCreationPage.setTitle ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_ProtocolModelWizard_label" ) ); //$NON-NLS-1$
+        initialObjectCreationPage.setDescription ( NextGenerationProtocolEditorPlugin.INSTANCE.getString ( "_UI_Wizard_initial_object_description" ) ); //$NON-NLS-1$
+        addPage ( initialObjectCreationPage );
     }
 
     /**
      * Get the file from the page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IFile getModelFile ()
     {
-        return this.newFileCreationPage.getModelFile ();
+        return newFileCreationPage.getModelFile ();
     }
 
 }

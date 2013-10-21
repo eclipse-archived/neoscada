@@ -20,7 +20,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Enum Attribute</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class EnumAttributeTest extends AttributeTest
@@ -29,10 +28,9 @@ public class EnumAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( EnumAttributeTest.class );
     }
@@ -41,10 +39,9 @@ public class EnumAttributeTest extends AttributeTest
      * Constructs a new Enum Attribute test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public EnumAttributeTest ( final String name )
+    public EnumAttributeTest ( String name )
     {
         super ( name );
     }
@@ -53,19 +50,17 @@ public class EnumAttributeTest extends AttributeTest
      * Returns the fixture for this Enum Attribute test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected EnumAttribute getFixture ()
     {
-        return (EnumAttribute)this.fixture;
+        return (EnumAttribute)fixture;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#setUp()
      * @generated
      */
@@ -78,7 +73,6 @@ public class EnumAttributeTest extends AttributeTest
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see junit.framework.TestCase#tearDown()
      * @generated
      */

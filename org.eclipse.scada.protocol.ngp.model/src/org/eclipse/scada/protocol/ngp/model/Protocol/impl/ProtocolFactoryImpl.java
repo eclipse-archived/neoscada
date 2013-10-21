@@ -39,7 +39,6 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantMapAttribute;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
@@ -48,20 +47,19 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static ProtocolFactory init ()
     {
         try
         {
-            final ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory ( ProtocolPackage.eNS_URI );
+            ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory ( ProtocolPackage.eNS_URI );
             if ( theProtocolFactory != null )
             {
                 return theProtocolFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -72,7 +70,6 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ProtocolFactoryImpl ()
@@ -83,11 +80,10 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -122,264 +118,243 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
             case ProtocolPackage.INTERFACE:
                 return createInterface ();
             default:
-                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" );
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
             case ProtocolPackage.TYPE:
                 return createTypeFromString ( eDataType, initialValue );
             default:
-                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
             case ProtocolPackage.TYPE:
                 return convertTypeToString ( eDataType, instanceValue );
             default:
-                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" );
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Message createMessage ()
     {
-        final MessageImpl message = new MessageImpl ();
+        MessageImpl message = new MessageImpl ();
         return message;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Protocol createProtocol ()
     {
-        final ProtocolImpl protocol = new ProtocolImpl ();
+        ProtocolImpl protocol = new ProtocolImpl ();
         return protocol;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Structure createStructure ()
     {
-        final StructureImpl structure = new StructureImpl ();
+        StructureImpl structure = new StructureImpl ();
         return structure;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public StringAttribute createStringAttribute ()
     {
-        final StringAttributeImpl stringAttribute = new StringAttributeImpl ();
+        StringAttributeImpl stringAttribute = new StringAttributeImpl ();
         return stringAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public BooleanAttribute createBooleanAttribute ()
     {
-        final BooleanAttributeImpl booleanAttribute = new BooleanAttributeImpl ();
+        BooleanAttributeImpl booleanAttribute = new BooleanAttributeImpl ();
         return booleanAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public StructureAttribute createStructureAttribute ()
     {
-        final StructureAttributeImpl structureAttribute = new StructureAttributeImpl ();
+        StructureAttributeImpl structureAttribute = new StructureAttributeImpl ();
         return structureAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public VariantAttribute createVariantAttribute ()
     {
-        final VariantAttributeImpl variantAttribute = new VariantAttributeImpl ();
+        VariantAttributeImpl variantAttribute = new VariantAttributeImpl ();
         return variantAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public IntegerAttribute createIntegerAttribute ()
     {
-        final IntegerAttributeImpl integerAttribute = new IntegerAttributeImpl ();
+        IntegerAttributeImpl integerAttribute = new IntegerAttributeImpl ();
         return integerAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public LongAttribute createLongAttribute ()
     {
-        final LongAttributeImpl longAttribute = new LongAttributeImpl ();
+        LongAttributeImpl longAttribute = new LongAttributeImpl ();
         return longAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public FloatAttribute createFloatAttribute ()
     {
-        final FloatAttributeImpl floatAttribute = new FloatAttributeImpl ();
+        FloatAttributeImpl floatAttribute = new FloatAttributeImpl ();
         return floatAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public VariantMapAttribute createVariantMapAttribute ()
     {
-        final VariantMapAttributeImpl variantMapAttribute = new VariantMapAttributeImpl ();
+        VariantMapAttributeImpl variantMapAttribute = new VariantMapAttributeImpl ();
         return variantMapAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public PropertiesAttribute createPropertiesAttribute ()
     {
-        final PropertiesAttributeImpl propertiesAttribute = new PropertiesAttributeImpl ();
+        PropertiesAttributeImpl propertiesAttribute = new PropertiesAttributeImpl ();
         return propertiesAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public org.eclipse.scada.protocol.ngp.model.Protocol.Enum createEnum ()
     {
-        final EnumImpl enum_ = new EnumImpl ();
+        EnumImpl enum_ = new EnumImpl ();
         return enum_;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EnumAttribute createEnumAttribute ()
     {
-        final EnumAttributeImpl enumAttribute = new EnumAttributeImpl ();
+        EnumAttributeImpl enumAttribute = new EnumAttributeImpl ();
         return enumAttribute;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Interface createInterface ()
     {
-        final InterfaceImpl interface_ = new InterfaceImpl ();
+        InterfaceImpl interface_ = new InterfaceImpl ();
         return interface_;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public Type createTypeFromString ( final EDataType eDataType, final String initialValue )
+    public Type createTypeFromString ( EDataType eDataType, String initialValue )
     {
-        final Type result = Type.get ( initialValue );
+        Type result = Type.get ( initialValue );
         if ( result == null )
-        {
-            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" );
-        }
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -387,7 +362,6 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -399,7 +373,6 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

@@ -19,7 +19,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test suite for the '<em><b>NextGenerationProtocol</b></em>' model.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class NextGenerationProtocolAllTests extends TestSuite
@@ -28,10 +27,9 @@ public class NextGenerationProtocolAllTests extends TestSuite
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public static void main ( final String[] args )
+    public static void main ( String[] args )
     {
         TestRunner.run ( suite () );
     }
@@ -39,22 +37,20 @@ public class NextGenerationProtocolAllTests extends TestSuite
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static Test suite ()
     {
-        final TestSuite suite = new NextGenerationProtocolAllTests ( "NextGenerationProtocol Tests" );
+        TestSuite suite = new NextGenerationProtocolAllTests ( "NextGenerationProtocol Tests" ); //$NON-NLS-1$
         return suite;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NextGenerationProtocolAllTests ( final String name )
+    public NextGenerationProtocolAllTests ( String name )
     {
         super ( name );
     }

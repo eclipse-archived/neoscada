@@ -15,15 +15,14 @@ package org.eclipse.scada.protocol.ngp.model.Protocol;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Interface</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol
- * <em>Protocol</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol <em>Protocol</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getInterface()
  * @model
  * @generated
@@ -32,16 +31,13 @@ public interface Interface extends AttributeStructure
 {
     /**
      * Returns the value of the '<em><b>Protocol</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getInterfaces
-     * <em>Interfaces</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Protocol#getInterfaces <em>Interfaces</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Protocol</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Protocol</em>' container reference.
      * @see #setProtocol(Protocol)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getInterface_Protocol()
@@ -52,14 +48,10 @@ public interface Interface extends AttributeStructure
     Protocol getProtocol ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol
-     * <em>Protocol</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.Interface#getProtocol <em>Protocol</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Protocol</em>' container reference.
+     * @param value the new value of the '<em>Protocol</em>' container reference.
      * @see #getProtocol()
      * @generated
      */

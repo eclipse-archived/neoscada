@@ -33,18 +33,12 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getCode
- * <em>Code</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getProtocol
- * <em>Protocol</em>}</li>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getInterfaces
- * <em>Interfaces</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.impl.MessageImpl#getInterfaces <em>Interfaces</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MessageImpl extends AttributeStructureImpl implements Message
@@ -53,7 +47,6 @@ public class MessageImpl extends AttributeStructureImpl implements Message
      * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCode()
      * @generated
      * @ordered
@@ -64,7 +57,6 @@ public class MessageImpl extends AttributeStructureImpl implements Message
      * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCode()
      * @generated
      * @ordered
@@ -72,11 +64,9 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     protected int code = CODE_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}'
-     * reference list.
+     * The cached value of the '{@link #getInterfaces() <em>Interfaces</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getInterfaces()
      * @generated
      * @ordered
@@ -86,7 +76,6 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected MessageImpl ()
@@ -97,7 +86,6 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -109,70 +97,59 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public int getCode ()
     {
-        return this.code;
+        return code;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCode ( final int newCode )
+    public void setCode ( int newCode )
     {
-        final int oldCode = this.code;
-        this.code = newCode;
+        int oldCode = code;
+        code = newCode;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.MESSAGE__CODE, oldCode, this.code ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.MESSAGE__CODE, oldCode, code ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Protocol getProtocol ()
     {
         if ( eContainerFeatureID () != ProtocolPackage.MESSAGE__PROTOCOL )
-        {
             return null;
-        }
         return (Protocol)eContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Protocol basicGetProtocol ()
     {
         if ( eContainerFeatureID () != ProtocolPackage.MESSAGE__PROTOCOL )
-        {
             return null;
-        }
         return (Protocol)eInternalContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetProtocol ( final Protocol newProtocol, NotificationChain msgs )
+    public NotificationChain basicSetProtocol ( Protocol newProtocol, NotificationChain msgs )
     {
         msgs = eBasicSetContainer ( (InternalEObject)newProtocol, ProtocolPackage.MESSAGE__PROTOCOL, msgs );
         return msgs;
@@ -181,71 +158,56 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setProtocol ( final Protocol newProtocol )
+    public void setProtocol ( Protocol newProtocol )
     {
-        if ( newProtocol != eInternalContainer () || eContainerFeatureID () != ProtocolPackage.MESSAGE__PROTOCOL && newProtocol != null )
+        if ( newProtocol != eInternalContainer () || ( eContainerFeatureID () != ProtocolPackage.MESSAGE__PROTOCOL && newProtocol != null ) )
         {
             if ( EcoreUtil.isAncestor ( this, newProtocol ) )
-            {
-                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () );
-            }
+                throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
             NotificationChain msgs = null;
             if ( eInternalContainer () != null )
-            {
                 msgs = eBasicRemoveFromContainer ( msgs );
-            }
             if ( newProtocol != null )
-            {
                 msgs = ( (InternalEObject)newProtocol ).eInverseAdd ( this, ProtocolPackage.PROTOCOL__MESSAGES, Protocol.class, msgs );
-            }
             msgs = basicSetProtocol ( newProtocol, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ProtocolPackage.MESSAGE__PROTOCOL, newProtocol, newProtocol ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Interface> getInterfaces ()
     {
-        if ( this.interfaces == null )
+        if ( interfaces == null )
         {
-            this.interfaces = new EObjectResolvingEList<Interface> ( Interface.class, this, ProtocolPackage.MESSAGE__INTERFACES );
+            interfaces = new EObjectResolvingEList<Interface> ( Interface.class, this, ProtocolPackage.MESSAGE__INTERFACES );
         }
-        return this.interfaces;
+        return interfaces;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( final InternalEObject otherEnd, final int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
             case ProtocolPackage.MESSAGE__PROTOCOL:
                 if ( eInternalContainer () != null )
-                {
                     msgs = eBasicRemoveFromContainer ( msgs );
-                }
                 return basicSetProtocol ( (Protocol)otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
@@ -254,11 +216,10 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -271,11 +232,10 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( final NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {
@@ -288,11 +248,10 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -300,9 +259,7 @@ public class MessageImpl extends AttributeStructureImpl implements Message
                 return getCode ();
             case ProtocolPackage.MESSAGE__PROTOCOL:
                 if ( resolve )
-                {
                     return getProtocol ();
-                }
                 return basicGetProtocol ();
             case ProtocolPackage.MESSAGE__INTERFACES:
                 return getInterfaces ();
@@ -313,12 +270,11 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -339,11 +295,10 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -363,20 +318,19 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ProtocolPackage.MESSAGE__CODE:
-                return this.code != CODE_EDEFAULT;
+                return code != CODE_EDEFAULT;
             case ProtocolPackage.MESSAGE__PROTOCOL:
                 return basicGetProtocol () != null;
             case ProtocolPackage.MESSAGE__INTERFACES:
-                return this.interfaces != null && !this.interfaces.isEmpty ();
+                return interfaces != null && !interfaces.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -384,20 +338,17 @@ public class MessageImpl extends AttributeStructureImpl implements Message
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (code: " );
-        result.append ( this.code );
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (code: " ); //$NON-NLS-1$
+        result.append ( code );
         result.append ( ')' );
         return result.toString ();
     }

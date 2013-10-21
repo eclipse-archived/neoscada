@@ -15,15 +15,14 @@ package org.eclipse.scada.protocol.ngp.model.Protocol;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Structure Attribute</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure
- * <em>Structure</em>}</li>
+ *   <li>{@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure <em>Structure</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getStructureAttribute()
  * @model
  * @generated
@@ -38,7 +37,6 @@ public interface StructureAttribute extends Attribute
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Structure</em>' reference.
      * @see #setStructure(Structure)
      * @see org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage#getStructureAttribute_Structure()
@@ -48,14 +46,10 @@ public interface StructureAttribute extends Attribute
     Structure getStructure ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure
-     * <em>Structure</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.protocol.ngp.model.Protocol.StructureAttribute#getStructure <em>Structure</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Structure</em>' reference.
+     * @param value the new value of the '<em>Structure</em>' reference.
      * @see #getStructure()
      * @generated
      */

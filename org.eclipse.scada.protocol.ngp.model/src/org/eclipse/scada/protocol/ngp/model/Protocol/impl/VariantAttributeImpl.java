@@ -21,7 +21,7 @@ import org.eclipse.scada.protocol.ngp.model.Protocol.VariantAttribute;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class VariantAttributeImpl extends AttributeImpl implements VariantAttribute
@@ -29,7 +29,6 @@ public class VariantAttributeImpl extends AttributeImpl implements VariantAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected VariantAttributeImpl ()
@@ -40,7 +39,6 @@ public class VariantAttributeImpl extends AttributeImpl implements VariantAttrib
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
