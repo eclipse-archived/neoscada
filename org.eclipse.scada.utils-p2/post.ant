@@ -54,7 +54,9 @@ is active.
 			<include name="*.rpm"/>
 		</fileset>
 
-		<pathconvert property="rpmText" refid="rpms" pathsep="\n"/>
+		<pathconvert property="rpmText" refid="rpms" pathsep="\n">
+			<mapper type="flatten"/>
+		</pathconvert>
 
 		<echo message="${repo}.rpmFileName=${rpmText}" />
 		<echo message="${repo}.rpmFileName=${rpmText}
