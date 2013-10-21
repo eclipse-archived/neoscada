@@ -1,5 +1,4 @@
 %define version 0.1.0
-%define qualifier 1
 
 %define buildroot %{_tmppath}/%{name}-%{version}-root
 %define es_user eclipsescada
@@ -12,6 +11,7 @@
 %define _rundir		/var/run
 %define _datadir	/usr/share
 %define _homebasedir	/var/lib
+%define qualifier %(date +"+%Y%m%d%H%M")
 
 Name:		org.eclipse.scada
 Version:	%{version}
