@@ -33,14 +33,17 @@
 							</execution>
 						</executions>
 						<configuration>
-							<copyright>2013, Eclipse SCADA Project</copyright>
+							<copyright>EPL</copyright>
 							<distribution>Eclipse SCADA 2013</distribution>
-							<group>Application/Misc</group>
+							<group>System Environment/Libraries</group>
 							<packager>Eclipse SCADA Project</packager>
 							<changelogFile>rpm/changelog</changelogFile>
 							<defineStatements>
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
 							</defineStatements>
+							<requires>
+								<require>org.eclipse.scada</require>
+							</requires>
 							<mappings>
 								<mapping>
 									<directory>/usr/share/eclipsescada/p2</directory>
