@@ -11,7 +11,7 @@
 %define _rundir		/var/run
 %define _datadir	/usr/share
 %define _homebasedir	/var/lib
-%define qualifier %(date +"+%Y%m%d%H%M")
+%define qualifier %(date +"%Y%m%d%H%M")
 
 Name:		org.eclipse.scada
 Version:	%{version}
