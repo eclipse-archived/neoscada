@@ -143,7 +143,7 @@
 
 		<module>../org.eclipse.scada.utils.feature</module>
 		<module>../org.eclipse.scada.utils.sdk.feature</module>
-		
+
 		<module>../org.eclipse.scada.ui.utils.feature</module>
 
 		<module>../org.eclipse.scada.utils</module>
@@ -163,7 +163,7 @@
 		<module>../org.eclipse.scada.ui.databinding</module>
 		<module>../org.eclipse.scada.ui.localization</module>
 		<module>../org.eclipse.scada.ui.utils</module>
-		
+
 	</modules>
 
 	<!-- sign -->
@@ -251,5 +251,4 @@
 			</build>
 		</profile>
 	</profiles>
-
 </project>
