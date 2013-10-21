@@ -18,7 +18,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="fetch,build">
+    <target name="default" depends="build">
     </target>
 
 	<!-- ================================= 
