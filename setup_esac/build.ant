@@ -34,8 +34,8 @@
          ================================= -->
     <target name="fetch">
         <mkdir dir="fetch"/>
-        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.tar.gz" dest="fetch" />
-        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.tar.gz" dest="fetch" />
+        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.zip" dest="fetch" />
+        <get usetimestamp="true" src="${hudson.base}/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/org.eclipse.scada.hmi.adminclient.app-product/target/products/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.zip" dest="fetch" />
     </target>
     
     <!-- ================================= 
