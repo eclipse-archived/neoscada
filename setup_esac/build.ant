@@ -59,7 +59,6 @@
             <arg value="Files.wixobj"/>
         	<arg value="-out"/>
         	<arg value="esac.msi"/>
-            >
         </exec>
     </target>
 
