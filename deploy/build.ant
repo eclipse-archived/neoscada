@@ -7,7 +7,14 @@
 		Deploy build artifacts to download
     </description>
     
+    <tstamp>
+    	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
+    </tstamp>
+        
+    <property name="buildType" value="I"/>
+    
     <property name="download.base" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    <property name="download.dir" location="${download.base}/drops/${buildType}${timestamp}"/>
 
     <!-- ================================= 
           target: default
@@ -19,7 +26,7 @@
           target: init              
          ================================= -->
     <target name="init">
-		<echo message="Base: ${download.base}"/>
+		<echo message="Base: ${download.dir}"/>
     </target>
     
     <!-- ================================= 
