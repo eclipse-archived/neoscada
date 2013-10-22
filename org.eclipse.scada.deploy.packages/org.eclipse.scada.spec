@@ -30,7 +30,12 @@ BuildArch:	noarch
 # for adding the user with "adduser"
 Requires: shadow-utils
 # for the "getent" command
+
+%if 0%{?suse_version}
+Requires: glibc
+%else
 Requires: glibc-common
+%endif
 
 %description
 The Eclipse SCADA System
