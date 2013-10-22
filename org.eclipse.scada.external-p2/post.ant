@@ -84,7 +84,7 @@ is active.
         <copy todir="${download.dir}">
             <fileset dir="${output}/p2" />
         </copy>
-        <copy file="${repo}.p2-*.zip" todir="${download.dir}/pack"/>
+        <copy file="${output}/${repo}.p2-*.zip" todir="${download.dir}/pack"/>
     </target>
     
     <!-- ================================= 
