@@ -9,7 +9,7 @@ Things to do after the main build
 Called fromt he pom.xml when the profile "eclipse-hudson"
 is active.
     </description>
-	    
+
     <property name="output" location="../output"/>
     
     <tstamp>
@@ -17,8 +17,15 @@ is active.
     </tstamp>
         
     <property name="buildType" value="I"/>
-    <property name="download.base" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
-    <property name="download.dir" location="${download.base}/${repo}/drops/${buildType}${timestamp}"/>
+    
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.base}/${repo}/drops"/>
+    
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${buildType}${timestamp}"/>
     
     <!-- ================================= 
           target: default
@@ -95,7 +102,9 @@ is active.
           target: cleanup              
          ================================= -->
     <target name="cleanup">
-        <dirset id="all" dir="${download.dir}">
+        <echo message="Cleanup base directory: {download.base}"/>
+        
+        <dirset id="all" dir="${download.base}">
             <include name="${buildType}*"/>
         </dirset>
         <resources id="current">
