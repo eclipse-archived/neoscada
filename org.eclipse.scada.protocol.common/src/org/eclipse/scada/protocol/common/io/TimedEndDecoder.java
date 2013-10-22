@@ -124,13 +124,17 @@ public abstract class TimedEndDecoder implements ProtocolDecoder
     @Override
     public void dispose ( final IoSession session ) throws Exception
     {
+    }
+
+    @Override
+    public void finishDecode ( final IoSession session, final ProtocolDecoderOutput out ) throws Exception
+    {
         // remove the context from the session and kill the cyclic check
-        final Context ctx = (Context)session.getAttribute ( CONTEXT );
+        final Context ctx = (Context)session.removeAttribute ( CONTEXT );
         if ( ctx != null )
         {
             unregisterContext ( ctx );
             ctx.dispose ();
-            session.removeAttribute ( CONTEXT );
         }
     }
 

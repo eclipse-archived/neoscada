@@ -101,22 +101,24 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         out.write ( new Pdu ( unitIdentifier, pdu ) );
     }
 
+    private static final int MAX_SIZE = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;
+
     @Override
     public void decode ( final IoSession session, final IoBuffer in, final ProtocolDecoderOutput out ) throws Exception
     {
         IoBuffer currentFrame = (IoBuffer)session.getAttribute ( SESSION_KEY_CURRENT_FRAME );
-        if ( !session.containsAttribute ( SESSION_KEY_CURRENT_FRAME ) )
+        if ( currentFrame == null )
         {
             currentFrame = IoBuffer.allocate ( Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE );
             session.setAttribute ( SESSION_KEY_CURRENT_FRAME, currentFrame );
         }
         logger.trace ( "decode () current frame = {} data = {}", currentFrame.toString (), currentFrame.getHexDump () );
         logger.trace ( "decode () new     frame = {} data = {}", in.toString (), in.getHexDump () );
-        final int maxSize = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;
+
         final int expectedSize = currentFrame.position () + in.remaining ();
-        if ( expectedSize > maxSize + 1 )
+        if ( expectedSize > MAX_SIZE + 1 )
         {
-            throw new ModbusProtocolError ( String.format ( "received size (%s) exceeds max size (%s)", expectedSize, maxSize ) );
+            throw new ModbusProtocolError ( String.format ( "received size (%s) exceeds max size (%s)", expectedSize, MAX_SIZE ) );
         }
         currentFrame.put ( in );
 
@@ -126,5 +128,6 @@ public class ModbusRtuDecoder extends TimedEndDecoder
     @Override
     public void finishDecode ( final IoSession session, final ProtocolDecoderOutput out ) throws Exception
     {
+        super.finishDecode ( session, out );
     }
 }
