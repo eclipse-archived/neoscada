@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+      Deploy build artifacts to download
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+		Deploy build artifacts to download
+    </description>
+    
+    <property name="download.base" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="init,copy,cleanup">
+    </target>
+    
+    <!-- ================================= 
+          target: init              
+         ================================= -->
+    <target name="init">
+		<echo message="Base: ${download.base}"/>
+    </target>
+    
+    <!-- ================================= 
+          target: copy              
+         ================================= -->
+    <target name="copy" depends="init">
+    </target>
+    
+	<!-- ================================= 
+          target: cleanup
+         ================================= -->
+    <target name="cleanup" depends="init">
+    </target>
+
+</project>
