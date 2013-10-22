@@ -16,6 +16,39 @@
 	<profiles>
 
 		<profile>
+			<id>deb</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>jdeb</artifactId>
+						<groupId>org.vafer</groupId>
+						<version>1.0.1</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jdeb</goal>
+								</goals>
+								<configuration>
+									<dataSet>
+										<data>
+											<src>target/repository</src>
+											<type>directory</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/usr/share/eclipsescada/p2/${project.groupId}</prefix>
+											</mapper>
+										</data>
+									</dataSet>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
 			<id>rpm</id>
 
 			<build>
@@ -83,7 +116,7 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<property name="repo" value="${project.groupId}"/>
+										<property name="repo" value="${project.groupId}" />
 										<ant antfile="post.ant" />
 									</tasks>
 								</configuration>
@@ -93,7 +126,7 @@
 				</plugins>
 			</build>
 		</profile>
-		
+
 	</profiles>
-	
+
 </project>
