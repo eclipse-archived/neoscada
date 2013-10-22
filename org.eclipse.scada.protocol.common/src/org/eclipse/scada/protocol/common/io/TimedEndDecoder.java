@@ -247,7 +247,7 @@ public abstract class TimedEndDecoder implements ProtocolDecoder
         Context ctx = (Context)session.getAttribute ( CONTEXT );
         if ( ctx == null && create )
         {
-            logger.trace ( "Creating contect for: {}", session );
+            logger.trace ( "Creating context for: {}", session );
             ctx = new Context ( this, this.timeout, session );
             registerContext ( ctx );
             session.setAttribute ( CONTEXT, ctx );

@@ -43,13 +43,17 @@ public class ModbusRtuDecoder extends TimedEndDecoder
     {
         logger.trace ( "timeout ()" );
 
-        final IoBuffer currentFrame = (IoBuffer)session.removeAttribute ( SESSION_KEY_CURRENT_FRAME );
-        if ( currentFrame == null )
+        final IoBuffer currentFrame;
+        synchronized ( this )
         {
-            throw new ModbusProtocolError ( "no frame found" );
+            currentFrame = (IoBuffer)session.removeAttribute ( SESSION_KEY_CURRENT_FRAME );
+            if ( currentFrame == null )
+            {
+                throw new ModbusProtocolError ( "no frame found" );
+            }
         }
-        currentFrame.flip ();
 
+        currentFrame.flip ();
         decodeTimeoutFrame ( session, currentFrame, out );
 
         // flush it
@@ -104,7 +108,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
     private static final int MAX_SIZE = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;
 
     @Override
-    public void decode ( final IoSession session, final IoBuffer in, final ProtocolDecoderOutput out ) throws Exception
+    public synchronized void decode ( final IoSession session, final IoBuffer in, final ProtocolDecoderOutput out ) throws Exception
     {
         IoBuffer currentFrame = (IoBuffer)session.getAttribute ( SESSION_KEY_CURRENT_FRAME );
         if ( currentFrame == null )
@@ -123,11 +127,5 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         currentFrame.put ( in );
 
         tick ( session, out );
-    }
-
-    @Override
-    public void finishDecode ( final IoSession session, final ProtocolDecoderOutput out ) throws Exception
-    {
-        super.finishDecode ( session, out );
     }
 }
