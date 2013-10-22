@@ -77,6 +77,14 @@ is active.
          ================================= -->
     <target name="copy">
         <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}"/>
+        <mkdir dir="${download.dir}/pack"/>
+        
+        <copy todir="${download.dir}">
+            <fileset dir="${output}/p2" />
+        </copy>
+        <copy file="${repo}.p2-*.zip" todir="${download.dir}/pack"/>
     </target>
     
     <!-- ================================= 
@@ -102,6 +110,10 @@ is active.
 current: ${toString:current}
 delete: ${toString:delete}
         </echo>
+        
+        <delete>
+        	<resources refid="delete"/>
+        </delete>
     </target>
 
 </project>
