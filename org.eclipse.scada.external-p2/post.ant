@@ -23,7 +23,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,file,copy">
+    <target name="default" depends="clean,build,file,copy,cleanup">
     </target>
     
     <!-- ================================= 
@@ -77,6 +77,31 @@ is active.
          ================================= -->
     <target name="copy">
         <echo message="Download Directory: ${download.dir}"/>
+    </target>
+    
+    <!-- ================================= 
+          target: cleanup              
+         ================================= -->
+    <target name="cleanup">
+        <dirset id="all" dir="${download.dir}">
+            <include name="${buildType}*"/>
+        </dirset>
+        <resources id="current">
+            <last count="3">
+	            <sort>
+	                <dirset refid="all"/>
+	            </sort>
+            </last>
+        </resources>
+        <difference id="delete">
+            <dirset refid="all"/>
+            <resources refid="current"/>
+        </difference>
+        
+        <echo>
+current: ${toString:current}
+delete: ${toString:delete}
+        </echo>
     </target>
 
 </project>
