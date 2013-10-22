@@ -22,7 +22,7 @@ is active.
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
     
     <!-- the base where drops will be placed for this repository -->
-    <property name="download.base" location="${download.base}/${repo}/drops"/>
+    <property name="download.base" location="${download.root}/${repo}/drops"/>
     
     <!-- the actual drop directory -->
     <property name="download.dir" location="${download.base}/${buildType}${timestamp}"/>
@@ -102,7 +102,7 @@ is active.
           target: cleanup              
          ================================= -->
     <target name="cleanup">
-        <echo message="Cleanup base directory: {download.base}"/>
+        <echo message="Cleanup base directory: ${download.base}"/>
         
         <dirset id="all" dir="${download.base}">
             <include name="${buildType}*"/>
@@ -120,6 +120,7 @@ is active.
         </difference>
         
         <echo>
+all: ${toString:all}
 current: ${toString:current}
 delete: ${toString:delete}
         </echo>
