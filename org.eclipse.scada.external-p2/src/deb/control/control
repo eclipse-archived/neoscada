@@ -1,0 +1,9 @@
+Package: [[name]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Depends: org.eclipse.scada
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Description: Eclipse SCADA P2 Repository - [[artifactId]]
+Distribution: development
