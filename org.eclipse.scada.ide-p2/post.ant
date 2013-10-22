@@ -35,7 +35,7 @@ is active.
         <move todir="${output}">
             <fileset dir=".">
                 <include name="target/**/${repo}*.rpm"/>
-                <include name="target/${repo}-*.zip"/>
+                <include name="target/${repo}.p2-*.zip"/>
             </fileset>
             <mapper type="flatten"/>
         </move>
