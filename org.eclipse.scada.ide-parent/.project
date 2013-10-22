@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>org.eclipse.scada.configuration-p2</name>
+	<name>org.eclipse.scada.ide-parent</name>
 	<comment></comment>
 	<projects>
 	</projects>

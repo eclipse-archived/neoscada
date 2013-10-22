@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.scada.ide_0.1.0.qualifier.jar" id="org.eclipse.scada.ide" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.ide.category"/>
+   </feature>
+   <feature url="features/org.eclipse.scada.ide.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.ide.sdk" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.ide.sdk.category"/>
+   </feature>
+   <category-def name="org.eclipse.scada.ide.category" label="Eclipse SCADA IDE"/>
+   <category-def name="org.eclipse.scada.ide.sdk.category" label="Eclipse SCADA IDE SDK"/>
+</site>
