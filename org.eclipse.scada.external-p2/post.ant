@@ -103,6 +103,7 @@ is active.
          ================================= -->
     <target name="cleanup">
         <echo message="Cleanup base directory: ${download.base}"/>
+        <echo message="Ant: ${ant.version}"/>
         
         <dirset id="all" dir="${download.base}">
             <include name="${buildType}*"/>
