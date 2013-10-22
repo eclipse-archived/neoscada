@@ -27,13 +27,15 @@ BuildArch:	noarch
 #BuildRequires: unzip
 #BuildRequires: wget
 
+%if 0%{?suse_version}
+# for adding the user with "useradd"
+Requires: shadow
+# for the "getent" command
+Requires: glibc
+%else
 # for adding the user with "adduser"
 Requires: shadow-utils
 # for the "getent" command
-
-%if 0%{?suse_version}
-Requires: glibc
-%else
 Requires: glibc-common
 %endif
 
@@ -52,14 +54,12 @@ make DESTDIR=%{buildroot} install
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
 
-
-
 # script run after installation
 
 %post
 if ! getent passwd "%{es_user}" >/dev/null; then
 	# create new user
-	adduser --system --user-group --home "%{_homebasedir}/%{es_user}" --comment "Eclipse SCADA User" "%{es_user}" 
+	useradd --system --user-group --home "%{_homebasedir}/%{es_user}" --comment "Eclipse SCADA User" "%{es_user}"
 fi
 mkdir -p "%{_homebasedir}/%{es_user}"
 chown -R "%{es_user}:%{es_user}" "%{_homebasedir}/%{es_user}"
