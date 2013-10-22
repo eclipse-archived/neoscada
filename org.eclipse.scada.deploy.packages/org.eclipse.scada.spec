@@ -56,15 +56,13 @@ make DESTDIR=%{buildroot} install
 
 # script run after installation
 
-%post
+%pre
 if ! getent passwd "%{es_user}" >/dev/null; then
 	# create new user
 	useradd --system --user-group --home "%{_homebasedir}/%{es_user}" --comment "Eclipse SCADA User" "%{es_user}"
 fi
 mkdir -p "%{_homebasedir}/%{es_user}"
 chown -R "%{es_user}:%{es_user}" "%{_homebasedir}/%{es_user}"
-
-
 
 # script run after un-install
 
