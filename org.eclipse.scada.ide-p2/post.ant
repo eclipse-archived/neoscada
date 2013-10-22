@@ -15,7 +15,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,file">
+    <target name="default" depends="clean,build">
     </target>
     
     <!-- ================================= 
@@ -45,22 +45,5 @@ is active.
             </fileset>
         </move>
    </target>
-
-	<!-- ================================= 
-          target: file
-         ================================= -->
-    <target name="file">
-		<fileset id="rpms" dir="${output}">
-			<include name="*.rpm"/>
-		</fileset>
-
-		<pathconvert property="rpmText" refid="rpms" pathsep="\n">
-			<mapper type="flatten"/>
-		</pathconvert>
-
-		<echo message="${repo}.rpmFileName=${rpmText}" />
-		<echo message="${repo}.rpmFileName=${rpmText}
-" file="${output}/rpm.properties"/>
-	</target>
 
 </project>
