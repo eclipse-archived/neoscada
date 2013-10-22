@@ -76,15 +76,9 @@ public class ModbusMaster extends AbstractConnectionDevice
         this.name = cfg.getString ( this.name, this.id );
 
         this.readTimeout = getTimeout ( properties, "readTimeout", 10000 );
-        this.interFrameDelay = cfg.getInteger ( "interFrameDelay", 10 );
+        this.interFrameDelay = cfg.getInteger ( "interFrameDelay", Integer.getInteger ( "org.eclipse.scada.da.server.osgi.modbus.defaultInterFrameDelay", 10 ) );
 
         super.configure ( properties );
-    }
-
-    @Override
-    public ScheduledExecutorService getExecutor ()
-    {
-        return super.getExecutor ();
     }
 
     @Override

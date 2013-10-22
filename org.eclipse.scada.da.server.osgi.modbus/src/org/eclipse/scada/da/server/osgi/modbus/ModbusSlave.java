@@ -201,10 +201,11 @@ public class ModbusSlave implements Listener
 
     public synchronized void stop ()
     {
-        logger.debug ( "Starting slave - slave: {}", this.name );
+        logger.debug ( "Stopping slave - slave: {}", this.name );
 
         if ( this.jobManager == null )
         {
+            // we already are stopped
             return;
         }
 
@@ -245,11 +246,14 @@ public class ModbusSlave implements Listener
         logger.debug ( "Removing block: {}", id );
 
         final ModbusRequestBlock block = this.blocks.remove ( id );
-        if ( this.jobManager != null )
+        if ( block != null )
         {
-            this.jobManager.removeBlock ( id );
+            if ( this.jobManager != null )
+            {
+                this.jobManager.removeBlock ( id );
+            }
+            block.dispose ();
         }
-        block.dispose ();
     }
 
     public Object createPollRequest ( final Request request )
