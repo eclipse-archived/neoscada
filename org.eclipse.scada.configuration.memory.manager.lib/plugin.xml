@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.scada.configuration.generator.world.generator">
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.memory.manager.lib.MemoryModelOscarProcessor">
+      </oscarProcessor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="generator" name="generator" schema="schema/generator.exsd"/>
+   <extension
+         point="org.eclipse.scada.configuration.generator.world.generator">
+      <nodeElementProcessor
+            factoryClass="org.eclipse.scada.configuration.generator.world.DefaultNodeElementProcessorFactoryImpl">
+         <forClass
+               class="org.eclipse.scada.configuration.osgi.MasterServer">
+         </forClass>
+         <forClass
+               class="org.eclipse.scada.configuration.osgi.ValueArchiveServer">
+         </forClass>
+         <forClass
+               class="org.eclipse.scada.configuration.ExecDriver">
+         </forClass>
+         <forClass
+               class="org.eclipse.scada.configuration.deployment.RedhatDeploymentMechanism">
+         </forClass>
+         <forClass
+               class="org.eclipse.scada.configuration.deployment.DebianDeploymentMechanism">
+         </forClass>
+      </nodeElementProcessor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exec Component Generator (Incubating)
+Bundle-SymbolicName: org.eclipse.scada.configuration.component.exec.generator;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.equinox.registry,
+ org.eclipse.emf.common,
+ org.eclipse.emf.ecore;bundle-version="2.9.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.emf.validation,
+ org.eclipse.scada.configuration.component;version="0.1.0",
+ org.eclipse.scada.configuration.component.exec;version="0.1.0",
+ org.eclipse.scada.configuration.component.generator;version="0.1.0",
+ org.eclipse.scada.configuration.component.generator.util;version="0.1.0",
+ org.eclipse.scada.configuration.component.lib.create;version="0.1.0",
+ org.eclipse.scada.configuration.generator;version="0.1.0",
+ org.eclipse.scada.configuration.generator.text;version="0.1.0",
+ org.eclipse.scada.configuration.infrastructure;version="0.1.0",
+ org.eclipse.scada.configuration.infrastructure.lib;version="0.1.0",
+ org.eclipse.scada.configuration.world;version="0.1.0",
+ org.eclipse.scada.configuration.world.osgi;version="0.1.0",
+ org.eclipse.scada.da.exec.configuration;version="0.1.0"

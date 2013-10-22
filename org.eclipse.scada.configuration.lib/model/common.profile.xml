@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+includes="fragments/ca.file.profile.xml#/ fragments/equinox.profile.xml#/ fragments/logback.profile.xml#/"
+name="Common Equinox Application Setup">
+  <start>org.eclipse.scada.sec.osgi.manager</start>
+  <start>org.eclipse.scada.sec.auth.logon</start>
+  <start>org.eclipse.scada.sec.authn.osgi.cfg.priority</start>
+  <start>org.eclipse.scada.sec.authz.signature</start>
+  <start>org.eclipse.scada.sec.provider.script</start>
+  <start>org.eclipse.scada.sec.provider.jdbc</start>
+  <property key="osgi.console.enable.builtin">false</property>
+  <property key="osgi.console.ssh.useDefaultSecureStorage">true</property>
+  <property key="ssh.server.keystore">configuration/hostkey.ser</property>
+  <property key="org.eclipse.equinox.console.jaas.file">configuration/store</property>
+  <property key="java.security.auth.login.config">configuration/org.eclipse.equinox.console.authentication.config</property>
+  <property key="org.eclipse.scada.sec.callback.defaultTimeout">60000</property>
+  	
+  <feature>org.eclipse.scada.configuration.deploy.feature.group</feature>
+  <setbsl level="1">org.eclipse.equinox.ds</setbsl>
+</profile:profile>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="security" nsURI="http://eclipse.org/SCADA/Configuration/Security"
+    nsPrefix="security">
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
+    <eOperations name="getRuleType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This method must return the type of the rule that the dereived implementation provides."/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeFilter" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filterScript" eType="#//Script"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptRule" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callbackScript" eType="#//Script"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogonRule" eSuperTypes="#//Rule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SignatureRule" eSuperTypes="#//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trustedCertificationAuthority"
+        upperBound="-1" eType="#//CA" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="indentXml" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postProcessor" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reloadPeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The period (milliseconds) in which all CAs will be reloaded."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Script" abstract="true">
+    <eOperations name="getType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JavaScript" eSuperTypes="#//Script"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericScript" eSuperTypes="#//Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="JavaScript"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//Rules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scripts" upperBound="-1"
+        eType="#//Script" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rules">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CA">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="certificateUrl" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="crlUrl" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" name="Equinox Base Fragment">
+
+  <start>org.eclipse.equinox.ds</start>
+  <setbsl level="1">org.eclipse.equinox.ds</setbsl>
+
+</profile:profile>

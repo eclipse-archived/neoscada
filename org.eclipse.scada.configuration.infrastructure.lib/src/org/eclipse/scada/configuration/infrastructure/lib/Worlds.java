@@ -1,0 +1,233 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.infrastructure.lib;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.infrastructure.CommonDriver;
+import org.eclipse.scada.configuration.infrastructure.Driver;
+import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
+import org.eclipse.scada.configuration.infrastructure.MasterImport;
+import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
+import org.eclipse.scada.configuration.infrastructure.UserService;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.SystemPropertiesUserServiceProcessor;
+import org.eclipse.scada.configuration.utils.Containers;
+import org.eclipse.scada.configuration.world.Credentials;
+import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.WorldFactory;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
+import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
+import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+
+public final class Worlds
+{
+
+    private Worlds ()
+    {
+    }
+
+    /**
+     * Find the credentials for accessing a driver
+     * 
+     * @param driver
+     *            the driver to access
+     * @return the credentials or <code>null</code> if there are none
+     */
+    public static Credentials findConnectionPassword ( final Driver driver )
+    {
+        if ( driver instanceof CommonDriver )
+        {
+            return findCommonConnectionPassword ( (CommonDriver)driver );
+        }
+        else if ( driver instanceof EquinoxDriver )
+        {
+            return findEquinoxConnectionPassword ( (EquinoxDriver)driver );
+        }
+        else if ( driver instanceof ExternalDriver )
+        {
+            return findExternalConnectionPassword ( (ExternalDriver)driver );
+        }
+        return null;
+    }
+
+    protected static Credentials findEquinoxConnectionPassword ( final EquinoxDriver driver )
+    {
+        if ( driver.getAccessCredentials () != null )
+        {
+            return driver.getAccessCredentials ();
+        }
+
+        return findDefaultAccessCredentials ( driver );
+    }
+
+    protected static Credentials findCommonConnectionPassword ( final CommonDriver driver )
+    {
+        if ( driver.getPassword () != null )
+        {
+            return driver.getPassword ();
+        }
+
+        return findDefaultAccessCredentials ( driver );
+    }
+
+    protected static Credentials findDefaultAccessCredentials ( final Driver driver )
+    {
+        final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( driver, org.eclipse.scada.configuration.infrastructure.World.class );
+        if ( world == null )
+        {
+            return null;
+        }
+
+        if ( world.getDefaultDriverAccessCredentials () != null )
+        {
+            return world.getDefaultCredentials ();
+        }
+
+        if ( driver instanceof CommonDriver )
+        {
+            return world.getDefaultDriverPassword ();
+        }
+        return null;
+    }
+
+    protected static Credentials findExternalConnectionPassword ( final ExternalDriver driver )
+    {
+        if ( driver.getAccessCredentials () != null )
+        {
+            return driver.getAccessCredentials ();
+        }
+
+        return findDefaultAccessCredentials ( driver );
+    }
+
+    /**
+     * Find the password for a common driver
+     * 
+     * @param driver
+     *            the driver to check
+     * @return the password credentials, or <code>null</code> if was none
+     */
+    public static PasswordCredentials findCommonDriverPassword ( final CommonDriver driver )
+    {
+        if ( driver.getPassword () != null )
+        {
+            return driver.getPassword ();
+        }
+
+        final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( driver, org.eclipse.scada.configuration.infrastructure.World.class );
+        if ( world == null )
+        {
+            return null;
+        }
+
+        return world.getDefaultDriverPassword ();
+    }
+
+    /**
+     * Find the access credentials for the target
+     * 
+     * @param masterImport
+     *            the target
+     * @return the access credentials, or <code>null</code> if there were none
+     */
+    public static Credentials findConnectionCredentials ( final MasterImport masterImport )
+    {
+        if ( masterImport.getCredentials () != null )
+        {
+            return masterImport.getCredentials ();
+        }
+        else if ( masterImport.getImportedMaster ().getLocalCredentials () != null )
+        {
+            return masterImport.getImportedMaster ().getLocalCredentials ();
+        }
+        else
+        {
+            final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( masterImport, org.eclipse.scada.configuration.infrastructure.World.class );
+            if ( world == null )
+            {
+                return null;
+            }
+            return world.getDefaultCredentials ();
+        }
+    }
+
+    public static Endpoint createEndpoint ( final int port )
+    {
+        final Endpoint ep = WorldFactory.eINSTANCE.createEndpoint ();
+        ep.setPortNumber ( (short)port );
+        return ep;
+    }
+
+    public static Endpoint createDaEndpoint ( final Options options, final Driver driver )
+    {
+        if ( driver instanceof CommonDriver )
+        {
+            return createEndpoint ( ( (CommonDriver)driver ).getPortNumber () );
+        }
+        else if ( driver instanceof EquinoxDriver )
+        {
+            return createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber () );
+        }
+        else if ( driver instanceof ExternalDriver )
+        {
+            return createEndpoint ( ( (ExternalDriver)driver ).getPortNumber () );
+        }
+        throw new IllegalStateException ( String.format ( "Unable to create DA endpoint for driver type: %s", driver.getClass ().getName () ) );
+    }
+
+    public static void addUserService ( final EquinoxApplication application, UserService userService, final Options options )
+    {
+        if ( userService == null )
+        {
+            userService = options.getDefaultUserService ();
+        }
+        if ( userService == null )
+        {
+            return;
+        }
+
+        // TODO: allow other types of user service
+        if ( userService instanceof org.eclipse.scada.configuration.infrastructure.JdbcUserService )
+        {
+            final JdbcUserServiceModule module = OsgiFactory.eINSTANCE.createJdbcUserServiceModule ();
+            module.getUserServices ().add ( EcoreUtil.copy ( ( (org.eclipse.scada.configuration.infrastructure.JdbcUserService)userService ).getImplementation () ) );
+        }
+        else if ( userService instanceof SystemPropertyUserService )
+        {
+            new SystemPropertiesUserServiceProcessor ( (SystemPropertyUserService)userService ).process ( application );
+        }
+        else
+        {
+            throw new IllegalStateException ( String.format ( "User service type '%s' is currently unsupported", userService.getClass () ) );
+        }
+    }
+
+    public static boolean isLocal ( final Node node1, final Node node2 )
+    {
+        return node1.getHostName ().equals ( node2.getHostName () );
+    }
+
+    public static String makeHostname ( final Node from, final Node to )
+    {
+        if ( isLocal ( from, to ) )
+        {
+            return "localhost"; //$NON-NLS-1$
+        }
+        else
+        {
+            return to.getHostName ();
+        }
+    }
+
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="modbus" nsURI="http://eclipse.org/SCADA/Configuration/Modbus"
+    nsPrefix="modbus">
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusDevice" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolType" lowerBound="1"
+        eType="#//ProtocolType" defaultValueLiteral="RTU"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slaves" upperBound="-1"
+        eType="#//ModbusSlave" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSystem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusDriver" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masters" upperBound="-1"
+        eType="#//ModbusMaster" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusSlave">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blocks" upperBound="-1"
+        eType="#//ModbusBlock" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Byte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProtocolType">
+    <eLiterals name="RTU"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusMaster">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slaves" upperBound="-1"
+        eType="#//ModbusSlave" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusBlock">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockType" lowerBound="1"
+        eType="#//RequestType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="startAddress" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RequestType" instanceClassName="org.eclipse.scada.da.server.osgi.modbus.RequestType"/>
+</ecore:EPackage>

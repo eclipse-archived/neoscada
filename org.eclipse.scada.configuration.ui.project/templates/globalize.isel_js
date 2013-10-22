@@ -1,0 +1,8 @@
+function select () {
+	if ( request.isComponentClass ( "PingCheck" ) )
+		return true;
+	if ( request.hasTag ( "summary" ) )
+		return true;
+}
+
+select (); // use return value

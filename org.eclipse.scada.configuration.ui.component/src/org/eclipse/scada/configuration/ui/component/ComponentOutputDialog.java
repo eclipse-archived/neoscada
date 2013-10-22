@@ -1,0 +1,149 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.configuration.ui.component;
+
+import org.eclipse.core.databinding.beans.PojoProperties;
+import org.eclipse.core.databinding.observable.map.IObservableMap;
+import org.eclipse.core.databinding.observable.set.IObservableSet;
+import org.eclipse.emf.databinding.EMFProperties;
+import org.eclipse.jface.databinding.viewers.ObservableSetTreeContentProvider;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.DialogSettings;
+import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.IDialogSettings;
+import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.TableLayout;
+import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.TreeViewerColumn;
+import org.eclipse.jface.window.IShellProvider;
+import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.ui.databinding.ObservableMapStyledCellLabelProvider;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Shell;
+
+public class ComponentOutputDialog extends Dialog
+{
+
+    private TreeViewer viewer;
+
+    private final IObservableSet input;
+
+    private ObservableSetTreeContentProvider contentProvider;
+
+    protected ComponentOutputDialog ( final IShellProvider parentShell, final IObservableSet input )
+    {
+        super ( parentShell );
+        this.input = input;
+        setBlockOnOpen ( false );
+    }
+
+    public ComponentOutputDialog ( final Shell parentShell, final IObservableSet input )
+    {
+        super ( parentShell );
+        this.input = input;
+        setBlockOnOpen ( false );
+    }
+
+    @Override
+    protected void createButtonsForButtonBar ( final Composite parent )
+    {
+        createButton ( parent, IDialogConstants.CLOSE_ID, IDialogConstants.CLOSE_LABEL, true );
+    }
+
+    @Override
+    protected boolean isResizable ()
+    {
+        return true;
+    }
+
+    @Override
+    protected IDialogSettings getDialogBoundsSettings ()
+    {
+        return DialogSettings.getOrCreateSection ( Activator.getDefault ().getDialogSettings (), "componentOutputDialog" );
+    }
+
+    @Override
+    protected void buttonPressed ( final int buttonId )
+    {
+        okPressed (); // we always simply close
+    }
+
+    @Override
+    protected Control createDialogArea ( final Composite parent )
+    {
+        getShell ().setText ( "Component Output" );
+
+        final Composite composite = (Composite)super.createDialogArea ( parent );
+
+        composite.setLayout ( new FillLayout () );
+
+        final TableLayout layout = new TableLayout ();
+
+        this.viewer = new TreeViewer ( composite, SWT.FULL_SELECTION | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL );
+        this.viewer.setAutoExpandLevel ( 2 );
+        this.viewer.getTree ().setHeaderVisible ( true );
+        this.viewer.getTree ().setLayout ( layout );
+
+        this.viewer.setContentProvider ( this.contentProvider = new ObservableSetTreeContentProvider ( new ComponentOutputObservableFactory (), null ) );
+
+        {
+            final TreeViewerColumn col1 = new TreeViewerColumn ( this.viewer, SWT.NONE );
+            col1.getColumn ().setText ( "Name" );
+            col1.setLabelProvider ( new NameLabelProvider ( getShell ().getDisplay (), this.contentProvider.getKnownElements () ) );
+            layout.addColumnData ( new ColumnWeightData ( 100 ) );
+        }
+
+        {
+            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () );
+            final IObservableMap map2 = EMFProperties.value ( OsgiPackage.Literals.ITEM__NAME ).observeDetail ( map );
+
+            final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
+            col2.getColumn ().setText ( "Item ID" );
+            col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map2 ) );
+            layout.addColumnData ( new ColumnWeightData ( 100 ) );
+        }
+
+        {
+            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () );
+            final IObservableMap map2 = EMFProperties.value ( OsgiPackage.Literals.ITEM__INFORMATION ).observeDetail ( map );
+            final IObservableMap map3 = EMFProperties.value ( OsgiPackage.Literals.ITEM_INFORMATION__DESCRIPTION ).observeDetail ( map2 );
+
+            final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
+            col2.getColumn ().setText ( "Description" );
+            col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map3 ) );
+            layout.addColumnData ( new ColumnWeightData ( 200 ) );
+        }
+
+        this.viewer.getControl ().addDisposeListener ( new DisposeListener () {
+
+            @Override
+            public void widgetDisposed ( final DisposeEvent e )
+            {
+                handleDispose ();
+            }
+        } );
+        this.viewer.setInput ( this.input );
+
+        return composite;
+    }
+
+    protected void handleDispose ()
+    {
+        this.contentProvider.dispose ();
+
+        this.input.dispose ();
+    }
+}

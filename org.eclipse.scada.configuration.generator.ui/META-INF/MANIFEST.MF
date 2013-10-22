@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Configuration Generator UI (Incubating)
+Bundle-SymbolicName: org.eclipse.scada.configuration.generator.ui;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.eclipse.scada.configuration.generator.ui.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.scada.configuration.world;bundle-version="0.1.0",
+ org.eclipse.scada.configuration.generator.component;bundle-version="0.1.0",
+ org.eclipse.scada.configuration.infrastructure.lib;bundle-version="0.1.0",
+ org.eclipse.scada.configuration.globalization;bundle-version="0.1.0",
+ org.eclipse.ui.console;bundle-version="3.5.200",
+ org.eclipse.scada.configuration.utils;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.scada.ca.oscar;version="0.1.0",
+ org.eclipse.scada.configuration.generator.world;version="0.1.0",
+ org.eclipse.scada.configuration.generator.world.validator;version="0.1.0",
+ org.eclipse.scada.configuration.infrastructure,
+ org.eclipse.scada.ui.databinding;version="0.1.0",
+ org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils;version="0.1.0",
+ org.slf4j;version="1.7.2"
+Bundle-ActivationPolicy: lazy

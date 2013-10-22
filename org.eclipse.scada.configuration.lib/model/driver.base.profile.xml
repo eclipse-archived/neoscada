@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+	includes="fragments/equinox.profile.xml#/ fragments/logback.profile.xml#/"
+	name="Common Equinox Driver Setup">
+
+	<property key="osgi.console.enable.builtin">false</property>
+	<property key="org.eclipse.scada.sec.callback.defaultTimeout">60000</property>
+
+	<start>org.eclipse.scada.da.server.exporter.ngp</start>
+	<start>org.eclipse.scada.da.server.exporter.osgi</start>
+	<start>org.eclipse.scada.da.server.osgi</start>
+
+	<start>org.eclipse.scada.da.server.common.osgi</start>
+
+	<start>org.eclipse.scada.sec.osgi.manager</start>
+	<start>org.eclipse.scada.sec.authn.osgi.cfg.priority</start>
+	<start>org.eclipse.scada.sec.audit.log.slf4j</start>
+	<start>org.eclipse.scada.sec.provider.script</start>
+	<start>org.eclipse.scada.sec.auth.logon</start>
+	<start>org.eclipse.scada.sec.equinox</start>
+	<start>org.eclipse.scada.sec.auth.logon</start>
+
+</profile:profile>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.scada.configuration"
+            class="org.eclipse.scada.configuration.ui.project.wizard.NewProjectWizard"
+            id="org.eclipse.scada.configuration.ui.project.NewProjectWizard"
+            name="%wizard.newProject.name"
+            project="true">
+         <description>
+            %wizard.newProject.description
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         id="configuration"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.eclipse.scada.configuration.ui.project.nature.ConfigurationProjectNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="builder"
+         name="%extension.builder.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run
+               class="org.eclipse.scada.configuration.ui.project.builder.ProjectBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.pde.ui.newExtension">
+      <category
+            id="org.eclipse.scada.configuration.ui.project.templates"
+            name="%category.newExtension.scada.name">
+      </category>
+      <wizard
+            category="org.eclipse.scada.configuration.ui.project.templates"
+            id="org.eclipse.scada.configuration.ui.project.detailViewWizard"
+            name="%wizard.detailView.name"
+            template="org.eclipse.scada.configuration.ui.project.detailView">
+      </wizard>
+      <wizard
+            category="org.eclipse.scada.configuration.ui.project.templates"
+            id="org.eclipse.scada.configuration.ui.project.connectionContextWizard"
+            name="Connection Context"
+            template="org.eclipse.scada.configuration.ui.project.connectionContext">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.pde.ui.pluginContent">
+      <wizard
+            class="org.eclipse.scada.configuration.ui.project.template.PluginContentWizard"
+            id="org.eclipse.scada.configuration.ui.project.wizard1"
+            java="true"
+            name="%wizard.clientConfiguration.name."
+            pureOSGi="false"
+            rcp="false"
+            requiresActivator="false"
+            ui-content="true">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.pde.ui.templates">
+      <template
+            class="org.eclipse.scada.configuration.ui.project.template.DetailViewTemplate"
+            contributingId="org.eclipse.scada.vi.details.detailView"
+            id="org.eclipse.scada.configuration.ui.project.detailView"
+            name="%template.detailView.name">
+      </template>
+      <template
+            class="org.eclipse.scada.configuration.ui.project.template.ConnectionContextTemplate"
+            contributingId="org.eclipse.core.expressions.definitions"
+            id="org.eclipse.scada.configuration.ui.project.connectionContext"
+            name="Connection Context">
+      </template>
+   </extension>
+
+
+</plugin>

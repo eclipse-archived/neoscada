@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualInterface:Symbol
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface "
+    onInit="initTextValue();"
+    onUpdate="updateValue ( &quot;A&quot;);">
+  <root xsi:type="visualInterface:FigureContainer"
+      onDoubleClick="onClick();"
+      border="LINE:[lineSize=1,color=#F0F0F0]">
+    <content
+        xsi:type="visualInterface:BorderContainer">
+      <children
+          alignment="LEFT">
+        <element
+            xsi:type="visualInterface:Rectangle"
+            name="left"
+            foregroundColor=""
+            lineWidth="0.0"
+            outline="false">
+          <size
+              width="5.0"
+              height="-1.0"/>
+        </element>
+      </children>
+      <children>
+        <element
+            xsi:type="visualInterface:Text"
+            name="label"
+            foregroundColor="#000000"
+            backgroundColor="#F0F0F0"
+            border="MARGIN:[r=10]"
+            opaque="true"
+            text=""
+            labelAlignment="RIGHT"
+            textAlignment="RIGHT"/>
+      </children>
+      <children
+          alignment="RIGHT">
+        <element
+            xsi:type="visualInterface:Rectangle"
+            name="right"
+            outline="false">
+          <size
+              width="5.0"
+              height="-1.0"/>
+        </element>
+      </children>
+    </content>
+  </root>
+  <scriptModules>textValue.js</scriptModules>
+  <scriptModules>../common/colors.js</scriptModules>
+  <scriptModules>../common/detailDialog.js</scriptModules>
+</visualInterface:Symbol>

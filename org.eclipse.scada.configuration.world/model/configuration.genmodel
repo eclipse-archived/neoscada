@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.world/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.scada.configuration.world" modelName="World" nonNLSMarkers="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" tableProviders="true" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security"
+    operationReflection="true" importOrganizing="true" pluginKey="world">
+  <foreignModel>configuration.ecore</foreignModel>
+  <genPackages prefix="World" basePackage="org.eclipse.scada.configuration" resource="XMI"
+      disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
+      childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.world"
+      fileExtensions="eswm" ecorePackage="configuration.ecore#/">
+    <genDataTypes ecoreDataType="configuration.ecore#//Pattern"/>
+    <genClasses ecoreClass="configuration.ecore#//World">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//World/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//World/options"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Node/hostName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Node/endpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Node/deployments"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ApplicationNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ApplicationNode/applications"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Documentable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/shortDescription"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Application"/>
+    <genClasses ecoreClass="configuration.ecore#//Driver">
+      <genOperations ecoreOperation="configuration.ecore#//Driver/getEndpoints"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Endpoint">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/node"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Endpoint/portNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ExecDriver">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ExecDriver/root"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//CommonDriver">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//CommonDriver/password"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//CommonDriver/endpoints"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//HandlerPriorityRule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//HandlerPriorityRule/order"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//HandlerPriorityRule/factoryId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//HandlerPriorityRule/configurationFilter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//HandlerPriorityRule/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//HandlerPriorityRule/description"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MasterHandlerPriorities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//MasterHandlerPriorities/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//Options">
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference configuration.ecore#//Options/masterHandlerPriorities"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="configuration.ecore#//UsernamePasswordCredentials">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UsernamePasswordCredentials/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UsernamePasswordCredentials/password"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="configuration.ecore#//PasswordCredentials">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PasswordCredentials/password"/>
+    </genClasses>
+    <genClasses provider="Stateful" image="false" ecoreClass="configuration.ecore#//Credentials"/>
+    <genClasses ecoreClass="configuration.ecore#//ExternalNode"/>
+    <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"
+        resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+        extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="configuration.ecore#//osgi">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/AverageReferenceType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/MIN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/MAX"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/MEAN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/MEDIAN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/DEVIATION"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/AverageReferenceType/SUM"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/MovingAverageReferenceType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/MIN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/MAX"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/MEDIAN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/ARITHMETIC"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/WEIGHTED"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/DEVIATION_ARITHMETIC"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/MovingAverageReferenceType/DEVIATION_WEIGHTED"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/RoundingType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/RoundingType/NONE"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/RoundingType/ROUND"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/RoundingType/CEIL"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/RoundingType/FLOOR"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/DataType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/VARIANT"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/NULL"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/INT32"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/INT64"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/FLOAT"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/STRING"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/DataType/BOOLEAN"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/PasswordType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/PLAIN"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/PLAIN_IGNORE_CASE"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/MD5_HEX"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/PasswordType/SHA1_HEX"/>
+      </genEnums>
+      <genDataTypes ecoreDataType="configuration.ecore#//osgi/Severity"/>
+      <genDataTypes ecoreDataType="configuration.ecore#//osgi/Variant"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EquinoxApplication">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/EquinoxApplication/connections"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/EquinoxApplication/exporter"/>
+        <genFeatures children="true" createChild="true" propertyCategory="" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EquinoxApplication/customizationProfile"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EquinoxApplication/securityConfiguration"/>
+        <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EquinoxApplication/modules"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/EquinoxApplication/getProfile"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/Connection">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/Connection/endpoint"/>
+        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Connection/endpointLabel"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/Connection/credentials"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Connection/timeout"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/Connection/getTypeTag"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/Connection/getPossibleEndpoints">
+          <genParameters ecoreParameter="configuration.ecore#//osgi/Connection/getPossibleEndpoints/exporter"/>
+        </genOperations>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/Connection/makeUri">
+          <genParameters ecoreParameter="configuration.ecore#//osgi/Connection/makeUri/localhost"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/Exporter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/Exporter/endpoints"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/Exporter/getTypeTag"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DataAccessConnection">
+        <genOperations ecoreOperation="configuration.ecore#//osgi/DataAccessConnection/getTypeTag"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/DataAccessConnection/makeUri">
+          <genParameters ecoreParameter="configuration.ecore#//osgi/DataAccessConnection/makeUri/localhost"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DataAccessExporter">
+        <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/DataAccessExporter/exports"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/DataAccessExporter/getTypeTag"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Item">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Item/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/Item/information"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/Item/itemFeatures"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/SourceItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/SourceItem/connection"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/SourceItem/sourceName"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ItemExport">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ItemExport/item"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemExport/exportName"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ItemInformation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/unit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/hierarchy"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/system"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemInformation/dataType"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/LevelMonitor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/preset"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/cap"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/severity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/lowerOk"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/includedOk"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/prefix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/demotePrefix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/suppressEvents"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/requireAck"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/LevelMonitor/monitorType"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ItemFeatureEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemFeatureEntry/name"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ItemFeatureEntry/item"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ScriptItem">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/inputs"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/initScript"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/updateScript"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/timer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ScriptItem/scriptEngine"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/commands"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptItem/writeCommandScript"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ImportItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ImportItem/export"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/SummaryGroup">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/SummaryGroup/name"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/SummaryGroup/subGroups"/>
+        <genFeatures property="None" notify="false" children="true" createChild="true"
+            propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/SummaryGroup/items"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MarkerGroup">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MarkerGroup/items"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MarkerGroup/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MarkerGroup/markers"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Markers">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/Markers/markerGroups"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ConstantItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ConstantItem/value"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/SummaryItem">
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/SummaryItem/group"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MarkerEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MarkerEntry/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MarkerEntry/value"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ManualOverride">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ManualOverride/initialValue"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/MasterServer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/summaryGroups"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/items"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/markers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MasterServer/aeServerInformationPrefix"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/monitorPools"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/eventPools"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/dataMapper"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/externalEventMonitors"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/externalEventFilters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/averages"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/movingAverages"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ValueArchiveServer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ValueArchiveServer/archives"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DefaultMasterServer"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/CustomMasterServer">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/CustomMasterServer/profile"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ApplicationModule"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AttributesSummary">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AttributesSummary/attributes"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AttributesSummary/outputPrefix"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventLogger">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventLogger/logAttributesChange"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventLogger/logValueChange"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventLogger/logSubscriptionChange"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventLogger/logWrites"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MonitorPool">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MonitorPool/filter"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventPool">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventPool/filter"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventPool/size"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/DataMapper"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/SimpleDataMapper">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/SimpleDataMapper/entries"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/JdbcDataMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcDataMapper/jdbcDriver"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcDataMapper/sql"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/JdbcDataMapper/properties"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DataMapperEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/DataMapperEntry/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/DataMapperEntry/value"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ValueMapper">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ValueMapper/sourceAttribute"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ValueMapper/targetAttribute"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ValueMapper/dataMapper"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/PersistentItem"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ProxyItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ProxyItem/items"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Scale">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Scale/active"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Scale/factor"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Scale/offset"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Negate">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Negate/active"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Rounding">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Rounding/type"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ExternalEventMonitor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ExternalEventMonitor/filter"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ExternalEventMonitor/properties"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/PropertyEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PropertyEntry/key"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PropertyEntry/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ExternalEventFilter"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/StaticExternalEventFilter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/StaticExternalEventFilter/value"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/SimpleExternalEventFilter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/SimpleExternalEventFilter/filter"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/TypedItemReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/TypedItemReference/type"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/CodeFragment">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/CodeFragment/code"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ScriptTimer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ScriptTimer/script"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ScriptTimer/period"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ItemReference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ItemReference/item"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ItemReference/name"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/FormulaItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/FormulaItem/scriptEngine"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/initScripts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/outbound"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItem/inbound"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/FormulaItemOutbound">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItemOutbound/output"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/FormulaItemOutbound/outputFormula"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/FormulaItemOutbound/writeValueVariableName"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/FormulaItemInbound">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/FormulaItemInbound/inputs"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/FormulaItemInbound/inputFormula"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/BooleanMonitor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/referenceValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/active"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/demotePrefix"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/severity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/message"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/suppressEvents"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BooleanMonitor/requireAck"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ListMonitor">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/message"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/messageAttribute"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/defaultAck"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/defaultSeverity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/monitorType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitor/demotePrefix"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ListMonitor/entries"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ListMonitorEntry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitorEntry/value"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitorEntry/requireAck"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ListMonitorEntry/severity"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Average">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/Average/items"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/Average/sourcesRequired"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MovingAverage">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/MovingAverage/item"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MovingAverage/range"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MovingAverage/nullRange"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MovingAverage/trigger"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MovingAverage/triggerOnly"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AverageItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/AverageItem/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AverageItem/type"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MovingAverageItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/MovingAverageItem/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/MovingAverageItem/type"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Blockings">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/Blockings/groups"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/BlockGroup">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/BlockGroup/handlers"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BlockGroup/hierarchy"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/BlockHandler">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/BlockHandler/group"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/Block"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/GlobalSummaryItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/GlobalSummaryItem/attribute"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/WeakReferenceDataSourceItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/WeakReferenceDataSourceItem/dataSourceId"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AlarmsEventsExporter">
+        <genOperations ecoreOperation="configuration.ecore#//osgi/AlarmsEventsExporter/getTypeTag"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AlarmsEventsConnection">
+        <genOperations ecoreOperation="configuration.ecore#//osgi/AlarmsEventsConnection/getTypeTag"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/AlarmsEventsConnection/makeUri">
+          <genParameters ecoreParameter="configuration.ecore#//osgi/AlarmsEventsConnection/makeUri/localhost"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/MonitorPoolProxy">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/MonitorPoolProxy/local"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/MonitorPoolProxy/remote"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventPoolProxy">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EventPoolProxy/local"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EventPoolProxy/remote"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventPoolProxy/size"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AlarmsEventsModule">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AlarmsEventsModule/monitorPoolProxies"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AlarmsEventsModule/eventPoolProxies"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AlarmsEventsModule/aknProxies"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AlarmsEventsModule/pullEvents"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/AknProxy">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AknProxy/pattern"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/AknProxy/connection"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AknProxy/priority"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AknProxy/authorative"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/PullEvents">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/jdbcDriverName"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/PullEvents/jdbcProperties"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/jobInterval"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/customSelectSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/customDeleteSql"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/JdbcUserServiceModule">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/JdbcUserServiceModule/userServices"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/JdbcUserService">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/JdbcUserService/jdbcPropeties"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/jdbcDriver"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/authorative"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/findUserSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/findRolesForUserSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/updatePasswordSql"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/userIdColumnName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/passwordColumnName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/JdbcUserService/passwordType"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DefaultValueArchiveServer"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/HistoricalDataExporter">
+        <genOperations ecoreOperation="configuration.ecore#//osgi/HistoricalDataExporter/getTypeTag"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ValueArchive">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ValueArchive/items"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ConfigurationAdministratorExporter">
+        <genOperations ecoreOperation="configuration.ecore#//osgi/ConfigurationAdministratorExporter/getTypeTag"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/ReferenceItem">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/ReferenceItem/source"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/EventStorage"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventStorageJdbc">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/jdbcDriverName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/driverBundles"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/maxFieldLength"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/queryFetchSize"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventStoragePostgres">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStoragePostgres/batchSize"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/EventStoragePostgres/getJdbcDriverName"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/EventStoragePostgres/getDriverBundles"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/AbstractEventStorageJdbc">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AbstractEventStorageJdbc/jdbcProperties"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/schema"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/instanceName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/enableReplication"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/archiveDays"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/cleanupPeriodSeconds"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/AbstractEventStorageJdbc/getJdbcDriverName"/>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/AbstractEventStorageJdbc/getDriverBundles"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ApplicationConfiguration"/>
+      <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
+          resource="XML" disposableProviderFactory="true" generateModelWizard="false"
+          extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"
+          fileExtensions="xml" ecorePackage="configuration.ecore#//osgi/profile">
+        <genClasses ecoreClass="configuration.ecore#//osgi/profile/Profile">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/installationUnits"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/jvmArgument"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/start"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/setbsl"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/property"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/notes"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/profile"/>
+          <genFeatures children="true" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/includes"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/name"/>
+          <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/description"/>
+        </genClasses>
+        <genClasses ecoreClass="configuration.ecore#//osgi/profile/StartBundle">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/StartBundle/name"/>
+        </genClasses>
+        <genClasses ecoreClass="configuration.ecore#//osgi/profile/SystemProperty">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/SystemProperty/key"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/SystemProperty/value"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/SystemProperty/eval"/>
+        </genClasses>
+        <genClasses ecoreClass="configuration.ecore#//osgi/profile/SubProfile">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/SubProfile/property"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/SubProfile/name"/>
+        </genClasses>
+        <genClasses ecoreClass="configuration.ecore#//osgi/profile/BundleStartLevel">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/BundleStartLevel/level"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/BundleStartLevel/name"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Deployment" basePackage="org.eclipse.scada.configuration.world"
+        resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+        contentTypeIdentifier="org.eclipse.scada.configuration.deployment" fileExtensions="esdi"
+        ecorePackage="configuration.ecore#//deployment">
+      <genClasses image="false" ecoreClass="configuration.ecore#//deployment/DeploymentMechanism"/>
+      <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/DebianDeploymentMechanism/additionalDependencies"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/Author">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/email"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/RedhatDeploymentMechanism"/>
+      <genClasses ecoreClass="configuration.ecore#//deployment/DeploymentInformation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/DeploymentInformation/authors"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/CommonDeploymentMechanism">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/changes"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/maintainer"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/ChangeEntry/author"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ChangeEntry/date"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ChangeEntry/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ChangeEntry/version"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

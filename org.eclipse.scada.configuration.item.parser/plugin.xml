@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            class="org.eclipse.scada.configuration.item.parser.JavaScriptPipelineParser"
+            type="icm_js">
+      </parser>
+      <parser
+            class="org.eclipse.scada.configuration.item.parser.JavaScriptSelectorParser"
+            type="isel_js">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.content_parser">
+      <parser
+            class="org.eclipse.scada.configuration.item.parser.JavaScriptPipelineParser"
+            contentTypeIdentifier="org.eclipse.scada.configuration.item.customizationPipeline.js">
+      </parser>
+      <parser
+            class="org.eclipse.scada.configuration.item.parser.JavaScriptSelectorParser"
+            contentTypeIdentifier="org.eclipse.scada.configuration.item.itemSelector.js">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.wst.jsdt.core.jsSource"
+            default-charset="UTF-8"
+            file-extensions="icm_js"
+            id="org.eclipse.scada.configuration.item.customizationPipeline.js"
+            name="JavaScript Item Customization Pipeline"
+            priority="high">
+      </content-type>
+      <content-type
+            base-type="org.eclipse.wst.jsdt.core.jsSource"
+            default-charset="UTF-8"
+            file-extensions="isel_js"
+            id="org.eclipse.scada.configuration.item.itemSelector.js"
+            name="JavaScript Item Selector"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.scada.configuration"
+            class="org.eclipse.scada.configuration.item.parser.wizard.JavaScriptItemSelectorWizard"
+            id="org.eclipse.scada.configuration.item.parser.itemSelector.js"
+            name="Create new JavaScript Item Selector">
+      </wizard>
+        <wizard
+            category="org.eclipse.scada.configuration"
+            class="org.eclipse.scada.configuration.item.parser.wizard.JavaScriptPipelineWizard"
+            id="org.eclipse.scada.configuration.item.parser.pipeline.js"
+            name="Create new JavaScript Customization Pipeline">
+      </wizard>
+   </extension>
+
+</plugin>

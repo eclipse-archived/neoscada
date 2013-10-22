@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.item/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.scada.configuration.item" modelName="Item" nonNLSMarkers="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="7.0"
+    copyrightFields="false" testsPluginID="org.eclipse.scada.configuration.item.tests"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>item.ecore</foreignModel>
+  <genPackages prefix="Item" basePackage="org.eclipse.scada.configuration" resource="XMI"
+      disposableProviderFactory="true" generateModelWizard="false" fileExtensions="icm"
+      ecorePackage="item.ecore#/">
+    <genDataTypes ecoreDataType="item.ecore#//CustomizationRequest"/>
+    <genClasses ecoreClass="item.ecore#//CustomizationPipeline">
+      <genOperations ecoreOperation="item.ecore#//CustomizationPipeline/customize">
+        <genParameters ecoreParameter="item.ecore#//CustomizationPipeline/customize/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//ScriptCustomizationPipeline">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute item.ecore#//ScriptCustomizationPipeline/code"/>
+      <genOperations ecoreOperation="item.ecore#//ScriptCustomizationPipeline/getScriptEngine"/>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//CompositePipeline">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference item.ecore#//CompositePipeline/steps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute item.ecore#//CompositePipeline/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference item.ecore#//CompositePipeline/parent"/>
+      <genOperations ecoreOperation="item.ecore#//CompositePipeline/customize">
+        <genParameters ecoreParameter="item.ecore#//CompositePipeline/customize/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//Call">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference item.ecore#//Call/pipeline"/>
+      <genOperations ecoreOperation="item.ecore#//Call/execute">
+        <genParameters ecoreParameter="item.ecore#//Call/execute/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="item.ecore#//Step">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference item.ecore#//Step/containingPipeline"/>
+      <genOperations ecoreOperation="item.ecore#//Step/execute">
+        <genParameters ecoreParameter="item.ecore#//Step/execute/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//CallSuper">
+      <genOperations ecoreOperation="item.ecore#//CallSuper/execute">
+        <genParameters ecoreParameter="item.ecore#//CallSuper/execute/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="item.ecore#//Selector">
+      <genOperations ecoreOperation="item.ecore#//Selector/selected">
+        <genParameters ecoreParameter="item.ecore#//Selector/selected/request"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//ScriptSelector">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute item.ecore#//ScriptSelector/code"/>
+      <genOperations ecoreOperation="item.ecore#//ScriptSelector/getScriptEngine"/>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//JavaScriptCustomizationPipeline">
+      <genOperations ecoreOperation="item.ecore#//JavaScriptCustomizationPipeline/getScriptEngine"/>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//CustomScriptCustomizationPipeline">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute item.ecore#//CustomScriptCustomizationPipeline/scriptEngine"/>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//JavaScriptSelector">
+      <genOperations ecoreOperation="item.ecore#//JavaScriptSelector/getScriptEngine"/>
+    </genClasses>
+    <genClasses ecoreClass="item.ecore#//CustomScriptSelector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute item.ecore#//CustomScriptSelector/scriptEngine"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

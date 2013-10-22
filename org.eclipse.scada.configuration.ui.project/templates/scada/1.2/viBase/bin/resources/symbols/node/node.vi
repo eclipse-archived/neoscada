@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualInterface:Symbol
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface ">
+  <root xsi:type="visualInterface:BorderContainer">
+    <children
+        alignment="TOP">
+      <element
+          xsi:type="visualInterface:SymbolReference"
+          uri="../header.vi"
+          onCreateProperties="makeHeaderProperties();"/>
+    </children>
+    <children>
+      <element
+          xsi:type="visualInterface:FigureContainer"
+          backgroundColor="#FFFFFF"
+          opaque="true">
+        <content
+            xsi:type="visualInterface:GridContainer"
+            columns="3">
+          <children>
+            <element
+                xsi:type="visualInterface:Text"
+                text="CPU Idle"/>
+          </children>
+          <children
+              horizontalAlignment="FILL"
+              grabHorizontalSpace="true">
+            <element
+                xsi:type="visualInterface:SymbolReference"
+                uri="../textValue.vi"
+                onCreateProperties="properties.put ( &quot;item&quot;, prefixed (&quot;CPU.IDLE.V&quot;  ) );"/>
+          </children>
+          <children>
+            <element
+                xsi:type="visualInterface:Text"
+                text="%"/>
+          </children>
+          <children>
+            <element
+                xsi:type="visualInterface:Text"
+                text="Load Average"/>
+          </children>
+          <children
+              horizontalAlignment="FILL"
+              grabHorizontalSpace="true">
+            <element
+                xsi:type="visualInterface:SymbolReference"
+                uri="../textValue.vi"
+                onCreateProperties="properties.put ( &quot;item&quot;, prefixed (&quot;LAVG1.V&quot;  ) );"/>
+          </children>
+          <children>
+            <element
+                xsi:type="visualInterface:Text"/>
+          </children>
+        </content>
+      </element>
+    </children>
+  </root>
+  <scriptModules>../../common/common.js</scriptModules>
+  <scriptModules>../../common/colors.js</scriptModules>
+  <scriptModules>../../common/detailDialog.js</scriptModules>
+  <scriptModules>../../common/items.js</scriptModules>
+  <scriptModules>node.js</scriptModules>
+</visualInterface:Symbol>

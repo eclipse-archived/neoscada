@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="manager" nsURI="http://eclipse.org/SCADA/Configuration/Memory/Manager"
+    nsPrefix="memoryManager">
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryManagerModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationConfiguration">
+    <eAnnotations source="http://eclipse.org/SCADA/Configuration/ExclusiveGroup">
+      <details key="groupId" value="memory.manager"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSystem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2013 IBH SYSTEMS GmbH.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation&#xA;"
+    modelDirectory="/org.eclipse.scada.configuration.globalization/src" creationSubmenus="true"
+    modelPluginID="org.eclipse.scada.configuration.globalization" modelName="Globalize"
+    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
+    complianceLevel="7.0" copyrightFields="false" language="" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>globalize.ecore</foreignModel>
+  <genPackages prefix="Globalize" basePackage="org.eclipse.scada.configuration" resource="XMI"
+      disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
+      childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.globalization"
+      ecorePackage="globalize.ecore#/">
+    <genClasses ecoreClass="globalize.ecore#//Globalization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference globalize.ecore#//Globalization/world"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Globalization/defaultLogonCredentials"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Globalization/globals"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//Local">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference globalize.ecore#//Local/local"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Local/logonCredentials"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Local/filters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//Local/defaultInclude"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference globalize.ecore#//Local/global"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Local/authoratives"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//Local/id"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//Include"/>
+    <genClasses ecoreClass="globalize.ecore#//Exclude"/>
+    <genClasses image="false" ecoreClass="globalize.ecore#//Filter"/>
+    <genClasses image="false" ecoreClass="globalize.ecore#//PatternFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//PatternFilter/pattern"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//Global">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/global"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/defaultLogonCredentials"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/locals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/eventPoolImports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/monitorPoolImports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/localPull"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference globalize.ecore#//Global/filters"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//EventPoolImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//EventPoolImport/localName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//EventPoolImport/includeLocal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//EventPoolImport/poolSize"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//MonitorPoolImport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//MonitorPoolImport/localName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//MonitorPoolImport/includeLocal"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//Authorative">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//Authorative/hierarchy"/>
+    </genClasses>
+    <genClasses ecoreClass="globalize.ecore#//ItemNameFilter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//ItemNameFilter/include"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute globalize.ecore#//ItemNameFilter/itemName"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

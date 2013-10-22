@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+if [ -d ~eclipsescada/"$$appName$$" ]; then
+	echo "Application already exists at ~eclipsescada/$$appName$$"
+	echo "If you want to re-create the application you need to manually delete or move the directory first" 
+	exit 1
+fi
+
+pushd ~eclipsescada
+su -s /bin/bash -c "p2.fromTemplate \"$$appName$$\" \"$$appName$$\"" - eclipsescada
+popd
+
+echo Start the instance using: start \"scada.app.$$appName$$\"

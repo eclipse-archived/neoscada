@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration:MasterHandlerPriorities xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:configuration="http://eclipse.org/SCADA/Configuration/World" xmi:id="_sLVwoN_iEeKP_IG4d7_Nqg" shortDescription="Default Eclipse SCADA master handler priorities set" name="Default Priorities">
+  <rules xmi:id="_sLVwod_iEeKP_IG4d7_Nqg" order="1000" factoryId="org.eclipse.scada.da.master.common.marker" priority="10" description="Markers must be first"/>
+  <rules xmi:id="_sLVwot_iEeKP_IG4d7_Nqg" order="2000" factoryId="org.eclipse.scada.da.master.common.block" priority="50" description="Block as last element to allow writing attributes"/>
+  <rules xmi:id="_sLWXsN_iEeKP_IG4d7_Nqg" order="3000" factoryId="da.master.handler.sum" configurationFilter=".*\.sum\.phase1$" priority="100" description="Summarize all entry error flags"/>
+  <rules xmi:id="_qmMNAOmAEeKjsqpwwJiSoA" order="3500" factoryId="org.eclipse.scada.da.master.mapper" priority="150" description="Default value mappers go first."/>
+  <rules xmi:id="_sLWXsd_iEeKP_IG4d7_Nqg" order="4000" factoryId="org.eclipse.scada.da.negate.input" priority="200" description="Negate before manual."/>
+  <rules xmi:id="_sLWXst_iEeKP_IG4d7_Nqg" order="5000" factoryId="org.eclipse.scada.da.scale.input" priority="200" description="Scale before manual."/>
+  <rules xmi:id="_sLWXs9_iEeKP_IG4d7_Nqg" order="6000" factoryId="org.eclipse.scada.da.round" priority="210" description="Round after scaling"/>
+  <rules xmi:id="_sLWXtN_iEeKP_IG4d7_Nqg" order="7000" factoryId="ae.monitor.da.remote.booleanAttributeAlarm" priority="300" description="Make alarms from remote attributes."/>
+  <rules xmi:id="_sLWXtd_iEeKP_IG4d7_Nqg" order="8000" factoryId="ae.monitor.da.remote.booleanValueAlarm" priority="300" description="Make alarms from remote value."/>
+  <rules xmi:id="_sLWXtt_iEeKP_IG4d7_Nqg" order="9000" factoryId="org.eclipse.scada.da.manual" priority="500" description="Manual will reset the »error« flag."/>
+  <rules xmi:id="_sLWXt9_iEeKP_IG4d7_Nqg" order="10000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.max$" priority="1000" description="Process min/max first. They might flag the value with »error«."/>
+  <rules xmi:id="_sLWXuN_iEeKP_IG4d7_Nqg" order="11000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.min$" priority="1000" description="Process min/max first. They might flag the value with »error«."/>
+  <rules xmi:id="_sLWXud_iEeKP_IG4d7_Nqg" order="12000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.highhigh$" priority="1100" description="Process level should only add alarm or warn."/>
+  <rules xmi:id="_sLWXut_iEeKP_IG4d7_Nqg" order="13000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.high$" priority="1100" description="Process level should only add alarm or warn."/>
+  <rules xmi:id="_sLWXu9_iEeKP_IG4d7_Nqg" order="14000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.low$" priority="1100" description="Process level should only add alarm or warn."/>
+  <rules xmi:id="_sLWXvN_iEeKP_IG4d7_Nqg" order="15000" factoryId="org.eclipse.scada.ae.monitor.level" configurationFilter=".*\.local\.level\.lowlow$" priority="1100" description="Process level should only add alarm or warn."/>
+  <rules xmi:id="_sLWXvd_iEeKP_IG4d7_Nqg" order="16000" factoryId="org.eclipse.scada.ae.monitor.list" configurationFilter="" priority="1000" description="Might create an »error«. So process before normal levels."/>
+  <rules xmi:id="_sLWXvt_iEeKP_IG4d7_Nqg" order="17000" factoryId="org.eclipse.scada.ae.monitor.bit" configurationFilter="" priority="1000" description="Might create an »error«. So process before normal levels."/>
+  <rules xmi:id="_sLWXv9_iEeKP_IG4d7_Nqg" order="18000" factoryId="da.master.handler.sum" configurationFilter=".*\.sum\.phase2$" priority="5000" description="Summarize attributes as last step."/>
+  <rules xmi:id="_sLWXwN_iEeKP_IG4d7_Nqg" order="19000" factoryId="org.eclipse.scada.ae.event.logger" priority="10000" description="Log last"/>
+</configuration:MasterHandlerPriorities>

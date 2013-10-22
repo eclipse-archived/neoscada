@@ -1,0 +1,11 @@
+// the script gets passed a global variable called "request"
+// request is an instanceof "org.eclipse.scada.configuration.item.CustomizationRequest"
+ 
+function select () {	
+}
+
+select ( request ); // return value is the exit value of the script
+
+// the script must return "true" or "false".
+// Or it can return "null" if item was neither selected nor "deselected" and the
+// called must use its default value instead.

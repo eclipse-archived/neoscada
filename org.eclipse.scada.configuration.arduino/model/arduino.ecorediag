@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_AJ1W0A4vEeOrf9oDPL5Plg" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_AoiFAA4vEeOrf9oDPL5Plg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_Aoj6MA4vEeOrf9oDPL5Plg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_Aoj6MQ4vEeOrf9oDPL5Plg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Aoj6Mg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Aoj6Mw4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Aoj6NA4vEeOrf9oDPL5Plg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_AokhQA4vEeOrf9oDPL5Plg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_AokhQQ4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_AokhQg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_AokhQw4vEeOrf9oDPL5Plg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_AoiFAQ4vEeOrf9oDPL5Plg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="arduino.ecore#//ArduinoDriver"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AoiFAg4vEeOrf9oDPL5Plg" x="72" y="288"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_CN45QA4vEeOrf9oDPL5Plg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_CN5gUA4vEeOrf9oDPL5Plg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_CN5gUQ4vEeOrf9oDPL5Plg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_CN5gUg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_CN5gUw4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_CN5gVA4vEeOrf9oDPL5Plg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_CN6HYA4vEeOrf9oDPL5Plg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_CN6HYQ4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_CN6HYg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_CN6HYw4vEeOrf9oDPL5Plg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_CN45QQ4vEeOrf9oDPL5Plg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="arduino.ecore#//ArduinoConnection"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CN45Qg4vEeOrf9oDPL5Plg" x="48" y="96"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_QkytYA4vEeOrf9oDPL5Plg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_QlZKUA4vEeOrf9oDPL5Plg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_QlZKUQ4vEeOrf9oDPL5Plg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_Qkz7gA4vEeOrf9oDPL5Plg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_Qk0ikA4vEeOrf9oDPL5Plg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Qk0ikQ4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qk0ikg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qk0ikw4vEeOrf9oDPL5Plg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Qk0ilA4vEeOrf9oDPL5Plg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Qk0ilQ4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Qk0ilg4vEeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Qk0ilw4vEeOrf9oDPL5Plg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_QkytYQ4vEeOrf9oDPL5Plg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkytYg4vEeOrf9oDPL5Plg" x="432" y="312"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Mr7AkA4-EeOrf9oDPL5Plg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MtML4A4-EeOrf9oDPL5Plg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MtML4Q4-EeOrf9oDPL5Plg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_MszxYA4-EeOrf9oDPL5Plg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_MszxYQ4-EeOrf9oDPL5Plg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_MszxYg4-EeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_MszxYw4-EeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_MszxZA4-EeOrf9oDPL5Plg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Ms0YcA4-EeOrf9oDPL5Plg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Ms0YcQ4-EeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Ms0Ycg4-EeOrf9oDPL5Plg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Ms0Ycw4-EeOrf9oDPL5Plg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Mr7AkQ4-EeOrf9oDPL5Plg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mr7Akg4-EeOrf9oDPL5Plg" x="432" y="180"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_arUeYA5kEeOR1p6S2BCQ0A" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_asI9wA5kEeOR1p6S2BCQ0A" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_asI9wQ5kEeOR1p6S2BCQ0A" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_arxKUA5kEeOR1p6S2BCQ0A" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_arxKUQ5kEeOR1p6S2BCQ0A" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_arxKUg5kEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_arxKUw5kEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_arxKVA5kEeOR1p6S2BCQ0A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_arxxYA5kEeOR1p6S2BCQ0A" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_arxxYQ5kEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_arxxYg5kEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_arxxYw5kEeOR1p6S2BCQ0A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_arUeYQ5kEeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_arUeYg5kEeOR1p6S2BCQ0A" x="348" y="60"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_G-yDAA-8EeOR1p6S2BCQ0A" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G_-V0A-8EeOR1p6S2BCQ0A" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_G_-V0Q-8EeOR1p6S2BCQ0A" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_G_OH4A-8EeOR1p6S2BCQ0A" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_G_OH4Q-8EeOR1p6S2BCQ0A" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_G_OH4g-8EeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_G_OH4w-8EeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_G_OH5A-8EeOR1p6S2BCQ0A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_G_Ou8A-8EeOR1p6S2BCQ0A" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_G_Ou8Q-8EeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_G_Ou8g-8EeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_G_Ou8w-8EeOR1p6S2BCQ0A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_G-yDAQ-8EeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G-yDAg-8EeOR1p6S2BCQ0A" x="36" y="-96"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_otvSIA_WEeOR1p6S2BCQ0A" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_ouJh0A_WEeOR1p6S2BCQ0A" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_ouJh0Q_WEeOR1p6S2BCQ0A" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_xHX2kA_WEeOR1p6S2BCQ0A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="arduino.ecore#//ArduinoDevice/port"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xHX2kQ_WEeOR1p6S2BCQ0A"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ouJh0g_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ouJh0w_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ouJh1A_WEeOR1p6S2BCQ0A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ouJh1Q_WEeOR1p6S2BCQ0A" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ouJh1g_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ouJh1w_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ouKI4A_WEeOR1p6S2BCQ0A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_otv5MA_WEeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="arduino.ecore#//ArduinoDevice"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_otv5MQ_WEeOR1p6S2BCQ0A" x="360" y="-204"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_ssJBYA_WEeOR1p6S2BCQ0A" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ssjREA_WEeOR1p6S2BCQ0A" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ssjREQ_WEeOR1p6S2BCQ0A" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_ssKPgA_WEeOR1p6S2BCQ0A" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_ssKPgQ_WEeOR1p6S2BCQ0A" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ssKPgg_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ssKPgw_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ssKPhA_WEeOR1p6S2BCQ0A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ssK2kA_WEeOR1p6S2BCQ0A" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ssK2kQ_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ssK2kg_WEeOR1p6S2BCQ0A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ssK2kw_WEeOR1p6S2BCQ0A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ssJBYQ_WEeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure.model/model/infrastructure.ecore#//Device"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ssJBYg_WEeOR1p6S2BCQ0A" x="360" y="-84"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_AJ1W0Q4vEeOrf9oDPL5Plg"/>
+  <element xmi:type="ecore:EPackage" href="arduino.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_SmkX4A4vEeOrf9oDPL5Plg" type="3003" source="_AoiFAA4vEeOrf9oDPL5Plg" target="_QkytYA4vEeOrf9oDPL5Plg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_SmkX4Q4vEeOrf9oDPL5Plg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_SmkX4g4vEeOrf9oDPL5Plg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SmkX4w4vEeOrf9oDPL5Plg" points="[55, -16, -251, 64]$[343, -113, 37, -33]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_TePmwA4vEeOrf9oDPL5Plg" type="3002" source="_AoiFAA4vEeOrf9oDPL5Plg" target="_CN45QA4vEeOrf9oDPL5Plg">
+    <children xmi:type="notation:Node" xmi:id="_TeYwsA4vEeOrf9oDPL5Plg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TeYwsQ4vEeOrf9oDPL5Plg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_TeZXwA4vEeOrf9oDPL5Plg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TeZXwQ4vEeOrf9oDPL5Plg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_TePmwQ4vEeOrf9oDPL5Plg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_TePmwg4vEeOrf9oDPL5Plg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="arduino.ecore#//ArduinoDriver/arduinoConnections"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TePmww4vEeOrf9oDPL5Plg" points="[7, -20, -70, 199]$[76, -198, -1, 21]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_NpzlIA4-EeOrf9oDPL5Plg" type="3003" source="_AoiFAA4vEeOrf9oDPL5Plg" target="_Mr7AkA4-EeOrf9oDPL5Plg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_NpzlIQ4-EeOrf9oDPL5Plg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_NpzlIg4-EeOrf9oDPL5Plg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NpzlIw4-EeOrf9oDPL5Plg" points="[55, -15, -316, 84]$[306, -99, -65, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_be9h0A5kEeOR1p6S2BCQ0A" type="3003" source="_CN45QA4vEeOrf9oDPL5Plg" target="_arUeYA5kEeOR1p6S2BCQ0A">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_be9h0Q5kEeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_be9h0g5kEeOR1p6S2BCQ0A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_be9h0w5kEeOR1p6S2BCQ0A" points="[57, -8, -271, 7]$[231, -8, -97, 7]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_G_w6cA-8EeOR1p6S2BCQ0A" type="3003" source="_G-yDAA-8EeOR1p6S2BCQ0A" target="_arUeYA5kEeOR1p6S2BCQ0A">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_G_w6cQ-8EeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_G_w6cg-8EeOR1p6S2BCQ0A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G_w6cw-8EeOR1p6S2BCQ0A" points="[1, 0, -445, -102]$[349, 80, -97, -22]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_IN_oIA-8EeOR1p6S2BCQ0A" type="3002" source="_CN45QA4vEeOrf9oDPL5Plg" target="_G-yDAA-8EeOR1p6S2BCQ0A">
+    <children xmi:type="notation:Node" xmi:id="_IOAPMA-8EeOR1p6S2BCQ0A" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IOAPMQ-8EeOR1p6S2BCQ0A" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_IOA2QA-8EeOR1p6S2BCQ0A" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_IOA2QQ-8EeOR1p6S2BCQ0A" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_IN_oIQ-8EeOR1p6S2BCQ0A" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_IN_oIg-8EeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="arduino.ecore#//ArduinoConnection/endpoint"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IN_oIw-8EeOR1p6S2BCQ0A" points="[17, -33, -78, 135]$[90, -201, -5, -33]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ssdxgA_WEeOR1p6S2BCQ0A" type="3003" source="_ssJBYA_WEeOR1p6S2BCQ0A" target="_arUeYA5kEeOR1p6S2BCQ0A">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ssdxgQ_WEeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ssdxgg_WEeOR1p6S2BCQ0A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ssdxgw_WEeOR1p6S2BCQ0A" points="[-6, 29, -25, -127]$[-6, 115, -25, -41]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_tYHWkA_WEeOR1p6S2BCQ0A" type="3003" source="_otvSIA_WEeOR1p6S2BCQ0A" target="_ssJBYA_WEeOR1p6S2BCQ0A">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_tYHWkQ_WEeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tYHWkg_WEeOR1p6S2BCQ0A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tYHWkw_WEeOR1p6S2BCQ0A" points="[-2, 21, 6, -108]$[-2, 100, 6, -29]"/>
+  </edges>
+</notation:Diagram>

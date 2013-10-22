@@ -1,0 +1,7 @@
+function select () {
+	if ( request.isComponentClass ( "PingCheck" ) ) {
+		return true;
+	}
+}
+
+select (); // use return value

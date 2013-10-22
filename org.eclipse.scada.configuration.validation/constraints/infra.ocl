@@ -1,0 +1,14 @@
+import 'platform:/plugin/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore'
+
+package infrastructure
+
+context SystemPropertyUserService
+inv SystemPropertyUserService_no_production: false
+
+context Options
+inv Options_different_port_ae_collide: baseAeNgpPort <> baseDaNgpPort and baseAeNgpPort <> baseCaNgpPort and baseAeNgpPort <> baseHdNgpPort
+inv Options_different_port_da_collide: baseDaNgpPort <> baseAeNgpPort and baseDaNgpPort <> baseCaNgpPort and baseDaNgpPort <> baseHdNgpPort
+inv Options_different_port_hd_collide: baseHdNgpPort <> baseDaNgpPort and baseHdNgpPort <> baseCaNgpPort and baseAeNgpPort <> baseHdNgpPort
+inv Options_different_port_ca_collide: baseCaNgpPort <> baseDaNgpPort and baseAeNgpPort <> baseCaNgpPort and baseCaNgpPort <> baseHdNgpPort
+
+endpackage

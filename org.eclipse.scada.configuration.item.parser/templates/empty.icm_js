@@ -1,0 +1,6 @@
+// Import for org.eclipse.scada.configuration.lib.DefaultFeatures
+
+importPackage(org.eclipse.scada.configuration.lib);
+
+// the script gets passed a global variable called "request"
+// request in an instanceof "org.eclipse.scada.configuration.item.CustomizationRequest"

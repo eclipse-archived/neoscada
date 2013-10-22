@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualInterface:Symbol
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface "
+    onInit="initSymbol ();"
+    onUpdate="updateSymbol ();"
+    backgroundColor="#B4B5B4">
+  <root xsi:type="visualInterface:FigureContainer"
+      name="background"
+      opaque="true">
+    <content
+        xsi:type="visualInterface:BorderContainer">
+      <children
+          name=""
+          alignment="LEFT">
+        <element
+            xsi:type="visualInterface:Image"
+            name="infoImage"
+            onClick="header_openDetails();"
+            cursor="//@cursors"
+            visible="false"
+            border="MARGIN:[l=5,r=0,t=1,b=1]"
+            uri="../images/information.png"/>
+      </children>
+      <children>
+        <element
+            xsi:type="visualInterface:Text"
+            name="title"
+            foregroundColor="#000000"
+            onClick="openView ();"
+            border="MARGIN:[l=0,r=5,t=1,b=1]"
+            opaque="true"
+            labelAlignment="RIGHT"
+            fontName="Arial"
+            fontSize="13"/>
+      </children>
+    </content>
+  </root>
+  <scriptModules>../common/common.js</scriptModules>
+  <scriptModules>../common/colors.js</scriptModules>
+  <scriptModules>header.js</scriptModules>
+  <scriptModules>../common/detailDialog.js</scriptModules>
+  <cursors xsi:type="visualInterface:SystemCursor"
+      type="HAND"/>
+</visualInterface:Symbol>

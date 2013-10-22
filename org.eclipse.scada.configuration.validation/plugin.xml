@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension point="org.eclipse.ui.startup">
+      <startup class="org.eclipse.scada.configuration.validation.Startup"/>
+   </extension>
+   
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+         id="org.eclipse.scada.configuration.validation.EObjectPropertyTester"
+         type="org.eclipse.emf.ecore.EObject"
+         namespace="org.eclipse.scada.configuration.validation.adapter"
+         properties="ePackage"
+         class="org.eclipse.scada.configuration.validation.EObjectPropertyTester">
+      </propertyTester>
+   </extension>
+
+ <extension point="org.eclipse.emf.validation.constraintBindings">
+      <clientContext id="org.eclipse.scada.configuration.validation.adapter.infra">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
+                  value="http://eclipse.org/SCADA/Configuration/Infrastructure"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
+      <clientContext id="org.eclipse.scada.configuration.validation.adapter.comp">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
+                  value="http://eclipse.org/SCADA/Configuration/Component"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
+      <clientContext id="org.eclipse.scada.configuration.validation.adapter.world.osgi">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
+                  value="http://eclipse.org/SCADA/Configuration/World/OSGi"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
+      <binding
+         context="org.eclipse.scada.configuration.validation.adapter.infra"
+         category="org.eclipse.scada.configuration"/>
+     <binding
+         context="org.eclipse.scada.configuration.validation.adapter.comp"
+         category="org.eclipse.scada.configuration"/>
+     <binding
+         context="org.eclipse.scada.configuration.validation.adapter.world.osgi"
+         category="org.eclipse.scada.configuration"/>
+   </extension>
+
+ <extension
+         point="org.eclipse.emf.validation.constraintProviders">
+          <category
+            name="Eclipse SCADA"
+            id="org.eclipse.scada.configuration">
+         Eclipse SCADA
+      </category>
+      <category
+            name="Eclipse SCADA OCL"
+            id="org.eclipse.scada.configuration/ocl">
+         Eclipse SCADA OCL
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.emf.validation.constraintProviders"
+         id="oclProvider">
+      
+      <constraintProvider
+            class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
+            category="Constraints from an OCL Document">
+         
+         <package namespaceUri="http://eclipse.org/SCADA/Configuration/Infrastructure"/>
+         
+         <ocl path="constraints/infra.ocl"/>
+      </constraintProvider>
+      
+      <constraintProvider
+            class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
+            category="Constraints from an OCL Document">
+         
+         <package namespaceUri="http://eclipse.org/SCADA/Configuration/Component"/>
+         
+         <ocl path="constraints/comp.ocl"/>
+      </constraintProvider>
+      
+      <constraintProvider
+            class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
+            category="Constraints from an OCL Document">
+         
+         <package namespaceUri="http://eclipse.org/SCADA/Configuration/World/OSGi"/>
+         
+         <ocl path="constraints/world_osgi.ocl"/>
+      </constraintProvider>
+      <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://eclipse.org/SCADA/Configuration/Infrastructure">
+         </package>
+         <constraints
+               categories="org.eclipse.scada.configuration">
+            <constraint
+                  class="org.eclipse.scada.configuration.validation.infrastructure.DriverValidation"
+                  id="org.eclipse.scada.configuration.validation.InfrastructureDriver"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Infrastructure Driver"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  message body text
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+  </extension>
+</plugin>

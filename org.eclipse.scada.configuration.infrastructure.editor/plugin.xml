@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            id="org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureModelWizardID"
+            name="%_UI_InfrastructureModelWizard_label"
+            class="org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureModelWizard"
+            category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
+            icon="icons/full/obj16/InfrastructureModelFile.gif">
+         <description>%_UI_InfrastructureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated infrastructure -->
+      <editor
+            id="org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureEditorID"
+            name="%_UI_InfrastructureEditor_label"
+            icon="icons/full/obj16/InfrastructureModelFile.gif"
+            class="org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureEditor"
+            contributorClass="org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureActionBarContributor">
+         <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.infrastructure"/>
+      </editor>
+   </extension>
+
+</plugin>

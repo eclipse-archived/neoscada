@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="globalization" nsURI="http://eclipse.org/SCADA/Configuration/Globalization"
+    nsPrefix="globalization">
+  <eClassifiers xsi:type="ecore:EClass" name="Globalization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="world" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//World"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultLogonCredentials"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globals" upperBound="-1"
+        eType="#//Global" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Local">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="local" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/MasterServer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logonCredentials" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filters" upperBound="-1"
+        eType="#//Filter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultInclude" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="global" lowerBound="1"
+        eType="#//Global" eOpposite="#//Global/locals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="authoratives" upperBound="-1"
+        eType="#//Authorative" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//PatternFilter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Exclude" eSuperTypes="#//PatternFilter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Filter" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternFilter" abstract="true" eSuperTypes="#//Filter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
+        eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Pattern"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Global">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="global" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/MasterServer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultLogonCredentials"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locals" upperBound="-1"
+        eType="#//Local" containment="true" eOpposite="#//Local/global"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eventPoolImports" upperBound="-1"
+        eType="#//EventPoolImport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="monitorPoolImports" upperBound="-1"
+        eType="#//MonitorPoolImport" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="localPull" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/PullEvents"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filters" upperBound="-1"
+        eType="#//Filter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventPoolImport" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="includeLocal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="poolSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MonitorPoolImport" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="localName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="includeLocal" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Authorative">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemNameFilter" eSuperTypes="#//Filter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="include" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

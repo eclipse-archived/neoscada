@@ -1,0 +1,11 @@
+import 'platform:/plugin/org.eclipse.scada.configuration.world/model/configuration.ecore'
+
+package world::osgi
+
+context EventPool
+inv EventPool_size_greater_than_zero: size > 0
+
+context EventStoragePostgres
+inv EventStoragePostgres_missing_bundles: postgresDriverBundles->size() <= 0
+
+endpackage
