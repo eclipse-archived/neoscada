@@ -10,7 +10,7 @@
 		<relativePath>../org.eclipse.scada.chart-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.chart</groupId>
-	<artifactId>org.eclipse.scada.chart.p2</artifactId>
+	<artifactId>org.eclipse.scada.chart.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<profiles>
