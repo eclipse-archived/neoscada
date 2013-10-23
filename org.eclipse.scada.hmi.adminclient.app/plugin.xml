@@ -25,7 +25,7 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.scada.hmi.adminclient.app.application"
-            name="Eclipse SCADA Admin Client (Incubating)">
+            name="Eclipse SCADA Admin Client (Incubation)">
          <property
                name="windowImages"
                value="icons/app/icon_16px.png,icons/app/icon_32px.png,icons/app/icon_48px.png,icons/app/icon_64px.png,icons/app/icon_128px.png">
@@ -53,7 +53,7 @@
        </property>
          <property
                name="appName"
-               value="Eclipse SCADA Admin Client (Incubating)">
+               value="Eclipse SCADA Admin Client (Incubation)">
          </property>
  		<property
 				name="cssTheme"
