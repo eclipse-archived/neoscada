@@ -10,7 +10,7 @@
 		<relativePath>../org.eclipse.scada.protocols-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.protocols</groupId>
-	<artifactId>org.eclipse.scada.protocols.p2</artifactId>
+	<artifactId>org.eclipse.scada.protocols.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 
