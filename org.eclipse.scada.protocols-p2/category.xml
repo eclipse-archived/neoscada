@@ -6,12 +6,12 @@
    <feature url="features/org.eclipse.scada.protocols.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.protocols.sdk" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.protocols.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.protocols.category" label="Eclipse SCADA Protocols (Incubating)">
+   <category-def name="org.eclipse.scada.protocols.category" label="Eclipse SCADA Protocols (Incubation)">
       <description>
          Various protocol implementations.
       </description>
    </category-def>
-   <category-def name="org.eclipse.scada.protocols.sdk.category" label="Eclipse SCADA Protocols SDK (Incubating)">
+   <category-def name="org.eclipse.scada.protocols.sdk.category" label="Eclipse SCADA Protocols SDK (Incubation)">
       <description>
          Binaries and sources to all Eclipse SCADA Protocols modules.
       </description>

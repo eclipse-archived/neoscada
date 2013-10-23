@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Acceleo Generator Module Runtime Plug-in (Incubating)
+Bundle-Name: Acceleo Generator Module Runtime Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.ngp.generator
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.protocol.ngp.generator.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Arduino Protocol (Incubating)
+Bundle-Name: Arduino Protocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.arduino
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
