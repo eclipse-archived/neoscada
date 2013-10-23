@@ -1,0 +1,121 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBH SYSTEMS GmbH - initial implementation
+"""
+
+import os
+import os.path
+import sys
+import shutil
+from optparse import OptionParser
+
+
+def rmtree_error(function, path, excinfo):
+    """
+    """
+    print "'%s' could not be removed" % path
+
+
+def find_drop_dirs(base_dir):
+    """
+    from base path, every directory which in turn has a drops directory is
+    considered a
+    """
+    result = []
+    for d in os.listdir(base_dir):
+        dd = os.path.join(base_dir, d)
+        if os.path.isdir(dd) and 'drops' in os.listdir(dd):
+            result.append(os.path.join(dd, 'drops'))
+    return result
+
+
+def cleanup_drop_dir(drop_dir, retain_num, prefixes):
+    """
+    """
+    if options.verbose:
+        print "consider '%s' as drop dir" % drop_dir
+    repo_by_prefix = {}
+    for c in prefixes:
+        repo_by_prefix[c] = []
+    for d in os.listdir(drop_dir):
+        for c in prefixes:
+            if d.startswith(c):
+                repo_by_prefix[c].append(os.path.join(drop_dir, d))
+    for c in prefixes:
+        repo_by_prefix[c].sort()
+        dirs_to_retain = repo_by_prefix[c][-retain_num:]
+        dirs_to_remove = repo_by_prefix[c][:-retain_num]
+        if options.verbose:
+            for d in dirs_to_retain:
+                print "  keeping %s" % d
+            for d in dirs_to_remove:
+                print "  removing %s" % d
+        if not options.dryrun:
+            for d in dirs_to_remove:
+                shutil.rmtree(d, True, rmtree_error)
+
+
+def cleanup(base_dir, retain_num, prefixes):
+    """
+    does the actual cleanup
+    """
+    drop_dirs = find_drop_dirs(base_dir)
+    for d in drop_dirs:
+        cleanup_drop_dir(d, retain_num, prefixes)
+
+
+def main():
+    """
+    main method gets called on script execution
+    """
+    base_dir = os.getenv('BASE_DIR',
+        '/home/data/httpd/download.eclipse.org/eclipsescada')
+    retain_num = os.getenv('RETAIN_NUM', '2')
+    prefixes = os.getenv('PREFIXES', 'I')
+
+    if not os.path.exists(base_dir):
+        print "path '%s' does not exist" % base_dir
+        sys.exit(1)
+    if not os.path.isdir(base_dir):
+        print "path '%s' is not a directory" % base_dir
+        sys.exit(1)
+    if not os.access(base_dir, os.W_OK | os.X_OK):
+        print "path '%s' is not writable" % base_dir
+        sys.exit(1)
+    if not retain_num.isdigit():
+        print "parameter RETAIN_NUM is not a number: '%s'" % retain_num
+        sys.exit(2)
+    retain_num = int(retain_num)
+    if retain_num < 0:
+        print "parameter RETAIN_NUM must >= 0: '%s'" % retain_num
+        sys.exit(2)
+    if len(prefixes) == 0:
+        print "parameter PREFIXES must not be empty"
+        sys.exit(3)
+
+    print "base directory = %s" % base_dir
+    print "number of drops to retain = %s" % retain_num
+    print "prefixes to clean up = %s" % prefixes
+
+    cleanup(base_dir, retain_num, prefixes)
+
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="verbose output")
+    parser.add_option("-d", "--dry-run",
+                  action="store_true", dest="dryrun", default=False,
+                  help="do not actually execute deletions")
+    (options, args) = parser.parse_args()
+    main()
