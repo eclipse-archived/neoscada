@@ -491,11 +491,18 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated NOT
      */
     public String convertRGBToString ( final EDataType eDataType, final Object instanceValue )
     {
-        return super.convertToString ( eDataType, instanceValue );
+        final RGB rgb = (RGB)instanceValue;
+
+        if ( rgb == null )
+        {
+            return null;
+        }
+
+        return String.format ( "#%02X%02X%02X", rgb.red, rgb.green, rgb.blue ); //$NON-NLS-1$
     }
 
     /**
