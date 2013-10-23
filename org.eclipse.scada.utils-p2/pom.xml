@@ -10,7 +10,7 @@
 		<relativePath>../org.eclipse.scada.utils-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.utils</groupId>
-	<artifactId>org.eclipse.scada.utils.p2</artifactId>
+	<artifactId>org.eclipse.scada.utils.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<profiles>
