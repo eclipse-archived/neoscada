@@ -1,0 +1,173 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+    IBH SYSTEMS GmbH - initial implementation
+"""
+
+import os
+import os.path
+import sys
+import shutil
+from optparse import OptionParser
+
+
+compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
+
+<repository name="Eclipse SCADA 0.1.0 Integration Builds" type="org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository" version="1.0.0">
+  <properties size="3">
+    <property name="p2.timestamp" value="%(timestamp)s"/>
+    <property name="p2.compressed" value="false"/>
+    <property name="p2.mirrorsURL" value="http://www.eclipse.org/downloads/download.php?file=/eclipsescada/updates/integration&amp;amp;protocol=http&amp;amp;format=xml"/>
+  </properties>
+  <children size="%(children_size)s">
+    %(children)s
+  </children>
+</repository>"""
+
+compositeContent_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeMetadataRepository version="1.0.0"?>
+
+<repository name="Eclipse SCADA 0.1.0 Integration Builds" type="org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository" version="1.0.0">
+  <properties size="3">
+    <property name="p2.timestamp" value="%(timestamp)s"/>
+    <property name="p2.compressed" value="false"/>
+    <property name="p2.mirrorsURL" value="http://www.eclipse.org/downloads/download.php?file=/eclipsescada/updates/integration&amp;amp;protocol=http&amp;amp;format=xml"/>
+  </properties>
+  <children size="%(children_size)s">
+    %(children)s
+  </children>
+</repository>"""
+
+composition_properties = """composite.name=Eclipse SCADA 0.1.0 Integration Builds"""
+
+p2_index = """ version = 1
+ metadata.repository.factory.order = compositeContent.xml,\!
+ artifact.repository.factory.order = compositeArtifacts.xml,\!"""
+
+index_html = """<!DOCTYPE html>
+<html>
+<head>
+  <title>Eclipse SCADA Update Site (Eclipse SCADA 0.1.0 Integration Builds)</title>
+</head>
+
+<body style="font-family:Arial; font-size:small;">
+<h1>Eclipse SCADA Update Site (Eclipse SCADA 0.1.0 Integration Builds)</h1>
+<p>
+<em>For information about Eclipse SCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or <a
+href="http://wiki.eclipse.org/EclipseSCADA/">wiki</a>.
+         <br> For information about installing or updating Eclipse software, see the
+         <a href="http://help.eclipse.org/helios/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-124.htm">
+           Eclipse Platform Help</a>.
+         <!--<br> Some plugins require third party software from p2 repositories listed in this
+         <a href="bookmarks.xml">bookmarks.xml</a> file.</em>-->
+</p>
+<h3>Contents</h3>
+<ul>
+%(drop_links)s
+</ul>
+</body>
+</html>"""
+
+def find_drop_dirs(base_dir):
+    """
+    from base path, every directory which in turn has a drops directory is
+    considered a
+    """
+    result = []
+    for d in os.listdir(base_dir):
+        dd = os.path.join(base_dir, d)
+        if os.path.isdir(dd) and 'drops' in os.listdir(dd):
+            result.append(os.path.join(dd, 'drops'))
+    return result
+
+
+def p2index(base_dir):
+    """
+    does the actual cleanup
+    """
+    drop_dirs = find_drop_dirs(base_dir)
+    last_integration_build = []
+    for drop_dir in drop_dirs:
+        builds = []
+        for d in os.listdir(drop_dir):
+            artifact_path = os.path.join(drop_dir, d)
+            if d.startswith('I') and os.path.isdir(artifact_path):
+                builds.append(artifact_path)
+        builds.sort()
+        if len(builds) > 0:
+            last_integration_build.append(builds[-1])
+
+    # 1) write fix files
+    repo_dir = os.path.join(base_dir, 'updates', 'integration')
+    if not os.path.isdir(repo_dir):
+        os.makedirs(repo_dir)
+    # 1.1) composition.properties
+    f = open(os.path.join(repo_dir, 'composition.properties'), 'wb')
+    f.write(composition_properties)
+    f.close()
+    # 1.2) p2.index
+    f = open(os.path.join(repo_dir, 'p2.index'), 'wb')
+    f.write(p2_index)
+    f.close()
+
+    # 2.) write dynamic content
+    params = {}
+    params['children_size'] = len(last_integration_build)
+    params['children'] = ''
+    params['drop_links'] = ''
+    for l in last_integration_build:
+        params['children'] += """    <child location="%s" />\n""" \
+            % l.replace(base_dir, '../..')
+        params['drop_links'] += """    <li><a href="%s">%s</a>\n""" \
+            % (l.replace(base_dir, '../..'), l.replace(base_dir, ''))
+    # 2.1) write compositeArtifacts.xml
+    f = open(os.path.join(repo_dir, 'compositeArtifacts.xml'), 'wb')
+    f.write(compositeArtifacts_xml % params)
+    f.close()
+    # 2.2) write compositeContent.xml
+    f = open(os.path.join(repo_dir, 'compositeContent.xml'), 'wb')
+    f.write(compositeContent_xml % params)
+    f.close()
+    # 2.3) write index.html
+    f = open(os.path.join(repo_dir, 'index.html'), 'wb')
+    f.write(index_html % params)
+    f.close()
+
+
+
+def main():
+    """
+    main method gets called on script execution
+    """
+    base_dir = os.getenv('BASE_DIR',
+        '/home/data/httpd/download.eclipse.org/eclipsescada')
+
+    if not os.path.exists(base_dir):
+        print "path '%s' does not exist" % base_dir
+        sys.exit(1)
+    if not os.path.isdir(base_dir):
+        print "path '%s' is not a directory" % base_dir
+        sys.exit(1)
+    if not os.access(base_dir, os.W_OK | os.X_OK):
+        print "path '%s' is not writable" % base_dir
+        sys.exit(1)
+
+    print "base directory = %s" % base_dir
+
+    p2index(base_dir)
+
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option("-v", "--verbose",
+                  action="store_true", dest="verbose", default=False,
+                  help="verbose output")
+    (options, args) = parser.parse_args()
+    main()
