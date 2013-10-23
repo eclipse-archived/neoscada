@@ -15,7 +15,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,file">
+    <target name="default" depends="clean,build,file,copy">
     </target>
     
     <!-- ================================= 
@@ -62,5 +62,24 @@ is active.
 		<echo message="${repo}.rpmFileName=${rpmText}
 " file="${output}/rpm.properties"/>
 	</target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}"/>
+        <mkdir dir="${download.dir}/pack"/>
+        
+        <copy todir="${download.dir}">
+            <fileset dir="${output}/p2" />
+        </copy>
+        <copy todir="${download.dir}/pack">
+            <fileset dir="${output}">
+                <include name="${repo}.p2-*.zip"/>
+            </fileset>
+        </copy>
+    </target>
 
 </project>
