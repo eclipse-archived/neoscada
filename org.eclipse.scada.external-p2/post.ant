@@ -82,7 +82,7 @@ is active.
     <!-- ================================= 
           target: copy
          ================================= -->
-    <target name="copy">
+    <target name="copy" unless="skip.copy">
         <echo message="Download Directory: ${download.dir}"/>
         
         <mkdir dir="${download.dir}"/>
