@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Proxy Acknownledge (Incubating)
+Bundle-Name: Eclipse SCADA AE Proxy Acknownledge (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.akn.proxy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.akn.proxy.Activator

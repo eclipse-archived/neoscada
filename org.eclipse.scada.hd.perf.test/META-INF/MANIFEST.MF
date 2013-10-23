@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD Performance Test (Incubating)
+Bundle-Name: Eclipse SCADA HD Performance Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.perf.test;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.perf.test.Activator

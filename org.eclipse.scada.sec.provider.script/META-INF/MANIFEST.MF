@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Script Security Provider (Incubating)
+Bundle-Name: Eclipse SCADA Script Security Provider (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.provider.script
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

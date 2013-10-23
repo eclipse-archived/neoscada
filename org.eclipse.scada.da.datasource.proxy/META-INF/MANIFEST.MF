@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA Data Source Proxy (Incubating)
+Bundle-Name: Eclipse SCADA DA Data Source Proxy (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.proxy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.proxy.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA NextGenerationProtocol DA Common (Incubating)
+Bundle-Name: Eclipse SCADA NextGenerationProtocol DA Common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.common.ngp
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

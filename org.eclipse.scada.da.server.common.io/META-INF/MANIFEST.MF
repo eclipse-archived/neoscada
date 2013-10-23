@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Common IO functionality for drivers (Incubating)
+Bundle-Name: Common IO functionality for drivers (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.io
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Request Signature Module (Incubating)
+Bundle-Name: Eclipse SCADA Request Signature Module (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.sec.authz.signature
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

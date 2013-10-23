@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Meta Information (Incubating)
+Bundle-Name: Eclipse SCADA AE Meta Information (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.info
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.info.Activator

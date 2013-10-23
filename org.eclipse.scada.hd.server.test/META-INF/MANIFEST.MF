@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD Test Server (Incubating)
+Bundle-Name: Eclipse SCADA HD Test Server (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.server.test.Activator

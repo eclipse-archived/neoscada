@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: UnitTest for org.eclipse.scada.da.server.common (Incubating)
+Bundle-Name: UnitTest for org.eclipse.scada.da.server.common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.common.test
 Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
