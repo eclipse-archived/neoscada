@@ -6,6 +6,14 @@
    <feature url="features/org.eclipse.scada.configuration.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.configuration.sdk" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.configuration.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration"/>
-   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse SCADA Configuration SDK"/>
+   <feature url="features/org.eclipse.scada.ide.protocol.ngp_0.1.0.qualifier.jar" id="org.eclipse.scada.ide.protocol.ngp" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.ide.protocol"/>
+   </feature>
+   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration (Incubation)"/>
+   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse SCADA Configuration SDK (Incubation)"/>
+   <category-def name="org.eclipse.scada.ide.protocol" label="Eclipse SCADA Protocol Editing Additions (Incubation)">
+      <description>
+         Installs some editing additions for the NGP protocol model.
+      </description>
+   </category-def>
 </site>
