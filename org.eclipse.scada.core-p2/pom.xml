@@ -10,7 +10,7 @@
 		<relativePath>../org.eclipse.scada.core-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.core</groupId>
-	<artifactId>org.eclipse.scada.core.p2</artifactId>
+	<artifactId>org.eclipse.scada.core.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 	<profiles>
