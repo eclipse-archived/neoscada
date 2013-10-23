@@ -16,6 +16,7 @@ import java.util.Map;
 import org.eclipse.scada.configuration.generator.world.oscar.MasterHandlerPriorities;
 import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.AttributesSummaryProcessor;
+import org.eclipse.scada.configuration.generator.world.oscar.item.features.BlockProcessor;
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.BooleanMonitorProcessor;
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.EventLoggerProcessor;
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.ItemFeatureProcessor;
@@ -27,6 +28,7 @@ import org.eclipse.scada.configuration.generator.world.oscar.item.features.Round
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.ScaleProcessor;
 import org.eclipse.scada.configuration.generator.world.oscar.item.features.ValueMapperProcessor;
 import org.eclipse.scada.configuration.world.osgi.AttributesSummary;
+import org.eclipse.scada.configuration.world.osgi.Block;
 import org.eclipse.scada.configuration.world.osgi.BooleanMonitor;
 import org.eclipse.scada.configuration.world.osgi.EventLogger;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -121,6 +123,10 @@ public abstract class ItemGenerator
         else if ( feature instanceof ListMonitor )
         {
             return new ListMonitorProcessor ();
+        }
+        else if ( feature instanceof Block )
+        {
+            return new BlockProcessor ();
         }
         return null;
     }
