@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Exec Component Generator (Incubating)
+Bundle-Name: Exec Component Generator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.exec.generator;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

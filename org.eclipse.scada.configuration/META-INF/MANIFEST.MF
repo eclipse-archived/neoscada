@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Main configuration bundle (Incubating)
+Bundle-Name: Main configuration bundle (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.Activator

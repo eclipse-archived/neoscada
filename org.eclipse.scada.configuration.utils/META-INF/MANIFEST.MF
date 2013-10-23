@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Configuration Utils (Incubating) (Incubating)
+Bundle-Name: Configuration Utils (Incubation) (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.utils
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

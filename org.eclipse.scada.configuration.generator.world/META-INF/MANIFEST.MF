@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: World Generator (Incubating)
+Bundle-Name: World Generator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.generator.world;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.generator.world.internal.Activator

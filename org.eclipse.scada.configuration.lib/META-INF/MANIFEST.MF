@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Common Configuration Tools (Incubating)
+Bundle-Name: Common Configuration Tools (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.lib
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

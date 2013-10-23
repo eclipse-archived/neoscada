@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Component Configuration Library (Incubating)
+Bundle-Name: Component Configuration Library (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.lib;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.component.lib.Activator
