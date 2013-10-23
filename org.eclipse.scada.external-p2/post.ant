@@ -17,6 +17,7 @@ is active.
     </tstamp>
         
     <property name="buildType" value="I"/>
+    <property name="buildId" value="${timestamp}"/>
     
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
@@ -25,7 +26,7 @@ is active.
     <property name="download.base" location="${download.root}/${repo}/drops"/>
     
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${buildType}${timestamp}"/>
+    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
     
     <!-- ================================= 
           target: default
