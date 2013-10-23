@@ -48,8 +48,9 @@ def cleanup_drop_dir(drop_dir, retain_num, prefixes):
         repo_by_prefix[c] = []
     for d in os.listdir(drop_dir):
         for c in prefixes:
-            if d.startswith(c):
-                repo_by_prefix[c].append(os.path.join(drop_dir, d))
+            artifact_path = os.path.join(drop_dir, d)
+            if d.startswith(c) and os.path.isdir(artifact_path):
+                repo_by_prefix[c].append(artifact_path)
     for c in prefixes:
         repo_by_prefix[c].sort()
         dirs_to_retain = repo_by_prefix[c][-retain_num:]
