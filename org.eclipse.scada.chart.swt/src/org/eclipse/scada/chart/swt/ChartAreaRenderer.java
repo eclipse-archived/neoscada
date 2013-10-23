@@ -151,7 +151,10 @@ public class ChartAreaRenderer extends ChartRenderer
     @Override
     public void removeMouseWheelListener ( final MouseWheelListener listener )
     {
-        this.control.removeMouseWheelListener ( listener );
+        if ( !this.control.isDisposed () )
+        {
+            this.control.removeMouseWheelListener ( listener );
+        }
     }
 
     @Override
