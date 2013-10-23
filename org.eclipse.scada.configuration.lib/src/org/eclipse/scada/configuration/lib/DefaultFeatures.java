@@ -14,6 +14,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.ae.data.Severity;
+import org.eclipse.scada.configuration.world.osgi.Block;
 import org.eclipse.scada.configuration.world.osgi.BooleanMonitor;
 import org.eclipse.scada.configuration.world.osgi.DataMapper;
 import org.eclipse.scada.configuration.world.osgi.EventLogger;
@@ -239,6 +240,20 @@ public class DefaultFeatures
                 final Rounding feature = OsgiFactory.eINSTANCE.createRounding ();
                 feature.setType ( type == null ? RoundingType.NONE : type );
                 feature.setName ( "local.rounding" );
+                registerFeature ( item, feature );
+            }
+        };
+    }
+
+    public static ItemCustomizer BLOCK ()
+    {
+        return new ItemCustomizer () {
+
+            @Override
+            public void customize ( final Item item )
+            {
+                Block feature = OsgiFactory.eINSTANCE.createBlock ();
+                feature.setName ( "local.block" );
                 registerFeature ( item, feature );
             }
         };
