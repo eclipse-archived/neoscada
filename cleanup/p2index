@@ -59,16 +59,17 @@ index_html = """<!DOCTYPE html>
 </head>
 
 <body style="font-family:Arial; font-size:small;">
+
 <h1>Eclipse SCADA Update Site (Eclipse SCADA 0.1.0 Integration Builds)</h1>
-<p>
-<em>For information about Eclipse SCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or <a
-href="http://wiki.eclipse.org/EclipseSCADA/">wiki</a>.
-         <br> For information about installing or updating Eclipse software, see the
-         <a href="http://help.eclipse.org/helios/index.jsp?topic=/org.eclipse.platform.doc.user/tasks/tasks-124.htm">
-           Eclipse Platform Help</a>.
-         <!--<br> Some plugins require third party software from p2 repositories listed in this
-         <a href="bookmarks.xml">bookmarks.xml</a> file.</em>-->
-</p>
+
+<p><em>For information about Eclipse SCADA, see their <a href="http://www.eclipse.org/eclipsescada">homepage</a> or 
+  <a href="http://wiki.eclipse.org/EclipseSCADA">wiki</a>.</p>
+
+<p>For information about installing or updating Eclipse software, see the
+  <a href="http://help.eclipse.org/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm">Eclipse Platform Help</a>.</p>
+<p>This is an Eclipse <b>Update site/p2 repository</b>; you must access it from Eclipse
+  (<a href="http://help.eclipse.org/topic/org.eclipse.platform.doc.user/tasks/tasks-127.htm">see how</a>).</p>
+
 <h3>Contents</h3>
 <ul>
 %(drop_links)s
