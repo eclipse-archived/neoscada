@@ -23,7 +23,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS
 {
-    private static final String BUNDLE_NAME = "org.eclipse.scada.ui.chart.model.viewer.input.composite.messages"; //$NON-NLS-1$
+    private static final String BUNDLE_NAME = "org.eclipse.scada.ui.chart.viewer.input.composite.messages"; //$NON-NLS-1$
 
     public static String CompositeQualityInput_State_Format;
     static

@@ -23,7 +23,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS
 {
-    private static final String BUNDLE_NAME = "org.eclipse.scada.ui.chart.model.selector.messages"; //$NON-NLS-1$
+    private static final String BUNDLE_NAME = "org.eclipse.scada.ui.chart.selector.messages"; //$NON-NLS-1$
 
     public static String ChartConfigurationInputSelector_Channels_Label;
 
