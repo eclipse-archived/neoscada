@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>org.eclipse.scada.base</groupId>
-	<artifactId>org.eclipse.scada.base.p2</artifactId>
+	<artifactId>org.eclipse.scada.base.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 	
 
