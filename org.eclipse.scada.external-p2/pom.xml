@@ -10,7 +10,7 @@
 		<relativePath>../org.eclipse.scada.external-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.external</groupId>
-	<artifactId>org.eclipse.scada.external.p2</artifactId>
+	<artifactId>org.eclipse.scada.external.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
 
 
