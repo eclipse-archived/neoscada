@@ -245,6 +245,8 @@ public class DefaultFeatures
         };
     }
 
+    public static ItemCustomizer BLOCK = BLOCK ();
+
     public static ItemCustomizer BLOCK ()
     {
         return new ItemCustomizer () {
