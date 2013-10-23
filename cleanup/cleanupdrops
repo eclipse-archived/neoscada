@@ -105,6 +105,8 @@ def main():
     print "base directory = %s" % base_dir
     print "number of drops to retain = %s" % retain_num
     print "prefixes to clean up = %s" % prefixes
+    if options.dryrun:
+        print "dry run, do not actually delete directories"
 
     cleanup(base_dir, retain_num, prefixes)
 
@@ -114,7 +116,7 @@ if __name__ == '__main__':
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
                   help="verbose output")
-    parser.add_option("-d", "--dry-run",
+    parser.add_option("-n", "--dry-run",
                   action="store_true", dest="dryrun", default=False,
                   help="do not actually execute deletions")
     (options, args) = parser.parse_args()
