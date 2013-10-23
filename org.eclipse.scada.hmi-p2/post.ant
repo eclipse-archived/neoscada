@@ -12,10 +12,26 @@ is active.
 	    
     <property name="output" location="../output"/>
     
+    <tstamp>
+    	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
+    </tstamp>
+        
+    <property name="buildType" value="I"/>
+    <property name="buildId" value="${timestamp}"/>
+    
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/${repo}/drops"/>
+    
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
+    
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build">
+    <target name="default" depends="clean,build,copy">
     </target>
     
     <!-- ================================= 
@@ -44,6 +60,25 @@ is active.
             <fileset dir="target/repository">
             </fileset>
         </move>
+    </target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}"/>
+        <mkdir dir="${download.dir}/pack"/>
+        
+        <copy todir="${download.dir}">
+            <fileset dir="${output}/p2" />
+        </copy>
+        <copy todir="${download.dir}/pack">
+            <fileset dir="${output}">
+                <include name="${repo}.p2-*.zip"/>
+            </fileset>
+        </copy>
     </target>
 
 </project>
