@@ -55,6 +55,7 @@
         <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.protocols.rpmFileName}" dest="${repo.base}/noarch"/>
         <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.core.rpmFileName}" dest="${repo.base}/noarch"/>
 	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.rpmFileName}" dest="${repo.base}/noarch"/>
+        <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada-p2.rpmFileName}" dest="${repo.base}/noarch"/>
     </target>
     
     <!-- ================================= 
