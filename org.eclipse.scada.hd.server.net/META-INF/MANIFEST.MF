@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD Server NET (Incubating)
+Bundle-Name: Eclipse SCADA HD Server NET (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.net
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

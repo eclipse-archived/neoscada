@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA Core Subscription Test (Incubating)
+Bundle-Name: Eclipse SCADA Core Subscription Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.subscription.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

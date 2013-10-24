@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA NextGenerationProtocol Client Test (Incubating)
+Bundle-Name: Eclipse SCADA NextGenerationProtocol Client Test (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.client.ngp.test;singleton:=true
 Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

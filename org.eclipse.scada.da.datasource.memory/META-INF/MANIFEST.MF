@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA Memory Datasource (Incubating)
+Bundle-Name: Eclipse SCADA DA Memory Datasource (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.datasource.memory
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.memory.Activator

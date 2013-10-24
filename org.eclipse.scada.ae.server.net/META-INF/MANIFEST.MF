@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA A&E Server Net Plug-in (Incubating)
+Bundle-Name: Eclipse SCADA A&E Server Net Plug-in (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.net
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

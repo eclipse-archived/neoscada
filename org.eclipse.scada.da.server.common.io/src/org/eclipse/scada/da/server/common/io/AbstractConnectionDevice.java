@@ -28,11 +28,11 @@ import org.apache.mina.core.session.IoSession;
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.server.common.AttributeMode;
+import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
 import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
-import org.eclipse.scada.da.server.common.AttributeMode;
-import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -388,6 +388,7 @@ public abstract class AbstractConnectionDevice
     protected synchronized void handleExceptionCaught ( final IoSession session, final Throwable error ) throws Exception
     {
         logger.warn ( "Exception caught", error );
+        checkSession ( session );
 
         if ( ! ( error instanceof WrongSessionException ) )
         {

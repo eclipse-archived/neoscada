@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Master Handler Mapper (Incubating)
+Bundle-Name: Master Handler Mapper (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.master.mapper
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.master.mapper.Activator

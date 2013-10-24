@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA HD NET Client (Incubating)
+Bundle-Name: Eclipse SCADA HD NET Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.client.net
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.client.net.Activator

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA AE Proxy Query (Incubating)
+Bundle-Name: Eclipse SCADA AE Proxy Query (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.server.event.proxy
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.server.event.proxy.Activator

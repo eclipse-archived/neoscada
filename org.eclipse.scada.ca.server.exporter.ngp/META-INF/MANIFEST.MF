@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA NextGenerationProtocol CA Exporter (Incubating)
+Bundle-Name: Eclipse SCADA NextGenerationProtocol CA Exporter (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ca.server.exporter.ngp
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ca.server.exporter.ngp.Activator

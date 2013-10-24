@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: HTTP Exporter for HD (Incubating)
+Bundle-Name: HTTP Exporter for HD (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.exporter.http
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project

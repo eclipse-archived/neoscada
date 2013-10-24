@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Script AE Monitor (Incubating)
+Bundle-Name: Script AE Monitor (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.monitor.script
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.monitor.script.Activator

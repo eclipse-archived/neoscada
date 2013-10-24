@@ -10,6 +10,84 @@
 		<relativePath>../org.eclipse.scada.core-parent</relativePath>
 	</parent>
 	<groupId>org.eclipse.scada.core</groupId>
-	<artifactId>org.eclipse.scada.core.p2</artifactId>
+	<artifactId>org.eclipse.scada.core.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
+
+	<profiles>
+
+		<profile>
+			<id>rpm</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-3</version>
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<copyright>2013, Eclipse SCADA Project</copyright>
+							<distribution>Eclipse SCADA 2013</distribution>
+							<group>Application/Misc</group>
+							<packager>Eclipse SCADA Project</packager>
+							<changelogFile>rpm/changelog</changelogFile>
+							<defineStatements>
+								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
+							</defineStatements>
+							<mappings>
+								<mapping>
+									<directory>/usr/share/eclipsescada/p2/${project.groupId}</directory>
+									<filemode>0755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>target/repository</location>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile> <!-- rpm -->
+
+		<profile>
+			<id>eclipse-hudson</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>ant-post-proc</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+									<tasks>
+										<property name="repo" value="${project.groupId}"/>
+										<ant antfile="post.ant" />
+									</tasks>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+
 </project>

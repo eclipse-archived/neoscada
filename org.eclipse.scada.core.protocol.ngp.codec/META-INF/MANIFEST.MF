@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA NextGenerationProtcol Core Codec (Incubating)
+Bundle-Name: Eclipse SCADA NextGenerationProtcol Core Codec (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.protocol.ngp.codec
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
