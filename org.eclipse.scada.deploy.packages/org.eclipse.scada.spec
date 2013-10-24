@@ -24,6 +24,9 @@ Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{buildroot}
 BuildArch:	noarch
 
+%package p2
+Summary:	P2 deployment system for Eclipse SCADA
+
 #BuildRequires: unzip
 #BuildRequires: wget
 
@@ -40,7 +43,10 @@ Requires: glibc-common
 %endif
 
 %description
-The Eclipse SCADA System
+The Eclipse SCADA system
+
+%description p2
+A deployment system for P2/Equinox based application of the Eclipse SCADA system
 
 %prep
 %setup -q
@@ -85,9 +91,16 @@ fi
 %dir %attr(775,root,%{es_user}) %{_logdir}/%{es_user}
 %dir %attr(775,root,%{es_user}) %{_rundir}/%{es_user}
 %dir %{_datadir}/%{es_user}
+%{_bindir}/es*
+%{_bindir}/hds-replicate-once
+%dir %{_datadir}/perl5/EclipseSCADA
+%{_datadir}/perl5/EclipseSCADA/*
+%doc
+
+%files p2
 %dir %attr(755,root,root) %{_datadir}/%{es_user}/profiles
 %dir %attr(755,root,root) %{_datadir}/%{es_user}/p2
-%doc
+%{_bindir}/p2.*
 
 %changelog
 * Fri Oct 18 2013 Jens Reimann <jens.reimann@ibh-systems.com> - 0.1.0-1

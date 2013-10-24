@@ -33,6 +33,14 @@ install:
 	if [ -f "src/default/eclipsescada.$(DIST)" ]; then install -m 0644 "src/default/eclipsescada.$(DIST)" "$(DESTDIR)/etc/default/eclipsescada"; fi
 	if [ -f "src/default/eclipsescada.$(DIST).$(ARCH)" ]; then install -m 0644 "src/default/eclipsescada.$(DIST).$(ARCH)" "$(DESTDIR)/etc/default/eclipsescada"; fi
 	
+	# binaries
+	
+	mkdir -p "$(DESTDIR)/usr/bin"
+	install -m 0755 -t "$(DESTDIR)/usr/bin" src/bin/*
+	
+	mkdir -p "$(DESTDIR)/usr/share/perl5/EclipseSCADA"
+	install -m 0644 -t "$(DESTDIR)/usr/share/perl5/EclipseSCADA" src/perl/EclipseSCADA/*
+	
 clean:
 	-rm *.tar.gz
 	rm -Rf rpmbuild
