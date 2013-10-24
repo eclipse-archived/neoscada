@@ -10,11 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.ca.server.exporter.ngp;
 
+import org.eclipse.scada.ca.server.Service;
+import org.eclipse.scada.ca.server.ngp.Exporter;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.utils.osgi.SingleServiceListener;
 import org.eclipse.scada.utils.osgi.SingleServiceTracker;
-import org.eclipse.scada.ca.server.Service;
-import org.eclipse.scada.ca.server.ngp.Exporter;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -77,7 +77,7 @@ public class Activator implements BundleActivator
         }
         catch ( final Exception e )
         {
-            logger.warn ( "Failed to export hd service", e );
+            logger.warn ( "Failed to export ca service", e );
         }
     }
 
