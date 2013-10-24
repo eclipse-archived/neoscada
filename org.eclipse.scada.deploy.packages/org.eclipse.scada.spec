@@ -26,6 +26,7 @@ BuildArch:	noarch
 
 %package p2
 Summary:	P2 deployment system for Eclipse SCADA
+Group:		System Environment/Base
 
 #BuildRequires: unzip
 #BuildRequires: wget
