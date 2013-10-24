@@ -13,7 +13,11 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="fetch,build,cleanup">
+    <target name="default" depends="echo,fetch,build,cleanup,copy">
+    </target>
+    
+    <target name="echo">
+        <echo message="download.dir = ${download.dir"/>
     </target>
     
     <!-- ================================= 
@@ -71,5 +75,18 @@
         <delete dir="${input.dir}"/>
     </target>
 
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: copy - copy to download.dir
+         - - - - - - - - - - - - - - - - - -->
+    <target name="copy" if="download.dir">
+		<delete dir="${download.dir}"/>     
+        <mkdir dir="${download.dir}"/>
+        <copy todir="${download.dir}">
+        	<fileset dir="${repo.base}" includes="**"/>
+        </copy>
+        <exec dir="${download.dir}" executable="createrepo">
+            <arg value="." />
+        </exec>
+    </target>
 
 </project>
