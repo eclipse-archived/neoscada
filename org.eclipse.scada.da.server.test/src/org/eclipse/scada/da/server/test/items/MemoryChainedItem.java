@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some minor bugfixing
  *******************************************************************************/
 package org.eclipse.scada.da.server.test.items;
 
@@ -36,7 +37,7 @@ public class MemoryChainedItem extends MemoryItemChained
         public InjectChainItem ( final MemoryChainedItem item )
         {
             this.item = item;
-            setReservedAttributes ( "org.openscada.da.test.chain.value" );
+            setReservedAttributes ( "org.eclipse.scada.da.test.chain.value" );
         }
 
         @Override
@@ -58,7 +59,7 @@ public class MemoryChainedItem extends MemoryItemChained
 
                 i++;
             }
-            attributes.put ( "org.openscada.da.test.chain.value", Variant.valueOf ( str.toString () ) );
+            attributes.put ( "org.eclipse.scada.da.test.chain.value", Variant.valueOf ( str.toString () ) );
 
             return null;
         }

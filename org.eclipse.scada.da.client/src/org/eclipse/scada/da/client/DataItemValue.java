@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor bugfixing
  *******************************************************************************/
 package org.eclipse.scada.da.client;
 
@@ -205,7 +206,7 @@ public class DataItemValue
      */
     public boolean isManual ()
     {
-        return isAttribute ( "manual", false ) || isAttribute ( "org.openscada.da.manual.active", false );
+        return isAttribute ( "manual", false ) || isAttribute ( "org.eclipse.scada.da.manual.active", false );
     }
 
     public boolean isAlarm ()

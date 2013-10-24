@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some minor bugfixing
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.internal;
 
@@ -99,7 +100,7 @@ public class HiveImpl extends HiveCommon
     @Override
     public String getHiveId ()
     {
-        return "org.openscada.da.server.osgi";
+        return "org.eclipse.scada.da.server.osgi";
     }
 
     @Override

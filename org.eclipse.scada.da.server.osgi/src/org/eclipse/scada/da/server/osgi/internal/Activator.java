@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some minor bugfixing
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.internal;
 
@@ -52,7 +53,7 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = new ExportedExecutorService ( "org.openscada.da.server.osgi", 1, 1, 1, TimeUnit.MINUTES );
+        this.executor = new ExportedExecutorService ( "org.eclipse.scada.da.server.osgi", 1, 1, 1, TimeUnit.MINUTES );
 
         this.service = new HiveImpl ( context, this.executor );
         this.service.start ();
