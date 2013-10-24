@@ -21,6 +21,7 @@
          ================================= -->
     <target name="clean" unless="skip.clean">
         <delete dir="${input.dir}" />
+        <delete dir="${repo.base}" />
     </target>
 
     
