@@ -41,6 +41,7 @@ Requires: shadow-utils
 # for the "getent" command
 Requires: glibc-common
 %endif
+Requires: p2director
 
 %description
 The Eclipse SCADA system
