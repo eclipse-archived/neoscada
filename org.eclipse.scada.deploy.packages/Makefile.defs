@@ -3,6 +3,3 @@ ARCH ?= `uname -i`
 VERSION = 0.1.0
 QUALIFIER = SNAPSHOT
 PACKAGE = org.eclipse.scada
-
-HUDSON_BASE = https://hudson.eclipse.org/scada/
-HUDSON_JOB_VERSION = master
