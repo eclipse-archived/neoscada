@@ -10,10 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.ui;
 
-import org.eclipse.core.databinding.observable.Realm;
+import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.scada.da.server.ui.internal.ServerHostImpl;
 import org.eclipse.scada.da.server.ui.internal.ServerManagerImpl;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -57,8 +58,8 @@ public class HivesPlugin extends AbstractUIPlugin
     public void start ( final BundleContext context ) throws Exception
     {
         super.start ( context );
-        this.serverManager = new ServerManagerImpl ( Realm.getDefault () );
-        this.serverHost = new ServerHostImpl ( Realm.getDefault () );
+        this.serverManager = new ServerManagerImpl ( SWTObservables.getRealm ( Display.getDefault () ) );
+        this.serverHost = new ServerHostImpl ( SWTObservables.getRealm ( Display.getDefault () ) );
         plugin = this;
     }
 
