@@ -17,7 +17,7 @@
     </target>
     
     <target name="echo">
-        <echo message="download.dir = ${download.dir"/>
+        <echo message="download.dir = ${download.dir}"/>
     </target>
     
     <!-- ================================= 
@@ -79,6 +79,8 @@
           target: copy - copy to download.dir
          - - - - - - - - - - - - - - - - - -->
     <target name="copy" if="download.dir">
+        <echo message="copy to ${download.dir}"/>
+        
 		<delete dir="${download.dir}"/>     
         <mkdir dir="${download.dir}"/>
         <copy todir="${download.dir}">
