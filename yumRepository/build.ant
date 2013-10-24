@@ -13,8 +13,16 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="echo,fetch,build,cleanup,copy">
+    <target name="default" depends="echo,clean,fetch,build,cleanup,copy">
     </target>
+    
+    <!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" unless="skip.clean">
+        <delete dir="${input.dir}" />
+    </target>
+
     
     <target name="echo">
         <echo message="download.dir = ${download.dir}"/>
