@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor bugfixing
  *******************************************************************************/
 package org.eclipse.scada.da.master.common.negate;
 
@@ -24,7 +25,7 @@ import org.osgi.util.tracker.ServiceTracker;
 
 public class NegateHandlerFactoryImpl extends AbstractServiceConfigurationFactory<AbstractMasterHandlerImpl>
 {
-    public static final String FACTORY_ID = "org.openscada.da.negate.input";
+    public static final String FACTORY_ID = "org.eclipse.scada.da.negate.input";
 
     private final int priority;
 
