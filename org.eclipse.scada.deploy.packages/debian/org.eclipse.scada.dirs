@@ -2,6 +2,5 @@
 /etc/eclipsescada/schema
 /usr/jar
 /usr/share/eclipsescada
-/usr/share/eclipsescada/profiles
-/usr/share/eclipsescada/p2
 /var/log/eclipsescada
+/usr/share/perl5/EclipseSCADA
