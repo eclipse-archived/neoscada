@@ -86,9 +86,6 @@
         <copy todir="${download.dir}">
         	<fileset dir="${repo.base}" includes="**"/>
         </copy>
-        <exec dir="${download.dir}" executable="createrepo">
-            <arg value="." />
-        </exec>
     </target>
 
 </project>
