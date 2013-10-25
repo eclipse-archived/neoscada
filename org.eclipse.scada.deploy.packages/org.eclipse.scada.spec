@@ -42,7 +42,7 @@ Requires: shadow-utils
 # for the "getent" command
 Requires: glibc-common
 %endif
-Requires: p2director
+Requires: org.eclipse.scada.deploy.p2director-incubation
 
 %description
 The Eclipse SCADA system
