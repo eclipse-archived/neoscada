@@ -9,8 +9,13 @@
 		<relativePath>../base.xml</relativePath>
 	</parent>
 
+	<properties>
+		<upstreamVersion>R-Kepler-201306052000</upstreamVersion>
+		<src>${download.base}/equinox/drops/${upstreamVersion}/equinox-SDK-Kepler.zip</src>
+	</properties>
+
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>equinox-SDK-R-Kepler-201306052000</artifactId>
+	<artifactId>equinox-SDK-${upstreamVersion}</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
@@ -18,9 +23,4 @@
 		The Eclipse P2 director application packaged for the Eclipse SCADA system.
 	</description>
 	
-	<properties>
-		<upstreamVersion>R-Kepler-201306052000</upstreamVersion>
-		<src>${download.base}/equinox/drops/${upstreamVersion}/equinox-SDK-Kepler.zip</src>
-	</properties>
-
 </project>
