@@ -29,6 +29,9 @@ install:
 	install -d "$(DESTDIR)/var/log/eclipsescada"
 	install -d "$(DESTDIR)/var/run/eclipsescada"
 	install -d "$(DESTDIR)/var/lib/eclipsescada"
+
+	install -d "$(DESTDIR)/etc/profile.d"
+	install -m 0644 src/eclipsescada.sh "$(DESTDIR)/etc/profile.d"
 	
 	install -d "$(DESTDIR)/etc/default"
 
