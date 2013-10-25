@@ -9,6 +9,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - add P2_ARCH support
 ##################################################################################
 
 # check arguments
@@ -47,7 +48,7 @@ if [ ! -z "$ARG_UNITS" ]; then
 	UNITS="$UNITS,$ARG_UNITS"
 fi
 
-if p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"; then
+if p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch "$P2_ARCH" -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"; then
 	ln -s "`dirname $0`/p2.launcher" "$TARGET/launcher"
 
 	mkdir "$TARGET/configuration"

@@ -9,6 +9,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - add P2_ARCH support
 ##################################################################################
 
 . p2.functions || exit 1
@@ -35,4 +36,4 @@ if [ -d "$PWD/p2" ]; then
 	exit 1
 fi 
 
-p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"
+p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch "$P2_ARCH" -p2.os linux -r "$P2_REPOS" -roaming -bundlepool "$TARGET" -flavor "$FLAVOR" -profile "$PROFILE" -destination "$TARGET" -profileProperties org.eclipse.update.install.features=true -i "$UNITS"

@@ -9,8 +9,9 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - add P2_ARCH support
 ##################################################################################
 
 . p2.functions || exit 1
 
-p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch x86_64 -p2.os linux -r "$P2_REPOS" -list
+p2director -p2.nl "$LANG" -p2.ws gtk -p2.arch "$P2_ARCH" -p2.os linux -r "$P2_REPOS" -list
