@@ -43,13 +43,22 @@ Group:		System Environment/Base
 Requires: shadow
 # for the "getent" command
 Requires: glibc
+# for jsvc
+Requires: apache-commons-daemon-jsvc
+Requires: openssh
+Requires: perl-base
 %else
 # for adding the user with "adduser"
 Requires: shadow-utils
 # for the "getent" command
 Requires: glibc-common
+# for jsvc
+Requires: jakarta-commons-daemon-jsvc
+Requires: openssh-clients
+Requires: perl
 %endif
 Requires: org.eclipse.scada.deploy.p2director-incubation
+Requires: rsync
 
 %description
 The Eclipse SCADA system
