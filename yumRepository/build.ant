@@ -9,6 +9,11 @@
     
     <property name="input.dir" location="input"/>
     <property name="repo.base" location="yum"/>
+    
+    <property name="buildType" value="integration" />
+
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
 
     <!-- ================================= 
           target: default
@@ -62,6 +67,11 @@
         
         <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy.p2director-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.deploy.i386.rpmFileName}" dest="${repo.base}/i386"/>
         <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy.p2director-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.deploy.x86_64.rpmFileName}" dest="${repo.base}/x86_64"/>
+        
+        <!-- copy from local repack repo -->
+        <copy todir="${repo.base}">
+            <fileset dir="${download.root}/repo/repack/${buildType}" include="*.rpm"/>
+        </copy>
     </target>
     
     <!-- ================================= 
