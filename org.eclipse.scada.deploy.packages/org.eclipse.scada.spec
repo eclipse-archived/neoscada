@@ -100,6 +100,7 @@ fi
 %doc
 
 %files p2
+%defattr(-,root,root,-)
 %dir %attr(755,root,root) %{_datadir}/%{es_user}/profiles
 %dir %attr(755,root,root) %{_datadir}/%{es_user}/p2
 %{_bindir}/p2.*
