@@ -2,12 +2,18 @@
 
 %define buildroot %{_tmppath}/%{name}-%{version}-root
 %define es_user eclipsescada
+
+%if 0%{?suse_version}
+%define distribution suse
+%else
 %define distribution centos
+%endif
 
 %define _defaultdir	/etc/default
 %define _confdir	/etc/eclipsescada
 %define _jardir		/usr/jar
 %define _logdir		/var/log
+%define _libdir		/usr/lib
 %define _rundir		/var/run
 %define _datadir	/usr/share
 %define _homebasedir	/var/lib
@@ -19,7 +25,7 @@ Release:	%{qualifier}
 Summary:	The Eclipse SCADA System
 Group:		System Environment/Base
 License:	EPL
-URL:		http://projects.eclipse.org/projects/technology.eclipsescada
+URL:		http://eclipse.org/eclipsescada
 Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{buildroot}
 BuildArch:	noarch
@@ -95,8 +101,13 @@ fi
 %dir %{_datadir}/%{es_user}
 %{_bindir}/es*
 %{_bindir}/hds-replicate-once
+%if 0%{?suse_version} # suse has a different perl installation
+%dir %{__libdir}/perl5/site_perl/EclipseSCADA
+%{__libdir}/perl5/site_perl/EclipseSCADA/*
+%else
 %dir %{_datadir}/perl5/EclipseSCADA
 %{_datadir}/perl5/EclipseSCADA/*
+%endif
 %doc
 
 %files p2

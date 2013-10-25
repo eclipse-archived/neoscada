@@ -3,9 +3,11 @@ default:
 SHELL := /bin/bash
 
 EXTRA_DIST = $(PACKAGE).spec \
-	Makefile.defs
+	Makefile.defs \
+	Makefile.*.defs
 
 include Makefile.defs
+-include Makefile.$(DIST).defs
 
 dist:
 	rm -Rf "$(PACKAGE)-$(VERSION)"
@@ -38,8 +40,8 @@ install:
 	mkdir -p "$(DESTDIR)/usr/bin"
 	install -m 0755 -t "$(DESTDIR)/usr/bin" src/bin/*
 	
-	mkdir -p "$(DESTDIR)/usr/share/perl5/EclipseSCADA"
-	install -m 0644 -t "$(DESTDIR)/usr/share/perl5/EclipseSCADA" src/perl/EclipseSCADA/*
+	mkdir -p "$(DESTDIR)/$(PERL_DIR)/EclipseSCADA"
+	install -m 0644 -t "$(DESTDIR)/$(PERL_DIR)/EclipseSCADA" src/perl/EclipseSCADA/*
 	
 clean:
 	-rm *.tar.gz
