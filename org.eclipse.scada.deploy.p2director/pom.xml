@@ -98,7 +98,7 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
-							<controlDir>src/linux-x86_64/deb/control</controlDir>
+							<controlDir>${basedir}/src/linux-x86_64/deb/control</controlDir>
 							<deb>${project.build.directory}/${project.artifactId}_${project.version}_amd64.deb</deb>
 							<dataSet>
 								<data>
@@ -120,7 +120,7 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
-							<controlDir>src/linux-x86/deb/control</controlDir>
+							<controlDir>${basedir}/src/linux-x86/deb/control</controlDir>
 							<deb>${project.build.directory}/${project.artifactId}_${project.version}_i386.deb</deb>
 							<dataSet>
 								<data>
