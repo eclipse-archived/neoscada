@@ -8,7 +8,7 @@
 	<organization>
 		<name>Eclipse SCADA Project</name>
 	</organization>
-	
+
 	<description>
 		The Eclipse P2 director application packaged for the Eclipse SCADA system.
 	</description>
@@ -18,7 +18,7 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>helios</id>
+			<id>eclipse.kepler</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
@@ -80,6 +80,14 @@
 
 				<configuration>
 					<attach>false</attach>
+					<dataSet>
+						<data>
+							<type>link</type>
+							<linkName>/usr/bin/p2director</linkName>
+							<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
+							<symlink>true</symlink>
+						</data>
+					</dataSet>
 				</configuration>
 
 				<executions>
@@ -159,7 +167,6 @@
 							<defineStatements>
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
 							</defineStatements>
-
 						</configuration>
 
 						<executions>
@@ -170,6 +177,7 @@
 								</goals>
 								<configuration>
 									<needarch>x86_64</needarch>
+									<workarea>target/rpm/x86_64</workarea>
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
@@ -182,6 +190,17 @@
 												</source>
 											</sources>
 										</mapping>
+										<mapping>
+											<directory>/usr/bin</directory>
+											<filemode>0755</filemode>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<softlinkSource>
+													<location>/usr/share/${project.artifactId}/product/p2director</location>
+												</softlinkSource>
+											</sources>
+										</mapping>
 									</mappings>
 								</configuration>
 							</execution>
@@ -192,6 +211,7 @@
 								</goals>
 								<configuration>
 									<needarch>i386</needarch>
+									<workarea>target/rpm/x86</workarea>
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
@@ -202,6 +222,17 @@
 												<source>
 													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</location>
 												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/bin</directory>
+											<filemode>0755</filemode>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<softlinkSource>
+													<location>/usr/share/${project.artifactId}/product/p2director</location>
+												</softlinkSource>
 											</sources>
 										</mapping>
 									</mappings>
