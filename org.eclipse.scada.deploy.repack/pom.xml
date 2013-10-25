@@ -25,6 +25,9 @@
 	<modules>
 		<module>equinox-SDK</module>
 		<module>gemini-dbaccess</module>
+		<module>org.eclipse.ecf.sdk</module>
+		<module>org.eclipse.platform</module>
+		<module>emf-xsd-Update</module>
 		
 		<module>gather</module>
 	</modules>
