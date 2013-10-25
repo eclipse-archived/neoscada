@@ -33,8 +33,8 @@
 							</execution>
 						</executions>
 						<configuration>
-							<copyright>2013, Eclipse SCADA Project</copyright>
-							<distribution>Eclipse SCADA 2013</distribution>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse SCADA 0.1.0 (Incubuation)</distribution>
 							<group>Application/Misc</group>
 							<packager>Eclipse SCADA Project</packager>
 							<changelogFile>rpm/changelog</changelogFile>
