@@ -14,6 +14,8 @@
 
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+    
+    <property name="repack.dir" location="${download.root}/repo/repack/${buildType}"/>
 
     <!-- ================================= 
           target: default
@@ -69,8 +71,9 @@
         <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy.p2director-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.deploy.x86_64.rpmFileName}" dest="${repo.base}/x86_64"/>
         
         <!-- copy from local repack repo -->
+        <echo message="Fetch from repack repo: ${repack.dir}"/>
         <copy todir="${repo.base}">
-            <fileset dir="${download.root}/repo/repack/${buildType}" includes="*.rpm"/>
+            <fileset dir="${repack.dir}" includes="**/*.rpm"/>
         </copy>
     </target>
     
