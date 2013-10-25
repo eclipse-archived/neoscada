@@ -4,110 +4,23 @@
 
 	<parent>
 		<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-		<artifactId>org.eclipse.scada.deploy.repack-parent</artifactId>
+		<artifactId>org.eclipse.scada.deploy.repack-base</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
-		<relativePath>..</relativePath>
+		<relativePath>../base.xml</relativePath>
 	</parent>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 	<artifactId>equinox-SDK-R-Kepler-201306052000</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
+	
 	<description>
 		The Eclipse P2 director application packaged for the Eclipse SCADA system.
 	</description>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>jdeb</artifactId>
-				<groupId>org.vafer</groupId>
-				<version>1.0.1</version>
-
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jdeb</goal>
-						</goals>
-						<configuration>
-							<dataSet>
-								<data>
-									<src>${download.base}/equinox/drops/R-Kepler-201306052000/equinox-SDK-Kepler.zip</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2</prefix>
-									</mapper>
-								</data>
-							</dataSet>
-						</configuration>
-					</execution>
-
-				</executions>
-			</plugin>
-
-		</plugins>
-	</build>
-
-
-
-	<profiles>
-
-		<profile>
-
-			<!--rpm must be a profile since it requires 'rpmbuild' on the target machine -->
-
-			<id>rpm</id>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>rpm-maven-plugin</artifactId>
-						<version>2.1-alpha-3</version>
-
-						<configuration>
-							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
-							<group>Application/Misc</group>
-							<changelogFile>rpm/changelog</changelogFile>
-
-							<defineStatements>
-								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
-							</defineStatements>
-						</configuration>
-
-						<executions>
-							<execution>
-								<id>generate-rpm</id>
-								<goals>
-									<goal>rpm</goal>
-								</goals>
-								<configuration>
-									<mappings>
-										<mapping>
-											<directory>/usr/share/eclipsescada/p2</directory>
-											<filemode>0644</filemode>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<source>
-													<location>${download.base}/equinox/drops/R-Kepler-201306052000/equinox-SDK-Kepler.zip</location>
-												</source>
-											</sources>
-										</mapping>
-									</mappings>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-
-				</plugins>
-			</build>
-		</profile> <!-- rpm -->
-
-	</profiles>
+	
+	<properties>
+		<upstreamVersion>R-Kepler-201306052000</upstreamVersion>
+		<src>${download.base}/equinox/drops/${upstreamVersion}/equinox-SDK-Kepler.zip</src>
+	</properties>
 
 </project>
