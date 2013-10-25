@@ -81,66 +81,21 @@
 
 						<executions>
 							<execution>
-								<id>generate-rpm-amd64</id>
+								<id>generate-rpm</id>
 								<goals>
 									<goal>rpm</goal>
 								</goals>
 								<configuration>
-									<needarch>x86_64</needarch>
-									<workarea>target/rpm/x86_64</workarea>
 									<mappings>
 										<mapping>
-											<directory>/usr/share/${project.artifactId}/product</directory>
+											<directory>/usr/share/eclipsescada/p2</directory>
+											<filemode>0644</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
 											<sources>
 												<source>
-													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</location>
+													<location>${download.base}/equinox/drops/R-Kepler-201306052000/equinox-SDK-Kepler.zip</location>
 												</source>
-											</sources>
-										</mapping>
-										<mapping>
-											<directory>/usr/bin</directory>
-											<filemode>0755</filemode>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<softlinkSource>
-													<location>/usr/share/${project.artifactId}/product/p2director</location>
-												</softlinkSource>
-											</sources>
-										</mapping>
-									</mappings>
-								</configuration>
-							</execution>
-							<execution>
-								<id>generate-rpm-i386</id>
-								<goals>
-									<goal>rpm</goal>
-								</goals>
-								<configuration>
-									<needarch>i386</needarch>
-									<workarea>target/rpm/x86</workarea>
-									<mappings>
-										<mapping>
-											<directory>/usr/share/${project.artifactId}/product</directory>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<source>
-													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</location>
-												</source>
-											</sources>
-										</mapping>
-										<mapping>
-											<directory>/usr/bin</directory>
-											<filemode>0755</filemode>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<softlinkSource>
-													<location>/usr/share/${project.artifactId}/product/p2director</location>
-												</softlinkSource>
 											</sources>
 										</mapping>
 									</mappings>
