@@ -24,6 +24,7 @@
 	
 	<modules>
 		<module>equinox-SDK</module>
+		<module>gemini-dbaccess</module>
 		
 		<module>gather</module>
 	</modules>

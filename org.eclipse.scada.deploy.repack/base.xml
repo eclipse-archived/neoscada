@@ -9,11 +9,15 @@
 		<name>Eclipse SCADA Project</name>
 	</organization>
 
+	<description>
+		Eclipse SCADA repack of ${project.artifactId}
+	</description>
+
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
-		<download.base>/home/data/httpd/download.eclipse.org</download.base>
+		<download.root>/home/data/httpd/download.eclipse.org</download.root>
 	</properties>
-	
+
 	<repositories>
 		<repository>
 			<id>eclipse.kepler</id>
@@ -21,8 +25,8 @@
 			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
 	</repositories>
-	
-	
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -114,6 +118,6 @@
 		</profile> <!-- rpm -->
 
 	</profiles>
-	
+
 
 </project>
