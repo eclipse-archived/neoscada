@@ -70,7 +70,7 @@
         
         <!-- copy from local repack repo -->
         <copy todir="${repo.base}">
-            <fileset dir="${download.root}/repo/repack/${buildType}" include="*.rpm"/>
+            <fileset dir="${download.root}/repo/repack/${buildType}" includes="*.rpm"/>
         </copy>
     </target>
     
