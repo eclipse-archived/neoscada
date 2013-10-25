@@ -1,0 +1,219 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada.deploy.p2director-incubuation</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+	<organization>
+		<name>Eclipse SCADA Project</name>
+	</organization>
+	
+	<description>
+		The Eclipse P2 director application packaged for the Eclipse SCADA system.
+	</description>
+
+	<properties>
+		<tycho-version>0.18.1</tycho-version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>helios</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/kepler</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>jdeb</artifactId>
+				<groupId>org.vafer</groupId>
+				<version>1.0.1</version>
+
+				<configuration>
+					<attach>false</attach>
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>linux-x86_64</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<controlDir>src/linux-x86_64/deb/control</controlDir>
+							<deb>${project.build.directory}/${project.artifactId}_${project.version}_amd64.deb</deb>
+							<dataSet>
+								<data>
+									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+									</mapper>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>linux-x86</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jdeb</goal>
+						</goals>
+						<configuration>
+							<controlDir>src/linux-x86/deb/control</controlDir>
+							<deb>${project.build.directory}/${project.artifactId}_${project.version}_i386.deb</deb>
+							<dataSet>
+								<data>
+									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</src>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+									</mapper>
+								</data>
+							</dataSet>
+						</configuration>
+					</execution>
+
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+
+	<profiles>
+
+		<profile>
+
+			<!--rpm must be a profile since it requires 'rpmbuild' on the target machine -->
+
+			<id>rpm</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-3</version>
+
+						<configuration>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
+							<group>Application/Misc</group>
+							<changelogFile>rpm/changelog</changelogFile>
+
+							<defineStatements>
+								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
+							</defineStatements>
+
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>generate-rpm-amd64</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<configuration>
+									<needarch>x86_64</needarch>
+									<mappings>
+										<mapping>
+											<directory>/usr/share/${project.artifactId}/product</directory>
+											<filemode>0644</filemode>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<source>
+													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</location>
+												</source>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+							<execution>
+								<id>generate-rpm-i386</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<configuration>
+									<needarch>i386</needarch>
+									<mappings>
+										<mapping>
+											<directory>/usr/share/${project.artifactId}/product</directory>
+											<filemode>0644</filemode>
+											<username>root</username>
+											<groupname>root</groupname>
+											<sources>
+												<source>
+													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</location>
+												</source>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile> <!-- rpm -->
+
+	</profiles>
+
+</project>

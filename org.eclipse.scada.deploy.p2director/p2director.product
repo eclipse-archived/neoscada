@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Eclipse SCADA P2 Director" uid="org.eclipse.scada.deploy.p2director" id="org.eclipse.equinox.p2.director.product" version="4.3.0.qualifier" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-nosplash</programArgs>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="p2director">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.equinox.app" autoStart="true" startLevel="4" />
+   </configurations>
+
+</product>
