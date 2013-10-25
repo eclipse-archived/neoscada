@@ -48,9 +48,9 @@ is active.
         <mkdir dir="${output}" />
 
         <move todir="${output}">
-            <fileset dir=".">
-                <include name="../${repo}*.rpm" />
-                <include name="../${repo}*.deb" />
+            <fileset dir="..">
+                <include name="**/${repo}*.rpm" />
+                <include name="**/${repo}*.deb" />
             </fileset>
             <mapper type="flatten" />
         </move>
