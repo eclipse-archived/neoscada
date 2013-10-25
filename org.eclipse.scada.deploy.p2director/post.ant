@@ -46,7 +46,6 @@ is active.
          ================================= -->
     <target name="build">
         <mkdir dir="${output}" />
-        <mkdir dir="${output}/p2" />
 
         <move todir="${output}">
             <fileset dir=".">
@@ -77,8 +76,11 @@ is active.
             <mapper type="flatten" />
         </pathconvert>
 
-        <echo message="${repo}.x86_64..rpmFileName=${rpmText.x86_64}" />
+        <echo message="${repo}.x86_64.rpmFileName=${rpmText.x86_64}" />
+        <echo message="${repo}.i386.rpmFileName=${rpmText.386}" />
+        
         <echo message="${repo}.i386.rpmFileName=${rpmText.i386}
+${repo}.x86_64.rpmFileName=${rpmText.x86_64}
 " file="${output}/rpm.properties" />
     </target>
 
