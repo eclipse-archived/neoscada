@@ -9,6 +9,7 @@
 %define distribution centos
 %endif
 
+%define _profiledir	/etc/profile.d
 %define _defaultdir	/etc/default
 %define _confdir	/etc/eclipsescada
 %define _jardir		/usr/jar
@@ -99,6 +100,7 @@ fi
 %dir %attr(775,root,%{es_user}) %{_logdir}/%{es_user}
 %dir %attr(775,root,%{es_user}) %{_rundir}/%{es_user}
 %dir %{_datadir}/%{es_user}
+%{_profiledir}/eclipsescada.sh
 %{_bindir}/es*
 %{_bindir}/hds-replicate-once
 # BEGIN - suse has a different perl installation
