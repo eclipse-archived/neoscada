@@ -22,4 +22,3 @@ if [ -z "$ECLIPSE_SCADA_CONFIGURATION_ROOT" ]; then
 fi
 
 esService org.eclipse.scada.da.utils.daemon.ExporterDaemon "$INST" "$cfg/drivers/$INST/exporter.xml" `user` "$@"
- 
