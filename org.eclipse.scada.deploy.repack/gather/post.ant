@@ -49,8 +49,8 @@ is active.
 
         <move todir="${output}">
             <fileset dir="..">
-                <include name="**/${repo}*.rpm" />
-                <include name="**/${repo}*.deb" />
+                <include name="**/*.rpm" />
+                <include name="**/*.deb" />
             </fileset>
             <mapper type="flatten" />
         </move>
