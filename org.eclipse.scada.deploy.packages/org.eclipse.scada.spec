@@ -102,8 +102,8 @@ fi
 %{_bindir}/es*
 %{_bindir}/hds-replicate-once
 %if 0%{?suse_version} # suse has a different perl installation
-%dir %{__libdir}/perl5/site_perl/EclipseSCADA
-%{__libdir}/perl5/site_perl/EclipseSCADA/*
+%dir %{_libdir}/perl5/site_perl/EclipseSCADA
+%{_libdir}/perl5/site_perl/EclipseSCADA/*
 %else
 %dir %{_datadir}/perl5/EclipseSCADA
 %{_datadir}/perl5/EclipseSCADA/*
