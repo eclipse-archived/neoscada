@@ -7,11 +7,13 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - also add <p2repo>/plugins/*.jar to the classpath
 ##################################################################################
 package EclipseSCADA::Base;
 
 use strict;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
+use File::Find;
 
 require Exporter;
 require Carp;
@@ -26,17 +28,28 @@ $VERSION = '0.01';
 
 sub classpath () {
    my @classpath = ();
+
+# home/jar   
+
+   find ( sub {
+	push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
+   }, home()."/jar" );
+
+# p2 repos
+
+   my @repos = ();
+   find ( { no_chdir => 1, wanted => sub {
+	my $plugins = $File::Find::name ."/plugins";
+	push @repos, $plugins if -d $plugins;
+   }}, "/usr/share/eclipsescada/p2" );
+
+   find ( sub {
+	push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
+   }, @repos );
    
-   my $where = home() . "/jar";
-   my $next;
-   while (defined($next = <$where/*.jar>)) {
-     if ( -r $next ) 
-     {
-       push @classpath, $next;    
-     }
-   }
    return @classpath;
 }
+
 
 sub home () {
   Carp::croak ( "'ECLIPSE_SCADA_HOME' not set") unless $ENV{"ECLIPSE_SCADA_HOME"};
