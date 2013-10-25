@@ -181,7 +181,6 @@
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
-											<filemode>0644</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
 											<sources>
@@ -215,7 +214,6 @@
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
-											<filemode>0644</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
 											<sources>
