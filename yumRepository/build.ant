@@ -82,6 +82,7 @@
         <mkdir dir="${repo.base}"/>
 		<mkdir dir="${repo.base}/noarch"/>
 		<mkdir dir="${repo.base}/x86_64"/>
+        <mkdir dir="${repo.base}/i386"/>
     </target>
     
     <!-- - - - - - - - - - - - - - - - - - 
