@@ -60,10 +60,10 @@ A deployment system for P2/Equinox based application of the Eclipse SCADA system
 %setup -q
 
 %build
-DIST=%{distribution} make
+make DIST=%{distribution}
 
 %install
-make DESTDIR=%{buildroot} install
+make DIST=%{distribution} DESTDIR=%{buildroot} install
 
 %clean
 [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
