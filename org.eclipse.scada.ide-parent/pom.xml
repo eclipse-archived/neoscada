@@ -187,7 +187,7 @@
 		<module>../org.eclipse.scada.configuration.world.editor</module>
 
 		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
-	<module>../org.eclipse.scada.da.server.ui</module><module>../org.eclipse.scada.da.server.ui.launcher</module></modules>
+	<module>../org.eclipse.scada.da.server.ui</module><module>../org.eclipse.scada.da.server.ui.launcher</module><module>../org.eclipse.scada.configuration.memory.manager.lib</module></modules>
 
 	<!-- sign -->
 	<profiles>
