@@ -79,9 +79,9 @@ is active.
         <echo message="${repo}.x86_64.rpmFileName=${rpmText.x86_64}" />
         <echo message="${repo}.i386.rpmFileName=${rpmText.i386}" />
         
-        <echo message="${repo}.i386.rpmFileName=${rpmText.i386}
+        <echo file="${output}/rpm.properties">${repo}.i386.rpmFileName=${rpmText.i386}
 ${repo}.x86_64.rpmFileName=${rpmText.x86_64}
-" file="${output}/rpm.properties" />
+</echo>
     </target>
 
     <!-- ================================= 
