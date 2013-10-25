@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.eclipse.scada.external"
-      label="Eclipse SCADA 3rd party modules"
-      version="0.1.0.qualifier">
+      label="%featureName"
+      version="0.1.0.qualifier"
+      provider-name="%providerName">
 
    <description>
       %description

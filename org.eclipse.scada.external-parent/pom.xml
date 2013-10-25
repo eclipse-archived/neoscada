@@ -134,6 +134,8 @@
 		<module>../org.eclipse.scada.external.feature</module>
 		<module>../org.eclipse.scada.external.sdk.feature</module>
 		
+		<module>../org.eclipse.scada.external.orbit.feature</module>
+		
 		<module>../org.apache.commons.daemon</module>
 		<module>../org.apache.mina.core</module>
 		<module>../org.apache.mina.filter.compression</module>

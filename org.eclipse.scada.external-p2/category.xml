@@ -6,8 +6,14 @@
    <feature url="features/org.eclipse.scada.external.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.external.sdk" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.external.sdk.category"/>
    </feature>
-   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse SCADA (Incubation)">
-   </category-def>
-   <category-def name="org.eclipse.scada.external.sdk.category" label="3rd party libraries used by Eclipse SCADA (SDK) (Incubation)">
+   <feature url="features/org.eclipse.scada.external.orbit_0.1.0.qualifier.jar" id="org.eclipse.scada.external.orbit" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.external.orbit.category"/>
+   </feature>
+   <category-def name="org.eclipse.scada.external.category" label="3rd party libraries used by Eclipse SCADA (Incubation)"/>
+   <category-def name="org.eclipse.scada.external.sdk.category" label="3rd party libraries used by Eclipse SCADA (SDK) (Incubation)"/>
+   <category-def name="org.eclipse.scada.external.orbit.category" label="Eclipse SCADA dependecies from Orbit">
+      <description>
+         All dependencies of Eclipse SCADA coming from Eclipse Orbit.
+      </description>
    </category-def>
 </site>
