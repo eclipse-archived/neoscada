@@ -9,87 +9,94 @@ Things to do after the main build
 Called fromt he pom.xml when the profile "eclipse-hudson"
 is active.
     </description>
-	    
-    <property name="output" location="../output"/>
-    
+
+    <property name="output" location="../output" />
+
     <tstamp>
-    	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
+        <format property="timestamp" pattern="yyyyMMdd-HHmm" />
     </tstamp>
-        
-    <property name="buildType" value="I"/>
-    <property name="buildId" value="${timestamp}"/>
-    
+
+    <property name="buildType" value="I" />
+    <property name="buildId" value="${timestamp}" />
+
     <!-- the root of all -->
-    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
-    
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+
     <!-- the base where drops will be placed for this repository -->
-    <property name="download.base" location="${download.root}/${repo}/drops"/>
-    
+    <property name="download.base" location="${download.root}/${repo}/drops" />
+
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
-    
+    <property name="download.dir" location="${download.base}/${buildType}${buildId}" />
+
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build">
+    <target name="default" depends="clean,build,file">
     </target>
-    
+
     <!-- ================================= 
           target: clean
          ================================= -->
     <target name="clean">
-        <delete dir="${output}"/>
+        <delete dir="${output}" />
     </target>
-    
+
     <!-- ================================= 
           target: build
          ================================= -->
     <target name="build">
-        <mkdir dir="${output}"/>
-        <mkdir dir="${output}/p2"/>
-            
+        <mkdir dir="${output}" />
+        <mkdir dir="${output}/p2" />
+
         <move todir="${output}">
             <fileset dir=".">
-                <include name="target/products/${repo}*.zip"/>
-                <include name="target/rpm/**/${repo}*.rpm"/>
-                <include name="target/**/${repo}*.deb"/>
+                <include name="target/products/${repo}*.zip" />
+                <include name="target/rpm/**/${repo}*.rpm" />
+                <include name="target/**/${repo}*.deb" />
             </fileset>
-            <mapper type="flatten"/>
+            <mapper type="flatten" />
         </move>
-   </target>
+    </target>
 
-	<!-- ================================= 
+    <!-- ================================= 
           target: file
          ================================= -->
     <target name="file">
-		<fileset id="rpms" dir="${output}">
-			<include name="*.rpm"/>
-		</fileset>
+        <fileset id="rpms.x86_64" dir="${output}">
+            <include name="*.x86_64.rpm" />
+        </fileset>
+        <fileset id="rpms.i386" dir="${output}">
+            <include name="*.i386.rpm" />
+        </fileset>
 
-		<pathconvert property="rpmText" refid="rpms" pathsep="\n">
-			<mapper type="flatten"/>
-		</pathconvert>
+        <pathconvert property="rpmText.x86_64" refid="rpms.x86_64" pathsep="\n">
+            <mapper type="flatten" />
+        </pathconvert>
 
-		<echo message="${repo}.rpmFileName=${rpmText}" />
-		<echo message="${repo}.rpmFileName=${rpmText}
-" file="${output}/rpm.properties"/>
-	</target>
-    
+        <pathconvert property="rpmText.i386" refid="rpms.i386" pathsep="\n">
+            <mapper type="flatten" />
+        </pathconvert>
+
+        <echo message="${repo}.x86_64..rpmFileName=${rpmText.x86_64}" />
+        <echo message="${repo}.i386.rpmFileName=${rpmText.i386}
+" file="${output}/rpm.properties" />
+    </target>
+
     <!-- ================================= 
           target: copy
          ================================= -->
     <target name="copy" unless="skip.copy">
-        <echo message="Download Directory: ${download.dir}"/>
-        
-        <mkdir dir="${download.dir}"/>
-        <mkdir dir="${download.dir}/pack"/>
-        
+        <echo message="Download Directory: ${download.dir}" />
+
+        <mkdir dir="${download.dir}" />
+        <mkdir dir="${download.dir}/pack" />
+
         <copy todir="${download.dir}">
             <fileset dir="${output}/p2" />
         </copy>
         <copy todir="${download.dir}/pack">
             <fileset dir="${output}">
-                <include name="${repo}.p2-*.zip"/>
+                <include name="${repo}.p2-*.zip" />
             </fileset>
         </copy>
     </target>
