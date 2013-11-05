@@ -29,9 +29,7 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.WorldPackage;
-import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
 import org.eclipse.scada.da.server.osgi.modbus.RequestType;
 
 /**
@@ -143,9 +141,6 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         // Initialize simple dependencies
         InfrastructurePackage.eINSTANCE.eClass ();
         MemoryPackage.eINSTANCE.eClass ();
-        OsgiPackage.eINSTANCE.eClass ();
-        ProfilePackage.eINSTANCE.eClass ();
-        DeploymentPackage.eINSTANCE.eClass ();
         XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects

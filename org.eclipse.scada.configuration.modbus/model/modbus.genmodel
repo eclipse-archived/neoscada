@@ -4,7 +4,7 @@
     modelDirectory="/org.eclipse.scada.configuration.modbus/src" modelPluginID="org.eclipse.scada.configuration.modbus"
     modelName="Modbus" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//configuration ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalize ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.memory/model/memory.genmodel#//memory ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.memory/model/memory.genmodel#//memory ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization"
     operationReflection="true" importOrganizing="true">
   <foreignModel>modbus.ecore</foreignModel>
   <genPackages prefix="Modbus" basePackage="org.eclipse.scada.configuration" resource="XMI"
