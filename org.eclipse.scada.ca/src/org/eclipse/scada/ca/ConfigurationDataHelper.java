@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,9 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor enhancements
  *******************************************************************************/
 package org.eclipse.scada.ca;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -247,6 +249,65 @@ public class ConfigurationDataHelper
         {
             return str;
         }
+    }
+
+    /**
+     * Get a whitelisted string from the configuration data
+     * 
+     * @param name
+     *            the name of the parameter to get
+     * @param whitelist
+     *            the list of allowed values
+     * @return the string data
+     * @throws IllegalArgumentException
+     *             if the string is not set
+     */
+    public String getStringOfChecked ( final String name, final Collection<String> whitelisted ) throws IllegalArgumentException
+    {
+        final String str = this.data.get ( name );
+        if ( str == null )
+        {
+            throw new IllegalArgumentException ( String.format ( "'%s' was null, but must be on of %s", name, whitelisted ) );
+        }
+        else
+        {
+            if ( whitelisted.contains ( str ) )
+            {
+                return str;
+            }
+            throw new IllegalArgumentException ( String.format ( "'%s' is not part of the allowed parameters (%s)", str, whitelisted ) );
+        }
+    }
+
+    /**
+     * Get a whitelisted string from the configuration data
+     * 
+     * @param name
+     *            the name of the parameter to get
+     * @param defaultValue
+     *            the default value
+     * @param whitelist
+     *            the list of allowed values
+     * @return the string data
+     * @throws IllegalArgumentException
+     *             if the string is not set
+     */
+    public String getStringOfChecked ( final String name, final String defaultValue, final Collection<String> whitelisted ) throws IllegalArgumentException
+    {
+        if ( !whitelisted.contains ( defaultValue ) )
+        {
+            throw new IllegalArgumentException ( String.format ( "the defaultValue '%s' is not part of the allowed parameters (%s)", defaultValue, whitelisted ) );
+        }
+        String str = this.data.get ( name );
+        if ( str == null )
+        {
+            str = defaultValue;
+        }
+        if ( whitelisted.contains ( str ) )
+        {
+            return str;
+        }
+        throw new IllegalArgumentException ( String.format ( "'%s' is not part of the allowed parameters (%s)", str, whitelisted ) );
     }
 
     /**
