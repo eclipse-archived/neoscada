@@ -17,6 +17,8 @@ public interface Constants
 
     public static final int RTU_HEADER_SIZE = 3;
 
+    public static final int TCP_HEADER_SIZE = 7;
+
     public static final byte FUNCTION_CODE_ERROR_FLAG = (byte)0x80;
 
     public static final byte FUNCTION_CODE_READ_DISCRETE_INPUTS = 0x02;
