@@ -45,6 +45,9 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
                 throw new ModbusProtocolError ( String.format ( "protocol identifier must be 0, but was: %d", protocolIdentifier ) );
             }
 
+            // remove length
+            in.getShort ();
+            
             // get unit id
             final byte unitIdentifier = in.get ();
 
