@@ -114,6 +114,7 @@ public class ModbusMaster extends AbstractConnectionDevice
             case TYPE_TCP:
                 connector.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( new ModbusTcpEncoder (), new ModbusTcpDecoder () ) );
                 connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter () );
+                break;
             case TYPE_RTU:
                 // convert milliseconds to microseconds to allow more accurate timing
                 final ModbusRtuDecoder rtuDecoder = new ModbusRtuDecoder ( getExecutor (), Double.valueOf ( this.interFrameDelay * 1000 ).longValue (), TimeUnit.MICROSECONDS );
