@@ -25,6 +25,8 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getSlaves <em>Slaves</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getProtocolType <em>Protocol Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getInterFrameDelay <em>Inter Frame Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +103,61 @@ public interface ModbusMaster extends EObject
      * @generated
      */
     void setId ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Protocol Type</b></em>' attribute.
+     * The default value is <code>"TCP"</code>.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.modbus.ProtocolType}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Protocol Type</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Protocol Type</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ProtocolType
+     * @see #setProtocolType(ProtocolType)
+     * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusMaster_ProtocolType()
+     * @model default="TCP" required="true"
+     * @generated
+     */
+    ProtocolType getProtocolType ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getProtocolType <em>Protocol Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Protocol Type</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ProtocolType
+     * @see #getProtocolType()
+     * @generated
+     */
+    void setProtocolType ( ProtocolType value );
+
+    /**
+     * Returns the value of the '<em><b>Inter Frame Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Inter Frame Delay</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Inter Frame Delay</em>' attribute.
+     * @see #setInterFrameDelay(Double)
+     * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusMaster_InterFrameDelay()
+     * @model dataType="org.eclipse.emf.ecore.xml.type.DoubleObject"
+     * @generated
+     */
+    Double getInterFrameDelay ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getInterFrameDelay <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Inter Frame Delay</em>' attribute.
+     * @see #getInterFrameDelay()
+     * @generated
+     */
+    void setInterFrameDelay ( Double value );
 
 } // ModbusMaster

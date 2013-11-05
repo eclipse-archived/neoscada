@@ -69,6 +69,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
             addNamePropertyDescriptor ( object );
             addPortPropertyDescriptor ( object );
             addProtocolTypePropertyDescriptor ( object );
+            addInterFrameDelayPropertyDescriptor ( object );
             addTypeSystemPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
@@ -158,6 +159,29 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         getString ( "_UI_ModbusDevice_protocolType_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDevice_protocolType_feature", "_UI_ModbusDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         ModbusPackage.Literals.MODBUS_DEVICE__PROTOCOL_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Inter Frame Delay feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addInterFrameDelayPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ModbusDevice_interFrameDelay_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusDevice_interFrameDelay_feature", "_UI_ModbusDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ModbusPackage.Literals.MODBUS_DEVICE__INTER_FRAME_DELAY,
                         true,
                         false,
                         false,
@@ -267,6 +291,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
             case ModbusPackage.MODBUS_DEVICE__NAME:
             case ModbusPackage.MODBUS_DEVICE__PORT:
             case ModbusPackage.MODBUS_DEVICE__PROTOCOL_TYPE:
+            case ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModbusPackage.MODBUS_DEVICE__SLAVES:

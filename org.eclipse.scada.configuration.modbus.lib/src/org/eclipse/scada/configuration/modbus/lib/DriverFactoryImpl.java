@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.modbus.ModbusFactory;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
+import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
 import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
@@ -93,6 +94,8 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
 
         final Endpoint ep = Worlds.createEndpoint ( device.getPort () );
         master.setEndpoint ( ep );
+        master.setProtocolType ( device.getProtocolType () );
+        master.setInterFrameDelay ( device.getInterFrameDelay () );
 
         // lookup node
         final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
@@ -132,6 +135,10 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
 
     private void validateDevice ( final IValidationContext ctx, final EquinoxDriver driver, final ModbusDevice device, final Collection<IStatus> result )
     {
+        if ( device.getProtocolType () == ProtocolType.TCP && device.getInterFrameDelay () != null )
+        {
+            result.add ( ConstraintStatus.createStatus ( ctx, device, null, "InterFrameDelay must not be set for TCP devices." ) );
+        }
         for ( final ModbusSlave slave : device.getSlaves () )
         {
             if ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF )

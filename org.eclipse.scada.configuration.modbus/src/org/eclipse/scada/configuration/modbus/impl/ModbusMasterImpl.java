@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
+import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.Endpoint;
 
 /**
@@ -36,6 +37,8 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl#getSlaves <em>Slaves</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl#getProtocolType <em>Protocol Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl#getInterFrameDelay <em>Inter Frame Delay</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +85,46 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getProtocolType() <em>Protocol Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProtocolType()
+     * @generated
+     * @ordered
+     */
+    protected static final ProtocolType PROTOCOL_TYPE_EDEFAULT = ProtocolType.TCP;
+
+    /**
+     * The cached value of the '{@link #getProtocolType() <em>Protocol Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProtocolType()
+     * @generated
+     * @ordered
+     */
+    protected ProtocolType protocolType = PROTOCOL_TYPE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getInterFrameDelay() <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInterFrameDelay()
+     * @generated
+     * @ordered
+     */
+    protected static final Double INTER_FRAME_DELAY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getInterFrameDelay() <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInterFrameDelay()
+     * @generated
+     * @ordered
+     */
+    protected Double interFrameDelay = INTER_FRAME_DELAY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -189,6 +232,52 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
      * <!-- end-user-doc -->
      * @generated
      */
+    public ProtocolType getProtocolType ()
+    {
+        return protocolType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setProtocolType ( ProtocolType newProtocolType )
+    {
+        ProtocolType oldProtocolType = protocolType;
+        protocolType = newProtocolType == null ? PROTOCOL_TYPE_EDEFAULT : newProtocolType;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE, oldProtocolType, protocolType ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Double getInterFrameDelay ()
+    {
+        return interFrameDelay;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInterFrameDelay ( Double newInterFrameDelay )
+    {
+        Double oldInterFrameDelay = interFrameDelay;
+        interFrameDelay = newInterFrameDelay;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY, oldInterFrameDelay, interFrameDelay ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -218,6 +307,10 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
                 return basicGetEndpoint ();
             case ModbusPackage.MODBUS_MASTER__ID:
                 return getId ();
+            case ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE:
+                return getProtocolType ();
+            case ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY:
+                return getInterFrameDelay ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -243,6 +336,12 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
             case ModbusPackage.MODBUS_MASTER__ID:
                 setId ( (String)newValue );
                 return;
+            case ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE:
+                setProtocolType ( (ProtocolType)newValue );
+                return;
+            case ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY:
+                setInterFrameDelay ( (Double)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -266,6 +365,12 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
             case ModbusPackage.MODBUS_MASTER__ID:
                 setId ( ID_EDEFAULT );
                 return;
+            case ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE:
+                setProtocolType ( PROTOCOL_TYPE_EDEFAULT );
+                return;
+            case ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY:
+                setInterFrameDelay ( INTER_FRAME_DELAY_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -286,6 +391,10 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
                 return endpoint != null;
             case ModbusPackage.MODBUS_MASTER__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE:
+                return protocolType != PROTOCOL_TYPE_EDEFAULT;
+            case ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY:
+                return INTER_FRAME_DELAY_EDEFAULT == null ? interFrameDelay != null : !INTER_FRAME_DELAY_EDEFAULT.equals ( interFrameDelay );
         }
         return super.eIsSet ( featureID );
     }
@@ -304,6 +413,10 @@ public class ModbusMasterImpl extends MinimalEObjectImpl.Container implements Mo
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (id: " ); //$NON-NLS-1$
         result.append ( id );
+        result.append ( ", protocolType: " ); //$NON-NLS-1$
+        result.append ( protocolType );
+        result.append ( ", interFrameDelay: " ); //$NON-NLS-1$
+        result.append ( interFrameDelay );
         result.append ( ')' );
         return result.toString ();
     }

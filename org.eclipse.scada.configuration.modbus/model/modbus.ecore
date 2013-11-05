@@ -5,7 +5,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModbusDevice" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolType" lowerBound="1"
-        eType="#//ProtocolType" defaultValueLiteral="RTU"/>
+        eType="#//ProtocolType" defaultValueLiteral="TCP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interFrameDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="slaves" upperBound="-1"
         eType="#//ModbusSlave" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeSystem" lowerBound="1"
@@ -23,7 +24,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProtocolType">
-    <eLiterals name="RTU"/>
+    <eLiterals name="TCP" literal="TCP"/>
+    <eLiterals name="RTU" value="1" literal="RTU"/>
+    <eLiterals name="ASCII" value="2" literal="ASCII"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusMaster">
     <eStructuralFeatures xsi:type="ecore:EReference" name="slaves" upperBound="-1"
@@ -31,6 +34,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolType" lowerBound="1"
+        eType="#//ProtocolType" defaultValueLiteral="TCP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interFrameDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//DoubleObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusBlock">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -102,21 +102,6 @@
     <element xmi:type="ecore:EClass" href="modbus.ecore#//ModbusSlave"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_znUBAiBvEeOLA4w2U3e-aw" x="264" y="564"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_CNlG0CBwEeOLA4w2U3e-aw" type="1005">
-    <children xmi:type="notation:Node" xmi:id="_CNmU8CBwEeOLA4w2U3e-aw" type="4010"/>
-    <children xmi:type="notation:Node" xmi:id="_CNm8ACBwEeOLA4w2U3e-aw" type="5008">
-      <children xmi:type="notation:Node" xmi:id="_DKZUYCBwEeOLA4w2U3e-aw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="modbus.ecore#//ProtocolType/RTU"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_DKZUYSBwEeOLA4w2U3e-aw"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_CNm8ASBwEeOLA4w2U3e-aw"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_CNm8AiBwEeOLA4w2U3e-aw"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_CNm8AyBwEeOLA4w2U3e-aw"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_CNlG0SBwEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="modbus.ecore#//ProtocolType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CNlG0iBwEeOLA4w2U3e-aw" x="84" y="252"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_J90wACBwEeOLA4w2U3e-aw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_J91-ICBwEeOLA4w2U3e-aw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_J91-ISBwEeOLA4w2U3e-aw" type="5001">
@@ -221,6 +206,17 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TC6KkSCDEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TC6KkiCDEeOLA4w2U3e-aw" x="348" y="252"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_4w6Q0EX6EeOZB5cG17JO2A" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_4w97MEX6EeOZB5cG17JO2A" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_4w97MUX6EeOZB5cG17JO2A" type="5008">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_4w-iQEX6EeOZB5cG17JO2A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_4w-iQUX6EeOZB5cG17JO2A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_4w-iQkX6EeOZB5cG17JO2A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_4w6Q0UX6EeOZB5cG17JO2A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="modbus.ecore#//ProtocolType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4w6Q0kX6EeOZB5cG17JO2A" x="93" y="249"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_vkOB0RP0EeOOU6PNVQrq1A"/>
   <element xmi:type="ecore:EPackage" href="modbus.ecore#/"/>

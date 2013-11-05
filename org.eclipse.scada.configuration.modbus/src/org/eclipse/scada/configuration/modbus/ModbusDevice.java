@@ -24,6 +24,7 @@ import org.eclipse.scada.configuration.memory.TypeSystem;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getPort <em>Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getProtocolType <em>Protocol Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getInterFrameDelay <em>Inter Frame Delay</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getSlaves <em>Slaves</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getTypeSystem <em>Type System</em>}</li>
  * </ul>
@@ -106,7 +107,7 @@ public interface ModbusDevice extends Device
 
     /**
      * Returns the value of the '<em><b>Protocol Type</b></em>' attribute.
-     * The default value is <code>"RTU"</code>.
+     * The default value is <code>"TCP"</code>.
      * The literals are from the enumeration {@link org.eclipse.scada.configuration.modbus.ProtocolType}.
      * <!-- begin-user-doc -->
      * <p>
@@ -118,7 +119,7 @@ public interface ModbusDevice extends Device
      * @see org.eclipse.scada.configuration.modbus.ProtocolType
      * @see #setProtocolType(ProtocolType)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusDevice_ProtocolType()
-     * @model default="RTU" required="true"
+     * @model default="TCP" required="true"
      * @generated
      */
     ProtocolType getProtocolType ();
@@ -133,4 +134,30 @@ public interface ModbusDevice extends Device
      * @generated
      */
     void setProtocolType ( ProtocolType value );
+
+    /**
+     * Returns the value of the '<em><b>Inter Frame Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Inter Frame Delay</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Inter Frame Delay</em>' attribute.
+     * @see #setInterFrameDelay(Double)
+     * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusDevice_InterFrameDelay()
+     * @model
+     * @generated
+     */
+    Double getInterFrameDelay ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getInterFrameDelay <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Inter Frame Delay</em>' attribute.
+     * @see #getInterFrameDelay()
+     * @generated
+     */
+    void setInterFrameDelay ( Double value );
 } // ModbusDevice

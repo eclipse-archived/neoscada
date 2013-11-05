@@ -125,13 +125,22 @@ public interface ModbusPackage extends EPackage
     int MODBUS_DEVICE__PROTOCOL_TYPE = InfrastructurePackage.DEVICE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Inter Frame Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DEVICE__INTER_FRAME_DELAY = InfrastructurePackage.DEVICE_FEATURE_COUNT + 2;
+
+    /**
      * The feature id for the '<em><b>Slaves</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODBUS_DEVICE__SLAVES = InfrastructurePackage.DEVICE_FEATURE_COUNT + 2;
+    int MODBUS_DEVICE__SLAVES = InfrastructurePackage.DEVICE_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Type System</b></em>' reference.
@@ -140,7 +149,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_DEVICE__TYPE_SYSTEM = InfrastructurePackage.DEVICE_FEATURE_COUNT + 3;
+    int MODBUS_DEVICE__TYPE_SYSTEM = InfrastructurePackage.DEVICE_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Device</em>' class.
@@ -149,7 +158,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_DEVICE_FEATURE_COUNT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 4;
+    int MODBUS_DEVICE_FEATURE_COUNT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 5;
 
     /**
      * The number of operations of the '<em>Device</em>' class.
@@ -371,13 +380,31 @@ public interface ModbusPackage extends EPackage
     int MODBUS_MASTER__ID = 2;
 
     /**
+     * The feature id for the '<em><b>Protocol Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_MASTER__PROTOCOL_TYPE = 3;
+
+    /**
+     * The feature id for the '<em><b>Inter Frame Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_MASTER__INTER_FRAME_DELAY = 4;
+
+    /**
      * The number of structural features of the '<em>Master</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODBUS_MASTER_FEATURE_COUNT = 3;
+    int MODBUS_MASTER_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Master</em>' class.
@@ -554,6 +581,17 @@ public interface ModbusPackage extends EPackage
     EAttribute getModbusDevice_ProtocolType ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusDevice#getInterFrameDelay <em>Inter Frame Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Inter Frame Delay</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDevice#getInterFrameDelay()
+     * @see #getModbusDevice()
+     * @generated
+     */
+    EAttribute getModbusDevice_InterFrameDelay ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusDriver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -659,6 +697,28 @@ public interface ModbusPackage extends EPackage
      * @generated
      */
     EAttribute getModbusMaster_Id ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getProtocolType <em>Protocol Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Protocol Type</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusMaster#getProtocolType()
+     * @see #getModbusMaster()
+     * @generated
+     */
+    EAttribute getModbusMaster_ProtocolType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusMaster#getInterFrameDelay <em>Inter Frame Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Inter Frame Delay</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusMaster#getInterFrameDelay()
+     * @see #getModbusMaster()
+     * @generated
+     */
+    EAttribute getModbusMaster_InterFrameDelay ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusBlock <em>Block</em>}'.
@@ -835,6 +895,14 @@ public interface ModbusPackage extends EPackage
         EAttribute MODBUS_DEVICE__PROTOCOL_TYPE = eINSTANCE.getModbusDevice_ProtocolType ();
 
         /**
+         * The meta object literal for the '<em><b>Inter Frame Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_DEVICE__INTER_FRAME_DELAY = eINSTANCE.getModbusDevice_InterFrameDelay ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl <em>Driver</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -919,6 +987,22 @@ public interface ModbusPackage extends EPackage
          * @generated
          */
         EAttribute MODBUS_MASTER__ID = eINSTANCE.getModbusMaster_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_MASTER__PROTOCOL_TYPE = eINSTANCE.getModbusMaster_ProtocolType ();
+
+        /**
+         * The meta object literal for the '<em><b>Inter Frame Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_MASTER__INTER_FRAME_DELAY = eINSTANCE.getModbusMaster_InterFrameDelay ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusBlockImpl <em>Block</em>}' class.

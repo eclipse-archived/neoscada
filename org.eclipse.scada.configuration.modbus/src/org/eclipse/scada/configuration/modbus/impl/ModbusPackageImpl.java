@@ -174,7 +174,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      */
     public EReference getModbusDevice_Slaves ()
     {
-        return (EReference)modbusDeviceEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)modbusDeviceEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -184,7 +184,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      */
     public EReference getModbusDevice_TypeSystem ()
     {
-        return (EReference)modbusDeviceEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)modbusDeviceEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -205,6 +205,16 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
     public EAttribute getModbusDevice_ProtocolType ()
     {
         return (EAttribute)modbusDeviceEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusDevice_InterFrameDelay ()
+    {
+        return (EAttribute)modbusDeviceEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -305,6 +315,26 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
     public EAttribute getModbusMaster_Id ()
     {
         return (EAttribute)modbusMasterEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusMaster_ProtocolType ()
+    {
+        return (EAttribute)modbusMasterEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusMaster_InterFrameDelay ()
+    {
+        return (EAttribute)modbusMasterEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -441,6 +471,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         modbusDeviceEClass = createEClass ( MODBUS_DEVICE );
         createEAttribute ( modbusDeviceEClass, MODBUS_DEVICE__PORT );
         createEAttribute ( modbusDeviceEClass, MODBUS_DEVICE__PROTOCOL_TYPE );
+        createEAttribute ( modbusDeviceEClass, MODBUS_DEVICE__INTER_FRAME_DELAY );
         createEReference ( modbusDeviceEClass, MODBUS_DEVICE__SLAVES );
         createEReference ( modbusDeviceEClass, MODBUS_DEVICE__TYPE_SYSTEM );
 
@@ -456,6 +487,8 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         createEReference ( modbusMasterEClass, MODBUS_MASTER__SLAVES );
         createEReference ( modbusMasterEClass, MODBUS_MASTER__ENDPOINT );
         createEAttribute ( modbusMasterEClass, MODBUS_MASTER__ID );
+        createEAttribute ( modbusMasterEClass, MODBUS_MASTER__PROTOCOL_TYPE );
+        createEAttribute ( modbusMasterEClass, MODBUS_MASTER__INTER_FRAME_DELAY );
 
         modbusBlockEClass = createEClass ( MODBUS_BLOCK );
         createEAttribute ( modbusBlockEClass, MODBUS_BLOCK__ID );
@@ -517,7 +550,8 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         // Initialize classes, features, and operations; add parameters
         initEClass ( modbusDeviceEClass, ModbusDevice.class, "ModbusDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getModbusDevice_Port (), ecorePackage.getEShort (), "port", null, 1, 1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getModbusDevice_ProtocolType (), this.getProtocolType (), "protocolType", "RTU", 1, 1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getModbusDevice_ProtocolType (), this.getProtocolType (), "protocolType", "TCP", 1, 1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getModbusDevice_InterFrameDelay (), ecorePackage.getEDoubleObject (), "interFrameDelay", null, 0, 1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getModbusDevice_Slaves (), this.getModbusSlave (), null, "slaves", null, 0, -1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getModbusDevice_TypeSystem (), theMemoryPackage.getTypeSystem (), null, "typeSystem", null, 1, 1, ModbusDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
@@ -533,6 +567,8 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEReference ( getModbusMaster_Slaves (), this.getModbusSlave (), null, "slaves", null, 0, -1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getModbusMaster_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getModbusMaster_Id (), ecorePackage.getEString (), "id", null, 1, 1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusMaster_ProtocolType (), this.getProtocolType (), "protocolType", "TCP", 1, 1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getModbusMaster_InterFrameDelay (), theXMLTypePackage.getDoubleObject (), "interFrameDelay", null, 0, 1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( modbusBlockEClass, ModbusBlock.class, "ModbusBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getModbusBlock_Id (), ecorePackage.getEString (), "id", null, 1, 1, ModbusBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -545,7 +581,9 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
 
         // Initialize enums and add enum literals
         initEEnum ( protocolTypeEEnum, ProtocolType.class, "ProtocolType" ); //$NON-NLS-1$
+        addEEnumLiteral ( protocolTypeEEnum, ProtocolType.TCP );
         addEEnumLiteral ( protocolTypeEEnum, ProtocolType.RTU );
+        addEEnumLiteral ( protocolTypeEEnum, ProtocolType.ASCII );
 
         // Initialize data types
         initEDataType ( requestTypeEDataType, RequestType.class, "RequestType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

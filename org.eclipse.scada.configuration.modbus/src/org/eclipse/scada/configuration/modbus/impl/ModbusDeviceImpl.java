@@ -41,6 +41,7 @@ import org.eclipse.scada.configuration.modbus.ProtocolType;
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getPort <em>Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getProtocolType <em>Protocol Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getInterFrameDelay <em>Inter Frame Delay</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getSlaves <em>Slaves</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDeviceImpl#getTypeSystem <em>Type System</em>}</li>
  * </ul>
@@ -118,7 +119,7 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
      * @generated
      * @ordered
      */
-    protected static final ProtocolType PROTOCOL_TYPE_EDEFAULT = ProtocolType.RTU;
+    protected static final ProtocolType PROTOCOL_TYPE_EDEFAULT = ProtocolType.TCP;
 
     /**
      * The cached value of the '{@link #getProtocolType() <em>Protocol Type</em>}' attribute.
@@ -129,6 +130,26 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
      * @ordered
      */
     protected ProtocolType protocolType = PROTOCOL_TYPE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getInterFrameDelay() <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInterFrameDelay()
+     * @generated
+     * @ordered
+     */
+    protected static final Double INTER_FRAME_DELAY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getInterFrameDelay() <em>Inter Frame Delay</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInterFrameDelay()
+     * @generated
+     * @ordered
+     */
+    protected Double interFrameDelay = INTER_FRAME_DELAY_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getSlaves() <em>Slaves</em>}' containment reference list.
@@ -384,6 +405,29 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
      * <!-- end-user-doc -->
      * @generated
      */
+    public Double getInterFrameDelay ()
+    {
+        return interFrameDelay;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInterFrameDelay ( Double newInterFrameDelay )
+    {
+        Double oldInterFrameDelay = interFrameDelay;
+        interFrameDelay = newInterFrameDelay;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY, oldInterFrameDelay, interFrameDelay ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -453,6 +497,8 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
                 return getPort ();
             case ModbusPackage.MODBUS_DEVICE__PROTOCOL_TYPE:
                 return getProtocolType ();
+            case ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY:
+                return getInterFrameDelay ();
             case ModbusPackage.MODBUS_DEVICE__SLAVES:
                 return getSlaves ();
             case ModbusPackage.MODBUS_DEVICE__TYPE_SYSTEM:
@@ -488,6 +534,9 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
                 return;
             case ModbusPackage.MODBUS_DEVICE__PROTOCOL_TYPE:
                 setProtocolType ( (ProtocolType)newValue );
+                return;
+            case ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY:
+                setInterFrameDelay ( (Double)newValue );
                 return;
             case ModbusPackage.MODBUS_DEVICE__SLAVES:
                 getSlaves ().clear ();
@@ -525,6 +574,9 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
             case ModbusPackage.MODBUS_DEVICE__PROTOCOL_TYPE:
                 setProtocolType ( PROTOCOL_TYPE_EDEFAULT );
                 return;
+            case ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY:
+                setInterFrameDelay ( INTER_FRAME_DELAY_EDEFAULT );
+                return;
             case ModbusPackage.MODBUS_DEVICE__SLAVES:
                 getSlaves ().clear ();
                 return;
@@ -555,6 +607,8 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
                 return port != PORT_EDEFAULT;
             case ModbusPackage.MODBUS_DEVICE__PROTOCOL_TYPE:
                 return protocolType != PROTOCOL_TYPE_EDEFAULT;
+            case ModbusPackage.MODBUS_DEVICE__INTER_FRAME_DELAY:
+                return INTER_FRAME_DELAY_EDEFAULT == null ? interFrameDelay != null : !INTER_FRAME_DELAY_EDEFAULT.equals ( interFrameDelay );
             case ModbusPackage.MODBUS_DEVICE__SLAVES:
                 return slaves != null && !slaves.isEmpty ();
             case ModbusPackage.MODBUS_DEVICE__TYPE_SYSTEM:
@@ -583,6 +637,8 @@ public class ModbusDeviceImpl extends MinimalEObjectImpl.Container implements Mo
         result.append ( port );
         result.append ( ", protocolType: " ); //$NON-NLS-1$
         result.append ( protocolType );
+        result.append ( ", interFrameDelay: " ); //$NON-NLS-1$
+        result.append ( interFrameDelay );
         result.append ( ')' );
         return result.toString ();
     }

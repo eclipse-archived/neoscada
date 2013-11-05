@@ -66,6 +66,8 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
 
             addEndpointPropertyDescriptor ( object );
             addIdPropertyDescriptor ( object );
+            addProtocolTypePropertyDescriptor ( object );
+            addInterFrameDelayPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -108,6 +110,52 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
                         getString ( "_UI_ModbusMaster_id_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_id_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         ModbusPackage.Literals.MODBUS_MASTER__ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Protocol Type feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addProtocolTypePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ModbusMaster_protocolType_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_protocolType_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ModbusPackage.Literals.MODBUS_MASTER__PROTOCOL_TYPE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Inter Frame Delay feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addInterFrameDelayPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ModbusMaster_interFrameDelay_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusMaster_interFrameDelay_feature", "_UI_ModbusMaster_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ModbusPackage.Literals.MODBUS_MASTER__INTER_FRAME_DELAY,
                         true,
                         false,
                         false,
@@ -191,6 +239,8 @@ public class ModbusMasterItemProvider extends ItemProviderAdapter implements IEd
         switch ( notification.getFeatureID ( ModbusMaster.class ) )
         {
             case ModbusPackage.MODBUS_MASTER__ID:
+            case ModbusPackage.MODBUS_MASTER__PROTOCOL_TYPE:
+            case ModbusPackage.MODBUS_MASTER__INTER_FRAME_DELAY:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModbusPackage.MODBUS_MASTER__SLAVES:

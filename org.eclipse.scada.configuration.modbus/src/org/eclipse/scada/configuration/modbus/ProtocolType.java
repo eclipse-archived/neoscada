@@ -28,6 +28,15 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum ProtocolType implements Enumerator
 {
     /**
+     * The '<em><b>TCP</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #TCP_VALUE
+     * @generated
+     * @ordered
+     */
+    TCP ( 0, "TCP", "TCP" ),
+    /**
      * The '<em><b>RTU</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -35,7 +44,31 @@ public enum ProtocolType implements Enumerator
      * @generated
      * @ordered
      */
-    RTU ( 0, "RTU", "RTU" ); //$NON-NLS-1$ //$NON-NLS-2$
+    RTU ( 1, "RTU", "RTU" ),
+    /**
+     * The '<em><b>ASCII</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #ASCII_VALUE
+     * @generated
+     * @ordered
+     */
+    ASCII ( 2, "ASCII", "ASCII" ); //$NON-NLS-1$ //$NON-NLS-2$
+
+    /**
+     * The '<em><b>TCP</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>TCP</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #TCP
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int TCP_VALUE = 0;
 
     /**
      * The '<em><b>RTU</b></em>' literal value.
@@ -50,7 +83,22 @@ public enum ProtocolType implements Enumerator
      * @generated
      * @ordered
      */
-    public static final int RTU_VALUE = 0;
+    public static final int RTU_VALUE = 1;
+
+    /**
+     * The '<em><b>ASCII</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>ASCII</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #ASCII
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int ASCII_VALUE = 2;
 
     /**
      * An array of all the '<em><b>Protocol Type</b></em>' enumerators.
@@ -60,7 +108,9 @@ public enum ProtocolType implements Enumerator
      */
     private static final ProtocolType[] VALUES_ARRAY = new ProtocolType[]
     {
+            TCP,
             RTU,
+            ASCII,
     };
 
     /**
@@ -119,8 +169,12 @@ public enum ProtocolType implements Enumerator
     {
         switch ( value )
         {
+            case TCP_VALUE:
+                return TCP;
             case RTU_VALUE:
                 return RTU;
+            case ASCII_VALUE:
+                return ASCII;
         }
         return null;
     }

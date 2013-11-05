@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
+import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.scada.configuration.generator.world.oscar.EquinoxApplicationProcessor;
 import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
@@ -52,6 +53,11 @@ public class ModbusDriverProcessor extends EquinoxApplicationProcessor
 
         data.put ( "host", device.getEndpoint ().getNode ().getHostName () );
         data.put ( "port", "" + device.getEndpoint ().getPortNumber () );
+        data.put ( "protocolType", device.getProtocolType ().getLiteral () );
+        if ( device.getProtocolType () != ProtocolType.TCP && device.getInterFrameDelay () != null )
+        {
+            data.put ( "interFrameDelay", "" + device.getInterFrameDelay () );
+        }
 
         ctx.addData ( "org.eclipse.scada.da.server.osgi.modbus.masterDevice", id, data );
 
