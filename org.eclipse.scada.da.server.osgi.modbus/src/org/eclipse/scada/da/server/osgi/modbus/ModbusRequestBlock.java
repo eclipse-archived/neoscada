@@ -7,18 +7,21 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor fixes
  *******************************************************************************/
 
 package org.eclipse.scada.da.server.osgi.modbus;
 
+import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
 
 import org.eclipse.scada.da.server.common.memory.AbstractRequestBlock;
+import org.eclipse.scada.protocol.modbus.Constants;
 import org.eclipse.scada.protocol.modbus.io.ChecksumProtocolException;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
-import org.eclipse.scada.protocol.modbus.message.WriteDataRequest;
-import org.eclipse.scada.protocol.modbus.message.WriteSingleCoilRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -147,7 +150,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write bits when the block is of type %s", RequestType.COIL ) );
         }
-        this.slave.writeCommand ( new WriteSingleCoilRequest ( this.slave.getSlaveAddress (), toGlobalAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
+        this.slave.writeCommand ( new WriteSingleDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toGlobalAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
         requestUpdate ();
     }
 
@@ -158,7 +161,13 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write data when the block is of type %s", RequestType.HOLDING ) );
         }
-        this.slave.writeCommand ( new WriteDataRequest ( this.slave.getSlaveAddress (), toGlobalAddress ( blockAddress ), data ), this.request.getTimeout () );
+        if (data.length == 2) {
+            int value = ByteBuffer.wrap ( data ).getShort () & 0xFFFF;
+            this.slave.writeCommand ( new WriteSingleDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toGlobalAddress ( blockAddress ), value), this.request.getTimeout () );
+        } else {
+            this.slave.writeCommand ( new WriteMultiDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toGlobalAddress ( blockAddress ), data ), this.request.getTimeout () );
+        }
+        // FUNCTION_CODE_WRITE_MULTIPLE_COILS is not supported at the moment, since we do not support setting multiple bits at once.
         requestUpdate ();
     }
 
