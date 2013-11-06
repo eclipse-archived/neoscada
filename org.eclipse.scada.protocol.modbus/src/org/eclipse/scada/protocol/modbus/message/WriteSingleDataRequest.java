@@ -10,18 +10,28 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.message;
 
-public class WriteSingleCoilRequest extends BaseMessage
+public class WriteSingleDataRequest extends BaseMessage
 {
+    private static final int TRUE = 0xFF00;
+    
+    private static final int FALSE = 0x0000;
 
     private final int address;
 
-    private final boolean value;
+    private final int value;
 
-    public WriteSingleCoilRequest ( final byte unitIdentifier, final int address, final boolean value )
+    public WriteSingleDataRequest ( final byte unitIdentifier, final byte functionCode, final int address, final int value )
     {
-        super ( unitIdentifier, (byte)0x05 );
+        super ( unitIdentifier, functionCode );
         this.address = address;
         this.value = value;
+    }
+
+    public WriteSingleDataRequest ( final byte unitIdentifier, final byte functionCode, final int address, final boolean value )
+    {
+        super ( unitIdentifier, functionCode );
+        this.address = address;
+        this.value = value ? TRUE : FALSE;
     }
 
     public int getAddress ()
@@ -29,9 +39,16 @@ public class WriteSingleCoilRequest extends BaseMessage
         return this.address;
     }
 
-    public boolean getValue ()
+    public int getValue ()
     {
         return this.value;
     }
-
+    
+    public boolean isTrue() {
+        return this.value == TRUE;
+    }
+    
+    public boolean isFalse() {
+        return this.value == FALSE;
+    }
 }

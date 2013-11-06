@@ -17,9 +17,9 @@ import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.Pdu;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
-import org.eclipse.scada.protocol.modbus.message.WriteDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteMultiDataResponse;
-import org.eclipse.scada.protocol.modbus.message.WriteSingleCoilRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 
 public class ModbusProtocol
@@ -34,9 +34,9 @@ public class ModbusProtocol
             data.putUnsignedShort ( readMessage.getStartAddress () );
             data.putUnsignedShort ( readMessage.getQuantity () );
         }
-        else if ( message instanceof WriteDataRequest )
+        else if ( message instanceof WriteMultiDataRequest )
         {
-            final WriteDataRequest writeMessage = (WriteDataRequest)message;
+            final WriteMultiDataRequest writeMessage = (WriteMultiDataRequest)message;
             final int numberOfRegisters = writeMessage.getData ().length / 2;
             data.put ( writeMessage.getFunctionCode () );
             data.putUnsignedShort ( writeMessage.getStartAddress () );
@@ -44,13 +44,54 @@ public class ModbusProtocol
             data.putUnsigned ( writeMessage.getData ().length );
             data.put ( writeMessage.getData () );
         }
-        else if ( message instanceof WriteSingleCoilRequest )
+        else if ( message instanceof WriteSingleDataRequest )
         {
-            final WriteSingleCoilRequest writeMessage = (WriteSingleCoilRequest)message;
+            final WriteSingleDataRequest writeMessage = (WriteSingleDataRequest)message;
             data.put ( writeMessage.getFunctionCode () );
             data.putUnsignedShort ( writeMessage.getAddress () );
-            data.put ( writeMessage.getValue () ? (byte)0xFF : (byte)0x00 );
-            data.put ( (byte)0x00 );
+            data.putUnsignedShort ( writeMessage.getValue () );
+        }
+        else
+        {
+            throw new IllegalStateException ( String.format ( "Unsupported message type: %s", message.getClass () ) );
+        }
+
+        data.flip ();
+        return new Pdu ( message.getUnitIdentifier (), data );
+    }
+
+    public static Pdu encodeAsSlave ( final BaseMessage message )
+    {
+        final IoBuffer data = IoBuffer.allocate ( 256 );
+        if ( message instanceof ReadResponse )
+        {
+            final ReadResponse readResponseMessage = (ReadResponse)message;
+            data.put ( readResponseMessage.getFunctionCode () );
+            int length = readResponseMessage.getData ().remaining ();
+            data.put ( (byte)length );
+            byte[] remainingData = new byte[length];
+            readResponseMessage.getData ().get ( remainingData );
+            data.put ( remainingData );
+        }
+        else if ( message instanceof WriteMultiDataResponse )
+        {
+            final WriteMultiDataResponse writeResponseMessage = (WriteMultiDataResponse)message;
+            data.put ( writeResponseMessage.getFunctionCode () );
+            data.putUnsignedShort ( writeResponseMessage.getStartAddress () );
+            data.putUnsignedShort ( writeResponseMessage.getNumRegisters () );
+        }
+        else if ( message instanceof WriteSingleDataResponse )
+        {
+            final WriteSingleDataResponse writeResponseMessage = (WriteSingleDataResponse)message;
+            data.put ( writeResponseMessage.getFunctionCode () );
+            data.putUnsignedShort ( writeResponseMessage.getAddress () );
+            data.putUnsignedShort ( writeResponseMessage.getValue () );
+        }
+        else if ( message instanceof ErrorResponse )
+        {
+            final ErrorResponse errorResponseMessage = (ErrorResponse)message;
+            data.put ( errorResponseMessage.getFunctionCode () );
+            data.put ( errorResponseMessage.getExceptionCode () );
         }
         else
         {
@@ -82,9 +123,37 @@ public class ModbusProtocol
                 return new ReadResponse ( message.getUnitIdentifier (), functionCode, readBytes ( data ) );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataResponse ( message.getUnitIdentifier (), functionCode, IoBuffer.wrap ( new byte[] { data.get (), data.get () } ) );
+                return new WriteSingleDataResponse ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
-                return new WriteMultiDataResponse ( message.getUnitIdentifier (), functionCode, data.getShort (), data.getShort () );
+                return new WriteMultiDataResponse ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            default:
+                throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
+        }
+    }
+
+    public static Object decodeAsSlave ( final Pdu message )
+    {
+        final IoBuffer data = message.getData ();
+
+        final byte functionCode = data.get ();
+
+        switch ( functionCode )
+        {
+            case Constants.FUNCTION_CODE_READ_COILS:
+            case Constants.FUNCTION_CODE_READ_DISCRETE_INPUTS:
+            case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
+            case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
+                return new ReadRequest ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
+            case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
+                return new WriteSingleDataRequest ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
+            case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
+                int startAddress = data.getUnsignedShort ();
+                byte[] b = new byte[data.remaining ()];
+                data.get ( b );
+                return new WriteMultiDataRequest ( message.getUnitIdentifier (), functionCode, startAddress, b );
             default:
                 throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
         }

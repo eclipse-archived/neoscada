@@ -10,21 +10,26 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.message;
 
-import org.apache.mina.core.buffer.IoBuffer;
-
 public class WriteSingleDataResponse extends BaseMessage
 {
-    private final IoBuffer data;
+    private int address;
 
-    public WriteSingleDataResponse ( final byte unitIdentifier, final byte functionCode, final IoBuffer data )
+    private int value;
+
+    public WriteSingleDataResponse ( final byte unitIdentifier, final byte functionCode, final int address, final int value )
     {
         super ( unitIdentifier, functionCode );
-        this.data = data;
+        this.address = address;
+        this.value = value;
     }
 
-    public IoBuffer getData ()
+    public int getAddress ()
     {
-        return this.data;
+        return address;
     }
 
+    public int getValue ()
+    {
+        return value;
+    }
 }

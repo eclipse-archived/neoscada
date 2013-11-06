@@ -35,4 +35,5 @@ public interface Constants
 
     public static final byte FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS = 0x10;
 
+    public static final byte FUNCTION_CODE_WRITE_MULTIPLE_COILS = 0x0F;
 }
