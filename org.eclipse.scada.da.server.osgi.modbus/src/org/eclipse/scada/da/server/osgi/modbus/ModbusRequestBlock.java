@@ -14,6 +14,7 @@ package org.eclipse.scada.da.server.osgi.modbus;
 
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.scada.da.server.common.memory.AbstractRequestBlock;
 import org.eclipse.scada.protocol.modbus.Constants;
@@ -36,8 +37,10 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     private final ModbusSlave slave;
 
     private final String id;
+    
+    private AtomicInteger transactionId;
 
-    public ModbusRequestBlock ( final Executor executor, final String id, final String name, final String mainTypeName, final ModbusSlave slave, final BundleContext context, final Request request, final boolean enableStatistics )
+    public ModbusRequestBlock ( final Executor executor, final String id, final String name, final String mainTypeName, final ModbusSlave slave, final BundleContext context, final Request request, final AtomicInteger transactionId, final boolean enableStatistics )
     {
         super ( context, executor, mainTypeName, "modbus.data." + id, "modbus.block." + id, enableStatistics, request.getPeriod (), request.getCount (), slave.getTimeoutQuietPeriod (), request.isEager () );
 
@@ -45,6 +48,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
         this.request = request;
         this.slave = slave;
+        this.transactionId = transactionId;
 
         initialize ();
     }
@@ -129,7 +133,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     @Override
     public Object createPollRequest ()
     {
-        return this.slave.createPollRequest ( this.request );
+        return this.slave.createPollRequest ( transactionId.incrementAndGet (), this.request );
     }
 
     @Override
@@ -150,7 +154,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write bits when the block is of type %s", RequestType.COIL ) );
         }
-        this.slave.writeCommand ( new WriteSingleDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toGlobalAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
+        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toGlobalAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
         requestUpdate ();
     }
 
@@ -163,9 +167,9 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         }
         if (data.length == 2) {
             int value = ByteBuffer.wrap ( data ).getShort () & 0xFFFF;
-            this.slave.writeCommand ( new WriteSingleDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toGlobalAddress ( blockAddress ), value), this.request.getTimeout () );
+            this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toGlobalAddress ( blockAddress ), value), this.request.getTimeout () );
         } else {
-            this.slave.writeCommand ( new WriteMultiDataRequest ( this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toGlobalAddress ( blockAddress ), data ), this.request.getTimeout () );
+            this.slave.writeCommand ( new WriteMultiDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toGlobalAddress ( blockAddress ), data ), this.request.getTimeout () );
         }
         // FUNCTION_CODE_WRITE_MULTIPLE_COILS is not supported at the moment, since we do not support setting multiple bits at once.
         requestUpdate ();

@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
@@ -15,6 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.common.io.JobManager;
@@ -50,20 +52,23 @@ public class ModbusSlave implements Listener
 
     private long timeoutQuietPeriod;
 
-    public static ModbusSlave create ( final BundleContext context, final Executor executor, final String configurationId, final Map<String, String> parameters, final MasterFactory masterFactory )
+    private AtomicInteger transactionId;
+
+    public static ModbusSlave create ( final BundleContext context, final Executor executor, final String configurationId, final Map<String, String> parameters, final MasterFactory masterFactory, final AtomicInteger transactionId )
     {
-        final ModbusSlave slave = new ModbusSlave ( configurationId, context, masterFactory, executor );
+        final ModbusSlave slave = new ModbusSlave ( configurationId, context, masterFactory, executor, transactionId );
         slave.configure ( parameters );
         return slave;
     }
 
-    public ModbusSlave ( final String id, final BundleContext context, final MasterFactory masterFactory, final Executor executor )
+    public ModbusSlave ( final String id, final BundleContext context, final MasterFactory masterFactory, final Executor executor, final AtomicInteger transactionId )
     {
         this.id = id;
         this.executor = executor;
         this.context = context;
         this.masterFactory = masterFactory;
-
+        this.transactionId = transactionId;
+        
         synchronized ( this )
         {
             this.masterFactory.addMasterListener ( this );
@@ -222,7 +227,7 @@ public class ModbusSlave implements Listener
     {
         logger.debug ( "Adding block: {}", id );
 
-        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, this.id + "." + id, this.name, request.getMainTypeName (), this, this.context, request, true );
+        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, this.id + "." + id, this.name, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
 
         final ModbusRequestBlock oldBlock = this.blocks.put ( id, block );
 
@@ -256,9 +261,9 @@ public class ModbusSlave implements Listener
         }
     }
 
-    public Object createPollRequest ( final Request request )
+    public Object createPollRequest ( final int transactionId, final Request request )
     {
-        return new ReadRequest ( this.slaveAddress, request.getType ().getReadFunctionCode (), request.getStartAddress (), request.getCount () );
+        return new ReadRequest ( transactionId, this.slaveAddress, request.getType ().getReadFunctionCode (), request.getStartAddress (), request.getCount () );
     }
 
     public byte getSlaveAddress ()

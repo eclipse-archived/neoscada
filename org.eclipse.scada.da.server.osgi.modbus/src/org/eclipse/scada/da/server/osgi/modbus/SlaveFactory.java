@@ -7,11 +7,13 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
 import java.util.Map;
 import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
 import org.eclipse.scada.sec.UserInformation;
@@ -22,18 +24,21 @@ public class SlaveFactory extends AbstractServiceConfigurationFactory<ModbusSlav
     private final MasterFactory masterFactory;
 
     private final Executor executor;
+    
+    private final AtomicInteger transactionId;
 
     public SlaveFactory ( final BundleContext context, final MasterFactory masterFactory, final Executor executor )
     {
         super ( context, true );
         this.masterFactory = masterFactory;
         this.executor = executor;
+        this.transactionId = new AtomicInteger ();
     }
 
     @Override
     protected Entry<ModbusSlave> createService ( final UserInformation userInformation, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
     {
-        return new Entry<ModbusSlave> ( configurationId, ModbusSlave.create ( context, this.executor, configurationId, parameters, this.masterFactory ) );
+        return new Entry<ModbusSlave> ( configurationId, ModbusSlave.create ( context, this.executor, configurationId, parameters, this.masterFactory, transactionId ) );
     }
 
     @Override
