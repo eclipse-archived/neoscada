@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bugfixing
  *******************************************************************************/
 package org.eclipse.scada.utils.concurrent;
 
@@ -31,6 +32,8 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
 
     private final ExecutorService executorService;
 
+    private boolean didRegister;
+
     public ExecutorServiceExporterImpl ( final ExecutorService executorService, final String key )
     {
         this.executorService = executorService;
@@ -40,6 +43,7 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
         {
             this.name = new ObjectName ( "org.eclipse.scada.utils.concurrent", "executorService", key );
             this.mbs.registerMBean ( this, this.name );
+            this.didRegister = true;
         }
         catch ( final Exception e )
         {
@@ -49,15 +53,17 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
 
     public void dispose ()
     {
-        try
+        if ( this.didRegister )
         {
-            this.mbs.unregisterMBean ( this.name );
+            try
+            {
+                this.mbs.unregisterMBean ( this.name );
+            }
+            catch ( final Exception e )
+            {
+                logger.warn ( "Failed to unregister: " + this.name, e );
+            }
         }
-        catch ( final Exception e )
-        {
-            logger.warn ( "Failed to unregister: " + this.name, e );
-        }
-
     }
 
     @Override
