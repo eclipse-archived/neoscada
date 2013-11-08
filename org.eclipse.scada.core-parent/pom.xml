@@ -320,8 +320,9 @@
 		<module>../org.eclipse.scada.sec.provider.jdbc</module>
 		<module>../org.eclipse.scada.sec.provider.script</module>
 		<module>../org.eclipse.scada.da.utils.daemon</module>
-		
+
 		<module>../org.eclipse.scada.ngp.test</module>
+		<module>../org.eclipse.scada.da.server.exporter.modbus</module>
 	</modules>
 
 	<!-- sign -->
