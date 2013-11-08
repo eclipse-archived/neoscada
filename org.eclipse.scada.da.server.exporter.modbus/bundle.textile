@@ -18,7 +18,7 @@ Note that all addresses in the configuration are byte aligned, but modbus is usi
 
 |_. Argument # |_. Description |
 | 0 | Offset in the target byte buffer (in bytes) |
-| 1 | Type: DOUBLE, INT16, INT32, UINT16, UINT32 |
+| 1 | Type: DOUBLE, INT16, INT32, UINT16, UINT32, … |
 | 2 | Optional - Scaling factor |
 
 So the following entry:
@@ -42,7 +42,7 @@ Each data item that is mapped to modbus registers is encoded in the following fo
 
 |_. # |_. Data type |_. Name |_. Description |
 | 0 | 16 bit unsigned integer | state | Status information |
-| 1 | 64 bit signed integer | timestamp | Unix timestamp of the last change |
+| 1 | 64 bit signed integer | timestamp | Unix timestamp (in milliseconds) of the last change, UTC based |
 | 5 | ... | value | The actual value, encoded depending on the mapped type |
 
 The following data types are available 
@@ -54,6 +54,14 @@ h3. Double (64bit floating point)
 h3. Integer (32bit signed integer)
 
 | 5 | 32bit signed integer | value | The value encoded as 32bit signed integer |
+
+h3. Short (16bit signed integer)
+
+| 5 | 16bit signed integer | value | The value encoded as 16bit signed integer |
+
+h3. Unsigned Short (16bit unsigned integer)
+
+| 5 | 16bit unsigned integer | value | The value encoded as 16bit unsigned integer |
 
 h2. Status information
 
