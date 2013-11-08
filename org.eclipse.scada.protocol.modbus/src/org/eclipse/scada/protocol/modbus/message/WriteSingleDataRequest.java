@@ -13,23 +13,23 @@ package org.eclipse.scada.protocol.modbus.message;
 public class WriteSingleDataRequest extends BaseMessage
 {
     private static final int TRUE = 0xFF00;
-    
+
     private static final int FALSE = 0x0000;
 
     private final int address;
 
     private final int value;
 
-    public WriteSingleDataRequest ( final byte unitIdentifier, final byte functionCode, final int address, final int value )
+    public WriteSingleDataRequest ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int address, final int value )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.address = address;
         this.value = value;
     }
 
-    public WriteSingleDataRequest ( final byte unitIdentifier, final byte functionCode, final int address, final boolean value )
+    public WriteSingleDataRequest ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int address, final boolean value )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.address = address;
         this.value = value ? TRUE : FALSE;
     }
@@ -43,12 +43,14 @@ public class WriteSingleDataRequest extends BaseMessage
     {
         return this.value;
     }
-    
-    public boolean isTrue() {
+
+    public boolean isTrue ()
+    {
         return this.value == TRUE;
     }
-    
-    public boolean isFalse() {
+
+    public boolean isFalse ()
+    {
         return this.value == FALSE;
     }
 }

@@ -102,7 +102,7 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         pdu.flip ();
 
         // decode and send
-        out.write ( new Pdu ( unitIdentifier, pdu ) );
+        out.write ( new Pdu ( 0, unitIdentifier, pdu ) );
     }
 
     private static final int MAX_SIZE = Constants.MAX_PDU_SIZE + Constants.RTU_HEADER_SIZE;

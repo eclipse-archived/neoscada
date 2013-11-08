@@ -16,9 +16,9 @@ public class WriteMultiDataResponse extends BaseMessage
 
     private final int numRegisters;
 
-    public WriteMultiDataResponse ( final byte unitIdentifier, final byte functionCode, final int startAddress, final int numRegisters )
+    public WriteMultiDataResponse ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int startAddress, final int numRegisters )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.startAddress = startAddress;
         this.numRegisters = numRegisters;
     }

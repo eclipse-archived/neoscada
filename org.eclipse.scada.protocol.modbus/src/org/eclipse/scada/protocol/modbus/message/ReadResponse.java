@@ -16,9 +16,9 @@ public class ReadResponse extends BaseMessage
 {
     private final IoBuffer data;
 
-    public ReadResponse ( final byte unitIdentifier, final byte functionCode, final IoBuffer data )
+    public ReadResponse ( final int transactionId, final byte unitIdentifier, final byte functionCode, final IoBuffer data )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.data = data;
     }
 

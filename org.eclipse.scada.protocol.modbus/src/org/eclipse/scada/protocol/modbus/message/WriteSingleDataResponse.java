@@ -16,9 +16,9 @@ public class WriteSingleDataResponse extends BaseMessage
 
     private int value;
 
-    public WriteSingleDataResponse ( final byte unitIdentifier, final byte functionCode, final int address, final int value )
+    public WriteSingleDataResponse ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int address, final int value )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.address = address;
         this.value = value;
     }

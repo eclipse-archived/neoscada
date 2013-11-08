@@ -57,7 +57,7 @@ public class ModbusProtocol
         }
 
         data.flip ();
-        return new Pdu ( message.getUnitIdentifier (), data );
+        return new Pdu ( message.getTransactionId (), message.getUnitIdentifier (), data );
     }
 
     public static Pdu encodeAsSlave ( final BaseMessage message )
@@ -99,7 +99,7 @@ public class ModbusProtocol
         }
 
         data.flip ();
-        return new Pdu ( message.getUnitIdentifier (), data );
+        return new Pdu ( message.getTransactionId (), message.getUnitIdentifier (), data );
     }
 
     public static Object decodeAsMaster ( final Pdu message )
@@ -111,7 +111,7 @@ public class ModbusProtocol
         if ( ( functionCode & Constants.FUNCTION_CODE_ERROR_FLAG ) != 0 )
         {
             final byte exceptionCode = data.get ();
-            return new ErrorResponse ( message.getUnitIdentifier (), (byte) ( functionCode & ~Constants.FUNCTION_CODE_ERROR_FLAG ), exceptionCode );
+            return new ErrorResponse ( message.getTransactionId (), message.getUnitIdentifier (), (byte) ( functionCode & ~Constants.FUNCTION_CODE_ERROR_FLAG ), exceptionCode );
         }
 
         switch ( functionCode )
@@ -120,13 +120,13 @@ public class ModbusProtocol
             case Constants.FUNCTION_CODE_READ_DISCRETE_INPUTS:
             case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
             case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
-                return new ReadResponse ( message.getUnitIdentifier (), functionCode, readBytes ( data ) );
+                return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, readBytes ( data ) );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataResponse ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
-                return new WriteMultiDataResponse ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new WriteMultiDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             default:
                 throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
         }
@@ -144,16 +144,16 @@ public class ModbusProtocol
             case Constants.FUNCTION_CODE_READ_DISCRETE_INPUTS:
             case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
             case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
-                return new ReadRequest ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new ReadRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataRequest ( message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+                return new WriteSingleDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 int startAddress = data.getUnsignedShort ();
                 byte[] b = new byte[data.remaining ()];
                 data.get ( b );
-                return new WriteMultiDataRequest ( message.getUnitIdentifier (), functionCode, startAddress, b );
+                return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b );
             default:
                 throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
         }

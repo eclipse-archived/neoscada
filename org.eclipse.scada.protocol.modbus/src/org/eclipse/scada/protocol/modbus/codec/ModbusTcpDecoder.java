@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.codec;
 
 import org.apache.mina.core.buffer.IoBuffer;
@@ -34,8 +44,7 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
             }
             logger.trace ( "doDecode () frame = {}", in.getHexDump () );
 
-            // transaction identifier is ignored so far, just logged for debugging reasons
-            final short transactionIdentifier = in.getShort ();
+            final int transactionIdentifier = in.getUnsignedShort ();
             logger.trace ( "transaction identifier: {}", transactionIdentifier );
 
             // ensure specification compliance
@@ -58,7 +67,7 @@ public class ModbusTcpDecoder extends CumulativeProtocolDecoder
             }
             pdu.flip ();
 
-            out.write ( new Pdu ( unitIdentifier, pdu ) );
+            out.write ( new Pdu ( transactionIdentifier, unitIdentifier, pdu ) );
         }
         return false;
     }

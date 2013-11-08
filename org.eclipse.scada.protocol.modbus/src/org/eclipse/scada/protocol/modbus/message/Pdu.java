@@ -14,17 +14,25 @@ import org.apache.mina.core.buffer.IoBuffer;
 
 public class Pdu
 {
+    private final int transactionId;
+    
     private final byte unitIdentifier;
 
     private final IoBuffer data;
 
-    public Pdu ( final byte unitIdentifier, final IoBuffer data )
+    public Pdu (final int transactionId, final byte unitIdentifier, final IoBuffer data )
     {
         super ();
+        this.transactionId = transactionId;
         this.unitIdentifier = unitIdentifier;
         this.data = data;
     }
 
+    public int getTransactionId ()
+    {
+        return transactionId;
+    }
+    
     public byte getUnitIdentifier ()
     {
         return this.unitIdentifier;
@@ -38,7 +46,6 @@ public class Pdu
     @Override
     public String toString ()
     {
-        return String.format ( "[unitIdentifier: %02x - %s]", this.unitIdentifier, this.data );
+        return "Pdu [transactionId=" + transactionId + ", unitIdentifier=" + unitIdentifier + ", data=" + data + "]";
     }
-
 }

@@ -16,9 +16,9 @@ public class ReadRequest extends BaseMessage
 
     private final int quantity;
 
-    public ReadRequest ( final byte unitIdentifier, final byte functionCode, final int startAddress, final int quantity )
+    public ReadRequest ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int startAddress, final int quantity )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.startAddress = startAddress;
         this.quantity = quantity;
     }

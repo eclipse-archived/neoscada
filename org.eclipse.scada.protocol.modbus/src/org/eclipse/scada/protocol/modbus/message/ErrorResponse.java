@@ -14,9 +14,9 @@ public class ErrorResponse extends BaseMessage
 {
     private final byte exceptionCode;
 
-    public ErrorResponse ( final byte unitIdentifier, final byte functionCode, final byte exceptionCode )
+    public ErrorResponse ( final int transactionId, final byte unitIdentifier, final byte functionCode, final byte exceptionCode )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.exceptionCode = exceptionCode;
     }
 

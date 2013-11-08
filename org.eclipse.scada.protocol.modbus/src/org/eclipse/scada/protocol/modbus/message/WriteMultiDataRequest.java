@@ -16,9 +16,9 @@ public class WriteMultiDataRequest extends BaseMessage
 
     private final byte[] data;
 
-    public WriteMultiDataRequest ( final byte unitIdentifier, final byte functionCode, final int startAddress, final byte[] data )
+    public WriteMultiDataRequest ( final int transactionId, final byte unitIdentifier, final byte functionCode, final int startAddress, final byte[] data )
     {
-        super ( unitIdentifier, functionCode );
+        super ( transactionId, unitIdentifier, functionCode );
         this.startAddress = startAddress;
         this.data = data;
         if ( data.length % 2 == 1 )

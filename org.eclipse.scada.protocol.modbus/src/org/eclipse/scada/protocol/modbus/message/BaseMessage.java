@@ -16,12 +16,20 @@ public class BaseMessage
 
     protected final byte functionCode;
 
-    public BaseMessage ( final byte unitIdentifier, final byte functionCode )
+    protected final int transactionId;
+
+    public BaseMessage ( final int transactionId, final byte unitIdentifier, final byte functionCode )
     {
         this.unitIdentifier = unitIdentifier;
         this.functionCode = functionCode;
+        this.transactionId = transactionId;
     }
 
+    public int getTransactionId ()
+    {
+        return transactionId;
+    }
+    
     public byte getUnitIdentifier ()
     {
         return this.unitIdentifier;
