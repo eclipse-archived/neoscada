@@ -34,6 +34,7 @@ import org.eclipse.scada.da.server.exporter.modbus.io.MemoryBlock;
 import org.eclipse.scada.da.server.exporter.modbus.io.ShortType;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceType;
+import org.eclipse.scada.da.server.exporter.modbus.io.UnsignedShortType;
 import org.eclipse.scada.protocol.modbus.codec.ModbusSlaveProtocolFilter;
 import org.eclipse.scada.protocol.modbus.codec.ModbusTcpDecoder;
 import org.eclipse.scada.protocol.modbus.codec.ModbusTcpEncoder;
@@ -173,6 +174,10 @@ public class ModbusExport
             case "INT16":
             case "SHORT":
                 type = new ShortType ( getFactor ( args ) );
+                break;
+            case "UINT16":
+            case "WORD":
+                type = new UnsignedShortType ( getFactor ( args ) );
                 break;
             default:
                 throw new IllegalArgumentException ( String.format ( "Type '%s' is unknown.", args[1] ) );
