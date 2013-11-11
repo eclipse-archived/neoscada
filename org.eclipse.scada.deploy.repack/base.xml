@@ -61,7 +61,7 @@
 				<activeByDefault>false</activeByDefault>
 			</activation>
 			<properties>
-				<eclipse.download.root>/home/data/httpd/download.eclipse.org</eclipse.download.root>
+				<eclipse.download.root>file:///home/data/httpd/download.eclipse.org</eclipse.download.root>
 			</properties>
 		</profile>
 
