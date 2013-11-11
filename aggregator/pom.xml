@@ -10,6 +10,14 @@
 
 	<modules>
 		<module>../../org.eclipse.scada.external/org.eclipse.scada.external-parent</module>
+		<module>../../org.eclipse.scada.utils/org.eclipse.scada.utils-parent</module>
+		<module>../../org.eclipse.scada.chart/org.eclipse.scada.chart-parent</module>
+		<module>../../org.eclipse.scada.protocols/org.eclipse.scada.protocols-parent</module>
+		<module>../../org.eclipse.scada.base/org.eclipse.scada.base-parent</module>
+		<module>../../org.eclipse.scada.core/org.eclipse.scada.core-parent</module>
+		<module>../../org.eclipse.scada.hmi/org.eclipse.scada.hmi-parent</module>
+		<module>../../org.eclipse.scada.ide/org.eclipse.scada.ide-parent</module>
+		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy-parent</module>
 	</modules>
 
 </project>
