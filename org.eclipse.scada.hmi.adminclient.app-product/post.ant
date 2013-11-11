@@ -15,7 +15,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="build">
+    <target name="default" depends="build,copy">
     </target>
     
     <!-- ================================= 
@@ -32,6 +32,19 @@ is active.
             </fileset>
             <mapper type="flatten"/>
         </move>
+    </target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}/products/adminclient"/>
+
+        <copy todir="${download.dir}/products/adminclient">
+            <fileset dir="${output}/products/adminclient" />
+        </copy>
     </target>
 
 </project>

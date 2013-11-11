@@ -70,7 +70,6 @@ is active.
         
         <mkdir dir="${download.dir}"/>
         <mkdir dir="${download.dir}/pack"/>
-        <mkdir dir="${download.dir}/products"/>
         
         <copy todir="${download.dir}">
             <fileset dir="${output}/p2" />
@@ -79,9 +78,6 @@ is active.
             <fileset dir="${output}">
                 <include name="${repo}.p2-*.zip"/>
             </fileset>
-        </copy>
-        <copy todir="${download.dir}/products">
-            <fileset dir="${output}/products" />
         </copy>
     </target>
 
