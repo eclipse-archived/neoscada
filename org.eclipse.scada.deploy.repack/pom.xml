@@ -13,7 +13,7 @@
 		<tycho-version>0.18.1</tycho-version>
 		<download.base>/home/data/httpd/download.eclipse.org</download.base>
 	</properties>
-	
+
 	<repositories>
 		<repository>
 			<id>eclipse.kepler</id>
@@ -21,15 +21,15 @@
 			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
 	</repositories>
-	
+
 	<modules>
 		<module>equinox-SDK</module>
 		<module>gemini-dbaccess</module>
 		<module>org.eclipse.ecf.sdk</module>
 		<module>org.eclipse.platform</module>
 		<module>emf-xsd-Update</module>
-		
+
 		<module>gather</module>
 	</modules>
-	
+
 </project>

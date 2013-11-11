@@ -15,7 +15,7 @@
 
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
-		<eclipse.download.root>/home/data/httpd/download.eclipse.org</eclipse.download.root>
+		<eclipse.download.root>http://download.eclipse.org</eclipse.download.root>
 	</properties>
 
 	<repositories>
@@ -26,43 +26,81 @@
 		</repository>
 	</repositories>
 
-
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>jdeb</artifactId>
-				<groupId>org.vafer</groupId>
-				<version>1.0.1</version>
-
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
 				<executions>
 					<execution>
-						<phase>package</phase>
+						<id>download-files</id>
+						<phase>generate-resources</phase>
 						<goals>
-							<goal>jdeb</goal>
+							<goal>run</goal>
 						</goals>
 						<configuration>
-							<dataSet>
-								<data>
-									<src>${src}</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/eclipsescada/p2</prefix>
-									</mapper>
-								</data>
-							</dataSet>
+							<target>
+								<!-- download file -->
+								<mkdir dir="${project.build.directory}/downloads/" />
+								<get src="${srcDir}/${srcFile}" dest="${project.build.directory}/downloads/"
+									usetimestamp="true" />
+							</target>
 						</configuration>
 					</execution>
-
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 
-
-
 	<profiles>
+
+		<profile>
+			<id>eclipse-hudson</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<eclipse.download.root>/home/data/httpd/download.eclipse.org</eclipse.download.root>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>deb</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>jdeb</artifactId>
+						<groupId>org.vafer</groupId>
+						<version>1.0.1</version>
+
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jdeb</goal>
+								</goals>
+								<configuration>
+									<dataSet>
+										<data>
+											<src>${project.build.directory}/downloads//${srcFile}</src>
+											<type>file</type>
+											<mapper>
+												<type>perm</type>
+												<prefix>/usr/share/eclipsescada/p2</prefix>
+											</mapper>
+										</data>
+									</dataSet>
+								</configuration>
+							</execution>
+
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+
+		</profile>
 
 		<profile>
 
@@ -103,7 +141,7 @@
 											<groupname>root</groupname>
 											<sources>
 												<source>
-													<location>${src}</location>
+													<location>${project.build.directory}/downloads//${srcFile}</location>
 												</source>
 											</sources>
 										</mapping>

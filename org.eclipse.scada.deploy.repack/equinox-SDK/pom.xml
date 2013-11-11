@@ -10,7 +10,8 @@
 	</parent>
 
 	<properties>
-		<src>${eclipse.download.root}/equinox/drops/R-Kepler-201306052000/equinox-SDK-Kepler.zip</src>
+		<srcDir>${eclipse.download.root}/equinox/drops/R-Kepler-201306052000</srcDir>
+		<srcFile>equinox-SDK-Kepler.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>

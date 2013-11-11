@@ -10,7 +10,8 @@
 	</parent>
 
 	<properties>
-		<src>${eclipse.download.root}/eclipse/downloads/drops4/R-4.3-201306052000/org.eclipse.platform-4.3.zip</src>
+		<srcDir>${eclipse.download.root}/eclipse/downloads/drops4/R-4.3-201306052000</srcDir>
+		<srcFile>org.eclipse.platform-4.3.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
