@@ -26,7 +26,7 @@ is active.
         <mkdir dir="${output}/products/viewer"/>
             
         <move todir="${output}/products/viewer">
-            <fileset dir="target/products/viewer">
+            <fileset dir="target/products">
                 <include name="*.tar.gz"/>
                 <include name="*.zip"/>
             </fileset>
