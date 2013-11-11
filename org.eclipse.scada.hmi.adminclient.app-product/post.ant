@@ -12,6 +12,23 @@ is active.
 	    
     <property name="output" location="../output"/>
     
+    <tstamp>
+    	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
+    </tstamp>
+        
+    <property name="buildType" value="I"/>
+    <property name="buildId" value="${timestamp}"/>
+    
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <!-- the base where drops will be placed for this repository -->
+    <property name="download.base" location="${download.root}/${repo}/drops"/>
+    
+    <!-- the actual drop directory -->
+    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
+ 
+    
     <!-- ================================= 
           target: default
          ================================= -->
