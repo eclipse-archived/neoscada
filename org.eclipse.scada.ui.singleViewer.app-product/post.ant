@@ -15,7 +15,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="build">
+    <target name="default" depends="build,copy">
     </target>
     
     <!-- ================================= 
@@ -25,13 +25,26 @@ is active.
         <mkdir dir="${output}"/>
         <mkdir dir="${output}/products/viewer"/>
             
-        <move todir="${output}">
+        <move todir="${output}/products/viewer">
             <fileset dir="target/products/viewer">
                 <include name="*.tar.gz"/>
                 <include name="*.zip"/>
             </fileset>
             <mapper type="flatten"/>
         </move>
+    </target>
+
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy" unless="skip.copy">
+        <echo message="Download Directory: ${download.dir}"/>
+        
+        <mkdir dir="${download.dir}/products/adminclient"/>
+
+        <copy todir="${download.dir}/products/adminclient">
+            <fileset dir="${output}/products/adminclient" />
+        </copy>
     </target>
 
 </project>
