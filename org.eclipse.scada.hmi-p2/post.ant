@@ -6,7 +6,7 @@
     <description>
 Things to do after the main build
         
-Called fromt he pom.xml when the profile "eclipse-hudson"
+Called from the pom.xml when the profile "eclipse-hudson"
 is active.
     </description>
 	    
