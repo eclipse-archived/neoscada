@@ -10,12 +10,11 @@
 	</parent>
 
 	<properties>
-		<upstreamVersion>1.1.0.RELEASE</upstreamVersion>
 		<src>${download.root}/gemini/dbaccess/r1.1/milestones/gemini-dbaccess-1.1.0.RELEASE-updates.zip</src>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>gemini-dbaccess-${upstreamVersion}</artifactId>
+	<artifactId>gemini-dbaccess-1.1.0.RELEASE</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 </project>

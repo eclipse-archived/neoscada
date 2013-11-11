@@ -10,12 +10,11 @@
 	</parent>
 
 	<properties>
-		<upstreamVersion>4.3</upstreamVersion>
-		<src>${download.root}/eclipse/downloads/drops4/R-4.3-201306052000/org.eclipse.platform-4.3.zip</src>
+		<src>${download.root}/rt/ecf/3.6.1/org.eclipse.ecf.sdk_3.6.1.v20130605-1748.zip</src>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>org.eclipse.platform-${upstreamVersion}</artifactId>
+	<artifactId>org.eclipse.ecf.sdk-3.6.1</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 </project>

@@ -10,12 +10,11 @@
 	</parent>
 
 	<properties>
-		<upstreamVersion>R-Kepler-201306052000</upstreamVersion>
-		<src>${download.root}/equinox/drops/${upstreamVersion}/equinox-SDK-Kepler.zip</src>
+		<src>${download.root}/equinox/drops/R-Kepler-201306052000/equinox-SDK-Kepler.zip</src>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>equinox-SDK-${upstreamVersion}</artifactId>
+	<artifactId>equinox-SDK-R-Kepler-201306052000</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
