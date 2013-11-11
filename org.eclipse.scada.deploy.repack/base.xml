@@ -83,7 +83,7 @@
 								<configuration>
 									<dataSet>
 										<data>
-											<src>${project.build.directory}/downloads//${srcFile}</src>
+											<src>${project.build.directory}/downloads/${srcFile}</src>
 											<type>file</type>
 											<mapper>
 												<type>perm</type>
@@ -141,7 +141,7 @@
 											<groupname>root</groupname>
 											<sources>
 												<source>
-													<location>${project.build.directory}/downloads//${srcFile}</location>
+													<location>${project.build.directory}/downloads/${srcFile}</location>
 												</source>
 											</sources>
 										</mapping>
