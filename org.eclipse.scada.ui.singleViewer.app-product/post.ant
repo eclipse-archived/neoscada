@@ -40,10 +40,10 @@ is active.
     <target name="copy" unless="skip.copy">
         <echo message="Download Directory: ${download.dir}"/>
         
-        <mkdir dir="${download.dir}/products/adminclient"/>
+        <mkdir dir="${download.dir}/products/viewer"/>
 
-        <copy todir="${download.dir}/products/adminclient">
-            <fileset dir="${output}/products/adminclient" />
+        <copy todir="${download.dir}/products/viewer">
+            <fileset dir="${output}/products/viewer" />
         </copy>
     </target>
 
