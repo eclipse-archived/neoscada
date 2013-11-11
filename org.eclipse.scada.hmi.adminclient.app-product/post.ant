@@ -23,9 +23,9 @@ is active.
          ================================= -->
     <target name="build">
         <mkdir dir="${output}"/>
-        <mkdir dir="${output}/products"/>
+        <mkdir dir="${output}/products/adminclient"/>
             
-        <move todir="${output}">
+        <move todir="${output}/products/adminclient">
             <fileset dir="target/products">
                 <include name="*.tar.gz"/>
                 <include name="*.zip"/>

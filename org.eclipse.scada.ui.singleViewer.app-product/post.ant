@@ -23,10 +23,10 @@ is active.
          ================================= -->
     <target name="build">
         <mkdir dir="${output}"/>
-        <mkdir dir="${output}/products"/>
+        <mkdir dir="${output}/products/viewer"/>
             
         <move todir="${output}">
-            <fileset dir="target/products">
+            <fileset dir="target/products/viewer">
                 <include name="*.tar.gz"/>
                 <include name="*.zip"/>
             </fileset>
