@@ -16,7 +16,6 @@ is active.
     	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
     </tstamp>
         
-    <property name="buildType" value="I"/>
     <property name="buildId" value="${timestamp}"/>
     
     <!-- the root of all -->

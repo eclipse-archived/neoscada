@@ -8,11 +8,16 @@
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<scm>
+		<connection>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.external.git</connection>
+	</scm>
+
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
 		<tycho-extras-version>0.18.1</tycho-extras-version>
 		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.external.git</tycho.scmUrl>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<buildType>I</buildType>
 	</properties>
 
 	<repositories>
