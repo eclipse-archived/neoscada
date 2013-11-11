@@ -10,7 +10,7 @@
 	</parent>
 
 	<properties>
-		<src>${download.root}/gemini/dbaccess/r1.1/milestones/gemini-dbaccess-1.1.0.RELEASE-updates.zip</src>
+		<src>${eclipse.download.root}/gemini/dbaccess/r1.1/milestones/gemini-dbaccess-1.1.0.RELEASE-updates.zip</src>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>

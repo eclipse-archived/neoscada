@@ -15,7 +15,7 @@
 
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
-		<download.root>/home/data/httpd/download.eclipse.org</download.root>
+		<eclipse.download.root>/home/data/httpd/download.eclipse.org</eclipse.download.root>
 	</properties>
 
 	<repositories>
