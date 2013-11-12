@@ -102,7 +102,7 @@ public class SetQualifierMojo extends AbstractHelperMojo
 
         // write model
 
-        getLog ().info ( String.format ( "Update from %s to %s", project.getVersion (), version ) );
+        getLog ().info ( String.format ( "Update from %s to %s on project %s", project.getVersion (), version, project ) );
 
         if ( !this.dryRun )
         {
@@ -117,15 +117,19 @@ public class SetQualifierMojo extends AbstractHelperMojo
                 @Override
                 protected boolean performChange ( final Model model )
                 {
-                    getLog ().debug ( String.format ( "Update parent version in module: " + model ) );
-                    model.getParent ().setVersion ( version );
+                    getLog ().debug ( String.format ( "Update parent version in module: %s", model ) );
+                    if ( model.getParent () != null )
+                    {
+                        // only set if we do have a parent model
+                        model.getParent ().setVersion ( version );
+                    }
                     return true;
                 }
             } );
-        }
 
-        // this is only called when the version changed ... for now
-        syncModule ( project, version );
+            // this is only called when the version changed ... for now
+            syncModule ( project, version );
+        }
     }
 
     protected void syncModule ( final MavenProject project, final String version ) throws Exception
