@@ -7,6 +7,19 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>build-helper Maven Mojo</name>
 
+	<distributionManagement>
+		<repository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse SCADA Repository - Releases</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse SCADA Repository - Snapshots</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<properties>
 		<mojo.java.target>1.7</mojo.java.target>
 		<mavenVersion>3.0.5</mavenVersion>
