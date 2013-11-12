@@ -18,7 +18,7 @@ import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.PersistentValue;
-import org.eclipse.scada.configuration.component.generator.con.DriverConnectionAnalyzerGenerator;
+import org.eclipse.scada.configuration.component.generator.connection.DriverConnectionAnalyzerGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperAnalyzerGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperServiceGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.MappedSourceValueGenerator;

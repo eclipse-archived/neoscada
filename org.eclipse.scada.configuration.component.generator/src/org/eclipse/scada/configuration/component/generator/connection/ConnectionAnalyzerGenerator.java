@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.generator.con;
+package org.eclipse.scada.configuration.component.generator.connection;
 
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.generator.DataComponentGenerator;
