@@ -76,6 +76,7 @@ public abstract class EquinoxApplicationProcessor extends AbstractFolderProcesso
                 processor.process ( ctx, this.app, subMonitor );
                 subMonitor.worked ( 1 );
             }
+            subMonitor.done ();
         }
 
         // generate custom content
