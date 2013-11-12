@@ -31,6 +31,13 @@
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
+       <factory
+             adaptableType="org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer"
+             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+          <adapter
+                type="org.eclipse.scada.configuration.generator.Generator">
+          </adapter>
+       </factory>
          <factory
              adaptableType="org.eclipse.scada.configuration.component.DataMapperAnalyzer"
              class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
@@ -52,7 +59,6 @@
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
-
    </extension>
    <extension
          point="org.eclipse.scada.configuration.generator.component.generator">
