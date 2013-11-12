@@ -51,9 +51,7 @@ public class ModbusMaster extends AbstractConnectionDevice
 
     private final static String TYPE_RTU = "RTU";
 
-    private final static String TYPE_ASCII = "ASCII";
-
-    private final static List<String> allowedModbusVariants = Arrays.asList ( new String[] { TYPE_TCP, TYPE_RTU, TYPE_ASCII } );
+    private final static List<String> allowedModbusVariants = Arrays.asList ( new String[] { TYPE_TCP, TYPE_RTU } );
 
     private final Set<ModbusSlave> slaves = new CopyOnWriteArraySet<> ();
 
@@ -121,8 +119,6 @@ public class ModbusMaster extends AbstractConnectionDevice
                 connector.getFilterChain ().addLast ( "modbusPdu", new ModbusRtuProtocolCodecFilter ( new ModbusRtuEncoder (), rtuDecoder ) );
                 connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter () );
                 break;
-            case TYPE_ASCII:
-                throw new UnsupportedOperationException ( String.format ( "'%s' is not implemented", this.protocolType ) );
             default:
                 throw new IllegalArgumentException ( String.format ( "'%s' is not an allowed modbus device type", this.protocolType ) );
         }
