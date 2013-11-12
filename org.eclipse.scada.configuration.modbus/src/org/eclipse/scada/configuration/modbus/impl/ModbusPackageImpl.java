@@ -583,7 +583,6 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEEnum ( protocolTypeEEnum, ProtocolType.class, "ProtocolType" ); //$NON-NLS-1$
         addEEnumLiteral ( protocolTypeEEnum, ProtocolType.TCP );
         addEEnumLiteral ( protocolTypeEEnum, ProtocolType.RTU );
-        addEEnumLiteral ( protocolTypeEEnum, ProtocolType.ASCII );
 
         // Initialize data types
         initEDataType ( requestTypeEDataType, RequestType.class, "RequestType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

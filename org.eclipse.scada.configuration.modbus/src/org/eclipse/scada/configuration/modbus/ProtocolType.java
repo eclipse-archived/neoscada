@@ -44,16 +44,7 @@ public enum ProtocolType implements Enumerator
      * @generated
      * @ordered
      */
-    RTU ( 1, "RTU", "RTU" ),
-    /**
-     * The '<em><b>ASCII</b></em>' literal object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #ASCII_VALUE
-     * @generated
-     * @ordered
-     */
-    ASCII ( 2, "ASCII", "ASCII" ); //$NON-NLS-1$ //$NON-NLS-2$
+    RTU ( 1, "RTU", "RTU" ); //$NON-NLS-1$ //$NON-NLS-2$
 
     /**
      * The '<em><b>TCP</b></em>' literal value.
@@ -86,21 +77,6 @@ public enum ProtocolType implements Enumerator
     public static final int RTU_VALUE = 1;
 
     /**
-     * The '<em><b>ASCII</b></em>' literal value.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of '<em><b>ASCII</b></em>' literal object isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @see #ASCII
-     * @model
-     * @generated
-     * @ordered
-     */
-    public static final int ASCII_VALUE = 2;
-
-    /**
      * An array of all the '<em><b>Protocol Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -110,7 +86,6 @@ public enum ProtocolType implements Enumerator
     {
             TCP,
             RTU,
-            ASCII,
     };
 
     /**
@@ -173,8 +148,6 @@ public enum ProtocolType implements Enumerator
                 return TCP;
             case RTU_VALUE:
                 return RTU;
-            case ASCII_VALUE:
-                return ASCII;
         }
         return null;
     }

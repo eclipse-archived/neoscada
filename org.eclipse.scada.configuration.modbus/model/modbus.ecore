@@ -26,7 +26,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ProtocolType">
     <eLiterals name="TCP" literal="TCP"/>
     <eLiterals name="RTU" value="1" literal="RTU"/>
-    <eLiterals name="ASCII" value="2" literal="ASCII"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusMaster">
     <eStructuralFeatures xsi:type="ecore:EReference" name="slaves" upperBound="-1"
