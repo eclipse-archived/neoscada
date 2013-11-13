@@ -144,6 +144,10 @@ public class SetQualifierMojo extends AbstractHelperMojo
         {
             handleRepository ( project, version );
         }
+        else if ( "eclipse-test-plugin".equals ( packaging ) )
+        {
+            handleBundle ( project, version );
+        }
     }
 
     private void handleRepository ( final MavenProject project, final String version ) throws Exception
