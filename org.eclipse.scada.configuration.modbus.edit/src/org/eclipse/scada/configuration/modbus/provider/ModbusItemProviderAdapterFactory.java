@@ -42,6 +42,9 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.util.ModbusAdapterFactory;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
+import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.configuration.world.osgi.util.OsgiSwitch;
 import org.eclipse.scada.configuration.world.util.WorldSwitch;
 
 /**
@@ -228,6 +231,206 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusExporter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusExporterItemProvider modbusExporterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusExporterAdapter ()
+    {
+        if ( modbusExporterItemProvider == null )
+        {
+            modbusExporterItemProvider = new ModbusExporterItemProvider ( this );
+        }
+
+        return modbusExporterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusExporterDeviceItemProvider modbusExporterDeviceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusExporterDeviceAdapter ()
+    {
+        if ( modbusExporterDeviceItemProvider == null )
+        {
+            modbusExporterDeviceItemProvider = new ModbusExporterDeviceItemProvider ( this );
+        }
+
+        return modbusExporterDeviceItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusExporterItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusExporterItemItemProvider modbusExporterItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusExporterItemAdapter ()
+    {
+        if ( modbusExporterItemItemProvider == null )
+        {
+            modbusExporterItemItemProvider = new ModbusExporterItemItemProvider ( this );
+        }
+
+        return modbusExporterItemItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusDouble} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusDoubleItemProvider modbusDoubleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusDouble}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusDoubleAdapter ()
+    {
+        if ( modbusDoubleItemProvider == null )
+        {
+            modbusDoubleItemProvider = new ModbusDoubleItemProvider ( this );
+        }
+
+        return modbusDoubleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusSInt16} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusSInt16ItemProvider modbusSInt16ItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusSInt16}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusSInt16Adapter ()
+    {
+        if ( modbusSInt16ItemProvider == null )
+        {
+            modbusSInt16ItemProvider = new ModbusSInt16ItemProvider ( this );
+        }
+
+        return modbusSInt16ItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusSInt32} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusSInt32ItemProvider modbusSInt32ItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusSInt32}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusSInt32Adapter ()
+    {
+        if ( modbusSInt32ItemProvider == null )
+        {
+            modbusSInt32ItemProvider = new ModbusSInt32ItemProvider ( this );
+        }
+
+        return modbusSInt32ItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusUInt16} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusUInt16ItemProvider modbusUInt16ItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusUInt16}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusUInt16Adapter ()
+    {
+        if ( modbusUInt16ItemProvider == null )
+        {
+            modbusUInt16ItemProvider = new ModbusUInt16ItemProvider ( this );
+        }
+
+        return modbusUInt16ItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusUInt32} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusUInt32ItemProvider modbusUInt32ItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusUInt32}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusUInt32Adapter ()
+    {
+        if ( modbusUInt32ItemProvider == null )
+        {
+            modbusUInt32ItemProvider = new ModbusUInt32ItemProvider ( this );
+        }
+
+        return modbusUInt32ItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -386,6 +589,22 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             modbusMasterItemProvider.dispose ();
         if ( modbusBlockItemProvider != null )
             modbusBlockItemProvider.dispose ();
+        if ( modbusExporterItemProvider != null )
+            modbusExporterItemProvider.dispose ();
+        if ( modbusExporterDeviceItemProvider != null )
+            modbusExporterDeviceItemProvider.dispose ();
+        if ( modbusExporterItemItemProvider != null )
+            modbusExporterItemItemProvider.dispose ();
+        if ( modbusDoubleItemProvider != null )
+            modbusDoubleItemProvider.dispose ();
+        if ( modbusSInt16ItemProvider != null )
+            modbusSInt16ItemProvider.dispose ();
+        if ( modbusSInt32ItemProvider != null )
+            modbusSInt32ItemProvider.dispose ();
+        if ( modbusUInt16ItemProvider != null )
+            modbusUInt16ItemProvider.dispose ();
+        if ( modbusUInt32ItemProvider != null )
+            modbusUInt32ItemProvider.dispose ();
     }
 
     /**
@@ -541,6 +760,101 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
                         ( createChildParameter
                         ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
                                 ModbusFactory.eINSTANCE.createModbusDriver () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected CommandParameter createChildParameter ( Object feature, Object child )
+            {
+                return new CommandParameter ( null, feature, child );
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
+        {
+            ArrayList<Object> result = new ArrayList<Object> ();
+            new CreationSwitch ( result, editingDomain ).doSwitch ( (EObject)object );
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ResourceLocator getResourceLocator ()
+        {
+            return ModbusEditPlugin.INSTANCE;
+        }
+    }
+
+    /**
+     * A child creation extender for the {@link OsgiPackage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static class OsgiChildCreationExtender implements IChildCreationExtender
+    {
+        /**
+         * The switch for creating child descriptors specific to each extended class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected static class CreationSwitch extends OsgiSwitch<Object>
+        {
+            /**
+             * The child descriptors being populated.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            CreationSwitch ( List<Object> newChildDescriptors, EditingDomain editingDomain )
+            {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseEquinoxApplication ( EquinoxApplication object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                                ModbusFactory.eINSTANCE.createModbusExporter () ) );
 
                 return null;
             }

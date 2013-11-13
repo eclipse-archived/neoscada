@@ -36,6 +36,9 @@
       <extender
             uri="http://eclipse.org/SCADA/Configuration/World"
             class="org.eclipse.scada.configuration.modbus.provider.ModbusItemProviderAdapterFactory$WorldChildCreationExtender"/>
+      <extender
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
+            class="org.eclipse.scada.configuration.modbus.provider.ModbusItemProviderAdapterFactory$OsgiChildCreationExtender"/>
    </extension>
 
 </plugin>

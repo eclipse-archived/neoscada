@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -507,6 +508,438 @@ public interface ModbusPackage extends EPackage
     int MODBUS_BLOCK_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterImpl <em>Exporter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterImpl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporter()
+     * @generated
+     */
+    int MODBUS_EXPORTER = 5;
+
+    /**
+     * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER__DEVICES = OsgiPackage.APPLICATION_MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Exporter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_FEATURE_COUNT = OsgiPackage.APPLICATION_MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Exporter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_OPERATION_COUNT = OsgiPackage.APPLICATION_MODULE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl <em>Exporter Device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporterDevice()
+     * @generated
+     */
+    int MODBUS_EXPORTER_DEVICE = 6;
+
+    /**
+     * The feature id for the '<em><b>Items</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE__ITEMS = 0;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE__PORT = 1;
+
+    /**
+     * The feature id for the '<em><b>Slave Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE__SLAVE_ID = 2;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE__PROPERTIES = 3;
+
+    /**
+     * The number of structural features of the '<em>Exporter Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Exporter Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterItemImpl <em>Exporter Item</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterItemImpl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporterItem()
+     * @generated
+     */
+    int MODBUS_EXPORTER_ITEM = 7;
+
+    /**
+     * The feature id for the '<em><b>Source</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_ITEM__SOURCE = 0;
+
+    /**
+     * The feature id for the '<em><b>Offset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_ITEM__OFFSET = 1;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_ITEM__TYPE = 2;
+
+    /**
+     * The number of structural features of the '<em>Exporter Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_ITEM_FEATURE_COUNT = 3;
+
+    /**
+     * The number of operations of the '<em>Exporter Item</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_ITEM_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.ModbusDataType <em>Data Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.ModbusDataType
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusDataType()
+     * @generated
+     */
+    int MODBUS_DATA_TYPE = 8;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DATA_TYPE__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DATA_TYPE__SCALE = 1;
+
+    /**
+     * The number of structural features of the '<em>Data Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DATA_TYPE_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Data Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DATA_TYPE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl <em>Double</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusDouble()
+     * @generated
+     */
+    int MODBUS_DOUBLE = 9;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DOUBLE__NAME = MODBUS_DATA_TYPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DOUBLE__SCALE = MODBUS_DATA_TYPE__SCALE;
+
+    /**
+     * The number of structural features of the '<em>Double</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DOUBLE_FEATURE_COUNT = MODBUS_DATA_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Double</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_DOUBLE_OPERATION_COUNT = MODBUS_DATA_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusSInt16Impl <em>SInt16</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusSInt16Impl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusSInt16()
+     * @generated
+     */
+    int MODBUS_SINT16 = 10;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT16__NAME = MODBUS_DATA_TYPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT16__SCALE = MODBUS_DATA_TYPE__SCALE;
+
+    /**
+     * The number of structural features of the '<em>SInt16</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT16_FEATURE_COUNT = MODBUS_DATA_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>SInt16</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT16_OPERATION_COUNT = MODBUS_DATA_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusSInt32Impl <em>SInt32</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusSInt32Impl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusSInt32()
+     * @generated
+     */
+    int MODBUS_SINT32 = 11;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT32__NAME = MODBUS_DATA_TYPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT32__SCALE = MODBUS_DATA_TYPE__SCALE;
+
+    /**
+     * The number of structural features of the '<em>SInt32</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT32_FEATURE_COUNT = MODBUS_DATA_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>SInt32</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SINT32_OPERATION_COUNT = MODBUS_DATA_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl <em>UInt16</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusUInt16()
+     * @generated
+     */
+    int MODBUS_UINT16 = 12;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT16__NAME = MODBUS_DATA_TYPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT16__SCALE = MODBUS_DATA_TYPE__SCALE;
+
+    /**
+     * The number of structural features of the '<em>UInt16</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT16_FEATURE_COUNT = MODBUS_DATA_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>UInt16</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT16_OPERATION_COUNT = MODBUS_DATA_TYPE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt32Impl <em>UInt32</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusUInt32Impl
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusUInt32()
+     * @generated
+     */
+    int MODBUS_UINT32 = 13;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT32__NAME = MODBUS_DATA_TYPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Scale</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT32__SCALE = MODBUS_DATA_TYPE__SCALE;
+
+    /**
+     * The number of structural features of the '<em>UInt32</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT32_FEATURE_COUNT = MODBUS_DATA_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>UInt32</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_UINT32_OPERATION_COUNT = MODBUS_DATA_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.ProtocolType <em>Protocol Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -514,7 +947,7 @@ public interface ModbusPackage extends EPackage
      * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getProtocolType()
      * @generated
      */
-    int PROTOCOL_TYPE = 5;
+    int PROTOCOL_TYPE = 14;
 
     /**
      * The meta object id for the '<em>Request Type</em>' data type.
@@ -524,7 +957,7 @@ public interface ModbusPackage extends EPackage
      * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getRequestType()
      * @generated
      */
-    int REQUEST_TYPE = 6;
+    int REQUEST_TYPE = 15;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusDevice <em>Device</em>}'.
@@ -740,6 +1173,206 @@ public interface ModbusPackage extends EPackage
      * @generated
      */
     EReference getModbusBlock_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusExporter <em>Exporter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Exporter</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporter
+     * @generated
+     */
+    EClass getModbusExporter ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.modbus.ModbusExporter#getDevices <em>Devices</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Devices</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporter#getDevices()
+     * @see #getModbusExporter()
+     * @generated
+     */
+    EReference getModbusExporter_Devices ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice <em>Exporter Device</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Exporter Device</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice
+     * @generated
+     */
+    EClass getModbusExporterDevice ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getItems <em>Items</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Items</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getItems()
+     * @see #getModbusExporterDevice()
+     * @generated
+     */
+    EReference getModbusExporterDevice_Items ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getPort()
+     * @see #getModbusExporterDevice()
+     * @generated
+     */
+    EReference getModbusExporterDevice_Port ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getSlaveId <em>Slave Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Slave Id</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getSlaveId()
+     * @see #getModbusExporterDevice()
+     * @generated
+     */
+    EAttribute getModbusExporterDevice_SlaveId ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getProperties()
+     * @see #getModbusExporterDevice()
+     * @generated
+     */
+    EReference getModbusExporterDevice_Properties ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem <em>Exporter Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Exporter Item</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterItem
+     * @generated
+     */
+    EClass getModbusExporterItem ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem#getSource <em>Source</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Source</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterItem#getSource()
+     * @see #getModbusExporterItem()
+     * @generated
+     */
+    EReference getModbusExporterItem_Source ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem#getOffset <em>Offset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Offset</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterItem#getOffset()
+     * @see #getModbusExporterItem()
+     * @generated
+     */
+    EAttribute getModbusExporterItem_Offset ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Type</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterItem#getType()
+     * @see #getModbusExporterItem()
+     * @generated
+     */
+    EReference getModbusExporterItem_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusDataType <em>Data Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Data Type</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDataType
+     * @generated
+     */
+    EClass getModbusDataType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusDataType#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDataType#getName()
+     * @see #getModbusDataType()
+     * @generated
+     */
+    EAttribute getModbusDataType_Name ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusDataType#getScale <em>Scale</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Scale</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDataType#getScale()
+     * @see #getModbusDataType()
+     * @generated
+     */
+    EAttribute getModbusDataType_Scale ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusDouble <em>Double</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Double</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDouble
+     * @generated
+     */
+    EClass getModbusDouble ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusSInt16 <em>SInt16</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>SInt16</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusSInt16
+     * @generated
+     */
+    EClass getModbusSInt16 ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusSInt32 <em>SInt32</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>SInt32</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusSInt32
+     * @generated
+     */
+    EClass getModbusSInt32 ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusUInt16 <em>UInt16</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>UInt16</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusUInt16
+     * @generated
+     */
+    EClass getModbusUInt16 ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusUInt32 <em>UInt32</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>UInt32</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusUInt32
+     * @generated
+     */
+    EClass getModbusUInt32 ();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusBlock#getBlockType <em>Block Type</em>}'.
@@ -1021,6 +1654,176 @@ public interface ModbusPackage extends EPackage
          * @generated
          */
         EReference MODBUS_BLOCK__TYPE = eINSTANCE.getModbusBlock_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterImpl <em>Exporter</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterImpl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporter()
+         * @generated
+         */
+        EClass MODBUS_EXPORTER = eINSTANCE.getModbusExporter ();
+
+        /**
+         * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER__DEVICES = eINSTANCE.getModbusExporter_Devices ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl <em>Exporter Device</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporterDevice()
+         * @generated
+         */
+        EClass MODBUS_EXPORTER_DEVICE = eINSTANCE.getModbusExporterDevice ();
+
+        /**
+         * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER_DEVICE__ITEMS = eINSTANCE.getModbusExporterDevice_Items ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER_DEVICE__PORT = eINSTANCE.getModbusExporterDevice_Port ();
+
+        /**
+         * The meta object literal for the '<em><b>Slave Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_EXPORTER_DEVICE__SLAVE_ID = eINSTANCE.getModbusExporterDevice_SlaveId ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER_DEVICE__PROPERTIES = eINSTANCE.getModbusExporterDevice_Properties ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterItemImpl <em>Exporter Item</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusExporterItemImpl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusExporterItem()
+         * @generated
+         */
+        EClass MODBUS_EXPORTER_ITEM = eINSTANCE.getModbusExporterItem ();
+
+        /**
+         * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER_ITEM__SOURCE = eINSTANCE.getModbusExporterItem_Source ();
+
+        /**
+         * The meta object literal for the '<em><b>Offset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_EXPORTER_ITEM__OFFSET = eINSTANCE.getModbusExporterItem_Offset ();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MODBUS_EXPORTER_ITEM__TYPE = eINSTANCE.getModbusExporterItem_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.ModbusDataType <em>Data Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.ModbusDataType
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusDataType()
+         * @generated
+         */
+        EClass MODBUS_DATA_TYPE = eINSTANCE.getModbusDataType ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_DATA_TYPE__NAME = eINSTANCE.getModbusDataType_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_DATA_TYPE__SCALE = eINSTANCE.getModbusDataType_Scale ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl <em>Double</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusDouble()
+         * @generated
+         */
+        EClass MODBUS_DOUBLE = eINSTANCE.getModbusDouble ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusSInt16Impl <em>SInt16</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusSInt16Impl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusSInt16()
+         * @generated
+         */
+        EClass MODBUS_SINT16 = eINSTANCE.getModbusSInt16 ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusSInt32Impl <em>SInt32</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusSInt32Impl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusSInt32()
+         * @generated
+         */
+        EClass MODBUS_SINT32 = eINSTANCE.getModbusSInt32 ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl <em>UInt16</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusUInt16()
+         * @generated
+         */
+        EClass MODBUS_UINT16 = eINSTANCE.getModbusUInt16 ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt32Impl <em>UInt32</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusUInt32Impl
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getModbusUInt32()
+         * @generated
+         */
+        EClass MODBUS_UINT32 = eINSTANCE.getModbusUInt32 ();
 
         /**
          * The meta object literal for the '<em><b>Block Type</b></em>' attribute feature.

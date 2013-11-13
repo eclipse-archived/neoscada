@@ -21,12 +21,21 @@ import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
+import org.eclipse.scada.configuration.modbus.ModbusDataType;
 import org.eclipse.scada.configuration.modbus.ModbusDevice;
+import org.eclipse.scada.configuration.modbus.ModbusDouble;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
+import org.eclipse.scada.configuration.modbus.ModbusExporter;
+import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
+import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusFactory;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
+import org.eclipse.scada.configuration.modbus.ModbusSInt16;
+import org.eclipse.scada.configuration.modbus.ModbusSInt32;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
+import org.eclipse.scada.configuration.modbus.ModbusUInt16;
+import org.eclipse.scada.configuration.modbus.ModbusUInt32;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -74,6 +83,69 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      * @generated
      */
     private EClass modbusBlockEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusExporterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusExporterDeviceEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusExporterItemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusDataTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusDoubleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusSInt16EClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusSInt32EClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusUInt16EClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass modbusUInt32EClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -362,6 +434,196 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getModbusExporter ()
+    {
+        return modbusExporterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporter_Devices ()
+    {
+        return (EReference)modbusExporterEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusExporterDevice ()
+    {
+        return modbusExporterDeviceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporterDevice_Items ()
+    {
+        return (EReference)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporterDevice_Port ()
+    {
+        return (EReference)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusExporterDevice_SlaveId ()
+    {
+        return (EAttribute)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporterDevice_Properties ()
+    {
+        return (EReference)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusExporterItem ()
+    {
+        return modbusExporterItemEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporterItem_Source ()
+    {
+        return (EReference)modbusExporterItemEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusExporterItem_Offset ()
+    {
+        return (EAttribute)modbusExporterItemEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getModbusExporterItem_Type ()
+    {
+        return (EReference)modbusExporterItemEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusDataType ()
+    {
+        return modbusDataTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusDataType_Name ()
+    {
+        return (EAttribute)modbusDataTypeEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusDataType_Scale ()
+    {
+        return (EAttribute)modbusDataTypeEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusDouble ()
+    {
+        return modbusDoubleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusSInt16 ()
+    {
+        return modbusSInt16EClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusSInt32 ()
+    {
+        return modbusSInt32EClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusUInt16 ()
+    {
+        return modbusUInt16EClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getModbusUInt32 ()
+    {
+        return modbusUInt32EClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EAttribute getModbusBlock_BlockType ()
     {
         return (EAttribute)modbusBlockEClass.getEStructuralFeatures ().get ( 1 );
@@ -499,6 +761,34 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         createEAttribute ( modbusBlockEClass, MODBUS_BLOCK__TIMEOUT );
         createEReference ( modbusBlockEClass, MODBUS_BLOCK__TYPE );
 
+        modbusExporterEClass = createEClass ( MODBUS_EXPORTER );
+        createEReference ( modbusExporterEClass, MODBUS_EXPORTER__DEVICES );
+
+        modbusExporterDeviceEClass = createEClass ( MODBUS_EXPORTER_DEVICE );
+        createEReference ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__ITEMS );
+        createEReference ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__PORT );
+        createEAttribute ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__SLAVE_ID );
+        createEReference ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__PROPERTIES );
+
+        modbusExporterItemEClass = createEClass ( MODBUS_EXPORTER_ITEM );
+        createEReference ( modbusExporterItemEClass, MODBUS_EXPORTER_ITEM__SOURCE );
+        createEAttribute ( modbusExporterItemEClass, MODBUS_EXPORTER_ITEM__OFFSET );
+        createEReference ( modbusExporterItemEClass, MODBUS_EXPORTER_ITEM__TYPE );
+
+        modbusDataTypeEClass = createEClass ( MODBUS_DATA_TYPE );
+        createEAttribute ( modbusDataTypeEClass, MODBUS_DATA_TYPE__NAME );
+        createEAttribute ( modbusDataTypeEClass, MODBUS_DATA_TYPE__SCALE );
+
+        modbusDoubleEClass = createEClass ( MODBUS_DOUBLE );
+
+        modbusSInt16EClass = createEClass ( MODBUS_SINT16 );
+
+        modbusSInt32EClass = createEClass ( MODBUS_SINT32 );
+
+        modbusUInt16EClass = createEClass ( MODBUS_UINT16 );
+
+        modbusUInt32EClass = createEClass ( MODBUS_UINT32 );
+
         // Create enums
         protocolTypeEEnum = createEEnum ( PROTOCOL_TYPE );
 
@@ -546,6 +836,12 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         modbusDeviceEClass.getESuperTypes ().add ( theInfrastructurePackage.getDevice () );
         modbusDriverEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
         modbusDriverEClass.getESuperTypes ().add ( theOsgiPackage.getEquinoxApplication () );
+        modbusExporterEClass.getESuperTypes ().add ( theOsgiPackage.getApplicationModule () );
+        modbusDoubleEClass.getESuperTypes ().add ( this.getModbusDataType () );
+        modbusSInt16EClass.getESuperTypes ().add ( this.getModbusDataType () );
+        modbusSInt32EClass.getESuperTypes ().add ( this.getModbusDataType () );
+        modbusUInt16EClass.getESuperTypes ().add ( this.getModbusDataType () );
+        modbusUInt32EClass.getESuperTypes ().add ( this.getModbusDataType () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( modbusDeviceEClass, ModbusDevice.class, "ModbusDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -578,6 +874,34 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEAttribute ( getModbusBlock_Period (), ecorePackage.getELong (), "period", null, 1, 1, ModbusBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getModbusBlock_Timeout (), ecorePackage.getELong (), "timeout", null, 1, 1, ModbusBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getModbusBlock_Type (), theMemoryPackage.getTypeDefinition (), null, "type", null, 1, 1, ModbusBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( modbusExporterEClass, ModbusExporter.class, "ModbusExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getModbusExporter_Devices (), this.getModbusExporterDevice (), null, "devices", null, 0, -1, ModbusExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( modbusExporterDeviceEClass, ModbusExporterDevice.class, "ModbusExporterDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getModbusExporterDevice_Items (), this.getModbusExporterItem (), null, "items", null, 0, -1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getModbusExporterDevice_Port (), theWorldPackage.getEndpoint (), null, "port", null, 1, 1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusExporterDevice_SlaveId (), ecorePackage.getEInt (), "slaveId", null, 1, 1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getModbusExporterDevice_Properties (), theOsgiPackage.getPropertyEntry (), null, "properties", null, 0, -1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( modbusExporterItemEClass, ModbusExporterItem.class, "ModbusExporterItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getModbusExporterItem_Source (), theOsgiPackage.getItem (), null, "source", null, 1, 1, ModbusExporterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusExporterItem_Offset (), ecorePackage.getEInt (), "offset", null, 1, 1, ModbusExporterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getModbusExporterItem_Type (), this.getModbusDataType (), null, "type", null, 1, 1, ModbusExporterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( modbusDataTypeEClass, ModbusDataType.class, "ModbusDataType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getModbusDataType_Name (), ecorePackage.getEString (), "name", null, 1, 1, ModbusDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusDataType_Scale (), ecorePackage.getEDoubleObject (), "scale", null, 0, 1, ModbusDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( modbusDoubleEClass, ModbusDouble.class, "ModbusDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( modbusSInt16EClass, ModbusSInt16.class, "ModbusSInt16", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( modbusSInt32EClass, ModbusSInt32.class, "ModbusSInt32", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( modbusUInt16EClass, ModbusUInt16.class, "ModbusUInt16", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( modbusUInt32EClass, ModbusUInt32.class, "ModbusUInt32", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( protocolTypeEEnum, ProtocolType.class, "ProtocolType" ); //$NON-NLS-1$

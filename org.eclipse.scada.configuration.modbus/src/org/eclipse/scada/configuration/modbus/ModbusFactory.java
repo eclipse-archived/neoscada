@@ -76,6 +76,78 @@ public interface ModbusFactory extends EFactory
     ModbusBlock createModbusBlock ();
 
     /**
+     * Returns a new object of class '<em>Exporter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exporter</em>'.
+     * @generated
+     */
+    ModbusExporter createModbusExporter ();
+
+    /**
+     * Returns a new object of class '<em>Exporter Device</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exporter Device</em>'.
+     * @generated
+     */
+    ModbusExporterDevice createModbusExporterDevice ();
+
+    /**
+     * Returns a new object of class '<em>Exporter Item</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exporter Item</em>'.
+     * @generated
+     */
+    ModbusExporterItem createModbusExporterItem ();
+
+    /**
+     * Returns a new object of class '<em>Double</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Double</em>'.
+     * @generated
+     */
+    ModbusDouble createModbusDouble ();
+
+    /**
+     * Returns a new object of class '<em>SInt16</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>SInt16</em>'.
+     * @generated
+     */
+    ModbusSInt16 createModbusSInt16 ();
+
+    /**
+     * Returns a new object of class '<em>SInt32</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>SInt32</em>'.
+     * @generated
+     */
+    ModbusSInt32 createModbusSInt32 ();
+
+    /**
+     * Returns a new object of class '<em>UInt16</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>UInt16</em>'.
+     * @generated
+     */
+    ModbusUInt16 createModbusUInt16 ();
+
+    /**
+     * Returns a new object of class '<em>UInt32</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>UInt32</em>'.
+     * @generated
+     */
+    ModbusUInt32 createModbusUInt32 ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -14,5 +14,8 @@
             factoryClass="org.eclipse.scada.configuration.modbus.lib.ModbusDriverProcessorFactory"
             forClass="org.eclipse.scada.configuration.modbus.ModbusDriver">
       </nodeElementProcessor>
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.modbus.lib.ModbusExporterProcessor">
+      </oscarProcessor>
    </extension>
 </plugin>

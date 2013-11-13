@@ -43,6 +43,11 @@ public class ModbusTests extends TestSuite
     {
         TestSuite suite = new ModbusTests ( "modbus Tests" ); //$NON-NLS-1$
         suite.addTestSuite ( ModbusDriverTest.class );
+        suite.addTestSuite ( ModbusDoubleTest.class );
+        suite.addTestSuite ( ModbusSInt16Test.class );
+        suite.addTestSuite ( ModbusSInt32Test.class );
+        suite.addTestSuite ( ModbusUInt16Test.class );
+        suite.addTestSuite ( ModbusUInt32Test.class );
         return suite;
     }
 

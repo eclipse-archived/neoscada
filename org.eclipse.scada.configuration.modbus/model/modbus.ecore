@@ -51,4 +51,37 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeDefinition"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="RequestType" instanceClassName="org.eclipse.scada.da.server.osgi.modbus.RequestType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusExporter" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//ModbusExporterDevice" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterDevice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ModbusExporterItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" lowerBound="1" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slaveId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/PropertyEntry"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//ModbusDataType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusDataType" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusDouble" eSuperTypes="#//ModbusDataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusSInt16" eSuperTypes="#//ModbusDataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusSInt32" eSuperTypes="#//ModbusDataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusUInt16" eSuperTypes="#//ModbusDataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusUInt32" eSuperTypes="#//ModbusDataType"/>
 </ecore:EPackage>

@@ -18,6 +18,7 @@ import org.eclipse.scada.configuration.modbus.*;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
+import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
@@ -135,6 +136,90 @@ public class ModbusSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ModbusPackage.MODBUS_EXPORTER:
+            {
+                ModbusExporter modbusExporter = (ModbusExporter)theEObject;
+                T result = caseModbusExporter ( modbusExporter );
+                if ( result == null )
+                    result = caseApplicationModule ( modbusExporter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE:
+            {
+                ModbusExporterDevice modbusExporterDevice = (ModbusExporterDevice)theEObject;
+                T result = caseModbusExporterDevice ( modbusExporterDevice );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_EXPORTER_ITEM:
+            {
+                ModbusExporterItem modbusExporterItem = (ModbusExporterItem)theEObject;
+                T result = caseModbusExporterItem ( modbusExporterItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_DATA_TYPE:
+            {
+                ModbusDataType modbusDataType = (ModbusDataType)theEObject;
+                T result = caseModbusDataType ( modbusDataType );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_DOUBLE:
+            {
+                ModbusDouble modbusDouble = (ModbusDouble)theEObject;
+                T result = caseModbusDouble ( modbusDouble );
+                if ( result == null )
+                    result = caseModbusDataType ( modbusDouble );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_SINT16:
+            {
+                ModbusSInt16 modbusSInt16 = (ModbusSInt16)theEObject;
+                T result = caseModbusSInt16 ( modbusSInt16 );
+                if ( result == null )
+                    result = caseModbusDataType ( modbusSInt16 );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_SINT32:
+            {
+                ModbusSInt32 modbusSInt32 = (ModbusSInt32)theEObject;
+                T result = caseModbusSInt32 ( modbusSInt32 );
+                if ( result == null )
+                    result = caseModbusDataType ( modbusSInt32 );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_UINT16:
+            {
+                ModbusUInt16 modbusUInt16 = (ModbusUInt16)theEObject;
+                T result = caseModbusUInt16 ( modbusUInt16 );
+                if ( result == null )
+                    result = caseModbusDataType ( modbusUInt16 );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ModbusPackage.MODBUS_UINT32:
+            {
+                ModbusUInt32 modbusUInt32 = (ModbusUInt32)theEObject;
+                T result = caseModbusUInt32 ( modbusUInt32 );
+                if ( result == null )
+                    result = caseModbusDataType ( modbusUInt32 );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -221,6 +306,150 @@ public class ModbusSwitch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Exporter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exporter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusExporter ( ModbusExporter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exporter Device</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exporter Device</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusExporterDevice ( ModbusExporterDevice object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Exporter Item</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exporter Item</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusExporterItem ( ModbusExporterItem object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusDataType ( ModbusDataType object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Double</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Double</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusDouble ( ModbusDouble object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>SInt16</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>SInt16</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusSInt16 ( ModbusSInt16 object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>SInt32</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>SInt32</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusSInt32 ( ModbusSInt32 object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>UInt16</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>UInt16</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusUInt16 ( ModbusUInt16 object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>UInt32</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>UInt32</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModbusUInt32 ( ModbusUInt32 object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -296,6 +525,22 @@ public class ModbusSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseEquinoxApplication ( EquinoxApplication object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplicationModule ( ApplicationModule object )
     {
         return null;
     }

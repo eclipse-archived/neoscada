@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.modbus.*;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDevice;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
@@ -88,6 +89,22 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
                 return createModbusMaster ();
             case ModbusPackage.MODBUS_BLOCK:
                 return createModbusBlock ();
+            case ModbusPackage.MODBUS_EXPORTER:
+                return createModbusExporter ();
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE:
+                return createModbusExporterDevice ();
+            case ModbusPackage.MODBUS_EXPORTER_ITEM:
+                return createModbusExporterItem ();
+            case ModbusPackage.MODBUS_DOUBLE:
+                return createModbusDouble ();
+            case ModbusPackage.MODBUS_SINT16:
+                return createModbusSInt16 ();
+            case ModbusPackage.MODBUS_SINT32:
+                return createModbusSInt32 ();
+            case ModbusPackage.MODBUS_UINT16:
+                return createModbusUInt16 ();
+            case ModbusPackage.MODBUS_UINT32:
+                return createModbusUInt32 ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -184,6 +201,94 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     {
         ModbusBlockImpl modbusBlock = new ModbusBlockImpl ();
         return modbusBlock;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusExporter createModbusExporter ()
+    {
+        ModbusExporterImpl modbusExporter = new ModbusExporterImpl ();
+        return modbusExporter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusExporterDevice createModbusExporterDevice ()
+    {
+        ModbusExporterDeviceImpl modbusExporterDevice = new ModbusExporterDeviceImpl ();
+        return modbusExporterDevice;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusExporterItem createModbusExporterItem ()
+    {
+        ModbusExporterItemImpl modbusExporterItem = new ModbusExporterItemImpl ();
+        return modbusExporterItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusDouble createModbusDouble ()
+    {
+        ModbusDoubleImpl modbusDouble = new ModbusDoubleImpl ();
+        return modbusDouble;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusSInt16 createModbusSInt16 ()
+    {
+        ModbusSInt16Impl modbusSInt16 = new ModbusSInt16Impl ();
+        return modbusSInt16;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusSInt32 createModbusSInt32 ()
+    {
+        ModbusSInt32Impl modbusSInt32 = new ModbusSInt32Impl ();
+        return modbusSInt32;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusUInt16 createModbusUInt16 ()
+    {
+        ModbusUInt16Impl modbusUInt16 = new ModbusUInt16Impl ();
+        return modbusUInt16;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ModbusUInt32 createModbusUInt32 ()
+    {
+        ModbusUInt32Impl modbusUInt32 = new ModbusUInt32Impl ();
+        return modbusUInt32;
     }
 
     /**

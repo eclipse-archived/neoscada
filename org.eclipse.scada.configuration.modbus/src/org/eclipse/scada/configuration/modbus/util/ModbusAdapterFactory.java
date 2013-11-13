@@ -19,6 +19,7 @@ import org.eclipse.scada.configuration.modbus.*;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
+import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
@@ -114,6 +115,60 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseModbusExporter ( ModbusExporter object )
+        {
+            return createModbusExporterAdapter ();
+        }
+
+        @Override
+        public Adapter caseModbusExporterDevice ( ModbusExporterDevice object )
+        {
+            return createModbusExporterDeviceAdapter ();
+        }
+
+        @Override
+        public Adapter caseModbusExporterItem ( ModbusExporterItem object )
+        {
+            return createModbusExporterItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseModbusDataType ( ModbusDataType object )
+        {
+            return createModbusDataTypeAdapter ();
+        }
+
+        @Override
+        public Adapter caseModbusDouble ( ModbusDouble object )
+        {
+            return createModbusDoubleAdapter ();
+        }
+
+        @Override
+        public Adapter caseModbusSInt16 ( ModbusSInt16 object )
+        {
+            return createModbusSInt16Adapter ();
+        }
+
+        @Override
+        public Adapter caseModbusSInt32 ( ModbusSInt32 object )
+        {
+            return createModbusSInt32Adapter ();
+        }
+
+        @Override
+        public Adapter caseModbusUInt16 ( ModbusUInt16 object )
+        {
+            return createModbusUInt16Adapter ();
+        }
+
+        @Override
+        public Adapter caseModbusUInt32 ( ModbusUInt32 object )
+        {
+            return createModbusUInt32Adapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -141,6 +196,12 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
         public Adapter caseEquinoxApplication ( EquinoxApplication object )
         {
             return createEquinoxApplicationAdapter ();
+        }
+
+        @Override
+        public Adapter caseApplicationModule ( ApplicationModule object )
+        {
+            return createApplicationModuleAdapter ();
         }
 
         @Override
@@ -240,6 +301,141 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusExporter <em>Exporter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporter
+     * @generated
+     */
+    public Adapter createModbusExporterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice <em>Exporter Device</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice
+     * @generated
+     */
+    public Adapter createModbusExporterDeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem <em>Exporter Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterItem
+     * @generated
+     */
+    public Adapter createModbusExporterItemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusDataType <em>Data Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDataType
+     * @generated
+     */
+    public Adapter createModbusDataTypeAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusDouble <em>Double</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusDouble
+     * @generated
+     */
+    public Adapter createModbusDoubleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusSInt16 <em>SInt16</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusSInt16
+     * @generated
+     */
+    public Adapter createModbusSInt16Adapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusSInt32 <em>SInt32</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusSInt32
+     * @generated
+     */
+    public Adapter createModbusSInt32Adapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusUInt16 <em>UInt16</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusUInt16
+     * @generated
+     */
+    public Adapter createModbusUInt16Adapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.modbus.ModbusUInt32 <em>UInt32</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.modbus.ModbusUInt32
+     * @generated
+     */
+    public Adapter createModbusUInt32Adapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -310,6 +506,21 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createEquinoxApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationModule <em>Application Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.ApplicationModule
+     * @generated
+     */
+    public Adapter createApplicationModuleAdapter ()
     {
         return null;
     }
