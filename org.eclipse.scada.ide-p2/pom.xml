@@ -31,7 +31,7 @@
 								</goals>
 								<configuration>
 									<target>
-										<property name="repo" value="${project.groupId}"/>
+										<property name="repo" value="${project.artifactId}"/>
 										<ant antfile="post.ant">
 											<property name="buildType" value="${buildType}"/>
 											<property name="buildId" value="${qualifier}"/>
