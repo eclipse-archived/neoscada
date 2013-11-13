@@ -24,7 +24,7 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,copy">
+    <target name="default" depends="clean,build,file,copy">
     </target>
     
     <!-- ================================= 
@@ -43,9 +43,10 @@ is active.
             
         <move todir="${output}">
             <fileset dir=".">
-                <include name="target/**/${repo}*.rpm"/>
-                <include name="target/${repo}_*.deb"/>
-                <include name="target/${repo}-*.zip"/>
+                <include name="target/**/${package}*.rpm"/>
+                <include name="target/${package}_*.deb"/>
+                <include name="target/${package}_*.changes"/>
+                <include name="target/${package}-*.zip"/>
             </fileset>
             <mapper type="flatten"/>
         </move>
@@ -54,7 +55,24 @@ is active.
             <fileset dir="target/repository">
             </fileset>
         </move>
-    </target>
+   </target>
+
+	<!-- ================================= 
+          target: file
+         ================================= -->
+    <target name="file">
+		<fileset id="rpms" dir="${output}">
+			<include name="*.rpm"/>
+		</fileset>
+
+		<pathconvert property="rpmText" refid="rpms" pathsep="\n">
+			<mapper type="flatten"/>
+		</pathconvert>
+
+		<echo message="${package}.rpmFileName=${rpmText}" />
+		<echo message="${package}.rpmFileName=${rpmText}
+" file="${output}/rpm.properties"/>
+	</target>
     
     <!-- ================================= 
           target: copy
@@ -70,7 +88,7 @@ is active.
         </copy>
         <copy todir="${download.dir}/pack">
             <fileset dir="${output}">
-                <include name="${repo}-*.zip"/>
+                <include name="${package}-*.zip"/>
             </fileset>
         </copy>
     </target>
