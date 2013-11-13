@@ -43,9 +43,10 @@ is active.
             
         <move todir="${output}">
             <fileset dir=".">
-                <include name="target/**/${repo}*.rpm"/>
-                <include name="target/${repo}_*.deb"/>
-                <include name="target/${repo}-*.zip"/>
+                <include name="target/**/${package}*.rpm"/>
+                <include name="target/${package}_*.deb"/>
+                <include name="target/${package}_*.changes"/>
+                <include name="target/${package}-*.zip"/>
             </fileset>
             <mapper type="flatten"/>
         </move>
@@ -68,8 +69,8 @@ is active.
 			<mapper type="flatten"/>
 		</pathconvert>
 
-		<echo message="${repo}.rpmFileName=${rpmText}" />
-		<echo message="${repo}.rpmFileName=${rpmText}
+		<echo message="${package}.rpmFileName=${rpmText}" />
+		<echo message="${package}.rpmFileName=${rpmText}
 " file="${output}/rpm.properties"/>
 	</target>
     
@@ -87,7 +88,7 @@ is active.
         </copy>
         <copy todir="${download.dir}/pack">
             <fileset dir="${output}">
-                <include name="${repo}-*.zip"/>
+                <include name="${package}-*.zip"/>
             </fileset>
         </copy>
     </target>
