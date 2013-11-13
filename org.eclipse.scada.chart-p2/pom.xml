@@ -28,10 +28,13 @@
 									<goal>run</goal>
 								</goals>
 								<configuration>
-									<tasks>
+									<target>
 										<property name="repo" value="${project.groupId}"/>
-										<ant antfile="post.ant" />
-									</tasks>
+										<ant antfile="post.ant">
+											<property name="buildType" value="${buildType}"/>
+											<property name="buildId" value="${qualifier}"/>
+										</ant>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
