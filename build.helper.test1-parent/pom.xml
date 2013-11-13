@@ -129,6 +129,7 @@
 		<module>../build.helper.test1.sdk.feature</module>
 		
 		<module>../build.helper.test1.bundle1</module>
+		<module>../build.helper.test1.withSub</module>
 	</modules>
 
 </project>

@@ -10,12 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.build.helper;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
@@ -79,38 +74,5 @@ public abstract class AbstractHelperMojo extends AbstractMojo
     public void setReactorProjects ( final List<MavenProject> reactorProjects )
     {
         this.reactorProjects = reactorProjects;
-    }
-
-    public Collection<MavenProject> getChildProjects () throws IOException
-    {
-        final Set<MavenProject> result = new HashSet<MavenProject> ();
-
-        fillChildren ( result, getProject () );
-
-        return result;
-    }
-
-    private void fillChildren ( final Set<MavenProject> result, final MavenProject localProject ) throws IOException
-    {
-        getLog ().debug ( "Add children from: " + localProject );
-
-        for ( final String module : localProject.getModules () )
-        {
-            final File moduleFile = new File ( localProject.getBasedir (), module ).getCanonicalFile ();
-
-            for ( final MavenProject project : this.reactorProjects )
-            {
-                final File projectFile = project.getBasedir ().getAbsoluteFile ();
-
-                if ( projectFile.equals ( moduleFile ) )
-                {
-                    if ( result.add ( project ) )
-                    {
-                        getLog ().debug ( "Dive into: " + project );
-                        fillChildren ( result, project );
-                    }
-                }
-            }
-        }
     }
 }

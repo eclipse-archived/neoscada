@@ -66,15 +66,14 @@ public class SetQualifierMojo extends AbstractHelperMojo
                 getLog ().info ( "This is a dry run" );
             }
 
-            final Collection<MavenProject> projects = getChildProjects ();
-            projects.add ( getProject () );
+            final Collection<MavenProject> projects = PomHelper.expandProjects ( getReactorProjects () );
 
             getLog ().info ( String.format ( "Processing %s modules", projects.size () ) );
 
             for ( final MavenProject project : projects )
             {
                 getLog ().debug ( String.format ( " -> %s", project ) );
-                process ( project );
+                process ( projects, project );
             }
         }
         catch ( final Exception e )
@@ -83,7 +82,7 @@ public class SetQualifierMojo extends AbstractHelperMojo
         }
     }
 
-    private void process ( final MavenProject project ) throws Exception
+    private void process ( final Collection<MavenProject> projects, final MavenProject project ) throws Exception
     {
         getLog ().debug ( "Processing: " + project + " / " + project.getVersion () );
 
@@ -113,16 +112,13 @@ public class SetQualifierMojo extends AbstractHelperMojo
             final ModelWriter writer = new DefaultModelWriter ();
             writer.write ( project.getFile (), null, model );
 
-            PomHelper.visitDirectChildModules ( this.reactorProjects, project, new VisitorChange () {
+            // visit all modules that have this project as a parent
+            PomHelper.visitModulesWithParent ( projects, project, new VisitorChange () {
                 @Override
                 protected boolean performChange ( final Model model )
                 {
                     getLog ().debug ( String.format ( "Update parent version in module: %s", model ) );
-                    if ( model.getParent () != null )
-                    {
-                        // only set if we do have a parent model
-                        model.getParent ().setVersion ( version );
-                    }
+                    model.getParent ().setVersion ( version );
                     return true;
                 }
             } );

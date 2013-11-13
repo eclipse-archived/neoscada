@@ -11,8 +11,15 @@
 package org.eclipse.scada.build.helper;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+import java.util.Set;
 
+import org.apache.maven.model.io.DefaultModelReader;
 import org.apache.maven.project.MavenProject;
 
 public class PomHelper
@@ -36,6 +43,62 @@ public class PomHelper
                 {
                     visitor.visit ( reactorProject );
                 }
+            }
+        }
+    }
+
+    public static Set<MavenProject> expandProjects ( final Collection<MavenProject> projects ) throws IOException
+    {
+        final Set<MavenProject> result = new HashSet<MavenProject> ();
+
+        final Queue<MavenProject> queue = new LinkedList<MavenProject> ( projects );
+        while ( !queue.isEmpty () )
+        {
+            final MavenProject project = queue.poll ();
+            if ( !result.add ( project ) )
+            {
+                // if the project was already in our result, there is no need to process twice
+                continue;
+            }
+            // add all children to the queue
+            queue.addAll ( loadChildren ( project ) );
+            if ( project.getParent () != null )
+            {
+                // if we have a parent, add the parent as well
+                queue.add ( project.getParent () );
+            }
+        }
+        return result;
+    }
+
+    private static Collection<MavenProject> loadChildren ( final MavenProject project ) throws IOException
+    {
+        final Set<MavenProject> result = new HashSet<MavenProject> ();
+
+        for ( final String module : project.getModules () )
+        {
+            File file = new File ( project.getBasedir (), module );
+            if ( file.isDirectory () )
+            {
+                file = new File ( file, "pom.xml" );
+            }
+            result.add ( new MavenProject ( new DefaultModelReader ().read ( file, null ) ) );
+        }
+
+        return result;
+    }
+
+    public static void visitModulesWithParent ( final Collection<MavenProject> projects, final MavenProject parentProject, final ProjectVisitor visitor ) throws Exception
+    {
+        for ( final MavenProject project : projects )
+        {
+            if ( project.getParentFile () == null )
+            {
+                continue;
+            }
+            if ( project.getParentFile ().equals ( parentProject.getFile () ) )
+            {
+                visitor.visit ( project );
             }
         }
     }

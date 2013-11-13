@@ -42,7 +42,12 @@ public final class XmlHelper
 
     private static XPathFactory xpf = XPathFactory.newInstance ();
 
-    private static DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance ();
+    private static DocumentBuilderFactory dbf;
+
+    static
+    {
+        dbf = DocumentBuilderFactory.newInstance ();
+    }
 
     public static void write ( final Document doc, final File file ) throws Exception
     {
