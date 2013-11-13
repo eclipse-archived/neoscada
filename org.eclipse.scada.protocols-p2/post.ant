@@ -6,18 +6,11 @@
     <description>
 Things to do after the main build
         
-Called fromt he pom.xml when the profile "eclipse-hudson"
+Called from the pom.xml when the profile "eclipse-hudson"
 is active.
     </description>
 	    
     <property name="output" location="../output"/>
-    
-    <tstamp>
-    	<format property="timestamp" pattern="yyyyMMdd-HHmm"/>
-    </tstamp>
-        
-    <property name="buildType" value="I"/>
-    <property name="buildId" value="${timestamp}"/>
     
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
