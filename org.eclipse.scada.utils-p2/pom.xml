@@ -67,7 +67,7 @@
 						</executions>
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubuation)</distribution>
+							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
 							<group>System Environment/Libraries</group>
 							<packager>Eclipse SCADA Project</packager>
 							<changelogFile>rpm/changelog</changelogFile>
