@@ -13,6 +13,10 @@
 		<tycho-extras-version>0.18.1</tycho-extras-version>
 		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.chart.git</tycho.scmUrl>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<buildType>I</buildType>
+		<qualifier>${maven.build.timestamp}</qualifier>
+		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
 	</properties>
 
 	<repositories>
