@@ -41,43 +41,6 @@
 							<deb>${project.build.directory}/${project.artifactId}_[[version]]_amd64.deb</deb>
 							<dataSet>
 								<data>
-									<type>template</type>
-									<paths>
-										<path>/etc/eclipsescada</path>
-										<path>/etc/eclipsescada/schema</path>
-										<path>/usr/jar</path>
-										<path>/usr/share/eclipsescada</path>
-										<path>/var/log/eclipsescada</path>
-										<path>/usr/share/perl5/EclipseSCADA</path>
-									</paths>
-								</data>
-								<data>
-									<src>${srcBase}/bin</src>
-									<includes>es*</includes>
-									<includes>hds-replicate-once</includes>
-									<type>directory</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/bin</prefix>
-									</mapper>
-								</data>
-								<data>
-									<src>${srcBase}/perl</src>
-									<type>directory</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/perl5</prefix>
-									</mapper>
-								</data>
-								<data>
-									<src>${srcBase}/default/eclipsescada.sh</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/profile.d</prefix>
-									</mapper>
-								</data>
-								<data>
 									<src>${srcBase}/default/eclipsescada.debian.x86_64</src>
 									<dst>eclipsescada</dst>
 									<type>file</type>
@@ -100,43 +63,6 @@
 							<controlDir>${basedir}/src/linux-i386/deb/control</controlDir>
 							<deb>${project.build.directory}/${project.artifactId}_[[version]]_i386.deb</deb>
 							<dataSet>
-								<data>
-									<type>template</type>
-									<paths>
-										<path>/etc/eclipsescada</path>
-										<path>/etc/eclipsescada/schema</path>
-										<path>/usr/jar</path>
-										<path>/usr/share/eclipsescada</path>
-										<path>/var/log/eclipsescada</path>
-										<path>/usr/share/perl5/EclipseSCADA</path>
-									</paths>
-								</data>
-								<data>
-									<src>${srcBase}/bin</src>
-									<includes>es*</includes>
-									<includes>hds-replicate-once</includes>
-									<type>directory</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/bin</prefix>
-									</mapper>
-								</data>
-								<data>
-									<src>${srcBase}/perl</src>
-									<type>directory</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/perl5</prefix>
-									</mapper>
-								</data>
-								<data>
-									<src>${srcBase}/default/eclipsescada.sh</src>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/profile.d</prefix>
-									</mapper>
-								</data>
 								<data>
 									<src>${srcBase}/default/eclipsescada.debian.i386</src>
 									<dst>eclipsescada</dst>
