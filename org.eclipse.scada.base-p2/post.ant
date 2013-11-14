@@ -91,6 +91,13 @@ is active.
                 <include name="${package}-*.zip"/>
             </fileset>
         </copy>
+        <copy todir="${download.dir}/packages">
+            <fileset dir="${output}">
+                <include name="*.rpm"/>
+                <include name="*.deb"/>
+                <include name="*.changes"/>
+            </fileset>
+        </copy>
     </target>
 
 </project>
