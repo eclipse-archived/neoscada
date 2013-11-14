@@ -5,7 +5,7 @@ set -e
 rm -Rf ../output
 mkdir ../output
 for i in `find /tmp/eclipse.scada.rpmbuild -name "*.rpm"`; do
- cp -v "$i" output/
+ cp -v "$i" ../output/
 done
 find . -name "*.deb" -exec cp -v {} ../output/ \;
 find . -name "*.changes" -exec cp -v {} ../output/ \;
