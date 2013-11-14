@@ -51,6 +51,7 @@
 									<mapper>
 										<type>perm</type>
 										<prefix>/usr/bin</prefix>
+										<filemode>0755</filemode>
 									</mapper>
 								</data>
 							</dataSet>
