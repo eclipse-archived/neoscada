@@ -52,6 +52,7 @@ is active.
                 <include name="target/products/${repo}*.zip" />
                 <include name="target/rpm/**/${repo}*.rpm" />
                 <include name="target/**/${repo}*.deb" />
+                <include name="target/**/${repo}*.changes" />
             </fileset>
             <mapper type="flatten" />
         </move>
