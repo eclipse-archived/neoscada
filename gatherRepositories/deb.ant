@@ -40,7 +40,7 @@
         	    <include name="*/drops/${buildType}*/packages/*.deb"/>
         	    <include name="*/drops/${buildType}*/packages/*.changes"/>
         	</fileset>
-            <mapper>flatten</mapper>
+            <mapper type="flatten"/>
         </copy>
     </target>
 
