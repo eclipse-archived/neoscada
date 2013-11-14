@@ -12,26 +12,18 @@ is active.
 
     <property name="output" location="../output" />
 
-    <tstamp>
-        <format property="timestamp" pattern="yyyyMMdd-HHmm" />
-    </tstamp>
-
-    <property name="buildType" value="I" />
-    <property name="buildId" value="${timestamp}" />
+    <property name="buildType" value="integration" />
 
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
 
-    <!-- the base where drops will be placed for this repository -->
-    <property name="download.base" location="${download.root}/${repo}/drops" />
-
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${buildType}${buildId}" />
+    <property name="download.dir" location="${download.root}/repo/${buildType}" />
 
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,file">
+    <target name="default" depends="clean,build,file,copy">
     </target>
 
     <!-- ================================= 
@@ -86,21 +78,21 @@ ${repo}.x86_64.rpmFileName=${rpmText.x86_64}
     </target>
 
     <!-- ================================= 
-          target: copy
-         ================================= -->
-    <target name="copy" unless="skip.copy">
+            target: copy
+           ================================= -->
+    <target name="copy" if="download.dir" unless="skip.copy">
         <echo message="Download Directory: ${download.dir}" />
 
+        <delete dir="${download.dir}"/>
         <mkdir dir="${download.dir}" />
-        <mkdir dir="${download.dir}/pack" />
+        <mkdir dir="${download.dir}/yum/noarch" />
+        <mkdir dir="${download.dir}/deb" />
 
-        <copy todir="${download.dir}">
-            <fileset dir="${output}/p2" />
+        <copy todir="${download.dir}/yum/noarch">
+            <fileset dir="${output}" includes="*.rpm" />
         </copy>
-        <copy todir="${download.dir}/pack">
-            <fileset dir="${output}">
-                <include name="${repo}.p2-*.zip" />
-            </fileset>
+        <copy todir="${download.dir}/deb">
+            <fileset dir="${output}" includes="*.deb" />
         </copy>
     </target>
 
