@@ -23,8 +23,4 @@
          id="org.eclipse.scada.deploy"
          version="0.0.0"/>
 
-   <includes
-         id="org.eclipse.scada.deploy.source"
-         version="0.0.0"/>
-
 </feature>
