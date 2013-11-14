@@ -40,6 +40,10 @@
         	    <include name="*/drops/${buildType}*/packages/*.deb"/>
         	    <include name="*/drops/${buildType}*/packages/*.changes"/>
         	</fileset>
+    	    <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
+        	    <include name="*.deb"/>
+        	    <include name="*.changes"/>
+        	</fileset>
             <mapper type="flatten"/>
         </copy>
     </target>
