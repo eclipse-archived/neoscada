@@ -13,7 +13,7 @@ case "$1" in
 		fi
 
 # create the home "/var/lib/$USER", just in case ...
-        mkdir -p "/var/lib/$OS_USER"
+        mkdir -p "/var/lib/$USER"
 
 # fix permissions "/var/lib/$USER", just in case ...
         chown -R "$USER:$USER" "/var/lib/$USER"
