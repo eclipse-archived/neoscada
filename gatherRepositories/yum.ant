@@ -40,32 +40,10 @@
           target: fetch
          ================================= -->
     <target name="fetch" depends="init">
-        <!-- deploy copies its stuff over already -->
-        
-	    <mkdir dir="${input.dir}/rpms/properties"/>
-        
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/rpm.properties" dest="${input.dir}/rpms/properties/external.properties"/>
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/rpm.properties" dest="${input.dir}/rpms/properties/utils.properties"/>
-        <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/rpm.properties" dest="${input.dir}/rpms/properties/base.properties"/>
-        <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/rpm.properties" dest="${input.dir}/rpms/properties/protocols.properties"/>
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/rpm.properties" dest="${input.dir}/rpms/properties/core.properties"/>
-	    
-	    <property file="${input.dir}/rpms/properties/external.properties"/>
-	    <property file="${input.dir}/rpms/properties/utils.properties"/>
-        <property file="${input.dir}/rpms/properties/base.properties"/>
-        <property file="${input.dir}/rpms/properties/protocols.properties"/>
-        <property file="${input.dir}/rpms/properties/core.properties"/>
-	    
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.external.rpmFileName}" dest="${repo.base}/noarch"/>
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.utils.rpmFileName}" dest="${repo.base}/noarch"/>
-	    <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.base.rpmFileName}" dest="${repo.base}/noarch"/>
-        <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.protocols.rpmFileName}" dest="${repo.base}/noarch"/>
-        <get src="https://hudson.eclipse.org/scada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/${org.eclipse.scada.core.rpmFileName}" dest="${repo.base}/noarch"/>
-        
-        <!-- copy from local repack repo -->
-        <echo message="Fetch from repack repo: ${repack.dir}"/>
-        <copy todir="${repo.base}">
-            <fileset dir="${repack.dir}" includes="**/*.rpm"/>
+        <copy todir="${download.root}/repo/${buildType}/deb">
+            <fileset dir="${download.root}">
+        	</fileset>
+            <mapper>flatten</mapper>
         </copy>
     </target>
     

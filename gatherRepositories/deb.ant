@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+      Build deb repository
+     ====================================================================== -->
+<project name="deb" default="default">
+    <description>
+            Build deb repository
+    </description>
+    
+    <property name="buildTypeLong" value="integration" />
+    <property name="buildType" value="I" />
+
+    <!-- the root of all -->
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+    
+    <!-- the target -->
+    <property name="download.deb.dir" location="${download.root}/repo/${buildTypeLong}/deb"/>
+    <property name="download.apt.dir" location="${download.root}/repo/${buildTypeLong}/apt"/>
+    
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="echo,clean,copy,build">
+    </target>
+    
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean" unless="skip.clean">
+        <delete dir="${download.deb.dir}"/>
+        <delete dir="${download.apt.dir}"/>
+    </target>
+    
+    <!-- ================================= 
+          target: copy
+         ================================= -->
+    <target name="copy">
+        <copy todir="${download.deb.dir}">
+        	<fileset dir="${download.root}">
+        	    <include name="*/drops/${buildType}*/packages/*.deb"/>
+        	    <include name="*/drops/${buildType}*/packages/*.changes"/>
+        	</fileset>
+        </copy>
+    </target>
+
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <!-- TODO: build the apt repository -->
+    </target>
+
+
+    <target name="echo">
+        <echo message="download.dir = ${download.dir}"/>
+    </target>
+    
+</project>
