@@ -38,7 +38,7 @@
 						</goals>
 						<configuration>
 							<controlDir>${basedir}/src/linux-amd64/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_${project.version}_amd64.deb</deb>
+							<deb>${project.build.directory}/${project.artifactId}_${version}_amd64.deb</deb>
 							<dataSet>
 								<data>
 									<type>template</type>
@@ -98,7 +98,7 @@
 						</goals>
 						<configuration>
 							<controlDir>${basedir}/src/linux-i386/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_${project.version}_i386.deb</deb>
+							<deb>${project.build.directory}/${project.artifactId}_[[version]]_i386.deb</deb>
 							<dataSet>
 								<data>
 									<type>template</type>
