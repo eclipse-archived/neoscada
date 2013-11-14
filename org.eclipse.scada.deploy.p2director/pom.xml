@@ -16,7 +16,7 @@
 	<properties>
 		<tycho-version>0.18.1</tycho-version>
 	</properties>
-	
+
 	<repositories>
 		<repository>
 			<id>eclipse.kepler</id>
@@ -81,14 +81,6 @@
 
 				<configuration>
 					<attach>false</attach>
-					<dataSet>
-						<data>
-							<type>link</type>
-							<linkName>/usr/bin/p2director</linkName>
-							<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
-							<symlink>true</symlink>
-						</data>
-					</dataSet>
 				</configuration>
 
 				<executions>
@@ -109,6 +101,12 @@
 										<type>perm</type>
 										<prefix>/usr/share/${project.artifactId}/product</prefix>
 									</mapper>
+								</data>
+								<data>
+									<type>link</type>
+									<linkName>/usr/bin/p2director</linkName>
+									<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
+									<symlink>true</symlink>
 								</data>
 							</dataSet>
 						</configuration>
@@ -131,6 +129,12 @@
 										<type>perm</type>
 										<prefix>/usr/share/${project.artifactId}/product</prefix>
 									</mapper>
+								</data>
+								<data>
+									<type>link</type>
+									<linkName>/usr/bin/p2director</linkName>
+									<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
+									<symlink>true</symlink>
 								</data>
 							</dataSet>
 						</configuration>
