@@ -3,7 +3,7 @@ Version: [[version]]
 Section: misc
 Priority: optional
 Architecture: all
-Depends: org.eclipse.scada-p2
+Depends: org.eclipse.scada.p2
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse SCADA repack of [[artifactId]]
 Distribution: development
