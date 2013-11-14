@@ -88,8 +88,11 @@ ${repo}.x86_64.rpmFileName=${rpmText.x86_64}
         <mkdir dir="${download.dir}/yum/noarch" />
         <mkdir dir="${download.dir}/deb" />
 
-        <copy todir="${download.dir}/yum/noarch">
-            <fileset dir="${output}" includes="*.rpm" />
+        <copy todir="${download.dir}/yum/i386">
+            <fileset dir="${output}" includes="*.i386.rpm" />
+        </copy>
+        <copy todir="${download.dir}/yum/x86_64">
+            <fileset dir="${output}" includes="*.x86_64.rpm" />
         </copy>
         <copy todir="${download.dir}/deb">
             <fileset dir="${output}" includes="*.deb" />
