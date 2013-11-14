@@ -10,6 +10,8 @@
 		<module>cfg</module>
 		<module>base</module>
 		<module>p2</module>
+		
+		<module>gather</module>
 	</modules>
 
 </project>
