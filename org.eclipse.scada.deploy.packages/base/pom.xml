@@ -50,7 +50,6 @@
 								</data>
 								<data>
 									<src>${srcBase}/bin</src>
-									<includes>es*</includes>
 									<includes>hds-replicate-once</includes>
 									<type>directory</type>
 									<mapper>
@@ -59,6 +58,17 @@
 										<filemode>0755</filemode>
 									</mapper>
 								</data>
+								<data>
+									<src>${srcBase}/bin</src>
+									<includes>es*</includes>
+									<type>directory</type>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/bin</prefix>
+										<filemode>0755</filemode>
+									</mapper>
+								</data>
+
 								<data>
 									<src>${srcBase}/perl</src>
 									<type>directory</type>
