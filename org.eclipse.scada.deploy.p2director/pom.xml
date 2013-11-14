@@ -97,9 +97,20 @@
 								<data>
 									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</src>
 									<type>directory</type>
+									<excludes>p2director</excludes>
 									<mapper>
 										<type>perm</type>
 										<prefix>/usr/share/${project.artifactId}/product</prefix>
+									</mapper>
+								</data>
+								<data>
+									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</src>
+									<type>directory</type>
+									<includes>p2director</includes>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+										<filemode>0755</filemode>
 									</mapper>
 								</data>
 								<data>
@@ -125,9 +136,20 @@
 								<data>
 									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</src>
 									<type>directory</type>
+									<excludes>p2director</excludes>
 									<mapper>
 										<type>perm</type>
 										<prefix>/usr/share/${project.artifactId}/product</prefix>
+									</mapper>
+								</data>
+								<data>
+									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</src>
+									<type>directory</type>
+									<includes>p2director</includes>
+									<mapper>
+										<type>perm</type>
+										<prefix>/usr/share/${project.artifactId}/product</prefix>
+										<filemode>0755</filemode>
 									</mapper>
 								</data>
 								<data>
