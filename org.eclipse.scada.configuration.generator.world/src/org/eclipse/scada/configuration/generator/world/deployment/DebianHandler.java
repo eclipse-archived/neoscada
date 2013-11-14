@@ -121,14 +121,10 @@ public class DebianHandler extends CommonHandler
         final Set<String> result = new HashSet<> ();
 
         result.add ( "org.eclipse.scada" );
-        result.add ( "org.eclipse.scada.lib" );
-        result.add ( "org.eclipse.scada.configuration" );
 
         if ( needP2 () )
         {
-            result.add ( "org.eclipse.scada.p2.bin" );
-            result.add ( "org.eclipse.scada.p2.repo.eclipse" );
-            result.add ( "org.eclipse.scada.p2.repo.main" );
+            result.add ( "org.eclipse.scada.p2" );
         }
 
         result.addAll ( this.deploy.getAdditionalDependencies () );

@@ -198,14 +198,10 @@ public class RedhatHandler extends CommonHandler
         final Set<String> result = new HashSet<> ();
 
         result.add ( "Requires: org.eclipse.scada" );
-        result.add ( "Requires: org.eclipse.scada.lib" );
-        result.add ( "Requires: org.eclipse.scada.configuration" );
 
         if ( needP2 () )
         {
-            result.add ( "Requires: org.eclipse.scada.p2.bin" );
-            result.add ( "Requires: org.eclipse.scada.p2.repo.eclipse" );
-            result.add ( "Requires: org.eclipse.scada.p2.repo.main" );
+            result.add ( "Requires: org.eclipse.scada.p2" );
         }
 
         return StringHelper.join ( result, "\n" );
