@@ -15,7 +15,7 @@
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
     
-    <property name="repack.dir" location="${download.root}/repo/repack/${buildType}"/>
+    <property name="repack.dir" location="${download.root}/repo/${buildType}"/>
 
     <!-- ================================= 
           target: default
