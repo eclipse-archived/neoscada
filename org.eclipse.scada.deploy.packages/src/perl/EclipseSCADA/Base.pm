@@ -31,21 +31,26 @@ sub classpath () {
 
 # home/jar   
 
-   find ( sub {
-	push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
-   }, home()."/jar" );
+   if ( -d home() . "/jar" ) {
+     find ( sub {
+	  push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
+     }, home() . "/jar" );
+   }
 
 # p2 repos
 
    my @repos = ();
    find ( { no_chdir => 1, wanted => sub {
-	my $plugins = $File::Find::name ."/plugins";
+	return if ! -d $File::Find::name;
+	my $plugins = $File::Find::name . "/plugins";
 	push @repos, $plugins if -d $plugins;
    }}, "/usr/share/eclipsescada/p2" );
 
-   find ( sub {
-	push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
-   }, @repos );
+   if ( @repos ) {
+      find ( sub {
+         push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
+      }, @repos );
+   }
    
    return @classpath;
 }
