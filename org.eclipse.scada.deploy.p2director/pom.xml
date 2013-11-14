@@ -285,7 +285,7 @@
 								</goals>
 								<configuration>
 									<tasks>
-										<property name="repo" value="${project.groupId}" />
+										<property name="repo" value="${project.artifactId}" />
 										<ant antfile="post.ant" />
 									</tasks>
 								</configuration>
