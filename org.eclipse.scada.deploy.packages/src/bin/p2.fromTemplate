@@ -10,6 +10,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - allow IUs to use the tag "iu"
 ##################################################################################
 
 import sys
@@ -137,6 +138,11 @@ def performLoad ( templateName, p, templateFile, initial=False ):
         p.notes.append ( value )
 
     for node in profile.getElementsByTagName("feature"):
+        feature = getText(node.childNodes)
+        if debug: print "Feature: %s" % feature
+        p.features.append ( feature )
+        
+    for node in profile.getElementsByTagName("iu"):
         feature = getText(node.childNodes)
         if debug: print "Feature: %s" % feature
         p.features.append ( feature )
