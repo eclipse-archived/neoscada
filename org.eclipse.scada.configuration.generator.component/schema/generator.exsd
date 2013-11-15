@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.scada.configuration.generator.component" id="generator" name="Generator"/>
       </appinfo>
       <documentation>
-         
+         This extension point declares factories and processor used for realizing the components from the component model to the world model.
       </documentation>
    </annotation>
 
@@ -48,6 +48,11 @@
    </element>
 
    <element name="factory">
+      <annotation>
+         <documentation>
+            A factory that creates processors for components.
+         </documentation>
+      </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="generateForType"/>
@@ -66,6 +71,11 @@
    </element>
 
    <element name="generateForType">
+      <annotation>
+         <documentation>
+            The element describing for which class the factory provides instances.
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>

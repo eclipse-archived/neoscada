@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.scada.configuration.component.lib" id="generation" name="Component Generation"/>
       </appinfo>
       <documentation>
-         
+         This extension point declares some extensions for resolving items during the generation process of the components.
       </documentation>
    </annotation>
 
