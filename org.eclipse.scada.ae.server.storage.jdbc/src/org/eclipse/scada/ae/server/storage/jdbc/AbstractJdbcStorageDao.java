@@ -58,31 +58,31 @@ public abstract class AbstractJdbcStorageDao extends BaseStorageDao
         BYTES;
     }
 
-    private final String cleanupArchiveSql = "DELETE FROM %sOPENSCADA_AE_EVENTS " //
+    private final String cleanupArchiveSql = "DELETE FROM %sES_AE_EVENTS " //
             + "WHERE ENTRY_TIMESTAMP < ?";
 
-    private final String insertEventSql = "INSERT INTO %sOPENSCADA_AE_EVENTS " //
+    private final String insertEventSql = "INSERT INTO %sES_AE_EVENTS " //
             + "(ID, INSTANCE_ID, SOURCE_TIMESTAMP, ENTRY_TIMESTAMP, MONITOR_TYPE, EVENT_TYPE, " //
             + "VALUE_TYPE, VALUE_STRING, VALUE_INTEGER, VALUE_DOUBLE, MESSAGE, " //
             + "MESSAGE_CODE, PRIORITY, SOURCE, ACTOR_NAME, ACTOR_TYPE, SEVERITY)" //
             + " VALUES " //
             + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    private final String insertAttributesSql = "INSERT INTO %sOPENSCADA_AE_EVENTS_ATTR " //
+    private final String insertAttributesSql = "INSERT INTO %sES_AE_EVENTS_ATTR " //
             + "(ID, KEY, VALUE_TYPE, VALUE_STRING, VALUE_INTEGER, VALUE_DOUBLE)" //
             + " VALUES " //
             + "(?, ?, ?, ?, ?, ?)";
 
-    private final String deleteAttributesSql = "DELETE FROM %sOPENSCADA_AE_EVENTS_ATTR " //
+    private final String deleteAttributesSql = "DELETE FROM %sES_AE_EVENTS_ATTR " //
             + "WHERE ID = ? AND KEY = ?";
 
     private final String selectEventSql = "SELECT E.ID, E.INSTANCE_ID, E.SOURCE_TIMESTAMP, E.ENTRY_TIMESTAMP, E.MONITOR_TYPE, E.EVENT_TYPE, " //
             + "E.VALUE_TYPE, E.VALUE_STRING, E.VALUE_INTEGER, E.VALUE_DOUBLE, E.MESSAGE, " //
             + "E.MESSAGE_CODE, E.PRIORITY, E.SOURCE, E.ACTOR_NAME, E.ACTOR_TYPE, E.SEVERITY, " //
             + "A.KEY, A.VALUE_TYPE, A.VALUE_STRING, A.VALUE_INTEGER, A.VALUE_DOUBLE " //
-            + "FROM %1$sOPENSCADA_AE_EVENTS E LEFT JOIN %1$sOPENSCADA_AE_EVENTS_ATTR A ON (A.ID = E.ID) ";
+            + "FROM %1$sES_AE_EVENTS E LEFT JOIN %1$sES_AE_EVENTS_ATTR A ON (A.ID = E.ID) ";
 
-    private final String insertReplicationEventSql = "INSERT INTO %sOPENSCADA_AE_REP " //
+    private final String insertReplicationEventSql = "INSERT INTO %sES_AE_REP " //
             + "(ID, ENTRY_TIMESTAMP, NODE_ID, DATA)" //
             + " VALUES " // 
             + "(?, ?, ?, ?)";
@@ -545,6 +545,7 @@ public abstract class AbstractJdbcStorageDao extends BaseStorageDao
         return this.insertAttributesSql;
     }
 
+    @Override
     public void cleanupArchive ()
     {
         try

@@ -252,7 +252,7 @@ public class SqlConverter
         else
         {
             final int k = j.get ();
-            condition.joins.add ( "LEFT JOIN %1$sOPENSCADA_AE_EVENTS_ATTR field_" + k + " ON (E.ID = field_" + k + ".ID AND field_" + k + ".KEY = ?)" );
+            condition.joins.add ( "LEFT JOIN %1$sES_AE_EVENTS_ATTR field_" + k + " ON (E.ID = field_" + k + ".ID AND field_" + k + ".KEY = ?)" );
             condition.joinParameters.add ( attribute );
             if ( "approximate".equals ( op ) )
             {

@@ -67,26 +67,26 @@ public class JdbcDao
 
     private static final Logger logger = LoggerFactory.getLogger ( JdbcDao.class );
 
-    private static final String cleanupArchiveSql = "DELETE FROM %sOPENSCADA_AE_EVENTS_JSON " //
+    private static final String cleanupArchiveSql = "DELETE FROM %sES_AE_EVENTS_JSON " //
             + "WHERE instance_id = ? AND SOURCE_TIMESTAMP < ?";
 
-    private static final String loadEventSql = "SELECT data FROM %sOPENSCADA_AE_EVENTS_JSON " //
+    private static final String loadEventSql = "SELECT data FROM %sES_AE_EVENTS_JSON " //
             + "WHERE instance_id = ? AND ID = ?::UUID";
 
-    private static final String storeEventSql = "INSERT INTO %sOPENSCADA_AE_EVENTS_JSON " //
+    private static final String storeEventSql = "INSERT INTO %sES_AE_EVENTS_JSON " //
             + "(id, instance_id, source_timestamp, entry_timestamp, data) " //
             + "VALUES " //
             + "(?::UUID, ?, ?, ?, ?);"; //
 
-    private static final String replicateEventSql = "INSERT INTO %sOPENSCADA_AE_REP " //
+    private static final String replicateEventSql = "INSERT INTO %sES_AE_REP " //
             + "(id, entry_timestamp, node_id, data) " //
             + "VALUES " //
             + "(?::VARCHAR, ?, ?, ?);"; //
 
-    private static final String updateEventSql = "UPDATE %sOPENSCADA_AE_EVENTS_JSON " //
+    private static final String updateEventSql = "UPDATE %sES_AE_EVENTS_JSON " //
             + "SET data = ? WHERE id = ?::UUID;"; //
 
-    private static final String selectEventsSql = "SELECT data FROM %sOPENSCADA_AE_EVENTS_JSON " //
+    private static final String selectEventsSql = "SELECT data FROM %sES_AE_EVENTS_JSON " //
             + "WHERE instance_id = ? "; //
 
     private static final String defaultOrderSql = " ORDER BY source_timestamp DESC, entry_timestamp DESC, id DESC;";
@@ -220,7 +220,7 @@ public class JdbcDao
         {
             return null;
         }
-        if ( ( i < 1 ) || ( string.length () <= i ) )
+        if ( i < 1 || string.length () <= i )
         {
             return string;
         }
