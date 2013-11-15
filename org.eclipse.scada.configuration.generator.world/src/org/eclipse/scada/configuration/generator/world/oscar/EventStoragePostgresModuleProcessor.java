@@ -32,7 +32,12 @@ public class EventStoragePostgresModuleProcessor extends AbstractEventStorageJdb
 
         processCommon ( module );
 
-        Profiles.addStartBundle ( profile, "org.eclipse.scada.ae.server.storage.postgres" ); //$NON-NLS-1$
+        for ( final String driverBundle : module.getDriverBundles () )
+        {
+            Profiles.addStartBundle ( profile, driverBundle );
+            profile.getInstallationUnits ().add ( driverBundle );
+        }
+
         Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.postgres.batchSize", "" + module.getBatchSize (), false ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 }
