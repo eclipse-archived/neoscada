@@ -183,6 +183,7 @@ public class WorldGenerator
                 createExporter ( OsgiPackage.Literals.ALARMS_EVENTS_EXPORTER, node, master, this.infrastructure.getOptions ().getBaseAeNgpPort () + in );
                 final Endpoint ep = createExporter ( OsgiPackage.Literals.DATA_ACCESS_EXPORTER, node, master, this.infrastructure.getOptions ().getBaseDaNgpPort () + in );
 
+                // create self connection
                 final DataAccessConnection selfConnection = OsgiFactory.eINSTANCE.createDataAccessConnection ();
                 selfConnection.setCredentials ( EcoreUtil.copy ( findLocalCredentials ( infraMaster ) ) );
                 selfConnection.setName ( "self" ); //$NON-NLS-1$
