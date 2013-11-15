@@ -33,6 +33,7 @@ public abstract class AbstractEventStorageJdbcModuleProcessor<T> extends BasicTy
         for ( final String bundle : module.getDriverBundles () )
         {
             Profiles.addStartBundle ( profile, bundle );
+            profile.getInstallationUnits ().add ( bundle );
         }
 
         Profiles.addJdbcSystemProperties ( profile, "org.eclipse.scada.ae.server.storage.jdbc", module.getJdbcDriverName (), module.getJdbcProperties () );
