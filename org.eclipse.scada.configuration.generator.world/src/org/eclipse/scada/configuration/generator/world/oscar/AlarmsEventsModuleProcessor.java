@@ -93,7 +93,7 @@ public class AlarmsEventsModuleProcessor extends BasicOscarProcessor
         data.put ( "driverName", pull.getJdbcDriverName () );
         Helper.addOptional ( data, "customDeleteSql", pull.getCustomDeleteSql () );
         Helper.addOptional ( data, "customSelectSql", pull.getCustomSelectSql () );
-        Helper.makeAttributes ( "jdbcProperties", pull.getJdbcProperties () );
+        data.putAll ( Helper.makeAttributes ( "jdbcProperties", pull.getJdbcProperties () ) );
         Helper.addOptional ( data, "delay", pull.getJobInterval () );
 
         addData ( Factories.FACTORY_AE_PULL_EVENTS, Names.makeName ( pull ), data );

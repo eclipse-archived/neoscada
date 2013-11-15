@@ -59,7 +59,7 @@ public class JdbcUserServiceModuleProcessor extends BasicTypedOscarProcessor<Jdb
 
         data.put ( "authoritative", service.isAuthorative () ? "true" : "false " );
 
-        Helper.makeAttributes ( "jdbc.properties.", service.getJdbcPropeties () );
+        data.putAll ( Helper.makeAttributes ( "jdbc.properties.", service.getJdbcPropeties () ) );
 
         addData ( Factories.FACTORY_SEC_JDBC, Names.makeName ( service ), data );
     }
