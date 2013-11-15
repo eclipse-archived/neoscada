@@ -11,22 +11,30 @@
 package org.eclipse.scada.configuration.infrastructure.lib;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.IValidationContext;
-import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
 
-public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements DriverValidator<T>
+/**
+ * A validator for a specific device type
+ * <p>
+ * If you want to validate that a driver has only a specific device type
+ * assigned use {@link DeviceTypeValidator}.
+ * </p>
+ * 
+ * @author Jens Reimann
+ * @param <T>
+ *            the driver type
+ * @param <D>
+ *            the device type
+ */
+public abstract class DeviceValidator<T extends AbstractFactoryDriver, D extends Device> implements DriverValidator<T>
 {
+    private final Class<D> deviceClass;
 
-    private final Class<?> deviceClass;
-
-    public DeviceTypeValidator ( final Class<?> deviceClass )
+    public DeviceValidator ( final Class<D> deviceClass )
     {
         this.deviceClass = deviceClass;
     }
@@ -34,20 +42,15 @@ public class DeviceTypeValidator<T extends AbstractFactoryDriver> implements Dri
     @Override
     public void validate ( final IValidationContext ctx, final T driver, final Collection<IStatus> result )
     {
-        final Set<EObject> locations = new HashSet<> ();
-        final Set<String> illegalDevices = new HashSet<> ();
         for ( final Device device : driver.getDevices () )
         {
             if ( !this.deviceClass.isAssignableFrom ( device.getClass () ) )
             {
-                illegalDevices.add ( device.getClass ().getName () );
-                locations.add ( device );
+                continue;
             }
-        }
-
-        if ( !illegalDevices.isEmpty () )
-        {
-            result.add ( ConstraintStatus.createStatus ( ctx, locations, IStatus.ERROR, 3, "The driver may only contain device of type {0}. The following device types are invalid: {1}", this.deviceClass.getName (), illegalDevices ) );
+            validateDevice ( this.deviceClass.cast ( device ), ctx, result );
         }
     }
+
+    protected abstract void validateDevice ( final D device, IValidationContext ctx, Collection<IStatus> result );
 }
