@@ -25,5 +25,7 @@ name="Common Equinox Application Setup">
   <feature>org.eclipse.equinox.server.jetty.feature.group</feature>
   <feature>org.eclipse.equinox.server.p2.feature.group</feature>
   
+  <feature>org.eclipse.scada.deploy.console.feature.group</feature>
+  
   <setbsl level="1">org.eclipse.equinox.ds</setbsl>
 </profile:profile>

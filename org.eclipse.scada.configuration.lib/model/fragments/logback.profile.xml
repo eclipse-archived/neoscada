@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" name="CA File Fragment">
   
+  <feature>ch.qos.logback.classic</feature>
+  <feature>ch.qos.logback.core</feature>
+  <feature>ch.qos.logback.slf4j</feature>
+  
   <property key="logback.configurationFile" eval="true">TARGET_DIR + &quot;/logback.xml&quot;</property>
   <note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>
   
