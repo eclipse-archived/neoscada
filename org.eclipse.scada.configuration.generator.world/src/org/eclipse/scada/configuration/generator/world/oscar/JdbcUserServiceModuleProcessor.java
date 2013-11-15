@@ -46,7 +46,7 @@ public class JdbcUserServiceModuleProcessor extends BasicTypedOscarProcessor<Jdb
     {
         final Map<String, String> data = new HashMap<> ();
 
-        data.put ( "driverName", service.getJdbcDriver () );
+        data.put ( "driver", service.getJdbcDriver () );
         data.put ( "passwordType", service.getPasswordType ().toString () );
 
         data.put ( "findUserSql", service.getFindUserSql () );
