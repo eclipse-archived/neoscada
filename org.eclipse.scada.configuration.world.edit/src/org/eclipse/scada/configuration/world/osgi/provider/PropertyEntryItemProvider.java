@@ -145,7 +145,7 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements IE
     public String getText ( final Object object )
     {
         final String key = ( (PropertyEntry)object ).getKey ();
-        final String value = ( (PropertyEntry)object ).getKey ();
+        final String value = ( (PropertyEntry)object ).getValue ();
 
         if ( ( key == null || key.isEmpty () ) && ( value == null || value.isEmpty () ) )
         {
