@@ -202,6 +202,7 @@ public final class Worlds
         {
             final JdbcUserServiceModule module = OsgiFactory.eINSTANCE.createJdbcUserServiceModule ();
             module.getUserServices ().add ( EcoreUtil.copy ( ( (org.eclipse.scada.configuration.infrastructure.JdbcUserService)userService ).getImplementation () ) );
+            application.getModules ().add ( module );
         }
         else if ( userService instanceof SystemPropertyUserService )
         {
