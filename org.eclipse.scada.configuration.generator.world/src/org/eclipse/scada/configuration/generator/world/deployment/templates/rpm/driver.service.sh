@@ -33,7 +33,7 @@ start (){
 	RETVAL=1
 	failure
     else
-	osDriverExporter "$instanceName" && success || failure
+	esDriverExporter "$instanceName" && success || failure
 	RETVAL=$?
     fi;
     echo
@@ -46,7 +46,7 @@ stop () {
 	RETVAL=1
 	failure
     else
-	osDriverExporter "$instanceName" -stop && success || failure
+	esDriverExporter "$instanceName" -stop && success || failure
 	RETVAL=$?
     fi;
     echo

@@ -4,7 +4,7 @@
 %define buildroot %{_topdir}/%{name}-%{version}-root
 
 Name:      $$packageName$$
-Summary:   Eclipse SCADA P2 profiles
+Summary:   Eclipse SCADA Configuration for "$$nodeName$$"
 Version:   %{version}
 Release:   %{qualifier}
 License:   EPL
