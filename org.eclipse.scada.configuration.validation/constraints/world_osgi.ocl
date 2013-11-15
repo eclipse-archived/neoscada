@@ -6,6 +6,6 @@ context EventPool
 inv EventPool_size_greater_than_zero: size > 0
 
 context EventStoragePostgres
-inv EventStoragePostgres_missing_bundles: postgresDriverBundles->size() <= 0
+inv EventStoragePostgres_missing_bundles: getDriverBundles()->size() <= 0
 
 endpackage
