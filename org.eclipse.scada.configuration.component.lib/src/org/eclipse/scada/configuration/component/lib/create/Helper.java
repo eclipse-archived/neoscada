@@ -12,6 +12,9 @@ package org.eclipse.scada.configuration.component.lib.create;
 
 import java.util.Collection;
 
+import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
+import org.eclipse.scada.configuration.infrastructure.Device;
+import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.osgi.Connection;
@@ -40,6 +43,22 @@ public final class Helper
         }
 
         item.setConnection ( (DataAccessConnection)connection );
+    }
+
+    public static AbstractFactoryDriver findDriverForDevice ( final org.eclipse.scada.configuration.infrastructure.MasterServer master, final Device device )
+    {
+        for ( final Driver driver : master.getDriver () )
+        {
+            if ( ! ( driver instanceof AbstractFactoryDriver ) )
+            {
+                continue;
+            }
+            if ( ( (AbstractFactoryDriver)driver ).getDevices ().contains ( device ) )
+            {
+                return (AbstractFactoryDriver)driver;
+            }
+        }
+        return null;
     }
 
 }

@@ -19,6 +19,8 @@ import java.util.Set;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.Components;
+import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
+import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Locator;
@@ -26,7 +28,6 @@ import org.eclipse.scada.configuration.lib.Names;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
 import org.eclipse.scada.configuration.world.osgi.Item;
-import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
@@ -141,10 +142,10 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
         req.addMasterListener ( new MasterListener<SourceItem> () {
 
             @Override
-            public void setMaster ( final SourceItem item, final MasterServer master )
+            public void setMaster ( final SourceItem item, final MasterContext master )
             {
-                final List<Endpoint> endpoints = Locator.getSelfEndpoints ( master );
-                Helper.setSourceConnectionFromEndpoints ( item, master, endpoints );
+                final List<Endpoint> endpoints = Locator.getSelfEndpoints ( master.getImplementation () );
+                Helper.setSourceConnectionFromEndpoints ( item, master.getImplementation (), endpoints );
             }
         } );
 
@@ -153,6 +154,14 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
 
     @Override
     public CreationRequest<SourceItem> createSourceItem ( final Driver source, final String sourceName )
+    {
+        final SourceItem item = OsgiFactory.eINSTANCE.createSourceItem ();
+        item.setSourceName ( sourceName );
+        return addItem ( item );
+    }
+
+    @Override
+    public <T extends Device> CreationRequest<SourceItem> createDeviceItem ( final T device, final String sourceName )
     {
         final SourceItem item = OsgiFactory.eINSTANCE.createSourceItem ();
         item.setSourceName ( sourceName );

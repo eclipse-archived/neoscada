@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.component.lib.create;
 
 import org.eclipse.core.runtime.Status;
+import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
@@ -32,6 +33,8 @@ public interface ItemCreator
     public abstract CreationRequest<SourceItem> createSelfItem ( String sourceName );
 
     public abstract CreationRequest<SourceItem> createSourceItem ( Driver source, String sourceName );
+
+    public abstract <T extends Device> CreationRequest<SourceItem> createDeviceItem ( T device, String sourceName );
 
     public abstract <T extends Item> T addItem ( T item, CustomizationRequest customizationRequest );
 

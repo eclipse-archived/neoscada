@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.lib.create;
 
+import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.world.osgi.Item;
-import org.eclipse.scada.configuration.world.osgi.MasterServer;
 
 public interface MasterListener<T extends Item>
 {
-    public void setMaster ( T item, MasterServer master );
+    public void setMaster ( T item, MasterContext master );
 }

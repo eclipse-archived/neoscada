@@ -37,7 +37,7 @@ public class SummariesItemsGenerator extends MasterApplicationProcessor
 {
     private final class SummariesItemCreatorImpl extends MasterItemCreatorImpl
     {
-        private SummariesItemCreatorImpl ( MasterServer master, Component component )
+        private SummariesItemCreatorImpl ( final MasterContext master, final Component component )
         {
             super ( master, component );
         }
@@ -61,7 +61,7 @@ public class SummariesItemsGenerator extends MasterApplicationProcessor
     @Override
     public void process ( final MasterContext app, final IProgressMonitor monitor ) throws Exception
     {
-        final AbstractComponentItemCreator creator = new SummariesItemCreatorImpl ( app.getImplementation (), null );
+        final AbstractComponentItemCreator creator = new SummariesItemCreatorImpl ( app, null );
         new TypeWalker<> ( SummaryGroup.class ).walk ( app.getImplementation (), new TypeVisitor<SummaryGroup> () {
 
             @Override

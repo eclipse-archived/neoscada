@@ -15,6 +15,7 @@ import org.eclipse.scada.configuration.component.generator.DataComponentGenerato
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.MasterListener;
+import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.DataType;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
@@ -44,9 +45,9 @@ public abstract class ConnectionAnalyzerGenerator extends DataComponentGenerator
         }
 
         @Override
-        public void setMaster ( final SourceItem item, final MasterServer master )
+        public void setMaster ( final SourceItem item, final MasterContext master )
         {
-            final Connection connection = this.connectionProvider.getConnection ( master );
+            final Connection connection = this.connectionProvider.getConnection ( master.getImplementation () );
             final String tag = connection.getTypeTag ();
             final String id = connection.getName ();
             item.setSourceName ( String.format ( this.format, tag, id ) );

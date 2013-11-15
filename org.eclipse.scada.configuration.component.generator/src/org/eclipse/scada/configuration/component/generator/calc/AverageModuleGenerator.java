@@ -74,9 +74,9 @@ public class AverageModuleGenerator extends CalculationComponentGenerator<Averag
 
             c.addMasterListener ( new MasterListener<AverageItem> () {
                 @Override
-                public void setMaster ( final AverageItem item, final MasterServer master )
+                public void setMaster ( final AverageItem item, final MasterContext master )
                 {
-                    final Average average = AverageModuleGenerator.this.map.get ( master );
+                    final Average average = AverageModuleGenerator.this.map.get ( master.getImplementation () );
 
                     item.setSource ( average );
                 }

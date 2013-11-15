@@ -68,9 +68,9 @@ public class FormulaModuleGenerator extends CalculationComponentGenerator<Formul
         c.addMasterListener ( new MasterListener<FormulaItem> () {
 
             @Override
-            public void setMaster ( final FormulaItem item, final MasterServer master )
+            public void setMaster ( final FormulaItem item, final MasterContext master )
             {
-                FormulaModuleGenerator.this.danglingMap.put ( master, item );
+                FormulaModuleGenerator.this.danglingMap.put ( master.getImplementation (), item );
             }
         } );
 

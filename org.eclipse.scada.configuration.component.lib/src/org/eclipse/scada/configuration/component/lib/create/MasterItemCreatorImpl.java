@@ -15,11 +15,11 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.Status;
 import org.eclipse.scada.configuration.component.Component;
+import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Items;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.osgi.Item;
-import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,9 +29,9 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
 
     final static Logger logger = LoggerFactory.getLogger ( MasterItemCreatorImpl.class );
 
-    protected final MasterServer master;
+    protected final MasterContext master;
 
-    public MasterItemCreatorImpl ( final MasterServer master, final Component component )
+    public MasterItemCreatorImpl ( final MasterContext master, final Component component )
     {
         super ( component );
         this.master = master;
@@ -44,9 +44,9 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
         req.addMasterListener ( new MasterListener<SourceItem> () {
 
             @Override
-            public void setMaster ( final SourceItem item, final MasterServer master )
+            public void setMaster ( final SourceItem item, final MasterContext master )
             {
-                Helper.setSourceConnectionFromEndpoints ( item, master, Locator.getSelfEndpoints ( master ) );
+                Helper.setSourceConnectionFromEndpoints ( item, master.getImplementation (), Locator.getSelfEndpoints ( master.getImplementation () ) );
             }
         } );
 
@@ -62,7 +62,7 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
     @Override
     protected <T extends Item> void itemAdded ( final T item, final CustomizationRequest customizationRequest, final List<String> originalLocalTags, final Set<MasterListener<T>> masterListeners )
     {
-        Items.addItem ( this.master, item );
+        Items.addItem ( this.master.getImplementation (), item );
 
         for ( final MasterListener<T> listener : masterListeners )
         {

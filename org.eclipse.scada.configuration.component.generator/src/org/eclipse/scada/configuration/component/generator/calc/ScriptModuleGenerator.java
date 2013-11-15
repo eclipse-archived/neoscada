@@ -65,9 +65,9 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
         c.addMasterListener ( new MasterListener<ScriptItem> () {
 
             @Override
-            public void setMaster ( final ScriptItem item, final MasterServer master )
+            public void setMaster ( final ScriptItem item, final MasterContext master )
             {
-                ScriptModuleGenerator.this.danglingMap.put ( master, item );
+                ScriptModuleGenerator.this.danglingMap.put ( master.getImplementation (), item );
             }
         } );
 

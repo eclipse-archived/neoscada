@@ -28,6 +28,8 @@ import org.eclipse.scada.configuration.generator.GeneratorContext.GlobalContext;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.globalization.GlobalizeFactory;
 import org.eclipse.scada.configuration.globalization.ItemNameFilter;
+import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
+import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.item.Selector;
@@ -35,7 +37,6 @@ import org.eclipse.scada.configuration.item.SelectorRunner;
 import org.eclipse.scada.configuration.lib.Items;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.osgi.Item;
-import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 import org.eclipse.scada.configuration.world.osgi.ValueArchiveServer;
 import org.slf4j.Logger;
@@ -54,7 +55,7 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
 
     public ItemCreatorImpl ( final GeneratorContext ctx, final MasterContext master, final Component component )
     {
-        super ( master.getImplementation (), component );
+        super ( master, component );
         this.masterContext = master;
         this.ctx = ctx;
         this.component = component;
@@ -70,20 +71,58 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
             req.addMasterListener ( new MasterListener<SourceItem> () {
 
                 @Override
-                public void setMaster ( final SourceItem item, final MasterServer master )
+                public void setMaster ( final SourceItem item, final MasterContext master )
                 {
-                    final org.eclipse.scada.configuration.world.Driver driver = ItemCreatorImpl.this.ctx.getDriverMap ().get ( source );
-                    if ( driver == null )
-                    {
-                        throw new IllegalStateException ( String.format ( "Driver '%s' cannot be resolved.", source ) );
-                    }
-                    final Collection<Endpoint> endpoints = driver.getEndpoints ();
-                    Helper.setSourceConnectionFromEndpoints ( item, master, endpoints );
+                    setDriverConnection ( source, item, master );
                 }
             } );
         }
 
         return req;
+    }
+
+    @Override
+    public <T extends Device> CreationRequest<SourceItem> createDeviceItem ( final T device, final String sourceName )
+    {
+        final CreationRequest<SourceItem> req = super.createDeviceItem ( device, sourceName );
+
+        req.addMasterListener ( new MasterListener<SourceItem> () {
+
+            @Override
+            public void setMaster ( final SourceItem item, final MasterContext master )
+            {
+                final AbstractFactoryDriver driver = Helper.findDriverForDevice ( master.getDefinition (), device );
+                if ( driver == null )
+                {
+                    throw new RuntimeException ( String.format ( "Device '%s' does not belong to a driver that is assigned to master server %s", device, master.getDefinition () ) );
+                }
+
+                setDriverConnection ( driver, item, master );
+            }
+        } );
+
+        return req;
+    }
+
+    /**
+     * Set the connection based on a driver
+     * 
+     * @param source
+     *            the driver
+     * @param item
+     *            the item to set
+     * @param master
+     *            the master context
+     */
+    private void setDriverConnection ( final Driver source, final SourceItem item, final MasterContext master )
+    {
+        final org.eclipse.scada.configuration.world.Driver driver = ItemCreatorImpl.this.ctx.getDriverMap ().get ( source );
+        if ( driver == null )
+        {
+            throw new IllegalStateException ( String.format ( "Driver '%s' cannot be resolved.", source ) );
+        }
+        final Collection<Endpoint> endpoints = driver.getEndpoints ();
+        Helper.setSourceConnectionFromEndpoints ( item, master.getImplementation (), endpoints );
     }
 
     @Override
@@ -96,7 +135,7 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
         if ( isArchive ( item, customizationRequest ) )
         {
             logger.debug ( "Archive item: {}", item );
-            final ValueArchiveServer archive = this.ctx.getArchiveServer ( this.master );
+            final ValueArchiveServer archive = this.ctx.getArchiveServer ( this.master.getImplementation () );
             if ( archive == null )
             {
                 throw new IllegalStateException ( String.format ( "Item %s should be archive but no archive server is configured on %s", item, this.master ) );
@@ -127,4 +166,5 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
     {
         return Components.isArchived ( this.component, item, customizationRequest );
     }
+
 }
