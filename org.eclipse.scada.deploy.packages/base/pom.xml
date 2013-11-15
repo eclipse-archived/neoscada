@@ -42,6 +42,7 @@
 									<paths>
 										<path>/etc/eclipsescada</path>
 										<path>/etc/eclipsescada/schema</path>
+										<path>/etc/eclipsescada/jarcfg</path>
 										<path>/usr/jar</path>
 										<path>/usr/share/eclipsescada</path>
 										<path>/var/log/eclipsescada</path>

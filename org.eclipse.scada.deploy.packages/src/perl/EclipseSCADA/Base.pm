@@ -26,15 +26,48 @@ require Carp;
 );
 $VERSION = '0.01';
 
+sub excluded {
+   my $file = shift;
+   foreach my $exp ( @_ ) {
+      return 1 if $file =~ $exp;
+   }
+   return 0;
+}
+
+sub trim($)
+{
+  my $string = shift;
+  $string =~ s/^\s+//;
+  $string =~ s/\s+$//;
+  return $string;
+}
+
 sub classpath () {
    my @classpath = ();
 
-# home/jar   
+# exclude list
+
+   my @excludes = ();
+
+   if ( -d configurationRoot() . "/jarcfg" ) {
+      find ( sub {
+         if  ( -r $File::Find::name and $File::Find::name =~ /\.exclude$/ ) {
+            if ( open FILE, "<$File::Find::name" ) {
+              while ( my $line = <FILE> ) {
+                  push @excludes, trim($line);
+              }
+              close FILE;
+            }
+         }
+      }, configurationRoot () . "/jarcfg" );
+   }
+
+# home/jar
 
    if ( -d home() . "/jar" ) {
-     find ( sub {
-	  push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
-     }, home() . "/jar" );
+      find ( sub {
+         push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/ and not excluded($File::Find::name,@excludes);
+      }, home() . "/jar" );
    }
 
 # p2 repos
@@ -48,13 +81,12 @@ sub classpath () {
 
    if ( @repos ) {
       find ( sub {
-         push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/;
+         push @classpath, $File::Find::name if -r $File::Find::name and $File::Find::name =~ /\.jar$/ and not excluded($File::Find::name,@excludes);
       }, @repos );
    }
    
    return @classpath;
 }
-
 
 sub home () {
   Carp::croak ( "'ECLIPSE_SCADA_HOME' not set") unless $ENV{"ECLIPSE_SCADA_HOME"};
