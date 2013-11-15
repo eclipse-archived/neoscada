@@ -360,6 +360,10 @@
         <element xmi:type="ecore:EOperation" href="configuration.ecore#//osgi/EventStoragePostgres/getJdbcDriverName"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_YCwaIQvGEeONvpsmDfCTdg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_rrbT8E3fEeOs0vBbqlDTaQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="configuration.ecore#//osgi/EventStoragePostgres/getDriverBundles"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rrbT8U3fEeOs0vBbqlDTaQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_dP_whgvFEeONvpsmDfCTdg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_dP_whwvFEeONvpsmDfCTdg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_dP_wiAvFEeONvpsmDfCTdg"/>

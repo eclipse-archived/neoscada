@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getBatchSize <em>Batch Size</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getPostgresDriverBundles <em>Postgres Driver Bundles</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +59,22 @@ public interface EventStoragePostgres extends AbstractEventStorageJdbc
     void setBatchSize ( Integer value );
 
     /**
+     * Returns the value of the '<em><b>Postgres Driver Bundles</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Postgres Driver Bundles</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Postgres Driver Bundles</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventStoragePostgres_PostgresDriverBundles()
+     * @model
+     * @generated
+     */
+    EList<String> getPostgresDriverBundles ();
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation" required="true"
@@ -70,7 +87,7 @@ public interface EventStoragePostgres extends AbstractEventStorageJdbc
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @model kind="operation"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return ECollections.asEList ( \"org.openscada.external.postgresql\" ); //$NON-NLS-1$'"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getPostgresDriverBundles();'"
      * @generated
      */
     EList<String> getDriverBundles ();

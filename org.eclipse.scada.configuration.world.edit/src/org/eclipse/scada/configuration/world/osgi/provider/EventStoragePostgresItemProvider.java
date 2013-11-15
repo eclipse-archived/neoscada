@@ -61,6 +61,7 @@ public class EventStoragePostgresItemProvider extends AbstractEventStorageJdbcIt
             super.getPropertyDescriptors ( object );
 
             addBatchSizePropertyDescriptor ( object );
+            addPostgresDriverBundlesPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -80,6 +81,29 @@ public class EventStoragePostgresItemProvider extends AbstractEventStorageJdbcIt
                         getString ( "_UI_EventStoragePostgres_batchSize_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EventStoragePostgres_batchSize_feature", "_UI_EventStoragePostgres_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         OsgiPackage.Literals.EVENT_STORAGE_POSTGRES__BATCH_SIZE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Postgres Driver Bundles feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPostgresDriverBundlesPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventStoragePostgres_postgresDriverBundles_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStoragePostgres_postgresDriverBundles_feature", "_UI_EventStoragePostgres_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES,
                         true,
                         false,
                         false,
@@ -130,6 +154,7 @@ public class EventStoragePostgresItemProvider extends AbstractEventStorageJdbcIt
         switch ( notification.getFeatureID ( EventStoragePostgres.class ) )
         {
             case OsgiPackage.EVENT_STORAGE_POSTGRES__BATCH_SIZE:
+            case OsgiPackage.EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

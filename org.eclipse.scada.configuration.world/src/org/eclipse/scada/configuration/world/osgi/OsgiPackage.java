@@ -6093,13 +6093,22 @@ public interface OsgiPackage extends EPackage
     int EVENT_STORAGE_POSTGRES__BATCH_SIZE = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Postgres Driver Bundles</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Event Storage Postgres</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_POSTGRES_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
+    int EVENT_STORAGE_POSTGRES_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 2;
 
     /**
      * The operation id for the '<em>Get Jdbc Driver Name</em>' operation.
@@ -9130,6 +9139,17 @@ public interface OsgiPackage extends EPackage
     EAttribute getEventStoragePostgres_BatchSize ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getPostgresDriverBundles <em>Postgres Driver Bundles</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Postgres Driver Bundles</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getPostgresDriverBundles()
+     * @see #getEventStoragePostgres()
+     * @generated
+     */
+    EAttribute getEventStoragePostgres_PostgresDriverBundles ();
+
+    /**
      * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9147,7 +9167,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getDriverBundles()
      * @generated
      */
-    EOperation getEventStoragePostgres__GetDriverBundles ();
+    EOperation getEventStoragePostgres__GetDriverBundles_1 ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc <em>Abstract Event Storage Jdbc</em>}'.
@@ -11725,6 +11745,14 @@ public interface OsgiPackage extends EPackage
         EAttribute EVENT_STORAGE_POSTGRES__BATCH_SIZE = eINSTANCE.getEventStoragePostgres_BatchSize ();
 
         /**
+         * The meta object literal for the '<em><b>Postgres Driver Bundles</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres_PostgresDriverBundles ();
+
+        /**
          * The meta object literal for the '<em><b>Get Jdbc Driver Name</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -11738,7 +11766,7 @@ public interface OsgiPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres__GetDriverBundles ();
+        EOperation EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres__GetDriverBundles_1 ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl <em>Abstract Event Storage Jdbc</em>}' class.
