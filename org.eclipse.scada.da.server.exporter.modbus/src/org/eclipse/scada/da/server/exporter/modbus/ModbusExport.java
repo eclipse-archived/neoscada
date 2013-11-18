@@ -139,10 +139,13 @@ public class ModbusExport
             logger.info ( "Rebinding interface - {} to {}", this.currentAddress, address ); //$NON-NLS-1$
             if ( this.currentAddress != null )
             {
+                logger.debug ( "Unbinding from {}", this.currentAddress );
                 this.acceptor.unbind ( this.currentAddress );
+                this.currentAddress = null;
             }
-            this.currentAddress = address;
+            logger.debug ( "Binding to {}", address );
             this.acceptor.bind ( address );
+            this.currentAddress = address;
         }
     }
 
@@ -298,6 +301,8 @@ public class ModbusExport
 
     public void dispose ()
     {
+        logger.debug ( "Disposing" );
+
         if ( this.acceptor != null )
         {
             this.acceptor.dispose ();

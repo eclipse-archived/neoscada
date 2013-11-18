@@ -22,9 +22,13 @@ import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<ModbusExport>
 {
+    private final static Logger logger = LoggerFactory.getLogger ( ExporterFactoryImpl.class );
+
     private final ScheduledExportedExecutorService executor;
 
     private final ServiceListenerHiveSource hiveSource;
@@ -46,6 +50,8 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
     @Override
     public void dispose ()
     {
+        logger.info ( "Disposing" );
+
         super.dispose ();
 
         this.processor.dispose ();
