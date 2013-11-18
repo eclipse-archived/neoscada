@@ -77,12 +77,26 @@ public class ObjectExporter extends AbstractObjectExporter implements PropertyCh
      * @param nullIsError
      *            set to <code>true</code> to mark fields that are
      *            <code>null</code> with an error attribute
+     * @param prefix
+     *            the prefix of the item ids
      */
     public ObjectExporter ( final ItemFactory itemFactory, final boolean readOnly, final boolean nullIsError, final String prefix )
     {
         super ( itemFactory, readOnly, nullIsError, prefix );
     }
 
+    /**
+     * Create a new object exporter
+     * 
+     * @param itemFactory
+     *            the factory used to create items. This factory is disposed
+     *            when the object exporter is disposed.
+     * @param readOnly
+     *            set to <code>true</code> in order to make all items read-only
+     * @param nullIsError
+     *            set to <code>true</code> to mark fields that are
+     *            <code>null</code> with an error attribute
+     */
     public ObjectExporter ( final ItemFactory itemFactory, final boolean readOnly, final boolean nullIsError )
     {
         this ( itemFactory, readOnly, nullIsError, null );
@@ -174,6 +188,13 @@ public class ObjectExporter extends AbstractObjectExporter implements PropertyCh
         this.factory.disposeAllItems ();
         this.target = null;
         this.bound = false;
+    }
+
+    @Override
+    public void dispose ()
+    {
+        detachTarget ();
+        super.dispose ();
     }
 
     protected Method getEventMethod ( final String methodName )
