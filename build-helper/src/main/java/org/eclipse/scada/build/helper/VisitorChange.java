@@ -13,23 +13,35 @@ package org.eclipse.scada.build.helper;
 import java.io.IOException;
 
 import org.apache.maven.model.Model;
-import org.apache.maven.model.io.DefaultModelReader;
-import org.apache.maven.model.io.DefaultModelWriter;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.scada.build.helper.PomHelper.ProjectVisitor;
 
 public abstract class VisitorChange implements ProjectVisitor
 {
 
+    private final ChangeManager changeManager;
+
+    public VisitorChange ( final ChangeManager changeManager )
+    {
+        this.changeManager = changeManager;
+    }
+
     public void visit ( final MavenProject project ) throws IOException
     {
-        final Model model = new DefaultModelReader ().read ( project.getFile (), null );
-        if ( performChange ( model ) )
-        {
-            new DefaultModelWriter ().write ( project.getFile (), null, model );
-        }
+        this.changeManager.addChange ( project.getFile (), new ModelModifier () {
+
+            public boolean apply ( final Model model )
+            {
+                return performChange ( model );
+            }
+
+            @Override
+            public String toString ()
+            {
+                return VisitorChange.this.toString ();
+            };
+        } );
     }
 
     protected abstract boolean performChange ( final Model model );
-
 }

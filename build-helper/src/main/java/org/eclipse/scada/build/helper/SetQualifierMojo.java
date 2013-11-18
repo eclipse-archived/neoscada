@@ -15,14 +15,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 import java.util.jar.Manifest;
 
 import org.apache.maven.model.Model;
-import org.apache.maven.model.io.DefaultModelReader;
-import org.apache.maven.model.io.DefaultModelWriter;
-import org.apache.maven.model.io.ModelReader;
-import org.apache.maven.model.io.ModelWriter;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.w3c.dom.Document;
@@ -50,17 +50,59 @@ public class SetQualifierMojo extends AbstractHelperMojo
     private String newQualifier;
 
     /**
+     * A set of properties that should be set to the qualifier value if already
+     * present
+     * 
+     * @parameter expression="${qualifierProperties}"
+     */
+    private Set<String> qualifierProperties;
+
+    /**
+     * A set of properties that should overridden if already present
+     * 
+     * @parameter expression="${additionalProperties}"
+     */
+    private final Map<String, String> additionalProperties = new HashMap<String, String> ();
+
+    /**
      * Perform a dry run
      * 
      * @parameter expression="${dryRun}"
      */
     private boolean dryRun;
 
+    private ChangeManager changeManager;
+
+    public void setAdditionalProperties ( final String string )
+    {
+        getLog ().debug ( "Set property: " + string );
+        addAdditionalProperties ( string );
+    }
+
+    public void addAdditionalProperties ( final String string )
+    {
+        getLog ().debug ( "Adding property: " + string );
+        final String[] tok = string.split ( "=", 2 );
+        if ( tok.length == 1 )
+        {
+            this.additionalProperties.put ( tok[0], null );
+        }
+        else
+        {
+            this.additionalProperties.put ( tok[0], tok[1] );
+        }
+    }
+
     public synchronized void execute () throws MojoExecutionException
     {
+        this.changeManager = new ChangeManager ( getLog () );
+
         try
         {
             getLog ().info ( "Setting qualifier: " + this.newQualifier );
+            getLog ().info ( "Overwriting qualifier properties: " + this.qualifierProperties );
+            getLog ().info ( "Overwriting properties: " + this.additionalProperties );
+
             if ( this.dryRun )
             {
                 getLog ().info ( "This is a dry run" );
@@ -75,6 +117,11 @@ public class SetQualifierMojo extends AbstractHelperMojo
                 getLog ().debug ( String.format ( " -> %s", project ) );
                 process ( projects, project );
             }
+
+            if ( !this.dryRun )
+            {
+                this.changeManager.applyAll ();
+            }
         }
         catch ( final Exception e )
         {
@@ -87,45 +134,90 @@ public class SetQualifierMojo extends AbstractHelperMojo
         getLog ().debug ( "Processing: " + project + " / " + project.getVersion () );
 
         final String version = makeVersion ( project.getVersion () );
-        if ( version == null )
-        {
-            // no version
-            return;
-        }
 
-        if ( version.equals ( project.getVersion () ) )
-        {
-            // no change
-            return;
-        }
+        addChange ( project.getFile (), new ModelModifier () {
 
-        // write model
-
-        getLog ().info ( String.format ( "Update from %s to %s on project %s", project.getVersion (), version, project ) );
-
-        if ( !this.dryRun )
-        {
-            final ModelReader reader = new DefaultModelReader ();
-
-            final Model model = reader.read ( project.getFile (), null );
-            model.setVersion ( version );
-            final ModelWriter writer = new DefaultModelWriter ();
-            writer.write ( project.getFile (), null, model );
-
-            // visit all modules that have this project as a parent
-            PomHelper.visitModulesWithParent ( projects, project, new VisitorChange () {
-                @Override
-                protected boolean performChange ( final Model model )
+            public boolean apply ( final Model model )
+            {
+                if ( version != null && !version.equals ( project.getVersion () ) )
                 {
-                    getLog ().debug ( String.format ( "Update parent version in module: %s", model ) );
-                    model.getParent ().setVersion ( version );
+                    getLog ().info ( String.format ( "Update from %s to %s on project %s", project.getVersion (), version, project ) );
+                    model.setVersion ( version );
                     return true;
                 }
-            } );
+                return false;
+            }
+        } );
 
-            // this is only called when the version changed ... for now
+        addChange ( project.getFile (), new ModelModifier () {
+
+            public boolean apply ( final Model model )
+            {
+                boolean change = false;
+                final Properties p = model.getProperties ();
+
+                getLog ().debug ( "Project Properties: " + p );
+
+                for ( final String prop : SetQualifierMojo.this.qualifierProperties )
+                {
+                    if ( p.containsKey ( prop ) )
+                    {
+                        getLog ().info ( String.format ( "%s: Setting property - %s -> %s", project, prop, SetQualifierMojo.this.newQualifier ) );
+                        p.put ( prop, SetQualifierMojo.this.newQualifier );
+                        change = true;
+                    }
+                }
+
+                for ( final Map.Entry<String, String> entry : SetQualifierMojo.this.additionalProperties.entrySet () )
+                {
+                    if ( p.containsKey ( entry.getKey () ) )
+                    {
+                        if ( entry.getValue () != null )
+                        {
+                            getLog ().info ( String.format ( "%s: Setting property - %s -> %s", project, entry.getKey (), entry.getValue () ) );
+                            p.put ( entry.getKey (), entry.getValue () );
+                            change = true;
+                        }
+                        else
+                        {
+                            getLog ().info ( String.format ( "%s: Removing property - %s", entry.getKey () ) );
+                            p.remove ( entry.getKey () );
+                            change = true;
+                        }
+                    }
+                }
+
+                return change;
+            }
+
+            @Override
+            public String toString ()
+            {
+                return String.format ( "Change properties: " + project );
+            };
+        } );
+
+        // visit all modules that have this project as a parent
+        PomHelper.visitModulesWithParent ( projects, project, new VisitorChange ( this.changeManager ) {
+            @Override
+            protected boolean performChange ( final Model model )
+            {
+                getLog ().debug ( String.format ( "Update parent version in module: %s", model ) );
+                model.getParent ().setVersion ( version );
+                return true;
+            }
+        } );
+
+        // this is only called when the version changed ... for now
+        if ( !this.dryRun )
+        {
             syncModule ( project, version );
         }
+    }
+
+    private void addChange ( final File file, final ModelModifier modelModifier )
+    {
+        this.changeManager.addChange ( file, modelModifier );
     }
 
     protected void syncModule ( final MavenProject project, final String version ) throws Exception
