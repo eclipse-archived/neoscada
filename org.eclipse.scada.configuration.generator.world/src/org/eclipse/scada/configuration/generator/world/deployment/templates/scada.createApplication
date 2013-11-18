@@ -12,4 +12,8 @@ pushd ~eclipsescada
 su -s /bin/bash -c "p2.fromTemplate \"$$appName$$\" \"$$appName$$\"" - eclipsescada
 popd
 
+if [ "$UID" == 0 ]; then
 echo Start the instance using: start \"scada.app.$$appName$$\"
+else
+echo Start the instance using: sudo start \"scada.app.$$appName$$\"
+fi
