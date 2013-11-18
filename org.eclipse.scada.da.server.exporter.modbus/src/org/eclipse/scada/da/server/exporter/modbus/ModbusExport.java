@@ -29,6 +29,9 @@ import org.apache.mina.transport.socket.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.NioSession;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
+import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.exporter.ObjectExporter;
+import org.eclipse.scada.da.server.common.osgi.factory.ObjectPoolDataItemFactory;
 import org.eclipse.scada.da.server.exporter.modbus.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.modbus.io.DoubleType;
 import org.eclipse.scada.da.server.exporter.modbus.io.MemoryBlock;
@@ -43,6 +46,7 @@ import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
+import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,13 +72,43 @@ public class ModbusExport
 
     private Integer readTimeout;
 
-    public ModbusExport ( final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource )
+    private final InformationBean info = new InformationBean ();
+
+    private ObjectExporter exporter;
+
+    public ModbusExport ( final String id, final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ManageableObjectPool<DataItem> itemObjectPool )
     {
         this.executor = executor;
         this.hiveSource = hiveSource;
         this.processor = processor;
 
+        final ObjectPoolDataItemFactory itemFactory = new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ); //$NON-NLS-1$
+        this.exporter = new ObjectExporter ( itemFactory, true, true );
+        this.exporter.attachTarget ( this.info );
+
         this.acceptor = createAcceptor ();
+    }
+
+    public void dispose ()
+    {
+        logger.debug ( "Disposing" ); //$NON-NLS-1$
+
+        if ( this.exporter != null )
+        {
+            // the exporter also disposes the item factory
+            this.exporter.dispose ();
+            this.exporter = null;
+        }
+        if ( this.acceptor != null )
+        {
+            this.acceptor.dispose ();
+            this.acceptor = null;
+        }
+        if ( this.block != null )
+        {
+            this.block.dispose ();
+            this.block = null;
+        }
     }
 
     private SocketAcceptor createAcceptor ()
@@ -100,6 +134,7 @@ public class ModbusExport
             public void sessionOpened ( final IoSession session ) throws Exception
             {
                 logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
+                ModbusExport.this.info.incrementActiveSessions ();
                 handleSessionOpened ( session );
             };
 
@@ -114,6 +149,7 @@ public class ModbusExport
             public void sessionClosed ( final IoSession session ) throws Exception
             {
                 logger.info ( "Session closed: {}", session ); //$NON-NLS-1$
+                ModbusExport.this.info.decrementActiveSessions ();
             };
 
             @Override
@@ -129,7 +165,7 @@ public class ModbusExport
     public void update ( final Map<String, String> parameters ) throws Exception
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
-        setReadTimeout ( cfg.getInteger ( "timeout" ) ); //$NON-NLS-1$
+        setReadTimeout ( cfg.getInteger ( "timeout", 10_000 ) ); //$NON-NLS-1$
         setPort ( cfg.getInteger ( "port", 502 ) ); //$NON-NLS-1$
         setSlaveId ( cfg.getInteger ( "slaveId", 1 ) ); //$NON-NLS-1$
         setProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
@@ -257,6 +293,8 @@ public class ModbusExport
     {
         logger.trace ( "New message - message: {}, session: {}", message, session ); //$NON-NLS-1$
 
+        this.info.incrementMessagesReceived ();
+
         if ( ! ( message instanceof BaseMessage ) )
         {
             return;
@@ -271,6 +309,7 @@ public class ModbusExport
 
         if ( message instanceof ReadRequest )
         {
+            this.info.incrementReadRequestReceived ();
             handleRead ( session, (ReadRequest)message );
         }
     }
@@ -280,6 +319,7 @@ public class ModbusExport
         switch ( message.getFunctionCode () )
         {
             case 3:
+                this.info.incrementReadHoldingRequestReceived ();
                 readHoldingData ( session, message );
                 break;
             default:
@@ -326,6 +366,8 @@ public class ModbusExport
 
     protected ErrorResponse makeError ( final BaseMessage message, final int exceptionCode )
     {
+        this.info.incrementErrorReplies ();
+
         byte functionCode = message.getFunctionCode ();
         functionCode |= (byte)0x80;
         return new ErrorResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, (byte)exceptionCode );
@@ -335,22 +377,6 @@ public class ModbusExport
     {
         logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$ 
         session.write ( message );
-    }
-
-    public void dispose ()
-    {
-        logger.debug ( "Disposing" ); //$NON-NLS-1$
-
-        if ( this.acceptor != null )
-        {
-            this.acceptor.dispose ();
-            this.acceptor = null;
-        }
-        if ( this.block != null )
-        {
-            this.block.dispose ();
-            this.block = null;
-        }
     }
 
 }

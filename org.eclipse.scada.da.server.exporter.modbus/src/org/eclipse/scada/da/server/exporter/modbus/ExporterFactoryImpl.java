@@ -17,11 +17,15 @@ import org.apache.mina.core.service.SimpleIoProcessorPool;
 import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.exporter.modbus.common.ServiceListenerHiveSource;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,16 +39,23 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
 
     private final IoProcessor<NioSession> processor;
 
+    private final ObjectPoolImpl<DataItem> itemPool;
+
+    private final ServiceRegistration<?> itemPoolHandler;
+
     public ExporterFactoryImpl ()
     {
         super ( FrameworkUtil.getBundle ( ExporterFactoryImpl.class ).getBundleContext () );
 
-        this.executor = new ScheduledExportedExecutorService ( "org.eclipse.scada.da.server.exporter.modbus", 1 );
+        this.executor = new ScheduledExportedExecutorService ( FrameworkUtil.getBundle ( ExporterFactoryImpl.class ).getSymbolicName (), 1 );
 
         this.processor = new SimpleIoProcessorPool<> ( NioProcessor.class );
 
         this.hiveSource = new ServiceListenerHiveSource ( FrameworkUtil.getBundle ( ExporterFactoryImpl.class ).getBundleContext (), this.executor );
         this.hiveSource.open ();
+
+        this.itemPool = new ObjectPoolImpl<> ();
+        this.itemPoolHandler = ObjectPoolHelper.registerObjectPool ( FrameworkUtil.getBundle ( ExporterFactoryImpl.class ).getBundleContext (), this.itemPool, DataItem.class );
     }
 
     @Override
@@ -52,10 +63,12 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
     {
         logger.info ( "Disposing" ); //$NON-NLS-1$
 
+        this.itemPoolHandler.unregister ();
+
         super.dispose ();
 
+        this.itemPool.dispose ();
         this.processor.dispose ();
-
         this.hiveSource.close ();
         this.executor.shutdown ();
     }
@@ -63,7 +76,7 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
     @Override
     protected Entry<ModbusExport> createService ( final UserInformation userInformation, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
     {
-        final ModbusExport service = new ModbusExport ( this.executor, this.processor, this.hiveSource );
+        final ModbusExport service = new ModbusExport ( configurationId, this.executor, this.processor, this.hiveSource, this.itemPool );
         service.update ( parameters );
         return new Entry<ModbusExport> ( configurationId, service );
     }
