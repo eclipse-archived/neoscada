@@ -338,7 +338,7 @@ public class ModbusExport
 
         if ( message.getQuantity () < 0 || message.getQuantity () >= 0x7D )
         {
-            logger.info ( "Invalid quanity" ); //$NON-NLS-1$
+            logger.debug ( "Invalid quanity" ); //$NON-NLS-1$
             sendReply ( session, makeError ( message, 0x02 ) );
             return;
         }
@@ -346,7 +346,7 @@ public class ModbusExport
         final IoBuffer data = this.block.readData ( byteOffset, byteLength );
         if ( data == null )
         {
-            logger.info ( "No data" ); //$NON-NLS-1$
+            logger.debug ( "No data" ); //$NON-NLS-1$
             sendReply ( session, makeError ( message, 0x04 ) );
         }
         else
