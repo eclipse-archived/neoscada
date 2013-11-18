@@ -40,6 +40,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/kepler</url>
 		</repository>
+		<repository>
+			<id>eclipse.orbit</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse.orbit.version}/repository/</url>
+		</repository>
 	</repositories>
 
 	<build>
