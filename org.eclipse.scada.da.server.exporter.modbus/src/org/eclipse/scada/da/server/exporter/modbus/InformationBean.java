@@ -41,6 +41,26 @@ public class InformationBean extends AbstractPropertyChange
         return this.activeSessions.get ();
     }
 
+    public long getMessagesReceived ()
+    {
+        return this.messagesReceived.get ();
+    }
+
+    public long getReadRequestsReceived ()
+    {
+        return this.readRequestsReceived.get ();
+    }
+
+    public long getReadHoldingRequestsReceived ()
+    {
+        return this.readHoldingRequestsReceived.get ();
+    }
+
+    public long getErrorReplies ()
+    {
+        return this.errorReplies.get ();
+    }
+
     public void incrementActiveSessions ()
     {
         final long newValue = this.activeSessions.incrementAndGet ();
