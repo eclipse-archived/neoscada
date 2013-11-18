@@ -96,13 +96,13 @@ public class ModbusExport
             @Override
             public void sessionOpened ( final IoSession session ) throws Exception
             {
-                logger.info ( "Session opened: {}", session );
+                logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
             };
 
             @Override
             public void sessionClosed ( final IoSession session ) throws Exception
             {
-                logger.info ( "Session closed: {}", session );
+                logger.info ( "Session closed: {}", session ); //$NON-NLS-1$
             };
 
             @Override
@@ -126,7 +126,7 @@ public class ModbusExport
 
     private void setSlaveId ( final int slaveId )
     {
-        logger.debug ( "Setting slave id: {}", slaveId );
+        logger.debug ( "Setting slave id: {}", slaveId ); //$NON-NLS-1$
         this.slaveId = slaveId;
     }
 
@@ -150,11 +150,11 @@ public class ModbusExport
     {
         final List<SourceDefinition> defs = new LinkedList<> ();
 
-        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "item." ).entrySet () )
+        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "item." ).entrySet () ) //$NON-NLS-1$
         {
             final String itemId = entry.getKey ();
-            final String[] args = entry.getValue ().split ( ":" );
-            logger.info ( "Adding - itemId: {}, arguments: {}", itemId, args );
+            final String[] args = entry.getValue ().split ( ":" ); //$NON-NLS-1$
+            logger.info ( "Adding - itemId: {}, arguments: {}", itemId, args ); //$NON-NLS-1$
             defs.add ( convert ( itemId, args ) );
         }
 
@@ -168,15 +168,15 @@ public class ModbusExport
 
         switch ( args[1].toUpperCase () )
         {
-            case "DOUBLE":
+            case "DOUBLE": //$NON-NLS-1$
                 type = new DoubleType ( getFactor ( args ) );
                 break;
-            case "INT16":
-            case "SHORT":
+            case "INT16": //$NON-NLS-1$
+            case "SHORT": //$NON-NLS-1$
                 type = new ShortType ( getFactor ( args ) );
                 break;
-            case "UINT16":
-            case "WORD":
+            case "UINT16": //$NON-NLS-1$
+            case "WORD": //$NON-NLS-1$
                 type = new UnsignedShortType ( getFactor ( args ) );
                 break;
             default:
@@ -214,7 +214,7 @@ public class ModbusExport
 
     protected void handleMessageReceived ( final IoSession session, final Object message )
     {
-        logger.trace ( "New message - message: {}, session: {}", message, session );
+        logger.trace ( "New message - message: {}, session: {}", message, session ); //$NON-NLS-1$
 
         if ( ! ( message instanceof BaseMessage ) )
         {
@@ -224,7 +224,7 @@ public class ModbusExport
         final BaseMessage baseMessage = (BaseMessage)message;
         if ( baseMessage.getUnitIdentifier () != this.slaveId )
         {
-            logger.trace ( "Invalid unit id - use: {}, them: {}", this.slaveId, baseMessage.getUnitIdentifier () );
+            logger.trace ( "Invalid unit id - use: {}, them: {}", this.slaveId, baseMessage.getUnitIdentifier () ); //$NON-NLS-1$
             return;
         }
 
@@ -242,7 +242,7 @@ public class ModbusExport
                 readHoldingData ( session, message );
                 break;
             default:
-                logger.info ( "Function code {} is not implemented", message.getFunctionCode () );
+                logger.info ( "Function code {} is not implemented", message.getFunctionCode () ); //$NON-NLS-1$
                 sendReply ( session, makeError ( message, 0x01 ) );
                 break;
         }
@@ -253,11 +253,11 @@ public class ModbusExport
         final int byteOffset = message.getStartAddress () * 2;
         final int byteLength = message.getQuantity () * 2;
 
-        logger.debug ( "Reading - byteOffset: {}, byteLength: {}", byteOffset, byteLength );
+        logger.debug ( "Reading - byteOffset: {}, byteLength: {}", byteOffset, byteLength ); //$NON-NLS-1$
 
         if ( message.getQuantity () < 0 || message.getQuantity () >= 0x7D )
         {
-            logger.info ( "Invalid quanity" );
+            logger.info ( "Invalid quanity" ); //$NON-NLS-1$
             sendReply ( session, makeError ( message, 0x02 ) );
             return;
         }
@@ -265,7 +265,7 @@ public class ModbusExport
         final IoBuffer data = this.block.readData ( byteOffset, byteLength );
         if ( data == null )
         {
-            logger.info ( "No data" );
+            logger.info ( "No data" ); //$NON-NLS-1$
             sendReply ( session, makeError ( message, 0x04 ) );
         }
         else
@@ -279,7 +279,7 @@ public class ModbusExport
     {
         data.flip ();
 
-        logger.trace ( "Create data message - data: {}", data );
+        logger.trace ( "Create data message - data: {}", data ); //$NON-NLS-1$
         return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), data );
     }
 
@@ -292,7 +292,7 @@ public class ModbusExport
 
     protected void sendReply ( final IoSession session, final Object message )
     {
-        logger.trace ( "Send reply - message: {}, session: {}", message, session );
+        logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$
         session.write ( message );
     }
 
