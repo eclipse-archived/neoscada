@@ -8,6 +8,19 @@
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<distributionManagement>
+		<repository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse SCADA Repository - Releases</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repo.eclipse.org</id>
+			<name>Eclipse SCADA Repository - Snapshots</name>
+			<url>https://repo.eclipse.org/content/repositories/eclipsescada-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
 	<properties>
 		<buildType>I</buildType>
 		<qualifier>${maven.build.timestamp}</qualifier>
@@ -22,17 +35,6 @@
 	</properties>
 
 	<repositories>
-		<repository>
-			<id>repo.eclipse.org</id>
-			<name>Eclipse SCADA Repository</name>
-			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
 		<repository>
 			<id>eclipse.kepler</id>
 			<layout>p2</layout>
