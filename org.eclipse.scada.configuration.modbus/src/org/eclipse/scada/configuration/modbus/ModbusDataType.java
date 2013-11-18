@@ -56,11 +56,9 @@ public interface ModbusDataType extends EObject
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Scale</em>' attribute.
-     * @see #isSetScale()
-     * @see #unsetScale()
      * @see #setScale(Double)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusDataType_Scale()
-     * @model unsettable="true"
+     * @model
      * @generated
      */
     Double getScale ();
@@ -70,34 +68,9 @@ public interface ModbusDataType extends EObject
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Scale</em>' attribute.
-     * @see #isSetScale()
-     * @see #unsetScale()
      * @see #getScale()
      * @generated
      */
     void setScale ( Double value );
-
-    /**
-     * Unsets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusDataType#getScale <em>Scale</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetScale()
-     * @see #getScale()
-     * @see #setScale(Double)
-     * @generated
-     */
-    void unsetScale ();
-
-    /**
-     * Returns whether the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusDataType#getScale <em>Scale</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Scale</em>' attribute is set.
-     * @see #unsetScale()
-     * @see #getScale()
-     * @see #setScale(Double)
-     * @generated
-     */
-    boolean isSetScale ();
 
 } // ModbusDataType

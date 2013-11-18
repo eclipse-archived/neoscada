@@ -891,7 +891,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
 
         initEClass ( modbusDataTypeEClass, ModbusDataType.class, "ModbusDataType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getModbusDataType_Name (), ecorePackage.getEString (), "name", null, 1, 1, ModbusDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getModbusDataType_Scale (), ecorePackage.getEDoubleObject (), "scale", null, 0, 1, ModbusDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusDataType_Scale (), ecorePackage.getEDoubleObject (), "scale", null, 0, 1, ModbusDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( modbusDoubleEClass, ModbusDouble.class, "ModbusDouble", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

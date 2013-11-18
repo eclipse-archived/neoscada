@@ -25,11 +25,15 @@ import org.eclipse.scada.configuration.modbus.ModbusPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl#getScale <em>Scale</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl#getName
+ * <em>Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDoubleImpl#getScale
+ * <em>Scale</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements ModbusDouble
@@ -38,6 +42,7 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -48,6 +53,7 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
      * The default value of the '{@link #getScale() <em>Scale</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getScale()
      * @generated
      * @ordered
@@ -58,6 +64,7 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
      * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getScale()
      * @generated
      * @ordered
@@ -65,17 +72,9 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     protected Double scale = SCALE_EDEFAULT;
 
     /**
-     * This is true if the Scale attribute has been set.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    protected boolean scaleESet;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ModbusDoubleImpl ()
@@ -86,6 +85,7 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -103,70 +103,46 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     @Override
     public String getName ()
     {
-        return "double";
+        return "DOUBLE";
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Double getScale ()
     {
-        return scale;
+        return this.scale;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setScale ( Double newScale )
+    public void setScale ( final Double newScale )
     {
-        Double oldScale = scale;
-        scale = newScale;
-        boolean oldScaleESet = scaleESet;
-        scaleESet = true;
+        final Double oldScale = this.scale;
+        this.scale = newScale;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DOUBLE__SCALE, oldScale, scale, !oldScaleESet ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DOUBLE__SCALE, oldScale, this.scale ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void unsetScale ()
-    {
-        Double oldScale = scale;
-        boolean oldScaleESet = scaleESet;
-        scale = SCALE_EDEFAULT;
-        scaleESet = false;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.UNSET, ModbusPackage.MODBUS_DOUBLE__SCALE, oldScale, SCALE_EDEFAULT, oldScaleESet ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isSetScale ()
-    {
-        return scaleESet;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -181,10 +157,11 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -198,15 +175,16 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
             case ModbusPackage.MODBUS_DOUBLE__SCALE:
-                unsetScale ();
+                setScale ( SCALE_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -215,17 +193,18 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case ModbusPackage.MODBUS_DOUBLE__NAME:
                 return NAME_EDEFAULT == null ? getName () != null : !NAME_EDEFAULT.equals ( getName () );
             case ModbusPackage.MODBUS_DOUBLE__SCALE:
-                return isSetScale ();
+                return SCALE_EDEFAULT == null ? this.scale != null : !SCALE_EDEFAULT.equals ( this.scale );
         }
         return super.eIsSet ( featureID );
     }
@@ -233,20 +212,20 @@ public class ModbusDoubleImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (scale: " ); //$NON-NLS-1$
-        if ( scaleESet )
-            result.append ( scale );
-        else
-            result.append ( "<unset>" ); //$NON-NLS-1$
+        result.append ( this.scale );
         result.append ( ')' );
         return result.toString ();
     }

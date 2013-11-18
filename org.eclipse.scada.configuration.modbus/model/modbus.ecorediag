@@ -280,7 +280,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_sAyu4UuNEeOlUItvRuKTjg" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="modbus.ecore#//ModbusDataType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sAyu4kuNEeOlUItvRuKTjg" x="1152" y="420" height="81"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sAyu4kuNEeOlUItvRuKTjg" x="1140" y="420" height="81"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_v0PyYEuNEeOlUItvRuKTjg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_v0QZcEuNEeOlUItvRuKTjg" type="4001"/>
