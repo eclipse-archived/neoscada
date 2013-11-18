@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Driver;
@@ -22,14 +25,17 @@ import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserService;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.SystemPropertiesUserServiceProcessor;
+import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 
 public final class Worlds
 {
@@ -242,6 +248,23 @@ public final class Worlds
         {
             return to.getHostName ();
         }
+    }
+
+    public static Collection<PropertyEntry> convertToProperties ( final Credentials creds )
+    {
+        final Collection<PropertyEntry> result = new LinkedList<> ();
+
+        if ( creds instanceof PasswordCredentials )
+        {
+            result.add ( Properties.create ( "password", ( (PasswordCredentials)creds ).getPassword () ) );
+        }
+        else if ( creds instanceof UsernamePasswordCredentials )
+        {
+            result.add ( Properties.create ( "user", ( (UsernamePasswordCredentials)creds ).getUsername () ) );
+            result.add ( Properties.create ( "password", ( (UsernamePasswordCredentials)creds ).getPassword () ) );
+        }
+
+        return result;
     }
 
 }

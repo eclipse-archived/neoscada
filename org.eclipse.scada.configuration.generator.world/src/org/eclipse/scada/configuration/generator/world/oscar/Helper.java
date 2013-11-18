@@ -10,42 +10,15 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.generator.world.oscar;
 
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.scada.configuration.world.osgi.DataType;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 import org.eclipse.scada.core.VariantType;
 
 public final class Helper
 {
     private Helper ()
     {
-    }
-
-    public static Map<String, String> makeAttributes ( final Collection<PropertyEntry> properties )
-    {
-        return makeAttributes ( null, properties );
-    }
-
-    public static Map<String, String> makeAttributes ( final String prefix, final Collection<PropertyEntry> properties )
-    {
-        final Map<String, String> result = new HashMap<> ();
-
-        for ( final PropertyEntry entry : properties )
-        {
-            if ( prefix != null )
-            {
-                result.put ( prefix + entry.getKey (), entry.getValue () );
-            }
-            else
-            {
-                result.put ( entry.getKey (), entry.getValue () );
-            }
-        }
-
-        return result;
     }
 
     /**

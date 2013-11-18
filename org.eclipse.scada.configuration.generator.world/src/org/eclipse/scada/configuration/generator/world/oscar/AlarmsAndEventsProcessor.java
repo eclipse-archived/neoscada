@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.ExternalEventFilter;
 import org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor;
@@ -88,7 +89,7 @@ public class AlarmsAndEventsProcessor extends BasicOscarProcessor
         final Map<String, String> data = new HashMap<String, String> ();
 
         data.put ( "filter", eventMonitor.getFilter () ); //$NON-NLS-1$
-        Configurations.applyInfoAttributes ( Helper.makeAttributes ( eventMonitor.getProperties () ), data );
+        Configurations.applyInfoAttributes ( Properties.makeAttributes ( eventMonitor.getProperties () ), data );
 
         addData ( Factories.FACTORY_AE_EXTERNAL, Names.makeName ( eventMonitor ), data );
     }

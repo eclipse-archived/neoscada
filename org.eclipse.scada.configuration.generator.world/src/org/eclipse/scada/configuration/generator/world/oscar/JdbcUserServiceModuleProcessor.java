@@ -15,6 +15,7 @@ import java.util.Map;
 
 import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.JdbcUserService;
 import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
@@ -59,7 +60,7 @@ public class JdbcUserServiceModuleProcessor extends BasicTypedOscarProcessor<Jdb
 
         data.put ( "authoritative", service.isAuthorative () ? "true" : "false " );
 
-        data.putAll ( Helper.makeAttributes ( "jdbc.properties.", service.getJdbcPropeties () ) );
+        data.putAll ( Properties.makeAttributes ( "jdbc.properties.", service.getJdbcPropeties () ) );
 
         addData ( Factories.FACTORY_SEC_JDBC, Names.makeName ( service ), data );
     }

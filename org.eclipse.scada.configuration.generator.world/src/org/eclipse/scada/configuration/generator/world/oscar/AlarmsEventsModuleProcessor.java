@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.generator.world.Nodes;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.utils.TypeVisitor;
 import org.eclipse.scada.configuration.utils.TypeWalker;
 import org.eclipse.scada.configuration.world.Documentable;
@@ -93,7 +94,7 @@ public class AlarmsEventsModuleProcessor extends BasicOscarProcessor
         data.put ( "driverName", pull.getJdbcDriverName () );
         Helper.addOptional ( data, "customDeleteSql", pull.getCustomDeleteSql () );
         Helper.addOptional ( data, "customSelectSql", pull.getCustomSelectSql () );
-        data.putAll ( Helper.makeAttributes ( "jdbcProperties", pull.getJdbcProperties () ) );
+        data.putAll ( Properties.makeAttributes ( "jdbcProperties", pull.getJdbcProperties () ) );
         Helper.addOptional ( data, "delay", pull.getJobInterval () );
 
         addData ( Factories.FACTORY_AE_PULL_EVENTS, Names.makeName ( pull ), data );

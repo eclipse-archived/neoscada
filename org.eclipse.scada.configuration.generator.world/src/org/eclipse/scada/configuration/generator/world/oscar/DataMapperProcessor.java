@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.world.osgi.DataMapper;
 import org.eclipse.scada.configuration.world.osgi.DataMapperEntry;
 import org.eclipse.scada.configuration.world.osgi.JdbcDataMapper;
@@ -52,7 +53,7 @@ public class DataMapperProcessor extends BasicOscarProcessor
         data.put ( "jdbcDriver", dataMapper.getJdbcDriver () );
         data.put ( "sql", dataMapper.getSql () );
 
-        data.putAll ( Helper.makeAttributes ( "properties.", dataMapper.getProperties () ) );
+        data.putAll ( Properties.makeAttributes ( "properties.", dataMapper.getProperties () ) );
 
         addData ( Factories.FACTORY_JDBC_DATA_MAPPER, Names.makeName ( dataMapper ), data );
     }
