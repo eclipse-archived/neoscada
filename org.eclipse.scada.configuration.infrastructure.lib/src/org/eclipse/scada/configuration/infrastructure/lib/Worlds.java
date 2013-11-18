@@ -16,6 +16,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
@@ -135,6 +136,30 @@ public final class Worlds
     }
 
     /**
+     * Find the access credentials for the target master server
+     * 
+     * @param master
+     *            the master server
+     * @return the access credentials, or <code>null</code> if there were none
+     */
+    public static Credentials findInterconnectCredentials ( final MasterServer master )
+    {
+        if ( master.getLocalCredentials () != null )
+        {
+            return master.getLocalCredentials ();
+        }
+        else
+        {
+            final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( master, org.eclipse.scada.configuration.infrastructure.World.class );
+            if ( world == null )
+            {
+                return null;
+            }
+            return world.getDefaultCredentials ();
+        }
+    }
+
+    /**
      * Find the access credentials for the target
      * 
      * @param masterImport
@@ -147,19 +172,7 @@ public final class Worlds
         {
             return masterImport.getCredentials ();
         }
-        else if ( masterImport.getImportedMaster ().getLocalCredentials () != null )
-        {
-            return masterImport.getImportedMaster ().getLocalCredentials ();
-        }
-        else
-        {
-            final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( masterImport, org.eclipse.scada.configuration.infrastructure.World.class );
-            if ( world == null )
-            {
-                return null;
-            }
-            return world.getDefaultCredentials ();
-        }
+        return findInterconnectCredentials ( masterImport.getImportedMaster () );
     }
 
     public static Endpoint createEndpoint ( final int port )
