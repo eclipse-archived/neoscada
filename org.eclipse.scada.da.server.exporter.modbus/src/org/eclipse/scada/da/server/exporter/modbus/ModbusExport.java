@@ -268,6 +268,7 @@ public class ModbusExport
             // we do need to create a new hive session
             logger.debug ( "Re-create block" ); //$NON-NLS-1$
             this.block.dispose ();
+            this.block = null;
             this.block = new MemoryBlock ( this.executor, this.hiveSource, properties );
         }
         this.properties = properties;
