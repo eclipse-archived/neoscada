@@ -28,6 +28,7 @@ import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.core.server.InvalidItemException;
 import org.eclipse.scada.da.core.server.ItemChangeListener;
 import org.eclipse.scada.da.core.server.Session;
+import org.eclipse.scada.sec.callback.PropertiesCredentialsCallback;
 import org.eclipse.scada.utils.concurrent.FutureListener;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
@@ -112,7 +113,9 @@ public abstract class AbstractSubscriptionManager
         // create new session
         if ( this.hive != null )
         {
-            this.createSessionFuture = hive.createSession ( this.properties, null );
+            logger.info ( "Creating new session" );
+
+            this.createSessionFuture = hive.createSession ( this.properties, new PropertiesCredentialsCallback ( this.properties ) );
             this.createSessionFuture.addListener ( new FutureListener<Session> () {
 
                 @Override
