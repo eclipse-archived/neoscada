@@ -74,6 +74,7 @@ public class PropertiesCredentialsCallback implements CallbackHandler
             }
             else
             {
+                logger.debug ( "Cancel callback" );
                 cb.cancel ();
             }
         }
