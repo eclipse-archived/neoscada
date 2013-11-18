@@ -141,17 +141,17 @@
       <command
             categoryId="org.eclipse.scada.configuration"
             id="org.eclipse.scada.configuration.generator.ui.RunSystemGenerator"
-            name="Run Generator">
+            name="Create Configuration">
       </command>
 	 <command
             categoryId="org.eclipse.scada.configuration"
             id="org.eclipse.scada.configuration.generator.ui.RunWorldGenerator"
-            name="Run Generator">
+            name="Create Configuration">
       </command>
  	 <command
             categoryId="org.eclipse.scada.configuration"
             id="org.eclipse.scada.configuration.generator.ui.RunInfrastructureGenerator"
-            name="Create World">
+            name="Create World Model">
       </command>
  	<command
             categoryId="org.eclipse.scada.configuration"
