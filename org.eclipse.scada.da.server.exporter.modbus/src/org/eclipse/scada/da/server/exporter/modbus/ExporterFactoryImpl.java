@@ -50,7 +50,7 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
     @Override
     public void dispose ()
     {
-        logger.info ( "Disposing" );
+        logger.info ( "Disposing" ); //$NON-NLS-1$
 
         super.dispose ();
 

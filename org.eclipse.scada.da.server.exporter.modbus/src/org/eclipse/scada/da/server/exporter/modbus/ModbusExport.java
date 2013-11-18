@@ -22,6 +22,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.SocketAcceptor;
@@ -65,6 +66,8 @@ public class ModbusExport
 
     private int slaveId;
 
+    private Integer readTimeout;
+
     public ModbusExport ( final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource )
     {
         this.executor = executor;
@@ -97,6 +100,14 @@ public class ModbusExport
             public void sessionOpened ( final IoSession session ) throws Exception
             {
                 logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
+                handleSessionOpened ( session );
+            };
+
+            @Override
+            public void sessionIdle ( final IoSession session, final IdleStatus status ) throws Exception
+            {
+                logger.info ( "Session idle: {}", session ); //$NON-NLS-1$
+                handleSessionIdle ( session );
             };
 
             @Override
@@ -118,10 +129,16 @@ public class ModbusExport
     public void update ( final Map<String, String> parameters ) throws Exception
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
+        setReadTimeout ( cfg.getInteger ( "timeout" ) ); //$NON-NLS-1$
         setPort ( cfg.getInteger ( "port", 502 ) ); //$NON-NLS-1$
         setSlaveId ( cfg.getInteger ( "slaveId", 1 ) ); //$NON-NLS-1$
         setProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
         configureDefinitions ( cfg );
+    }
+
+    private void setReadTimeout ( final Integer readTimeout )
+    {
+        this.readTimeout = readTimeout;
     }
 
     private void setSlaveId ( final int slaveId )
@@ -143,7 +160,7 @@ public class ModbusExport
                 this.acceptor.unbind ( this.currentAddress );
                 this.currentAddress = null;
             }
-            logger.debug ( "Binding to {}", address );
+            logger.debug ( "Binding to {}", address ); //$NON-NLS-1$
             this.acceptor.bind ( address );
             this.currentAddress = address;
         }
@@ -213,6 +230,27 @@ public class ModbusExport
             this.block = new MemoryBlock ( this.executor, this.hiveSource, properties );
         }
         this.properties = properties;
+    }
+
+    protected void handleSessionOpened ( final IoSession session )
+    {
+        Integer idle = this.readTimeout;
+        if ( idle != null )
+        {
+            idle = idle / 1000;
+            if ( idle < 0 )
+            {
+                idle = 1;
+            }
+            logger.debug ( "Setting read idle timeout: {} second(s)", idle ); //$NON-NLS-1$
+            session.getConfig ().setIdleTime ( IdleStatus.READER_IDLE, idle );
+        }
+    }
+
+    protected void handleSessionIdle ( final IoSession session )
+    {
+        logger.info ( "Closing session due to reader timeout" );
+        session.close ( true );
     }
 
     protected void handleMessageReceived ( final IoSession session, final Object message )
@@ -286,7 +324,7 @@ public class ModbusExport
         return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), data );
     }
 
-    protected Object makeError ( final BaseMessage message, final int exceptionCode )
+    protected ErrorResponse makeError ( final BaseMessage message, final int exceptionCode )
     {
         byte functionCode = message.getFunctionCode ();
         functionCode |= (byte)0x80;
@@ -295,13 +333,13 @@ public class ModbusExport
 
     protected void sendReply ( final IoSession session, final Object message )
     {
-        logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$
+        logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$ 
         session.write ( message );
     }
 
     public void dispose ()
     {
-        logger.debug ( "Disposing" );
+        logger.debug ( "Disposing" ); //$NON-NLS-1$
 
         if ( this.acceptor != null )
         {
