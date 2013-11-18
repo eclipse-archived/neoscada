@@ -65,7 +65,7 @@ public abstract class AbstractSubscriptionManager
         }
     };
 
-    protected volatile boolean disposed = false;
+    protected volatile boolean started = false;
 
     private final HiveSource hiveSource;
 
@@ -90,12 +90,32 @@ public abstract class AbstractSubscriptionManager
     {
         this.properties = properties;
         this.hiveSource = hiveSource;
+
+    }
+
+    public synchronized void start ()
+    {
         this.hiveSource.addListener ( this.hiveListener );
+    }
+
+    public synchronized void stop ()
+    {
+        if ( this.started )
+        {
+            return;
+        }
+
+        this.started = true;
+
+        this.hiveSource.removeListener ( this.hiveListener );
+
+        unbind ();
+        clearCache ();
     }
 
     protected synchronized void performSetHive ( final Hive hive )
     {
-        if ( this.disposed )
+        if ( this.started )
         {
             return;
         }
@@ -165,21 +185,6 @@ public abstract class AbstractSubscriptionManager
         }
     }
 
-    public synchronized void dispose ()
-    {
-        if ( this.disposed )
-        {
-            return;
-        }
-
-        this.disposed = true;
-
-        this.hiveSource.removeListener ( this.hiveListener );
-
-        unbind ();
-        clearCache ();
-    }
-
     private void subscribeItems ()
     {
         for ( final String itemId : this.subscribeList )
@@ -192,7 +197,7 @@ public abstract class AbstractSubscriptionManager
     {
         logger.trace ( "Subscribe to - itemId: {}", itemId );
 
-        if ( this.disposed )
+        if ( this.started )
         {
             return;
         }
@@ -224,7 +229,7 @@ public abstract class AbstractSubscriptionManager
 
     protected synchronized void unsubscribe ( final String itemId )
     {
-        if ( this.disposed )
+        if ( this.started )
         {
             return;
         }
@@ -270,7 +275,7 @@ public abstract class AbstractSubscriptionManager
 
     public synchronized Map<String, DataItemValue> getCacheCopy ()
     {
-        if ( this.disposed )
+        if ( this.started )
         {
             return Collections.emptyMap ();
         }

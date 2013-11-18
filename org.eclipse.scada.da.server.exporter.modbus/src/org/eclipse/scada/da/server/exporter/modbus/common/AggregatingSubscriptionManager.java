@@ -35,15 +35,15 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
     }
 
     @Override
-    public synchronized void dispose ()
+    public synchronized void stop ()
     {
-        super.dispose ();
+        super.stop ();
         notifyStateUpdate ( true ); // explicitly notify ignoring the dispose state
     }
 
     private void notifyStateUpdate ( final boolean ignoreDisposed )
     {
-        if ( this.disposed && !ignoreDisposed )
+        if ( this.started && !ignoreDisposed )
         {
             // early check
             return;
@@ -53,7 +53,7 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
             @Override
             public void run ()
             {
-                if ( !AggregatingSubscriptionManager.this.disposed || ignoreDisposed )
+                if ( !AggregatingSubscriptionManager.this.started || ignoreDisposed )
                 {
                     AggregatingSubscriptionManager.this.listener.stateUpdate ();
                 }

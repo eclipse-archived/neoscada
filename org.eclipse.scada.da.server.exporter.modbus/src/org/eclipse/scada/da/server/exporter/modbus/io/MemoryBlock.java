@@ -49,6 +49,7 @@ public class MemoryBlock
         this.writeLock = lock.writeLock ();
 
         this.manager = new SingleSubscriptionManager ( executor, hiveSource, properties );
+        this.manager.start ();
     }
 
     public void dispose ()
@@ -56,7 +57,7 @@ public class MemoryBlock
         this.writeLock.lock ();
         try
         {
-            this.manager.dispose ();
+            this.manager.stop ();
             this.buffer = IoBuffer.allocate ( 0 );
         }
         finally
