@@ -85,8 +85,6 @@ public class ModbusExport
         final ObjectPoolDataItemFactory itemFactory = new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ); //$NON-NLS-1$
         this.exporter = new ObjectExporter ( itemFactory, true, true );
         this.exporter.attachTarget ( this.info );
-
-        this.acceptor = createAcceptor ();
     }
 
     public void dispose ()
@@ -99,11 +97,7 @@ public class ModbusExport
             this.exporter.dispose ();
             this.exporter = null;
         }
-        if ( this.acceptor != null )
-        {
-            this.acceptor.dispose ();
-            this.acceptor = null;
-        }
+        disposeAcceptor ();
         if ( this.block != null )
         {
             this.block.dispose ();
@@ -111,55 +105,72 @@ public class ModbusExport
         }
     }
 
-    private SocketAcceptor createAcceptor ()
+    private void disposeAcceptor ()
+    {
+        if ( this.acceptor != null )
+        {
+            this.acceptor.dispose ();
+            this.acceptor = null;
+        }
+    }
+
+    private void createAcceptor ()
     {
         final NioSocketAcceptor acceptor = new NioSocketAcceptor ( this.processor );
+        try
+        {
+            acceptor.setReuseAddress ( true );
+            acceptor.setBacklog ( Integer.getInteger ( "org.eclipse.scada.da.server.exporter.modbus.acceptor.backlog", 5 ) ); //$NON-NLS-1$
 
-        acceptor.setReuseAddress ( true );
-        acceptor.setBacklog ( Integer.getInteger ( "org.eclipse.scada.da.server.exporter.modbus.acceptor.backlog", 5 ) ); //$NON-NLS-1$
+            final ModbusTcpEncoder encoder = new ModbusTcpEncoder ();
+            final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
+            acceptor.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
+            acceptor.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
 
-        final ModbusTcpEncoder encoder = new ModbusTcpEncoder ();
-        final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
-        acceptor.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
-        acceptor.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
+            acceptor.setHandler ( new IoHandlerAdapter () {
+                @Override
+                public void exceptionCaught ( final IoSession session, final Throwable cause ) throws Exception
+                {
+                    session.close ( true );
+                };
 
-        acceptor.setHandler ( new IoHandlerAdapter () {
-            @Override
-            public void exceptionCaught ( final IoSession session, final Throwable cause ) throws Exception
-            {
-                session.close ( true );
-            };
+                @Override
+                public void sessionOpened ( final IoSession session ) throws Exception
+                {
+                    logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
+                    ModbusExport.this.info.incrementActiveSessions ();
+                    handleSessionOpened ( session );
+                };
 
-            @Override
-            public void sessionOpened ( final IoSession session ) throws Exception
-            {
-                logger.info ( "Session opened: {}", session ); //$NON-NLS-1$
-                ModbusExport.this.info.incrementActiveSessions ();
-                handleSessionOpened ( session );
-            };
+                @Override
+                public void sessionIdle ( final IoSession session, final IdleStatus status ) throws Exception
+                {
+                    logger.info ( "Session idle: {}", session ); //$NON-NLS-1$
+                    handleSessionIdle ( session );
+                };
 
-            @Override
-            public void sessionIdle ( final IoSession session, final IdleStatus status ) throws Exception
-            {
-                logger.info ( "Session idle: {}", session ); //$NON-NLS-1$
-                handleSessionIdle ( session );
-            };
+                @Override
+                public void sessionClosed ( final IoSession session ) throws Exception
+                {
+                    logger.info ( "Session closed: {}", session ); //$NON-NLS-1$
+                    ModbusExport.this.info.decrementActiveSessions ();
+                };
 
-            @Override
-            public void sessionClosed ( final IoSession session ) throws Exception
-            {
-                logger.info ( "Session closed: {}", session ); //$NON-NLS-1$
-                ModbusExport.this.info.decrementActiveSessions ();
-            };
-
-            @Override
-            public void messageReceived ( final IoSession session, final Object message ) throws Exception
-            {
-                handleMessageReceived ( session, message );
-            };
-        } );
-
-        return acceptor;
+                @Override
+                public void messageReceived ( final IoSession session, final Object message ) throws Exception
+                {
+                    handleMessageReceived ( session, message );
+                };
+            } );
+            this.acceptor = acceptor;
+            this.acceptor.bind ( this.currentAddress );
+        }
+        catch ( final Exception e )
+        {
+            logger.warn ( "Failed to create acceptor", e );
+            this.acceptor.dispose ();
+            throw new RuntimeException ( e );
+        }
     }
 
     public void update ( final Map<String, String> parameters ) throws Exception
@@ -190,15 +201,9 @@ public class ModbusExport
         if ( this.currentAddress == null || !this.currentAddress.equals ( address ) )
         {
             logger.info ( "Rebinding interface - {} to {}", this.currentAddress, address ); //$NON-NLS-1$
-            if ( this.currentAddress != null )
-            {
-                logger.debug ( "Unbinding from {}", this.currentAddress );
-                this.acceptor.unbind ( this.currentAddress );
-                this.currentAddress = null;
-            }
-            logger.debug ( "Binding to {}", address ); //$NON-NLS-1$
-            this.acceptor.bind ( address );
+            disposeAcceptor ();
             this.currentAddress = address;
+            createAcceptor ();
         }
     }
 
@@ -236,7 +241,7 @@ public class ModbusExport
                 type = new UnsignedShortType ( getFactor ( args ) );
                 break;
             default:
-                throw new IllegalArgumentException ( String.format ( "Type '%s' is unknown.", args[1] ) );
+                throw new IllegalArgumentException ( String.format ( "Type '%s' is unknown.", args[1] ) ); //$NON-NLS-1$
         }
 
         return new SourceDefinition ( itemId, offset, type );
