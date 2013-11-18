@@ -105,7 +105,7 @@ public class ModbusExporterProcessor implements OscarProcessor
         // Add device properties
         for ( final PropertyEntry property : device.getProperties () )
         {
-            final String key = "properties." + property.getKey (); //$NON-NLS-1$
+            final String key = "hive." + property.getKey (); //$NON-NLS-1$
             data.put ( key, property.getValue () );
         }
         // Add item data
