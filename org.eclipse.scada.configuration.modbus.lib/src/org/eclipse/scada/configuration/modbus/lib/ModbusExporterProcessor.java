@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2013 Protos GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Protos GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add profile handling
+ *******************************************************************************/
 package org.eclipse.scada.configuration.modbus.lib;
 
 import java.util.Collection;
@@ -8,6 +19,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
 import org.eclipse.scada.configuration.generator.world.oscar.OscarProcessor;
 import org.eclipse.scada.configuration.modbus.ModbusExporter;
@@ -16,10 +28,13 @@ import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
+import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 public class ModbusExporterProcessor implements OscarProcessor
 {
-    static final String DEVICE_FACTORY_ID = "org.eclipse.scada.da.server.exporter.modbus.device";
+    private static final String BUNDLE_MODBUS_EXPORTER = "org.eclipse.scada.da.server.exporter.modbus"; //$NON-NLS-1$
+
+    static final String DEVICE_FACTORY_ID = "org.eclipse.scada.da.server.exporter.modbus.device"; //$NON-NLS-1$
 
     @Override
     public void process ( final OscarContext ctx, final EquinoxApplication application, final IProgressMonitor monitor )
@@ -41,9 +56,14 @@ public class ModbusExporterProcessor implements OscarProcessor
 
     private void processExporter ( final OscarContext ctx, final EquinoxApplication application, final ModbusExporter exporter, final IProgressMonitor monitor )
     {
+        final Profile profile = Profiles.createOfGetCustomizationProfile ( application );
+        Profiles.addStartBundle ( profile, BUNDLE_MODBUS_EXPORTER );
+        profile.getInstallationUnits ().add ( BUNDLE_MODBUS_EXPORTER );
+
         for ( final ModbusExporterDevice device : exporter.getDevices () )
         {
             validateDevice ( device );
+
             processDevice ( ctx, application, device, monitor );
         }
     }
