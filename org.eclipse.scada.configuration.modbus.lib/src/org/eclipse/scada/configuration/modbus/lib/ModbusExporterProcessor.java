@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     Protos GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - add profile handling
+ *     IBH SYSTEMS GmbH - add profile handling, fix some issues
  *******************************************************************************/
 package org.eclipse.scada.configuration.modbus.lib;
 
@@ -89,7 +89,7 @@ public class ModbusExporterProcessor implements OscarProcessor
             {
                 if ( child.getSeverity () == Diagnostic.ERROR )
                 {
-                    msg += "\n" + child.getMessage ();
+                    msg += "\n" + child.getMessage (); //$NON-NLS-1$
                 }
             }
             throw new IllegalStateException ( msg );
@@ -98,14 +98,14 @@ public class ModbusExporterProcessor implements OscarProcessor
 
     private void processDevice ( final OscarContext ctx, final EquinoxApplication application, final ModbusExporterDevice device, final IProgressMonitor monitor )
     {
-        final String id = Integer.toString ( device.getPort ().getPortNumber () ) + "." + Integer.toString ( device.getSlaveId () );
+        final String id = Integer.toString ( device.getPort ().getPortNumber () ) + "." + Integer.toString ( device.getSlaveId () ); //$NON-NLS-1$
         final Map<String, String> data = new HashMap<String, String> ();
-        data.put ( "port", Integer.toString ( device.getPort ().getPortNumber () ) );
-        data.put ( "slaveId", Integer.toString ( device.getSlaveId () ) );
+        data.put ( "port", Integer.toString ( device.getPort ().getPortNumber () ) ); //$NON-NLS-1$
+        data.put ( "slaveId", Integer.toString ( device.getSlaveId () ) ); //$NON-NLS-1$
         // Add device properties
         for ( final PropertyEntry property : device.getProperties () )
         {
-            final String key = "properties." + property.getKey ();
+            final String key = "properties." + property.getKey (); //$NON-NLS-1$
             data.put ( key, property.getValue () );
         }
         // Add item data
@@ -118,13 +118,13 @@ public class ModbusExporterProcessor implements OscarProcessor
 
     private void processItem ( final Map<String, String> data, final ModbusExporterItem item )
     {
-        final String id = "item." + item.getSource ().getName ();
+        final String id = "item." + item.getSource ().getName (); //$NON-NLS-1$
         // Convert item to String value 
-        String value = Integer.toString ( item.getOffset () ) + ":" + item.getType ().getName ();
+        String value = Integer.toString ( item.getOffset () ) + ":" + item.getType ().getName (); //$NON-NLS-1$
         // Optional scale attribute
-        if ( item.getType ().eIsSet ( ModbusPackage.Literals.MODBUS_DATA_TYPE__SCALE ) )
+        if ( item.getType ().getScale () != null )
         {
-            value += ":" + item.getType ().getScale ();
+            value += ":" + item.getType ().getScale (); //$NON-NLS-1$
         }
 
         data.put ( id, value.toString () );
