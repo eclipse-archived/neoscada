@@ -12,6 +12,8 @@ is active.
 	    
     <property name="output" location="../output"/>
     
+    <property name="buildId" value="${buildType}-${unqualifiedVersion}.${buildQualifier}"/>
+    
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
     
@@ -19,7 +21,7 @@ is active.
     <property name="download.base" location="${download.root}/${repo}/drops"/>
     
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
+    <property name="download.dir" location="${download.base}/${buildId}"/>
     
     <!-- ================================= 
           target: default

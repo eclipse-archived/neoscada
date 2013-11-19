@@ -22,7 +22,6 @@
 					<plugin>
 						<artifactId>jdeb</artifactId>
 						<groupId>org.vafer</groupId>
-						<version>1.0.1</version>
 						<executions>
 							<execution>
 								<phase>package</phase>
@@ -56,7 +55,6 @@
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>rpm-maven-plugin</artifactId>
-						<version>2.1-alpha-3</version>
 						<executions>
 							<execution>
 								<id>generate-rpm</id>
@@ -67,7 +65,7 @@
 						</executions>
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
+							<distribution>Eclipse SCADA ${project.version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<packager>Eclipse SCADA Project</packager>
 							<changelogFile>rpm/changelog</changelogFile>
@@ -99,8 +97,8 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.7</version>
 						<executions>
 							<execution>
 								<id>ant-post-proc</id>
@@ -110,11 +108,9 @@
 								</goals>
 								<configuration>
 									<target>
-										<property name="package" value="${project.artifactId}"/>
-										<property name="repo" value="${project.groupId}"/>
 										<ant antfile="post.ant">
-											<property name="buildType" value="${buildType}"/>
-											<property name="buildId" value="${qualifier}"/>
+											<property name="package" value="${project.artifactId}" />
+											<property name="repo" value="${project.groupId}" />
 										</ant>
 									</target>
 								</configuration>
