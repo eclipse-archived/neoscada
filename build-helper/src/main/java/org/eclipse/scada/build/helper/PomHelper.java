@@ -20,6 +20,7 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.apache.maven.model.io.DefaultModelReader;
+import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 
 public class PomHelper
@@ -47,7 +48,7 @@ public class PomHelper
         }
     }
 
-    public static Set<MavenProject> expandProjects ( final Collection<MavenProject> projects ) throws IOException
+    public static Set<MavenProject> expandProjects ( final Collection<MavenProject> projects, final Log log ) throws IOException
     {
         final Set<MavenProject> result = new HashSet<MavenProject> ();
 
@@ -61,7 +62,7 @@ public class PomHelper
                 continue;
             }
             // add all children to the queue
-            queue.addAll ( loadChildren ( project ) );
+            queue.addAll ( loadChildren ( project, log ) );
             if ( project.getParent () != null )
             {
                 // if we have a parent, add the parent as well
@@ -71,9 +72,17 @@ public class PomHelper
         return result;
     }
 
-    private static Collection<MavenProject> loadChildren ( final MavenProject project ) throws IOException
+    private static Collection<MavenProject> loadChildren ( final MavenProject project, final Log log ) throws IOException
     {
         final Set<MavenProject> result = new HashSet<MavenProject> ();
+
+        log.debug ( "Base dir: " + project.getBasedir () );
+
+        if ( project.getBasedir () == null )
+        {
+            // if we don't have a base dir, we cannot change anything
+            return result;
+        }
 
         for ( final String module : project.getModules () )
         {
@@ -82,6 +91,7 @@ public class PomHelper
             {
                 file = new File ( file, "pom.xml" );
             }
+            log.debug ( "Loading: " + file );
             result.add ( new MavenProject ( new DefaultModelReader ().read ( file, null ) ) );
         }
 

@@ -83,6 +83,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         }
     }
 
+    @Override
     public synchronized void execute () throws MojoExecutionException
     {
         this.changeManager = new ChangeManager ( getLog () );
@@ -97,7 +98,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
                 getLog ().info ( "This is a dry run" );
             }
 
-            final Collection<MavenProject> projects = PomHelper.expandProjects ( getReactorProjects () );
+            final Collection<MavenProject> projects = PomHelper.expandProjects ( getReactorProjects (), getLog () );
 
             getLog ().info ( String.format ( "Processing %s modules", projects.size () ) );
 
@@ -126,6 +127,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
         addChange ( project.getFile (), new ModelModifier () {
 
+            @Override
             public boolean apply ( final Model model )
             {
                 if ( version != null && !version.equals ( project.getVersion () ) )
@@ -140,6 +142,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
         addChange ( project.getFile (), new ModelModifier () {
 
+            @Override
             public boolean apply ( final Model model )
             {
                 boolean change = false;
