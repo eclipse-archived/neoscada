@@ -172,7 +172,6 @@
 		<module>targetPlatform</module>
 	</modules>
 
-	<!-- sign -->
 	<profiles>
 
 		<profile>
