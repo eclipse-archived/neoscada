@@ -12,6 +12,8 @@ is active.
 	    
     <property name="output" location="../output"/>
     
+    <property name="buildId" value="${buildType}-${unqualifiedVersion}.${buildQualifier}"/>
+    
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
     
@@ -19,7 +21,7 @@ is active.
     <property name="download.base" location="${download.root}/${repo}/drops"/>
     
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${buildType}${buildId}"/>
+    <property name="download.dir" location="${download.base}/${buildId}"/>
     
     <!-- ================================= 
           target: default
@@ -32,9 +34,9 @@ is active.
          ================================= -->
     <target name="build">
         <mkdir dir="${output}"/>
-        <mkdir dir="${output}/products/viewer"/>
+        <mkdir dir="${output}/products/${productName}"/>
             
-        <move todir="${output}/products/viewer">
+        <move todir="${output}/products/${productName}">
             <fileset dir="target/products">
                 <include name="*.tar.gz"/>
                 <include name="*.zip"/>
@@ -42,17 +44,17 @@ is active.
             <mapper type="flatten"/>
         </move>
     </target>
-
+    
     <!-- ================================= 
           target: copy
          ================================= -->
     <target name="copy" unless="skip.copy">
         <echo message="Download Directory: ${download.dir}"/>
         
-        <mkdir dir="${download.dir}/products/viewer"/>
+        <mkdir dir="${download.dir}/products/${productName}"/>
 
-        <copy todir="${download.dir}/products/viewer">
-            <fileset dir="${output}/products/viewer" />
+        <copy todir="${download.dir}/products/${productName}">
+            <fileset dir="${output}/products/${productName}" />
         </copy>
     </target>
 

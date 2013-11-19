@@ -83,7 +83,6 @@
 				<plugins>
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
-						<version>1.7</version>
 						<executions>
 							<execution>
 								<id>ant-post-proc</id>
@@ -93,10 +92,10 @@
 								</goals>
 								<configuration>
 									<target>
-										<property name="repo" value="${project.parent.groupId}"/>
 										<ant antfile="post.ant">
-											<property name="buildType" value="${buildType}"/>
-											<property name="buildId" value="${qualifier}"/>
+											<property name="package" value="${project.artifactId}" />
+											<property name="repo" value="${project.parent.groupId}" />
+											<property name="productName" value="adminclient"/>
 										</ant>
 									</target>
 								</configuration>
