@@ -187,7 +187,7 @@
 
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
+							<distribution>Eclipse SCADA ${project.version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
 
