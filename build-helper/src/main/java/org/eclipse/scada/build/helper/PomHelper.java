@@ -56,6 +56,7 @@ public class PomHelper
         while ( !queue.isEmpty () )
         {
             final MavenProject project = queue.poll ();
+            log.debug ( "Checking project: " + project );
             if ( project.getFile () == null )
             {
                 log.info ( "Skipping non-local project: " + project );
@@ -97,10 +98,17 @@ public class PomHelper
                 file = new File ( file, "pom.xml" );
             }
             log.debug ( "Loading: " + file );
-            result.add ( new MavenProject ( new DefaultModelReader ().read ( file, null ) ) );
+            result.add ( loadProject ( file ) );
         }
 
         return result;
+    }
+
+    private static MavenProject loadProject ( final File file ) throws IOException
+    {
+        final MavenProject project = new MavenProject ( new DefaultModelReader ().read ( file, null ) );
+        project.setFile ( file );
+        return project;
     }
 
     public static void visitModulesWithParent ( final Collection<MavenProject> projects, final MavenProject parentProject, final ProjectVisitor visitor ) throws Exception

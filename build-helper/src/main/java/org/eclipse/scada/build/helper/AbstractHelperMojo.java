@@ -22,7 +22,7 @@ public abstract class AbstractHelperMojo extends AbstractMojo
     /**
      * The Maven Project.
      * 
-     * @parameter expression="${project}"
+     * @parameter property="project"
      * @required
      * @readonly
      * @since 0.0.1
@@ -32,7 +32,7 @@ public abstract class AbstractHelperMojo extends AbstractMojo
     /**
      * The Maven Session.
      * 
-     * @parameter expression="${session}"
+     * @parameter property="session"
      * @required
      * @readonly
      * @since 0.0.1
@@ -40,12 +40,12 @@ public abstract class AbstractHelperMojo extends AbstractMojo
     protected MavenSession session;
 
     /**
-     * @parameter expression="${mojoExecution}"
+     * @parameter property="mojoExecution"
      */
     protected MojoExecution execution;
 
     /**
-     * @parameter expression="${reactorProjects}"
+     * @parameter property="reactorProjects"
      * @required
      * @readonly
      * @since 0.0.1

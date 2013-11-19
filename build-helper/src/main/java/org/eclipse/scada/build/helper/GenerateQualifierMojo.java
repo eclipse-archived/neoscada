@@ -10,12 +10,16 @@
  *******************************************************************************/
 package org.eclipse.scada.build.helper;
 
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+import java.util.TimeZone;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
 import org.eclipse.tycho.buildversion.BuildTimestampProvider;
-import org.eclipse.tycho.extras.buildtimestamp.jgit.JGitBuildTimestampProvider;
 
 /**
  * Generate qualifier
@@ -29,7 +33,17 @@ import org.eclipse.tycho.extras.buildtimestamp.jgit.JGitBuildTimestampProvider;
  */
 public class GenerateQualifierMojo extends AbstractSetQualifierMojo
 {
-    private BuildTimestampProvider buildTimestampProvider;
+    /**
+     * Role hint of a custom build timestamp provider.
+     * 
+     * @parameter default-value="default" property="timestampProvider"
+     */
+    protected String timestampProvider;
+
+    /**
+     * @component role="org.eclipse.tycho.buildversion.BuildTimestampProvider"
+     */
+    protected Map<String, BuildTimestampProvider> timestampProviders;
 
     /**
      * The qualifier format string
@@ -37,36 +51,64 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
      * This must be a format string for {@link SimpleDateFormat}
      * </p>
      * 
-     * @parameter expression="${format}"
+     * @parameter property="format"
      *            default-value="'v'yyyyMMdd-HHmm"
      * @required
      */
-    private String format;
 
-    private SimpleDateFormat formatImpl;
+    private SimpleDateFormat format;
+
+    public void setFormat ( final String format )
+    {
+        this.format = new SimpleDateFormat ( format );
+        this.format.setTimeZone ( TimeZone.getTimeZone ( "UTC" ) );
+    }
+
+    protected Date getBuildTimestamp ( final MavenProject project ) throws MojoExecutionException
+    {
+        final BuildTimestampProvider provider = this.timestampProviders.get ( this.timestampProvider );
+        if ( provider == null )
+        {
+            throw new MojoExecutionException ( "Unable to lookup BuildTimestampProvider with hint='" + this.timestampProvider + "'" );
+        }
+
+        return provider.getTimestamp ( this.session, project, this.execution );
+    }
 
     @Override
     protected synchronized String getQualifier ( final MavenProject project )
     {
-        if ( this.buildTimestampProvider == null )
-        {
-            getLog ().info ( "Using time stamp provider: " + this.buildTimestampProvider );
-            this.buildTimestampProvider = new JGitBuildTimestampProvider ();
-        }
-
-        if ( this.formatImpl == null )
-        {
-            getLog ().info ( "Using format: " + this.format );
-            this.formatImpl = new SimpleDateFormat ( this.format );
-        }
-
         try
         {
-            return this.formatImpl.format ( this.buildTimestampProvider.getTimestamp ( getSession (), project, this.execution ) );
+            return this.format.format ( getBuildTimestamp ( project ) );
         }
         catch ( final MojoExecutionException e )
         {
             throw new RuntimeException ( e );
         }
+    }
+
+    @Override
+    public synchronized void execute () throws MojoExecutionException
+    {
+        if ( this.execution.getPlugin ().getConfiguration () == null )
+        {
+            try
+            {
+                this.execution.getPlugin ().setConfiguration ( Xpp3DomBuilder.build ( new StringReader ( "<configuration/>" ) ) );
+            }
+            catch ( final Exception e )
+            {
+                throw new RuntimeException ( e );
+            }
+        }
+
+        final BuildTimestampProvider provider = this.timestampProviders.get ( this.timestampProvider );
+        getLog ().debug ( "Hint: " + this.timestampProvider );
+        getLog ().debug ( "Using provider: " + provider );
+
+        getLog ().debug ( "Providers: " + this.timestampProviders );
+
+        super.execute ();
     }
 }

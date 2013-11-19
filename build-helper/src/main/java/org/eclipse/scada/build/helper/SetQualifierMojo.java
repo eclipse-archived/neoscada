@@ -27,7 +27,7 @@ public class SetQualifierMojo extends AbstractSetQualifierMojo
     /**
      * The new qualifier
      * 
-     * @parameter expression="${newQualifier}"
+     * @parameter property="newQualifier"
      * @required
      */
     private String newQualifier;

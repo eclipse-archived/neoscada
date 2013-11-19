@@ -41,21 +41,21 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
      * A set of properties that should be set to the qualifier value if already
      * present
      * 
-     * @parameter expression="${qualifierProperties}"
+     * @parameter property="qualifierProperties"
      */
     private Set<String> qualifierProperties;
 
     /**
      * A set of properties that should overridden if already present
      * 
-     * @parameter expression="${additionalProperties}"
+     * @parameter property="additionalProperties"
      */
     private final Map<String, String> additionalProperties = new HashMap<String, String> ();
 
     /**
      * Perform a dry run
      * 
-     * @parameter expression="${dryRun}"
+     * @parameter property="dryRun
      */
     private boolean dryRun;
 
@@ -123,7 +123,8 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     {
         getLog ().debug ( "Processing: " + project + " / " + project.getVersion () );
 
-        final String version = makeVersion ( project );
+        final String qualifier = getQualifier ( project );
+        final String version = makeVersion ( project, qualifier );
 
         addChange ( project.getFile (), new ModelModifier () {
 
@@ -149,8 +150,6 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
                 final Properties p = model.getProperties ();
 
                 getLog ().debug ( "Project Properties: " + p );
-
-                final String qualifier = getQualifier ( project );
 
                 for ( final String prop : AbstractSetQualifierMojo.this.qualifierProperties )
                 {
@@ -289,7 +288,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         XmlHelper.write ( doc, file );
     }
 
-    private String makeVersion ( final MavenProject project )
+    private String makeVersion ( final MavenProject project, final String qualifier )
     {
         final String version = project.getVersion ();
 
@@ -312,7 +311,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             toks.add ( "0" );
         }
 
-        toks.add ( getQualifier ( project ) );
+        toks.add ( qualifier );
 
         return String.format ( "%s.%s.%s.%s", toks.pollFirst (), toks.pollFirst (), toks.pollFirst (), toks.pollFirst () );
     }
