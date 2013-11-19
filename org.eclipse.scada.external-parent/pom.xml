@@ -20,7 +20,7 @@
 
 	<repositories>
 		<repository>
-			<id>repo.eclipse.org</id>
+			<id>repo.eclipse.scada.org</id>
 			<name>Eclipse SCADA Repository</name>
 			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
 			<releases>
