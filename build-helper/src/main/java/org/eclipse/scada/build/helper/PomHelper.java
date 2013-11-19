@@ -56,6 +56,11 @@ public class PomHelper
         while ( !queue.isEmpty () )
         {
             final MavenProject project = queue.poll ();
+            if ( project.getFile () == null )
+            {
+                log.info ( "Skipping non-local project: " + project );
+                continue;
+            }
             if ( !result.add ( project ) )
             {
                 // if the project was already in our result, there is no need to process twice
