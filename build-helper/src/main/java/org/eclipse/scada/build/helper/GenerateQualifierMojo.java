@@ -29,9 +29,6 @@ import org.eclipse.tycho.extras.buildtimestamp.jgit.JGitBuildTimestampProvider;
  */
 public class GenerateQualifierMojo extends AbstractSetQualifierMojo
 {
-    /**
-     * @component
-     */
     private BuildTimestampProvider buildTimestampProvider;
 
     /**
