@@ -104,10 +104,10 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
         }
 
         final BuildTimestampProvider provider = this.timestampProviders.get ( this.timestampProvider );
-        getLog ().debug ( "Hint: " + this.timestampProvider );
-        getLog ().debug ( "Using provider: " + provider );
+        getLog ().info ( "Hint: " + this.timestampProvider );
+        getLog ().info ( "Using provider: " + provider );
 
-        getLog ().debug ( "Providers: " + this.timestampProviders );
+        getLog ().info ( "Providers: " + this.timestampProviders );
 
         super.execute ();
     }
