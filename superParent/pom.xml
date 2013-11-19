@@ -23,6 +23,8 @@
 
 	<properties>
 		<buildType>I</buildType>
+		<buildTypeLong>integration</buildTypeLong>
+		
 		<qualifier>${maven.build.timestamp}</qualifier>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
 
