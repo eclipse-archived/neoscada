@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
 
 	<groupId>org.eclipse.scada.ide</groupId>
 	<artifactId>org.eclipse.scada.ide-parent</artifactId>
@@ -7,26 +15,22 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.18.1</tycho-version>
-		<tycho-extras-version>0.18.1</tycho-extras-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
-		<buildType>I</buildType>
-		<qualifier>${maven.build.timestamp}</qualifier>
-		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.ide.git</tycho.scmUrl>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>eclipse.kepler</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler</url>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse SCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
-		<repository>
-			<id>eclipse.orbit</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/</url>
-		</repository>
+
 		<repository>
 			<id>eclipse.scada.external</id>
 			<layout>p2</layout>
@@ -59,78 +63,6 @@
 		</repository>
 	</repositories>
 
-	<build>
-
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-file</artifactId>
-				<version>2.2</version>
-			</extension>
-		</extensions>
-
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<environments>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-
-			<!-- source bundles -->
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<executions>
-					<execution>
-						<id>plugin-source</id>
-						<goals>
-							<goal>plugin-source</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-		</plugins>
-	</build>
-
 	<modules>
 		<module>../org.eclipse.scada.ide-p2</module> <!-- holds the p2 build -->
 
@@ -138,7 +70,7 @@
 		<module>../org.eclipse.scada.configuration.sdk.feature</module>
 
 		<module>../org.eclipse.scada.ide.protocol.ngp.feature</module>
-		
+
 		<module>../org.eclipse.scada.ide.da.server.ui.feature</module>
 
 		<module>../org.eclipse.scada.configuration</module>
@@ -191,91 +123,8 @@
 		<module>../org.eclipse.scada.configuration.world.editor</module>
 
 		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
-	<module>../org.eclipse.scada.da.server.ui</module><module>../org.eclipse.scada.da.server.ui.launcher</module><module>../org.eclipse.scada.configuration.memory.manager.lib</module></modules>
-
-	<!-- sign -->
-	<profiles>
-		<profile>
-			<id>eclipse-sign</id>
-
-			<pluginRepositories>
-				<pluginRepository>
-					<id>eclipse.cbi</id>
-					<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
-				</pluginRepository>
-			</pluginRepositories>
-
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>target-platform-configuration</artifactId>
-						<version>${tycho-version}</version>
-						<configuration>
-							<includePackedArtifacts>false</includePackedArtifacts>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200a-plugin</artifactId>
-						<version>${tycho-extras-version}</version>
-						<executions>
-							<execution>
-								<id>pack200-normalize</id>
-								<goals>
-									<goal>normalize</goal>
-								</goals>
-								<phase>verify</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.cbi.maven.plugins</groupId>
-						<artifactId>eclipse-jarsigner-plugin</artifactId>
-						<version>1.0.4</version>
-						<executions>
-							<execution>
-								<id>sign</id>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-								<phase>verify</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-pack200b-plugin</artifactId>
-						<version>${tycho-extras-version}</version>
-						<executions>
-							<execution>
-								<id>pack200-pack</id>
-								<goals>
-									<goal>pack</goal>
-								</goals>
-								<phase>verify</phase>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.eclipse.tycho</groupId>
-						<artifactId>tycho-p2-plugin</artifactId>
-						<version>${tycho-version}</version>
-						<executions>
-							<execution>
-								<id>p2-metadata</id>
-								<goals>
-									<goal>p2-metadata</goal>
-								</goals>
-								<phase>verify</phase>
-							</execution>
-						</executions>
-
-						<!-- FIXME: not sure if this is really needed -->
-						<!-- <configuration> <defaultP2Metadata>false</defaultP2Metadata> </configuration> -->
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+		<module>../org.eclipse.scada.da.server.ui</module>
+		<module>../org.eclipse.scada.da.server.ui.launcher</module>
+		<module>../org.eclipse.scada.configuration.memory.manager.lib</module>
+	</modules>
 </project>
