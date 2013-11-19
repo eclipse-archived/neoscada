@@ -24,14 +24,14 @@
 	<properties>
 		<buildType>I</buildType>
 		<buildTypeLong>integration</buildTypeLong>
-		
+
 		<qualifier>${maven.build.timestamp}</qualifier>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tycho-version>0.18.1</tycho-version>
-		<tycho-extras-version>0.18.1</tycho-extras-version>
+		<tycho-version>0.19.0</tycho-version>
+		<tycho-extras-version>0.19.0</tycho-extras-version>
 
 		<eclipse.orbit.version>R20130827064939</eclipse.orbit.version>
 	</properties>
@@ -146,14 +146,55 @@
 			</plugin>
 
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>rpm-maven-plugin</artifactId>
+					<version>2.1-alpha-3</version>
+				</plugin>
+				<plugin>
+					<artifactId>jdeb</artifactId>
+					<groupId>org.vafer</groupId>
+					<version>1.0.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 	<modules>
 		<module>targetPlatform</module>
 	</modules>
 
-	<!-- sign -->
 	<profiles>
+
+		<profile>
+			<id>milestone</id>
+			<properties>
+				<buildType>M</buildType>
+				<buildTypeLong>milestone</buildTypeLong>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>release</id>
+			<properties>
+				<buildType>R</buildType>
+				<buildTypeLong>release</buildTypeLong>
+			</properties>
+		</profile>
+
 		<profile>
 			<id>eclipse-sign</id>
 
