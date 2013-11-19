@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.project.MavenProject;
 
 public abstract class AbstractHelperMojo extends AbstractMojo
@@ -37,6 +38,11 @@ public abstract class AbstractHelperMojo extends AbstractMojo
      * @since 0.0.1
      */
     protected MavenSession session;
+
+    /**
+     * @parameter expression="${mojoExecution}"
+     */
+    protected MojoExecution execution;
 
     /**
      * @parameter expression="${reactorProjects}"

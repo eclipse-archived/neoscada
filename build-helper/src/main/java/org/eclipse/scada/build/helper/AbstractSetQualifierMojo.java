@@ -61,7 +61,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
     private ChangeManager changeManager;
 
-    protected abstract String getQualifier ();
+    protected abstract String getQualifier ( MavenProject project );
 
     public void setAdditionalProperties ( final String string )
     {
@@ -122,7 +122,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     {
         getLog ().debug ( "Processing: " + project + " / " + project.getVersion () );
 
-        final String version = makeVersion ( project.getVersion () );
+        final String version = makeVersion ( project );
 
         addChange ( project.getFile (), new ModelModifier () {
 
@@ -147,7 +147,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
                 getLog ().debug ( "Project Properties: " + p );
 
-                final String qualifier = getQualifier ();
+                final String qualifier = getQualifier ( project );
 
                 for ( final String prop : AbstractSetQualifierMojo.this.qualifierProperties )
                 {
@@ -286,8 +286,10 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         XmlHelper.write ( doc, file );
     }
 
-    private String makeVersion ( final String version )
+    private String makeVersion ( final MavenProject project )
     {
+        final String version = project.getVersion ();
+
         if ( version == null )
         {
             // no version at all
@@ -307,7 +309,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             toks.add ( "0" );
         }
 
-        toks.add ( getQualifier () );
+        toks.add ( getQualifier ( project ) );
 
         return String.format ( "%s.%s.%s.%s", toks.pollFirst (), toks.pollFirst (), toks.pollFirst (), toks.pollFirst () );
     }

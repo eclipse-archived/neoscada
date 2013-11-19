@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.build.helper;
 
+import org.apache.maven.project.MavenProject;
 
 /**
  * Set qualifier
@@ -32,7 +33,7 @@ public class SetQualifierMojo extends AbstractSetQualifierMojo
     private String newQualifier;
 
     @Override
-    protected String getQualifier ()
+    protected String getQualifier ( final MavenProject project )
     {
         return this.newQualifier;
     }

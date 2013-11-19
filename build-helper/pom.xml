@@ -23,6 +23,7 @@
 	<properties>
 		<mojo.java.target>1.7</mojo.java.target>
 		<mavenVersion>3.0.5</mavenVersion>
+		<tycho-extras-version>0.19.0</tycho-extras-version>
 	</properties>
 
 	<dependencies>
@@ -40,6 +41,11 @@
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-model</artifactId>
 			<version>${mavenVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.tycho.extras</groupId>
+			<artifactId>tycho-buildtimestamp-jgit</artifactId>
+			<version>${tycho-extras-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
