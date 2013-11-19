@@ -1,16 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.releng</groupId>
+		<artifactId>superParent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>build.helper.test1-parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.18.1</tycho-version>
-		<tycho-extras-version>0.18.1</tycho-extras-version>
 		<tycho.scmUrl>scm:git:git://git.eclipse.org/gitroot/scada/org.eclipse.scada.external.git</tycho.scmUrl>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<buildType>I</buildType>
 		<qualifier>${maven.build.timestamp}</qualifier>
 		<maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
@@ -28,7 +32,7 @@
 			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/</url>
 		</repository>
 	</repositories>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -120,14 +124,14 @@
 
 		</plugins>
 	</build>
-	
-	
+
+
 	<modules>
 		<module>../build.helper.test1-p2</module> <!-- holds the p2 repository -->
 
 		<module>../build.helper.test1.feature</module>
 		<module>../build.helper.test1.sdk.feature</module>
-		
+
 		<module>../build.helper.test1.bundle1</module>
 		<module>../build.helper.test1.withSub</module>
 	</modules>
