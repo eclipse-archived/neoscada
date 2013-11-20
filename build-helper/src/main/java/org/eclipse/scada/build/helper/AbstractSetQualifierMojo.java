@@ -27,7 +27,9 @@ import java.util.jar.Manifest;
 
 import javax.xml.xpath.XPathExpressionException;
 
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
+import org.apache.maven.model.Profile;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -133,6 +135,8 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         final String qualifier = getQualifier ( project );
         final String version = makeVersion ( project, qualifier );
 
+        recordVersion ( "pom", String.format ( "%s:%s", project.getGroupId (), project.getArtifactId () ), version );
+
         addChange ( project.getFile (), new ModelModifier () {
 
             @Override
@@ -197,6 +201,33 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             };
         } );
 
+        addChange ( project.getFile (), new ModelModifier () {
+
+            @Override
+            public boolean apply ( final Model model )
+            {
+                boolean changed = false;
+                for ( final Dependency dep : model.getDependencies () )
+                {
+                    changed |= syncDep ( dep );
+                }
+                for ( final Profile profile : model.getProfiles () )
+                {
+                    for ( final Dependency dep : profile.getDependencies () )
+                    {
+                        changed |= syncDep ( dep );
+                    }
+                }
+                return changed;
+            }
+
+            @Override
+            public String toString ()
+            {
+                return String.format ( "Change dependencies: " + project );
+            };
+        } );
+
         // visit all modules that have this project as a parent
         this.helper.visitModulesWithParent ( projects, project, new VisitorChange ( this.changeManager ) {
             @Override
@@ -209,6 +240,19 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         } );
 
         syncModule ( project, version );
+    }
+
+    protected boolean syncDep ( final Dependency dep )
+    {
+        final String id = String.format ( "%s:%s", dep.getGroupId (), dep.getArtifactId () );
+        final String version = getVersionUnchecked ( "pom", id );
+        if ( version != null )
+        {
+            getLog ().info ( String.format ( "Synchronizing depencency: %s -> %s", dep, version ) );
+            dep.setVersion ( version );
+            return true;
+        }
+        return false;
     }
 
     private void addChange ( final File file, final ModelModifier modelModifier )
