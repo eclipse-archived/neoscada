@@ -12,13 +12,11 @@ is active.
 
     <property name="output" location="../output" />
 
-    <property name="buildType" value="integration" />
-
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
 
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.root}/repo/${buildType}/drops/${repo}" />
+    <property name="download.dir" location="${download.root}/repo/${buildTypeLong}/drops/${repo}" />
 
     <!-- ================================= 
           target: default
