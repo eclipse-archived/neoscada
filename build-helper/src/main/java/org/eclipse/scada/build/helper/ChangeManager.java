@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -25,6 +27,8 @@ import org.apache.maven.plugin.logging.Log;
 public class ChangeManager
 {
     private final Map<File, Set<ModelModifier>> changes = new HashMap<File, Set<ModelModifier>> ();
+
+    private final List<Runnable> otherChanges = new LinkedList<Runnable> ();
 
     private final Map<File, Model> modelCache = new HashMap<File, Model> ();
 
@@ -39,6 +43,11 @@ public class ChangeManager
         this.log = log;
         this.writer = new DefaultModelWriter ();
         this.reader = new DefaultModelReader ();
+    }
+
+    public synchronized void addChange ( final Runnable run )
+    {
+        this.otherChanges.add ( run );
     }
 
     public synchronized void addChange ( File file, final ModelModifier modifier )
@@ -67,6 +76,12 @@ public class ChangeManager
 
     public synchronized void applyAll () throws IOException
     {
+        for ( final Runnable run : this.otherChanges )
+        {
+            run.run ();
+        }
+        this.otherChanges.clear ();
+
         for ( final Map.Entry<File, Set<ModelModifier>> entry : this.changes.entrySet () )
         {
             final Model model = this.reader.read ( entry.getKey (), null );

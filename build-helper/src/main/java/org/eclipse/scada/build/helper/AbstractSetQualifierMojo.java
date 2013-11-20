@@ -201,11 +201,21 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             }
         } );
 
-        // this is only called when the version changed ... for now
-        if ( !this.dryRun )
-        {
-            syncModule ( project, version );
-        }
+        this.changeManager.addChange ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                try
+                {
+                    syncModule ( project, version );
+                }
+                catch ( final Exception e )
+                {
+                    throw new RuntimeException ( e );
+                }
+            }
+        } );
     }
 
     private void addChange ( final File file, final ModelModifier modelModifier )
