@@ -93,6 +93,7 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
     {
         if ( this.execution.getPlugin ().getConfiguration () == null )
         {
+            // inject dummy configuration, otherwise the jgit provider will fail with a NPE
             try
             {
                 this.execution.getPlugin ().setConfiguration ( Xpp3DomBuilder.build ( new StringReader ( "<configuration/>" ) ) );
