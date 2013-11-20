@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.exporter.modbus.common;
+package org.eclipse.scada.da.server.exporter.common;
 
 import java.util.HashMap;
 import java.util.HashSet;

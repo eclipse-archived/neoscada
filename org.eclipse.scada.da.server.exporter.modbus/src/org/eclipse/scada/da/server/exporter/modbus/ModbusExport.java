@@ -32,7 +32,7 @@ import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.exporter.ObjectExporter;
 import org.eclipse.scada.da.server.common.osgi.factory.ObjectPoolDataItemFactory;
-import org.eclipse.scada.da.server.exporter.modbus.common.HiveSource;
+import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.modbus.io.DoubleType;
 import org.eclipse.scada.da.server.exporter.modbus.io.MemoryBlock;
 import org.eclipse.scada.da.server.exporter.modbus.io.ShortType;

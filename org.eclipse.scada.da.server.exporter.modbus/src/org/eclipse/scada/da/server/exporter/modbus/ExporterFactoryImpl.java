@@ -18,7 +18,7 @@ import org.apache.mina.transport.socket.nio.NioProcessor;
 import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
 import org.eclipse.scada.da.server.common.DataItem;
-import org.eclipse.scada.da.server.exporter.modbus.common.ServiceListenerHiveSource;
+import org.eclipse.scada.da.server.exporter.common.ServiceListenerHiveSource;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;

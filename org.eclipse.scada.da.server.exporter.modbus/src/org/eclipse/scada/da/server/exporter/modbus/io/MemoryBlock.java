@@ -22,9 +22,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.da.client.DataItemValue;
-import org.eclipse.scada.da.server.exporter.modbus.common.HiveSource;
-import org.eclipse.scada.da.server.exporter.modbus.common.SingleSubscriptionManager;
-import org.eclipse.scada.da.server.exporter.modbus.common.SingleSubscriptionManager.Listener;
+import org.eclipse.scada.da.server.exporter.common.HiveSource;
+import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
+import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
