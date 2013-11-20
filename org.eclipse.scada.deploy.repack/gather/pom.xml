@@ -24,7 +24,7 @@
 								</goals>
 								<configuration>
 									<target>
-										<property name="repo" value="${project.artifactId}" />
+										<property name="repo" value="${project.groupId}" />
 										<ant antfile="post.ant" />
 									</target>
 								</configuration>
