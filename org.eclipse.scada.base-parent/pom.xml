@@ -19,7 +19,6 @@
 	</properties>
 
 	<repositories>
-	
 		<repository>
 			<id>repo.eclipse.scada.org</id>
 			<name>Eclipse SCADA Repository</name>
@@ -31,13 +30,23 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	
-		<repository>
-			<id>eclipse.scada.utils</id>
-			<layout>p2</layout>
-			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
-		</repository>
 	</repositories>
+
+	<profiles>
+		<profile>
+			<id>integration</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.utils</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
 
 	<modules>
 
