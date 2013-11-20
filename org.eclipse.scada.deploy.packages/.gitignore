@@ -1,5 +1,3 @@
 *.tar.gz
-/rpmbuild
-/fetchSrc
 /*.cdbs-config_list
 *.deb
