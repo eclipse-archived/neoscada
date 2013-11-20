@@ -30,28 +30,38 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-
-		<repository>
-			<id>eclipse.scada.external</id>
-			<layout>p2</layout>
-			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2</url>
-		</repository>
-		<repository>
-			<id>eclipse.scada.utils</id>
-			<layout>p2</layout>
-			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
-		</repository>
-		<repository>
-			<id>eclipse.scada.base</id>
-			<layout>p2</layout>
-			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2</url>
-		</repository>
-		<repository>
-			<id>eclipse.scada.protocols</id>
-			<layout>p2</layout>
-			<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2</url>
-		</repository>
 	</repositories>
+
+	<profiles>
+		<profile>
+			<id>integration</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.utils</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.base</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+				<repository>
+					<id>eclipse.scada.protocols</id>
+					<layout>p2</layout>
+					<url>https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
 
 	<modules>
 		<module>../org.eclipse.scada.core-p2</module> <!-- holds the p2 repository -->
