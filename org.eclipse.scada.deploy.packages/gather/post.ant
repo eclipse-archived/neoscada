@@ -58,7 +58,7 @@ is active.
         <mkdir dir="${download.dir}/deb" />
 
         <copy todir="${download.dir}/yum/noarch">
-            <fileset dir="${output}" includes="*.rpm" />
+            <fileset dir="${output}" includes="*.noarch.rpm" />
         </copy>
         <copy todir="${download.dir}/deb">
             <fileset dir="${output}" includes="*.deb" />

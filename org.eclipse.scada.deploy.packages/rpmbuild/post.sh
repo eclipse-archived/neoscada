@@ -2,7 +2,7 @@
 
 set -e
 
-OUTPUT="rpm.output"
+OUTPUT="target"
 
 echo "Output: $OUTPUT"
 

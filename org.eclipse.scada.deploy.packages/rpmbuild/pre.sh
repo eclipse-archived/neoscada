@@ -9,7 +9,7 @@ which rpmbuild || true
 which debuild || true
 which createrepo || true
 
-rpm --showrc
+#rpm --showrc
 
 echo START BUILD
 
@@ -18,11 +18,13 @@ echo START BUILD
 # This causes the rpm build to fail always if the topdir
 # contains a -, which is the case in the hudson jobs
 
+pushd ..
+
 rm -Rf /tmp/eclipse.scada.rpmbuild
 mkdir -p /tmp/eclipse.scada.rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 make dist
 tar tzf *.tar.gz
 rpmbuild -ta -vv --define _topdir/tmp/eclipse.scada.rpmbuild org.eclipse.scada-*.tar.gz
 
-
+popd
 
