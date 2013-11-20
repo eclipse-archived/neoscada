@@ -73,8 +73,6 @@
           target: init                      
          - - - - - - - - - - - - - - - - - -->
     <target name="init">
-        <mkdir dir="${input.dir}" />
-
         <mkdir dir="${download.yum.dir}" />
         <mkdir dir="${download.yum.dir}/noarch" />
         <mkdir dir="${download.yum.dir}/x86_64" />
