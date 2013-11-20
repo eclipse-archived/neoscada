@@ -6,86 +6,77 @@
     <description>
             Build YUM repository
     </description>
-    
-    <property name="input.dir" location="input"/>
-    <property name="repo.base" location="yum"/>
-    
-    <property name="buildType" value="integration" />
 
+    <property name="buildTypeLong" value="integration" />
+    <property name="buildType" value="I" />
+    
     <!-- the root of all -->
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
-    
-    <property name="repack.dir" location="${download.root}/repo/${buildType}"/>
+
+    <!-- the target -->
+    <property name="download.yum.dir" location="${download.root}/repo/${buildTypeLong}/yum" />
 
     <!-- ================================= 
-          target: default
+         target: default
          ================================= -->
-    <target name="default" depends="echo,clean,fetch,build,cleanup,copy">
+    <target name="default" depends="echo,clean,copy,build">
     </target>
-    
+
     <!-- ================================= 
-          target: clean              
+         target: clean
          ================================= -->
     <target name="clean" unless="skip.clean">
-        <delete dir="${input.dir}" />
-        <delete dir="${repo.base}" />
+        <delete dir="${download.yum.dir}" />
     </target>
 
-    
-    <target name="echo">
-        <echo message="download.dir = ${download.dir}"/>
-    </target>
-    
-    <!-- ================================= 
-          target: fetch
-         ================================= -->
-    <target name="fetch" depends="init">
-        <copy todir="${download.root}/repo/${buildType}/deb">
-            <fileset dir="${download.root}">
-        	</fileset>
-            <mapper>flatten</mapper>
-        </copy>
-    </target>
-    
     <!-- ================================= 
           target: build
          ================================= -->
     <target name="build" depends="init">
-        <exec executable="createrepo" dir="${repo.base}">
-			<arg value="." />
-		</exec>
+        <exec executable="createrepo" dir="${download.yum.dir}">
+            <arg value="." />
+        </exec>
     </target>
 
-	<!-- - - - - - - - - - - - - - - - - - 
+    <!-- ================================= 
+         target: copy
+         ================================= -->
+    <target name="copy">
+		<copyArch arch="noarch"/>
+        <copyArch arch="i386"/>
+        <copyArch arch="x86_64"/>
+    </target>
+    
+	<!-- = = = = = = = = = = = = = = = = =
+          macrodef: copyArch          
+         = = = = = = = = = = = = = = = = = -->
+    <macrodef name="copyArch">
+        <attribute name="arch" />
+        <sequential>
+	        <copy todir="${download.yum.dir}/@{arch}" preservelastmodified="true">
+	            <fileset dir="${download.root}">
+	                <include name="*/drops/${buildType}*/packages/*.@{arch}.rpm" />
+	            </fileset>
+	            <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
+	                <include name="**/*.@{arch}.rpm" />
+	            </fileset>
+	            <mapper type="flatten" />
+	        </copy>
+        </sequential>
+    </macrodef>
+
+    <target name="echo">
+        <echo message="download.yum.dir = ${download.yum.dir}" />
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
           target: init                      
          - - - - - - - - - - - - - - - - - -->
     <target name="init">
-        <mkdir dir="${input.dir}"/>
-        
-        <mkdir dir="${repo.base}"/>
-		<mkdir dir="${repo.base}/noarch"/>
-		<mkdir dir="${repo.base}/x86_64"/>
-        <mkdir dir="${repo.base}/i386"/>
-    </target>
-    
-    <!-- - - - - - - - - - - - - - - - - - 
-          target: cleanup
-         - - - - - - - - - - - - - - - - - -->
-    <target name="cleanup">
-        <delete dir="${input.dir}"/>
-    </target>
-
-    <!-- - - - - - - - - - - - - - - - - - 
-          target: copy - copy to download.dir
-         - - - - - - - - - - - - - - - - - -->
-    <target name="copy" if="download.dir">
-        <echo message="copy to ${download.dir}"/>
-        
-		<delete dir="${download.dir}"/>     
-        <mkdir dir="${download.dir}"/>
-        <copy todir="${download.dir}">
-        	<fileset dir="${repo.base}" includes="**"/>
-        </copy>
+        <mkdir dir="${download.yum.dir}" />
+        <mkdir dir="${download.yum.dir}/noarch" />
+        <mkdir dir="${download.yum.dir}/x86_64" />
+        <mkdir dir="${download.yum.dir}/i386" />
     </target>
 
 </project>
