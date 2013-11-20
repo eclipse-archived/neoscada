@@ -290,7 +290,17 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     {
         final File file = new File ( project.getBasedir (), "META-INF/MANIFEST.MF" );
 
-        final Manifest manifest = new Manifest ( new FileInputStream ( file ) );
+        final Manifest manifest;
+
+        final FileInputStream in = new FileInputStream ( file );
+        try
+        {
+            manifest = new Manifest ( in );
+        }
+        finally
+        {
+            in.close ();
+        }
 
         // process
 
