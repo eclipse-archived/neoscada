@@ -53,15 +53,15 @@
     <macrodef name="copyArch">
         <attribute name="arch" />
         <sequential>
-        <copy todir="${download.yum.dir}/@{arch}" preservelastmodified="true">
-            <fileset dir="${download.root}">
-                <include name="*/drops/${buildType}*/packages/*.@{arch}.rpm" />
-            </fileset>
-            <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
-                <include name="**/*.@{arch}.rpm" />
-            </fileset>
-            <mapper type="flatten" />
-        </copy>
+	        <copy todir="${download.yum.dir}/@{arch}" preservelastmodified="true">
+	            <fileset dir="${download.root}">
+	                <include name="*/drops/${buildType}*/packages/*.@{arch}.rpm" />
+	            </fileset>
+	            <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
+	                <include name="**/*.@{arch}.rpm" />
+	            </fileset>
+	            <mapper type="flatten" />
+	        </copy>
         </sequential>
     </macrodef>
 
