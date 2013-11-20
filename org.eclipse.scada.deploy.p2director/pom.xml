@@ -285,11 +285,11 @@
 									<goal>run</goal>
 								</goals>
 								<configuration>
-									<targets>
+									<target>
 										<ant antfile="post.ant">
 											<property name="repo" value="${project.artifactId}" />
 										</ant>
-									</targets>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
