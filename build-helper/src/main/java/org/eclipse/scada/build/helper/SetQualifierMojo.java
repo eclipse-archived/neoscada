@@ -10,26 +10,27 @@
  *******************************************************************************/
 package org.eclipse.scada.build.helper;
 
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 /**
  * Set qualifier
  * 
  * @author Jens Reimann
- * @goal set-qualifier
- * @aggregator
- * @requiresProject true
- * @requiresDirectInocation true
  * @since 0.0.1
  */
+@Mojo (
+        name = "set-qualifier",
+        aggregator = true,
+        requiresProject = true,
+        requiresDirectInvocation = true )
 public class SetQualifierMojo extends AbstractSetQualifierMojo
 {
     /**
      * The new qualifier
-     * 
-     * @parameter property="newQualifier"
-     * @required
      */
+    @Parameter ( property = "newQualifier", required = true )
     private String newQualifier;
 
     @Override

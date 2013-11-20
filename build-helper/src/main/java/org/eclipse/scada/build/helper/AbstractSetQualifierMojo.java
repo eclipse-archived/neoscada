@@ -29,6 +29,8 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.maven.model.Model;
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -45,26 +47,26 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     /**
      * A set of properties that should be set to the qualifier value if already
      * present
-     * 
-     * @parameter property="qualifierProperties"
      */
+    @Parameter ( property = "qualifierProperties" )
     private Set<String> qualifierProperties;
 
     /**
      * A set of properties that should overridden if already present
-     * 
-     * @parameter property="additionalProperties"
      */
+    @Parameter ( property = "additionalProperties" )
     private final Map<String, String> additionalProperties = new HashMap<String, String> ();
 
     /**
      * Perform a dry run
-     * 
-     * @parameter property="dryRun
      */
+    @Parameter ( property = "dryRun" )
     private boolean dryRun;
 
     private ChangeManager changeManager;
+
+    @Component ( role = PomHelper.class )
+    private PomHelper helper;
 
     protected abstract String getQualifier ( MavenProject project );
 
@@ -103,7 +105,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
                 getLog ().info ( "This is a dry run" );
             }
 
-            final Collection<MavenProject> projects = PomHelper.expandProjects ( getReactorProjects (), getLog () );
+            final Collection<MavenProject> projects = this.helper.expandProjects ( getReactorProjects (), getLog (), this.session );
 
             getLog ().info ( String.format ( "Processing %s modules", projects.size () ) );
 
@@ -196,7 +198,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         } );
 
         // visit all modules that have this project as a parent
-        PomHelper.visitModulesWithParent ( projects, project, new VisitorChange ( this.changeManager ) {
+        this.helper.visitModulesWithParent ( projects, project, new VisitorChange ( this.changeManager ) {
             @Override
             protected boolean performChange ( final Model model )
             {

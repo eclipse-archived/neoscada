@@ -26,10 +26,12 @@ public abstract class VisitorChange implements ProjectVisitor
         this.changeManager = changeManager;
     }
 
+    @Override
     public void visit ( final MavenProject project ) throws IOException
     {
         this.changeManager.addChange ( project.getFile (), new ModelModifier () {
 
+            @Override
             public boolean apply ( final Model model )
             {
                 return performChange ( model );

@@ -15,41 +15,45 @@ import java.util.List;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
+/**
+ * Abstract helper mojo
+ * 
+ * @author Jens Reimann
+ * @since 0.0.1
+ */
 public abstract class AbstractHelperMojo extends AbstractMojo
 {
     /**
-     * The Maven Project.
+     * The maven project
      * 
-     * @parameter property="project"
-     * @required
-     * @readonly
      * @since 0.0.1
      */
+    @Parameter ( property = "project", readonly = true, required = true )
     private MavenProject project;
 
     /**
-     * The Maven Session.
+     * The maven session
      * 
-     * @parameter property="session"
-     * @required
-     * @readonly
      * @since 0.0.1
      */
+    @Parameter ( property = "session", readonly = true, required = true )
     protected MavenSession session;
 
     /**
-     * @parameter property="mojoExecution"
+     * The maven mojo execution
+     * 
+     * @since 0.0.1
      */
+    @Parameter ( property = "mojoExecution", readonly = true, required = true )
     protected MojoExecution execution;
 
     /**
-     * @parameter property="reactorProjects"
-     * @required
-     * @readonly
      * @since 0.0.1
      */
+    @Parameter ( property = "reactorProjects", readonly = true, required = true )
     protected List<MavenProject> reactorProjects;
 
     public MavenProject getProject ()

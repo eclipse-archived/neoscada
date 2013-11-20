@@ -17,6 +17,9 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
 import org.eclipse.tycho.buildversion.BuildTimestampProvider;
@@ -25,24 +28,22 @@ import org.eclipse.tycho.buildversion.BuildTimestampProvider;
  * Generate qualifier
  * 
  * @author Jens Reimann
- * @goal generate-qualifier
- * @aggregator
- * @requiresProject true
- * @requiresDirectInocation true
  * @since 0.0.1
  */
+@Mojo (
+        name = "generate-qualifier",
+        aggregator = true,
+        requiresProject = true,
+        requiresDirectInvocation = true )
 public class GenerateQualifierMojo extends AbstractSetQualifierMojo
 {
     /**
      * Role hint of a custom build timestamp provider.
-     * 
-     * @parameter default-value="default" property="timestampProvider"
      */
+    @Parameter ( property = "timestampProvider", defaultValue = "default" )
     protected String timestampProvider;
 
-    /**
-     * @component role="org.eclipse.tycho.buildversion.BuildTimestampProvider"
-     */
+    @Component ( role = BuildTimestampProvider.class )
     protected Map<String, BuildTimestampProvider> timestampProviders;
 
     /**
@@ -50,12 +51,8 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
      * <p>
      * This must be a format string for {@link SimpleDateFormat}
      * </p>
-     * 
-     * @parameter property="format"
-     *            default-value="'v'yyyyMMdd-HHmm"
-     * @required
      */
-
+    @Parameter ( property = "format", defaultValue = "'v'yyyyMMdd-HHmm", required = true )
     private SimpleDateFormat format;
 
     public void setFormat ( final String format )
