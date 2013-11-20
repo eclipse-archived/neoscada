@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Eclipse SCADA DA Modbus Exporter (Incubuation)
+Bundle-Name: Eclipse SCADA DA Modbus Exporter (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.modbus
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
