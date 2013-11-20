@@ -12,7 +12,9 @@ package org.eclipse.scada.build.helper;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
@@ -20,7 +22,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.Callable;
 import java.util.jar.Manifest;
+
+import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.maven.model.Model;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -201,21 +206,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             }
         } );
 
-        this.changeManager.addChange ( new Runnable () {
-
-            @Override
-            public void run ()
-            {
-                try
-                {
-                    syncModule ( project, version );
-                }
-                catch ( final Exception e )
-                {
-                    throw new RuntimeException ( e );
-                }
-            }
-        } );
+        syncModule ( project, version );
     }
 
     private void addChange ( final File file, final ModelModifier modelModifier )
@@ -247,6 +238,18 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
     private void handleRepository ( final MavenProject project, final String version ) throws Exception
     {
+        this.changeManager.addChange ( new Callable<Void> () {
+            @Override
+            public Void call () throws Exception
+            {
+                performHandleRepository ( project );
+                return null;
+            };
+        } );
+    }
+
+    private void performHandleRepository ( final MavenProject project ) throws Exception, XPathExpressionException
+    {
         final File file = new File ( project.getBasedir (), "category.xml" );
         if ( !file.exists () )
         {
@@ -254,20 +257,34 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         }
 
         final Document doc = XmlHelper.parse ( file );
-        // XmlHelper.updateValue ( doc, "/site/feature/@version", version );
 
         for ( final Node node : XmlHelper.findNodes ( doc, "/site/feature" ) )
         {
             final Element ele = (Element)node;
-            ele.setAttribute ( "version", version );
+
             final String featureId = ele.getAttribute ( "id" );
-            ele.setAttribute ( "url", String.format ( "features/%s_%s.jar", featureId, version ) );
+            final String featureVersion = getVersion ( "feature", featureId );
+
+            ele.setAttribute ( "version", featureVersion );
+            ele.setAttribute ( "url", String.format ( "features/%s_%s.jar", featureId, featureVersion ) );
         }
 
         XmlHelper.write ( doc, file );
     }
 
     private void handleBundle ( final MavenProject project, final String version ) throws Exception
+    {
+        this.changeManager.addChange ( new Callable<Void> () {
+            @Override
+            public Void call () throws Exception
+            {
+                performHandleBundle ( project, version );
+                return null;
+            };
+        } );
+    }
+
+    private void performHandleBundle ( final MavenProject project, final String version ) throws IOException, FileNotFoundException
     {
         final File file = new File ( project.getBasedir (), "META-INF/MANIFEST.MF" );
 
@@ -292,10 +309,57 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
     private void handleFeature ( final MavenProject project, final String version ) throws Exception
     {
-        final File file = new File ( project.getBasedir (), "feature.xml" );
-        final Document doc = XmlHelper.parse ( file );
-        XmlHelper.updateValue ( doc, "/feature/@version", version );
-        XmlHelper.write ( doc, file );
+        recordVersion ( "feature", project.getArtifactId (), version );
+
+        this.changeManager.addChange ( new Callable<Void> () {
+
+            @Override
+            public Void call () throws Exception
+            {
+                final File file = new File ( project.getBasedir (), "feature.xml" );
+                final Document doc = XmlHelper.parse ( file );
+                XmlHelper.updateValue ( doc, "/feature/@version", version );
+                XmlHelper.write ( doc, file );
+                return null;
+            }
+        } );
+    }
+
+    private final Map<String, Map<String, String>> versions = new HashMap<String, Map<String, String>> ();
+
+    private void recordVersion ( final String type, final String artifactId, final String version )
+    {
+        Map<String, String> map = this.versions.get ( type );
+        if ( map == null )
+        {
+            map = new HashMap<String, String> ();
+            this.versions.put ( type, map );
+        }
+        final String oldVersion = map.put ( artifactId, version );
+        if ( oldVersion != null )
+        {
+            throw new RuntimeException ( String.format ( "Duplicate version entry for '%s':'%s'", type, artifactId ) );
+        }
+    }
+
+    private String getVersion ( final String type, final String artifcatId )
+    {
+        final String version = getVersionUnchecked ( type, artifcatId );
+        if ( version == null )
+        {
+            throw new RuntimeException ( String.format ( "No version recorded for '%s':'%s'", type, artifcatId ) );
+        }
+        return version;
+    }
+
+    private String getVersionUnchecked ( final String type, final String artifactId )
+    {
+        final Map<String, String> map = this.versions.get ( type );
+        if ( map == null )
+        {
+            return null;
+        }
+        return map.get ( artifactId );
     }
 
     private String makeVersion ( final MavenProject project, final String qualifier )

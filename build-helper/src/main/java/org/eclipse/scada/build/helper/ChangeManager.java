@@ -18,6 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.DefaultModelReader;
@@ -28,7 +29,7 @@ public class ChangeManager
 {
     private final Map<File, Set<ModelModifier>> changes = new HashMap<File, Set<ModelModifier>> ();
 
-    private final List<Runnable> otherChanges = new LinkedList<Runnable> ();
+    private final List<Callable<Void>> otherChanges = new LinkedList<Callable<Void>> ();
 
     private final Map<File, Model> modelCache = new HashMap<File, Model> ();
 
@@ -45,7 +46,7 @@ public class ChangeManager
         this.reader = new DefaultModelReader ();
     }
 
-    public synchronized void addChange ( final Runnable run )
+    public synchronized void addChange ( final Callable<Void> run )
     {
         this.otherChanges.add ( run );
     }
@@ -74,11 +75,11 @@ public class ChangeManager
         set.add ( modifier );
     }
 
-    public synchronized void applyAll () throws IOException
+    public synchronized void applyAll () throws Exception
     {
-        for ( final Runnable run : this.otherChanges )
+        for ( final Callable<Void> run : this.otherChanges )
         {
-            run.run ();
+            run.call ();
         }
         this.otherChanges.clear ();
 
