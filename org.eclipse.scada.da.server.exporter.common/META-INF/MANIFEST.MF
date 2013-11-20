@@ -1,3 +1,4 @@
+Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Common Exporter Functionality (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.common
