@@ -441,12 +441,21 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             toks.add ( "0" );
         }
 
-        if ( qualifier != null )
+        if ( qualifier != null && !qualifier.isEmpty () )
         {
             toks.add ( qualifier );
         }
 
-        return String.format ( "%s.%s.%s.%s", toks.pollFirst (), toks.pollFirst (), toks.pollFirst (), toks.pollFirst () );
+        final StringBuilder sb = new StringBuilder ();
+        while ( !toks.isEmpty () )
+        {
+            if ( sb.length () > 0 )
+            {
+                sb.append ( '.' );
+            }
+            sb.append ( toks.pollFirst () );
+        }
+        return sb.toString ();
     }
 
 }

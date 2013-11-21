@@ -11,6 +11,7 @@
 package org.eclipse.scada.build.helper;
 
 import java.io.StringReader;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -42,12 +43,12 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
     protected Map<String, QualifierNameProvider> nameProviders;
 
     @Parameter ( property = "nameProviderMap" )
-    private Map<String, String> nameProviderMap;
+    private final Map<String, String> nameProviderMap = new HashMap<String, String> ();
 
     @Parameter ( property = "nameProviderProperties" )
-    private Map<String, String> nameProviderProperties;
+    private final Map<String, String> nameProviderProperties = new HashMap<String, String> ();
 
-    public void addNameProviderMap ( final String string )
+    public void setNameProviderMap ( final String string )
     {
         final String[] toks = string.split ( "=", 2 );
         if ( toks.length == 2 )
@@ -60,16 +61,16 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
         }
     }
 
-    public void addNameProviderProperties ( final String string )
+    public void setNameProviderProperties ( final String string )
     {
         final String[] toks = string.split ( "=", 2 );
         if ( toks.length == 1 )
         {
-            this.nameProviderMap.remove ( toks[0] );
+            this.nameProviderProperties.remove ( toks[0] );
         }
         else if ( toks.length == 2 )
         {
-            this.nameProviderMap.put ( toks[0], toks[1] );
+            this.nameProviderProperties.put ( toks[0], toks[1] );
         }
     }
 

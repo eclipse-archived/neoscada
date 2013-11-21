@@ -20,6 +20,7 @@ import java.util.Set;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Profile;
+import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.ProjectBuilder;
@@ -77,7 +78,7 @@ public class DefaultPomHelper implements PomHelper
                 }
                 // add all children to the queue
                 queue.addAll ( loadChildren ( project, log, session ) );
-                if ( project.getParent () != null )
+                if ( hasLocalParent ( project ) )
                 {
                     // if we have a parent, add the parent as well
                     queue.add ( project.getParent () );
@@ -89,6 +90,15 @@ public class DefaultPomHelper implements PomHelper
         {
             throw new RuntimeException ( e );
         }
+    }
+
+    private boolean hasLocalParent ( final MavenProject project )
+    {
+        if ( project.getParentFile () != null )
+        {
+            return true;
+        }
+        return false;
     }
 
     private Collection<MavenProject> loadChildren ( final MavenProject project, final Log log, final MavenSession session ) throws Exception
@@ -132,9 +142,8 @@ public class DefaultPomHelper implements PomHelper
             }
         }
 
-        this.logger.info ( "Loading project from: " + file );
-
-        return this.projectBuilder.build ( file, session.getProjectBuildingRequest () ).getProject ();
+        throw new MojoExecutionException ( file, "Unreferenced project found", String.format ( "Project at '%s' is not in the list of active projects. This plugin can only"
+                + "work on projects there were loaded by maven. You need to include the project in your build.", file ) );
     }
 
     /* (non-Javadoc)
