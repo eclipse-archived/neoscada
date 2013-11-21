@@ -9,14 +9,16 @@ EXTRA_DIST = \
 include Makefile.defs
 -include Makefile.$(DIST).defs
 
+SVERSION=$(shell echo "$(VERSION)" | sed s/-SNAPSHOT/.SNAPSHOT/)
+
 dist:
-	rm -Rf "$(PACKAGE)-$(VERSION)"
-	mkdir "$(PACKAGE)-$(VERSION)"
-	cat "$(PACKAGE).spec" | sed s/@@VERSION@@/$(VERSION)/ > "$(PACKAGE)-$(VERSION)"/"$(PACKAGE).spec"
-	cp -a Makefile debian src "$(PACKAGE)-$(VERSION)"
-	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
-	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"
-	rm -Rf "$(PACKAGE)-$(VERSION)"
+	rm -Rf "$(PACKAGE)-$(SVERSION)"
+	mkdir "$(PACKAGE)-$(SVERSION)"
+	cat "$(PACKAGE).spec" | sed s/@@VERSION@@/$(SVERSION)/ > "$(PACKAGE)-$(SVERSION)"/"$(PACKAGE).spec"
+	cp -a Makefile debian src "$(PACKAGE)-$(SVERSION)"
+	cp $(EXTRA_DIST) "$(PACKAGE)-$(SVERSION)"
+	tar czf "$(PACKAGE)-$(SVERSION).tar.gz" "$(PACKAGE)-$(SVERSION)"
+	rm -Rf "$(PACKAGE)-$(SVERSION)"
 
 install:
 	install -d "$(DESTDIR)/etc/eclipsescada"
