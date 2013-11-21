@@ -31,6 +31,4 @@ make dist VERSION=$version
 tar tzf *.tar.gz
 rpmbuild -ta -vv --define _topdir/tmp/eclipse.scada.rpmbuild org.eclipse.scada-*.tar.gz
 
-popd
-
 echo DONE
