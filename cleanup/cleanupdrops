@@ -114,7 +114,7 @@ if __name__ == '__main__':
                   action="store", dest="prefixes", default='IN',
                   help="prefixes to consider for removal")
     parser.add_option("-r", "--release",
-                  action="store", dest="version", default=
+                  action="store", dest="version", default='0.1.0',
                   help="version to consider")
     parser.add_option("-v", "--verbose",
                   action="store_true", dest="verbose", default=False,
