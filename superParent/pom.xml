@@ -33,7 +33,7 @@
 		<eclipse.orbit.version>R20130827064939</eclipse.orbit.version>
 		
 		<maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
-		<buildId>${maven.build.timestamp}</buildId>
+		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
 		<!-- the following property is used by the tycho JGit timestamp provider -->
 		<reactorBuildTimestampProperty>${maven.build.timestamp}</reactorBuildTimestampProperty>
 	</properties>
