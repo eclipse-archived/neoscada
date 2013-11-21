@@ -20,9 +20,9 @@ import time
 from optparse import OptionParser
 
 version='0.1.0'
-buildType='I'
-buildTypeLong='integration'
-buildTypeLabel='Integeration'
+buildType='N'
+buildTypeLong='nigthly'
+buildTypeLabel='Nightlies'
 
 compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
 
@@ -90,7 +90,9 @@ def find_drop_dirs(base_dir):
     for d in os.listdir(base_dir):
         dd = os.path.join(base_dir, d)
         if os.path.isdir(dd) and 'drops' in os.listdir(dd):
-            result.append(os.path.join(dd, 'drops'))
+            ddd = os.path.join(dd, 'drops', version)
+            if os.path.isdir(ddd) and 'content.jar' in os.listdir(ddd):
+                result.append(os.path.join(ddd, version))
     return result
 
 
@@ -104,14 +106,14 @@ def p2index(base_dir):
         builds = []
         for d in os.listdir(drop_dir):
             artifact_path = os.path.join(drop_dir, d)
-            if d.startswith(buildType + '-' + version + '.') and os.path.isdir(artifact_path):
+            if d.startswith(buildType) and os.path.isdir(artifact_path):
                 builds.append(artifact_path)
         builds.sort()
         if len(builds) > 0:
             last_integration_build.append(builds[-1])
 
     # 1) write fix files
-    repo_dir = os.path.join(base_dir, 'updates', buildTypeLong)
+    repo_dir = os.path.join(base_dir, 'updates', buildTypeLong, version)
     if not os.path.isdir(repo_dir):
         os.makedirs(repo_dir)
     # 1.1) composition.properties
@@ -157,7 +159,7 @@ def main():
     main method gets called on script execution
     """
     base_dir = os.getenv('BASE_DIR',
-        '/home/data/httpd/download.eclipse.org/eclipsescada')
+        '/home/data/httpd/download.eclipse.org/eclipsescada/downloads')
 
     if not os.path.exists(base_dir):
         print "path '%s' does not exist" % base_dir
