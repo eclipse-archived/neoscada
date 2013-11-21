@@ -81,14 +81,14 @@ index_html = """<!DOCTYPE html>
 </body>
 </html>"""
 
-def find_drop_dirs(base_dir):
+def find_drop_dirs(downloads_dir):
     """
     from base path, every directory which in turn has a drops directory is
     considered a
     """
     result = []
-    for d in os.listdir(base_dir):
-        dd = os.path.join(base_dir, d)
+    for d in os.listdir(downloads_dir):
+        dd = os.path.join(downloads_dir, d)
         if os.path.isdir(dd) and 'drops' in os.listdir(dd):
             ddd = os.path.join(dd, 'drops', version)
             if os.path.isdir(ddd) and 'content.jar' in os.listdir(ddd):
@@ -100,7 +100,7 @@ def p2index(base_dir):
     """
     does the actual indexing
     """
-    drop_dirs = find_drop_dirs(base_dir)
+    drop_dirs = find_drop_dirs(os.path.join(base_dir, 'downloads'))
     last_integration_build = []
     for drop_dir in drop_dirs:
         builds = []
@@ -159,7 +159,7 @@ def main():
     main method gets called on script execution
     """
     base_dir = os.getenv('BASE_DIR',
-        '/home/data/httpd/download.eclipse.org/eclipsescada/downloads')
+        '/home/data/httpd/download.eclipse.org/eclipsescada')
 
     if not os.path.exists(base_dir):
         print "path '%s' does not exist" % base_dir
