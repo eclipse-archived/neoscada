@@ -72,10 +72,10 @@
 						<configuration>
 							<target>
 								<ant antfile="../gatherRepositories/deb.ant">
-									<property name="version" value="${unqualifedVersion}"/>
+									<property name="version" value="${unqualifiedVersion}"/>
 								</ant>
 								<ant antfile="../gatherRepositories/yum.ant">
-									<property name="version" value="${unqualifedVersion}"/>
+									<property name="version" value="${unqualifiedVersion}"/>
 								</ant>
 							</target>
 						</configuration>
@@ -95,7 +95,7 @@
 						<configuration>
 							<environmentVariables>
 								<BASE_DIR>${download.root}</BASE_DIR>
-								<VERSION>${unqualifedVersion}</VERSION>
+								<VERSION>${unqualifiedVersion}</VERSION>
 								<BUILD_TYPE>${buildType}</BUILD_TYPE>
 								<BUILD_TYPE_LONG>${buildTypeLong}</BUILD_TYPE_LONG>
 							</environmentVariables>
