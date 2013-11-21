@@ -87,7 +87,7 @@ ${repo}.x86_64.rpmFileName=${rpmText.x86_64}
         <delete dir="${download.dir}"/>
         <mkdir dir="${download.dir}" />
 
-        <copy todir="${download.dir}/yum/i386">
+        <copy todir="${download.dir}">
             <fileset dir="${output}" includes="*.rpm" />
             <fileset dir="${output}" includes="*.deb" />
             <fileset dir="${output}" includes="*.changes" />
