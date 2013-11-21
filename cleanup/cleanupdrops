@@ -105,7 +105,7 @@ if __name__ == '__main__':
     parser = OptionParser()
     parser.add_option("-d", "--base-dir", default='/home/data/httpd/'
                     'download.eclipse.org/eclipsescada/downloads',
-                  action="store", dest="basedir",
+                  action="store", dest="base_dir",
                   help="based")
     parser.add_option("-k", "--keep-num",
                   action="store", dest="keep", default=2, type='int',
