@@ -89,8 +89,10 @@ def find_drop_dirs(downloads_dir):
     result = []
     for d in os.listdir(downloads_dir):
         dd = os.path.join(downloads_dir, d)
+        print "Checking repo: %s" % dd
         if os.path.isdir(dd) and 'drops' in os.listdir(dd):
             ddd = os.path.join(dd, 'drops', version)
+            print "Checking drops: %s" % ddd
             if os.path.isdir(ddd) and 'content.jar' in os.listdir(ddd):
                 result.append(os.path.join(ddd, version))
     return result
