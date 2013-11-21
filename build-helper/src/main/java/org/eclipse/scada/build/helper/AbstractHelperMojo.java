@@ -32,7 +32,7 @@ public abstract class AbstractHelperMojo extends AbstractMojo
      * @since 0.0.1
      */
     @Parameter ( property = "project", readonly = true, required = true )
-    private MavenProject project;
+    protected MavenProject project;
 
     /**
      * The maven session
