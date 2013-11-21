@@ -49,17 +49,41 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse.orbit.version}/repository/</url>
 		</repository>
+		<repository>
+			<id>repo.eclipse.scada.org</id>
+			<name>Eclipse SCADA Repository</name>
+			<url>https://repo.eclipse.org/content/groups/eclipsescada/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.eclipse.scada.releng</groupId>
+				<artifactId>build-helper</artifactId>
+				<version>0.0.11</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>version-property</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
