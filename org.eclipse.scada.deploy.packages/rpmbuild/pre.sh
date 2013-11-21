@@ -20,7 +20,7 @@ echo "Version: $version"
 # This causes the rpm build to fail always if the topdir
 # contains a -, which is the case in the hudson jobs
 
-pushd ..
+old="$PWD"
 
 make clean
 
@@ -31,4 +31,7 @@ make dist VERSION=$version
 tar tzf *.tar.gz
 rpmbuild -ta -vv --define _topdir/tmp/eclipse.scada.rpmbuild org.eclipse.scada-*.tar.gz
 
+cd "$old"
+
 echo DONE
+
