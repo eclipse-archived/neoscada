@@ -44,6 +44,7 @@ is active.
             <fileset dir="..">
                 <include name="**/*.rpm" />
                 <include name="**/*.deb" />
+                <include name="**/*.changes" />
             </fileset>
             <mapper type="flatten" />
         </move>
@@ -57,14 +58,11 @@ is active.
 
         <delete dir="${download.dir}"/>
         <mkdir dir="${download.dir}" />
-        <mkdir dir="${download.dir}/yum/noarch" />
-        <mkdir dir="${download.dir}/deb" />
 
-        <copy todir="${download.dir}/yum/noarch">
-            <fileset dir="${output}" includes="*.noarch.rpm" />
-        </copy>
-        <copy todir="${download.dir}/deb">
+        <copy todir="${download.dir}">
+            <fileset dir="${output}" includes="*.rpm" />
             <fileset dir="${output}" includes="*.deb" />
+            <fileset dir="${output}" includes="*.changes" />
         </copy>
     </target>
 
