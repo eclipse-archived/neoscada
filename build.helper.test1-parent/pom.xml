@@ -61,7 +61,7 @@
 						<eclipse-repository>static</eclipse-repository>
 					</nameProviderMap>
 					<nameProviderProperties>
-						<staticQualifier>M1</staticQualifier>
+						<staticQualifier>${staticQualifier}</staticQualifier>
 						<timestampProvider>jgit</timestampProvider>
 					</nameProviderProperties>
 				</configuration>
