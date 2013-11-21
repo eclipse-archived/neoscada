@@ -19,10 +19,10 @@ import shutil
 import time
 from optparse import OptionParser
 
-version='0.1.0'
-buildType='N'
-buildTypeLong='nigthly'
-buildTypeLabel='Nightlies'
+version=os.getenv('VERSION','0.1.0')
+buildType=os.getenv('BUILD_TYPE','N')
+buildTypeLong=os.getenv('BUILD_TYPE_LONG','nigthly')
+buildTypeLabel=buildTypeLong.title()
 
 compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
 

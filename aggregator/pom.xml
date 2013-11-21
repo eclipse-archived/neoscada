@@ -57,4 +57,54 @@
 		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy.repack</module>
 	</modules>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>ant-post-proc</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<ant antfile="../gatherRepositories/deb.ant">
+									<property name="version" value="${unqualifedVersion}"/>
+								</ant>
+								<ant antfile="../gatherRepositories/yum.ant">
+									<property name="version" value="${unqualifedVersion}"/>
+								</ant>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>exec-maven-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<executions>
+					<execution>
+						<id>p2index</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<environmentVariables>
+								<BASE_DIR>${download.root}</BASE_DIR>
+								<VERSION>${unqualifedVersion}</VERSION>
+								<BUILD_TYPE>${buildType}</BUILD_TYPE>
+								<BUILD_TYPE_LONG>${buildTypeLong}</BUILD_TYPE_LONG>
+							</environmentVariables>
+							<executable>${basedir}/../cleanup/p2index</executable>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
