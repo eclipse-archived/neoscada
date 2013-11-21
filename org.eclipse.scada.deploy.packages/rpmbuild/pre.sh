@@ -33,3 +33,4 @@ rpmbuild -ta -vv --define _topdir/tmp/eclipse.scada.rpmbuild org.eclipse.scada-*
 
 popd
 
+echo DONE
