@@ -39,7 +39,6 @@
 		<module>../../org.eclipse.scada.ide/org.eclipse.scada.ide-parent</module>
 		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy-parent</module>
 		
-		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy.packages</module>
 		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy.p2director</module>
 		<module>../../org.eclipse.scada.deploy/org.eclipse.scada.deploy.repack</module>
 	</modules>
