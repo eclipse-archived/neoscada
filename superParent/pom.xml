@@ -22,8 +22,8 @@
 	</distributionManagement>
 
 	<properties>
-		<buildType>I</buildType>
-		<buildTypeLong>integration</buildTypeLong>
+		<buildType>N</buildType>
+		<buildTypeLong>nightly</buildTypeLong>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -182,9 +182,17 @@
 	<profiles>
 
 		<profile>
+			<id>integration</id>
+			<properties>
+				<buildType>I</buildType>
+				<buildTypeLong>integration</buildTypeLong>
+			</properties>
+		</profile>
+
+		<profile>
 			<id>milestone</id>
 			<properties>
-				<buildType>M</buildType>
+				<buildType>S</buildType>
 				<buildTypeLong>milestone</buildTypeLong>
 			</properties>
 		</profile>
