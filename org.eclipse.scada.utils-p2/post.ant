@@ -16,7 +16,7 @@ is active.
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
     
     <!-- the base where drops will be placed for this repository -->
-    <property name="download.base" location="${download.root}/${repo}/drops"/>
+    <property name="download.base" location="${download.root}/downloads/${repo}/drops"/>
     
     <!-- the actual drop directory -->
     <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}"/>
