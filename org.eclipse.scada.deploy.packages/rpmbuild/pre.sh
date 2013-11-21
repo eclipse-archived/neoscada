@@ -22,8 +22,11 @@ echo "Version: $version"
 
 pushd ..
 
+make clean
+
 rm -Rf /tmp/eclipse.scada.rpmbuild
 mkdir -p /tmp/eclipse.scada.rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+
 make dist VERSION=$version
 tar tzf *.tar.gz
 rpmbuild -ta -vv --define _topdir/tmp/eclipse.scada.rpmbuild org.eclipse.scada-*.tar.gz
