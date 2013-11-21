@@ -53,20 +53,6 @@
 				<extensions>true</extensions>
 			</plugin>
 
-			<plugin>
-				<groupId>org.eclipse.scada.releng</groupId>
-				<artifactId>build-helper</artifactId>
-				<configuration>
-					<nameProviderMap>
-						<eclipse-repository>static</eclipse-repository>
-					</nameProviderMap>
-					<nameProviderProperties>
-						<staticQualifier>${staticQualifier}</staticQualifier>
-						<timestampProvider>jgit</timestampProvider>
-					</nameProviderProperties>
-				</configuration>
-			</plugin>
-
 			<!-- build qualifier -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
