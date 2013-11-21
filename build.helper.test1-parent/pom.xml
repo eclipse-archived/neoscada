@@ -57,8 +57,11 @@
 				<groupId>org.eclipse.scada.releng</groupId>
 				<artifactId>build-helper</artifactId>
 				<configuration>
+					<nameProviderMap>
+						<eclipse-repository>static</eclipse-repository>
+					</nameProviderMap>
 					<nameProviderProperties>
-						<strictQualifier>M1</strictQualifier>
+						<staticQualifier>M1</staticQualifier>
 						<timestampProvider>jgit</timestampProvider>
 					</nameProviderProperties>
 				</configuration>
