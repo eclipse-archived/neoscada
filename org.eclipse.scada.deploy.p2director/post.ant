@@ -19,7 +19,7 @@ is active.
     <property name="download.base" location="${download.root}/downloads/${repo}/drops"/>
         
     <!-- the actual drop directory -->
-    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}"/>
+    <property name="download.dir" location="${download.base}/${unqualifiedVersion}/${buildType}${buildTimestamp}/packages"/>
 
     <!-- ================================= 
           target: default
