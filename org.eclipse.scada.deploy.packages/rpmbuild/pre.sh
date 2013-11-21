@@ -21,6 +21,7 @@ echo "Version: $version"
 # contains a -, which is the case in the hudson jobs
 
 old="$PWD"
+cd ..
 
 make clean
 
