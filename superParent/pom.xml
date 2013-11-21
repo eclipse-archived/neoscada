@@ -203,7 +203,6 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.2.1</version>
 				</plugin>
-				<plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
