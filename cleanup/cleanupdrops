@@ -37,7 +37,7 @@ def find_drop_dirs(base_dir):
     return result
 
 
-def cleanup_drop_dir(drop_dir, keep, prefixes):
+def cleanup_drop_dir(drop_dir, version, keep, prefixes):
     """
     """
     if options.verbose:
