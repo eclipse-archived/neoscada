@@ -11,7 +11,6 @@
 package org.eclipse.scada.build.helper;
 
 import java.io.StringReader;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.maven.plugin.MojoExecutionException;
@@ -43,36 +42,10 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
     protected Map<String, QualifierNameProvider> nameProviders;
 
     @Parameter ( property = "nameProviderMap" )
-    private final Map<String, String> nameProviderMap = new HashMap<String, String> ();
+    private Map<String, String> nameProviderMap;
 
     @Parameter ( property = "nameProviderProperties" )
-    private final Map<String, String> nameProviderProperties = new HashMap<String, String> ();
-
-    public void setNameProviderMap ( final String string )
-    {
-        final String[] toks = string.split ( "=", 2 );
-        if ( toks.length == 2 )
-        {
-            this.nameProviderMap.put ( toks[0], toks[1] );
-        }
-        else
-        {
-            throw new RuntimeException ( "Format of 'nameProviderMap' must be '<projectType>=<providerHint>" );
-        }
-    }
-
-    public void setNameProviderProperties ( final String string )
-    {
-        final String[] toks = string.split ( "=", 2 );
-        if ( toks.length == 1 )
-        {
-            this.nameProviderProperties.remove ( toks[0] );
-        }
-        else if ( toks.length == 2 )
-        {
-            this.nameProviderProperties.put ( toks[0], toks[1] );
-        }
-    }
+    private Map<String, String> nameProviderProperties;
 
     @Override
     protected synchronized String getQualifier ( final MavenProject project ) throws MojoExecutionException
@@ -97,6 +70,9 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
     @Override
     public synchronized void execute () throws MojoExecutionException
     {
+        fillFromProperties ( "nameProviderMap", this.nameProviderMap );
+        fillFromProperties ( "nameProviderProperties", this.nameProviderProperties );
+
         getLog ().info ( "Name provider properties: " + this.nameProviderProperties );
         getLog ().info ( "Name provider mappings: " + this.nameProviderMap );
 

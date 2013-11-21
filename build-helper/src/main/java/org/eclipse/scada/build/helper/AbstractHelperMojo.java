@@ -11,6 +11,7 @@
 package org.eclipse.scada.build.helper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
@@ -84,5 +85,24 @@ public abstract class AbstractHelperMojo extends AbstractMojo
     public void setReactorProjects ( final List<MavenProject> reactorProjects )
     {
         this.reactorProjects = reactorProjects;
+    }
+
+    protected void fillFromProperties ( String prefix, final Map<String, String> map )
+    {
+        prefix = prefix + ":";
+        final int len = prefix.length ();
+
+        for ( final Map.Entry<Object, Object> entry : this.session.getUserProperties ().entrySet () )
+        {
+            if ( ! ( entry.getKey () instanceof String && entry.getValue () instanceof String ) )
+            {
+                continue;
+            }
+            final String key = (String)entry.getKey ();
+            if ( key.startsWith ( prefix ) )
+            {
+                map.put ( key.substring ( len ), (String)entry.getValue () );
+            }
+        }
     }
 }

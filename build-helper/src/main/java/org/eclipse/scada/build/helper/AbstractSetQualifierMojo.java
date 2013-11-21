@@ -57,7 +57,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
      * A set of properties that should overridden if already present
      */
     @Parameter ( property = "additionalProperties" )
-    private final Map<String, String> additionalProperties = new HashMap<String, String> ();
+    private Map<String, String> additionalProperties;
 
     /**
      * Perform a dry run
@@ -72,29 +72,11 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
 
     protected abstract String getQualifier ( MavenProject project ) throws MojoExecutionException;
 
-    public void setAdditionalProperties ( final String string )
-    {
-        getLog ().debug ( "Set property: " + string );
-        addAdditionalProperties ( string );
-    }
-
-    public void addAdditionalProperties ( final String string )
-    {
-        getLog ().debug ( "Adding property: " + string );
-        final String[] tok = string.split ( "=", 2 );
-        if ( tok.length == 1 )
-        {
-            this.additionalProperties.put ( tok[0], null );
-        }
-        else
-        {
-            this.additionalProperties.put ( tok[0], tok[1] );
-        }
-    }
-
     @Override
     public synchronized void execute () throws MojoExecutionException
     {
+        fillFromProperties ( "additionalProperties", this.additionalProperties );
+
         this.changeManager = new ChangeManager ( getLog () );
 
         try
