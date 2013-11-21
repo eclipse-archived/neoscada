@@ -139,9 +139,9 @@ def p2index(base_dir):
     params['timestamp'] = "%s" % time.time()
     for l in last_integration_build:
         params['children'] += """    <child location="%s" />\n""" \
-            % l.replace(base_dir, '../..')
+            % l.replace(base_dir, '../../..')
         params['drop_links'] += """    <li><a href="%s">%s</a>\n""" \
-            % (l.replace(base_dir, '../..'), l.replace(base_dir, ''))
+            % (l.replace(base_dir, '../../..'), l.replace(base_dir, ''))
     # 2.1) write compositeArtifacts.xml
     f = open(os.path.join(repo_dir, 'compositeArtifacts.xml'), 'wb')
     f.write(compositeArtifacts_xml % params)
