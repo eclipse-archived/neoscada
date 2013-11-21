@@ -53,6 +53,15 @@
 				<extensions>true</extensions>
 			</plugin>
 
+			<plugin>
+				<groupId>org.eclipse.scada.releng</groupId>
+				<artifactId>build-helper</artifactId>
+				<configuration>
+					<strictQualifier>M1</strictQualifier>
+					<timestampProvider>jgit</timestampProvider>
+				</configuration>
+			</plugin>
+
 			<!-- build qualifier -->
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
