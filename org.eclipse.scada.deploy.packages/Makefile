@@ -51,6 +51,5 @@ install:
 	
 clean:
 	-rm *.tar.gz
-	rm -Rf rpmbuild
 	
 .PHONY: default install clean dist
