@@ -7,15 +7,11 @@
             Build deb repository
     </description>
     
-    <property name="buildTypeLong" value="integration" />
-    <property name="buildType" value="I" />
-
-    <!-- the root of all -->
-    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
+    <property file="default.properties"/>
     
     <!-- the target -->
-    <property name="download.deb.dir" location="${download.root}/repo/${buildTypeLong}/deb"/>
-    <property name="download.apt.dir" location="${download.root}/repo/${buildTypeLong}/apt"/>
+    <property name="download.deb.dir" location="${download.root}/repos/${buildTypeLong}/${version}/deb"/>
+    <property name="download.apt.dir" location="${download.root}/repos/${buildTypeLong}/${version}/apt"/>
     
     <!-- ================================= 
           target: default
@@ -36,13 +32,9 @@
          ================================= -->
     <target name="copy">
         <copy todir="${download.deb.dir}" preservelastmodified="true">
-        	<fileset dir="${download.root}">
-        	    <include name="*/drops/${buildType}*/packages/*.deb"/>
-        	    <include name="*/drops/${buildType}*/packages/*.changes"/>
-        	</fileset>
-    	    <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
-        	    <include name="**/*.deb"/>
-        	    <include name="**/*.changes"/>
+        	<fileset dir="${download.root}/downloads">
+        	    <include name="*/drops/${version}/${buildType}*/packages/*.deb"/>
+        	    <include name="*/drops/${version}/${buildType}*/packages/*.changes"/>
         	</fileset>
             <mapper type="flatten"/>
         </copy>

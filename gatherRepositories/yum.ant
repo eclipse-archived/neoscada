@@ -7,15 +7,11 @@
             Build YUM repository
     </description>
 
-    <property name="buildTypeLong" value="integration" />
-    <property name="buildType" value="I" />
+    <property file="default.properties"/>
     
-    <!-- the root of all -->
-    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada" />
-
     <!-- the target -->
-    <property name="download.yum.dir" location="${download.root}/repo/${buildTypeLong}/yum" />
-
+    <property name="download.yum.dir" location="${download.root}/repos/${buildTypeLong}/${version}/yum" />
+    
     <!-- ================================= 
          target: default
          ================================= -->
@@ -54,11 +50,8 @@
         <attribute name="arch" />
         <sequential>
 	        <copy todir="${download.yum.dir}/@{arch}" preservelastmodified="true">
-	            <fileset dir="${download.root}">
-	                <include name="*/drops/${buildType}*/packages/*.@{arch}.rpm" />
-	            </fileset>
-	            <fileset dir="${download.root}/repo/${buildTypeLong}/drops">
-	                <include name="**/*.@{arch}.rpm" />
+	            <fileset dir="${download.root}/downloads">
+	                <include name="*/drops/${version}/${buildType}*/packages/*.@{arch}.rpm" />
 	            </fileset>
 	            <mapper type="flatten" />
 	        </copy>
