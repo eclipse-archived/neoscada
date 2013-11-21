@@ -1,4 +1,4 @@
-%define version 0.1.0
+%define version @@VERSION@@
 
 %define buildroot %{_tmppath}/%{name}-%{version}-root
 %define es_user eclipsescada

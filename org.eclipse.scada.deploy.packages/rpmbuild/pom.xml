@@ -27,6 +27,9 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
+							<environmentVariables>
+								<version>${project.version}</version>
+							</environmentVariables>
 							<executable>${basedir}/pre.sh</executable>
 						</configuration>
 					</execution>

@@ -2,7 +2,7 @@ default:
 
 SHELL := /bin/bash
 
-EXTRA_DIST = $(PACKAGE).spec \
+EXTRA_DIST = \
 	Makefile.defs \
 	Makefile.*.defs
 
@@ -12,6 +12,7 @@ include Makefile.defs
 dist:
 	rm -Rf "$(PACKAGE)-$(VERSION)"
 	mkdir "$(PACKAGE)-$(VERSION)"
+	cat "$(PACKAGE).spec" | sed s/@@VERSION@@/$(VERSION)/ > "$(PACKAGE)-$(VERSION)"/"$(PACKAGE).spec"
 	cp -a Makefile debian src "$(PACKAGE)-$(VERSION)"
 	cp $(EXTRA_DIST) "$(PACKAGE)-$(VERSION)"
 	tar czf "$(PACKAGE)-$(VERSION).tar.gz" "$(PACKAGE)-$(VERSION)"

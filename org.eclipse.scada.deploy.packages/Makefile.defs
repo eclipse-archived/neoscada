@@ -1,6 +1,5 @@
 DIST ?= debian
 ARCH ?= `uname -i`
 VERSION = 0.1.0
-QUALIFIER = SNAPSHOT
 PACKAGE = org.eclipse.scada
 PERL_DIR = /usr/share/perl5
