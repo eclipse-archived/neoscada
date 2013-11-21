@@ -11,10 +11,7 @@
 package org.eclipse.scada.build.helper;
 
 import java.io.StringReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Map;
-import java.util.TimeZone;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
@@ -22,7 +19,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.util.xml.Xpp3DomBuilder;
-import org.eclipse.tycho.buildversion.BuildTimestampProvider;
+import org.eclipse.scada.build.helper.name.QualifierNameProvider;
+import org.eclipse.scada.build.helper.name.QualifierNameProvider.Configuration;
 
 /**
  * Generate qualifier
@@ -37,57 +35,70 @@ import org.eclipse.tycho.buildversion.BuildTimestampProvider;
         requiresDirectInvocation = true )
 public class GenerateQualifierMojo extends AbstractSetQualifierMojo
 {
-    /**
-     * Role hint of a custom build timestamp provider.
-     */
-    @Parameter ( property = "timestampProvider", defaultValue = "default" )
-    protected String timestampProvider;
+    @Parameter ( property = "defaultNameProvider", defaultValue = "timestamp" )
+    protected String defaultNameProvider;
 
-    @Component ( role = BuildTimestampProvider.class )
-    protected Map<String, BuildTimestampProvider> timestampProviders;
+    @Component ( role = QualifierNameProvider.class )
+    protected Map<String, QualifierNameProvider> nameProviders;
 
-    /**
-     * The qualifier format string
-     * <p>
-     * This must be a format string for {@link SimpleDateFormat}
-     * </p>
-     */
-    @Parameter ( property = "format", defaultValue = "'v'yyyyMMdd-HHmm", required = true )
-    private SimpleDateFormat format;
+    @Parameter ( property = "nameProviderMap" )
+    private Map<String, String> nameProviderMap;
 
-    public void setFormat ( final String format )
+    @Parameter ( property = "nameProviderProperties" )
+    private Map<String, String> nameProviderProperties;
+
+    public void addNameProviderMap ( final String string )
     {
-        this.format = new SimpleDateFormat ( format );
-        this.format.setTimeZone ( TimeZone.getTimeZone ( "UTC" ) );
+        final String[] toks = string.split ( "=", 2 );
+        if ( toks.length == 2 )
+        {
+            this.nameProviderMap.put ( toks[0], toks[1] );
+        }
+        else
+        {
+            throw new RuntimeException ( "Format of 'nameProviderMap' must be '<projectType>=<providerHint>" );
+        }
     }
 
-    protected Date getBuildTimestamp ( final MavenProject project ) throws MojoExecutionException
+    public void addNameProviderProperties ( final String string )
     {
-        final BuildTimestampProvider provider = this.timestampProviders.get ( this.timestampProvider );
-        if ( provider == null )
+        final String[] toks = string.split ( "=", 2 );
+        if ( toks.length == 1 )
         {
-            throw new MojoExecutionException ( "Unable to lookup BuildTimestampProvider with hint='" + this.timestampProvider + "'" );
+            this.nameProviderMap.remove ( toks[0] );
         }
-
-        return provider.getTimestamp ( this.session, project, this.execution );
+        else if ( toks.length == 2 )
+        {
+            this.nameProviderMap.put ( toks[0], toks[1] );
+        }
     }
 
     @Override
-    protected synchronized String getQualifier ( final MavenProject project )
+    protected synchronized String getQualifier ( final MavenProject project ) throws MojoExecutionException
     {
-        try
+        String providerType = this.nameProviderMap.get ( project.getPackaging () );
+        if ( providerType == null )
         {
-            return this.format.format ( getBuildTimestamp ( project ) );
+            providerType = this.defaultNameProvider;
         }
-        catch ( final MojoExecutionException e )
+
+        getLog ().debug ( String.format ( "Using provider '%s' for project: %s", providerType, project.getId () ) );
+
+        final QualifierNameProvider nameProvider = this.nameProviders.get ( providerType );
+        if ( nameProvider == null )
         {
-            throw new RuntimeException ( e );
+            throw new MojoExecutionException ( String.format ( "Unable to find name provider with hint '%s'", providerType ) );
         }
+
+        return nameProvider.createName ( new Configuration ( this.session, this.execution, project, this.nameProviderProperties ) );
     }
 
     @Override
     public synchronized void execute () throws MojoExecutionException
     {
+        getLog ().info ( "Name provider properties: " + this.nameProviderProperties );
+        getLog ().info ( "Name provider mappings: " + this.nameProviderMap );
+
         if ( this.execution.getPlugin ().getConfiguration () == null )
         {
             // inject dummy configuration, otherwise the jgit provider will fail with a NPE
@@ -100,12 +111,6 @@ public class GenerateQualifierMojo extends AbstractSetQualifierMojo
                 throw new RuntimeException ( e );
             }
         }
-
-        final BuildTimestampProvider provider = this.timestampProviders.get ( this.timestampProvider );
-        getLog ().info ( "Hint: " + this.timestampProvider );
-        getLog ().info ( "Using provider: " + provider );
-
-        getLog ().info ( "Providers: " + this.timestampProviders );
 
         super.execute ();
     }

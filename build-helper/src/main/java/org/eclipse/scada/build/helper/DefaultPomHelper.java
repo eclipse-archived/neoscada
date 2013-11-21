@@ -25,6 +25,7 @@ import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.ProjectBuilder;
 import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.component.annotations.Requirement;
+import org.codehaus.plexus.logging.Logger;
 
 @Component ( role = PomHelper.class )
 public class DefaultPomHelper implements PomHelper
@@ -32,6 +33,9 @@ public class DefaultPomHelper implements PomHelper
 
     @Requirement
     private ProjectBuilder projectBuilder;
+
+    @Requirement
+    private Logger logger;
 
     protected List<String> getModules ( final MavenProject project )
     {
@@ -109,15 +113,27 @@ public class DefaultPomHelper implements PomHelper
             {
                 file = new File ( file, "pom.xml" );
             }
-            log.debug ( "Loading: " + file );
+            log.debug ( "Looking up: " + file );
             result.add ( loadProject ( file, session ) );
         }
 
         return result;
     }
 
-    private MavenProject loadProject ( final File file, final MavenSession session ) throws Exception
+    private MavenProject loadProject ( File file, final MavenSession session ) throws Exception
     {
+        file = file.getCanonicalFile ();
+        for ( final MavenProject project : session.getProjects () )
+        {
+            final File projectFile = project.getFile ().getCanonicalFile ();
+            if ( projectFile.equals ( file ) )
+            {
+                return project;
+            }
+        }
+
+        this.logger.info ( "Loading project from: " + file );
+
         return this.projectBuilder.build ( file, session.getProjectBuildingRequest () ).getProject ();
     }
 

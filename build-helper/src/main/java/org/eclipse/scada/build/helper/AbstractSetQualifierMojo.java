@@ -70,7 +70,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     @Component ( role = PomHelper.class )
     private PomHelper helper;
 
-    protected abstract String getQualifier ( MavenProject project );
+    protected abstract String getQualifier ( MavenProject project ) throws MojoExecutionException;
 
     public void setAdditionalProperties ( final String string )
     {
@@ -441,7 +441,10 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             toks.add ( "0" );
         }
 
-        toks.add ( qualifier );
+        if ( qualifier != null )
+        {
+            toks.add ( qualifier );
+        }
 
         return String.format ( "%s.%s.%s.%s", toks.pollFirst (), toks.pollFirst (), toks.pollFirst (), toks.pollFirst () );
     }
