@@ -89,7 +89,7 @@ public abstract class AbstractHelperMojo extends AbstractMojo
 
     protected void fillFromProperties ( String prefix, final Map<String, String> map )
     {
-        prefix = prefix + ":";
+        prefix = prefix + ".";
         final int len = prefix.length ();
 
         for ( final Map.Entry<Object, Object> entry : this.session.getUserProperties ().entrySet () )
