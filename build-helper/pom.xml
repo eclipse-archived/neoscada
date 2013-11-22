@@ -4,7 +4,7 @@
 
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>build-helper</artifactId>
-	<version>0.0.14-SNAPSHOT</version>
+	<version>0.0.14</version>
 	<packaging>maven-plugin</packaging>
 
 	<name>build-helper Maven Mojo</name>
@@ -15,6 +15,10 @@
 		<tycho-extras-version>0.19.0</tycho-extras-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
 
 	<distributionManagement>
 		<repository>
@@ -61,8 +65,8 @@
 	</dependencies>
 
 	<organization>
-		<name>Eclipse SCADA</name>
-		<url>http://eclipse.org/eclipsescada</url>
+		<name>Eclipse Foundation</name>
+		<url>http://www.eclipse.org/</url>
 	</organization>
 	<description>Build helper mojos for Tycho based development</description>
 	<issueManagement>
@@ -73,6 +77,13 @@
 		<system>Hudson</system>
 		<url>https://hudson.eclipse.org/scada/</url>
 	</ciManagement>
+	<licenses>
+		<license>
+			<name>Eclipse Public License</name>
+			<url>http://www.eclipse.org/legal/epl-v10.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<inceptionYear>2013</inceptionYear>
 
@@ -97,7 +108,36 @@
 					<artifactId>plexus-component-metadata</artifactId>
 					<version>1.5.5</version>
 				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<relativizeDecorationLinks>false</relativizeDecorationLinks>
+						<reportPlugins>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-plugin-plugin</artifactId>
+								<version>3.2</version>
+								<configuration>
+									<requirements>
+										<maven>3.0</maven>
+									</requirements>
+								</configuration>
+							</plugin>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-project-info-reports-plugin</artifactId>
+								<version>2.7</version>
+							</plugin>
+						</reportPlugins>
+					</configuration>
+				</plugin>
+
 			</plugins>
+
 		</pluginManagement>
 
 		<plugins>
@@ -137,5 +177,15 @@
 		</plugins>
 
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
 
 </project>
