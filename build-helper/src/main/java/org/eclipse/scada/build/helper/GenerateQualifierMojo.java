@@ -35,15 +35,27 @@ import org.eclipse.scada.build.helper.name.QualifierNameProvider.Configuration;
         requiresDirectInvocation = true )
 public class GenerateQualifierMojo extends AbstractSetQualifierMojo
 {
+    /**
+     * @since 0.0.12
+     */
     @Parameter ( property = "defaultNameProvider", defaultValue = "timestamp" )
     protected String defaultNameProvider;
 
+    /**
+     * @since 0.0.12
+     */
     @Component ( role = QualifierNameProvider.class )
     protected Map<String, QualifierNameProvider> nameProviders;
 
+    /**
+     * @since 0.0.12
+     */
     @Parameter ( property = "nameProviderMap" )
     private Map<String, String> nameProviderMap;
 
+    /**
+     * @since 0.0.12
+     */
     @Parameter ( property = "nameProviderProperties" )
     private Map<String, String> nameProviderProperties;
 

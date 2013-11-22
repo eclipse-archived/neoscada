@@ -29,6 +29,7 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
+import org.apache.maven.model.Parent;
 import org.apache.maven.model.Profile;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
@@ -70,6 +71,19 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
     @Component ( role = PomHelper.class )
     private PomHelper helper;
 
+    /**
+     * Define parent references that will get updated if the parent
+     * cannot be found locally. The unqualified version will be kept.
+     * <p>
+     * The syntax is <code>groupId:artifactId:qualifier</code>. On the command
+     * line multiple parents can be specified with a comma separated list.
+     * </p>
+     * 
+     * @since 0.0.14
+     */
+    @Parameter ( property = "forceUpdateParentQualifiers" )
+    private Set<String> forceUpdateParentQualifiers;
+
     protected abstract String getQualifier ( MavenProject project ) throws MojoExecutionException;
 
     @Override
@@ -83,6 +97,7 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         {
             getLog ().info ( "Overwriting qualifier properties: " + this.qualifierProperties );
             getLog ().info ( "Overwriting properties: " + this.additionalProperties );
+            getLog ().info ( "Force update parents: " + this.forceUpdateParentQualifiers );
 
             if ( this.dryRun )
             {
@@ -221,7 +236,48 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             }
         } );
 
+        checkNonRelativeParent ( project );
+
         syncModule ( project, version );
+    }
+
+    private void checkNonRelativeParent ( final MavenProject project )
+    {
+        if ( project.getModel ().getParent () == null )
+        {
+            // no parent
+            return;
+        }
+
+        if ( project.getParentFile () != null )
+        {
+            // is a local parent
+            return;
+        }
+
+        final Parent parent = project.getModel ().getParent ();
+
+        final String prefix = String.format ( "%s:%s:", parent.getGroupId (), parent.getArtifactId () );
+        for ( final String entry : this.forceUpdateParentQualifiers )
+        {
+            if ( entry.startsWith ( prefix ) )
+            {
+                final String qualifier = entry.substring ( prefix.length () );
+                final String newVersion = makeVersion ( parent.getVersion (), qualifier );
+
+                getLog ().info ( String.format ( "Force update parent of %s to %s -> %s", project.getId (), parent.getId (), newVersion ) );
+
+                addChange ( project.getFile (), new ModelModifier () {
+
+                    @Override
+                    public boolean apply ( final Model model )
+                    {
+                        model.getParent ().setVersion ( newVersion );
+                        return true;
+                    }
+                } );
+            }
+        }
     }
 
     protected boolean syncDep ( final Dependency dep )
@@ -400,10 +456,8 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
         return map.get ( artifactId );
     }
 
-    private String makeVersion ( final MavenProject project, final String qualifier )
+    private String makeVersion ( final String version, final String qualifier )
     {
-        final String version = project.getVersion ();
-
         if ( version == null )
         {
             // no version at all
@@ -438,6 +492,11 @@ public abstract class AbstractSetQualifierMojo extends AbstractHelperMojo
             sb.append ( toks.pollFirst () );
         }
         return sb.toString ();
+    }
+
+    private String makeVersion ( final MavenProject project, final String qualifier )
+    {
+        return makeVersion ( project.getVersion (), qualifier );
     }
 
 }
