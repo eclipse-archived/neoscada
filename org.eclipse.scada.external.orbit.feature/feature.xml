@@ -121,4 +121,19 @@
          version="1.1.1.v201101211721"
          unpack="false"/>
 
+   <plugin
+         id="ch.qos.logback.classic"
+         download-size="0"
+         install-size="0"
+         version="1.0.7.v20121108-1250"
+         unpack="false"/>
+
+   <plugin
+         id="ch.qos.logback.slf4j"
+         download-size="0"
+         install-size="0"
+         version="1.0.7.v20121108-1250"
+         fragment="true"
+         unpack="false"/>
+
 </feature>
