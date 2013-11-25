@@ -93,4 +93,32 @@
          version="2.0.1.v201105210651"
          unpack="false"/>
 
+   <plugin
+         id="org.apache.commons.collections"
+         download-size="0"
+         install-size="0"
+         version="3.2.0.v2013030210310"
+         unpack="false"/>
+
+   <plugin
+         id="org.slf4j.api"
+         download-size="0"
+         install-size="0"
+         version="1.7.2.v20121108-1250"
+         unpack="false"/>
+
+   <plugin
+         id="javax.annotation"
+         download-size="0"
+         install-size="0"
+         version="1.1.0.v201209060031"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.commons.logging"
+         download-size="0"
+         install-size="0"
+         version="1.1.1.v201101211721"
+         unpack="false"/>
+
 </feature>
