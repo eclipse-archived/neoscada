@@ -12,7 +12,6 @@ package org.eclipse.scada.da.exec.configuration.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.scada.da.server.common.provider.CommonEditPlugin;
 
 /**
  * This is the central singleton for the Exec edit plugin.
@@ -57,8 +56,7 @@ public final class ExecEditPlugin extends EMFPlugin
     {
         super ( new ResourceLocator[]
         {
-                CommonEditPlugin.INSTANCE,
-        } );
+                } );
     }
 
     /**

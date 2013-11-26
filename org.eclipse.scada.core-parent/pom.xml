@@ -141,8 +141,6 @@
 		<module>../org.eclipse.scada.da.net</module>
 		<module>../org.eclipse.scada.da.server.arduino</module>
 		<module>../org.eclipse.scada.da.server.common</module>
-		<module>../org.eclipse.scada.da.server.common.edit</module>
-		<module>../org.eclipse.scada.da.server.common.editor</module>
 		<module>../org.eclipse.scada.da.server.common.io</module>
 		<module>../org.eclipse.scada.da.server.common.memory</module>
 		<module>../org.eclipse.scada.da.server.common.osgi</module>

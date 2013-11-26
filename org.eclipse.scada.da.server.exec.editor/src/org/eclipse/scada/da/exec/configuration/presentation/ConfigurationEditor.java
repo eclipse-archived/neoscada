@@ -56,7 +56,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProviderAdapterFactory;
-import org.eclipse.scada.da.server.common.provider.CommonItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -757,7 +756,6 @@ public class ConfigurationEditor extends MultiPageEditorPart implements IEditing
 
         adapterFactory.addAdapterFactory ( new ResourceItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
-        adapterFactory.addAdapterFactory ( new CommonItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
 
         // Create the command stack that will notify this editor as commands are executed.

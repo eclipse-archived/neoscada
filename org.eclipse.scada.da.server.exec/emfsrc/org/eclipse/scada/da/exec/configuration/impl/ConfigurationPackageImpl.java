@@ -340,7 +340,6 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         isInited = true;
 
         // Initialize simple dependencies
-        org.eclipse.scada.da.server.common.CommonPackage.eINSTANCE.eClass ();
         XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
