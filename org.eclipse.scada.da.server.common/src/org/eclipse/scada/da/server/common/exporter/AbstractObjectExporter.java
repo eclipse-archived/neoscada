@@ -264,7 +264,7 @@ public abstract class AbstractObjectExporter implements Disposable
             @Override
             public String description ()
             {
-                return null;
+                return "";
             }
         };
     }
@@ -330,7 +330,7 @@ public abstract class AbstractObjectExporter implements Disposable
 
         final Map<String, Variant> properties = new HashMap<String, Variant> ();
 
-        if ( options.description () != null )
+        if ( options.description () != null && !options.description ().isEmpty () )
         {
             properties.put ( "description", Variant.valueOf ( options.description () ) );
         }

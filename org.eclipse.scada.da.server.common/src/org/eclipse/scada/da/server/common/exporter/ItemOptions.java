@@ -21,5 +21,5 @@ public @interface ItemOptions
 {
     public boolean readonly () default false;
 
-    public String description ();
+    public String description () default "";
 }
