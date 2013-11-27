@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.eclipse.scada.sec.provider.provider.ca">
+   <implementation class="org.eclipse.scada.sec.provider.provider.ca.AuthenticationServiceImpl"/>
+   <service>
+      <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
+   </service>
+   <property name="factoryId" type="String" value="org.eclipse.scada.sec.provider.provider.ca.user"/>
+</scr:component>

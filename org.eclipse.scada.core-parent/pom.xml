@@ -236,6 +236,7 @@
 		<module>../org.eclipse.scada.ngp.test</module>
 		<module>../org.eclipse.scada.da.server.exporter.common</module>
 		<module>../org.eclipse.scada.da.server.exporter.modbus</module>
+		<module>../org.eclipse.scada.sec.provider.ca</module>
 	</modules>
 
 </project>
