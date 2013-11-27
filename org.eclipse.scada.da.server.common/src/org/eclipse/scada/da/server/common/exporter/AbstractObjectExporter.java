@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - implement ItemOptions
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.exporter;
 
@@ -17,6 +18,7 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.beans.PropertyEditor;
 import java.beans.PropertyEditorManager;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -40,7 +42,6 @@ import org.slf4j.LoggerFactory;
 
 public abstract class AbstractObjectExporter implements Disposable
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( AbstractObjectExporter.class );
 
     protected ItemFactory factory;
@@ -214,14 +215,14 @@ public abstract class AbstractObjectExporter implements Disposable
      *            class instance
      * @return the annotation or <code>null</code> if none was found
      */
-    protected ItemName findAnnotation ( final PropertyDescriptor pd, final Class<?> clazz )
+    protected <T extends Annotation> T findAnnotation ( final PropertyDescriptor pd, final Class<?> clazz, final Class<T> annotationClazz )
     {
         final String name = pd.getName ();
 
         try
         {
             final Field field = findField ( name, clazz );
-            final ItemName itemName = field.getAnnotation ( ItemName.class );
+            final T itemName = field.getAnnotation ( annotationClazz );
             if ( itemName != null )
             {
                 return itemName;
@@ -231,24 +232,48 @@ public abstract class AbstractObjectExporter implements Disposable
         {
         }
 
-        if ( pd.getReadMethod () != null && pd.getReadMethod ().getAnnotation ( ItemName.class ) != null )
+        if ( pd.getReadMethod () != null && pd.getReadMethod ().getAnnotation ( annotationClazz ) != null )
         {
-            return pd.getReadMethod ().getAnnotation ( ItemName.class );
+            return pd.getReadMethod ().getAnnotation ( annotationClazz );
         }
 
-        if ( pd.getWriteMethod () != null && pd.getWriteMethod ().getAnnotation ( ItemName.class ) != null )
+        if ( pd.getWriteMethod () != null && pd.getWriteMethod ().getAnnotation ( annotationClazz ) != null )
         {
-            return pd.getWriteMethod ().getAnnotation ( ItemName.class );
+            return pd.getWriteMethod ().getAnnotation ( annotationClazz );
         }
 
         return null;
+    }
+
+    protected ItemOptions getOptions ( final PropertyDescriptor pd, final Class<?> clazz )
+    {
+        return new ItemOptions () {
+
+            @Override
+            public Class<? extends Annotation> annotationType ()
+            {
+                return ItemOptions.class;
+            }
+
+            @Override
+            public boolean readonly ()
+            {
+                return false;
+            }
+
+            @Override
+            public String description ()
+            {
+                return null;
+            }
+        };
     }
 
     protected String makeItemName ( final PropertyDescriptor pd, final Class<?> clazz )
     {
         try
         {
-            final ItemName itemName = findAnnotation ( pd, clazz );
+            final ItemName itemName = findAnnotation ( pd, clazz, ItemName.class );
             if ( itemName == null )
             {
                 return addPrefix ( pd.getName () );
@@ -295,14 +320,21 @@ public abstract class AbstractObjectExporter implements Disposable
 
     private DataItem createItem ( final PropertyDescriptor pd, final Class<?> clazz )
     {
-        final boolean writeable = !this.readOnly && pd.getWriteMethod () != null;
-        final boolean readable = pd.getReadMethod () != null;
-
         final String itemName = makeItemName ( pd, clazz );
+        final ItemOptions options = getOptions ( pd, clazz );
+
+        logger.debug ( "ItemOptions - {}", options );
+
+        final boolean writeable = !this.readOnly && pd.getWriteMethod () != null;
+        final boolean readable = pd.getReadMethod () != null && !options.readonly ();
 
         final Map<String, Variant> properties = new HashMap<String, Variant> ();
 
-        if ( pd.getShortDescription () != null )
+        if ( options.description () != null )
+        {
+            properties.put ( "description", Variant.valueOf ( options.description () ) );
+        }
+        else if ( pd.getShortDescription () != null )
         {
             properties.put ( "description", Variant.valueOf ( pd.getShortDescription () ) );
         }
