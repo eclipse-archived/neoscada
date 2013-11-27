@@ -42,13 +42,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.sec.provider.plain.property"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.sec.provider.dummy"
          download-size="0"
          install-size="0"
@@ -91,7 +84,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.sec.provider.ca"
+         id="org.eclipse.scada.sec.provider.plain.property"
          download-size="0"
          install-size="0"
          version="0.0.0"
