@@ -14,8 +14,10 @@ package org.eclipse.scada.ca;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import org.eclipse.scada.utils.str.StringHelper;
 
@@ -308,6 +310,28 @@ public class ConfigurationDataHelper
             return str;
         }
         throw new IllegalArgumentException ( String.format ( "'%s' is not part of the allowed parameters (%s)", str, whitelisted ) );
+    }
+
+    /**
+     * Get all values of the keys that start with a specific prefix
+     * 
+     * @param prefix
+     *            the prefix
+     * @return the set of values, never <code>null</code>
+     */
+    public Set<String> getStringSet ( final String prefix )
+    {
+        final Set<String> result = new HashSet<String> ();
+
+        for ( final Map.Entry<String, String> entry : this.data.entrySet () )
+        {
+            if ( entry.getKey ().startsWith ( prefix ) )
+            {
+                result.add ( entry.getValue () );
+            }
+        }
+
+        return result;
     }
 
     /**
