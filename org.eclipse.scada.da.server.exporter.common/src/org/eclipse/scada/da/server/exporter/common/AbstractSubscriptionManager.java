@@ -90,15 +90,9 @@ public abstract class AbstractSubscriptionManager
     {
         this.properties = properties;
         this.hiveSource = hiveSource;
-
     }
 
     public synchronized void start ()
-    {
-        this.hiveSource.addListener ( this.hiveListener );
-    }
-
-    public synchronized void stop ()
     {
         if ( this.started )
         {
@@ -106,6 +100,19 @@ public abstract class AbstractSubscriptionManager
         }
 
         this.started = true;
+        this.hiveSource.addListener ( this.hiveListener );
+    }
+
+    public synchronized void stop ()
+    {
+        if ( !this.started )
+        {
+            return;
+        }
+
+        logger.debug ( "Stopping..." );
+
+        this.started = false;
 
         this.hiveSource.removeListener ( this.hiveListener );
 
@@ -115,7 +122,9 @@ public abstract class AbstractSubscriptionManager
 
     protected synchronized void performSetHive ( final Hive hive )
     {
-        if ( this.started )
+        logger.debug ( "Perform set hive: {}", hive );
+
+        if ( !this.started )
         {
             return;
         }
@@ -127,6 +136,8 @@ public abstract class AbstractSubscriptionManager
 
     protected void bind ( final Hive hive )
     {
+        logger.debug ( "Binding to hive: {}", hive );
+
         // set new hive
         this.hive = hive;
 
@@ -153,6 +164,7 @@ public abstract class AbstractSubscriptionManager
         {
             try
             {
+                logger.debug ( "Closing session: {}", this.session );
                 this.hive.closeSession ( this.session );
             }
             catch ( final InvalidSessionException e )
@@ -176,6 +188,7 @@ public abstract class AbstractSubscriptionManager
         try
         {
             this.session = future.get ();
+            logger.debug ( "Got session: {}", this.session );
             this.session.setListener ( this.itemChangeListener );
             subscribeItems ();
         }
