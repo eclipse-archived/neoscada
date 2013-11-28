@@ -113,6 +113,7 @@ public abstract class AbstractSubscriptionManager
         logger.debug ( "Stopping..." );
 
         this.started = false;
+        this.subscribeList.clear ();
 
         this.hiveSource.removeListener ( this.hiveListener );
 
@@ -200,19 +201,31 @@ public abstract class AbstractSubscriptionManager
 
     private void subscribeItems ()
     {
+        logger.debug ( "Subscribe to known items - {}", this.subscribeList.size () );
+
         for ( final String itemId : this.subscribeList )
         {
             performSubscribe ( itemId );
         }
     }
 
+    /**
+     * Subscribe to an item
+     * <p>
+     * Subscriptions may only be made after the manager was started using
+     * {@link #start()}.
+     * </p>
+     * 
+     * @param itemId
+     *            id of the item to subscribe to
+     */
     protected synchronized void subscribe ( final String itemId )
     {
         logger.trace ( "Subscribe to - itemId: {}", itemId );
 
         if ( this.started )
         {
-            return;
+            throw new IllegalStateException ( "Items may only be subscribed when manager is started" );
         }
 
         if ( !this.subscribeList.add ( itemId ) )
@@ -227,8 +240,23 @@ public abstract class AbstractSubscriptionManager
         performSubscribe ( itemId );
     }
 
+    /**
+     * Subscribe to multiple items
+     * <p>
+     * Subscriptions may only be made after the manager was started using
+     * {@link #start()}.
+     * </p>
+     * 
+     * @param itemIds
+     *            the ids of the items to subscribe to
+     */
     protected synchronized void subscribeAll ( final Set<String> itemIds )
     {
+        if ( itemIds == null )
+        {
+            return;
+        }
+
         for ( final String itemId : itemIds )
         {
             subscribe ( itemId );
