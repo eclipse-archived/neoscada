@@ -121,8 +121,10 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
         super.unsubscribe ( itemId );
     }
 
+    @Override
     public void subscribeAll ( final Set<String> itemIds )
     {
         super.subscribeAll ( itemIds );
     }
+
 }

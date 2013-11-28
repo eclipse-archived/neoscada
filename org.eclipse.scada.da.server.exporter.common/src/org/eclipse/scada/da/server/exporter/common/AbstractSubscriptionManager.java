@@ -22,14 +22,19 @@ import java.util.concurrent.Future;
 import org.eclipse.scada.core.AttributesHelper;
 import org.eclipse.scada.core.InvalidSessionException;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.data.OperationParameters;
 import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.da.client.DataItemValue;
+import org.eclipse.scada.da.core.WriteAttributeResults;
+import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.core.server.InvalidItemException;
 import org.eclipse.scada.da.core.server.ItemChangeListener;
 import org.eclipse.scada.da.core.server.Session;
+import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.sec.callback.PropertiesCredentialsCallback;
 import org.eclipse.scada.utils.concurrent.FutureListener;
+import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -401,4 +406,27 @@ public abstract class AbstractSubscriptionManager
         putState ( itemId, builder.build () );
     }
 
+    public synchronized NotifyFuture<WriteResult> writeValue ( final String itemId, final Variant value, final OperationParameters operationParameters, final CallbackHandler callbackHandler )
+    {
+        try
+        {
+            return this.hive.startWrite ( this.session, itemId, value, operationParameters, callbackHandler );
+        }
+        catch ( final Exception e )
+        {
+            return new InstantErrorFuture<> ( e );
+        }
+    }
+
+    public synchronized NotifyFuture<WriteAttributeResults> writeAttributes ( final String itemId, final Map<String, Variant> attributes, final OperationParameters operationParameters, final CallbackHandler callbackHandler )
+    {
+        try
+        {
+            return this.hive.startWriteAttributes ( this.session, itemId, attributes, operationParameters, callbackHandler );
+        }
+        catch ( final Exception e )
+        {
+            return new InstantErrorFuture<> ( e );
+        }
+    }
 }
