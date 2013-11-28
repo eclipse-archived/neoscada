@@ -136,4 +136,11 @@
          fragment="true"
          unpack="false"/>
 
+   <plugin
+         id="javax.ws.rs"
+         download-size="0"
+         install-size="0"
+         version="1.1.1.v20130318-1750"
+         unpack="false"/>
+
 </feature>
