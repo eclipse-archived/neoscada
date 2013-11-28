@@ -15,9 +15,13 @@ import java.util.Properties;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
+import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.client.DataItemValue;
+import org.eclipse.scada.da.core.WriteAttributeResults;
+import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.server.exporter.common.AggregatingSubscriptionManager;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
+import org.eclipse.scada.utils.concurrent.NotifyFuture;
 
 public class DataContext
 {
@@ -38,6 +42,16 @@ public class DataContext
     public DataItemValue getValue ( final String itemId )
     {
         return this.subscriptionManager.getCacheValue ( itemId );
+    }
+
+    public NotifyFuture<WriteResult> writeValue ( final String itemId, final Variant value )
+    {
+        return this.subscriptionManager.writeValue ( itemId, value, null, null );
+    }
+
+    public NotifyFuture<WriteAttributeResults> writeAttributes ( final String itemId, final Map<String, Variant> attributes )
+    {
+        return this.subscriptionManager.writeAttributes ( itemId, attributes, null, null );
     }
 
     public void dispose ()

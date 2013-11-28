@@ -16,8 +16,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Variant;
 
+import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.client.DataItemValue;
 
 @Path ( "/org.eclipse.scada/da" )
@@ -32,8 +32,8 @@ public interface ItemResource
             final String itemId );
 
     @POST
-    @Path ( "/{contextId}/item/{itemId}" )
-    public void write (
+    @Path ( "/{contextId}/item/value/{itemId}" )
+    public WriteResult write (
             @PathParam ( "contextId" )
             final String contextId,
             @PathParam ( "itemId" )
@@ -42,8 +42,8 @@ public interface ItemResource
             );
 
     @POST
-    @Path ( "/{contextId}/item/{itemId}/attributes" )
-    public void writeAttribute (
+    @Path ( "/{contextId}/item/attributes/{itemId}" )
+    public Map<String, WriteResult> writeAttribute (
             @PathParam ( "contextId" )
             final String contextId,
             @PathParam ( "itemId" )
