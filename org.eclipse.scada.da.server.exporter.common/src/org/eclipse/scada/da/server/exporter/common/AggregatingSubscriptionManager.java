@@ -11,6 +11,7 @@
 package org.eclipse.scada.da.server.exporter.common;
 
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.da.client.DataItemValue;
@@ -118,5 +119,10 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
     public synchronized void unsubscribe ( final String itemId )
     {
         super.unsubscribe ( itemId );
+    }
+
+    public void subscribeAll ( final Set<String> itemIds )
+    {
+        super.subscribeAll ( itemIds );
     }
 }

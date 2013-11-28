@@ -214,6 +214,14 @@ public abstract class AbstractSubscriptionManager
         performSubscribe ( itemId );
     }
 
+    protected synchronized void subscribeAll ( final Set<String> itemIds )
+    {
+        for ( final String itemId : itemIds )
+        {
+            subscribe ( itemId );
+        }
+    }
+
     private void performSubscribe ( final String itemId )
     {
         try
@@ -351,4 +359,5 @@ public abstract class AbstractSubscriptionManager
         // put the state to the cache
         putState ( itemId, builder.build () );
     }
+
 }
