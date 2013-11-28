@@ -92,7 +92,7 @@ public class ItemResourceImpl implements ItemResource
             if ( cause instanceof InvalidOperationException )
             {
                 // this operation is now allowed for this item
-                throw new WebApplicationException ( Response.status ( Status.METHOD_NOT_ALLOWED ).build () );
+                throw new WebApplicationException ( Response.status ( Status.FORBIDDEN ).build () );
             }
             throw new WebApplicationException ( e.getCause () );
         }
