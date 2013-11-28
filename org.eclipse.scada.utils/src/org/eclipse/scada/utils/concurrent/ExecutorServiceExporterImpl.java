@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -53,11 +53,13 @@ public class ExecutorServiceExporterImpl implements ExecutorServiceExporterMXBea
 
     public void dispose ()
     {
+        logger.trace ( "Disposing..." );
         if ( this.didRegister )
         {
             try
             {
                 this.mbs.unregisterMBean ( this.name );
+                this.didRegister = false;
             }
             catch ( final Exception e )
             {
