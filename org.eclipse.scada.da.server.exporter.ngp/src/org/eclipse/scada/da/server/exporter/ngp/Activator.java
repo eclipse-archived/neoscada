@@ -102,7 +102,7 @@ public class Activator implements BundleActivator
         }
         catch ( final Exception e )
         {
-            logger.warn ( "Failed to export hd service", e );
+            logger.warn ( "Failed to export da service", e );
         }
     }
 
