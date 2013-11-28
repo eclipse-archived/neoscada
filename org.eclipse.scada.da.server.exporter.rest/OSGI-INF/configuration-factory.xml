@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" deactivate="dispose" name="org.eclipse.scada.da.server.exporter.rest.ConfigurationFactory">
+   <implementation class="org.eclipse.scada.da.server.exporter.rest.internal.ConfigurationFactoryImpl"/>
+   <service>
+      <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
+      <provide interface="org.eclipse.scada.da.server.exporter.rest.internal.DataContextProvider"/>
+   </service>
+   <property name="factoryId" type="String" value="org.eclipse.scada.da.server.exporter.rest.context"/>
+</scr:component>

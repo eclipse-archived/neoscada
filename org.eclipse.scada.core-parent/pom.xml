@@ -237,6 +237,7 @@
 		<module>../org.eclipse.scada.da.server.exporter.common</module>
 		<module>../org.eclipse.scada.da.server.exporter.modbus</module>
 		<module>../org.eclipse.scada.sec.provider.ca</module>
+		<module>../org.eclipse.scada.da.server.exporter.rest</module>
 	</modules>
 
 </project>
