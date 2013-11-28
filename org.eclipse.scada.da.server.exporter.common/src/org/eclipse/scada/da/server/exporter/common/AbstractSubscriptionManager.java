@@ -275,12 +275,21 @@ public abstract class AbstractSubscriptionManager
 
     public synchronized Map<String, DataItemValue> getCacheCopy ()
     {
-        if ( this.started )
+        if ( !this.started )
         {
             return Collections.emptyMap ();
         }
 
         return new HashMap<> ( this.cache );
+    }
+
+    public synchronized DataItemValue getCacheValue ( final String itemId )
+    {
+        if ( !this.started )
+        {
+            return null;
+        }
+        return this.cache.get ( itemId );
     }
 
     protected synchronized void handleDataChanged ( final String itemId, final Variant value, final Map<String, Variant> attributes, final boolean cache )
