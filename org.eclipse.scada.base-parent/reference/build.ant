@@ -38,10 +38,10 @@
       </header>
       <link href="http://download.oracle.com/javase/1.5.0/docs/api/"
         offline="true"
-        packagelistLoc="${toolsSourceDir}/releng/org.eclipse.rap.tools.build/reference/javadoc-packages/javase-1.5.0" />
+        packagelistLoc="javadoc-packages/javase-1.5.0" />
       <link href="http://www.osgi.org/javadoc/r4v43/"
         offline="true"
-        packagelistLoc="${toolsSourceDir}/releng/org.eclipse.rap.tools.build/reference/javadoc-packages/osgi-r4v43" />
+        packagelistLoc="javadoc-packages/osgi-r4v43" />
     </javadoc>
   </target>
 
