@@ -239,6 +239,7 @@
 		<module>../org.eclipse.scada.sec.provider.ca</module>
 		<module>../org.eclipse.scada.da.server.exporter.rest</module>
 		<module>../org.eclipse.scada.core.doc.isv</module>
+		<module>../org.eclipse.scada.core.ui.editors.feature</module>
 	</modules>
 
 </project>

@@ -23,6 +23,10 @@
          id="org.eclipse.scada.core.protocols"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.scada.core.ui.editors"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
    </requires>
@@ -476,20 +480,6 @@
 
    <plugin
          id="org.eclipse.scada.da.server.exec"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.server.exec.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.scada.da.server.exec.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
