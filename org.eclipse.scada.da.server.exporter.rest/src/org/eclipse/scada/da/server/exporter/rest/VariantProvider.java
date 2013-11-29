@@ -29,6 +29,8 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
+import org.eclipse.scada.base.json.VariantJsonDeserializer;
+import org.eclipse.scada.base.json.VariantJsonSerializer;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.VariantEditor;
 import org.slf4j.Logger;
@@ -56,6 +58,8 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
     {
         logger.debug ( "Created instance" );
         final GsonBuilder builder = new GsonBuilder ();
+        builder.registerTypeAdapter ( Variant.class, new VariantJsonSerializer () );
+        builder.registerTypeAdapter ( Variant.class, new VariantJsonDeserializer () );
         this.gson = builder.create ();
     }
 
@@ -81,7 +85,7 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
         if ( MediaType.APPLICATION_JSON_TYPE.isCompatible ( mediaType ) )
         {
             final PrintWriter writer = new PrintWriter ( entityStream );
-            writer.print ( this.gson.toJson ( t.toString () ) );
+            writer.print ( this.gson.toJson ( t ) );
             writer.flush ();
         }
         else if ( MediaType.TEXT_PLAIN_TYPE.isCompatible ( mediaType ) )
@@ -116,15 +120,23 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
     {
         logger.trace ( "readFrom" );
 
-        if ( MediaType.TEXT_PLAIN_TYPE.isCompatible ( mediaType ) )
+        if ( MediaType.APPLICATION_JSON_TYPE.isCompatible ( mediaType ) )
+        {
+            return variantFromJson ( entityStream, mediaType.getParameters ().get ( "charset" ) );
+        }
+        else if ( MediaType.TEXT_PLAIN_TYPE.isCompatible ( mediaType ) )
         {
             return variantFromString ( entityStream, mediaType.getParameters ().get ( "charset" ) );
         }
         throw new WebApplicationException ( Response.notAcceptable ( javax.ws.rs.core.Variant.mediaTypes ( SUPPORTED_TYPES_ARRAY ).build () ).build () );
     }
 
-    private Variant variantFromString ( final InputStream entityStream, final String charsetName ) throws IOException
+    private Variant variantFromString ( final InputStream entityStream, String charsetName ) throws IOException
     {
+        if ( charsetName == null )
+        {
+            charsetName = "UTF-8";
+        }
         final InputStreamReader reader = new InputStreamReader ( entityStream, Charset.forName ( charsetName ) );
 
         final String data = CharStreams.toString ( reader );
@@ -132,5 +144,16 @@ public class VariantProvider implements MessageBodyWriter<Variant>, MessageBodyR
         final VariantEditor ve = new VariantEditor ();
         ve.setAsText ( data );
         return (Variant)ve.getValue ();
+    }
+
+    private Variant variantFromJson ( final InputStream entityStream, String charsetName ) throws IOException
+    {
+        if ( charsetName == null )
+        {
+            charsetName = "UTF-8";
+        }
+        final InputStreamReader reader = new InputStreamReader ( entityStream, Charset.forName ( charsetName ) );
+
+        return this.gson.fromJson ( reader, Variant.class );
     }
 }

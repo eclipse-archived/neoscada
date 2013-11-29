@@ -24,21 +24,15 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.MessageBodyWriter;
 import javax.ws.rs.ext.Provider;
 
+import org.eclipse.scada.base.json.VariantJsonDeserializer;
+import org.eclipse.scada.base.json.VariantJsonSerializer;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.core.VariantEditor;
 import org.eclipse.scada.da.client.DataItemValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 
 @Provider
 @Produces ( value = { MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN } )
@@ -57,22 +51,8 @@ public class DataItemValueProvider implements MessageBodyWriter<DataItemValue>
         logger.debug ( "Created instance" );
 
         final GsonBuilder builder = new GsonBuilder ();
-        builder.registerTypeAdapter ( Variant.class, new JsonSerializer<Variant> () {
-
-            @Override
-            public JsonElement serialize ( final Variant src, final Type typeOfSrc, final JsonSerializationContext context )
-            {
-                return new JsonPrimitive ( src.toString () );
-            }
-        } );
-        builder.registerTypeAdapter ( Variant.class, new JsonDeserializer<Variant> () {
-
-            @Override
-            public Variant deserialize ( final JsonElement json, final Type typeOfT, final JsonDeserializationContext context ) throws JsonParseException
-            {
-                return VariantEditor.toVariant ( json.getAsString () );
-            }
-        } );
+        builder.registerTypeAdapter ( Variant.class, new VariantJsonSerializer () );
+        builder.registerTypeAdapter ( Variant.class, new VariantJsonDeserializer () );
         this.gson = builder.create ();
     }
 
