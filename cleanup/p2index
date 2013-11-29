@@ -21,7 +21,7 @@ from optparse import OptionParser
 
 version=os.getenv('VERSION','0.1.0')
 buildType=os.getenv('BUILD_TYPE','N')
-buildTypeLong=os.getenv('BUILD_TYPE_LONG','nigthly')
+buildTypeLong=os.getenv('BUILD_TYPE_LONG','nightly')
 buildTypeLabel=buildTypeLong.title()
 
 compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
