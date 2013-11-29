@@ -1,5 +1,5 @@
+org.eclipse.scada.base.json
 org.eclipse.scada.core
-org.eclipse.scada.core.info
 org.eclipse.scada.ds
 org.eclipse.scada.ds.internal
 org.eclipse.scada.ds.storage
