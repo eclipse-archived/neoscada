@@ -6138,6 +6138,89 @@ public interface OsgiPackage extends EPackage
     int EVENT_STORAGE_POSTGRES_OPERATION_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT + 2;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl <em>Rest Exporter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRestExporter()
+     * @generated
+     */
+    int REST_EXPORTER = 83;
+
+    /**
+     * The feature id for the '<em><b>Items</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER__ITEMS = APPLICATION_MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Hive Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER__HIVE_PROPERTIES = APPLICATION_MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Rest Exporter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER_FEATURE_COUNT = APPLICATION_MODULE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Rest Exporter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER_OPERATION_COUNT = APPLICATION_MODULE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.HttpServiceImpl <em>Http Service</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.HttpServiceImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getHttpService()
+     * @generated
+     */
+    int HTTP_SERVICE = 84;
+
+    /**
+     * The feature id for the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE__ENDPOINT = APPLICATION_CONFIGURATION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Http Service</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE_FEATURE_COUNT = APPLICATION_CONFIGURATION_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Http Service</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE_OPERATION_COUNT = APPLICATION_CONFIGURATION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6145,7 +6228,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 83;
+    int AVERAGE_REFERENCE_TYPE = 85;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6155,7 +6238,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 84;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 86;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6165,7 +6248,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 85;
+    int ROUNDING_TYPE = 87;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6175,7 +6258,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 86;
+    int DATA_TYPE = 88;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6185,7 +6268,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 87;
+    int PASSWORD_TYPE = 89;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6195,7 +6278,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 88;
+    int SEVERITY = 90;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6205,7 +6288,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 89;
+    int VARIANT = 91;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -9167,7 +9250,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getDriverBundles()
      * @generated
      */
-    EOperation getEventStoragePostgres__GetDriverBundles_1 ();
+    EOperation getEventStoragePostgres__GetDriverBundles ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc <em>Abstract Event Storage Jdbc</em>}'.
@@ -9274,6 +9357,59 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EClass getApplicationConfiguration ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.RestExporter <em>Rest Exporter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Rest Exporter</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.RestExporter
+     * @generated
+     */
+    EClass getRestExporter ();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getItems <em>Items</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Items</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.RestExporter#getItems()
+     * @see #getRestExporter()
+     * @generated
+     */
+    EReference getRestExporter_Items ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getHiveProperties <em>Hive Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Hive Properties</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.RestExporter#getHiveProperties()
+     * @see #getRestExporter()
+     * @generated
+     */
+    EReference getRestExporter_HiveProperties ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.HttpService <em>Http Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Http Service</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.HttpService
+     * @generated
+     */
+    EClass getHttpService ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.HttpService#getEndpoint <em>Endpoint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Endpoint</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.HttpService#getEndpoint()
+     * @see #getHttpService()
+     * @generated
+     */
+    EReference getHttpService_Endpoint ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
@@ -11766,7 +11902,7 @@ public interface OsgiPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres__GetDriverBundles_1 ();
+        EOperation EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres__GetDriverBundles ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl <em>Abstract Event Storage Jdbc</em>}' class.
@@ -11851,6 +11987,50 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EClass APPLICATION_CONFIGURATION = eINSTANCE.getApplicationConfiguration ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl <em>Rest Exporter</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRestExporter()
+         * @generated
+         */
+        EClass REST_EXPORTER = eINSTANCE.getRestExporter ();
+
+        /**
+         * The meta object literal for the '<em><b>Items</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference REST_EXPORTER__ITEMS = eINSTANCE.getRestExporter_Items ();
+
+        /**
+         * The meta object literal for the '<em><b>Hive Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference REST_EXPORTER__HIVE_PROPERTIES = eINSTANCE.getRestExporter_HiveProperties ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.HttpServiceImpl <em>Http Service</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.HttpServiceImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getHttpService()
+         * @generated
+         */
+        EClass HTTP_SERVICE = eINSTANCE.getHttpService ();
+
+        /**
+         * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference HTTP_SERVICE__ENDPOINT = eINSTANCE.getHttpService_Endpoint ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

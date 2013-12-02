@@ -212,6 +212,10 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createEventStorageJdbc ();
             case OsgiPackage.EVENT_STORAGE_POSTGRES:
                 return createEventStoragePostgres ();
+            case OsgiPackage.REST_EXPORTER:
+                return createRestExporter ();
+            case OsgiPackage.HTTP_SERVICE:
+                return createHttpService ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1043,6 +1047,28 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         EventStoragePostgresImpl eventStoragePostgres = new EventStoragePostgresImpl ();
         return eventStoragePostgres;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RestExporter createRestExporter ()
+    {
+        RestExporterImpl restExporter = new RestExporterImpl ();
+        return restExporter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public HttpService createHttpService ()
+    {
+        HttpServiceImpl httpService = new HttpServiceImpl ();
+        return httpService;
     }
 
     /**

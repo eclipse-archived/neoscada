@@ -661,6 +661,24 @@ public interface OsgiFactory extends EFactory
     EventStoragePostgres createEventStoragePostgres ();
 
     /**
+     * Returns a new object of class '<em>Rest Exporter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Rest Exporter</em>'.
+     * @generated
+     */
+    RestExporter createRestExporter ();
+
+    /**
+     * Returns a new object of class '<em>Http Service</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Http Service</em>'.
+     * @generated
+     */
+    HttpService createHttpService ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

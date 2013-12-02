@@ -581,6 +581,18 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseRestExporter ( RestExporter object )
+        {
+            return createRestExporterAdapter ();
+        }
+
+        @Override
+        public Adapter caseHttpService ( HttpService object )
+        {
+            return createHttpServiceAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -1888,6 +1900,36 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createApplicationConfigurationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.RestExporter <em>Rest Exporter</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.RestExporter
+     * @generated
+     */
+    public Adapter createRestExporterAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.HttpService <em>Http Service</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.HttpService
+     * @generated
+     */
+    public Adapter createHttpServiceAdapter ()
     {
         return null;
     }

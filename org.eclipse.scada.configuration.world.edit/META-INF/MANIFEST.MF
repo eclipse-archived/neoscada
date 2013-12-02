@@ -7,35 +7,10 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.world.provider.WorldEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.world.deployment.provider;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.emf.common.util,
-   org.eclipse.scada.configuration.world.deployment.util,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify",
- org.eclipse.scada.configuration.world.osgi.profile.provider;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.scada.configuration.world.osgi.profile.util,
-   org.eclipse.emf.common.util,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.edit.domain",
- org.eclipse.scada.configuration.world.osgi.provider;version="0.1.0";
-  uses:="org.eclipse.scada.configuration.world.osgi.util,
-   org.eclipse.emf.ecore,
-   org.eclipse.emf.common.util,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify,
-   org.eclipse.scada.configuration.world.provider,
-   org.eclipse.emf.edit.domain",
- org.eclipse.scada.configuration.world.provider;version="0.1.0";
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.scada.configuration.world.util,
-   org.eclipse.emf.common.util,
-   org.eclipse.emf.common,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.emf.common.notify,
-   org.eclipse.emf.edit.domain"
+Export-Package: org.eclipse.scada.configuration.world.deployment.provider;uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.scada.configuration.world.deployment.util,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify";version="0.1.0",
+ org.eclipse.scada.configuration.world.osgi.profile.provider;uses:="org.eclipse.emf.ecore,  org.eclipse.scada.configuration.world.osgi.profile.util,  org.eclipse.emf.common.util,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify,  org.eclipse.emf.edit.domain";version="0.1.0",
+ org.eclipse.scada.configuration.world.osgi.provider;uses:="org.eclipse.scada.configuration.world.osgi.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify,  org.eclipse.scada.configuration.world.provider,  org.eclipse.emf.edit.domain";version="0.1.0",
+ org.eclipse.scada.configuration.world.provider;uses:="org.eclipse.emf.ecore,  org.eclipse.scada.configuration.world.util,  org.eclipse.emf.common.util,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.emf.common.notify,  org.eclipse.emf.edit.domain";version="0.1.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.world;visibility:=reexport;bundle-version="0.1.0",
  org.eclipse.emf.edit;visibility:=reexport,

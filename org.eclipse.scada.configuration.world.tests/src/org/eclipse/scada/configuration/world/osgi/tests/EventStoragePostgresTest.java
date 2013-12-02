@@ -109,7 +109,7 @@ public class EventStoragePostgresTest extends AbstractEventStorageJdbcTest
      * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getDriverBundles()
      * @generated
      */
-    public void testGetDriverBundles_1 ()
+    public void testGetDriverBundles ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

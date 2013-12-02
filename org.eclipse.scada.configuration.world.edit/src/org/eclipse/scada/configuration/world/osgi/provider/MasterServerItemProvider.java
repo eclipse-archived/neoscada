@@ -365,6 +365,16 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements IEd
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createRestExporter () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createHttpService () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( OsgiPackage.Literals.MASTER_SERVER__SUMMARY_GROUPS,
                         OsgiFactory.eINSTANCE.createSummaryGroup () ) );
 

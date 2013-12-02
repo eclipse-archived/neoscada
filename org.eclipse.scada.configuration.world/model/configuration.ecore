@@ -758,6 +758,19 @@
         <details key="documentation" value="This interface is intended as a marker interface for modules that bring on configuration parts for modules which should also be used in higher level modules when configuring the application instance."/>
       </eAnnotations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RestExporter" eSuperTypes="#//osgi/ApplicationModule">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
+          eType="#//osgi/PropertyEntry" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HttpService" eSuperTypes="#//osgi/ApplicationConfiguration">
+      <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+        <details key="groupId" value="http.service"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+          eType="#//Endpoint"/>
+    </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

@@ -942,6 +942,28 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.REST_EXPORTER:
+            {
+                RestExporter restExporter = (RestExporter)theEObject;
+                T result = caseRestExporter ( restExporter );
+                if ( result == null )
+                    result = caseApplicationModule ( restExporter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.HTTP_SERVICE:
+            {
+                HttpService httpService = (HttpService)theEObject;
+                T result = caseHttpService ( httpService );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( httpService );
+                if ( result == null )
+                    result = caseApplicationModule ( httpService );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2271,6 +2293,38 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseApplicationConfiguration ( ApplicationConfiguration object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Rest Exporter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Rest Exporter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRestExporter ( RestExporter object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Http Service</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Http Service</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHttpService ( HttpService object )
     {
         return null;
     }

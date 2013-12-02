@@ -1847,6 +1847,56 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.RestExporter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestExporterItemProvider restExporterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.RestExporter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestExporterAdapter ()
+    {
+        if ( restExporterItemProvider == null )
+        {
+            restExporterItemProvider = new RestExporterItemProvider ( this );
+        }
+
+        return restExporterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.HttpService} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HttpServiceItemProvider httpServiceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.HttpService}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createHttpServiceAdapter ()
+    {
+        if ( httpServiceItemProvider == null )
+        {
+            httpServiceItemProvider = new HttpServiceItemProvider ( this );
+        }
+
+        return httpServiceItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2127,6 +2177,10 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory implement
             eventStorageJdbcItemProvider.dispose ();
         if ( eventStoragePostgresItemProvider != null )
             eventStoragePostgresItemProvider.dispose ();
+        if ( restExporterItemProvider != null )
+            restExporterItemProvider.dispose ();
+        if ( httpServiceItemProvider != null )
+            httpServiceItemProvider.dispose ();
     }
 
 }

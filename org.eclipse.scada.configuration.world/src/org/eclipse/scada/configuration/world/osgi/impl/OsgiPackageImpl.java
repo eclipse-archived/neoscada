@@ -67,6 +67,7 @@ import org.eclipse.scada.configuration.world.osgi.FormulaItemInbound;
 import org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound;
 import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
 import org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter;
+import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.ImportItem;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.ItemExport;
@@ -98,6 +99,7 @@ import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.ProxyItem;
 import org.eclipse.scada.configuration.world.osgi.PullEvents;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
+import org.eclipse.scada.configuration.world.osgi.RestExporter;
 import org.eclipse.scada.configuration.world.osgi.Rounding;
 import org.eclipse.scada.configuration.world.osgi.RoundingType;
 import org.eclipse.scada.configuration.world.osgi.Scale;
@@ -707,6 +709,20 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass applicationConfigurationEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass restExporterEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass httpServiceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -3889,7 +3905,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EOperation getEventStoragePostgres__GetDriverBundles_1 ()
+    public EOperation getEventStoragePostgres__GetDriverBundles ()
     {
         return eventStoragePostgresEClass.getEOperations ().get ( 1 );
     }
@@ -4002,6 +4018,56 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EClass getApplicationConfiguration ()
     {
         return applicationConfigurationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRestExporter ()
+    {
+        return restExporterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getRestExporter_Items ()
+    {
+        return (EReference)restExporterEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getRestExporter_HiveProperties ()
+    {
+        return (EReference)restExporterEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getHttpService ()
+    {
+        return httpServiceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getHttpService_Endpoint ()
+    {
+        return (EReference)httpServiceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -4496,6 +4562,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
 
+        restExporterEClass = createEClass ( REST_EXPORTER );
+        createEReference ( restExporterEClass, REST_EXPORTER__ITEMS );
+        createEReference ( restExporterEClass, REST_EXPORTER__HIVE_PROPERTIES );
+
+        httpServiceEClass = createEClass ( HTTP_SERVICE );
+        createEReference ( httpServiceEClass, HTTP_SERVICE__ENDPOINT );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -4612,6 +4685,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         eventStoragePostgresEClass.getESuperTypes ().add ( this.getAbstractEventStorageJdbc () );
         abstractEventStorageJdbcEClass.getESuperTypes ().add ( this.getEventStorage () );
         applicationConfigurationEClass.getESuperTypes ().add ( this.getApplicationModule () );
+        restExporterEClass.getESuperTypes ().add ( this.getApplicationModule () );
+        httpServiceEClass.getESuperTypes ().add ( this.getApplicationConfiguration () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -4994,7 +5069,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEOperation ( getEventStoragePostgres__GetJdbcDriverName (), ecorePackage.getEString (), "getJdbcDriverName", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getEventStoragePostgres__GetDriverBundles_1 (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getEventStoragePostgres__GetDriverBundles (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( abstractEventStorageJdbcEClass, AbstractEventStorageJdbc.class, "AbstractEventStorageJdbc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getAbstractEventStorageJdbc_JdbcProperties (), this.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5009,6 +5084,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEOperation ( getAbstractEventStorageJdbc__GetDriverBundles (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( restExporterEClass, RestExporter.class, "RestExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getRestExporter_Items (), this.getItem (), null, "items", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getRestExporter_HiveProperties (), this.getPropertyEntry (), null, "hiveProperties", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( httpServiceEClass, HttpService.class, "HttpService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getHttpService_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, HttpService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$
@@ -5071,6 +5153,11 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
                 source,
                 new String[]
                 {       "groupId", "ae.storage" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( httpServiceEClass,
+                source,
+                new String[]
+                {       "groupId", "http.service" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 
