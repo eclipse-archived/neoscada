@@ -54,9 +54,6 @@ public class SystemRunner
         }
 
         new GeneratorProcessor ( system, gen ).process ( monitor );
-
-        final World world = gen.getWorld ();
-
         new SummariesProcessor ( system, gen ).process ( monitor );
         new SummariesCompressor ( system, gen ).process ( monitor );
         new SummariesItemsGenerator ( system, gen ).process ( monitor );
@@ -75,7 +72,7 @@ public class SystemRunner
             final ResourceSet rs = new ResourceSetImpl ();
 
             final Resource r1 = rs.createResource ( URI.createURI ( output + "/result.eswm" ) );
-            r1.getContents ().add ( world );
+            r1.getContents ().add ( gen.getWorld () );
             final Resource r2 = rs.createResource ( URI.createURI ( output + "/result.globalize" ) );
             r2.getContents ().add ( gen.getGlobalize () );
 
