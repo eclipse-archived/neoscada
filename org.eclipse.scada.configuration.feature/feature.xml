@@ -149,13 +149,6 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.configuration.generator.world"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.eclipse.scada.configuration.globalization.lib"
          download-size="0"
          install-size="0"
@@ -262,6 +255,13 @@
 
    <plugin
          id="org.eclipse.scada.configuration.world.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
+	<plugin
+         id="org.eclipse.scada.configuration.world.lib"
          download-size="0"
          install-size="0"
          version="0.0.0"

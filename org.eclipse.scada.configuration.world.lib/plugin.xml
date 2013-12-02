@@ -3,7 +3,7 @@
 <plugin>
    <extension-point id="generator" name="generator" schema="schema/generator.exsd"/>
    <extension
-         point="org.eclipse.scada.configuration.generator.world.generator">
+         point="org.eclipse.scada.configuration.world.lib.generator">
       <nodeElementProcessor
             factoryClass="org.eclipse.scada.configuration.generator.world.DefaultNodeElementProcessorFactoryImpl">
          <forClass

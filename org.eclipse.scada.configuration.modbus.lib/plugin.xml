@@ -9,7 +9,7 @@
       </driverFactory>
    </extension>
       <extension
-         point="org.eclipse.scada.configuration.generator.world.generator">
+         point="org.eclipse.scada.configuration.world.lib.generator">
       <nodeElementProcessor
             factoryClass="org.eclipse.scada.configuration.modbus.lib.ModbusDriverProcessorFactory"
             forClass="org.eclipse.scada.configuration.modbus.ModbusDriver">

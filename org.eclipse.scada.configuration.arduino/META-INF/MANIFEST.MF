@@ -47,7 +47,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.item;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.infrastructure.lib,
- org.eclipse.scada.configuration.generator.world
+ org.eclipse.scada.configuration.world.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.core.resources,

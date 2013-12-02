@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.eclipse.scada.configuration.generator.world" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.scada.configuration.world.lib" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
-      <appinfo>
-         <meta.schema plugin="org.eclipse.scada.configuration.generator.world" id="generator" name="Generator Processors"/>
-      </appinfo>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.scada.configuration.world.lib" id="generator" name="Generator Processors"/>
+      </appInfo>
       <documentation>
          Defines some processors which take part in the generation process.
       </documentation>
@@ -12,9 +12,9 @@
 
    <element name="extension">
       <annotation>
-         <appinfo>
+         <appInfo>
             <meta.element />
-         </appinfo>
+         </appInfo>
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
@@ -40,9 +40,9 @@
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute translatable="true"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -58,9 +58,9 @@
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="factoryClass" type="string" use="required">
@@ -68,9 +68,9 @@
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.generator.world.NodeElementProcessorFactory"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -83,9 +83,9 @@
                <documentation>
                   
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
@@ -98,18 +98,18 @@
                <documentation>
                   The class implementing the processor
                </documentation>
-               <appinfo>
+               <appInfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.generator.world.oscar.OscarProcessor"/>
-               </appinfo>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <annotation>
-      <appinfo>
+      <appInfo>
          <meta.section type="since"/>
-      </appinfo>
+      </appInfo>
       <documentation>
          0.1.0
       </documentation>

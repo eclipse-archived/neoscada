@@ -38,7 +38,7 @@
       </driverFactory>
    </extension>
    <extension
-         point="org.eclipse.scada.configuration.generator.world.generator">
+         point="org.eclipse.scada.configuration.world.lib.generator">
       <nodeElementProcessor
             factoryClass="org.eclipse.scada.configuration.arduino.NodeElementProcessorFactoryImpl"
             forClass="org.eclipse.scada.configuration.arduino.ArduinoDriver">

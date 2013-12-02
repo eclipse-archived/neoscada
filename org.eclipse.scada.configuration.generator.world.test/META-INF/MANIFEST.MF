@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test for org.eclipse.scada.configuration.generator.world (Incubation)
-Bundle-SymbolicName: org.eclipse.scada.configuration.generator.world.test
+Bundle-SymbolicName: org.eclipse.scada.configuration.world.lib.test
 Bundle-Version: 0.1.0.qualifier
-Fragment-Host: org.eclipse.scada.configuration.generator.world;bundle-version="0.1.0"
+Fragment-Host: org.eclipse.scada.configuration.world.lib;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.junit;version="4.11.0"
 Bundle-Vendor: Eclipse SCADA Project

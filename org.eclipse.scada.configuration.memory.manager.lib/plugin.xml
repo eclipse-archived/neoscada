@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.scada.configuration.generator.world.generator">
+         point="org.eclipse.scada.configuration.world.lib.generator">
       <oscarProcessor
             class="org.eclipse.scada.configuration.memory.manager.lib.MemoryModelOscarProcessor">
       </oscarProcessor>
