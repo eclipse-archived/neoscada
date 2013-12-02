@@ -13,8 +13,8 @@ package org.eclipse.scada.configuration.modbus.lib;
 import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.World;
-import org.eclipse.scada.configuration.generator.world.NodeElementProcessor;
-import org.eclipse.scada.configuration.generator.world.NodeElementProcessorFactory;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory;
 
 public class ModbusDriverProcessorFactory implements NodeElementProcessorFactory
 {

@@ -22,9 +22,9 @@ import org.eclipse.scada.configuration.modbus.ModbusDriver;
 import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
+import org.eclipse.scada.configuration.world.lib.oscar.EquinoxApplicationProcessor;
+import org.eclipse.scada.configuration.world.lib.oscar.OscarContext;
 import org.eclipse.scada.utils.str.StringHelper;
-import org.eclipse.scada.configuration.generator.world.oscar.EquinoxApplicationProcessor;
-import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
 
 public class ModbusDriverProcessor extends EquinoxApplicationProcessor
 {

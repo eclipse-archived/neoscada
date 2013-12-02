@@ -11,10 +11,10 @@
 package org.eclipse.scada.configuration.arduino;
 
 import org.eclipse.scada.configuration.arduino.ArduinoDriver;
-import org.eclipse.scada.configuration.generator.world.NodeElementProcessor;
-import org.eclipse.scada.configuration.generator.world.NodeElementProcessorFactory;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.World;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory;
 
 public class NodeElementProcessorFactoryImpl implements NodeElementProcessorFactory
 {

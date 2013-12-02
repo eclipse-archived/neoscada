@@ -69,7 +69,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.generator.world.NodeElementProcessorFactory"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -99,7 +99,7 @@
                   The class implementing the processor
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.generator.world.oscar.OscarProcessor"/>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.world.lib.oscar.OscarProcessor"/>
                </appInfo>
             </annotation>
          </attribute>

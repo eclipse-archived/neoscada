@@ -18,14 +18,14 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
-import org.eclipse.scada.configuration.generator.world.oscar.OscarProcessor;
 import org.eclipse.scada.configuration.memory.Attribute;
 import org.eclipse.scada.configuration.memory.TypeDefinition;
 import org.eclipse.scada.configuration.memory.TypeSystem;
 import org.eclipse.scada.configuration.memory.Variable;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerModule;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerPackage;
+import org.eclipse.scada.configuration.world.lib.oscar.OscarContext;
+import org.eclipse.scada.configuration.world.lib.oscar.OscarProcessor;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 public class MemoryModelOscarProcessor implements OscarProcessor

@@ -17,9 +17,9 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.arduino.ArduinoConnection;
 import org.eclipse.scada.configuration.arduino.ArduinoDriver;
-import org.eclipse.scada.configuration.generator.world.oscar.EquinoxApplicationProcessor;
-import org.eclipse.scada.configuration.generator.world.oscar.OscarContext;
 import org.eclipse.scada.configuration.lib.Names;
+import org.eclipse.scada.configuration.world.lib.oscar.EquinoxApplicationProcessor;
+import org.eclipse.scada.configuration.world.lib.oscar.OscarContext;
 
 public class ArduinoProcessor extends EquinoxApplicationProcessor
 {

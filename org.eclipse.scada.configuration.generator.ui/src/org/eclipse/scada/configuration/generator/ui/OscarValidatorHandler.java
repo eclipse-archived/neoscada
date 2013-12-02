@@ -21,7 +21,7 @@ import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.scada.ca.oscar.OscarLoader;
-import org.eclipse.scada.configuration.generator.world.validator.LoopValidator;
+import org.eclipse.scada.configuration.world.lib.validator.LoopValidator;
 
 /**
  * Run a component model

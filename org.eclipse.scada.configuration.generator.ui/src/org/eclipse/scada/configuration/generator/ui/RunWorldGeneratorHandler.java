@@ -18,8 +18,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.scada.configuration.generator.world.WorldRunner;
 import org.eclipse.scada.configuration.world.World;
+import org.eclipse.scada.configuration.world.lib.WorldRunner;
 
 /**
  * Create artifacts from an existing world model
