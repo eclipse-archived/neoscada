@@ -2,7 +2,7 @@ Package: [[name]]
 Version: [[version]]
 Section: misc
 Priority: optional
-Architecture: amd64
+Architecture: all
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse SCADA base package
 Distribution: development
