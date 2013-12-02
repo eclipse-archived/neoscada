@@ -20,9 +20,9 @@ import org.eclipse.scada.configuration.generator.component.SystemRunner;
 import org.eclipse.scada.configuration.world.World;
 
 /**
- * Run a component model
+ * A full run for a Component/Infrastructure Model to deployable artifacts
  * 
- * @author IBH SYSTEMS GmbH
+ * @author Jens Reimann
  */
 public class RunSystemGeneratorHandler extends AbstractFileRunner
 {
