@@ -40,7 +40,7 @@ public class RunInfrastructureGeneratorHandler extends AbstractFileRunner
         final World infra = new ModelLoader<> ( World.class ).load ( URI.createURI ( file.getLocationURI ().toString () ) );
         monitor.worked ( 1 );
 
-        monitor.setTaskName ( "Generating workd" );
+        monitor.setTaskName ( "Generating world" );
         final WorldGenerator gen = new WorldGenerator ( infra );
         gen.generate ( new SubProgressMonitor ( monitor, 7 ) );
 
