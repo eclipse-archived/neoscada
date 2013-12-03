@@ -46,6 +46,10 @@ public class InjectHelper
                 name = field.getName ();
             }
 
+            // optional
+
+            final boolean optional = field.getAnnotation ( Optional.class ) != null;
+
             // check for special instances
 
             if ( named == null )
@@ -70,7 +74,11 @@ public class InjectHelper
 
             if ( !context.containsKey ( name ) )
             {
-                throw new IllegalStateException ( String.format ( "Unable to find '%s' in current context", name ) );
+                if ( !optional )
+                {
+                    throw new IllegalStateException ( String.format ( "Unable to find '%s' in current context", name ) );
+                }
+                continue; // field is optional
             }
 
             final Object value = context.get ( name );
