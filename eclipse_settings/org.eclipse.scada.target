@@ -80,7 +80,6 @@
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.9.1.v20130902-0605"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
-<location path="${project_loc:builder_external}/builder/lib" type="Directory"/>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="ch.qos.logback.slf4j.source" version="1.0.7.v20121108-1250"/>
 <unit id="ch.qos.logback.slf4j" version="1.0.7.v20121108-1250"/>
