@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -37,6 +40,7 @@ import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
+import org.eclipse.scada.configuration.recipe.lib.Output;
 import org.eclipse.scada.configuration.utils.TypeWalker;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.Credentials;
@@ -62,21 +66,39 @@ import org.slf4j.LoggerFactory;
 
 public class WorldGenerator
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( WorldGenerator.class );
 
-    private final org.eclipse.scada.configuration.infrastructure.World infrastructure;
+    @Inject
+    @Named ( "infrastructureModel" )
+    private org.eclipse.scada.configuration.infrastructure.World infrastructure;
 
+    @Output
     private World world;
 
+    @Output
     private Globalization globalize;
 
-    private final Options options;
+    private Options options;
+
+    public WorldGenerator ()
+    {
+    }
 
     public WorldGenerator ( final org.eclipse.scada.configuration.infrastructure.World infrastructure )
     {
         this.infrastructure = infrastructure;
         this.options = infrastructure.getOptions ();
+    }
+
+    public void setInfrastructure ( final org.eclipse.scada.configuration.infrastructure.World infrastructure )
+    {
+        this.infrastructure = infrastructure;
+        this.options = infrastructure.getOptions ();
+    }
+
+    public WorldGenerator getWorldGenerator ()
+    {
+        return this;
     }
 
     public World getWorld ()

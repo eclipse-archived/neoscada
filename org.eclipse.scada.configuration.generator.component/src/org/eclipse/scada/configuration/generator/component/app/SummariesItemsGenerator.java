@@ -15,7 +15,6 @@ import java.util.List;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.component.Component;
-import org.eclipse.scada.configuration.component.System;
 import org.eclipse.scada.configuration.component.lib.create.AbstractComponentItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.MasterItemCreatorImpl;
@@ -50,16 +49,17 @@ public class SummariesItemsGenerator extends MasterApplicationProcessor
         }
     }
 
-    private final System system;
+    public SummariesItemsGenerator ()
+    {
+    }
 
     public SummariesItemsGenerator ( final org.eclipse.scada.configuration.component.System system, final WorldGenerator worldGenerator )
     {
         super ( system, worldGenerator );
-        this.system = system;
     }
 
     @Override
-    public void process ( final MasterContext app, final IProgressMonitor monitor ) throws Exception
+    public void processContext ( final MasterContext app, final IProgressMonitor monitor ) throws Exception
     {
         final AbstractComponentItemCreator creator = new SummariesItemCreatorImpl ( app, null );
         new TypeWalker<> ( SummaryGroup.class ).walk ( app.getImplementation (), new TypeVisitor<SummaryGroup> () {

@@ -24,13 +24,17 @@ import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
 
 public class SummariesProcessor extends MasterApplicationProcessor
 {
+    public SummariesProcessor ()
+    {
+    }
+
     public SummariesProcessor ( final org.eclipse.scada.configuration.component.System system, final WorldGenerator world )
     {
         super ( system, world );
     }
 
     @Override
-    public void process ( final MasterContext app, final IProgressMonitor monitor )
+    public void processContext ( final MasterContext app, final IProgressMonitor monitor )
     {
         for ( final Item item : app.getImplementation ().getItems () )
         {

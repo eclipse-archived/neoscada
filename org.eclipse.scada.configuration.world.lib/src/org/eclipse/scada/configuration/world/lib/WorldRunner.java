@@ -43,7 +43,7 @@ public class WorldRunner
 
     private static final String ELE_NODE_ELEMENT_PROCESSOR = "nodeElementProcessor"; //$NON-NLS-1$
 
-    public void process ( final URI input, final IContainer output, final IProgressMonitor monitor ) throws Exception
+    public void processUri ( final URI input, final IContainer output, final IProgressMonitor monitor ) throws Exception
     {
         logger.debug ( "Processing file: {}", input ); //$NON-NLS-1$
 

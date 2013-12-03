@@ -20,13 +20,17 @@ import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
 
 public class AlarmsInformationProcessor extends MasterApplicationProcessor
 {
+    public AlarmsInformationProcessor ()
+    {
+    }
+
     public AlarmsInformationProcessor ( final System system, final WorldGenerator worldGenerator )
     {
         super ( system, worldGenerator );
     }
 
     @Override
-    protected void process ( final MasterContext masterContext, final IProgressMonitor monitor ) throws Exception
+    protected void processContext ( final MasterContext masterContext, final IProgressMonitor monitor ) throws Exception
     {
         // FIXME: this must be set from external
 

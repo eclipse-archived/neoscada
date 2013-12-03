@@ -29,13 +29,17 @@ import org.eclipse.scada.utils.str.StringHelper;
 
 public class MarkerGroupGeneratorProcessor extends MasterApplicationProcessor
 {
+    public MarkerGroupGeneratorProcessor ()
+    {
+    }
+
     public MarkerGroupGeneratorProcessor ( final System system, final WorldGenerator world )
     {
         super ( system, world );
     }
 
     @Override
-    public void process ( final MasterContext masterContext, final IProgressMonitor monitor )
+    public void processContext ( final MasterContext masterContext, final IProgressMonitor monitor )
     {
         final MasterServer app = masterContext.getImplementation ();
 

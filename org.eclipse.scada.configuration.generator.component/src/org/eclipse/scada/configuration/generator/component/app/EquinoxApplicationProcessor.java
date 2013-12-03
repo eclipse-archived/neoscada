@@ -12,6 +12,9 @@ package org.eclipse.scada.configuration.generator.component.app;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.lib.Configurations;
@@ -23,7 +26,14 @@ public abstract class EquinoxApplicationProcessor<App extends EquinoxApplication
 
     private final Class<App> clazz;
 
-    private final org.eclipse.scada.configuration.component.System system;
+    @Inject
+    @Named ( "componentModel" )
+    protected org.eclipse.scada.configuration.component.System system;
+
+    public EquinoxApplicationProcessor ( final Class<App> clazz )
+    {
+        this.clazz = clazz;
+    }
 
     public EquinoxApplicationProcessor ( final Class<App> clazz, final org.eclipse.scada.configuration.component.System system )
     {

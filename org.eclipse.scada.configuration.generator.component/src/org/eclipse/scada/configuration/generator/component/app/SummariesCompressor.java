@@ -22,17 +22,21 @@ import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
 
 public class SummariesCompressor extends MasterApplicationProcessor
 {
-    private final SummariesConfiguration configuration;
+    private SummariesConfiguration configuration;
+
+    public SummariesCompressor ()
+    {
+    }
 
     public SummariesCompressor ( final org.eclipse.scada.configuration.component.System system, final WorldGenerator world )
     {
         super ( system, world );
-        this.configuration = Configurations.findDefaultConfiguration ( system, SummariesConfiguration.class );
     }
 
     @Override
-    protected void process ( final MasterContext app, final IProgressMonitor monitor )
+    protected void processContext ( final MasterContext app, final IProgressMonitor monitor )
     {
+        this.configuration = Configurations.findDefaultConfiguration ( this.system, SummariesConfiguration.class );
         for ( final SummaryGroup group : app.getImplementation ().getSummaryGroups () )
         {
             processGroup ( group );

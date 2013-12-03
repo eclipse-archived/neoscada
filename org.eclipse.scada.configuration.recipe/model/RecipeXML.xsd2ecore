@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="recipe.ecore#/" outputs="RecipeXML.xsd#/">
+  <nested inputs="recipe.ecore#/" outputs="RecipeXML.xsd#/">
+    <nested inputs="recipe.ecore#//Definition" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition">
+      <nested inputs="recipe.ecore#//Definition/name" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//Definition/task" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="recipe.ecore#//Definition/import" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="recipe.ecore#//Definition" outputs="RecipeXML.xsd#//Definition;XSDElementDeclaration"/>
+    <nested inputs="recipe.ecore#//Task" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1">
+      <nested inputs="recipe.ecore#//Task/name" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//Task/order" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1/XSDAttributeUse=1"/>
+      <nested inputs="recipe.ecore#//Task/execute" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="recipe.ecore#//Task/definition" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1/XSDAttributeUse=2"/>
+    </nested>
+    <nested inputs="recipe.ecore#//Task" outputs="RecipeXML.xsd#//Task;XSDElementDeclaration=1"/>
+    <nested inputs="recipe.ecore#//Execute" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2">
+      <nested inputs="recipe.ecore#//Execute/name" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//Execute/task" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDAttributeUse=1"/>
+      <nested inputs="recipe.ecore#//Execute/mapInput" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="recipe.ecore#//Execute/inputValue" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+      <nested inputs="recipe.ecore#//Execute/output" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2"/>
+      <nested inputs="recipe.ecore#//Execute/inputReference" outputs="RecipeXML.xsd#//Execute;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=3"/>
+    </nested>
+    <nested inputs="recipe.ecore#//Execute" outputs="RecipeXML.xsd#//Execute;XSDElementDeclaration=2"/>
+    <nested inputs="recipe.ecore#//MapInput" outputs="RecipeXML.xsd#//MapInput;XSDComplexTypeDefinition=3">
+      <nested inputs="recipe.ecore#//MapInput/localName" outputs="RecipeXML.xsd#//MapInput;XSDComplexTypeDefinition=3/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//MapInput/contextName" outputs="RecipeXML.xsd#//MapInput;XSDComplexTypeDefinition=3/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="recipe.ecore#//MapInput" outputs="RecipeXML.xsd#//MapInput;XSDElementDeclaration=3"/>
+    <nested inputs="recipe.ecore#//InputValue" outputs="RecipeXML.xsd#//InputValue;XSDComplexTypeDefinition=4">
+      <nested inputs="recipe.ecore#//InputValue/name" outputs="RecipeXML.xsd#//InputValue;XSDComplexTypeDefinition=4/XSDAttributeUse"/>
+    </nested>
+    <nested inputs="recipe.ecore#//StringInputValue" outputs="RecipeXML.xsd#//StringInputValue;XSDComplexTypeDefinition=5">
+      <nested inputs="recipe.ecore#//StringInputValue/value" outputs="RecipeXML.xsd#//StringInputValue;XSDComplexTypeDefinition=5/XSDAttributeUse"/>
+    </nested>
+    <nested inputs="recipe.ecore#//StringInputValue" outputs="RecipeXML.xsd#//StringInputValue;XSDElementDeclaration=4"/>
+    <nested inputs="recipe.ecore#//CaptureOutput" outputs="RecipeXML.xsd#//CaptureOutput;XSDComplexTypeDefinition=6">
+      <nested inputs="recipe.ecore#//CaptureOutput/localName" outputs="RecipeXML.xsd#//CaptureOutput;XSDComplexTypeDefinition=6/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//CaptureOutput/contextName" outputs="RecipeXML.xsd#//CaptureOutput;XSDComplexTypeDefinition=6/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="recipe.ecore#//CaptureOutput" outputs="RecipeXML.xsd#//CaptureOutput;XSDElementDeclaration=5"/>
+    <nested inputs="recipe.ecore#//InputReference" outputs="RecipeXML.xsd#//InputReference;XSDComplexTypeDefinition=7">
+      <nested inputs="recipe.ecore#//InputReference/expression" outputs="RecipeXML.xsd#//InputReference;XSDComplexTypeDefinition=7/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//InputReference/name" outputs="RecipeXML.xsd#//InputReference;XSDComplexTypeDefinition=7/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="recipe.ecore#//InputReference" outputs="RecipeXML.xsd#//InputReference;XSDElementDeclaration=6"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

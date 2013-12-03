@@ -51,7 +51,7 @@ public class RunWorldGeneratorHandler extends AbstractFileRunner
         outputContainer.create ( true, true, new SubProgressMonitor ( monitor, 1 ) );
 
         monitor.setTaskName ( "Creating output" );
-        new WorldRunner ().process ( URI.createURI ( file.getLocationURI ().toString () ), outputContainer, new SubProgressMonitor ( monitor, 8 ) );
+        new WorldRunner ().processUri ( URI.createURI ( file.getLocationURI ().toString () ), outputContainer, new SubProgressMonitor ( monitor, 8 ) );
 
         monitor.done ();
     }

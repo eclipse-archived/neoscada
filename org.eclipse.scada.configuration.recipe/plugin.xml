@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ Copyright (c) 2013 IBH SYSTEMS GmbH.
+ All rights reserved. This program and the accompanying materials
+ are made available under the terms of the Eclipse Public License v1.0
+ which accompanies this distribution, and is available at
+ http://www.eclipse.org/legal/epl-v10.html
+ 
+ Contributors:
+     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ 
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated recipe -->
+      <package
+            uri="http://eclipse.org/SCADA/Configuration/Recipe"
+            class="org.eclipse.scada.configuration.recipe.RecipePackage"
+            genModel="model/recipe.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.content_parser">
+      <!-- @generated recipe -->
+      <parser
+            contentTypeIdentifier="org.eclipse.scada.configuration.recipe"
+            class="org.eclipse.scada.configuration.recipe.util.RecipeResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated recipe -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="recipe"
+            id="org.eclipse.scada.configuration.recipe"
+            name="%_UI_Recipe_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/Configuration/Recipe"/>
+         </describer>
+      </content-type>
+   </extension>
+
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution>
+   				<uri
+               name="http://eclipse.org/SCADA/Configuration/Recipe"
+               uri="model/RecipeXML.xsd">
+         </uri>
+      </catalogContribution>
+   </extension>
+
+</plugin>

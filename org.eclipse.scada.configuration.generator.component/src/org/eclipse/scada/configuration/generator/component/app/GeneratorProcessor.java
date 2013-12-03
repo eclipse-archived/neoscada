@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -56,13 +58,29 @@ public class GeneratorProcessor
 
     private final static Logger logger = LoggerFactory.getLogger ( GeneratorProcessor.class );
 
-    private final EObject content;
+    @Inject
+    private EObject content;
 
-    private final WorldGenerator worldGenerator;
+    @Inject
+    private WorldGenerator worldGenerator;
+
+    public GeneratorProcessor ()
+    {
+    }
 
     public GeneratorProcessor ( final EObject content, final WorldGenerator worldGenerator )
     {
         this.content = content;
+        this.worldGenerator = worldGenerator;
+    }
+
+    public void setContent ( final EObject content )
+    {
+        this.content = content;
+    }
+
+    public void setWorldGenerator ( final WorldGenerator worldGenerator )
+    {
         this.worldGenerator = worldGenerator;
     }
 
