@@ -90,7 +90,7 @@ public class InjectHelper
         }
     }
 
-    private static void setField ( final Object target, final Field field, final Object value ) throws IllegalArgumentException, IllegalAccessException
+    public static void setField ( final Object target, final Field field, final Object value ) throws IllegalArgumentException, IllegalAccessException
     {
         if ( field.isAccessible () )
         {
@@ -99,10 +99,29 @@ public class InjectHelper
         else
         {
             field.setAccessible ( true );
-            ;
             try
             {
                 field.set ( target, value );
+            }
+            finally
+            {
+                field.setAccessible ( false );
+            }
+        }
+    }
+
+    public static Object getField ( final Object target, final Field field ) throws IllegalArgumentException, IllegalAccessException
+    {
+        if ( field.isAccessible () )
+        {
+            return field.get ( target );
+        }
+        else
+        {
+            field.setAccessible ( true );
+            try
+            {
+                return field.get ( target );
             }
             finally
             {
