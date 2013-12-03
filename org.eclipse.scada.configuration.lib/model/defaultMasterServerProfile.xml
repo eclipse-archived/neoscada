@@ -47,6 +47,9 @@
   <start>org.eclipse.scada.ae.server.exporter.ngp</start>
   <property key="osgi.console.ssh">2501</property>
   <property key="org.eclipse.scada.ae.server.storage.jdbc.archiveDays">15</property>
+  
+  <feature>org.eclipse.scada.core.feature.group</feature>
+  
   <argument>-Xmx1280m</argument>
   <argument>-Xms768m</argument>
   <argument>-XX:PermSize=64m</argument>
