@@ -41,4 +41,30 @@ public final class Reflections
         return result;
     }
 
+    /**
+     * Find a field from all declared fields of a class
+     * 
+     * @param clazz
+     *            the class to start searching for the field
+     * @param fieldName
+     *            the name of the field to search for
+     * @return the field or <code>null</code> if the field was not found
+     */
+    public static Field findField ( Class<?> clazz, final String fieldName )
+    {
+        while ( clazz != null )
+        {
+            try
+            {
+                return clazz.getDeclaredField ( fieldName );
+            }
+            catch ( final NoSuchFieldException e )
+            {
+                // continue search
+            }
+            clazz = clazz.getSuperclass ();
+        }
+        return null;
+    }
+
 }
