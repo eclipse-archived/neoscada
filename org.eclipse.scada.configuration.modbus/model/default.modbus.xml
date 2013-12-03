@@ -7,7 +7,4 @@
 
 	<start>org.eclipse.scada.da.server.common.memory</start>
 	<start>org.eclipse.scada.da.server.osgi.modbus</start>
-
-	<feature>org.eclipse.scada.deploy.console.feature.group</feature>
-	<feature>org.eclipse.scada.core.server.feature.group</feature>
 </profile:profile>
