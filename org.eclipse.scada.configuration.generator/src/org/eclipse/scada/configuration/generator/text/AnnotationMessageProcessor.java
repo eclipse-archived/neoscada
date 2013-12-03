@@ -11,11 +11,10 @@
 package org.eclipse.scada.configuration.generator.text;
 
 import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
+
+import org.eclipse.scada.utils.reflect.Reflections;
 
 public class AnnotationMessageProcessor implements MessageTarget
 {
@@ -34,7 +33,7 @@ public class AnnotationMessageProcessor implements MessageTarget
 
     protected void processFields ( final FieldProcessor processor )
     {
-        for ( final Field field : findAllFields () )
+        for ( final Field field : Reflections.findAllFields ( this.target.getClass () ) )
         {
             final Message message = field.getAnnotation ( Message.class );
             if ( message == null )
@@ -80,20 +79,6 @@ public class AnnotationMessageProcessor implements MessageTarget
                 }
             }
         } );
-
-        return result;
-    }
-
-    public Collection<Field> findAllFields ()
-    {
-        final Collection<Field> result = new LinkedList<> ();
-
-        Class<?> clazz = this.target.getClass ();
-        while ( clazz != null )
-        {
-            result.addAll ( Arrays.asList ( clazz.getDeclaredFields () ) );
-            clazz = clazz.getSuperclass ();
-        }
 
         return result;
     }
