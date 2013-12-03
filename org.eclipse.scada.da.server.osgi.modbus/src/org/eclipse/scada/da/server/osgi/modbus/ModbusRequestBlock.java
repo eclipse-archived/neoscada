@@ -136,15 +136,22 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         return this.slave.createPollRequest ( transactionId.incrementAndGet (), this.request );
     }
 
+    /* (non-Javadoc)
+     * @see org.eclipse.scada.da.server.common.memory.MemoryRequestBlock#getStartAddress()
+     * 
+     * in this case it is actually the modbus register
+     */
     @Override
     public int getStartAddress ()
     {
         return this.request.getStartAddress ();
     }
 
-    private int toGlobalAddress ( final int blockAddress )
+    private int toWriteAddress ( final int blockAddress )
     {
-        return this.request.getStartAddress () + blockAddress;
+    	// blockAddress is given in bytes, but we have to align it
+    	// back to the actual modbus register
+        return this.request.getStartAddress () + blockAddress / 2;
     }
 
     @Override
@@ -154,7 +161,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write bits when the block is of type %s", RequestType.COIL ) );
         }
-        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toGlobalAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
+        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toWriteAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
         requestUpdate ();
     }
 
@@ -167,9 +174,9 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         }
         if (data.length == 2) {
             int value = ByteBuffer.wrap ( data ).getShort () & 0xFFFF;
-            this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toGlobalAddress ( blockAddress ), value), this.request.getTimeout () );
+            this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toWriteAddress ( blockAddress ), value), this.request.getTimeout () );
         } else {
-            this.slave.writeCommand ( new WriteMultiDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toGlobalAddress ( blockAddress ), data ), this.request.getTimeout () );
+            this.slave.writeCommand ( new WriteMultiDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toWriteAddress ( blockAddress ), data ), this.request.getTimeout () );
         }
         // FUNCTION_CODE_WRITE_MULTIPLE_COILS is not supported at the moment, since we do not support setting multiple bits at once.
         requestUpdate ();

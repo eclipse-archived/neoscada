@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor fixes
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
@@ -26,6 +27,15 @@ public class Request
 
     private final boolean eager;
 
+    /**
+     * @param type DISCRETE, COIL, INPUT, HOLDING
+     * @param startAddress in this case it is actually the modbus register 
+     * @param count number of registers to read (must no more than 250)
+     * @param period polling rate
+     * @param timeout after timeout seconds without answer mark values as error
+     * @param mainTypeName
+     * @param eager
+     */
     public Request ( final RequestType type, final int startAddress, final int count, final long period, final long timeout, final String mainTypeName, final boolean eager )
     {
         this.type = type;
