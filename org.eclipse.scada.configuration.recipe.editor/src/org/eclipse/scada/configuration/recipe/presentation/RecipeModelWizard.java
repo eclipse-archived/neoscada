@@ -83,6 +83,7 @@ import org.eclipse.scada.configuration.recipe.provider.RecipeEditPlugin;
 
 import org.eclipse.core.runtime.Path;
 
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 
@@ -262,7 +263,7 @@ public class RecipeModelWizard extends Wizard implements INewWizard
 
                                 // Create a resource for this file.
                                 //
-                                Resource resource = resourceSet.createResource ( fileURI );
+                                Resource resource = resourceSet.createResource ( fileURI, RecipePackage.eCONTENT_TYPE );
 
                                 // Add the initial model object to the contents.
                                 //
@@ -315,7 +316,9 @@ public class RecipeModelWizard extends Wizard implements INewWizard
             {
                 page.openEditor
                         ( new FileEditorInput ( modelFile ),
-                                workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
+                                workbench.getEditorRegistry ().getDefaultEditor
+                                        ( modelFile.getFullPath ().toString (),
+                                                Platform.getContentTypeManager ().getContentType ( RecipePackage.eCONTENT_TYPE ) ).getId () );
             }
             catch ( PartInitException exception )
             {

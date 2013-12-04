@@ -27,6 +27,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/mapInput"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/inputValue"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/output"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Execute/inputReference"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//MapInput">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//MapInput/localName"/>
@@ -42,6 +43,10 @@
     <genClasses ecoreClass="recipe.ecore#//CaptureOutput">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//CaptureOutput/localName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//CaptureOutput/contextName"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//InputReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//InputReference/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//InputReference/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
