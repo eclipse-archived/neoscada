@@ -74,6 +74,9 @@ import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
+import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
@@ -152,14 +155,30 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
 
         if ( this.info.isEnableIntegrationSystem () )
         {
-            save ( rs, base, "productive.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" );
-            save ( rs, base, "integration.recipe", integrationRecipe, "org.eclipse.scada.configuration.recipe" );
+            final NodeMappings mappings = createNodeMappings ();
+            save ( rs, base, "nodeMappings.esdi", mappings ); //$NON-NLS-1$ 
+
+            save ( rs, base, "productive.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" ); //$NON-NLS-1$ //$NON-NLS-2$
+            save ( rs, base, "integration.recipe", integrationRecipe, "org.eclipse.scada.configuration.recipe" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         else
         {
-            save ( rs, base, "default.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" );
+            save ( rs, base, "default.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
+    }
+
+    private NodeMappings createNodeMappings ()
+    {
+        final NodeMappings mappings = DeploymentFactory.eINSTANCE.createNodeMappings ();
+        mappings.setFallbackMode ( FallbackNodeMappingMode.IGNORE );
+        final ExpressionNodeMappingEntry exp = DeploymentFactory.eINSTANCE.createExpressionNodeMappingEntry ();
+        mappings.getEntries ().add ( exp );
+
+        exp.setPattern ( Pattern.compile ( "node(\\d+)" ) ); //$NON-NLS-1$
+        exp.setReplacement ( "testnode$1" ); //$NON-NLS-1$
+
+        return mappings;
     }
 
     private DeploymentInformation createDeploymentInformation ()
