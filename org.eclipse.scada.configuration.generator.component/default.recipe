@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<recipe:Definition name="Default Recipies" xmlns:recipe="http://eclipse.org/SCADA/Configuration/Recipe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/Recipe ../org.eclipse.scada.configuration.recipe/model/RecipeXML.xsd ">
+<recipe:Definition name="Default Configuration Recipe" xmlns:recipe="http://eclipse.org/SCADA/Configuration/Recipe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/Recipe ../org.eclipse.scada.configuration.recipe/model/RecipeXML.xsd ">
 
 <task order="100000" name="WorldGenerator">
 	<execute name="bundle-class://org.eclipse.scada.configuration.infrastructure.lib/org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator#generate">
