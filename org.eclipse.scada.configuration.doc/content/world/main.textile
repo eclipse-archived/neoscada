@@ -1,0 +1,12 @@
+{toc}
+
+h1. Introduction
+
+The world model defines all technical elements that the system can contain.
+
+h1. NodeElementProcessor
+
+Each main element (under System/ApplicationNode) must be processed by a NodeElementProcessor. The WorldRunner will use an extension point to find NodeElemenProcessorFactory classes which will then be used to find the appropriate NodeElementProcessor instances.
+
+If is possible to mark a model element so that it will be ignored by the generation process and therefore it does not require to provide a NodeElementProcessor. This is done by using the ECore Annotation <code>http://eclipse.org/SCADA/Configuration/World</code>, setting the key <code>ignore</code> to the value <code>true</code>.
+

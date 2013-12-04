@@ -7,6 +7,7 @@
    </topic>
    <topic label="World">
       <anchor id="world"/>
+      <link toc="content/world/main-toc.xml"/>
    </topic>
    <topic label="Reference">
       <anchor id="reference"/>
