@@ -5,14 +5,11 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated exec -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
       <wizard
             id="org.eclipse.scada.da.exec.configuration.presentation.ConfigurationModelWizardID"
             name="%_UI_ConfigurationModelWizard_label"
             class="org.eclipse.scada.da.exec.configuration.presentation.ConfigurationModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.scada.configuration"
             icon="icons/full/obj16/ConfigurationModelFile.gif">
          <description>%_UI_ConfigurationModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
