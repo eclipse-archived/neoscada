@@ -134,7 +134,8 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final System system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
         final DeploymentInformation di = createDeploymentInformation ();
 
-        final Definition recipe = RecipeBuilder.createDefaultRecipe ();
+        final Definition defaultRecipe = RecipeBuilder.createDefaultRecipe ();
+        final Definition integrationRecipe = RecipeBuilder.createIntegrationRecipe ();
 
         save ( rs, base, "global/deployment.information.esdi", di ); //$NON-NLS-1$
 
@@ -149,7 +150,16 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         save ( rs, base, "world.esim", world ); //$NON-NLS-1$
         save ( rs, base, "world.escm", system ); //$NON-NLS-1$
 
-        save ( rs, base, "default.recipe", recipe, "org.eclipse.scada.configuration.recipe" );
+        if ( this.info.isEnableIntegrationSystem () )
+        {
+            save ( rs, base, "productive.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" );
+            save ( rs, base, "integration.recipe", integrationRecipe, "org.eclipse.scada.configuration.recipe" );
+        }
+        else
+        {
+            save ( rs, base, "default.recipe", defaultRecipe, "org.eclipse.scada.configuration.recipe" );
+        }
+
     }
 
     private DeploymentInformation createDeploymentInformation ()

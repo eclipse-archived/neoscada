@@ -40,11 +40,23 @@ public class ProjectInformation
 
     private DebianDeploymentMechanism debianDeploymentMechanism;
 
+    private boolean enableIntegrationSystem = true;
+
     public ProjectInformation ()
     {
         this.defaultInterconnectCredentials = WorldFactory.eINSTANCE.createUsernamePasswordCredentials ();
         this.defaultInterconnectCredentials.setUsername ( "interconnect" );
         this.defaultInterconnectCredentials.setPassword ( "interconnect12" );
+    }
+
+    public void setEnableIntegrationSystem ( final boolean enableIntegrationSystem )
+    {
+        this.enableIntegrationSystem = enableIntegrationSystem;
+    }
+
+    public boolean isEnableIntegrationSystem ()
+    {
+        return this.enableIntegrationSystem;
     }
 
     public void setDebianDeploymentMechanism ( final DebianDeploymentMechanism debianDeploymentMechanism )

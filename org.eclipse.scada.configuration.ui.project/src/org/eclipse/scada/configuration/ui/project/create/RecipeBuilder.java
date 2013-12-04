@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.recipe.Task;
 import org.eclipse.scada.configuration.utils.LoadModel;
 import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.utils.StoreModel;
+import org.eclipse.scada.configuration.world.lib.deployment.NodeMappingHandler;
 import org.osgi.framework.FrameworkUtil;
 
 public class RecipeBuilder
@@ -30,14 +31,37 @@ public class RecipeBuilder
 
     public static Definition createDefaultRecipe () throws IOException
     {
+        return createRecipe ( false );
+    }
+
+    public static Definition createIntegrationRecipe () throws IOException
+    {
+        return createRecipe ( true );
+    }
+
+    protected static Definition createRecipe ( final boolean nodeMappings ) throws IOException
+    {
         final Definition recipe = RecipeFactory.eINSTANCE.createDefinition ();
         recipe.getImport ().add ( new ModelLoader<Definition> ( Definition.class ).load ( URI.createURI ( "platform:/plugin/org.eclipse.scada.configuration.generator.component/default.recipe" ) ) ); //$NON-NLS-1$
 
         {
             final Task loadTask = createTask ( recipe, 0, "Load Models" );
-            final Execute exec = addExecute ( loadTask, LoadModel.class, "load" ); //$NON-NLS-1$ 
-            createStringInputValue ( exec, "uri", "world.escm" ); //$NON-NLS-1$ //$NON-NLS-2$
-            createOutputCapture ( exec, "model", "componentModel" ); //$NON-NLS-1$ //$NON-NLS-2$
+            {
+                final Execute exec = addExecute ( loadTask, LoadModel.class, "load" ); //$NON-NLS-1$ 
+                createStringInputValue ( exec, "uri", "world.escm" ); //$NON-NLS-1$ //$NON-NLS-2$
+                createOutputCapture ( exec, "model", "componentModel" ); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+            if ( nodeMappings )
+            {
+                final Execute exec = addExecute ( loadTask, LoadModel.class, "load" ); //$NON-NLS-1$ 
+                createStringInputValue ( exec, "uri", "nodeMappings.esdi" ); //$NON-NLS-1$ //$NON-NLS-2$
+                createOutputCapture ( exec, "model", "nodeMappings" ); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+        }
+        if ( nodeMappings )
+        {
+            final Task mappings = createTask ( recipe, 550_000, "Node Mappings" );
+            addExecute ( mappings, NodeMappingHandler.class, "execute" ); //$NON-NLS-1$ 
         }
         {
             final Task storeTask = createTask ( recipe, Integer.MAX_VALUE, "Store Models" );
@@ -93,4 +117,5 @@ public class RecipeBuilder
         map.setLocalName ( localName );
         exec.getMapInput ().add ( map );
     }
+
 }
