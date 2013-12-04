@@ -53,12 +53,6 @@ public abstract class CommonHandler implements NodeElementProcessor
         this.applicationNode = applicationNode;
     }
 
-    @Override
-    public void process ( final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
-    {
-        getPackageFolder ( nodeDir );
-    }
-
     protected abstract String getBaseFolderName ();
 
     public String getPackageName ()

@@ -54,9 +54,12 @@ public class DebianHandler extends CommonHandler
     }
 
     @Override
-    public void process ( final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
+    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
     {
-        super.process ( nodeDir, monitor );
+        if ( phase == null || !"package".equals ( phase ) )
+        {
+            return;
+        }
 
         final File packageFolder = getPackageFolder ( nodeDir );
 

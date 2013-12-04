@@ -15,5 +15,22 @@ import org.eclipse.core.runtime.IProgressMonitor;
 
 public interface NodeElementProcessor
 {
-    public void process ( IFolder baseDir, IProgressMonitor monitor ) throws Exception;
+    /**
+     * Process a node
+     * <p>
+     * A processor should only do stuff it is supposed to do for the phase that
+     * is is called. If the phase is <code>null</code> it should do all its
+     * stuff at the same time.
+     * </p>
+     * 
+     * @param phase
+     *            the phase the processor should handle, or <code>null</code>
+     * @param baseDir
+     *            the base directory for output
+     * @param monitor
+     *            the monitor
+     * @throws Exception
+     *             if anything goes wrong
+     */
+    public void process ( String phase, IFolder baseDir, IProgressMonitor monitor ) throws Exception;
 }

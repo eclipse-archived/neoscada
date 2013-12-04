@@ -38,8 +38,13 @@ public abstract class DriverProcessor implements NodeElementProcessor
     }
 
     @Override
-    public void process ( final IFolder baseDir, final IProgressMonitor monitor ) throws Exception
+    public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor ) throws Exception
     {
+        if ( phase == null || !"process".equals ( phase ) )
+        {
+            return;
+        }
+
         final String name = makeName ();
 
         final IFolder output = baseDir.getFolder ( new Path ( name ) );

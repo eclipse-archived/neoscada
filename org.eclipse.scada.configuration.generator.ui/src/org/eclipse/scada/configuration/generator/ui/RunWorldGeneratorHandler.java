@@ -78,7 +78,7 @@ public class RunWorldGeneratorHandler extends AbstractFileRunner
     public static void runWithOutput ( final World world, final IContainer outputContainer, final IProgressMonitor monitor ) throws CoreException, Exception
     {
         monitor.setTaskName ( "Creating output" );
-        new WorldRunner ().process ( world, outputContainer, monitor );
+        new WorldRunner ().process ( null, world, outputContainer, monitor );
     }
 
 }

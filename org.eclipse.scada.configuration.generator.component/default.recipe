@@ -34,20 +34,15 @@
 </task>
 
 <task order="600000" name="WorldRunner">
-	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process"/>
+	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="package"/>
+	</execute>
 </task>
 
-<!-- 
-<task order="600000" name="WriteModels">
-	<execute name="StoreModel">
-		<mapInput localName="model" contextName="worldModel"/>
-		<inputValue name="uri" xsi:type="recipe:StringInputValue" value="output/result.eswm"/>
-	</execute>
-	<execute name="StoreModel">
-		<mapInput localName="model" contextName="generatorModel"/>
-		<inputValue name="uri" xsi:type="recipe:StringInputValue" value="output/result.globalize"/>
+<task order="700000" name="WorldRunner">
+	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="deploy"/>
 	</execute>
 </task>
- -->
 
 </recipe:Definition>

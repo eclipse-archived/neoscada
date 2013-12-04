@@ -22,8 +22,13 @@ public abstract class AbstractFolderProcessor extends BasicProcessor implements 
     }
 
     @Override
-    public void process ( final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
+    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
     {
+        if ( phase == null || !"package".equals ( phase ) )
+        {
+            return;
+        }
+
         final String name = makeName ();
         final IFolder folder = nodeDir.getFolder ( name );
         folder.create ( true, true, monitor );

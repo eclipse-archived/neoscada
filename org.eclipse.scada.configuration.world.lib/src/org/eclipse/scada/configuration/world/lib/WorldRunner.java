@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib;
 
+import javax.inject.Named;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
@@ -24,6 +26,7 @@ import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.Node;
+import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
 import org.eclipse.scada.configuration.world.lib.internal.Activator;
@@ -49,10 +52,13 @@ public class WorldRunner
 
         monitor.setTaskName ( "Loading model" );
 
-        process ( new ModelLoader<World> ( World.class ).load ( input ), output, monitor );
+        process ( null, new ModelLoader<World> ( World.class ).load ( input ), output, monitor );
     }
 
-    public void process ( final World world, final IContainer output, final IProgressMonitor monitor ) throws Exception
+    public void process (
+            @Named ( "phase" )
+            final String phase,
+            final World world, final IContainer output, final IProgressMonitor monitor ) throws Exception
     {
         monitor.beginTask ( "Processing world", world.getNodes ().size () );
 
@@ -60,7 +66,7 @@ public class WorldRunner
         {
             if ( node instanceof ApplicationNode )
             {
-                processNode ( world, (ApplicationNode)node, output, new SubProgressMonitor ( monitor, 1 ) );
+                processNode ( phase, world, (ApplicationNode)node, output, new SubProgressMonitor ( monitor, 1 ) );
             }
             monitor.worked ( 1 );
         }
@@ -68,7 +74,7 @@ public class WorldRunner
         monitor.done ();
     }
 
-    private void processNode ( final World world, final ApplicationNode applicationNode, final IContainer output, final IProgressMonitor monitor ) throws Exception
+    private void processNode ( final String phase, final World world, final ApplicationNode applicationNode, final IContainer output, final IProgressMonitor monitor ) throws Exception
     {
         logger.debug ( "Processing node: {}", applicationNode ); //$NON-NLS-1$
 
@@ -82,7 +88,7 @@ public class WorldRunner
             logger.debug ( "Processing application: {}", app ); //$NON-NLS-1$
 
             final NodeElementProcessor processor = createProcessor ( app, world, applicationNode );
-            processor.process ( nodeDir, monitor );
+            processor.process ( phase, nodeDir, monitor );
         }
 
         for ( final DeploymentMechanism deploy : applicationNode.getDeployments () )
@@ -90,8 +96,15 @@ public class WorldRunner
             logger.debug ( "Processing deployment: {}", deploy ); //$NON-NLS-1$
 
             final NodeElementProcessor processor = createProcessor ( deploy, world, applicationNode );
-            processor.process ( nodeDir, monitor );
+            processor.process ( phase, nodeDir, monitor );
+        }
 
+        for ( final Service service : applicationNode.getServices () )
+        {
+            logger.debug ( "Processing service: {}", service ); //$NON-NLS-1$
+
+            final NodeElementProcessor processor = createProcessor ( service, world, applicationNode );
+            processor.process ( phase, nodeDir, monitor );
         }
     }
 
