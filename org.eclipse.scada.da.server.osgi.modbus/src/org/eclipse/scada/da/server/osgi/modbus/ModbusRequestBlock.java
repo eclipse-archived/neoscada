@@ -154,6 +154,14 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         return this.request.getStartAddress () + blockAddress / 2;
     }
 
+    private int toWriteAddressBit ( final int blockAddress, final int subIndex )
+    {
+    	// blockAddress is given in bytes, but we have to align it
+    	// back to the actual modbus register, in this case it is just 
+    	// a continuous address space
+        return this.request.getStartAddress () + blockAddress * 8 + subIndex;
+    }
+
     @Override
     public void writeBit ( final int blockAddress, final int subIndex, final boolean value )
     {
@@ -161,7 +169,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write bits when the block is of type %s", RequestType.COIL ) );
         }
-        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toWriteAddress ( blockAddress * 8 + subIndex ), value ), this.request.getTimeout () );
+        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toWriteAddressBit ( blockAddress, subIndex ), value ), this.request.getTimeout () );
         requestUpdate ();
     }
 
