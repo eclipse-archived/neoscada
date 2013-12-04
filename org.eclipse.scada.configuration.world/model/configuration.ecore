@@ -19,6 +19,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationNode" eSuperTypes="#//Node">
     <eStructuralFeatures xsi:type="ecore:EReference" name="applications" upperBound="-1"
         eType="#//Application" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
+        eType="#//Service" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Documentable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -75,6 +77,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Credentials" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"
+      eSuperTypes="#//Documentable"/>
   <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
       nsPrefix="osgi">
     <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">

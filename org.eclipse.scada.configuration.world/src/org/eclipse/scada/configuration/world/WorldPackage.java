@@ -335,13 +335,22 @@ public interface WorldPackage extends EPackage
     int APPLICATION_NODE__APPLICATIONS = NODE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_NODE__SERVICES = NODE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Application Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICATION_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+    int APPLICATION_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Application Node</em>' class.
@@ -992,6 +1001,52 @@ public interface WorldPackage extends EPackage
     int EXTERNAL_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.Service <em>Service</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.Service
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getService()
+     * @generated
+     */
+    int SERVICE = 16;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE__SHORT_DESCRIPTION = DOCUMENTABLE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE__NAME = DOCUMENTABLE__NAME;
+
+    /**
+     * The number of structural features of the '<em>Service</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_FEATURE_COUNT = DOCUMENTABLE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Service</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_OPERATION_COUNT = DOCUMENTABLE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -999,7 +1054,7 @@ public interface WorldPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 16;
+    int PATTERN = 17;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
@@ -1096,6 +1151,17 @@ public interface WorldPackage extends EPackage
      * @generated
      */
     EReference getApplicationNode_Applications ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.ApplicationNode#getServices <em>Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Services</em>'.
+     * @see org.eclipse.scada.configuration.world.ApplicationNode#getServices()
+     * @see #getApplicationNode()
+     * @generated
+     */
+    EReference getApplicationNode_Services ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
@@ -1425,6 +1491,16 @@ public interface WorldPackage extends EPackage
     EClass getExternalNode ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.Service <em>Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Service</em>'.
+     * @see org.eclipse.scada.configuration.world.Service
+     * @generated
+     */
+    EClass getService ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1536,6 +1612,14 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EReference APPLICATION_NODE__APPLICATIONS = eINSTANCE.getApplicationNode_Applications ();
+
+        /**
+         * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference APPLICATION_NODE__SERVICES = eINSTANCE.getApplicationNode_Services ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}' class.
@@ -1810,6 +1894,16 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EClass EXTERNAL_NODE = eINSTANCE.getExternalNode ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.Service <em>Service</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.Service
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getService()
+         * @generated
+         */
+        EClass SERVICE = eINSTANCE.getService ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

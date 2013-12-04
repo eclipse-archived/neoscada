@@ -18,6 +18,10 @@ import java.util.regex.Pattern;
  * A representation of the model object '<em><b>Expression Node Mapping Entry</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Replace the hostname with an case insensitive regular expression. The replacement string may reference capture groups using the dollar ($) sign. See also java.util.regex.Matcher.replaceAll - http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#replaceAll%28java.lang.String%29
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

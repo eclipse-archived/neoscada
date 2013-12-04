@@ -34,6 +34,7 @@ import org.eclipse.scada.configuration.world.MasterHandlerPriorities;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.Options;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
@@ -165,6 +166,13 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * @generated
      */
     private EClass externalNodeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass serviceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -351,6 +359,16 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
     public EReference getApplicationNode_Applications ()
     {
         return (EReference)applicationNodeEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getApplicationNode_Services ()
+    {
+        return (EReference)applicationNodeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -699,6 +717,16 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getService ()
+    {
+        return serviceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getPattern ()
     {
@@ -748,6 +776,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         applicationNodeEClass = createEClass ( APPLICATION_NODE );
         createEReference ( applicationNodeEClass, APPLICATION_NODE__APPLICATIONS );
+        createEReference ( applicationNodeEClass, APPLICATION_NODE__SERVICES );
 
         documentableEClass = createEClass ( DOCUMENTABLE );
         createEAttribute ( documentableEClass, DOCUMENTABLE__SHORT_DESCRIPTION );
@@ -792,6 +821,8 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         credentialsEClass = createEClass ( CREDENTIALS );
 
         externalNodeEClass = createEClass ( EXTERNAL_NODE );
+
+        serviceEClass = createEClass ( SERVICE );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -847,6 +878,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         usernamePasswordCredentialsEClass.getESuperTypes ().add ( this.getCredentials () );
         passwordCredentialsEClass.getESuperTypes ().add ( this.getCredentials () );
         externalNodeEClass.getESuperTypes ().add ( this.getNode () );
+        serviceEClass.getESuperTypes ().add ( this.getDocumentable () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -860,6 +892,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         initEClass ( applicationNodeEClass, ApplicationNode.class, "ApplicationNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getApplicationNode_Applications (), this.getApplication (), null, "applications", null, 0, -1, ApplicationNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getApplicationNode_Services (), this.getService (), null, "services", null, 0, -1, ApplicationNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( documentableEClass, Documentable.class, "Documentable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDocumentable_ShortDescription (), ecorePackage.getEString (), "shortDescription", null, 0, 1, Documentable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -907,6 +940,8 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         initEClass ( credentialsEClass, Credentials.class, "Credentials", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( externalNodeEClass, ExternalNode.class, "ExternalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( serviceEClass, Service.class, "Service", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

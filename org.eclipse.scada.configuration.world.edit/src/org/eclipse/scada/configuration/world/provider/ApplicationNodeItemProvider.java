@@ -80,6 +80,7 @@ public class ApplicationNodeItemProvider extends NodeItemProvider implements IEd
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS );
+            childrenFeatures.add ( WorldPackage.Literals.APPLICATION_NODE__SERVICES );
         }
         return childrenFeatures;
     }
@@ -140,6 +141,7 @@ public class ApplicationNodeItemProvider extends NodeItemProvider implements IEd
         switch ( notification.getFeatureID ( ApplicationNode.class ) )
         {
             case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+            case WorldPackage.APPLICATION_NODE__SERVICES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }

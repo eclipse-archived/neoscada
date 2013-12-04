@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
+import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
@@ -30,6 +31,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.ApplicationNodeImpl#getApplications <em>Applications</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.ApplicationNodeImpl#getServices <em>Services</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,6 +48,16 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
      * @ordered
      */
     protected EList<Application> applications;
+
+    /**
+     * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getServices()
+     * @generated
+     * @ordered
+     */
+    protected EList<Service> services;
 
     /**
      * <!-- begin-user-doc -->
@@ -87,6 +99,20 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<Service> getServices ()
+    {
+        if ( services == null )
+        {
+            services = new EObjectContainmentEList.Resolving<Service> ( Service.class, this, WorldPackage.APPLICATION_NODE__SERVICES );
+        }
+        return services;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -94,6 +120,8 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
         {
             case WorldPackage.APPLICATION_NODE__APPLICATIONS:
                 return ( (InternalEList<?>)getApplications () ).basicRemove ( otherEnd, msgs );
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return ( (InternalEList<?>)getServices () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -110,6 +138,8 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
         {
             case WorldPackage.APPLICATION_NODE__APPLICATIONS:
                 return getApplications ();
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return getServices ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -129,6 +159,10 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
                 getApplications ().clear ();
                 getApplications ().addAll ( (Collection<? extends Application>)newValue );
                 return;
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                getServices ().clear ();
+                getServices ().addAll ( (Collection<? extends Service>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -146,6 +180,9 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
             case WorldPackage.APPLICATION_NODE__APPLICATIONS:
                 getApplications ().clear ();
                 return;
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                getServices ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -162,6 +199,8 @@ public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
         {
             case WorldPackage.APPLICATION_NODE__APPLICATIONS:
                 return applications != null && !applications.isEmpty ();
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return services != null && !services.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

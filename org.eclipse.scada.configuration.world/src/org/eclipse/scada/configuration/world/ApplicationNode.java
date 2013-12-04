@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.ApplicationNode#getApplications <em>Applications</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.ApplicationNode#getServices <em>Services</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,5 +46,21 @@ public interface ApplicationNode extends Node
      * @generated
      */
     EList<Application> getApplications ();
+
+    /**
+     * Returns the value of the '<em><b>Services</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Service}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Services</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode_Services()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Service> getServices ();
 
 } // ApplicationNode

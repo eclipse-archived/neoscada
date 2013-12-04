@@ -32,25 +32,19 @@ import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEnt
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getPattern
- * <em>Pattern</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getReplacement
- * <em>Replacement</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getReplacement <em>Replacement</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry
 {
     /**
-     * The default value of the '{@link #getPattern() <em>Pattern</em>}'
-     * attribute.
+     * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -58,11 +52,9 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected static final Pattern PATTERN_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPattern() <em>Pattern</em>}'
-     * attribute.
+     * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -70,11 +62,9 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected Pattern pattern = PATTERN_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getReplacement() <em>Replacement</em>}'
-     * attribute.
+     * The default value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getReplacement()
      * @generated
      * @ordered
@@ -82,11 +72,9 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected static final String REPLACEMENT_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getReplacement() <em>Replacement</em>}'
-     * attribute.
+     * The cached value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getReplacement()
      * @generated
      * @ordered
@@ -96,7 +84,6 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ExpressionNodeMappingEntryImpl ()
@@ -107,7 +94,6 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -119,59 +105,51 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Pattern getPattern ()
     {
-        return this.pattern;
+        return pattern;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setPattern ( final Pattern newPattern )
+    public void setPattern ( Pattern newPattern )
     {
-        final Pattern oldPattern = this.pattern;
-        this.pattern = newPattern;
+        Pattern oldPattern = pattern;
+        pattern = newPattern;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, oldPattern, this.pattern ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, oldPattern, pattern ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getReplacement ()
     {
-        return this.replacement;
+        return replacement;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setReplacement ( final String newReplacement )
+    public void setReplacement ( String newReplacement )
     {
-        final String oldReplacement = this.replacement;
-        this.replacement = newReplacement;
+        String oldReplacement = replacement;
+        replacement = newReplacement;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, oldReplacement, this.replacement ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, oldReplacement, replacement ) );
     }
 
     /**
@@ -205,11 +183,10 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -224,11 +201,10 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -245,11 +221,10 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -266,18 +241,17 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                return PATTERN_EDEFAULT == null ? this.pattern != null : !PATTERN_EDEFAULT.equals ( this.pattern );
+                return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals ( pattern );
             case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                return REPLACEMENT_EDEFAULT == null ? this.replacement != null : !REPLACEMENT_EDEFAULT.equals ( this.replacement );
+                return REPLACEMENT_EDEFAULT == null ? replacement != null : !REPLACEMENT_EDEFAULT.equals ( replacement );
         }
         return super.eIsSet ( featureID );
     }
@@ -285,11 +259,10 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -302,22 +275,19 @@ public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (pattern: " ); //$NON-NLS-1$
-        result.append ( this.pattern );
+        result.append ( pattern );
         result.append ( ", replacement: " ); //$NON-NLS-1$
-        result.append ( this.replacement );
+        result.append ( replacement );
         result.append ( ')' );
         return result.toString ();
     }

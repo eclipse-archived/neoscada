@@ -16,6 +16,10 @@ package org.eclipse.scada.configuration.world.deployment;
  * A representation of the model object '<em><b>Simple Node Mapping Entry</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * Replace a hostname by matching it against the fromHostName field and replacing it with the toHostName field if it matches. It is compared case insensitive.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
