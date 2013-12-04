@@ -60,6 +60,7 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
+import org.eclipse.scada.configuration.recipe.Definition;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.security.GenericScript;
 import org.eclipse.scada.configuration.security.LogonRule;
@@ -133,6 +134,8 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final System system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
         final DeploymentInformation di = createDeploymentInformation ();
 
+        final Definition recipe = RecipeBuilder.createDefaultRecipe ();
+
         save ( rs, base, "global/deployment.information.esdi", di ); //$NON-NLS-1$
 
         save ( rs, base, "global/global.security", security ); //$NON-NLS-1$
@@ -146,6 +149,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         save ( rs, base, "world.esim", world ); //$NON-NLS-1$
         save ( rs, base, "world.escm", system ); //$NON-NLS-1$
 
+        save ( rs, base, "default.recipe", recipe, "org.eclipse.scada.configuration.recipe" );
     }
 
     private DeploymentInformation createDeploymentInformation ()
@@ -154,7 +158,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
 
         final Author author = DeploymentFactory.eINSTANCE.createAuthor ();
 
-        final String username = java.lang.System.getProperty ( "user.name", "unknown" );
+        final String username = java.lang.System.getProperty ( "user.name", "unknown" ); //$NON-NLS-1$
         String hostname;
         try
         {
@@ -396,7 +400,12 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
 
     protected static Resource save ( final ResourceSet rs, final URI base, final String localName, final EObject content ) throws IOException
     {
-        final Resource resource = rs.createResource ( base.appendSegments ( localName.split ( "\\/" ) ) );
+        return save ( rs, base, localName, content, null );
+    }
+
+    protected static Resource save ( final ResourceSet rs, final URI base, final String localName, final EObject content, final String contentType ) throws IOException
+    {
+        final Resource resource = rs.createResource ( base.appendSegments ( localName.split ( "\\/" ) ), contentType );
         resource.getContents ().add ( content );
         resource.save ( null );
         return resource;
