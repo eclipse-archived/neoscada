@@ -12,8 +12,18 @@
    <feature url="features/org.eclipse.scada.ide.da.server.ui_0.1.0.qualifier.jar" id="org.eclipse.scada.ide.da.server.ui" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.ide.da.server.ui"/>
    </feature>
-   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration (Incubation)"/>
-   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse SCADA Configuration SDK (Incubation)"/>
+   <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration (Incubation)">
+      <description>
+         The Eclipse SCADA IDE Configuration System Components.
+
+Install this if you want to creation configuration projects for using Eclipse SCADA setups.
+      </description>
+   </category-def>
+   <category-def name="org.eclipse.scada.configuration.sdk.category" label="Eclipse SCADA Configuration SDK (Incubation)">
+      <description>
+         The SDK for the IDE based configuration system.
+      </description>
+   </category-def>
    <category-def name="org.eclipse.scada.ide.protocol" label="Eclipse SCADA Protocol Editing Additions (Incubation)">
       <description>
          Installs some editing additions for the NGP protocol model.
