@@ -35,13 +35,13 @@
 
 <task order="600000" name="WorldRunner">
 	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
-		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="package"/>
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="process"/>
 	</execute>
 </task>
 
 <task order="700000" name="WorldRunner">
 	<execute name="bundle-class://org.eclipse.scada.configuration.world.lib/org.eclipse.scada.configuration.world.lib.WorldRunner#process">
-		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="deploy"/>
+		<inputValue name="phase" xsi:type="recipe:StringInputValue" value="package"/>
 	</execute>
 </task>
 

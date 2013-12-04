@@ -81,7 +81,11 @@ public class WorldRunner
         final String name = makeName ( applicationNode );
 
         final IFolder nodeDir = output.getFolder ( new Path ( name ) );
-        nodeDir.create ( true, true, monitor );
+
+        if ( !nodeDir.exists () )
+        {
+            nodeDir.create ( true, true, monitor );
+        }
 
         for ( final Application app : applicationNode.getApplications () )
         {

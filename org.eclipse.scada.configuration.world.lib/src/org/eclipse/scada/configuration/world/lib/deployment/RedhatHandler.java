@@ -57,7 +57,7 @@ public class RedhatHandler extends CommonHandler
     @Override
     public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
     {
-        if ( phase == null || !"package".equals ( phase ) )
+        if ( phase != null && !"package".equals ( phase ) )
         {
             return;
         }
