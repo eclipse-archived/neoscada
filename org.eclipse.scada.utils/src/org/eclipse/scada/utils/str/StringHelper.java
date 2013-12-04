@@ -107,4 +107,32 @@ public class StringHelper
 
         return buffer.toString ();
     }
+
+    public static String toUpperFirst ( final String name )
+    {
+        if ( name == null )
+        {
+            return null;
+        }
+        if ( name.length () <= 1 )
+        {
+            return name.toUpperCase ();
+        }
+
+        return name.substring ( 0, 1 ).toUpperCase () + name.substring ( 1 );
+    }
+
+    public static String toLowerFirst ( final String name )
+    {
+        if ( name == null )
+        {
+            return null;
+        }
+        if ( name.length () <= 1 )
+        {
+            return name.toLowerCase ();
+        }
+
+        return name.substring ( 0, 1 ).toLowerCase () + name.substring ( 1 );
+    }
 }

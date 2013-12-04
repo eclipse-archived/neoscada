@@ -11,12 +11,15 @@
 package org.eclipse.scada.utils.inject;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.eclipse.scada.utils.str.StringHelper;
 
 public class InjectHelper
 {
@@ -98,8 +101,34 @@ public class InjectHelper
         }
     }
 
+    /**
+     * Set a field value
+     * <p>
+     * The method will try to set the field using a setter first.
+     * </p>
+     * 
+     * @param target
+     *            the target object
+     * @param field
+     *            the field to set
+     * @param value
+     *            the value to set
+     * @throws IllegalArgumentException
+     * @throws IllegalAccessException
+     */
     public static void setField ( final Object target, final Field field, final Object value ) throws IllegalArgumentException, IllegalAccessException
     {
+        try
+        {
+            // try setter first
+            final Method setter = target.getClass ().getMethod ( "set" + StringHelper.toUpperFirst ( field.getName () ), field.getType () );
+            setter.invoke ( target, value );
+        }
+        catch ( final Exception e )
+        {
+            // continue with field access
+        }
+
         if ( field.isAccessible () )
         {
             field.set ( target, value );
