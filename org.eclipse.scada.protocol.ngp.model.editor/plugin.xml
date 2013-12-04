@@ -18,22 +18,6 @@
       </wizard>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated ngp -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolModelWizardID"
-            name="%_UI_ProtocolModelWizard_label"
-            class="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ProtocolModelFile.gif">
-         <description>%_UI_ProtocolModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
    <extension point="org.eclipse.ui.editors">
       <editor
             id="org.eclipse.scada.protocol.ngp.model.Protocol.presentation.ProtocolEditorID"

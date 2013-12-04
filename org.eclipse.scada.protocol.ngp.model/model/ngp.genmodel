@@ -10,7 +10,8 @@
     importOrganizing="true">
   <foreignModel>ngp.ecore</foreignModel>
   <genPackages prefix="Protocol" basePackage="org.eclipse.scada.protocol.ngp.model"
-      resource="XMI" disposableProviderFactory="true" ecorePackage="ngp.ecore#/">
+      resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
+      ecorePackage="ngp.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ngp.ecore#//Type">
       <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/SCALAR"/>
       <genEnumLiterals ecoreEnumLiteral="ngp.ecore#//Type/OPTIONAL"/>
