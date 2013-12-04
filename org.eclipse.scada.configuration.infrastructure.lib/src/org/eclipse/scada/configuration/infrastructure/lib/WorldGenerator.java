@@ -167,6 +167,7 @@ public class WorldGenerator
 
             final ApplicationNode node = WorldFactory.eINSTANCE.createApplicationNode ();
             doNode ( anyNode, node );
+            node.getServices ().addAll ( EcoreUtil.copyAll ( infraNode.getServices () ) );
             nodes.put ( infraNode, node );
 
             node.getDeployments ().addAll ( EcoreUtil.copyAll ( infraNode.getDeployment () ) );

@@ -83,6 +83,7 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
             childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS );
             childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__MASTERS );
             childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_ARCHIVES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__SERVICES );
         }
         return childrenFeatures;
     }
@@ -153,6 +154,7 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
             case InfrastructurePackage.SYSTEM_NODE__DRIVERS:
             case InfrastructurePackage.SYSTEM_NODE__MASTERS:
             case InfrastructurePackage.SYSTEM_NODE__VALUE_ARCHIVES:
+            case InfrastructurePackage.SYSTEM_NODE__SERVICES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }

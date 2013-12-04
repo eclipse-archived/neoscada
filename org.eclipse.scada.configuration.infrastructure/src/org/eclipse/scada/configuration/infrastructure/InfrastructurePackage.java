@@ -914,13 +914,22 @@ public interface InfrastructurePackage extends EPackage
     int SYSTEM_NODE__APPLICATIONS = NODE_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Services</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NODE__SERVICES = NODE_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>System Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYSTEM_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 5;
+    int SYSTEM_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>System Node</em>' class.
@@ -1935,6 +1944,17 @@ public interface InfrastructurePackage extends EPackage
     EAttribute getSystemNode_Applications ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getServices <em>Services</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Services</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.SystemNode#getServices()
+     * @see #getSystemNode()
+     * @generated
+     */
+    EReference getSystemNode_Services ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService <em>System Property User Service</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2648,6 +2668,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute SYSTEM_NODE__APPLICATIONS = eINSTANCE.getSystemNode_Applications ();
+
+        /**
+         * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYSTEM_NODE__SERVICES = eINSTANCE.getSystemNode_Services ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.SystemPropertyUserServiceImpl <em>System Property User Service</em>}' class.

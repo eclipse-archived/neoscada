@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
 
 /**
@@ -27,6 +28,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getMasters <em>Masters</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getValueArchives <em>Value Archives</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getApplications <em>Applications</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getServices <em>Services</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,5 +122,21 @@ public interface SystemNode extends Node
      * @generated
      */
     FeatureMap getApplications ();
+
+    /**
+     * Returns the value of the '<em><b>Services</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Service}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Services</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getSystemNode_Services()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Service> getServices ();
 
 } // SystemNode
