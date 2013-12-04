@@ -21,6 +21,8 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.utils.Factories;
 import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.world.Application;
@@ -112,8 +114,22 @@ public class WorldRunner
         }
     }
 
-    private NodeElementProcessor createProcessor ( final Object element, final World world, final ApplicationNode applicationNode ) throws CoreException
+    private NodeElementProcessor createProcessor ( final EObject element, final World world, final ApplicationNode applicationNode ) throws CoreException
     {
+        final EAnnotation an = element.eClass ().getEAnnotation ( "http://eclipse.org/SCADA/Configuration/World" );
+
+        if ( an != null && Boolean.parseBoolean ( an.getDetails ().get ( "ignore" ) ) )
+        {
+            return new NodeElementProcessor () {
+
+                @Override
+                public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor ) throws Exception
+                {
+                    // no-op
+                }
+            };
+        }
+
         for ( final IConfigurationElement ele : Platform.getExtensionRegistry ().getConfigurationElementsFor ( Activator.EXTP_GENERATOR ) )
         {
             if ( !ele.getName ().equals ( ELE_NODE_ELEMENT_PROCESSOR ) )
@@ -126,6 +142,7 @@ public class WorldRunner
                 return factory.createProcessor ( element, world, applicationNode );
             }
         }
+
         throw new IllegalStateException ( String.format ( "No processor found for element: %s", element ) );
     }
 
