@@ -128,7 +128,7 @@ public class DebianHandler extends CommonHandler
                 continue;
             }
             file.setExecutable ( true );
-            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () );
+            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" );
         }
         return StringHelper.join ( scripts, "\n" );
     }
