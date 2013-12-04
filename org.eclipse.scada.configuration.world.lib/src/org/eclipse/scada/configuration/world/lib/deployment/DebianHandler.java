@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.Formatter;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -74,12 +75,17 @@ public class DebianHandler extends CommonHandler
         replacements.put ( "prerm.stop", createPreRm ( makeDriverList () ) );
         replacements.put ( "depends", makeDependencies () );
 
+        replacements.put ( "postinst.scripts", createScriptFile ( packageFolder, "postinst" ) );
+        replacements.put ( "prerm.scripts", createScriptFile ( packageFolder, "prerm" ) );
+        replacements.put ( "postrm.scripts", createScriptFile ( packageFolder, "postrm" ) );
+
         Helper.createFile ( new File ( packageFolder, "debian/source/format" ), "3.0 (native)", monitor );
         Helper.createFile ( new File ( packageFolder, "debian/compat" ), "8", monitor );
         Helper.createFile ( new File ( packageFolder, "debian/docs" ), "", monitor );
         Helper.createFile ( new File ( packageFolder, "debian/" + packageName + ".install" ), "src/* /", monitor );
         Helper.createFile ( new File ( packageFolder, "debian/postinst" ), DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "debian/prerm" ), DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements, monitor );
+        Helper.createFile ( new File ( packageFolder, "debian/postrm" ), DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "debian/rules" ), DebianHandler.class.getResourceAsStream ( "templates/deb/rules" ), monitor, true );
         Helper.createFile ( new File ( packageFolder, "debian/control" ), DebianHandler.class.getResourceAsStream ( "templates/deb/control" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "debian/changelog" ), createChangeLog ( packageName, this.deploy.getChanges () ), monitor );
@@ -103,6 +109,31 @@ public class DebianHandler extends CommonHandler
         }
 
         nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
+    }
+
+    private String createScriptFile ( final File packageFolder, final String type )
+    {
+        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type );
+        final List<String> scripts = new LinkedList<> ();
+
+        if ( !dir.isDirectory () )
+        {
+            return "";
+        }
+
+        for ( final File file : dir.listFiles () )
+        {
+            if ( !file.isFile () )
+            {
+                continue;
+            }
+            if ( !file.getName ().endsWith ( "." + type ) )
+            {
+                continue;
+            }
+            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () );
+        }
+        return StringHelper.join ( scripts, "\n" );
     }
 
     @Override
