@@ -12,6 +12,8 @@ package org.eclipse.scada.configuration.world.deployment;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -396,6 +398,209 @@ public interface DeploymentPackage extends EPackage
     int CHANGE_ENTRY_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl <em>Node Mappings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getNodeMappings()
+     * @generated
+     */
+    int NODE_MAPPINGS = 7;
+
+    /**
+     * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPINGS__ENTRIES = 0;
+
+    /**
+     * The feature id for the '<em><b>Fallback Mode</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPINGS__FALLBACK_MODE = 1;
+
+    /**
+     * The number of structural features of the '<em>Node Mappings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPINGS_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Node Mappings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPINGS_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getNodeMappingEntry()
+     * @generated
+     */
+    int NODE_MAPPING_ENTRY = 9;
+
+    /**
+     * The number of structural features of the '<em>Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPING_ENTRY_FEATURE_COUNT = 0;
+
+    /**
+     * The operation id for the '<em>Map Node</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPING_ENTRY___MAP_NODE__NODE = 0;
+
+    /**
+     * The number of operations of the '<em>Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPING_ENTRY_OPERATION_COUNT = 1;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl <em>Expression Node Mapping Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getExpressionNodeMappingEntry()
+     * @generated
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY = 8;
+
+    /**
+     * The feature id for the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY__PATTERN = NODE_MAPPING_ENTRY_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Replacement</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT = NODE_MAPPING_ENTRY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Expression Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY_FEATURE_COUNT = NODE_MAPPING_ENTRY_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Map Node</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__NODE = NODE_MAPPING_ENTRY___MAP_NODE__NODE;
+
+    /**
+     * The number of operations of the '<em>Expression Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPRESSION_NODE_MAPPING_ENTRY_OPERATION_COUNT = NODE_MAPPING_ENTRY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl <em>Simple Node Mapping Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getSimpleNodeMappingEntry()
+     * @generated
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY = 10;
+
+    /**
+     * The feature id for the '<em><b>From Host Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME = NODE_MAPPING_ENTRY_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>To Host Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME = NODE_MAPPING_ENTRY_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Simple Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY_FEATURE_COUNT = NODE_MAPPING_ENTRY_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Map Node</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__NODE = NODE_MAPPING_ENTRY___MAP_NODE__NODE;
+
+    /**
+     * The number of operations of the '<em>Simple Node Mapping Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY_OPERATION_COUNT = NODE_MAPPING_ENTRY_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode <em>Fallback Node Mapping Mode</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getFallbackNodeMappingMode()
+     * @generated
+     */
+    int FALLBACK_NODE_MAPPING_MODE = 11;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism <em>Mechanism</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -576,6 +781,132 @@ public interface DeploymentPackage extends EPackage
     EAttribute getChangeEntry_Version ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings <em>Node Mappings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Node Mappings</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings
+     * @generated
+     */
+    EClass getNodeMappings ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getEntries <em>Entries</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Entries</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings#getEntries()
+     * @see #getNodeMappings()
+     * @generated
+     */
+    EReference getNodeMappings_Entries ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode <em>Fallback Mode</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Fallback Mode</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode()
+     * @see #getNodeMappings()
+     * @generated
+     */
+    EAttribute getNodeMappings_FallbackMode ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry <em>Expression Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Expression Node Mapping Entry</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry
+     * @generated
+     */
+    EClass getExpressionNodeMappingEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getPattern <em>Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Pattern</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getPattern()
+     * @see #getExpressionNodeMappingEntry()
+     * @generated
+     */
+    EAttribute getExpressionNodeMappingEntry_Pattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getReplacement <em>Replacement</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Replacement</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getReplacement()
+     * @see #getExpressionNodeMappingEntry()
+     * @generated
+     */
+    EAttribute getExpressionNodeMappingEntry_Replacement ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Node Mapping Entry</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+     * @generated
+     */
+    EClass getNodeMappingEntry ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Map Node</em>' operation.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node)
+     * @generated
+     */
+    EOperation getNodeMappingEntry__MapNode__Node ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry <em>Simple Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Simple Node Mapping Entry</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry
+     * @generated
+     */
+    EClass getSimpleNodeMappingEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getFromHostName <em>From Host Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>From Host Name</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getFromHostName()
+     * @see #getSimpleNodeMappingEntry()
+     * @generated
+     */
+    EAttribute getSimpleNodeMappingEntry_FromHostName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getToHostName <em>To Host Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>To Host Name</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getToHostName()
+     * @see #getSimpleNodeMappingEntry()
+     * @generated
+     */
+    EAttribute getSimpleNodeMappingEntry_ToHostName ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode <em>Fallback Node Mapping Mode</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Fallback Node Mapping Mode</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
+     * @generated
+     */
+    EEnum getFallbackNodeMappingMode ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -748,6 +1079,112 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute CHANGE_ENTRY__VERSION = eINSTANCE.getChangeEntry_Version ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl <em>Node Mappings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getNodeMappings()
+         * @generated
+         */
+        EClass NODE_MAPPINGS = eINSTANCE.getNodeMappings ();
+
+        /**
+         * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference NODE_MAPPINGS__ENTRIES = eINSTANCE.getNodeMappings_Entries ();
+
+        /**
+         * The meta object literal for the '<em><b>Fallback Mode</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute NODE_MAPPINGS__FALLBACK_MODE = eINSTANCE.getNodeMappings_FallbackMode ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl <em>Expression Node Mapping Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getExpressionNodeMappingEntry()
+         * @generated
+         */
+        EClass EXPRESSION_NODE_MAPPING_ENTRY = eINSTANCE.getExpressionNodeMappingEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXPRESSION_NODE_MAPPING_ENTRY__PATTERN = eINSTANCE.getExpressionNodeMappingEntry_Pattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Replacement</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT = eINSTANCE.getExpressionNodeMappingEntry_Replacement ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getNodeMappingEntry()
+         * @generated
+         */
+        EClass NODE_MAPPING_ENTRY = eINSTANCE.getNodeMappingEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Map Node</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation NODE_MAPPING_ENTRY___MAP_NODE__NODE = eINSTANCE.getNodeMappingEntry__MapNode__Node ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl <em>Simple Node Mapping Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getSimpleNodeMappingEntry()
+         * @generated
+         */
+        EClass SIMPLE_NODE_MAPPING_ENTRY = eINSTANCE.getSimpleNodeMappingEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>From Host Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME = eINSTANCE.getSimpleNodeMappingEntry_FromHostName ();
+
+        /**
+         * The meta object literal for the '<em><b>To Host Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME = eINSTANCE.getSimpleNodeMappingEntry_ToHostName ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode <em>Fallback Node Mapping Mode</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getFallbackNodeMappingMode()
+         * @generated
+         */
+        EEnum FALLBACK_NODE_MAPPING_MODE = eINSTANCE.getFallbackNodeMappingMode ();
 
     }
 

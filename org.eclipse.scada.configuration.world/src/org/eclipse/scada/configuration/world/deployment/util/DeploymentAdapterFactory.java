@@ -121,6 +121,30 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseNodeMappings ( NodeMappings object )
+        {
+            return createNodeMappingsAdapter ();
+        }
+
+        @Override
+        public Adapter caseExpressionNodeMappingEntry ( ExpressionNodeMappingEntry object )
+        {
+            return createExpressionNodeMappingEntryAdapter ();
+        }
+
+        @Override
+        public Adapter caseNodeMappingEntry ( NodeMappingEntry object )
+        {
+            return createNodeMappingEntryAdapter ();
+        }
+
+        @Override
+        public Adapter caseSimpleNodeMappingEntry ( SimpleNodeMappingEntry object )
+        {
+            return createSimpleNodeMappingEntryAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -242,6 +266,66 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createChangeEntryAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings <em>Node Mappings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings
+     * @generated
+     */
+    public Adapter createNodeMappingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry <em>Expression Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry
+     * @generated
+     */
+    public Adapter createExpressionNodeMappingEntryAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+     * @generated
+     */
+    public Adapter createNodeMappingEntryAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry <em>Simple Node Mapping Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry
+     * @generated
+     */
+    public Adapter createSimpleNodeMappingEntryAdapter ()
     {
         return null;
     }

@@ -14,6 +14,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
+import org.eclipse.scada.configuration.world.deployment.tests.DeploymentTests;
 import org.eclipse.scada.configuration.world.osgi.tests.OsgiTests;
 
 /**
@@ -45,6 +46,7 @@ public class WorldAllTests extends TestSuite
         TestSuite suite = new WorldAllTests ( "World Tests" ); //$NON-NLS-1$
         suite.addTest ( WorldTests.suite () );
         suite.addTest ( OsgiTests.suite () );
+        suite.addTest ( DeploymentTests.suite () );
         return suite;
     }
 

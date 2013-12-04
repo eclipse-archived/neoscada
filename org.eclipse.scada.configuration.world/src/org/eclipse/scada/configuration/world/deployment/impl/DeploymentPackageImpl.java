@@ -12,6 +12,8 @@ package org.eclipse.scada.configuration.world.deployment.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -25,7 +27,12 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
 import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
 import org.eclipse.scada.configuration.world.impl.WorldPackageImpl;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl;
@@ -89,6 +96,41 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
      * @generated
      */
     private EClass changeEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass nodeMappingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass expressionNodeMappingEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass nodeMappingEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass simpleNodeMappingEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum fallbackNodeMappingModeEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -343,6 +385,126 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getNodeMappings ()
+    {
+        return nodeMappingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getNodeMappings_Entries ()
+    {
+        return (EReference)nodeMappingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getNodeMappings_FallbackMode ()
+    {
+        return (EAttribute)nodeMappingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getExpressionNodeMappingEntry ()
+    {
+        return expressionNodeMappingEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExpressionNodeMappingEntry_Pattern ()
+    {
+        return (EAttribute)expressionNodeMappingEntryEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExpressionNodeMappingEntry_Replacement ()
+    {
+        return (EAttribute)expressionNodeMappingEntryEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getNodeMappingEntry ()
+    {
+        return nodeMappingEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getNodeMappingEntry__MapNode__Node ()
+    {
+        return nodeMappingEntryEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSimpleNodeMappingEntry ()
+    {
+        return simpleNodeMappingEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSimpleNodeMappingEntry_FromHostName ()
+    {
+        return (EAttribute)simpleNodeMappingEntryEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSimpleNodeMappingEntry_ToHostName ()
+    {
+        return (EAttribute)simpleNodeMappingEntryEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getFallbackNodeMappingMode ()
+    {
+        return fallbackNodeMappingModeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public DeploymentFactory getDeploymentFactory ()
     {
         return (DeploymentFactory)getEFactoryInstance ();
@@ -392,6 +554,24 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         createEAttribute ( changeEntryEClass, CHANGE_ENTRY__DATE );
         createEAttribute ( changeEntryEClass, CHANGE_ENTRY__DESCRIPTION );
         createEAttribute ( changeEntryEClass, CHANGE_ENTRY__VERSION );
+
+        nodeMappingsEClass = createEClass ( NODE_MAPPINGS );
+        createEReference ( nodeMappingsEClass, NODE_MAPPINGS__ENTRIES );
+        createEAttribute ( nodeMappingsEClass, NODE_MAPPINGS__FALLBACK_MODE );
+
+        expressionNodeMappingEntryEClass = createEClass ( EXPRESSION_NODE_MAPPING_ENTRY );
+        createEAttribute ( expressionNodeMappingEntryEClass, EXPRESSION_NODE_MAPPING_ENTRY__PATTERN );
+        createEAttribute ( expressionNodeMappingEntryEClass, EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT );
+
+        nodeMappingEntryEClass = createEClass ( NODE_MAPPING_ENTRY );
+        createEOperation ( nodeMappingEntryEClass, NODE_MAPPING_ENTRY___MAP_NODE__NODE );
+
+        simpleNodeMappingEntryEClass = createEClass ( SIMPLE_NODE_MAPPING_ENTRY );
+        createEAttribute ( simpleNodeMappingEntryEClass, SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME );
+        createEAttribute ( simpleNodeMappingEntryEClass, SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME );
+
+        // Create enums
+        fallbackNodeMappingModeEEnum = createEEnum ( FALLBACK_NODE_MAPPING_MODE );
     }
 
     /**
@@ -419,6 +599,9 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         setNsPrefix ( eNS_PREFIX );
         setNsURI ( eNS_URI );
 
+        // Obtain other dependent packages
+        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+
         // Create type parameters
 
         // Set bounds for type parameters
@@ -427,6 +610,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         debianDeploymentMechanismEClass.getESuperTypes ().add ( this.getCommonDeploymentMechanism () );
         redhatDeploymentMechanismEClass.getESuperTypes ().add ( this.getCommonDeploymentMechanism () );
         commonDeploymentMechanismEClass.getESuperTypes ().add ( this.getDeploymentMechanism () );
+        expressionNodeMappingEntryEClass.getESuperTypes ().add ( this.getNodeMappingEntry () );
+        simpleNodeMappingEntryEClass.getESuperTypes ().add ( this.getNodeMappingEntry () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( deploymentMechanismEClass, DeploymentMechanism.class, "DeploymentMechanism", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -452,6 +637,28 @@ public class DeploymentPackageImpl extends EPackageImpl implements DeploymentPac
         initEAttribute ( getChangeEntry_Date (), ecorePackage.getEDate (), "date", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeEntry_Description (), ecorePackage.getEString (), "description", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getChangeEntry_Version (), ecorePackage.getEString (), "version", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( nodeMappingsEClass, NodeMappings.class, "NodeMappings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getNodeMappings_Entries (), this.getNodeMappingEntry (), null, "entries", null, 0, -1, NodeMappings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getNodeMappings_FallbackMode (), this.getFallbackNodeMappingMode (), "fallbackMode", "FAIL", 1, 1, NodeMappings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( expressionNodeMappingEntryEClass, ExpressionNodeMappingEntry.class, "ExpressionNodeMappingEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getExpressionNodeMappingEntry_Pattern (), theWorldPackage.getPattern (), "pattern", null, 1, 1, ExpressionNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExpressionNodeMappingEntry_Replacement (), ecorePackage.getEString (), "replacement", null, 1, 1, ExpressionNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( nodeMappingEntryEClass, NodeMappingEntry.class, "NodeMappingEntry", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        EOperation op = initEOperation ( getNodeMappingEntry__MapNode__Node (), ecorePackage.getEBoolean (), "mapNode", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, theWorldPackage.getNode (), "node", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( simpleNodeMappingEntryEClass, SimpleNodeMappingEntry.class, "SimpleNodeMappingEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSimpleNodeMappingEntry_FromHostName (), ecorePackage.getEString (), "fromHostName", null, 1, 1, SimpleNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSimpleNodeMappingEntry_ToHostName (), ecorePackage.getEString (), "toHostName", null, 1, 1, SimpleNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        // Initialize enums and add enum literals
+        initEEnum ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.class, "FallbackNodeMappingMode" ); //$NON-NLS-1$
+        addEEnumLiteral ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.FAIL );
+        addEEnumLiteral ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.IGNORE );
     }
 
 } //DeploymentPackageImpl

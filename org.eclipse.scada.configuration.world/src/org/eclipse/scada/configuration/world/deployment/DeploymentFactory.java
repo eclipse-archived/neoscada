@@ -76,6 +76,33 @@ public interface DeploymentFactory extends EFactory
     ChangeEntry createChangeEntry ();
 
     /**
+     * Returns a new object of class '<em>Node Mappings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Node Mappings</em>'.
+     * @generated
+     */
+    NodeMappings createNodeMappings ();
+
+    /**
+     * Returns a new object of class '<em>Expression Node Mapping Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Expression Node Mapping Entry</em>'.
+     * @generated
+     */
+    ExpressionNodeMappingEntry createExpressionNodeMappingEntry ();
+
+    /**
+     * Returns a new object of class '<em>Simple Node Mapping Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Simple Node Mapping Entry</em>'.
+     * @generated
+     */
+    SimpleNodeMappingEntry createSimpleNodeMappingEntry ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -207,6 +207,81 @@ public class DeploymentItemProviderAdapterFactory extends DeploymentAdapterFacto
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.NodeMappings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected NodeMappingsItemProvider nodeMappingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.NodeMappings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createNodeMappingsAdapter ()
+    {
+        if ( nodeMappingsItemProvider == null )
+        {
+            nodeMappingsItemProvider = new NodeMappingsItemProvider ( this );
+        }
+
+        return nodeMappingsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExpressionNodeMappingEntryItemProvider expressionNodeMappingEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExpressionNodeMappingEntryAdapter ()
+    {
+        if ( expressionNodeMappingEntryItemProvider == null )
+        {
+            expressionNodeMappingEntryItemProvider = new ExpressionNodeMappingEntryItemProvider ( this );
+        }
+
+        return expressionNodeMappingEntryItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SimpleNodeMappingEntryItemProvider simpleNodeMappingEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSimpleNodeMappingEntryAdapter ()
+    {
+        if ( simpleNodeMappingEntryItemProvider == null )
+        {
+            simpleNodeMappingEntryItemProvider = new SimpleNodeMappingEntryItemProvider ( this );
+        }
+
+        return simpleNodeMappingEntryItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -327,6 +402,12 @@ public class DeploymentItemProviderAdapterFactory extends DeploymentAdapterFacto
             deploymentInformationItemProvider.dispose ();
         if ( changeEntryItemProvider != null )
             changeEntryItemProvider.dispose ();
+        if ( nodeMappingsItemProvider != null )
+            nodeMappingsItemProvider.dispose ();
+        if ( expressionNodeMappingEntryItemProvider != null )
+            expressionNodeMappingEntryItemProvider.dispose ();
+        if ( simpleNodeMappingEntryItemProvider != null )
+            simpleNodeMappingEntryItemProvider.dispose ();
     }
 
 }

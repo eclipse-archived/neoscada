@@ -144,6 +144,42 @@ public class DeploymentSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case DeploymentPackage.NODE_MAPPINGS:
+            {
+                NodeMappings nodeMappings = (NodeMappings)theEObject;
+                T result = caseNodeMappings ( nodeMappings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY:
+            {
+                ExpressionNodeMappingEntry expressionNodeMappingEntry = (ExpressionNodeMappingEntry)theEObject;
+                T result = caseExpressionNodeMappingEntry ( expressionNodeMappingEntry );
+                if ( result == null )
+                    result = caseNodeMappingEntry ( expressionNodeMappingEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DeploymentPackage.NODE_MAPPING_ENTRY:
+            {
+                NodeMappingEntry nodeMappingEntry = (NodeMappingEntry)theEObject;
+                T result = caseNodeMappingEntry ( nodeMappingEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY:
+            {
+                SimpleNodeMappingEntry simpleNodeMappingEntry = (SimpleNodeMappingEntry)theEObject;
+                T result = caseSimpleNodeMappingEntry ( simpleNodeMappingEntry );
+                if ( result == null )
+                    result = caseNodeMappingEntry ( simpleNodeMappingEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -257,6 +293,70 @@ public class DeploymentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseChangeEntry ( ChangeEntry object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Node Mappings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Node Mappings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNodeMappings ( NodeMappings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Expression Node Mapping Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Expression Node Mapping Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExpressionNodeMappingEntry ( ExpressionNodeMappingEntry object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNodeMappingEntry ( NodeMappingEntry object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Simple Node Mapping Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Simple Node Mapping Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSimpleNodeMappingEntry ( SimpleNodeMappingEntry object )
     {
         return null;
     }

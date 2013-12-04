@@ -41,6 +41,8 @@ public class DeploymentTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new DeploymentTests ( "deployment Tests" ); //$NON-NLS-1$
+        suite.addTestSuite ( ExpressionNodeMappingEntryTest.class );
+        suite.addTestSuite ( SimpleNodeMappingEntryTest.class );
         return suite;
     }
 
