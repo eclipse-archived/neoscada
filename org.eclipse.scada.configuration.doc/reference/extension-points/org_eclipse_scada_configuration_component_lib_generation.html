@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Component Generation</title>
+<style type="text/css">@import url("../../book.css");</style>
+<style type="text/css">@import url("../../schema.css");</style>
+</HEAD>
+<BODY>
+<H1 style="text-align:center">Component Generation</H1>
+<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Identifier: </h6>org.eclipse.scada.configuration.component.lib.generation<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Since: </h6>0.1.0
+<p></p>
+
+<h6 class="CaptionFigColumn SchemaHeader">Description: </h6>This extension point declares some extensions for resolving items during the generation process of the components.<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h6>
+<p></p>
+<p class="code SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.resolver">resolver</a>)*&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST extension</p>
+<p class="code SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.resolver">resolver</a> EMPTY&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST resolver</p>
+<p class="code SchemaDtdAttlist">class&nbsp;CDATA #REQUIRED&gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>class</b> - </li>
+</ul>
+<br><br>
+<p class="note SchemaCopyright">
+</p>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Driver Extension Point</title>
+<style type="text/css">@import url("../../book.css");</style>
+<style type="text/css">@import url("../../schema.css");</style>
+</HEAD>
+<BODY>
+<H1 style="text-align:center">Driver Extension Point</H1>
+<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Identifier: </h6>org.eclipse.scada.configuration.infrastructure.lib.driver<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Since: </h6>0.1.0
+<p></p>
+
+<h6 class="CaptionFigColumn SchemaHeader">Description: </h6>An extension point for creating drivers in the world model.<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h6>
+<p></p>
+<p class="code SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.driverFactory">driverFactory</a>)*&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST extension</p>
+<p class="code SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.driverFactory">driverFactory</a> EMPTY&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST driverFactory</p>
+<p class="code SchemaDtdAttlist">typeId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IDREF #REQUIRED</p>
+<p class="code SchemaDtdAttlist">factoryClass&nbsp;CDATA #REQUIRED&gt;</p>
+<p></p>
+<p class="ConfigMarkupElementDesc">
+Defines a driver factory that creates driver configuration instances for the "world" model.</p>
+<br>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>typeId</b> - The driver type id for which this factory creates instances.</li>
+<li><b>factoryClass</b> - The factory class that created drivers instances for the "world" configuration model.</li>
+</ul>
+<br><br>
+<p class="note SchemaCopyright">
+</p>
+</BODY>
+</HTML>

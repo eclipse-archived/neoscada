@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Generator</title>
+<style type="text/css">@import url("../../book.css");</style>
+<style type="text/css">@import url("../../schema.css");</style>
+</HEAD>
+<BODY>
+<H1 style="text-align:center">Generator</H1>
+<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Identifier: </h6>org.eclipse.scada.configuration.generator.component.generator<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Since: </h6>0.1.0
+<p></p>
+
+<h6 class="CaptionFigColumn SchemaHeader">Description: </h6>This extension point declares factories and processor used for realizing the components from the component model to the world model.<p></p>
+<h6 class="CaptionFigColumn SchemaHeader">Configuration Markup:</h6>
+<p></p>
+<p class="code SchemaDtd">&lt;!ELEMENT <a name="e.extension">extension</a> (<a href="#e.factory">factory</a>)*&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST extension</p>
+<p class="code SchemaDtdAttlist">point&nbsp;CDATA #REQUIRED</p>
+<p class="code SchemaDtdAttlist">id&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
+<p class="code SchemaDtdAttlist">name&nbsp;&nbsp;CDATA #IMPLIED&gt;</p>
+<p></p>
+<ul class="ConfigMarkupAttlistDesc">
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.factory">factory</a> (<a href="#e.generateForType">generateForType</a>)*&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST factory</p>
+<p class="code SchemaDtdAttlist">class&nbsp;CDATA #REQUIRED&gt;</p>
+<p></p>
+<p class="ConfigMarkupElementDesc">
+A factory that creates processors for components.</p>
+<br>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>class</b> - The class implementing the generator factory</li>
+</ul>
+<br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.generateForType">generateForType</a> EMPTY&gt;</p>
+<p class="code SchemaDtd">&lt;!ATTLIST generateForType</p>
+<p class="code SchemaDtdAttlist">class&nbsp;CDATA #REQUIRED&gt;</p>
+<p></p>
+<p class="ConfigMarkupElementDesc">
+The element describing for which class the factory provides instances.</p>
+<br>
+<ul class="ConfigMarkupAttlistDesc">
+<li><b>class</b> - The type for which this factory generates.</li>
+</ul>
+<br><br>
+<p class="note SchemaCopyright">
+</p>
+</BODY>
+</HTML>
