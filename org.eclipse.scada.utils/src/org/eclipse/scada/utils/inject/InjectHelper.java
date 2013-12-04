@@ -79,7 +79,7 @@ public class InjectHelper
             {
                 if ( !optional )
                 {
-                    throw new IllegalStateException ( String.format ( "Unable to find '%s' in current context", name ) );
+                    throw new IllegalStateException ( String.format ( "Unable to find '%s' in current context - Context: %s", name, context ) );
                 }
                 continue; // field is optional
             }
