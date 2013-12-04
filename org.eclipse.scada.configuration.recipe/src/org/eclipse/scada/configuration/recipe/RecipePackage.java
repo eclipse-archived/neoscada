@@ -113,13 +113,22 @@ public interface RecipePackage extends EPackage
     int DEFINITION__NAME = 2;
 
     /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFINITION__ID = 3;
+
+    /**
      * The number of structural features of the '<em>Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEFINITION_FEATURE_COUNT = 3;
+    int DEFINITION_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Definition</em>' class.
@@ -559,6 +568,17 @@ public interface RecipePackage extends EPackage
     EAttribute getDefinition_Name ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.recipe.Definition#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Definition#getId()
+     * @see #getDefinition()
+     * @generated
+     */
+    EAttribute getDefinition_Id ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Task <em>Task</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -893,6 +913,14 @@ public interface RecipePackage extends EPackage
          * @generated
          */
         EAttribute DEFINITION__NAME = eINSTANCE.getDefinition_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DEFINITION__ID = eINSTANCE.getDefinition_Id ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl <em>Task</em>}' class.

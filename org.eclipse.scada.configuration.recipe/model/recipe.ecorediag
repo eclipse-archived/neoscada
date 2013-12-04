@@ -3,6 +3,10 @@
   <children xmi:type="notation:Node" xmi:id="_ANruMFthEeOins3Jsk_5vg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_ANsVQFthEeOins3Jsk_5vg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_ANsVQVthEeOins3Jsk_5vg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_WaLX4F0JEeOIa-ScJn6sXQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="recipe.ecore#//Definition/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_WaLX4V0JEeOIa-ScJn6sXQ"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_ag7bsFtlEeOins3Jsk_5vg" type="2001">
         <element xmi:type="ecore:EAttribute" href="recipe.ecore#//Definition/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ag7bsVtlEeOins3Jsk_5vg"/>
@@ -18,7 +22,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ANruMVthEeOins3Jsk_5vg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="recipe.ecore#//Definition"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ANruMlthEeOins3Jsk_5vg" x="-12" y="168"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ANruMlthEeOins3Jsk_5vg" x="-60" y="168"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_Ja2oYFthEeOins3Jsk_5vg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Ja3PcFthEeOins3Jsk_5vg" type="4001"/>

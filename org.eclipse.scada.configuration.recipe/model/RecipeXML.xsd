@@ -5,6 +5,7 @@
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="task" type="recipe:Task"/>
     </xsd:sequence>
     <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="id" type="xsd:string" use="required"/>
     <xsd:attribute name="import" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Definition" type="recipe:Definition"/>

@@ -4,8 +4,9 @@
   <nested inputs="recipe.ecore#/" outputs="RecipeXML.xsd#/">
     <nested inputs="recipe.ecore#//Definition" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition">
       <nested inputs="recipe.ecore#//Definition/name" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse"/>
+      <nested inputs="recipe.ecore#//Definition/id" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse=1"/>
       <nested inputs="recipe.ecore#//Definition/task" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
-      <nested inputs="recipe.ecore#//Definition/import" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse=1"/>
+      <nested inputs="recipe.ecore#//Definition/import" outputs="RecipeXML.xsd#//Definition;XSDComplexTypeDefinition/XSDAttributeUse=2"/>
     </nested>
     <nested inputs="recipe.ecore#//Definition" outputs="RecipeXML.xsd#//Definition;XSDElementDeclaration"/>
     <nested inputs="recipe.ecore#//Task" outputs="RecipeXML.xsd#//Task;XSDComplexTypeDefinition=1">

@@ -77,6 +77,7 @@ public class DefinitionItemProvider
 
             addImportPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
+            addIdPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -119,6 +120,29 @@ public class DefinitionItemProvider
                         getString ( "_UI_Definition_name_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_name_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         RecipePackage.Literals.DEFINITION__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Id feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIdPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Definition_id_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_id_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        RecipePackage.Literals.DEFINITION__ID,
                         true,
                         false,
                         false,
@@ -202,6 +226,7 @@ public class DefinitionItemProvider
         switch ( notification.getFeatureID ( Definition.class ) )
         {
             case RecipePackage.DEFINITION__NAME:
+            case RecipePackage.DEFINITION__ID:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case RecipePackage.DEFINITION__TASK:

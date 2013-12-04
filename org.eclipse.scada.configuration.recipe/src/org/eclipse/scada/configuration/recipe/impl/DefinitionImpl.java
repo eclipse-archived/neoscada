@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.recipe.Task;
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getTask <em>Task</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getImport <em>Import</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getId <em>Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +83,26 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected static final String ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected String id = ID_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -160,6 +181,29 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getId ()
+    {
+        return id;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setId ( String newId )
+    {
+        String oldId = id;
+        id = newId;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, RecipePackage.DEFINITION__ID, oldId, id ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings ( "unchecked" )
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
@@ -204,6 +248,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
                 return getImport ();
             case RecipePackage.DEFINITION__NAME:
                 return getName ();
+            case RecipePackage.DEFINITION__ID:
+                return getId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -230,6 +276,9 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
             case RecipePackage.DEFINITION__NAME:
                 setName ( (String)newValue );
                 return;
+            case RecipePackage.DEFINITION__ID:
+                setId ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -253,6 +302,9 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
             case RecipePackage.DEFINITION__NAME:
                 setName ( NAME_EDEFAULT );
                 return;
+            case RecipePackage.DEFINITION__ID:
+                setId ( ID_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -273,6 +325,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
                 return import_ != null && !import_.isEmpty ();
             case RecipePackage.DEFINITION__NAME:
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case RecipePackage.DEFINITION__ID:
+                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
         }
         return super.eIsSet ( featureID );
     }
@@ -291,6 +345,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (name: " ); //$NON-NLS-1$
         result.append ( name );
+        result.append ( ", id: " ); //$NON-NLS-1$
+        result.append ( id );
         result.append ( ')' );
         return result.toString ();
     }

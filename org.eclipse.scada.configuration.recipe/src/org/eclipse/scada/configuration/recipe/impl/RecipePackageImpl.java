@@ -200,6 +200,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getDefinition_Id ()
+    {
+        return (EAttribute)definitionEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTask ()
     {
         return taskEClass;
@@ -490,6 +500,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         createEReference ( definitionEClass, DEFINITION__TASK );
         createEReference ( definitionEClass, DEFINITION__IMPORT );
         createEAttribute ( definitionEClass, DEFINITION__NAME );
+        createEAttribute ( definitionEClass, DEFINITION__ID );
 
         taskEClass = createEClass ( TASK );
         createEReference ( taskEClass, TASK__EXECUTE );
@@ -561,7 +572,8 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         initEClass ( definitionEClass, Definition.class, "Definition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDefinition_Task (), this.getTask (), this.getTask_Definition (), "task", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDefinition_Import (), this.getDefinition (), null, "import", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDefinition_Id (), ecorePackage.getEString (), "id", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getTask_Execute (), this.getExecute (), this.getExecute_Task (), "execute", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
