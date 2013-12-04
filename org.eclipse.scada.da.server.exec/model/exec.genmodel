@@ -10,7 +10,7 @@
     runtimeVersion="2.9" operationReflection="true" importOrganizing="true">
   <foreignModel>exec.xsd</foreignModel>
   <genPackages prefix="Configuration" basePackage="org.eclipse.scada.da.exec" resource="XML"
-      disposableProviderFactory="true" ecorePackage="configuration.ecore#/">
+      disposableProviderFactory="true" generateModelWizard="false" ecorePackage="configuration.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//VariantTypeType">
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/BOOLEAN"/>
       <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantTypeType/INTEGER"/>
