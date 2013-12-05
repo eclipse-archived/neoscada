@@ -14,10 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.RestExporter;
+import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 public class RestExporterProcessor extends TypedOscarProcessor<RestExporter>
 {
@@ -30,6 +32,9 @@ public class RestExporterProcessor extends TypedOscarProcessor<RestExporter>
     @Override
     protected void process ( final RestExporter exporter, final EquinoxApplication app, final OscarContext ctx, final IProgressMonitor monitor )
     {
+        final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+        Profiles.addStartBundle ( profile, "org.eclipse.scada.da.server.exporter.rest" );
+
         final Map<String, String> data = new HashMap<String, String> ( exporter.getItems ().size () + exporter.getHiveProperties ().size () );
 
         data.putAll ( Properties.makeAttributes ( "hiveProperties.", exporter.getHiveProperties () ) );
