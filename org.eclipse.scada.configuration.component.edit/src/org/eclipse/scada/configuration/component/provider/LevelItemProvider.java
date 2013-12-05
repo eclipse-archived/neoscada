@@ -12,9 +12,13 @@ package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,9 +33,11 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.Level;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.Level} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.Level} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class LevelItemProvider extends ContainerItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -40,9 +46,10 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public LevelItemProvider ( AdapterFactory adapterFactory )
+    public LevelItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -51,12 +58,13 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -64,20 +72,21 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
             addArchiveSelectorPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Level_name_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Level_name_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -94,13 +103,14 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This adds a property descriptor for the Customization Pipeline feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addCustomizationPipelinePropertyDescriptor ( Object object )
+    protected void addCustomizationPipelinePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Level_customizationPipeline_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Level_customizationPipeline_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -117,13 +127,14 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This adds a property descriptor for the Archive Selector feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addArchiveSelectorPropertyDescriptor ( Object object )
+    protected void addArchiveSelectorPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Level_archiveSelector_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Level_archiveSelector_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -137,32 +148,37 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to
+     * deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in
+     * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
     {
-        if ( childrenFeatures == null )
+        if ( this.childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ComponentPackage.Literals.LEVEL__COMPONENTS );
-            childrenFeatures.add ( ComponentPackage.Literals.LEVEL__LEVELS );
+            this.childrenFeatures.add ( ComponentPackage.Literals.LEVEL__COMPONENTS );
+            this.childrenFeatures.add ( ComponentPackage.Literals.LEVEL__LEVELS );
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -174,10 +190,11 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This returns Level.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Level" ) ); //$NON-NLS-1$
     }
@@ -186,26 +203,30 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (Level)object ).getName ();
+        final String label = ( (Level)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_Level_type" ) : //$NON-NLS-1$
                 getString ( "_UI_Level_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -223,14 +244,16 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
@@ -280,4 +303,10 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
                         ComponentFactory.eINSTANCE.createLevel () ) );
     }
 
+    @Override
+    public Command createCommand ( final Object object, final EditingDomain domain, final Class<? extends Command> commandClass, final CommandParameter commandParameter )
+    {
+        // TODO Auto-generated method stub
+        return super.createCommand ( object, domain, commandClass, commandParameter );
+    }
 }
