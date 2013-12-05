@@ -191,7 +191,7 @@ public class Console
             {
                 final List<String> row = new LinkedList<String> ();
                 row.add ( cfg.getId () );
-                row.add ( cfg.getState ().toString () );
+                row.add ( "" + cfg.getState () );
                 if ( cfg.getErrorInformation () != null )
                 {
                     row.add ( cfg.getErrorInformation ().getMessage () );
