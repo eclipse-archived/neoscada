@@ -11,6 +11,7 @@
  */
 package org.eclipse.scada.configuration.component;
 
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.item.Selector;
 
 /**
@@ -21,8 +22,8 @@ import org.eclipse.scada.configuration.item.Selector;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getContextId <em>Context Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,32 +33,6 @@ import org.eclipse.scada.configuration.item.Selector;
  */
 public interface RestInterceptor extends ItemInterceptor
 {
-    /**
-     * Returns the value of the '<em><b>Context Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Context Id</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Context Id</em>' attribute.
-     * @see #setContextId(String)
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor_ContextId()
-     * @model required="true"
-     * @generated
-     */
-    String getContextId ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.RestInterceptor#getContextId <em>Context Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Context Id</em>' attribute.
-     * @see #getContextId()
-     * @generated
-     */
-    void setContextId ( String value );
-
     /**
      * Returns the value of the '<em><b>Selector</b></em>' containment reference.
      * <!-- begin-user-doc -->
@@ -83,5 +58,31 @@ public interface RestInterceptor extends ItemInterceptor
      * @generated
      */
     void setSelector ( Selector value );
+
+    /**
+     * Returns the value of the '<em><b>Definition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Definition</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Definition</em>' reference.
+     * @see #setDefinition(RestExporterModule)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor_Definition()
+     * @model required="true"
+     * @generated
+     */
+    RestExporterModule getDefinition ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Definition</em>' reference.
+     * @see #getDefinition()
+     * @generated
+     */
+    void setDefinition ( RestExporterModule value );
 
 } // RestInterceptor

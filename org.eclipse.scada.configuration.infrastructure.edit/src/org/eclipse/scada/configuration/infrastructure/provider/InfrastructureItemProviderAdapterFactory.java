@@ -521,6 +521,31 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.RestExporterModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestExporterModuleItemProvider restExporterModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.RestExporterModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestExporterModuleAdapter ()
+    {
+        if ( restExporterModuleItemProvider == null )
+        {
+            restExporterModuleItemProvider = new RestExporterModuleItemProvider ( this );
+        }
+
+        return restExporterModuleItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

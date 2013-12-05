@@ -2300,22 +2300,22 @@ public interface ComponentPackage extends EPackage
     int REST_INTERCEPTOR = 34;
 
     /**
-     * The feature id for the '<em><b>Context Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int REST_INTERCEPTOR__CONTEXT_ID = ITEM_INTERCEPTOR_FEATURE_COUNT + 0;
-
-    /**
      * The feature id for the '<em><b>Selector</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int REST_INTERCEPTOR__SELECTOR = ITEM_INTERCEPTOR_FEATURE_COUNT + 1;
+    int REST_INTERCEPTOR__SELECTOR = ITEM_INTERCEPTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Definition</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR__DEFINITION = ITEM_INTERCEPTOR_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Rest Interceptor</em>' class.
@@ -3403,17 +3403,6 @@ public interface ComponentPackage extends EPackage
     EClass getRestInterceptor ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.RestInterceptor#getContextId <em>Context Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Context Id</em>'.
-     * @see org.eclipse.scada.configuration.component.RestInterceptor#getContextId()
-     * @see #getRestInterceptor()
-     * @generated
-     */
-    EAttribute getRestInterceptor_ContextId ();
-
-    /**
      * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3423,6 +3412,17 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EReference getRestInterceptor_Selector ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Definition</em>'.
+     * @see org.eclipse.scada.configuration.component.RestInterceptor#getDefinition()
+     * @see #getRestInterceptor()
+     * @generated
+     */
+    EReference getRestInterceptor_Definition ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
@@ -4330,20 +4330,20 @@ public interface ComponentPackage extends EPackage
         EClass REST_INTERCEPTOR = eINSTANCE.getRestInterceptor ();
 
         /**
-         * The meta object literal for the '<em><b>Context Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute REST_INTERCEPTOR__CONTEXT_ID = eINSTANCE.getRestInterceptor_ContextId ();
-
-        /**
          * The meta object literal for the '<em><b>Selector</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         EReference REST_INTERCEPTOR__SELECTOR = eINSTANCE.getRestInterceptor_Selector ();
+
+        /**
+         * The meta object literal for the '<em><b>Definition</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference REST_INTERCEPTOR__DEFINITION = eINSTANCE.getRestInterceptor_Definition ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

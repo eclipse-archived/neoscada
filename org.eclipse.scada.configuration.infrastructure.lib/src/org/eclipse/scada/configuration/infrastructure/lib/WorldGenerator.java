@@ -39,6 +39,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
@@ -52,7 +53,7 @@ import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.lib.Nodes;
-import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
+import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
 import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
@@ -63,6 +64,7 @@ import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.configuration.world.osgi.RestExporter;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 import org.slf4j.Logger;
@@ -298,9 +300,9 @@ public class WorldGenerator
         }
     }
 
-    private Collection<ApplicationConfiguration> makeModules ( final MasterServer master, final DefaultMasterServer implMaster )
+    private Collection<ApplicationModule> makeModules ( final MasterServer master, final DefaultMasterServer implMaster )
     {
-        final Collection<ApplicationConfiguration> result = new LinkedList<> ();
+        final Collection<ApplicationModule> result = new LinkedList<> ();
 
         // process application configurations
 
@@ -324,6 +326,13 @@ public class WorldGenerator
                     final Node node = Nodes.fromApp ( implMaster );
                     node.getEndpoints ().add ( ep );
                     s.setEndpoint ( ep );
+                    result.add ( s );
+                }
+                else if ( m instanceof RestExporterModule )
+                {
+                    final RestExporter s = OsgiFactory.eINSTANCE.createRestExporter ();
+                    s.setContextId ( ( (RestExporterModule)m ).getContextId () );
+                    s.getHiveProperties ().addAll ( Worlds.convertToProperties ( Worlds.findInterconnectCredentials ( master ) ) );
                     result.add ( s );
                 }
             }

@@ -225,6 +225,12 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseRestExporterModule ( RestExporterModule object )
+        {
+            return createRestExporterModuleAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -619,6 +625,21 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createHttpServiceModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.RestExporterModule <em>Rest Exporter Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.RestExporterModule
+     * @generated
+     */
+    public Adapter createRestExporterModuleAdapter ()
     {
         return null;
     }

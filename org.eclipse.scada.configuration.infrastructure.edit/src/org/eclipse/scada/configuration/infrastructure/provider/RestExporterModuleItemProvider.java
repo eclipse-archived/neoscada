@@ -9,14 +9,16 @@
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
  * 
  */
-package org.eclipse.scada.configuration.component.provider;
+package org.eclipse.scada.configuration.infrastructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -25,19 +27,20 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.RestInterceptor;
-import org.eclipse.scada.configuration.item.ItemFactory;
+
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.RestInterceptor} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.RestExporterModule} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RestInterceptorItemProvider
+public class RestExporterModuleItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -52,7 +55,7 @@ public class RestInterceptorItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public RestInterceptorItemProvider ( AdapterFactory adapterFactory )
+    public RestExporterModuleItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -70,93 +73,36 @@ public class RestInterceptorItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addSelectorPropertyDescriptor ( object );
-            addDefinitionPropertyDescriptor ( object );
+            addContextIdPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Selector feature.
+     * This adds a property descriptor for the Context Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addSelectorPropertyDescriptor ( Object object )
+    protected void addContextIdPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_RestInterceptor_selector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_selector_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
+                        getString ( "_UI_RestExporterModule_contextId_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporterModule_contextId_feature", "_UI_RestExporterModule_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        InfrastructurePackage.Literals.REST_EXPORTER_MODULE__CONTEXT_ID,
                         true,
                         false,
                         false,
-                        null,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Definition feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addDefinitionPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_RestInterceptor_definition_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestInterceptor_definition_feature", "_UI_RestInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.REST_INTERCEPTOR__DEFINITION,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
-    {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns RestInterceptor.gif.
+     * This returns RestExporterModule.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -164,7 +110,7 @@ public class RestInterceptorItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/RestInterceptor" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/RestExporterModule" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -176,7 +122,10 @@ public class RestInterceptorItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_RestInterceptor_type" ); //$NON-NLS-1$
+        String label = ( (RestExporterModule)object ).getContextId ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_RestExporterModule_type" ) : //$NON-NLS-1$
+                getString ( "_UI_RestExporterModule_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -191,10 +140,10 @@ public class RestInterceptorItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( RestInterceptor.class ) )
+        switch ( notification.getFeatureID ( RestExporterModule.class ) )
         {
-            case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
+            case InfrastructurePackage.REST_EXPORTER_MODULE__CONTEXT_ID:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -211,16 +160,6 @@ public class RestInterceptorItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
-                        ItemFactory.eINSTANCE.createJavaScriptSelector () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR,
-                        ItemFactory.eINSTANCE.createCustomScriptSelector () ) );
     }
 
     /**

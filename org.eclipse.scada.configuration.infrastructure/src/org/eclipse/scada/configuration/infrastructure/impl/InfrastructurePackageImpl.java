@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserEntry;
@@ -224,6 +225,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass httpServiceModuleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass restExporterModuleEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -1225,6 +1233,26 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getRestExporterModule ()
+    {
+        return restExporterModuleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRestExporterModule_ContextId ()
+    {
+        return (EAttribute)restExporterModuleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public InfrastructureFactory getInfrastructureFactory ()
     {
@@ -1360,6 +1388,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         httpServiceModuleEClass = createEClass ( HTTP_SERVICE_MODULE );
         createEAttribute ( httpServiceModuleEClass, HTTP_SERVICE_MODULE__PORT );
+
+        restExporterModuleEClass = createEClass ( REST_EXPORTER_MODULE );
+        createEAttribute ( restExporterModuleEClass, REST_EXPORTER_MODULE__CONTEXT_ID );
     }
 
     /**
@@ -1416,6 +1447,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         externalDriverPlaceholderEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
         applicationConfigurationEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         httpServiceModuleEClass.getESuperTypes ().add ( this.getModule () );
+        restExporterModuleEClass.getESuperTypes ().add ( this.getModule () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1526,6 +1558,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( httpServiceModuleEClass, HttpServiceModule.class, "HttpServiceModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getHttpServiceModule_Port (), ecorePackage.getEShort (), "port", "8080", 1, 1, HttpServiceModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( restExporterModuleEClass, RestExporterModule.class, "RestExporterModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getRestExporterModule_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

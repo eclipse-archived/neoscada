@@ -485,6 +485,26 @@
     <element xmi:type="ecore:EClass" href="infrastructure.ecore#//HttpServiceModule"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i0s5Ql2VEeOIa-ScJn6sXQ" x="1128" y="492"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_6qSwMF2nEeOT2rDq00KK6A" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_6qT-UF2nEeOT2rDq00KK6A" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_6qUlYF2nEeOT2rDq00KK6A" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_8Qw-wF2nEeOT2rDq00KK6A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="infrastructure.ecore#//RestExporterModule/contextId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8Qw-wV2nEeOT2rDq00KK6A"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_6qUlYV2nEeOT2rDq00KK6A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_6qUlYl2nEeOT2rDq00KK6A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_6qUlY12nEeOT2rDq00KK6A"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_6qUlZF2nEeOT2rDq00KK6A" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_6qUlZV2nEeOT2rDq00KK6A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_6qUlZl2nEeOT2rDq00KK6A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_6qUlZ12nEeOT2rDq00KK6A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_6qSwMV2nEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="infrastructure.ecore#//RestExporterModule"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6qSwMl2nEeOT2rDq00KK6A" x="1128" y="564"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_1-0GMe4iEeKfz8wEznvEdQ"/>
   <element xmi:type="ecore:EPackage" href="infrastructure.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_8WVB4O4iEeKfz8wEznvEdQ" type="3002" source="_1-2icO4iEeKfz8wEznvEdQ" target="_2omDAO4iEeKfz8wEznvEdQ">
@@ -825,5 +845,11 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_j_-Zkl2VEeOIa-ScJn6sXQ" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_j_-Zk12VEeOIa-ScJn6sXQ" points="[-71, 0, 130, 4]$[-151, 0, 50, 4]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_7tQCAF2nEeOT2rDq00KK6A" type="3003" source="_6qSwMF2nEeOT2rDq00KK6A" target="_YODqsF2VEeOIa-ScJn6sXQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_7tQCAV2nEeOT2rDq00KK6A" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7tQCAl2nEeOT2rDq00KK6A" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7tQCA12nEeOT2rDq00KK6A" points="[-75, -13, 130, 63]$[-184, -13, 21, 63]$[-184, -55, 21, 21]"/>
   </edges>
 </notation:Diagram>

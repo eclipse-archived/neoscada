@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.RestInterceptor;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.item.Selector;
 
 /**
@@ -31,8 +32,8 @@ import org.eclipse.scada.configuration.item.Selector;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getContextId <em>Context Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,26 +41,6 @@ import org.eclipse.scada.configuration.item.Selector;
  */
 public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements RestInterceptor
 {
-    /**
-     * The default value of the '{@link #getContextId() <em>Context Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getContextId()
-     * @generated
-     * @ordered
-     */
-    protected static final String CONTEXT_ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getContextId() <em>Context Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getContextId()
-     * @generated
-     * @ordered
-     */
-    protected String contextId = CONTEXT_ID_EDEFAULT;
-
     /**
      * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -69,6 +50,16 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected Selector selector;
+
+    /**
+     * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDefinition()
+     * @generated
+     * @ordered
+     */
+    protected RestExporterModule definition;
 
     /**
      * <!-- begin-user-doc -->
@@ -89,29 +80,6 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     protected EClass eStaticClass ()
     {
         return ComponentPackage.Literals.REST_INTERCEPTOR;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getContextId ()
-    {
-        return contextId;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setContextId ( String newContextId )
-    {
-        String oldContextId = contextId;
-        contextId = newContextId;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.REST_INTERCEPTOR__CONTEXT_ID, oldContextId, contextId ) );
     }
 
     /**
@@ -199,6 +167,49 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public RestExporterModule getDefinition ()
+    {
+        if ( definition != null && definition.eIsProxy () )
+        {
+            InternalEObject oldDefinition = (InternalEObject)definition;
+            definition = (RestExporterModule)eResolveProxy ( oldDefinition );
+            if ( definition != oldDefinition )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.REST_INTERCEPTOR__DEFINITION, oldDefinition, definition ) );
+            }
+        }
+        return definition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RestExporterModule basicGetDefinition ()
+    {
+        return definition;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDefinition ( RestExporterModule newDefinition )
+    {
+        RestExporterModule oldDefinition = definition;
+        definition = newDefinition;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.REST_INTERCEPTOR__DEFINITION, oldDefinition, definition ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -220,12 +231,14 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.REST_INTERCEPTOR__CONTEXT_ID:
-                return getContextId ();
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 if ( resolve )
                     return getSelector ();
                 return basicGetSelector ();
+            case ComponentPackage.REST_INTERCEPTOR__DEFINITION:
+                if ( resolve )
+                    return getDefinition ();
+                return basicGetDefinition ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -240,11 +253,11 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.REST_INTERCEPTOR__CONTEXT_ID:
-                setContextId ( (String)newValue );
-                return;
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 setSelector ( (Selector)newValue );
+                return;
+            case ComponentPackage.REST_INTERCEPTOR__DEFINITION:
+                setDefinition ( (RestExporterModule)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -260,11 +273,11 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.REST_INTERCEPTOR__CONTEXT_ID:
-                setContextId ( CONTEXT_ID_EDEFAULT );
-                return;
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 setSelector ( (Selector)null );
+                return;
+            case ComponentPackage.REST_INTERCEPTOR__DEFINITION:
+                setDefinition ( (RestExporterModule)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -280,30 +293,12 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.REST_INTERCEPTOR__CONTEXT_ID:
-                return CONTEXT_ID_EDEFAULT == null ? contextId != null : !CONTEXT_ID_EDEFAULT.equals ( contextId );
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 return selector != null;
+            case ComponentPackage.REST_INTERCEPTOR__DEFINITION:
+                return definition != null;
         }
         return super.eIsSet ( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
-
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (contextId: " ); //$NON-NLS-1$
-        result.append ( contextId );
-        result.append ( ')' );
-        return result.toString ();
     }
 
 } //RestInterceptorImpl

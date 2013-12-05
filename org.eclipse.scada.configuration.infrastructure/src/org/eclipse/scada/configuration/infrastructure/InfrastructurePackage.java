@@ -1629,6 +1629,43 @@ public interface InfrastructurePackage extends EPackage
     int HTTP_SERVICE_MODULE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.RestExporterModuleImpl <em>Rest Exporter Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.RestExporterModuleImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getRestExporterModule()
+     * @generated
+     */
+    int REST_EXPORTER_MODULE = 24;
+
+    /**
+     * The feature id for the '<em><b>Context Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER_MODULE__CONTEXT_ID = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Rest Exporter Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Rest Exporter Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_EXPORTER_MODULE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2540,6 +2577,27 @@ public interface InfrastructurePackage extends EPackage
     EAttribute getHttpServiceModule_Port ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.RestExporterModule <em>Rest Exporter Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Rest Exporter Module</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.RestExporterModule
+     * @generated
+     */
+    EClass getRestExporterModule ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.RestExporterModule#getContextId <em>Context Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Context Id</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.RestExporterModule#getContextId()
+     * @see #getRestExporterModule()
+     * @generated
+     */
+    EAttribute getRestExporterModule_ContextId ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3290,6 +3348,24 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute HTTP_SERVICE_MODULE__PORT = eINSTANCE.getHttpServiceModule_Port ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.RestExporterModuleImpl <em>Rest Exporter Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.RestExporterModuleImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getRestExporterModule()
+         * @generated
+         */
+        EClass REST_EXPORTER_MODULE = eINSTANCE.getRestExporterModule ();
+
+        /**
+         * The meta object literal for the '<em><b>Context Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REST_EXPORTER_MODULE__CONTEXT_ID = eINSTANCE.getRestExporterModule_ContextId ();
 
     }
 

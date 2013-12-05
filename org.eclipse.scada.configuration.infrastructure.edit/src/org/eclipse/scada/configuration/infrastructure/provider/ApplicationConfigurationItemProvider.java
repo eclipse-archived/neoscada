@@ -231,6 +231,11 @@ public class ApplicationConfigurationItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
                         InfrastructureFactory.eINSTANCE.createHttpServiceModule () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );
     }
 
     /**

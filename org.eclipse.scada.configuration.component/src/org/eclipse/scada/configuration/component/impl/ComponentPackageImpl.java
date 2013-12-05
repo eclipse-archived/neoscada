@@ -1389,9 +1389,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getRestInterceptor_ContextId ()
+    public EReference getRestInterceptor_Selector ()
     {
-        return (EAttribute)restInterceptorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)restInterceptorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -1399,7 +1399,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getRestInterceptor_Selector ()
+    public EReference getRestInterceptor_Definition ()
     {
         return (EReference)restInterceptorEClass.getEStructuralFeatures ().get ( 1 );
     }
@@ -1579,8 +1579,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( containerEClass, CONTAINER__ITEM_INTERCEPTORS );
 
         restInterceptorEClass = createEClass ( REST_INTERCEPTOR );
-        createEAttribute ( restInterceptorEClass, REST_INTERCEPTOR__CONTEXT_ID );
         createEReference ( restInterceptorEClass, REST_INTERCEPTOR__SELECTOR );
+        createEReference ( restInterceptorEClass, REST_INTERCEPTOR__DEFINITION );
 
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
@@ -1797,8 +1797,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getContainer_ItemInterceptors (), this.getItemInterceptor (), null, "itemInterceptors", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( restInterceptorEClass, RestInterceptor.class, "RestInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getRestInterceptor_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Selector (), theItemPackage.getSelector (), null, "selector", null, 0, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getRestInterceptor_Definition (), theInfrastructurePackage.getRestExporterModule (), null, "definition", null, 1, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

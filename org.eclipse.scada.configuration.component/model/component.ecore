@@ -213,9 +213,9 @@
         eType="#//ItemInterceptor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RestInterceptor" eSuperTypes="#//ItemInterceptor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
   </eClassifiers>
 </ecore:EPackage>
