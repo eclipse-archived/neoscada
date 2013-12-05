@@ -91,5 +91,5 @@ public interface Factories
 
     public static final String FACTORY_AE_EXTERNAL = "ae.monitor.ae.event.external";
 
-    public static final String FACTORY_DA_REST_EXPORTER = "org.eclipse.scada.da.server.exporter.rest";
+    public static final String FACTORY_DA_REST_EXPORTER = "org.eclipse.scada.da.server.exporter.rest.context";
 }
