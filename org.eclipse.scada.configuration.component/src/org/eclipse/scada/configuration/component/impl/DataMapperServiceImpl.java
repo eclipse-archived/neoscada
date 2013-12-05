@@ -89,6 +89,34 @@ public class DataMapperServiceImpl extends MinimalEObjectImpl.Container implemen
      */
     public DataMapper getDataMapper ()
     {
+        if ( dataMapper != null && dataMapper.eIsProxy () )
+        {
+            InternalEObject oldDataMapper = (InternalEObject)dataMapper;
+            dataMapper = (DataMapper)eResolveProxy ( oldDataMapper );
+            if ( dataMapper != oldDataMapper )
+            {
+                InternalEObject newDataMapper = (InternalEObject)dataMapper;
+                NotificationChain msgs = oldDataMapper.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.DATA_MAPPER_SERVICE__DATA_MAPPER, null, null );
+                if ( newDataMapper.eInternalContainer () == null )
+                {
+                    msgs = newDataMapper.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.DATA_MAPPER_SERVICE__DATA_MAPPER, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.DATA_MAPPER_SERVICE__DATA_MAPPER, oldDataMapper, dataMapper ) );
+            }
+        }
+        return dataMapper;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataMapper basicGetDataMapper ()
+    {
         return dataMapper;
     }
 
@@ -175,7 +203,9 @@ public class DataMapperServiceImpl extends MinimalEObjectImpl.Container implemen
         switch ( featureID )
         {
             case ComponentPackage.DATA_MAPPER_SERVICE__DATA_MAPPER:
-                return getDataMapper ();
+                if ( resolve )
+                    return getDataMapper ();
+                return basicGetDataMapper ();
             case ComponentPackage.DATA_MAPPER_SERVICE__MASTER_ON:
                 return getMasterOn ();
         }

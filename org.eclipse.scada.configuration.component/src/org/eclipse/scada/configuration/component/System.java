@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
@@ -37,7 +36,7 @@ import org.eclipse.scada.configuration.item.Selector;
  * @model
  * @generated
  */
-public interface System extends EObject
+public interface System extends Container
 {
     /**
      * Returns the value of the '<em><b>Levels</b></em>' containment reference list.
@@ -50,7 +49,7 @@ public interface System extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Levels</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getSystem_Levels()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Level> getLevels ();
@@ -66,7 +65,7 @@ public interface System extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Configurations</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getSystem_Configurations()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Configuration> getConfigurations ();
@@ -82,7 +81,7 @@ public interface System extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Services</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getSystem_Services()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Service> getServices ();

@@ -16,7 +16,7 @@ import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.MasterHandlerPriorities;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
-import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 /**
@@ -37,6 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getDefaultDriverPassword <em>Default Driver Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getApplicationConfigurations <em>Application Configurations</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getDefaultDriverAccessCredentials <em>Default Driver Access Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.World#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  * </p>
  *
@@ -246,7 +247,7 @@ public interface World extends EObject
 
     /**
      * Returns the value of the '<em><b>Application Configurations</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Application Configurations</em>' containment reference list isn't clear,
@@ -258,7 +259,7 @@ public interface World extends EObject
      * @model containment="true" resolveProxies="true"
      * @generated
      */
-    EList<ApplicationConfiguration> getApplicationConfigurations ();
+    EList<IndependentConfiguration> getApplicationConfigurations ();
 
     /**
      * Returns the value of the '<em><b>Default Driver Access Credentials</b></em>' containment reference.
@@ -285,5 +286,31 @@ public interface World extends EObject
      * @generated
      */
     void setDefaultDriverAccessCredentials ( Credentials value );
+
+    /**
+     * Returns the value of the '<em><b>Configurations</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Configurations</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Configurations</em>' containment reference.
+     * @see #setConfigurations(Configurations)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getWorld_Configurations()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    Configurations getConfigurations ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.World#getConfigurations <em>Configurations</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Configurations</em>' containment reference.
+     * @see #getConfigurations()
+     * @generated
+     */
+    void setConfigurations ( Configurations value );
 
 } // World

@@ -38,6 +38,7 @@ import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
+import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
@@ -142,6 +143,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createExternalValue ();
             case ComponentPackage.SUMMARIES_CONFIGURATION:
                 return createSummariesConfiguration ();
+            case ComponentPackage.REST_INTERCEPTOR:
+                return createRestInterceptor ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -439,6 +442,17 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         SummariesConfigurationImpl summariesConfiguration = new SummariesConfigurationImpl ();
         return summariesConfiguration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RestInterceptor createRestInterceptor ()
+    {
+        RestInterceptorImpl restInterceptor = new RestInterceptorImpl ();
+        return restInterceptor;
     }
 
     /**

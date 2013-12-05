@@ -70,6 +70,11 @@ public class LoopValidator
 
     private void initLoopHandler ()
     {
+
+        this.handlers.put ( "ae.server.info", new NoOpHandler () );
+        this.handlers.put ( "org.eclipse.scada.da.server.exporter.rest", new NoOpHandler () );
+        this.handlers.put ( "org.eclipse.scada.da.server.exporter.modbus.device", new NoOpHandler () );
+        this.handlers.put ( "org.eclipse.scada.sec.osgi.manager", new NoOpHandler () );
         this.handlers.put ( "org.eclipse.scada.ae.event.logger", new NoOpHandler () );
         this.handlers.put ( "org.eclipse.scada.ae.server.http.eventFilter", new NoOpHandler () );
         this.handlers.put ( "org.eclipse.scada.sec.provider.jdbc.authenticator", new NoOpHandler () );
@@ -123,7 +128,6 @@ public class LoopValidator
 
         this.handlers.put ( "org.eclipse.scada.ae.server.monitor.proxy", new ProxyQueryHandler ( "monitor.query" ) );
         this.handlers.put ( "org.eclipse.scada.ae.server.event.proxy", new ProxyQueryHandler ( "event.query" ) );
-
     }
 
     public void validate ()

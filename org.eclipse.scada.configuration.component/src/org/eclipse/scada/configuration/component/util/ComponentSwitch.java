@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.ConstantValue;
+import org.eclipse.scada.configuration.component.Container;
 import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
@@ -32,6 +33,7 @@ import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
+import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
@@ -40,6 +42,7 @@ import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
+import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
@@ -116,6 +119,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 org.eclipse.scada.configuration.component.System system = (org.eclipse.scada.configuration.component.System)theEObject;
                 T result = caseSystem ( system );
                 if ( result == null )
+                    result = caseContainer ( system );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -123,6 +128,8 @@ public class ComponentSwitch<T> extends Switch<T>
             {
                 Level level = (Level)theEObject;
                 T result = caseLevel ( level );
+                if ( result == null )
+                    result = caseContainer ( level );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -449,6 +456,32 @@ public class ComponentSwitch<T> extends Switch<T>
                 T result = caseSummariesConfiguration ( summariesConfiguration );
                 if ( result == null )
                     result = caseConfiguration ( summariesConfiguration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.ITEM_INTERCEPTOR:
+            {
+                ItemInterceptor itemInterceptor = (ItemInterceptor)theEObject;
+                T result = caseItemInterceptor ( itemInterceptor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.CONTAINER:
+            {
+                Container container = (Container)theEObject;
+                T result = caseContainer ( container );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.REST_INTERCEPTOR:
+            {
+                RestInterceptor restInterceptor = (RestInterceptor)theEObject;
+                T result = caseRestInterceptor ( restInterceptor );
+                if ( result == null )
+                    result = caseItemInterceptor ( restInterceptor );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -966,6 +999,54 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSummariesConfiguration ( SummariesConfiguration object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Item Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Item Interceptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseItemInterceptor ( ItemInterceptor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseContainer ( Container object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Rest Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Rest Interceptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRestInterceptor ( RestInterceptor object )
     {
         return null;
     }

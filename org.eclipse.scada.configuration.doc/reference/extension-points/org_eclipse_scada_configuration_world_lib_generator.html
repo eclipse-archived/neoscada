@@ -28,21 +28,32 @@
 <p class="code SchemaDtdAttlist">forClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CDATA #IMPLIED</p>
 <p class="code SchemaDtdAttlist">factoryClass&nbsp;CDATA #REQUIRED&gt;</p>
 <p></p>
+<p class="ConfigMarkupElementDesc">
+A processor that processes elements directly under the Application class.</p>
+<br>
 <ul class="ConfigMarkupAttlistDesc">
-<li><b>forClass</b> - </li>
-<li><b>factoryClass</b> - </li>
+<li><b>forClass</b> - The class this processor works for.
+
+Either the attribute "forClass "or the child element "forClass" can be used. If both are specified all will be used.</li>
+<li><b>factoryClass</b> - The implementation class.</li>
 </ul>
 <br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.forClass">forClass</a> EMPTY&gt;</p>
 <p class="code SchemaDtd">&lt;!ATTLIST forClass</p>
 <p class="code SchemaDtdAttlist">class&nbsp;CDATA #REQUIRED&gt;</p>
 <p></p>
+<p class="ConfigMarkupElementDesc">
+An alternative to the attribute "forClass" in order to list more classes that this processor can handle.</p>
+<br>
 <ul class="ConfigMarkupAttlistDesc">
-<li><b>class</b> - </li>
+<li><b>class</b> - The actual class name.</li>
 </ul>
 <br><p class="code SchemaDtd">&lt;!ELEMENT <a name="e.oscarProcessor">oscarProcessor</a> EMPTY&gt;</p>
 <p class="code SchemaDtd">&lt;!ATTLIST oscarProcessor</p>
 <p class="code SchemaDtdAttlist">class&nbsp;CDATA #REQUIRED&gt;</p>
 <p></p>
+<p class="ConfigMarkupElementDesc">
+A processor that will be called for all applications based on EquinoxApplication</p>
+<br>
 <ul class="ConfigMarkupAttlistDesc">
 <li><b>class</b> - The class implementing the processor</li>
 </ul>

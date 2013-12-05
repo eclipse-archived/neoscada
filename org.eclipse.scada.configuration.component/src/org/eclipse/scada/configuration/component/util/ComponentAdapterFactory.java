@@ -24,6 +24,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.ConstantValue;
+import org.eclipse.scada.configuration.component.Container;
 import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
@@ -33,6 +34,7 @@ import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
+import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
@@ -41,6 +43,7 @@ import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
 import org.eclipse.scada.configuration.component.PersistentValue;
+import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
@@ -301,6 +304,24 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         public Adapter caseSummariesConfiguration ( SummariesConfiguration object )
         {
             return createSummariesConfigurationAdapter ();
+        }
+
+        @Override
+        public Adapter caseItemInterceptor ( ItemInterceptor object )
+        {
+            return createItemInterceptorAdapter ();
+        }
+
+        @Override
+        public Adapter caseContainer ( Container object )
+        {
+            return createContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseRestInterceptor ( RestInterceptor object )
+        {
+            return createRestInterceptorAdapter ();
         }
 
         @Override
@@ -812,6 +833,51 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSummariesConfigurationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor
+     * @generated
+     */
+    public Adapter createItemInterceptorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.Container <em>Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.Container
+     * @generated
+     */
+    public Adapter createContainerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.RestInterceptor <em>Rest Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.RestInterceptor
+     * @generated
+     */
+    public Adapter createRestInterceptorAdapter ()
     {
         return null;
     }

@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.world.osgi.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -20,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -40,6 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.RestExporter;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getItems <em>Items</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getHiveProperties <em>Hive Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl#getContextId <em>Context Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +69,26 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
      * @ordered
      */
     protected EList<PropertyEntry> hiveProperties;
+
+    /**
+     * The default value of the '{@link #getContextId() <em>Context Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getContextId()
+     * @generated
+     * @ordered
+     */
+    protected static final String CONTEXT_ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getContextId() <em>Context Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getContextId()
+     * @generated
+     * @ordered
+     */
+    protected String contextId = CONTEXT_ID_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -121,6 +144,29 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getContextId ()
+    {
+        return contextId;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setContextId ( String newContextId )
+    {
+        String oldContextId = contextId;
+        contextId = newContextId;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.REST_EXPORTER__CONTEXT_ID, oldContextId, contextId ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -146,6 +192,8 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
                 return getItems ();
             case OsgiPackage.REST_EXPORTER__HIVE_PROPERTIES:
                 return getHiveProperties ();
+            case OsgiPackage.REST_EXPORTER__CONTEXT_ID:
+                return getContextId ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -169,6 +217,9 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
                 getHiveProperties ().clear ();
                 getHiveProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
+            case OsgiPackage.REST_EXPORTER__CONTEXT_ID:
+                setContextId ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -189,6 +240,9 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
             case OsgiPackage.REST_EXPORTER__HIVE_PROPERTIES:
                 getHiveProperties ().clear ();
                 return;
+            case OsgiPackage.REST_EXPORTER__CONTEXT_ID:
+                setContextId ( CONTEXT_ID_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -207,8 +261,28 @@ public class RestExporterImpl extends MinimalEObjectImpl.Container implements Re
                 return items != null && !items.isEmpty ();
             case OsgiPackage.REST_EXPORTER__HIVE_PROPERTIES:
                 return hiveProperties != null && !hiveProperties.isEmpty ();
+            case OsgiPackage.REST_EXPORTER__CONTEXT_ID:
+                return CONTEXT_ID_EDEFAULT == null ? contextId != null : !CONTEXT_ID_EDEFAULT.equals ( contextId );
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (contextId: " ); //$NON-NLS-1$
+        result.append ( contextId );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //RestExporterImpl

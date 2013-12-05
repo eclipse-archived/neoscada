@@ -12,13 +12,10 @@ package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -26,7 +23,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -38,7 +34,7 @@ import org.eclipse.scada.configuration.component.Level;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LevelItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class LevelItemProvider extends ContainerItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -64,9 +60,9 @@ public class LevelItemProvider extends ItemProviderAdapter implements IEditingDo
         {
             super.getPropertyDescriptors ( object );
 
-            addNamePropertyDescriptor ( object );
             addCustomizationPipelinePropertyDescriptor ( object );
             addArchiveSelectorPropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -282,18 +278,6 @@ public class LevelItemProvider extends ItemProviderAdapter implements IEditingDo
                 ( createChildParameter
                 ( ComponentPackage.Literals.LEVEL__LEVELS,
                         ComponentFactory.eINSTANCE.createLevel () ) );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator ()
-    {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

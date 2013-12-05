@@ -5,58 +5,65 @@
          point="org.eclipse.core.runtime.adapters">
        <factory
             adaptableType="org.eclipse.scada.configuration.component.ConstantValue"
-            class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+            class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">
          </adapter>
       </factory>
        <factory
             adaptableType="org.eclipse.scada.configuration.component.PersistentValue"
-            class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+            class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">
          </adapter>
       </factory>
        <factory
             adaptableType="org.eclipse.scada.configuration.component.ExternalValue"
-            class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+            class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">
          </adapter>
       </factory>
         <factory
              adaptableType="org.eclipse.scada.configuration.component.DriverConnectionAnalyzer"
-             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
        <factory
              adaptableType="org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer"
-             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
          <factory
              adaptableType="org.eclipse.scada.configuration.component.DataMapperAnalyzer"
-             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
         <factory
              adaptableType="org.eclipse.scada.configuration.component.DataMapperService"
-             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
         <factory
              adaptableType="org.eclipse.scada.configuration.component.MappedSourceValue"
-             class="org.eclipse.scada.configuration.component.generator.internal.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
+          </adapter>
+       </factory>
+   	<factory
+             adaptableType="org.eclipse.scada.configuration.component.RestInterceptor"
+             class="org.eclipse.scada.configuration.component.generator.internal.InterceptorAdapterFactory">
+          <adapter
+                type="org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler">
           </adapter>
        </factory>
    </extension>

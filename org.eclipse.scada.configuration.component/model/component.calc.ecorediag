@@ -218,7 +218,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_QDJfofOmEeK6AdOYc1mm4A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="component.ecore#//AverageModule"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QDJfovOmEeK6AdOYc1mm4A" x="504" y="96"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QDJfovOmEeK6AdOYc1mm4A" x="504" y="84"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_CszYEPQ_EeK6AdOYc1mm4A" type="1001">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Cthw0PQ_EeK6AdOYc1mm4A" source="Shortcut">
@@ -477,7 +477,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_SIajAfOmEeK6AdOYc1mm4A" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_SIajAvOmEeK6AdOYc1mm4A" fontName="Sans"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SIajA_OmEeK6AdOYc1mm4A" points="[60, 20, -185, -57]$[290, 98, 45, 21]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SIajA_OmEeK6AdOYc1mm4A" points="[-113, 0, 241, -8]$[-282, 0, 72, -8]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_LG1lIPQ_EeK6AdOYc1mm4A" type="3003" source="_KCYegPQ_EeK6AdOYc1mm4A" target="_CszYEPQ_EeK6AdOYc1mm4A">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_LG1lIfQ_EeK6AdOYc1mm4A" routing="Rectilinear" lineColor="4210752"/>

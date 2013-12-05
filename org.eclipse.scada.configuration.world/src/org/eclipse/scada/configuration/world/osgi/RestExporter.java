@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getItems <em>Items</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getHiveProperties <em>Hive Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getContextId <em>Context Id</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,5 +64,31 @@ public interface RestExporter extends ApplicationModule
      * @generated
      */
     EList<PropertyEntry> getHiveProperties ();
+
+    /**
+     * Returns the value of the '<em><b>Context Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Context Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Context Id</em>' attribute.
+     * @see #setContextId(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_ContextId()
+     * @model required="true"
+     * @generated
+     */
+    String getContextId ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getContextId <em>Context Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Context Id</em>' attribute.
+     * @see #getContextId()
+     * @generated
+     */
+    void setContextId ( String value );
 
 } // RestExporter

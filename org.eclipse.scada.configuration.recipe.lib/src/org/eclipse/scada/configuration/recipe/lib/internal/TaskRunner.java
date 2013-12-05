@@ -51,4 +51,8 @@ public class TaskRunner
         return this.factory.create ( execute, ctx );
     }
 
+    public String getName ()
+    {
+        return this.task.getName ();
+    }
 }

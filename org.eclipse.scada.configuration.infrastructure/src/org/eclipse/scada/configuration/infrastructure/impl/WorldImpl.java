@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.infrastructure.Configurations;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
@@ -28,7 +29,7 @@ import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.MasterHandlerPriorities;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
-import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 /**
@@ -48,6 +49,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getDefaultDriverPassword <em>Default Driver Password</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getApplicationConfigurations <em>Application Configurations</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getDefaultDriverAccessCredentials <em>Default Driver Access Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.WorldImpl#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,7 +145,7 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * @generated
      * @ordered
      */
-    protected EList<ApplicationConfiguration> applicationConfigurations;
+    protected EList<IndependentConfiguration> applicationConfigurations;
 
     /**
      * The cached value of the '{@link #getDefaultDriverAccessCredentials() <em>Default Driver Access Credentials</em>}' containment reference.
@@ -154,6 +156,16 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * @ordered
      */
     protected Credentials defaultDriverAccessCredentials;
+
+    /**
+     * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConfigurations()
+     * @generated
+     * @ordered
+     */
+    protected Configurations configurations;
 
     /**
      * <!-- begin-user-doc -->
@@ -607,11 +619,11 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ApplicationConfiguration> getApplicationConfigurations ()
+    public EList<IndependentConfiguration> getApplicationConfigurations ()
     {
         if ( applicationConfigurations == null )
         {
-            applicationConfigurations = new EObjectContainmentEList.Resolving<ApplicationConfiguration> ( ApplicationConfiguration.class, this, InfrastructurePackage.WORLD__APPLICATION_CONFIGURATIONS );
+            applicationConfigurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.WORLD__APPLICATION_CONFIGURATIONS );
         }
         return applicationConfigurations;
     }
@@ -701,6 +713,86 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
      * <!-- end-user-doc -->
      * @generated
      */
+    public Configurations getConfigurations ()
+    {
+        if ( configurations != null && configurations.eIsProxy () )
+        {
+            InternalEObject oldConfigurations = (InternalEObject)configurations;
+            configurations = (Configurations)eResolveProxy ( oldConfigurations );
+            if ( configurations != oldConfigurations )
+            {
+                InternalEObject newConfigurations = (InternalEObject)configurations;
+                NotificationChain msgs = oldConfigurations.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.WORLD__CONFIGURATIONS, null, null );
+                if ( newConfigurations.eInternalContainer () == null )
+                {
+                    msgs = newConfigurations.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.WORLD__CONFIGURATIONS, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.WORLD__CONFIGURATIONS, oldConfigurations, configurations ) );
+            }
+        }
+        return configurations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Configurations basicGetConfigurations ()
+    {
+        return configurations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetConfigurations ( Configurations newConfigurations, NotificationChain msgs )
+    {
+        Configurations oldConfigurations = configurations;
+        configurations = newConfigurations;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.WORLD__CONFIGURATIONS, oldConfigurations, newConfigurations );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setConfigurations ( Configurations newConfigurations )
+    {
+        if ( newConfigurations != configurations )
+        {
+            NotificationChain msgs = null;
+            if ( configurations != null )
+                msgs = ( (InternalEObject)configurations ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.WORLD__CONFIGURATIONS, null, msgs );
+            if ( newConfigurations != null )
+                msgs = ( (InternalEObject)newConfigurations ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - InfrastructurePackage.WORLD__CONFIGURATIONS, null, msgs );
+            msgs = basicSetConfigurations ( newConfigurations, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.WORLD__CONFIGURATIONS, newConfigurations, newConfigurations ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -718,6 +810,8 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
                 return ( (InternalEList<?>)getApplicationConfigurations () ).basicRemove ( otherEnd, msgs );
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS:
                 return basicSetDefaultDriverAccessCredentials ( null, msgs );
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
+                return basicSetConfigurations ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -768,6 +862,10 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
                 if ( resolve )
                     return getDefaultDriverAccessCredentials ();
                 return basicGetDefaultDriverAccessCredentials ();
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
+                if ( resolve )
+                    return getConfigurations ();
+                return basicGetConfigurations ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -810,10 +908,13 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
                 return;
             case InfrastructurePackage.WORLD__APPLICATION_CONFIGURATIONS:
                 getApplicationConfigurations ().clear ();
-                getApplicationConfigurations ().addAll ( (Collection<? extends ApplicationConfiguration>)newValue );
+                getApplicationConfigurations ().addAll ( (Collection<? extends IndependentConfiguration>)newValue );
                 return;
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS:
                 setDefaultDriverAccessCredentials ( (Credentials)newValue );
+                return;
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
+                setConfigurations ( (Configurations)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -859,6 +960,9 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS:
                 setDefaultDriverAccessCredentials ( (Credentials)null );
                 return;
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
+                setConfigurations ( (Configurations)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -893,6 +997,8 @@ public class WorldImpl extends MinimalEObjectImpl.Container implements World
                 return applicationConfigurations != null && !applicationConfigurations.isEmpty ();
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS:
                 return defaultDriverAccessCredentials != null;
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
+                return configurations != null;
         }
         return super.eIsSet ( featureID );
     }

@@ -90,6 +90,18 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     {
         if ( eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL )
             return null;
+        return (Level)eContainer ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Level basicGetLevel ()
+    {
+        if ( eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL )
+            return null;
         return (Level)eInternalContainer ();
     }
 
@@ -275,7 +287,9 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
         switch ( featureID )
         {
             case ComponentPackage.COMPONENT__LEVEL:
-                return getLevel ();
+                if ( resolve )
+                    return getLevel ();
+                return basicGetLevel ();
             case ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE:
                 if ( resolve )
                     return getCustomizationPipeline ();
@@ -345,7 +359,7 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
         switch ( featureID )
         {
             case ComponentPackage.COMPONENT__LEVEL:
-                return getLevel () != null;
+                return basicGetLevel () != null;
             case ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE:
                 return customizationPipeline != null;
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:

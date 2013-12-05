@@ -27,7 +27,7 @@ import org.eclipse.scada.configuration.component.generator.simple.ExternalValueG
 import org.eclipse.scada.configuration.component.generator.simple.PersistentValueGenerator;
 import org.eclipse.scada.configuration.generator.Generator;
 
-public class AdapterFactory implements IAdapterFactory
+public class GeneratorAdapterFactory implements IAdapterFactory
 {
 
     @SuppressWarnings ( "rawtypes" )

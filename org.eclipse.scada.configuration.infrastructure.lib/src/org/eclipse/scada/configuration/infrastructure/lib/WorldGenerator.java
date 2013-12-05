@@ -33,9 +33,11 @@ import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
 import org.eclipse.scada.configuration.infrastructure.ExternalNode;
+import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
@@ -49,6 +51,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
+import org.eclipse.scada.configuration.world.lib.Nodes;
 import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
@@ -56,6 +59,7 @@ import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.Exporter;
+import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -214,7 +218,7 @@ public class WorldGenerator
                 selfConnection.setEndpoint ( ep );
                 master.getConnections ().add ( selfConnection );
 
-                master.getModules ().addAll ( makeModules ( infraMaster ) );
+                master.getModules ().addAll ( makeModules ( infraMaster, master ) );
 
                 conMap.put ( infraMaster, selfConnection );
             }
@@ -294,13 +298,33 @@ public class WorldGenerator
         }
     }
 
-    private Collection<ApplicationConfiguration> makeModules ( final MasterServer master )
+    private Collection<ApplicationConfiguration> makeModules ( final MasterServer master, final DefaultMasterServer implMaster )
     {
         final Collection<ApplicationConfiguration> result = new LinkedList<> ();
+
+        // process application configurations
 
         result.addAll ( this.infrastructure.getApplicationConfigurations () );
         ExclusiveGroups.removeGroups ( result, master.getConfigurations () );
         result.addAll ( master.getConfigurations () );
+
+        // process infrastructure configuration
+
+        final org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration cfg = master.getConfiguration ();
+        // TODO: add a default configuration
+        for ( final Module m : cfg.getModules () )
+        {
+            // FIXME: add extension scheme
+            if ( m instanceof HttpServiceModule )
+            {
+                final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
+                final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort () );
+                final Node node = Nodes.fromApp ( implMaster );
+                node.getEndpoints ().add ( ep );
+                s.setEndpoint ( ep );
+                result.add ( s );
+            }
+        }
 
         // final check is done in the target model
 

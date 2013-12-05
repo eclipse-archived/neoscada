@@ -2,9 +2,9 @@
 <!-- Schema file written by PDE -->
 <schema targetNamespace="org.eclipse.scada.configuration.world.lib" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
-      <appInfo>
+      <appinfo>
          <meta.schema plugin="org.eclipse.scada.configuration.world.lib" id="generator" name="Generator Processors"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          Defines some processors which take part in the generation process.
       </documentation>
@@ -12,9 +12,9 @@
 
    <element name="extension">
       <annotation>
-         <appInfo>
+         <appinfo>
             <meta.element />
-         </appInfo>
+         </appinfo>
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
@@ -40,15 +40,20 @@
                <documentation>
                   
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute translatable="true"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <element name="nodeElementProcessor">
+      <annotation>
+         <documentation>
+            A processor that processes elements directly under the Application class.
+         </documentation>
+      </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
             <element ref="forClass"/>
@@ -56,60 +61,72 @@
          <attribute name="forClass" type="string">
             <annotation>
                <documentation>
-                  
+                  The class this processor works for.
+
+Either the attribute &quot;forClass &quot;or the child element &quot;forClass&quot; can be used. If both are specified all will be used.
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
          <attribute name="factoryClass" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The implementation class.
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <element name="forClass">
+      <annotation>
+         <documentation>
+            An alternative to the attribute &quot;forClass&quot; in order to list more classes that this processor can handle.
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The actual class name.
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <element name="oscarProcessor">
+      <annotation>
+         <documentation>
+            A processor that will be called for all applications based on EquinoxApplication
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
                   The class implementing the processor
                </documentation>
-               <appInfo>
+               <appinfo>
                   <meta.attribute kind="java" basedOn=":org.eclipse.scada.configuration.world.lib.oscar.OscarProcessor"/>
-               </appInfo>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
    <annotation>
-      <appInfo>
+      <appinfo>
          <meta.section type="since"/>
-      </appInfo>
+      </appinfo>
       <documentation>
          0.1.0
       </documentation>

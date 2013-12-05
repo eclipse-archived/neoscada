@@ -44,7 +44,7 @@ public interface DataMapperService extends Service
      * @return the value of the '<em>Data Mapper</em>' containment reference.
      * @see #setDataMapper(DataMapper)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getDataMapperService_DataMapper()
-     * @model containment="true" required="true"
+     * @model containment="true" resolveProxies="true" required="true"
      * @generated
      */
     DataMapper getDataMapper ();

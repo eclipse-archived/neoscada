@@ -11,14 +11,12 @@
 package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,17 +34,17 @@ import org.eclipse.scada.configuration.item.Selector;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.LevelImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LevelImpl extends MinimalEObjectImpl.Container implements Level
+public class LevelImpl extends ContainerImpl implements Level
 {
     /**
      * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -57,26 +55,6 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
      * @ordered
      */
     protected EList<Component> components;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
@@ -109,6 +87,26 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
     protected Selector archiveSelector;
 
     /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -138,7 +136,7 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
     {
         if ( components == null )
         {
-            components = new EObjectContainmentWithInverseEList<Component> ( Component.class, this, ComponentPackage.LEVEL__COMPONENTS, ComponentPackage.COMPONENT__LEVEL );
+            components = new EObjectContainmentWithInverseEList.Resolving<Component> ( Component.class, this, ComponentPackage.LEVEL__COMPONENTS, ComponentPackage.COMPONENT__LEVEL );
         }
         return components;
     }
@@ -175,7 +173,7 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
     {
         if ( levels == null )
         {
-            levels = new EObjectContainmentWithInverseEList<Level> ( Level.class, this, ComponentPackage.LEVEL__LEVELS, ComponentPackage.LEVEL__PARENT );
+            levels = new EObjectContainmentWithInverseEList.Resolving<Level> ( Level.class, this, ComponentPackage.LEVEL__LEVELS, ComponentPackage.LEVEL__PARENT );
         }
         return levels;
     }
@@ -186,6 +184,18 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
      * @generated
      */
     public Level getParent ()
+    {
+        if ( eContainerFeatureID () != ComponentPackage.LEVEL__PARENT )
+            return null;
+        return (Level)eContainer ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Level basicGetParent ()
     {
         if ( eContainerFeatureID () != ComponentPackage.LEVEL__PARENT )
             return null;
@@ -384,12 +394,12 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
         {
             case ComponentPackage.LEVEL__COMPONENTS:
                 return getComponents ();
-            case ComponentPackage.LEVEL__NAME:
-                return getName ();
             case ComponentPackage.LEVEL__LEVELS:
                 return getLevels ();
             case ComponentPackage.LEVEL__PARENT:
-                return getParent ();
+                if ( resolve )
+                    return getParent ();
+                return basicGetParent ();
             case ComponentPackage.LEVEL__CUSTOMIZATION_PIPELINE:
                 if ( resolve )
                     return getCustomizationPipeline ();
@@ -398,6 +408,8 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
                 if ( resolve )
                     return getArchiveSelector ();
                 return basicGetArchiveSelector ();
+            case ComponentPackage.LEVEL__NAME:
+                return getName ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -417,9 +429,6 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
                 getComponents ().clear ();
                 getComponents ().addAll ( (Collection<? extends Component>)newValue );
                 return;
-            case ComponentPackage.LEVEL__NAME:
-                setName ( (String)newValue );
-                return;
             case ComponentPackage.LEVEL__LEVELS:
                 getLevels ().clear ();
                 getLevels ().addAll ( (Collection<? extends Level>)newValue );
@@ -432,6 +441,9 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
                 return;
             case ComponentPackage.LEVEL__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)newValue );
+                return;
+            case ComponentPackage.LEVEL__NAME:
+                setName ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -450,9 +462,6 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
             case ComponentPackage.LEVEL__COMPONENTS:
                 getComponents ().clear ();
                 return;
-            case ComponentPackage.LEVEL__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
             case ComponentPackage.LEVEL__LEVELS:
                 getLevels ().clear ();
                 return;
@@ -464,6 +473,9 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
                 return;
             case ComponentPackage.LEVEL__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)null );
+                return;
+            case ComponentPackage.LEVEL__NAME:
+                setName ( NAME_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -481,16 +493,16 @@ public class LevelImpl extends MinimalEObjectImpl.Container implements Level
         {
             case ComponentPackage.LEVEL__COMPONENTS:
                 return components != null && !components.isEmpty ();
-            case ComponentPackage.LEVEL__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.LEVEL__LEVELS:
                 return levels != null && !levels.isEmpty ();
             case ComponentPackage.LEVEL__PARENT:
-                return getParent () != null;
+                return basicGetParent () != null;
             case ComponentPackage.LEVEL__CUSTOMIZATION_PIPELINE:
                 return customizationPipeline != null;
             case ComponentPackage.LEVEL__ARCHIVE_SELECTOR:
                 return archiveSelector != null;
+            case ComponentPackage.LEVEL__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
         }
         return super.eIsSet ( featureID );
     }

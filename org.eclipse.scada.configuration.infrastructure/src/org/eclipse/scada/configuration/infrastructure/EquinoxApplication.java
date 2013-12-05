@@ -12,7 +12,7 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +25,7 @@ import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,7 +90,7 @@ public interface EquinoxApplication extends EObject
 
     /**
      * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear,
@@ -101,6 +102,32 @@ public interface EquinoxApplication extends EObject
      * @model containment="true" resolveProxies="true"
      * @generated
      */
-    EList<ApplicationConfiguration> getConfigurations ();
+    EList<IndependentConfiguration> getConfigurations ();
+
+    /**
+     * Returns the value of the '<em><b>Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Configuration</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Configuration</em>' reference.
+     * @see #setConfiguration(ApplicationConfiguration)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Configuration()
+     * @model
+     * @generated
+     */
+    ApplicationConfiguration getConfiguration ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Configuration</em>' reference.
+     * @see #getConfiguration()
+     * @generated
+     */
+    void setConfiguration ( ApplicationConfiguration value );
 
 } // EquinoxApplication

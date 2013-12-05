@@ -879,6 +879,8 @@ public class OsgiSwitch<T> extends Switch<T>
                 EventStorage eventStorage = (EventStorage)theEObject;
                 T result = caseEventStorage ( eventStorage );
                 if ( result == null )
+                    result = caseIndependentConfiguration ( eventStorage );
+                if ( result == null )
                     result = caseApplicationConfiguration ( eventStorage );
                 if ( result == null )
                     result = caseApplicationModule ( eventStorage );
@@ -894,6 +896,8 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = caseAbstractEventStorageJdbc ( eventStorageJdbc );
                 if ( result == null )
                     result = caseEventStorage ( eventStorageJdbc );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( eventStorageJdbc );
                 if ( result == null )
                     result = caseApplicationConfiguration ( eventStorageJdbc );
                 if ( result == null )
@@ -911,6 +915,8 @@ public class OsgiSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseEventStorage ( eventStoragePostgres );
                 if ( result == null )
+                    result = caseIndependentConfiguration ( eventStoragePostgres );
+                if ( result == null )
                     result = caseApplicationConfiguration ( eventStoragePostgres );
                 if ( result == null )
                     result = caseApplicationModule ( eventStoragePostgres );
@@ -924,6 +930,8 @@ public class OsgiSwitch<T> extends Switch<T>
                 T result = caseAbstractEventStorageJdbc ( abstractEventStorageJdbc );
                 if ( result == null )
                     result = caseEventStorage ( abstractEventStorageJdbc );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( abstractEventStorageJdbc );
                 if ( result == null )
                     result = caseApplicationConfiguration ( abstractEventStorageJdbc );
                 if ( result == null )
@@ -960,6 +968,18 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = caseApplicationConfiguration ( httpService );
                 if ( result == null )
                     result = caseApplicationModule ( httpService );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.INDEPENDENT_CONFIGURATION:
+            {
+                IndependentConfiguration independentConfiguration = (IndependentConfiguration)theEObject;
+                T result = caseIndependentConfiguration ( independentConfiguration );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( independentConfiguration );
+                if ( result == null )
+                    result = caseApplicationModule ( independentConfiguration );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -2325,6 +2345,22 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseHttpService ( HttpService object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Independent Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Independent Configuration</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseIndependentConfiguration ( IndependentConfiguration object )
     {
         return null;
     }

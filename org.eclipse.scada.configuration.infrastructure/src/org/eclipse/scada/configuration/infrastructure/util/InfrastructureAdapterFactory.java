@@ -201,6 +201,30 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseApplicationConfiguration ( ApplicationConfiguration object )
+        {
+            return createApplicationConfigurationAdapter ();
+        }
+
+        @Override
+        public Adapter caseConfigurations ( Configurations object )
+        {
+            return createConfigurationsAdapter ();
+        }
+
+        @Override
+        public Adapter caseModule ( Module object )
+        {
+            return createModuleAdapter ();
+        }
+
+        @Override
+        public Adapter caseHttpServiceModule ( HttpServiceModule object )
+        {
+            return createHttpServiceModuleAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -535,6 +559,66 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createExternalDriverPlaceholderAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration <em>Application Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration
+     * @generated
+     */
+    public Adapter createApplicationConfigurationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Configurations <em>Configurations</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.Configurations
+     * @generated
+     */
+    public Adapter createConfigurationsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.Module
+     * @generated
+     */
+    public Adapter createModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule <em>Http Service Module</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.HttpServiceModule
+     * @generated
+     */
+    public Adapter createHttpServiceModuleAdapter ()
     {
         return null;
     }

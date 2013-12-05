@@ -15,5 +15,5 @@ import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 public interface OscarProcessor
 {
-    public void process ( OscarContext ctx, EquinoxApplication application, IProgressMonitor monitor );
+    public void process ( OscarContext ctx, EquinoxApplication application, IProgressMonitor monitor ) throws Exception;
 }

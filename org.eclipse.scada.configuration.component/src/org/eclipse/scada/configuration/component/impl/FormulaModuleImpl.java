@@ -235,7 +235,7 @@ public class FormulaModuleImpl extends MinimalEObjectImpl.Container implements F
     {
         if ( inputs == null )
         {
-            inputs = new EObjectContainmentEList<InputSpecification> ( InputSpecification.class, this, ComponentPackage.FORMULA_MODULE__INPUTS );
+            inputs = new EObjectContainmentEList.Resolving<InputSpecification> ( InputSpecification.class, this, ComponentPackage.FORMULA_MODULE__INPUTS );
         }
         return inputs;
     }
@@ -247,6 +247,34 @@ public class FormulaModuleImpl extends MinimalEObjectImpl.Container implements F
      */
     @Override
     public Script getUpdate ()
+    {
+        if ( update != null && update.eIsProxy () )
+        {
+            InternalEObject oldUpdate = (InternalEObject)update;
+            update = (Script)eResolveProxy ( oldUpdate );
+            if ( update != oldUpdate )
+            {
+                InternalEObject newUpdate = (InternalEObject)update;
+                NotificationChain msgs = oldUpdate.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.FORMULA_MODULE__UPDATE, null, null );
+                if ( newUpdate.eInternalContainer () == null )
+                {
+                    msgs = newUpdate.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.FORMULA_MODULE__UPDATE, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.FORMULA_MODULE__UPDATE, oldUpdate, update ) );
+            }
+        }
+        return update;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script basicGetUpdate ()
     {
         return update;
     }
@@ -329,7 +357,7 @@ public class FormulaModuleImpl extends MinimalEObjectImpl.Container implements F
     {
         if ( init == null )
         {
-            init = new EObjectContainmentEList<Script> ( Script.class, this, ComponentPackage.FORMULA_MODULE__INIT );
+            init = new EObjectContainmentEList.Resolving<Script> ( Script.class, this, ComponentPackage.FORMULA_MODULE__INIT );
         }
         return init;
     }
@@ -417,7 +445,9 @@ public class FormulaModuleImpl extends MinimalEObjectImpl.Container implements F
             case ComponentPackage.FORMULA_MODULE__INPUTS:
                 return getInputs ();
             case ComponentPackage.FORMULA_MODULE__UPDATE:
-                return getUpdate ();
+                if ( resolve )
+                    return getUpdate ();
+                return basicGetUpdate ();
             case ComponentPackage.FORMULA_MODULE__SCRIPT_ENGINE:
                 return getScriptEngine ();
             case ComponentPackage.FORMULA_MODULE__INIT:

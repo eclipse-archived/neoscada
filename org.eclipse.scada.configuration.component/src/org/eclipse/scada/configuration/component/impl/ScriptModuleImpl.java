@@ -207,7 +207,7 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
     {
         if ( inputs == null )
         {
-            inputs = new EObjectContainmentEList<InputSpecification> ( InputSpecification.class, this, ComponentPackage.SCRIPT_MODULE__INPUTS );
+            inputs = new EObjectContainmentEList.Resolving<InputSpecification> ( InputSpecification.class, this, ComponentPackage.SCRIPT_MODULE__INPUTS );
         }
         return inputs;
     }
@@ -222,7 +222,7 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
     {
         if ( outputs == null )
         {
-            outputs = new EObjectContainmentEList<OutputSpecification> ( OutputSpecification.class, this, ComponentPackage.SCRIPT_MODULE__OUTPUTS );
+            outputs = new EObjectContainmentEList.Resolving<OutputSpecification> ( OutputSpecification.class, this, ComponentPackage.SCRIPT_MODULE__OUTPUTS );
         }
         return outputs;
     }

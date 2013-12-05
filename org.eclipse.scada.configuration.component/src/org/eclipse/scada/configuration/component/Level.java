@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
 
@@ -24,11 +23,11 @@ import org.eclipse.scada.configuration.item.Selector;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getComponents <em>Components</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.Level#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getLevels <em>Levels</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Level#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.Level#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,7 +35,7 @@ import org.eclipse.scada.configuration.item.Selector;
  * @model
  * @generated
  */
-public interface Level extends EObject
+public interface Level extends Container
 {
     /**
      * Returns the value of the '<em><b>Components</b></em>' containment reference list.
@@ -51,7 +50,7 @@ public interface Level extends EObject
      * @return the value of the '<em>Components</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getLevel_Components()
      * @see org.eclipse.scada.configuration.component.Component#getLevel
-     * @model opposite="level" containment="true"
+     * @model opposite="level" containment="true" resolveProxies="true"
      * @generated
      */
     EList<Component> getComponents ();
@@ -95,7 +94,7 @@ public interface Level extends EObject
      * @return the value of the '<em>Levels</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getLevel_Levels()
      * @see org.eclipse.scada.configuration.component.Level#getParent
-     * @model opposite="parent" containment="true"
+     * @model opposite="parent" containment="true" resolveProxies="true"
      * @generated
      */
     EList<Level> getLevels ();

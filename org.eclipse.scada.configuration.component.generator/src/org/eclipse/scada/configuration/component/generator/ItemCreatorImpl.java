@@ -55,7 +55,7 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
 
     public ItemCreatorImpl ( final GeneratorContext ctx, final MasterContext master, final Component component )
     {
-        super ( master, component );
+        super ( master, component, component.getLevel () );
         this.masterContext = master;
         this.ctx = ctx;
         this.component = component;

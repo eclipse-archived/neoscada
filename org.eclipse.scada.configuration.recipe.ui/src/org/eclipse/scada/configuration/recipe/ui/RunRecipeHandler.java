@@ -58,13 +58,15 @@ public class RunRecipeHandler extends AbstractSelectionHandler
         return null;
     }
 
+    private final int MONITOR_FILE_AMOUNT = 100_000;
+
     private IStatus processFiles ( final IStructuredSelection selection, final IProgressMonitor monitor )
     {
         final List<IFile> files = SelectionHelper.list ( selection, IFile.class );
 
         final MultiStatus ms = new MultiStatus ( Activator.PLUGIN_ID, 0, null, null );
 
-        monitor.beginTask ( "Running recipes...", files.size () );
+        monitor.beginTask ( "Running recipes...", files.size () * this.MONITOR_FILE_AMOUNT );
 
         try
         {
@@ -75,6 +77,7 @@ public class RunRecipeHandler extends AbstractSelectionHandler
                     monitor.setTaskName ( String.format ( "Recipe: %s", file.getName () ) );
                     processFile ( file, monitor );
                     ms.add ( new Status ( IStatus.OK, Activator.PLUGIN_ID, String.format ( "Run recipe: %s", file.getName () ) ) );
+                    // don't need to "work" on the monitor, since we have a sub monitor
                 }
                 catch ( final CoreException e )
                 {
@@ -117,7 +120,7 @@ public class RunRecipeHandler extends AbstractSelectionHandler
         final Builder builder = new Builder ( def );
         final Recipe recipe = builder.build ();
 
-        final SubProgressMonitor pm = new SubProgressMonitor ( monitor, 1 );
+        final SubProgressMonitor pm = new SubProgressMonitor ( monitor, this.MONITOR_FILE_AMOUNT );
 
         try
         {

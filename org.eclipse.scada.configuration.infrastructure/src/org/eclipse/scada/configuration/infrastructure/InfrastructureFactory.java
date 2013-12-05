@@ -157,6 +157,33 @@ public interface InfrastructureFactory extends EFactory
     ExternalDriverPlaceholder createExternalDriverPlaceholder ();
 
     /**
+     * Returns a new object of class '<em>Application Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Application Configuration</em>'.
+     * @generated
+     */
+    ApplicationConfiguration createApplicationConfiguration ();
+
+    /**
+     * Returns a new object of class '<em>Configurations</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Configurations</em>'.
+     * @generated
+     */
+    Configurations createConfigurations ();
+
+    /**
+     * Returns a new object of class '<em>Http Service Module</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Http Service Module</em>'.
+     * @generated
+     */
+    HttpServiceModule createHttpServiceModule ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

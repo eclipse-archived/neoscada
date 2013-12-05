@@ -78,6 +78,43 @@ public interface ComponentPackage extends EPackage
     ComponentPackage eINSTANCE = org.eclipse.scada.configuration.component.impl.ComponentPackageImpl.init ();
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ContainerImpl <em>Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.ContainerImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getContainer()
+     * @generated
+     */
+    int CONTAINER = 33;
+
+    /**
+     * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER__ITEM_INTERCEPTORS = 0;
+
+    /**
+     * The number of structural features of the '<em>Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.SystemImpl <em>System</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -88,13 +125,22 @@ public interface ComponentPackage extends EPackage
     int SYSTEM = 0;
 
     /**
+     * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
+
+    /**
      * The feature id for the '<em><b>Levels</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYSTEM__LEVELS = 0;
+    int SYSTEM__LEVELS = CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
@@ -103,7 +149,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__CONFIGURATIONS = 1;
+    int SYSTEM__CONFIGURATIONS = CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Services</b></em>' containment reference list.
@@ -112,7 +158,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__SERVICES = 2;
+    int SYSTEM__SERVICES = CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Infrastructure</b></em>' reference.
@@ -121,7 +167,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__INFRASTRUCTURE = 3;
+    int SYSTEM__INFRASTRUCTURE = CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Default Customization Pipeline</b></em>' reference.
@@ -130,7 +176,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE = 4;
+    int SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE = CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Default Archive Selector</b></em>' reference.
@@ -139,7 +185,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__DEFAULT_ARCHIVE_SELECTOR = 5;
+    int SYSTEM__DEFAULT_ARCHIVE_SELECTOR = CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>System</em>' class.
@@ -148,7 +194,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM_FEATURE_COUNT = 6;
+    int SYSTEM_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>System</em>' class.
@@ -157,7 +203,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_COUNT = 0;
+    int SYSTEM_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.LevelImpl <em>Level</em>}' class.
@@ -170,22 +216,22 @@ public interface ComponentPackage extends EPackage
     int LEVEL = 1;
 
     /**
+     * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
+
+    /**
      * The feature id for the '<em><b>Components</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LEVEL__COMPONENTS = 0;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int LEVEL__NAME = 1;
+    int LEVEL__COMPONENTS = CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Levels</b></em>' containment reference list.
@@ -194,7 +240,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL__LEVELS = 2;
+    int LEVEL__LEVELS = CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -203,7 +249,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL__PARENT = 3;
+    int LEVEL__PARENT = CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -212,7 +258,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL__CUSTOMIZATION_PIPELINE = 4;
+    int LEVEL__CUSTOMIZATION_PIPELINE = CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -221,7 +267,16 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL__ARCHIVE_SELECTOR = 5;
+    int LEVEL__ARCHIVE_SELECTOR = CONTAINER_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL__NAME = CONTAINER_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Level</em>' class.
@@ -230,7 +285,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_FEATURE_COUNT = 6;
+    int LEVEL_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 6;
 
     /**
      * The number of operations of the '<em>Level</em>' class.
@@ -239,7 +294,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int LEVEL_OPERATION_COUNT = 0;
+    int LEVEL_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ComponentImpl <em>Component</em>}' class.
@@ -2207,6 +2262,80 @@ public interface ComponentPackage extends EPackage
     int SUMMARIES_CONFIGURATION_OPERATION_COUNT = CONFIGURATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemInterceptor()
+     * @generated
+     */
+    int ITEM_INTERCEPTOR = 32;
+
+    /**
+     * The number of structural features of the '<em>Item Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_INTERCEPTOR_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Item Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_INTERCEPTOR_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl <em>Rest Interceptor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.RestInterceptorImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getRestInterceptor()
+     * @generated
+     */
+    int REST_INTERCEPTOR = 34;
+
+    /**
+     * The feature id for the '<em><b>Context Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR__CONTEXT_ID = ITEM_INTERCEPTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Selector</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR__SELECTOR = ITEM_INTERCEPTOR_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Rest Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR_FEATURE_COUNT = ITEM_INTERCEPTOR_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Rest Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR_OPERATION_COUNT = ITEM_INTERCEPTOR_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2214,7 +2343,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 32;
+    int NOTIFICATION = 35;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.System <em>System</em>}'.
@@ -3233,6 +3362,69 @@ public interface ComponentPackage extends EPackage
     EAttribute getSummariesConfiguration_ItemThreshold ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Item Interceptor</em>'.
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor
+     * @generated
+     */
+    EClass getItemInterceptor ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.Container <em>Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Container</em>'.
+     * @see org.eclipse.scada.configuration.component.Container
+     * @generated
+     */
+    EClass getContainer ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.Container#getItemInterceptors <em>Item Interceptors</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Item Interceptors</em>'.
+     * @see org.eclipse.scada.configuration.component.Container#getItemInterceptors()
+     * @see #getContainer()
+     * @generated
+     */
+    EReference getContainer_ItemInterceptors ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.RestInterceptor <em>Rest Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Rest Interceptor</em>'.
+     * @see org.eclipse.scada.configuration.component.RestInterceptor
+     * @generated
+     */
+    EClass getRestInterceptor ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.RestInterceptor#getContextId <em>Context Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Context Id</em>'.
+     * @see org.eclipse.scada.configuration.component.RestInterceptor#getContextId()
+     * @see #getRestInterceptor()
+     * @generated
+     */
+    EAttribute getRestInterceptor_ContextId ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Selector</em>'.
+     * @see org.eclipse.scada.configuration.component.RestInterceptor#getSelector()
+     * @see #getRestInterceptor()
+     * @generated
+     */
+    EReference getRestInterceptor_Selector ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4098,6 +4290,60 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute SUMMARIES_CONFIGURATION__ITEM_THRESHOLD = eINSTANCE.getSummariesConfiguration_ItemThreshold ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.ItemInterceptor
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemInterceptor()
+         * @generated
+         */
+        EClass ITEM_INTERCEPTOR = eINSTANCE.getItemInterceptor ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ContainerImpl <em>Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.ContainerImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getContainer()
+         * @generated
+         */
+        EClass CONTAINER = eINSTANCE.getContainer ();
+
+        /**
+         * The meta object literal for the '<em><b>Item Interceptors</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONTAINER__ITEM_INTERCEPTORS = eINSTANCE.getContainer_ItemInterceptors ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl <em>Rest Interceptor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.RestInterceptorImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getRestInterceptor()
+         * @generated
+         */
+        EClass REST_INTERCEPTOR = eINSTANCE.getRestInterceptor ();
+
+        /**
+         * The meta object literal for the '<em><b>Context Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute REST_INTERCEPTOR__CONTEXT_ID = eINSTANCE.getRestInterceptor_ContextId ();
+
+        /**
+         * The meta object literal for the '<em><b>Selector</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference REST_INTERCEPTOR__SELECTOR = eINSTANCE.getRestInterceptor_Selector ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

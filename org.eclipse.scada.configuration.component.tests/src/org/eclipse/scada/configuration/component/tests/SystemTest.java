@@ -10,9 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.tests;
 
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
 
 /**
@@ -21,16 +19,8 @@ import org.eclipse.scada.configuration.component.ComponentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemTest extends TestCase
+public class SystemTest extends ContainerTest
 {
-
-    /**
-     * The fixture for this System test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected org.eclipse.scada.configuration.component.System fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -54,25 +44,15 @@ public class SystemTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this System test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( org.eclipse.scada.configuration.component.System fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this System test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected org.eclipse.scada.configuration.component.System getFixture ()
     {
-        return fixture;
+        return (org.eclipse.scada.configuration.component.System)fixture;
     }
 
     /**

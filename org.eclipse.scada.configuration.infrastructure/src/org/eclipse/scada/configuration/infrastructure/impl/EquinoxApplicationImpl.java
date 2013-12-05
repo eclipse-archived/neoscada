@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.infrastructure.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -21,9 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
-import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfiguration <em>Configuration</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,7 +91,17 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * @generated
      * @ordered
      */
-    protected EList<ApplicationConfiguration> configurations;
+    protected EList<IndependentConfiguration> configurations;
+
+    /**
+     * The cached value of the '{@link #getConfiguration() <em>Configuration</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConfiguration()
+     * @generated
+     * @ordered
+     */
+    protected ApplicationConfiguration configuration;
 
     /**
      * <!-- begin-user-doc -->
@@ -164,13 +175,56 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ApplicationConfiguration> getConfigurations ()
+    public EList<IndependentConfiguration> getConfigurations ()
     {
         if ( configurations == null )
         {
-            configurations = new EObjectContainmentEList.Resolving<ApplicationConfiguration> ( ApplicationConfiguration.class, this, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS );
+            configurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS );
         }
         return configurations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ApplicationConfiguration getConfiguration ()
+    {
+        if ( configuration != null && configuration.eIsProxy () )
+        {
+            InternalEObject oldConfiguration = (InternalEObject)configuration;
+            configuration = (ApplicationConfiguration)eResolveProxy ( oldConfiguration );
+            if ( configuration != oldConfiguration )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, configuration ) );
+            }
+        }
+        return configuration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ApplicationConfiguration basicGetConfiguration ()
+    {
+        return configuration;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setConfiguration ( ApplicationConfiguration newConfiguration )
+    {
+        ApplicationConfiguration oldConfiguration = configuration;
+        configuration = newConfiguration;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION, oldConfiguration, configuration ) );
     }
 
     /**
@@ -205,6 +259,10 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 return getInstanceNumber ();
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 return getConfigurations ();
+            case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
+                if ( resolve )
+                    return getConfiguration ();
+                return basicGetConfiguration ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -228,7 +286,10 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 return;
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 getConfigurations ().clear ();
-                getConfigurations ().addAll ( (Collection<? extends ApplicationConfiguration>)newValue );
+                getConfigurations ().addAll ( (Collection<? extends IndependentConfiguration>)newValue );
+                return;
+            case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
+                setConfiguration ( (ApplicationConfiguration)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -253,6 +314,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 getConfigurations ().clear ();
                 return;
+            case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
+                setConfiguration ( (ApplicationConfiguration)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -273,6 +337,8 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 return instanceNumber != INSTANCE_NUMBER_EDEFAULT;
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATIONS:
                 return configurations != null && !configurations.isEmpty ();
+            case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
+                return configuration != null;
         }
         return super.eIsSet ( featureID );
     }

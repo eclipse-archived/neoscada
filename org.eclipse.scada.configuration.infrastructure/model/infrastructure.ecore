@@ -21,10 +21,12 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PasswordCredentials"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="applicationConfigurations"
-        upperBound="-1" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationConfiguration"
+        upperBound="-1" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/IndependentConfiguration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultDriverAccessCredentials"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" eType="#//Configurations"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
@@ -74,8 +76,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ApplicationConfiguration"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/IndependentConfiguration"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configuration" eType="#//ApplicationConfiguration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CommonDriver" eSuperTypes="#//AbstractFactoryDriver">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -172,5 +175,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDriverPlaceholder" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver">
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
+        eType="#//Module" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configurations">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//ApplicationConfiguration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HttpServiceModule" eSuperTypes="#//Module">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"
+        defaultValueLiteral="8080"/>
   </eClassifiers>
 </ecore:EPackage>

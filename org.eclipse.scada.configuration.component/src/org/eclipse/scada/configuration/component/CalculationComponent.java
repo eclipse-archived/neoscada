@@ -70,7 +70,7 @@ public interface CalculationComponent extends DataComponent, Documentable
      * <!-- end-user-doc -->
      * @return the value of the '<em>Outputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getCalculationComponent_Outputs()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<OutputDefinition> getOutputs ();
@@ -86,7 +86,7 @@ public interface CalculationComponent extends DataComponent, Documentable
      * <!-- end-user-doc -->
      * @return the value of the '<em>Inputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getCalculationComponent_Inputs()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<InputDefinition> getInputs ();

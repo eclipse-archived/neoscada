@@ -278,6 +278,42 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.APPLICATION_CONFIGURATION:
+            {
+                ApplicationConfiguration applicationConfiguration = (ApplicationConfiguration)theEObject;
+                T result = caseApplicationConfiguration ( applicationConfiguration );
+                if ( result == null )
+                    result = caseDocumentable ( applicationConfiguration );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.CONFIGURATIONS:
+            {
+                Configurations configurations = (Configurations)theEObject;
+                T result = caseConfigurations ( configurations );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.MODULE:
+            {
+                Module module = (Module)theEObject;
+                T result = caseModule ( module );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.HTTP_SERVICE_MODULE:
+            {
+                HttpServiceModule httpServiceModule = (HttpServiceModule)theEObject;
+                T result = caseHttpServiceModule ( httpServiceModule );
+                if ( result == null )
+                    result = caseModule ( httpServiceModule );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -599,6 +635,70 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseExternalDriverPlaceholder ( ExternalDriverPlaceholder object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application Configuration</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application Configuration</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplicationConfiguration ( ApplicationConfiguration object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Configurations</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Configurations</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseConfigurations ( Configurations object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseModule ( Module object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Http Service Module</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Http Service Module</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHttpServiceModule ( HttpServiceModule object )
     {
         return null;
     }

@@ -702,6 +702,31 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.RestInterceptor} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RestInterceptorItemProvider restInterceptorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.RestInterceptor}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRestInterceptorAdapter ()
+    {
+        if ( restInterceptorItemProvider == null )
+        {
+            restInterceptorItemProvider = new RestInterceptorItemProvider ( this );
+        }
+
+        return restInterceptorItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -890,6 +915,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             externalValueItemProvider.dispose ();
         if ( summariesConfigurationItemProvider != null )
             summariesConfigurationItemProvider.dispose ();
+        if ( restInterceptorItemProvider != null )
+            restInterceptorItemProvider.dispose ();
     }
 
     /**

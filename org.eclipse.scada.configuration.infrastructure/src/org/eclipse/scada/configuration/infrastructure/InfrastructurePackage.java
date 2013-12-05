@@ -175,13 +175,22 @@ public interface InfrastructurePackage extends EPackage
     int WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS = 9;
 
     /**
+     * The feature id for the '<em><b>Configurations</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WORLD__CONFIGURATIONS = 10;
+
+    /**
      * The number of structural features of the '<em>World</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int WORLD_FEATURE_COUNT = 10;
+    int WORLD_FEATURE_COUNT = 11;
 
     /**
      * The number of operations of the '<em>World</em>' class.
@@ -294,13 +303,22 @@ public interface InfrastructurePackage extends EPackage
     int EQUINOX_APPLICATION__CONFIGURATIONS = 2;
 
     /**
+     * The feature id for the '<em><b>Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EQUINOX_APPLICATION__CONFIGURATION = 3;
+
+    /**
      * The number of structural features of the '<em>Equinox Application</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EQUINOX_APPLICATION_FEATURE_COUNT = 3;
+    int EQUINOX_APPLICATION_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Equinox Application</em>' class.
@@ -347,6 +365,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int MASTER_SERVER__CONFIGURATIONS = EQUINOX_APPLICATION__CONFIGURATIONS;
+
+    /**
+     * The feature id for the '<em><b>Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SERVER__CONFIGURATION = EQUINOX_APPLICATION__CONFIGURATION;
 
     /**
      * The feature id for the '<em><b>Authoratives</b></em>' containment reference list.
@@ -1135,6 +1162,15 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SERVER__CONFIGURATIONS = EQUINOX_APPLICATION__CONFIGURATIONS;
 
     /**
+     * The feature id for the '<em><b>Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SERVER__CONFIGURATION = EQUINOX_APPLICATION__CONFIGURATION;
+
+    /**
      * The number of structural features of the '<em>Value Archive Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1436,6 +1472,163 @@ public interface InfrastructurePackage extends EPackage
     int EXTERNAL_DRIVER_PLACEHOLDER_OPERATION_COUNT = WorldPackage.DRIVER_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl <em>Application Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getApplicationConfiguration()
+     * @generated
+     */
+    int APPLICATION_CONFIGURATION = 20;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION__SHORT_DESCRIPTION = WorldPackage.DOCUMENTABLE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION__NAME = WorldPackage.DOCUMENTABLE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION__MODULES = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Application Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION_FEATURE_COUNT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Application Configuration</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION_OPERATION_COUNT = WorldPackage.DOCUMENTABLE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl <em>Configurations</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getConfigurations()
+     * @generated
+     */
+    int CONFIGURATIONS = 21;
+
+    /**
+     * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATIONS__CONFIGURATIONS = 0;
+
+    /**
+     * The number of structural features of the '<em>Configurations</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATIONS_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Configurations</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATIONS_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.Module
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getModule()
+     * @generated
+     */
+    int MODULE = 22;
+
+    /**
+     * The number of structural features of the '<em>Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODULE_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODULE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.HttpServiceModuleImpl <em>Http Service Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.HttpServiceModuleImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getHttpServiceModule()
+     * @generated
+     */
+    int HTTP_SERVICE_MODULE = 23;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE_MODULE__PORT = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Http Service Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE_MODULE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Http Service Module</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HTTP_SERVICE_MODULE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1554,6 +1747,17 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EReference getWorld_DefaultDriverAccessCredentials ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.infrastructure.World#getConfigurations <em>Configurations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Configurations</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.World#getConfigurations()
+     * @see #getWorld()
+     * @generated
+     */
+    EReference getWorld_Configurations ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Node <em>Node</em>}'.
@@ -1835,6 +2039,17 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EReference getEquinoxApplication_Configurations ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Configuration</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration()
+     * @see #getEquinoxApplication()
+     * @generated
+     */
+    EReference getEquinoxApplication_Configuration ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.CommonDriver <em>Common Driver</em>}'.
@@ -2252,6 +2467,79 @@ public interface InfrastructurePackage extends EPackage
     EReference getExternalDriverPlaceholder_Endpoints ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration <em>Application Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Application Configuration</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration
+     * @generated
+     */
+    EClass getApplicationConfiguration ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getModules <em>Modules</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Modules</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getModules()
+     * @see #getApplicationConfiguration()
+     * @generated
+     */
+    EReference getApplicationConfiguration_Modules ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Configurations <em>Configurations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Configurations</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Configurations
+     * @generated
+     */
+    EClass getConfigurations ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.Configurations#getConfigurations <em>Configurations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Configurations</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Configurations#getConfigurations()
+     * @see #getConfigurations()
+     * @generated
+     */
+    EReference getConfigurations_Configurations ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Module</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Module
+     * @generated
+     */
+    EClass getModule ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule <em>Http Service Module</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Http Service Module</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.HttpServiceModule
+     * @generated
+     */
+    EClass getHttpServiceModule ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.HttpServiceModule#getPort()
+     * @see #getHttpServiceModule()
+     * @generated
+     */
+    EAttribute getHttpServiceModule_Port ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2364,6 +2652,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS = eINSTANCE.getWorld_DefaultDriverAccessCredentials ();
+
+        /**
+         * The meta object literal for the '<em><b>Configurations</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference WORLD__CONFIGURATIONS = eINSTANCE.getWorld_Configurations ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.NodeImpl <em>Node</em>}' class.
@@ -2582,6 +2878,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference EQUINOX_APPLICATION__CONFIGURATIONS = eINSTANCE.getEquinoxApplication_Configurations ();
+
+        /**
+         * The meta object literal for the '<em><b>Configuration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EQUINOX_APPLICATION__CONFIGURATION = eINSTANCE.getEquinoxApplication_Configuration ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.CommonDriverImpl <em>Common Driver</em>}' class.
@@ -2922,6 +3226,70 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference EXTERNAL_DRIVER_PLACEHOLDER__ENDPOINTS = eINSTANCE.getExternalDriverPlaceholder_Endpoints ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl <em>Application Configuration</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getApplicationConfiguration()
+         * @generated
+         */
+        EClass APPLICATION_CONFIGURATION = eINSTANCE.getApplicationConfiguration ();
+
+        /**
+         * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference APPLICATION_CONFIGURATION__MODULES = eINSTANCE.getApplicationConfiguration_Modules ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl <em>Configurations</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getConfigurations()
+         * @generated
+         */
+        EClass CONFIGURATIONS = eINSTANCE.getConfigurations ();
+
+        /**
+         * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONFIGURATIONS__CONFIGURATIONS = eINSTANCE.getConfigurations_Configurations ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.Module
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getModule()
+         * @generated
+         */
+        EClass MODULE = eINSTANCE.getModule ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.HttpServiceModuleImpl <em>Http Service Module</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.HttpServiceModuleImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getHttpServiceModule()
+         * @generated
+         */
+        EClass HTTP_SERVICE_MODULE = eINSTANCE.getHttpServiceModule ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute HTTP_SERVICE_MODULE__PORT = eINSTANCE.getHttpServiceModule_Port ();
 
     }
 

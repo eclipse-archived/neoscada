@@ -23,5 +23,14 @@
          </forClass>
       </nodeElementProcessor>
    </extension>
+   <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.world.lib.oscar.RestExporterProcessor">
+      </oscarProcessor>
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.world.lib.oscar.HttpServiceProcessor">
+      </oscarProcessor>
+   </extension>
 
 </plugin>

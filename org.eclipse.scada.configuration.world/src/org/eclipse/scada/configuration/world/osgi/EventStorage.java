@@ -21,6 +21,6 @@ package org.eclipse.scada.configuration.world.osgi;
  *        annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='ae.storage'"
  * @generated
  */
-public interface EventStorage extends ApplicationConfiguration
+public interface EventStorage extends IndependentConfiguration
 {
 } // EventStorage

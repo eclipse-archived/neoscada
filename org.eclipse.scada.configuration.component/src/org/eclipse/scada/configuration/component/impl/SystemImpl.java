@@ -11,14 +11,12 @@
 package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -47,7 +45,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *
  * @generated
  */
-public class SystemImpl extends MinimalEObjectImpl.Container implements org.eclipse.scada.configuration.component.System
+public class SystemImpl extends ContainerImpl implements org.eclipse.scada.configuration.component.System
 {
     /**
      * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
@@ -139,7 +137,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.ecli
     {
         if ( levels == null )
         {
-            levels = new EObjectContainmentEList<Level> ( Level.class, this, ComponentPackage.SYSTEM__LEVELS );
+            levels = new EObjectContainmentEList.Resolving<Level> ( Level.class, this, ComponentPackage.SYSTEM__LEVELS );
         }
         return levels;
     }
@@ -153,7 +151,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.ecli
     {
         if ( configurations == null )
         {
-            configurations = new EObjectContainmentEList<Configuration> ( Configuration.class, this, ComponentPackage.SYSTEM__CONFIGURATIONS );
+            configurations = new EObjectContainmentEList.Resolving<Configuration> ( Configuration.class, this, ComponentPackage.SYSTEM__CONFIGURATIONS );
         }
         return configurations;
     }
@@ -167,7 +165,7 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements org.ecli
     {
         if ( services == null )
         {
-            services = new EObjectContainmentEList<Service> ( Service.class, this, ComponentPackage.SYSTEM__SERVICES );
+            services = new EObjectContainmentEList.Resolving<Service> ( Service.class, this, ComponentPackage.SYSTEM__SERVICES );
         }
         return services;
     }

@@ -10,9 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.tests;
 
-import junit.framework.TestCase;
 import junit.textui.TestRunner;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.Level;
 
@@ -22,16 +20,8 @@ import org.eclipse.scada.configuration.component.Level;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LevelTest extends TestCase
+public class LevelTest extends ContainerTest
 {
-
-    /**
-     * The fixture for this Level test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Level fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -55,25 +45,15 @@ public class LevelTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Level test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( Level fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Level test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected Level getFixture ()
     {
-        return fixture;
+        return (Level)fixture;
     }
 
     /**

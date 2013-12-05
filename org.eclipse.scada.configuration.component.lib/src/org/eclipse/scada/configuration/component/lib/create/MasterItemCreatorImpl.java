@@ -15,12 +15,16 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.Status;
 import org.eclipse.scada.configuration.component.Component;
+import org.eclipse.scada.configuration.component.Container;
+import org.eclipse.scada.configuration.component.ItemInterceptor;
+import org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Items;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
+import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,10 +35,13 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
 
     protected final MasterContext master;
 
-    public MasterItemCreatorImpl ( final MasterContext master, final Component component )
+    private final Container container;
+
+    public MasterItemCreatorImpl ( final MasterContext master, final Component component, final Container container )
     {
         super ( component );
         this.master = master;
+        this.container = container;
     }
 
     @Override
@@ -67,6 +74,42 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
         for ( final MasterListener<T> listener : masterListeners )
         {
             listener.setMaster ( item, this.master );
+        }
+
+        Container c = this.container;
+
+        while ( c != null )
+        {
+            callItemInterceptors ( item, c.getItemInterceptors (), this.master );
+            if ( c.eContainer () instanceof Container )
+            {
+                c = (Container)c.eContainer ();
+            }
+            else
+            {
+                c = null;
+            }
+        }
+    }
+
+    /**
+     * Call all registered item interceptors in this level
+     * 
+     * @param itemInterceptors
+     *            the item interceptors
+     * @param masterContext
+     *            the master context
+     */
+    protected void callItemInterceptors ( final Item item, final List<ItemInterceptor> itemInterceptors, final MasterContext masterContext )
+    {
+        for ( final ItemInterceptor i : itemInterceptors )
+        {
+            final ItemInterceptorHandler handler = AdapterHelper.adapt ( i, ItemInterceptorHandler.class );
+            if ( handler == null )
+            {
+                throw new IllegalStateException ( String.format ( "Interceptor '%s' does not adapt to '%s'", i.eClass ().getName (), ItemInterceptorHandler.class.getName () ) );
+            }
+            handler.interceptItem ( item, i, masterContext );
         }
     }
 }

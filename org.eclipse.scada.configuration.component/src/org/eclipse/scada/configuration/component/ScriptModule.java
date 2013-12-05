@@ -45,7 +45,7 @@ public interface ScriptModule extends Documentable, CalculationModule
      * <!-- end-user-doc -->
      * @return the value of the '<em>Inputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_Inputs()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<InputSpecification> getInputs ();
@@ -61,7 +61,7 @@ public interface ScriptModule extends Documentable, CalculationModule
      * <!-- end-user-doc -->
      * @return the value of the '<em>Outputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_Outputs()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<OutputSpecification> getOutputs ();

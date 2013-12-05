@@ -42,7 +42,7 @@ public interface MarkerConfiguration extends Configuration
      * <!-- end-user-doc -->
      * @return the value of the '<em>Markers</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getMarkerConfiguration_Markers()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<MarkerEntry> getMarkers ();

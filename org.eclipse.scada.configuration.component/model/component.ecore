@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="component" nsURI="http://eclipse.org/SCADA/Configuration/Component"
     nsPrefix="component">
-  <eClassifiers xsi:type="ecore:EClass" name="System">
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
         eType="#//Level" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
@@ -16,10 +16,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="defaultArchiveSelector"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Level">
+  <eClassifiers xsi:type="ecore:EClass" name="Level" eSuperTypes="#//Container">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true" eOpposite="#//Component/level"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="levels" upperBound="-1"
         eType="#//Level" containment="true" eOpposite="#//Level/parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Level"
@@ -27,6 +26,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="customizationPipeline"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//CustomizationPipeline"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//Level"
@@ -162,6 +162,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DanglingItemReference" abstract="true"
       eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"
+      serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//CalculationModule">
     <eOperations name="getKnownInputs" upperBound="-1" eType="#//InputSpecification">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -186,8 +188,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptEngine" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="JavaScript"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"
-      serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="Script">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -206,5 +206,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SummariesConfiguration" eSuperTypes="#//Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemInterceptors" upperBound="-1"
+        eType="#//ItemInterceptor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RestInterceptor" eSuperTypes="#//ItemInterceptor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

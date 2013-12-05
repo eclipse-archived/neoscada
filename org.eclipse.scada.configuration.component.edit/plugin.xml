@@ -31,7 +31,7 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <!-- @generated component -->
       <extender
-            uri="http://eclipse.org/SCADA/Configuration/OSGi"
+            uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
             class="org.eclipse.scada.configuration.component.provider.ComponentItemProviderAdapterFactory$OsgiChildCreationExtender"/>
    </extension>
 

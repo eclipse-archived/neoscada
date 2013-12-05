@@ -703,7 +703,7 @@
           eType="#//osgi/Item"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventStorage" abstract="true" interface="true"
-        eSuperTypes="#//osgi/ApplicationConfiguration">
+        eSuperTypes="#//osgi/IndependentConfiguration">
       <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
         <details key="groupId" value="ae.storage"/>
       </eAnnotations>
@@ -767,6 +767,8 @@
           eType="#//osgi/Item"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
           eType="#//osgi/PropertyEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="HttpService" eSuperTypes="#//osgi/ApplicationConfiguration">
       <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
@@ -774,6 +776,12 @@
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
           eType="#//Endpoint"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IndependentConfiguration" abstract="true"
+        interface="true" eSuperTypes="#//osgi/ApplicationConfiguration">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is a marker interface for standalone configuration element that can be used directly in the infrastructure model."/>
+      </eAnnotations>
     </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">

@@ -217,6 +217,34 @@ public class MappedSourceValueImpl extends DataComponentImpl implements MappedSo
      */
     public InputDefinition getInput ()
     {
+        if ( input != null && input.eIsProxy () )
+        {
+            InternalEObject oldInput = (InternalEObject)input;
+            input = (InputDefinition)eResolveProxy ( oldInput );
+            if ( input != oldInput )
+            {
+                InternalEObject newInput = (InternalEObject)input;
+                NotificationChain msgs = oldInput.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.MAPPED_SOURCE_VALUE__INPUT, null, null );
+                if ( newInput.eInternalContainer () == null )
+                {
+                    msgs = newInput.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.MAPPED_SOURCE_VALUE__INPUT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.MAPPED_SOURCE_VALUE__INPUT, oldInput, input ) );
+            }
+        }
+        return input;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public InputDefinition basicGetInput ()
+    {
         return input;
     }
 
@@ -297,7 +325,9 @@ public class MappedSourceValueImpl extends DataComponentImpl implements MappedSo
                     return getMapper ();
                 return basicGetMapper ();
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:
-                return getInput ();
+                if ( resolve )
+                    return getInput ();
+                return basicGetInput ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }

@@ -47,7 +47,7 @@ public interface FormulaModule extends Documentable, CalculationModule
      * <!-- end-user-doc -->
      * @return the value of the '<em>Inputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getFormulaModule_Inputs()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<InputSpecification> getInputs ();
@@ -63,7 +63,7 @@ public interface FormulaModule extends Documentable, CalculationModule
      * @return the value of the '<em>Update</em>' containment reference.
      * @see #setUpdate(Script)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getFormulaModule_Update()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     Script getUpdate ();
@@ -116,7 +116,7 @@ public interface FormulaModule extends Documentable, CalculationModule
      * <!-- end-user-doc -->
      * @return the value of the '<em>Init</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getFormulaModule_Init()
-     * @model containment="true"
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     EList<Script> getInit ();

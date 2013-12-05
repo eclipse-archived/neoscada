@@ -446,6 +446,81 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ApplicationConfigurationItemProvider applicationConfigurationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createApplicationConfigurationAdapter ()
+    {
+        if ( applicationConfigurationItemProvider == null )
+        {
+            applicationConfigurationItemProvider = new ApplicationConfigurationItemProvider ( this );
+        }
+
+        return applicationConfigurationItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.Configurations} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ConfigurationsItemProvider configurationsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.Configurations}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createConfigurationsAdapter ()
+    {
+        if ( configurationsItemProvider == null )
+        {
+            configurationsItemProvider = new ConfigurationsItemProvider ( this );
+        }
+
+        return configurationsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HttpServiceModuleItemProvider httpServiceModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createHttpServiceModuleAdapter ()
+    {
+        if ( httpServiceModuleItemProvider == null )
+        {
+            httpServiceModuleItemProvider = new HttpServiceModuleItemProvider ( this );
+        }
+
+        return httpServiceModuleItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

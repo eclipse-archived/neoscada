@@ -247,6 +247,15 @@ public interface ComponentFactory extends EFactory
     SummariesConfiguration createSummariesConfiguration ();
 
     /**
+     * Returns a new object of class '<em>Rest Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Rest Interceptor</em>'.
+     * @generated
+     */
+    RestInterceptor createRestInterceptor ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

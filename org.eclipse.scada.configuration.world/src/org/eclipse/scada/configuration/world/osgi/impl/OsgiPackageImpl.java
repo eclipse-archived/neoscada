@@ -69,6 +69,7 @@ import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
 import org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter;
 import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.ImportItem;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.ItemExport;
 import org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry;
@@ -723,6 +724,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EClass httpServiceEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass independentConfigurationEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -4055,6 +4063,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getRestExporter_ContextId ()
+    {
+        return (EAttribute)restExporterEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getHttpService ()
     {
         return httpServiceEClass;
@@ -4068,6 +4086,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EReference getHttpService_Endpoint ()
     {
         return (EReference)httpServiceEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getIndependentConfiguration ()
+    {
+        return independentConfigurationEClass;
     }
 
     /**
@@ -4565,9 +4593,12 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         restExporterEClass = createEClass ( REST_EXPORTER );
         createEReference ( restExporterEClass, REST_EXPORTER__ITEMS );
         createEReference ( restExporterEClass, REST_EXPORTER__HIVE_PROPERTIES );
+        createEAttribute ( restExporterEClass, REST_EXPORTER__CONTEXT_ID );
 
         httpServiceEClass = createEClass ( HTTP_SERVICE );
         createEReference ( httpServiceEClass, HTTP_SERVICE__ENDPOINT );
+
+        independentConfigurationEClass = createEClass ( INDEPENDENT_CONFIGURATION );
 
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
@@ -4680,13 +4711,14 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         valueArchiveEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         configurationAdministratorExporterEClass.getESuperTypes ().add ( this.getExporter () );
         referenceItemEClass.getESuperTypes ().add ( this.getItem () );
-        eventStorageEClass.getESuperTypes ().add ( this.getApplicationConfiguration () );
+        eventStorageEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
         eventStorageJdbcEClass.getESuperTypes ().add ( this.getAbstractEventStorageJdbc () );
         eventStoragePostgresEClass.getESuperTypes ().add ( this.getAbstractEventStorageJdbc () );
         abstractEventStorageJdbcEClass.getESuperTypes ().add ( this.getEventStorage () );
         applicationConfigurationEClass.getESuperTypes ().add ( this.getApplicationModule () );
         restExporterEClass.getESuperTypes ().add ( this.getApplicationModule () );
         httpServiceEClass.getESuperTypes ().add ( this.getApplicationConfiguration () );
+        independentConfigurationEClass.getESuperTypes ().add ( this.getApplicationConfiguration () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5088,9 +5120,12 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEClass ( restExporterEClass, RestExporter.class, "RestExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRestExporter_Items (), this.getItem (), null, "items", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getRestExporter_HiveProperties (), this.getPropertyEntry (), null, "hiveProperties", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getRestExporter_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( httpServiceEClass, HttpService.class, "HttpService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getHttpService_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, HttpService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( independentConfigurationEClass, IndependentConfiguration.class, "IndependentConfiguration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$

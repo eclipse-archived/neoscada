@@ -185,6 +185,7 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
             childrenFeatures.add ( InfrastructurePackage.Literals.WORLD__DEFAULT_DRIVER_PASSWORD );
             childrenFeatures.add ( InfrastructurePackage.Literals.WORLD__APPLICATION_CONFIGURATIONS );
             childrenFeatures.add ( InfrastructurePackage.Literals.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS );
+            childrenFeatures.add ( InfrastructurePackage.Literals.WORLD__CONFIGURATIONS );
         }
         return childrenFeatures;
     }
@@ -247,6 +248,7 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_PASSWORD:
             case InfrastructurePackage.WORLD__APPLICATION_CONFIGURATIONS:
             case InfrastructurePackage.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS:
+            case InfrastructurePackage.WORLD__CONFIGURATIONS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -307,11 +309,6 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( InfrastructurePackage.Literals.WORLD__APPLICATION_CONFIGURATIONS,
-                        OsgiFactory.eINSTANCE.createHttpService () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
                 ( InfrastructurePackage.Literals.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS,
                         WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 
@@ -319,6 +316,11 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS,
                         WorldFactory.eINSTANCE.createPasswordCredentials () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.WORLD__CONFIGURATIONS,
+                        InfrastructureFactory.eINSTANCE.createConfigurations () ) );
     }
 
     /**

@@ -236,7 +236,7 @@ public class CalculationComponentImpl extends DataComponentImpl implements Calcu
     {
         if ( outputs == null )
         {
-            outputs = new EObjectContainmentEList<OutputDefinition> ( OutputDefinition.class, this, ComponentPackage.CALCULATION_COMPONENT__OUTPUTS );
+            outputs = new EObjectContainmentEList.Resolving<OutputDefinition> ( OutputDefinition.class, this, ComponentPackage.CALCULATION_COMPONENT__OUTPUTS );
         }
         return outputs;
     }
@@ -250,7 +250,7 @@ public class CalculationComponentImpl extends DataComponentImpl implements Calcu
     {
         if ( inputs == null )
         {
-            inputs = new EObjectContainmentEList<InputDefinition> ( InputDefinition.class, this, ComponentPackage.CALCULATION_COMPONENT__INPUTS );
+            inputs = new EObjectContainmentEList.Resolving<InputDefinition> ( InputDefinition.class, this, ComponentPackage.CALCULATION_COMPONENT__INPUTS );
         }
         return inputs;
     }

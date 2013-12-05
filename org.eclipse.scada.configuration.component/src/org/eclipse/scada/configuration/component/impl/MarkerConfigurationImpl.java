@@ -77,7 +77,7 @@ public class MarkerConfigurationImpl extends ConfigurationImpl implements Marker
     {
         if ( markers == null )
         {
-            markers = new EObjectContainmentEList<MarkerEntry> ( MarkerEntry.class, this, ComponentPackage.MARKER_CONFIGURATION__MARKERS );
+            markers = new EObjectContainmentEList.Resolving<MarkerEntry> ( MarkerEntry.class, this, ComponentPackage.MARKER_CONFIGURATION__MARKERS );
         }
         return markers;
     }

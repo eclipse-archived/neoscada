@@ -20,6 +20,8 @@ import org.eclipse.scada.configuration.recipe.lib.Recipe;
 public class RecipeImpl implements Recipe
 {
 
+    private static final int MONITOR_AMOUNT = 10_000;
+
     private final List<TaskRunner> tasks;
 
     private final Map<String, Object> initialContent;
@@ -43,14 +45,15 @@ public class RecipeImpl implements Recipe
         ctx.getMap ().putAll ( this.initialContent );
         ctx.getMap ().putAll ( initialContext );
 
-        monitor.beginTask ( "Running recipe", this.tasks.size () );
+        monitor.beginTask ( "Running recipe", this.tasks.size () * MONITOR_AMOUNT );
 
         try
         {
             for ( final TaskRunner task : this.tasks )
             {
+                monitor.setTaskName ( task.getName () );
                 task.run ( ctx );
-                monitor.worked ( 1 );
+                monitor.worked ( MONITOR_AMOUNT );
             }
         }
         finally

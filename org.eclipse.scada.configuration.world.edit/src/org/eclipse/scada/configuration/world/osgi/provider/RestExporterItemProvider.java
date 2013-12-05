@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -78,6 +79,7 @@ public class RestExporterItemProvider
             super.getPropertyDescriptors ( object );
 
             addItemsPropertyDescriptor ( object );
+            addContextIdPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -106,6 +108,29 @@ public class RestExporterItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Context Id feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addContextIdPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_RestExporter_contextId_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_RestExporter_contextId_feature", "_UI_RestExporter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.REST_EXPORTER__CONTEXT_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -119,6 +144,7 @@ public class RestExporterItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
+            childrenFeatures.add ( OsgiPackage.Literals.REST_EXPORTER__ITEMS );
             childrenFeatures.add ( OsgiPackage.Literals.REST_EXPORTER__HIVE_PROPERTIES );
         }
         return childrenFeatures;
@@ -159,7 +185,10 @@ public class RestExporterItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_RestExporter_type" ); //$NON-NLS-1$
+        String label = ( (RestExporter)object ).getContextId ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_RestExporter_type" ) : //$NON-NLS-1$
+                getString ( "_UI_RestExporter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -176,6 +205,9 @@ public class RestExporterItemProvider
 
         switch ( notification.getFeatureID ( RestExporter.class ) )
         {
+            case OsgiPackage.REST_EXPORTER__CONTEXT_ID:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
             case OsgiPackage.REST_EXPORTER__HIVE_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;

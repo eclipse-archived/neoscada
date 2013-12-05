@@ -33,3 +33,4 @@ Import-Package: org.eclipse.scada.ae.data;version="0.1.0",
  org.eclipse.scada.sec.provider.plain.property;version="0.1.0",
  org.eclipse.scada.utils.str;version="0.1.0",
  org.slf4j;version="1.7.2"
+Bundle-ActivationPolicy: lazy
