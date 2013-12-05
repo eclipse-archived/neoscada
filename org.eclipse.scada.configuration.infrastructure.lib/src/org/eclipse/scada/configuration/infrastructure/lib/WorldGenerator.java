@@ -312,17 +312,20 @@ public class WorldGenerator
 
         final org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration cfg = master.getConfiguration ();
         // TODO: add a default configuration
-        for ( final Module m : cfg.getModules () )
+        if ( cfg != null )
         {
-            // FIXME: add extension scheme
-            if ( m instanceof HttpServiceModule )
+            for ( final Module m : cfg.getModules () )
             {
-                final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
-                final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort () );
-                final Node node = Nodes.fromApp ( implMaster );
-                node.getEndpoints ().add ( ep );
-                s.setEndpoint ( ep );
-                result.add ( s );
+                // FIXME: add extension scheme
+                if ( m instanceof HttpServiceModule )
+                {
+                    final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
+                    final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort () );
+                    final Node node = Nodes.fromApp ( implMaster );
+                    node.getEndpoints ().add ( ep );
+                    s.setEndpoint ( ep );
+                    result.add ( s );
+                }
             }
         }
 
