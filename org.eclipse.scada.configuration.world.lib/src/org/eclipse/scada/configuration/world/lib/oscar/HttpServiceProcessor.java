@@ -29,6 +29,8 @@ public class HttpServiceProcessor extends TypedOscarProcessor<HttpService>
     {
         final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
         Profiles.addStartBundle ( profile, "org.eclipse.jetty.http" );
+        Profiles.addStartBundle ( profile, "org.eclipse.equinox.http.registry" );
+        Profiles.addStartBundle ( profile, "org.eclipse.equinox.http.jetty" );
 
         Profiles.addSystemProperty ( profile, "org.osgi.service.http.port", "" + item.getEndpoint ().getPortNumber (), false );
     }
