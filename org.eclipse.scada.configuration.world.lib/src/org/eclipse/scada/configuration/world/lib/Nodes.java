@@ -51,4 +51,28 @@ public final class Nodes
     {
         return isLocal ( fromApp ( app1 ), fromApp ( app2 ) );
     }
+
+    /**
+     * return the name of the node
+     * <p>
+     * This is the name or the hostname if a name is not set.
+     * </p>
+     * 
+     * @param node
+     *            a node
+     * @return the name of the node, or <code>null</code> if it could not be
+     *         determined
+     */
+    public static String makeName ( final Node node )
+    {
+        if ( node == null )
+        {
+            return null;
+        }
+        if ( node.getName () != null )
+        {
+            return node.getName ();
+        }
+        return node.getHostName ();
+    }
 }

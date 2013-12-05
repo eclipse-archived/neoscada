@@ -17,6 +17,7 @@ import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.lib.Nodes;
 import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
@@ -34,7 +35,9 @@ public final class Helper
         final Connection connection = Locator.findConnection ( master, endpoints );
         if ( connection == null )
         {
-            throw new IllegalStateException ( String.format ( "Master %s does not have a connection to endpoints %s", master.getName (), StringHelper.join ( endpoints, ", " ) ) );
+            final String nodeName = Nodes.makeName ( Nodes.fromApp ( master ) );
+
+            throw new IllegalStateException ( String.format ( "Master %s on node %s does not have a connection to endpoints %s", master.getName (), nodeName, StringHelper.join ( endpoints, ", " ) ) );
         }
 
         if ( ! ( connection instanceof DataAccessConnection ) )
