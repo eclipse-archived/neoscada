@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - make native method public and fix NPE
  *******************************************************************************/
 package org.eclipse.scada.da.ui.connection.dnd;
 
@@ -104,15 +105,18 @@ public class ItemTransfer extends ByteArrayTransfer
      * Method declared on Transfer.
      */
     @Override
-    protected Object nativeToJava ( final TransferData transferData )
+    public Object nativeToJava ( final TransferData transferData )
     {
         final byte[] bytes = (byte[])super.nativeToJava ( transferData );
+        if ( bytes == null )
+        {
+            return null;
+        }
         return fromByteArray ( bytes );
     }
 
     protected byte[] toByteArray ( final Item[] items )
     {
-
         final ByteArrayOutputStream byteOut = new ByteArrayOutputStream ();
 
         byte[] bytes = null;
