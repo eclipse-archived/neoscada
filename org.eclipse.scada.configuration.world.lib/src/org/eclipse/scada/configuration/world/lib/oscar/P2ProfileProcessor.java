@@ -72,7 +72,7 @@ public class P2ProfileProcessor
 
         if ( this.app.getCustomizationProfile () != null )
         {
-            mergeIntoProfile ( this.app.getCustomizationProfile (), profile );
+            mergeIntoProfile ( flatten ( EcoreUtil.copy ( this.app.getCustomizationProfile () ) ), profile );
         }
 
         profile.setName ( String.format ( "Custom profile for %s on node %s", this.app.getName (), Nodes.fromApp ( this.app ).getHostName () ) );
