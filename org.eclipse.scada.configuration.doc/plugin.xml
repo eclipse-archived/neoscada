@@ -13,9 +13,6 @@
           <toc
                 file="toc/tocreference.xml">
           </toc>
-           <toc
-                file="toc/tocworld.xml">
-          </toc>
           <toc
           		file="content/world/main-toc.xml">
           </toc>
