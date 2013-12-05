@@ -1,0 +1,35 @@
+
+h1. Basic configuration
+
+The following sections describe some basic configuration tasks.
+
+
+h2. Create a new project
+
+Create a new project using the "Create Project" wizard and create a new project of the type "Configuration Project" under the category "Eclipse SCADA Configuration".
+
+The default project will be filled with some nodes and some basic components.
+
+h2. Create the configuration
+
+Right click on the ".recipe" file an select "Run Recipe" from the "Eclipse SCADA Configuration" sub-menu.
+
+The configuration will be created in the same folder in the "output" folder that will be created.
+
+_Note_ that the output folder will be deleted every time the recipe is run.
+
+This will create a set of files inside the project. The most important for new are the two files called "world.escm" and "world.esim". Which are the component model (escm) and the infrastructure model (esim).
+
+The component model holds all components that the system is made of where the infrastructure model describes the technical infrastructure (like nodes, technical services, applications, deployments).
+
+h2. Create some deployment mechanism
+
+In order to create ready to install .deb or .rpm packages you will need to add the deployment mechanism to the target node.
+
+Select the SystemNode object, from the Infrastructure Model, that you would like to create packages for, right click and add either a Debian Deployment Descriptor or a Redhat Deployment Descriptor.
+
+Be sure to fill out the maintainer field and create at least one change entry (child element). The maintainer can be referenced from the file called "deployment.information.esdi" that was created during project creation in the "global" folder. In order to assign the maintainer properly to the main element and the change entry element you will need to right click on some element of the infrastructure model and select "Load Resource…". This will bring up a dialog which lets you choose how to load a resource. Select "Browse Workspace…" and select the file "global/deployment.information.esdi". You can now select a maintainer from the list.
+
+Running the recipe again will now create a .deb or .rpm file, depending on your configuration.
+
+_Note_ you will need to have "debuild" or "rpmbuild" installed for actually creating packages. 

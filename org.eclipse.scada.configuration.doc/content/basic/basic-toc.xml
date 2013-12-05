@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<toc topic="content/basic/basic.html" label="basic">
+	<topic href="content/basic/basic.html" label="Basic configuration">
+		<topic href="content/basic/basic.html#Createanewproject" label="Create a new project"></topic>
+		<topic href="content/basic/basic.html#Createtheconfiguration" label="Create the configuration"></topic>
+		<topic href="content/basic/basic.html#Createsomedeploymentmechanism" label="Create some deployment mechanism"></topic>
+	</topic>
+</toc>

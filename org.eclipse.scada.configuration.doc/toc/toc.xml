@@ -4,6 +4,7 @@
 <toc label="Eclipse SCADA Configuration" topic="html/toc.html">
    <topic label="Getting Started">
       <anchor id="gettingstarted"/>
+      <link toc="content/basic/basic-toc.xml"/>
    </topic>
    <topic label="World">
       <anchor id="world"/>
