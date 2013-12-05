@@ -37,7 +37,7 @@ public class RestExporterProcessor extends TypedOscarProcessor<RestExporter>
 
         final Map<String, String> data = new HashMap<String, String> ( exporter.getItems ().size () + exporter.getHiveProperties ().size () );
 
-        data.putAll ( Properties.makeAttributes ( "hiveProperties.", exporter.getHiveProperties () ) );
+        data.putAll ( Properties.makeAttributes ( "hive.", exporter.getHiveProperties () ) );
 
         for ( final Item item : exporter.getItems () )
         {
