@@ -21,7 +21,7 @@
          id="com.google.guava"
          download-size="0"
          install-size="0"
-         version="14.0.1"
+         version="12.0.0.v201212092141"
          unpack="false"/>
 
    <plugin
@@ -69,7 +69,7 @@
          id="com.google.gson"
          download-size="0"
          install-size="0"
-         version="2.2.2"
+         version="2.1.0.v201303041604"
          unpack="false"/>
 
    <plugin
