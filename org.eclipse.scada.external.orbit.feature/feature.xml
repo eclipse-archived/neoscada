@@ -150,4 +150,11 @@
          version="1.0.0.v20091030"
          unpack="false"/>
 
+   <plugin
+         id="javax.servlet"
+         download-size="0"
+         install-size="0"
+         version="3.0.0.v201112011016"
+         unpack="false"/>
+
 </feature>
