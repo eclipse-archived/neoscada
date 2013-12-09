@@ -45,8 +45,7 @@ public class ModbusProtocol
             data.putUnsignedShort ( numberOfRegisters );
             data.putUnsigned ( writeMessage.getData ().length );
 
-            // FIXME: change byte order
-            data.put ( writeMessage.getData () );
+            encodeData ( data, IoBuffer.wrap ( writeMessage.getData () ), dataOrder );
         }
         else if ( message instanceof WriteSingleDataRequest )
         {
@@ -77,14 +76,9 @@ public class ModbusProtocol
         {
             final ReadResponse readResponseMessage = (ReadResponse)message;
             data.put ( readResponseMessage.getFunctionCode () );
-
-            // FIXME: change byte order
-
             final int length = readResponseMessage.getData ().remaining ();
             data.put ( (byte)length );
-            final byte[] remainingData = new byte[length];
-            readResponseMessage.getData ().get ( remainingData );
-            data.put ( remainingData );
+            encodeData ( data, readResponseMessage.getData (), dataOrder );
         }
         else if ( message instanceof WriteMultiDataResponse )
         {
@@ -137,7 +131,7 @@ public class ModbusProtocol
             case Constants.FUNCTION_CODE_READ_DISCRETE_INPUTS:
             case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS:
             case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
-                return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, readBytes ( data ) );
+                return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, readBytes ( data, dataOrder ) );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
             {
@@ -185,22 +179,55 @@ public class ModbusProtocol
             }
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
-                // FIXME: swap byte order
                 final int startAddress = data.getUnsignedShort ();
-                final byte[] b = new byte[data.remaining ()];
-                data.get ( b );
-                return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b );
+                return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, readRemaining ( data, dataOrder ) );
             default:
                 throw new IllegalStateException ( String.format ( "Function code %02x is not supported", functionCode ) );
         }
     }
 
-    private static IoBuffer readBytes ( final IoBuffer buffer )
+    private static byte[] readRemaining ( final IoBuffer data, final ByteOrder dataOrder )
     {
-        // FIXME: swap byte order
+        final byte[] b = new byte[data.remaining ()];
+        data.get ( b );
+        return convert ( b, dataOrder );
+    }
+
+    private static void encodeData ( final IoBuffer target, final IoBuffer source, final ByteOrder order )
+    {
+        final ByteOrder bo = target.order ();
+        target.order ( order );
+
+        while ( source.remaining () > 1 )
+        {
+            target.putUnsignedShort ( source.getUnsignedShort () );
+        }
+
+        target.order ( bo );
+    }
+
+    private static IoBuffer readBytes ( final IoBuffer buffer, final ByteOrder dataOrder )
+    {
         final short numOfBytes = buffer.getUnsigned ();
         final byte[] result = new byte[numOfBytes];
-        buffer.get ( result, 0, numOfBytes );
-        return IoBuffer.wrap ( result );
+        buffer.get ( result );
+        return IoBuffer.wrap ( convert ( result, dataOrder ) );
+    }
+
+    private static byte[] convert ( final byte[] result, final ByteOrder dataOrder )
+    {
+        if ( dataOrder.equals ( ByteOrder.BIG_ENDIAN ) )
+        {
+            return result;
+        }
+
+        byte t;
+        for ( int i = 0; i < result.length / 2; i++ )
+        {
+            t = result[i * 2];
+            result[i * 2] = result[i * 2 + 1];
+            result[i * 2 + 1] = t;
+        }
+        return result;
     }
 }
