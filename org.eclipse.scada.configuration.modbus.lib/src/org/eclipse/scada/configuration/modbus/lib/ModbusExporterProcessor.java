@@ -102,6 +102,7 @@ public class ModbusExporterProcessor implements OscarProcessor
         final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "port", Integer.toString ( device.getPort ().getPortNumber () ) ); //$NON-NLS-1$
         data.put ( "slaveId", Integer.toString ( device.getSlaveId () ) ); //$NON-NLS-1$
+        data.put ( "dataOrder", "" + device.getDataOrder () );
         // Add device properties
         for ( final PropertyEntry property : device.getProperties () )
         {

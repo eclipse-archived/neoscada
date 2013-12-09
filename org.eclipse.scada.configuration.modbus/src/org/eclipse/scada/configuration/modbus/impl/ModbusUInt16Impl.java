@@ -25,15 +25,11 @@ import org.eclipse.scada.configuration.modbus.ModbusUInt16;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl#getScale
- * <em>Scale</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusUInt16Impl#getScale <em>Scale</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements ModbusUInt16
@@ -42,7 +38,6 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -53,7 +48,6 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
      * The default value of the '{@link #getScale() <em>Scale</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getScale()
      * @generated
      * @ordered
@@ -64,7 +58,6 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
      * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getScale()
      * @generated
      * @ordered
@@ -74,7 +67,6 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ModbusUInt16Impl ()
@@ -85,7 +77,6 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -109,40 +100,35 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Double getScale ()
     {
-        return this.scale;
+        return scale;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setScale ( final Double newScale )
+    public void setScale ( Double newScale )
     {
-        final Double oldScale = this.scale;
-        this.scale = newScale;
+        Double oldScale = scale;
+        scale = newScale;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_UINT16__SCALE, oldScale, this.scale ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_UINT16__SCALE, oldScale, scale ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -157,11 +143,10 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -175,11 +160,10 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -193,18 +177,17 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ModbusPackage.MODBUS_UINT16__NAME:
                 return NAME_EDEFAULT == null ? getName () != null : !NAME_EDEFAULT.equals ( getName () );
             case ModbusPackage.MODBUS_UINT16__SCALE:
-                return SCALE_EDEFAULT == null ? this.scale != null : !SCALE_EDEFAULT.equals ( this.scale );
+                return SCALE_EDEFAULT == null ? scale != null : !SCALE_EDEFAULT.equals ( scale );
         }
         return super.eIsSet ( featureID );
     }
@@ -212,20 +195,17 @@ public class ModbusUInt16Impl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (scale: " ); //$NON-NLS-1$
-        result.append ( this.scale );
+        result.append ( scale );
         result.append ( ')' );
         return result.toString ();
     }

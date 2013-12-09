@@ -326,13 +326,22 @@ public interface ModbusPackage extends EPackage
     int MODBUS_SLAVE__ID = 2;
 
     /**
+     * The feature id for the '<em><b>Data Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_SLAVE__DATA_ORDER = 3;
+
+    /**
      * The number of structural features of the '<em>Slave</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODBUS_SLAVE_FEATURE_COUNT = 3;
+    int MODBUS_SLAVE_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Slave</em>' class.
@@ -591,13 +600,22 @@ public interface ModbusPackage extends EPackage
     int MODBUS_EXPORTER_DEVICE__PROPERTIES = 3;
 
     /**
+     * The feature id for the '<em><b>Data Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_DEVICE__DATA_ORDER = 4;
+
+    /**
      * The number of structural features of the '<em>Exporter Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MODBUS_EXPORTER_DEVICE_FEATURE_COUNT = 4;
+    int MODBUS_EXPORTER_DEVICE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Exporter Device</em>' class.
@@ -950,6 +968,16 @@ public interface ModbusPackage extends EPackage
     int PROTOCOL_TYPE = 14;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.ByteOrder <em>Byte Order</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getByteOrder()
+     * @generated
+     */
+    int BYTE_ORDER = 15;
+
+    /**
      * The meta object id for the '<em>Request Type</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -957,7 +985,7 @@ public interface ModbusPackage extends EPackage
      * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getRequestType()
      * @generated
      */
-    int REQUEST_TYPE = 15;
+    int REQUEST_TYPE = 16;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusDevice <em>Device</em>}'.
@@ -1087,6 +1115,17 @@ public interface ModbusPackage extends EPackage
      * @generated
      */
     EAttribute getModbusSlave_Id ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getDataOrder <em>Data Order</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Data Order</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusSlave#getDataOrder()
+     * @see #getModbusSlave()
+     * @generated
+     */
+    EAttribute getModbusSlave_DataOrder ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusMaster <em>Master</em>}'.
@@ -1248,6 +1287,17 @@ public interface ModbusPackage extends EPackage
      * @generated
      */
     EReference getModbusExporterDevice_Properties ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getDataOrder <em>Data Order</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Data Order</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getDataOrder()
+     * @see #getModbusExporterDevice()
+     * @generated
+     */
+    EAttribute getModbusExporterDevice_DataOrder ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.modbus.ModbusExporterItem <em>Exporter Item</em>}'.
@@ -1451,6 +1501,16 @@ public interface ModbusPackage extends EPackage
     EEnum getProtocolType ();
 
     /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.modbus.ByteOrder <em>Byte Order</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Byte Order</em>'.
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @generated
+     */
+    EEnum getByteOrder ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.da.server.osgi.modbus.RequestType <em>Request Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1588,6 +1648,14 @@ public interface ModbusPackage extends EPackage
         EAttribute MODBUS_SLAVE__ID = eINSTANCE.getModbusSlave_Id ();
 
         /**
+         * The meta object literal for the '<em><b>Data Order</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_SLAVE__DATA_ORDER = eINSTANCE.getModbusSlave_DataOrder ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusMasterImpl <em>Master</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1714,6 +1782,14 @@ public interface ModbusPackage extends EPackage
          * @generated
          */
         EReference MODBUS_EXPORTER_DEVICE__PROPERTIES = eINSTANCE.getModbusExporterDevice_Properties ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Order</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MODBUS_EXPORTER_DEVICE__DATA_ORDER = eINSTANCE.getModbusExporterDevice_DataOrder ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterItemImpl <em>Exporter Item</em>}' class.
@@ -1882,6 +1958,16 @@ public interface ModbusPackage extends EPackage
          * @generated
          */
         EEnum PROTOCOL_TYPE = eINSTANCE.getProtocolType ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.modbus.ByteOrder <em>Byte Order</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.modbus.ByteOrder
+         * @see org.eclipse.scada.configuration.modbus.impl.ModbusPackageImpl#getByteOrder()
+         * @generated
+         */
+        EEnum BYTE_ORDER = eINSTANCE.getByteOrder ();
 
         /**
          * The meta object literal for the '<em>Request Type</em>' data type.

@@ -80,6 +80,7 @@ public class ModbusExporterDeviceItemProvider
 
             addPortPropertyDescriptor ( object );
             addSlaveIdPropertyDescriptor ( object );
+            addDataOrderPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -126,6 +127,29 @@ public class ModbusExporterDeviceItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Data Order feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDataOrderPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ModbusExporterDevice_dataOrder_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusExporterDevice_dataOrder_feature", "_UI_ModbusExporterDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ModbusPackage.Literals.MODBUS_EXPORTER_DEVICE__DATA_ORDER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -204,6 +228,7 @@ public class ModbusExporterDeviceItemProvider
         switch ( notification.getFeatureID ( ModbusExporterDevice.class ) )
         {
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__SLAVE_ID:
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__ITEMS:

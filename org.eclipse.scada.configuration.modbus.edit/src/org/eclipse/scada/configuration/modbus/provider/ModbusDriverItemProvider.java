@@ -340,6 +340,16 @@ public class ModbusDriverItemProvider extends ItemProviderAdapter implements IEd
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createRestExporter () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createHttpService () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( ModbusPackage.Literals.MODBUS_DRIVER__MASTERS,
                         ModbusFactory.eINSTANCE.createModbusMaster () ) );
     }

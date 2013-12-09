@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.scada.configuration.modbus.ByteOrder;
 import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
 import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
@@ -45,6 +46,7 @@ import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl#getPort <em>Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl#getSlaveId <em>Slave Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterDeviceImpl#getDataOrder <em>Data Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +103,26 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * @ordered
      */
     protected EList<PropertyEntry> properties;
+
+    /**
+     * The default value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataOrder()
+     * @generated
+     * @ordered
+     */
+    protected static final ByteOrder DATA_ORDER_EDEFAULT = ByteOrder.BIG_ENDIAN;
+
+    /**
+     * The cached value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataOrder()
+     * @generated
+     * @ordered
+     */
+    protected ByteOrder dataOrder = DATA_ORDER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -222,6 +244,29 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    public ByteOrder getDataOrder ()
+    {
+        return dataOrder;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDataOrder ( ByteOrder newDataOrder )
+    {
+        ByteOrder oldDataOrder = dataOrder;
+        dataOrder = newDataOrder == null ? DATA_ORDER_EDEFAULT : newDataOrder;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER, oldDataOrder, dataOrder ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -255,6 +300,8 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
                 return getSlaveId ();
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES:
                 return getProperties ();
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
+                return getDataOrder ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -284,6 +331,9 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
                 getProperties ().clear ();
                 getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
+                setDataOrder ( (ByteOrder)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -310,6 +360,9 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES:
                 getProperties ().clear ();
                 return;
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
+                setDataOrder ( DATA_ORDER_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -332,6 +385,8 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
                 return slaveId != SLAVE_ID_EDEFAULT;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES:
                 return properties != null && !properties.isEmpty ();
+            case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
+                return dataOrder != DATA_ORDER_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -350,6 +405,8 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (slaveId: " ); //$NON-NLS-1$
         result.append ( slaveId );
+        result.append ( ", dataOrder: " ); //$NON-NLS-1$
+        result.append ( dataOrder );
         result.append ( ')' );
         return result.toString ();
     }

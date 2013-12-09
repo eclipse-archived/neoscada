@@ -22,6 +22,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitAddress" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Byte"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataOrder" lowerBound="1"
+        eType="#//ByteOrder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProtocolType">
     <eLiterals name="TCP" literal="TCP"/>
@@ -64,6 +66,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/PropertyEntry"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataOrder" lowerBound="1"
+        eType="#//ByteOrder" defaultValueLiteral="BIG_ENDIAN"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -83,4 +87,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModbusSInt32" eSuperTypes="#//ModbusDataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusUInt16" eSuperTypes="#//ModbusDataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusUInt32" eSuperTypes="#//ModbusDataType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ByteOrder">
+    <eLiterals name="BIG_ENDIAN"/>
+    <eLiterals name="LITTLE_ENDIAN" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

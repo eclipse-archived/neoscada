@@ -66,6 +66,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
 
             addUnitAddressPropertyDescriptor ( object );
             addIdPropertyDescriptor ( object );
+            addDataOrderPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -108,6 +109,29 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
                         getString ( "_UI_ModbusSlave_id_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_id_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         ModbusPackage.Literals.MODBUS_SLAVE__ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Data Order feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDataOrderPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ModbusSlave_dataOrder_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ModbusSlave_dataOrder_feature", "_UI_ModbusSlave_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ModbusPackage.Literals.MODBUS_SLAVE__DATA_ORDER,
                         true,
                         false,
                         false,
@@ -192,6 +216,7 @@ public class ModbusSlaveItemProvider extends ItemProviderAdapter implements IEdi
         {
             case ModbusPackage.MODBUS_SLAVE__UNIT_ADDRESS:
             case ModbusPackage.MODBUS_SLAVE__ID:
+            case ModbusPackage.MODBUS_SLAVE__DATA_ORDER:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ModbusPackage.MODBUS_SLAVE__BLOCKS:

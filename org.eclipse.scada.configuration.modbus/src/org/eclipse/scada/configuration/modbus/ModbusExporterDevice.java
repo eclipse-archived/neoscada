@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getPort <em>Port</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getSlaveId <em>Slave Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getDataOrder <em>Data Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,5 +123,35 @@ public interface ModbusExporterDevice extends EObject
      * @generated
      */
     EList<PropertyEntry> getProperties ();
+
+    /**
+     * Returns the value of the '<em><b>Data Order</b></em>' attribute.
+     * The default value is <code>"BIG_ENDIAN"</code>.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.modbus.ByteOrder}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Data Order</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Data Order</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @see #setDataOrder(ByteOrder)
+     * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusExporterDevice_DataOrder()
+     * @model default="BIG_ENDIAN" required="true"
+     * @generated
+     */
+    ByteOrder getDataOrder ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice#getDataOrder <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Data Order</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @see #getDataOrder()
+     * @generated
+     */
+    void setDataOrder ( ByteOrder value );
 
 } // ModbusExporterDevice

@@ -75,6 +75,7 @@ public class ModbusDriverProcessor extends EquinoxApplicationProcessor
 
         data.put ( "modbus.master.id", master.getId () );
         data.put ( "slave.id", "" + slave.getUnitAddress () );
+        data.put ( "dataOrder", "" + slave.getDataOrder () );
 
         for ( final ModbusBlock block : slave.getBlocks () )
         {

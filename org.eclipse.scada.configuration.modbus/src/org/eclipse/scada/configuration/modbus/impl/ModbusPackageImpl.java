@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
+import org.eclipse.scada.configuration.modbus.ByteOrder;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusDataType;
 import org.eclipse.scada.configuration.modbus.ModbusDevice;
@@ -153,6 +154,13 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      * @generated
      */
     private EEnum protocolTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum byteOrderEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -354,6 +362,16 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getModbusSlave_DataOrder ()
+    {
+        return (EAttribute)modbusSlaveEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getModbusMaster ()
     {
         return modbusMasterEClass;
@@ -497,6 +515,16 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
     public EReference getModbusExporterDevice_Properties ()
     {
         return (EReference)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getModbusExporterDevice_DataOrder ()
+    {
+        return (EAttribute)modbusExporterDeviceEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -694,6 +722,16 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getByteOrder ()
+    {
+        return byteOrderEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getRequestType ()
     {
         return requestTypeEDataType;
@@ -744,6 +782,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         createEReference ( modbusSlaveEClass, MODBUS_SLAVE__BLOCKS );
         createEAttribute ( modbusSlaveEClass, MODBUS_SLAVE__UNIT_ADDRESS );
         createEAttribute ( modbusSlaveEClass, MODBUS_SLAVE__ID );
+        createEAttribute ( modbusSlaveEClass, MODBUS_SLAVE__DATA_ORDER );
 
         modbusMasterEClass = createEClass ( MODBUS_MASTER );
         createEReference ( modbusMasterEClass, MODBUS_MASTER__SLAVES );
@@ -769,6 +808,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         createEReference ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__PORT );
         createEAttribute ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__SLAVE_ID );
         createEReference ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__PROPERTIES );
+        createEAttribute ( modbusExporterDeviceEClass, MODBUS_EXPORTER_DEVICE__DATA_ORDER );
 
         modbusExporterItemEClass = createEClass ( MODBUS_EXPORTER_ITEM );
         createEReference ( modbusExporterItemEClass, MODBUS_EXPORTER_ITEM__SOURCE );
@@ -791,6 +831,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
 
         // Create enums
         protocolTypeEEnum = createEEnum ( PROTOCOL_TYPE );
+        byteOrderEEnum = createEEnum ( BYTE_ORDER );
 
         // Create data types
         requestTypeEDataType = createEDataType ( REQUEST_TYPE );
@@ -858,6 +899,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEReference ( getModbusSlave_Blocks (), this.getModbusBlock (), null, "blocks", null, 0, -1, ModbusSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getModbusSlave_UnitAddress (), theXMLTypePackage.getByte (), "unitAddress", null, 1, 1, ModbusSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getModbusSlave_Id (), ecorePackage.getEString (), "id", null, 1, 1, ModbusSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusSlave_DataOrder (), this.getByteOrder (), "dataOrder", null, 1, 1, ModbusSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( modbusMasterEClass, ModbusMaster.class, "ModbusMaster", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getModbusMaster_Slaves (), this.getModbusSlave (), null, "slaves", null, 0, -1, ModbusMaster.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -883,6 +925,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEReference ( getModbusExporterDevice_Port (), theWorldPackage.getEndpoint (), null, "port", null, 1, 1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getModbusExporterDevice_SlaveId (), ecorePackage.getEInt (), "slaveId", null, 1, 1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getModbusExporterDevice_Properties (), theOsgiPackage.getPropertyEntry (), null, "properties", null, 0, -1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getModbusExporterDevice_DataOrder (), this.getByteOrder (), "dataOrder", "BIG_ENDIAN", 1, 1, ModbusExporterDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( modbusExporterItemEClass, ModbusExporterItem.class, "ModbusExporterItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getModbusExporterItem_Source (), theOsgiPackage.getItem (), null, "source", null, 1, 1, ModbusExporterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -907,6 +950,10 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         initEEnum ( protocolTypeEEnum, ProtocolType.class, "ProtocolType" ); //$NON-NLS-1$
         addEEnumLiteral ( protocolTypeEEnum, ProtocolType.TCP );
         addEEnumLiteral ( protocolTypeEEnum, ProtocolType.RTU );
+
+        initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.BIG_ENDIAN );
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.LITTLE_ENDIAN );
 
         // Initialize data types
         initEDataType ( requestTypeEDataType, RequestType.class, "RequestType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

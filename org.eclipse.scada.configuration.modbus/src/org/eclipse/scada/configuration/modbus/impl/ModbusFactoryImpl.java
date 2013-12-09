@@ -122,6 +122,8 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
         {
             case ModbusPackage.PROTOCOL_TYPE:
                 return createProtocolTypeFromString ( eDataType, initialValue );
+            case ModbusPackage.BYTE_ORDER:
+                return createByteOrderFromString ( eDataType, initialValue );
             case ModbusPackage.REQUEST_TYPE:
                 return createRequestTypeFromString ( eDataType, initialValue );
             default:
@@ -141,6 +143,8 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
         {
             case ModbusPackage.PROTOCOL_TYPE:
                 return convertProtocolTypeToString ( eDataType, instanceValue );
+            case ModbusPackage.BYTE_ORDER:
+                return convertByteOrderToString ( eDataType, instanceValue );
             case ModbusPackage.REQUEST_TYPE:
                 return convertRequestTypeToString ( eDataType, instanceValue );
             default:
@@ -310,6 +314,29 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
      * @generated
      */
     public String convertProtocolTypeToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ByteOrder createByteOrderFromString ( EDataType eDataType, String initialValue )
+    {
+        ByteOrder result = ByteOrder.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertByteOrderToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

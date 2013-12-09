@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getUnitAddress <em>Unit Address</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getDataOrder <em>Data Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,5 +102,34 @@ public interface ModbusSlave extends EObject
      * @generated
      */
     void setId ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Data Order</b></em>' attribute.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.modbus.ByteOrder}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Data Order</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Data Order</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @see #setDataOrder(ByteOrder)
+     * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusSlave_DataOrder()
+     * @model required="true"
+     * @generated
+     */
+    ByteOrder getDataOrder ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.modbus.ModbusSlave#getDataOrder <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Data Order</em>' attribute.
+     * @see org.eclipse.scada.configuration.modbus.ByteOrder
+     * @see #getDataOrder()
+     * @generated
+     */
+    void setDataOrder ( ByteOrder value );
 
 } // ModbusSlave

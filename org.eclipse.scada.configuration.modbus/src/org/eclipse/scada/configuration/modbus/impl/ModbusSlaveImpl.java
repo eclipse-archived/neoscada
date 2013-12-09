@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.modbus.ByteOrder;
 import org.eclipse.scada.configuration.modbus.ModbusBlock;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
@@ -35,6 +36,7 @@ import org.eclipse.scada.configuration.modbus.ModbusSlave;
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusSlaveImpl#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusSlaveImpl#getUnitAddress <em>Unit Address</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusSlaveImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusSlaveImpl#getDataOrder <em>Data Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +93,26 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataOrder()
+     * @generated
+     * @ordered
+     */
+    protected static final ByteOrder DATA_ORDER_EDEFAULT = ByteOrder.BIG_ENDIAN;
+
+    /**
+     * The cached value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataOrder()
+     * @generated
+     * @ordered
+     */
+    protected ByteOrder dataOrder = DATA_ORDER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -178,6 +200,29 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
      * <!-- end-user-doc -->
      * @generated
      */
+    public ByteOrder getDataOrder ()
+    {
+        return dataOrder;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDataOrder ( ByteOrder newDataOrder )
+    {
+        ByteOrder oldDataOrder = dataOrder;
+        dataOrder = newDataOrder == null ? DATA_ORDER_EDEFAULT : newDataOrder;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_SLAVE__DATA_ORDER, oldDataOrder, dataOrder ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -205,6 +250,8 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
                 return getUnitAddress ();
             case ModbusPackage.MODBUS_SLAVE__ID:
                 return getId ();
+            case ModbusPackage.MODBUS_SLAVE__DATA_ORDER:
+                return getDataOrder ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -230,6 +277,9 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
             case ModbusPackage.MODBUS_SLAVE__ID:
                 setId ( (String)newValue );
                 return;
+            case ModbusPackage.MODBUS_SLAVE__DATA_ORDER:
+                setDataOrder ( (ByteOrder)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -253,6 +303,9 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
             case ModbusPackage.MODBUS_SLAVE__ID:
                 setId ( ID_EDEFAULT );
                 return;
+            case ModbusPackage.MODBUS_SLAVE__DATA_ORDER:
+                setDataOrder ( DATA_ORDER_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -273,6 +326,8 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
                 return unitAddress != UNIT_ADDRESS_EDEFAULT;
             case ModbusPackage.MODBUS_SLAVE__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case ModbusPackage.MODBUS_SLAVE__DATA_ORDER:
+                return dataOrder != DATA_ORDER_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -293,6 +348,8 @@ public class ModbusSlaveImpl extends MinimalEObjectImpl.Container implements Mod
         result.append ( unitAddress );
         result.append ( ", id: " ); //$NON-NLS-1$
         result.append ( id );
+        result.append ( ", dataOrder: " ); //$NON-NLS-1$
+        result.append ( dataOrder );
         result.append ( ')' );
         return result.toString ();
     }
