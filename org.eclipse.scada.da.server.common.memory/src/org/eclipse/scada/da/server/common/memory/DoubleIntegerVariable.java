@@ -1,34 +1,36 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - refactor for generic memory devices
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
-import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.core.WriteResult;
+import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.memory.accessor.Int32Accessor;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
-import org.eclipse.scada.da.server.common.DataItem;
 
 public class DoubleIntegerVariable extends ScalarVariable
 {
-    public DoubleIntegerVariable ( final String name, final int index, final Executor executor, final ManageableObjectPool<DataItem> itemPool, final Attribute... attributes )
+    private ByteOrder order = ByteOrder.BIG_ENDIAN;
+
+    public DoubleIntegerVariable ( final String name, final int index, final ByteOrder order, final Executor executor, final ManageableObjectPool<DataItem> itemPool, final Attribute... attributes )
     {
         super ( name, index, executor, itemPool, attributes );
+        this.order = order;
     }
 
     @Override
@@ -43,9 +45,10 @@ public class DoubleIntegerVariable extends ScalarVariable
         final Integer i = value.asInteger ( null );
         if ( i != null )
         {
-            final ByteBuffer b = ByteBuffer.allocate ( 4 );
-            b.putInt ( i );
-            block.writeData ( toAddress ( this.index ), b.array () );
+
+            final IoBuffer data = IoBuffer.allocate ( 4 );
+            this.order.put ( data, Int32Accessor.INSTANCE, i );
+            block.writeData ( toAddress ( this.index ), data.array () );
             return new InstantFuture<> ( new WriteResult () );
         }
         else
@@ -57,6 +60,7 @@ public class DoubleIntegerVariable extends ScalarVariable
     @Override
     protected Variant extractValue ( final IoBuffer data, final Map<String, Variant> attributes )
     {
-        return Variant.valueOf ( data.getInt ( toAddress ( this.index ) ) );
+        final int value = this.order.get ( data, toAddress ( this.index ), Int32Accessor.INSTANCE );
+        return Variant.valueOf ( value );
     }
 }

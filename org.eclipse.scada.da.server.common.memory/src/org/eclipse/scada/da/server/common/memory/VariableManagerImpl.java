@@ -23,10 +23,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.eclipse.scada.ca.ConfigurationFactory;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
-import org.eclipse.scada.da.server.common.DataItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -77,6 +77,8 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
 
         private final int[] index;
 
+        private ByteOrder order;
+
         private final TypeEntry[] attributes;
 
         public TypeEntry ( final String name, final String typeName, final int index )
@@ -104,10 +106,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             this.attributes = attributes;
         }
 
-        public TypeEntry ( final String name, final TYPE type, final int index, final int options, final TypeEntry... attributes )
+        public TypeEntry ( final String name, final TYPE type, final int index, final int options, final ByteOrder order, final TypeEntry... attributes )
         {
             this.name = name;
             this.index = new int[] { index, options };
+            this.order = order;
             this.type = type;
             this.attributes = attributes;
         }
@@ -155,6 +158,11 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 default:
                     return String.format ( "%s:%s", this.name, this.type );
             }
+        }
+
+        public ByteOrder getOrder ()
+        {
+            return this.order;
         }
     }
 
@@ -306,10 +314,10 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                         result.add ( new FloatVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
                     case WORD:
-                        result.add ( new WordVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        result.add ( new WordVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
                     case DINT:
-                        result.add ( new DoubleIntegerVariable ( entry.getName (), entry.getIndex (), this.executor, this.itemPool, createAttributes ( entry ) ) );
+                        result.add ( new DoubleIntegerVariable ( entry.getName (), entry.getIndex (), entry.getOrder (), this.executor, this.itemPool, createAttributes ( entry ) ) );
                         break;
                     case UDT:
                         result.add ( new UdtVariable ( entry.getName (), entry.getIndex (), createVariables ( entry.getTypeName () ) ) );
@@ -346,10 +354,10 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                     result.add ( new ByteAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
                 case WORD:
-                    result.add ( new WordAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
+                    result.add ( new WordAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
                 case DINT:
-                    result.add ( new DoubleIntegerAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getIndexes ()[1] != 0 ) );
+                    result.add ( new DoubleIntegerAttribute ( attrEntry.getName (), attrEntry.getIndex (), attrEntry.getOrder (), attrEntry.getIndexes ()[1] != 0 ) );
                     break;
                 default:
                     break;
@@ -397,16 +405,16 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 result.add ( new TypeEntry ( varName, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case BYTE:
-                result.add ( new TypeEntry ( varName, TYPE.BYTE, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
+                result.add ( new TypeEntry ( varName, TYPE.BYTE, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case FLOAT:
-                result.add ( new TypeEntry ( varName, TYPE.FLOAT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
+                result.add ( new TypeEntry ( varName, TYPE.FLOAT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), null, parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case WORD:
-                result.add ( new TypeEntry ( varName, TYPE.WORD, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
+                result.add ( new TypeEntry ( varName, TYPE.WORD, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case DINT:
-                result.add ( new TypeEntry ( varName, TYPE.DINT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), parseAttributes ( attribute, properties, varName ) ) );
+                result.add ( new TypeEntry ( varName, TYPE.DINT, Integer.parseInt ( args[0] ), Integer.parseInt ( args[1] ), makeOrder ( args ), parseAttributes ( attribute, properties, varName ) ) );
                 break;
             case UDT:
                 if ( attribute )
@@ -430,6 +438,19 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
             default:
                 throw new IllegalArgumentException ( String.format ( "Type %s is not supported at the moment", typeName ) );
         }
+    }
+
+    private ByteOrder makeOrder ( final String[] args )
+    {
+        if ( args.length < 2 )
+        {
+            return ByteOrder.DEFAULT;
+        }
+        if ( args[2].isEmpty () )
+        {
+            return ByteOrder.DEFAULT;
+        }
+        return ByteOrder.valueOf ( args[2] );
     }
 
     private TypeEntry[] parseAttributes ( final boolean attribute, final Map<String, String> properties, final String varName )

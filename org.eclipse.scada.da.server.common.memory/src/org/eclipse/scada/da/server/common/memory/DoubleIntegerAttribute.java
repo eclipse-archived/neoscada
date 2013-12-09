@@ -1,21 +1,20 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - refactor for generic memory devices
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
-import java.nio.ByteBuffer;
 import java.util.Map;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.server.common.memory.accessor.Int32Accessor;
 
 /**
  * Implement a single bit attribute
@@ -32,17 +31,20 @@ public class DoubleIntegerAttribute extends AbstractAttribute implements Attribu
 
     private final boolean enableTimestamp;
 
-    public DoubleIntegerAttribute ( final String name, final int index, final boolean enableTimestamp )
+    private final ByteOrder order;
+
+    public DoubleIntegerAttribute ( final String name, final int index, final ByteOrder order, final boolean enableTimestamp )
     {
         super ( name );
         this.index = index;
         this.enableTimestamp = enableTimestamp;
+        this.order = order;
     }
 
     @Override
     public void handleData ( final IoBuffer data, final Map<String, Variant> attributes, final Variant timestamp )
     {
-        final int s = data.getInt ( toAddress ( this.index ) );
+        final int s = this.order.get ( data, this.index, Int32Accessor.INSTANCE );
         attributes.put ( this.name, Variant.valueOf ( s ) );
 
         if ( !Integer.valueOf ( s ).equals ( this.lastValue ) )
@@ -77,9 +79,9 @@ public class DoubleIntegerAttribute extends AbstractAttribute implements Attribu
         final Integer i = value.asInteger ( null );
         if ( i != null )
         {
-            final ByteBuffer b = ByteBuffer.allocate ( 4 );
-            b.putInt ( i );
-            block.writeData ( toAddress ( this.index ), b.array () );
+            final IoBuffer data = IoBuffer.allocate ( 4 );
+            this.order.put ( data, Int32Accessor.INSTANCE, i );
+            block.writeData ( toAddress ( this.index ), data.array () );
         }
     }
 

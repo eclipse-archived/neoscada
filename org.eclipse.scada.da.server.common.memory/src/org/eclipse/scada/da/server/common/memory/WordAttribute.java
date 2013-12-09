@@ -11,11 +11,11 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
-import java.nio.ByteBuffer;
 import java.util.Map;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.da.server.common.memory.accessor.Int16Accessor;
 
 /**
  * Implement a single bit attribute
@@ -32,17 +32,20 @@ public class WordAttribute extends AbstractAttribute implements Attribute
 
     private final boolean enableTimestamp;
 
-    public WordAttribute ( final String name, final int index, final boolean enableTimestamp )
+    private final ByteOrder order;
+
+    public WordAttribute ( final String name, final int index, final ByteOrder order, final boolean enableTimestamp )
     {
         super ( name );
         this.index = index;
         this.enableTimestamp = enableTimestamp;
+        this.order = order;
     }
 
     @Override
     public void handleData ( final IoBuffer data, final Map<String, Variant> attributes, final Variant timestamp )
     {
-        final short s = data.getShort ( toAddress ( this.index ) );
+        final short s = this.order.get ( data, toAddress ( this.index ), Int16Accessor.INSTANCE );
         attributes.put ( this.name, Variant.valueOf ( s ) );
 
         if ( !Short.valueOf ( s ).equals ( this.lastValue ) )
@@ -77,9 +80,9 @@ public class WordAttribute extends AbstractAttribute implements Attribute
         final Integer i = value.asInteger ( null );
         if ( i != null )
         {
-            final ByteBuffer b = ByteBuffer.allocate ( 2 );
-            b.putShort ( i.shortValue () );
-            block.writeData ( toAddress ( this.index ), b.array () );
+            final IoBuffer data = IoBuffer.allocate ( 2 );
+            this.order.put ( data, Int16Accessor.INSTANCE, i.shortValue () );
+            block.writeData ( toAddress ( this.index ), data.array () );
         }
     }
 

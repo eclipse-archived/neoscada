@@ -11,24 +11,27 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.memory;
 
-import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.core.WriteResult;
+import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.da.server.common.memory.accessor.Int16Accessor;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
-import org.eclipse.scada.da.server.common.DataItem;
 
 public class WordVariable extends ScalarVariable
 {
-    public WordVariable ( final String name, final int index, final Executor executor, final ManageableObjectPool<DataItem> itemPool, final Attribute... attributes )
+    private final ByteOrder order;
+
+    public WordVariable ( final String name, final int index, final ByteOrder order, final Executor executor, final ManageableObjectPool<DataItem> itemPool, final Attribute... attributes )
     {
         super ( name, index, executor, itemPool, attributes );
+        this.order = order;
     }
 
     @Override
@@ -43,9 +46,9 @@ public class WordVariable extends ScalarVariable
         final Integer i = value.asInteger ( null );
         if ( i != null )
         {
-            final ByteBuffer b = ByteBuffer.allocate ( 2 );
-            b.putShort ( i.shortValue () );
-            block.writeData ( toAddress ( this.index ), b.array () );
+            final IoBuffer data = IoBuffer.allocate ( 2 );
+            this.order.put ( data, Int16Accessor.INSTANCE, i.shortValue () );
+            block.writeData ( toAddress ( this.index ), data.array () );
             return new InstantFuture<WriteResult> ( new WriteResult () );
         }
         else
@@ -57,6 +60,7 @@ public class WordVariable extends ScalarVariable
     @Override
     protected Variant extractValue ( final IoBuffer data, final Map<String, Variant> attributes )
     {
-        return Variant.valueOf ( data.getShort ( toAddress ( this.index ) ) );
+        final short s = this.order.get ( data, toAddress ( this.index ), Int16Accessor.INSTANCE );
+        return Variant.valueOf ( s );
     }
 }
