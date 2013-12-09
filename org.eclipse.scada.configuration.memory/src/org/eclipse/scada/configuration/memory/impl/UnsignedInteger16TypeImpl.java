@@ -40,7 +40,7 @@ public class UnsignedInteger16TypeImpl extends OrderedTypeImpl implements Unsign
     @Override
     public String encode ()
     {
-        return String.format ( "WORD:%s:%s:0", this.index, this.order );
+        return String.format ( "WORD:%s:0:%s", this.index, this.order );
     }
 
     /**

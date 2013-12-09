@@ -40,7 +40,7 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     @Override
     public String encode ()
     {
-        return String.format ( "DINT:%s:%s:0", this.index, this.order );
+        return String.format ( "DINT:%s:0:%s", this.index, this.order );
     }
 
     /**
