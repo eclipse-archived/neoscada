@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger16Type;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnsignedInteger16TypeTest extends BaseScalarTypeTest
+public class UnsignedInteger16TypeTest extends OrderedTypeTest
 {
 
     /**

@@ -165,6 +165,8 @@ public class MemorySwitch<T> extends Switch<T>
                 UnsignedInteger16Type unsignedInteger16Type = (UnsignedInteger16Type)theEObject;
                 T result = caseUnsignedInteger16Type ( unsignedInteger16Type );
                 if ( result == null )
+                    result = caseOrderedType ( unsignedInteger16Type );
+                if ( result == null )
                     result = caseBaseScalarType ( unsignedInteger16Type );
                 if ( result == null )
                     result = caseScalarType ( unsignedInteger16Type );
@@ -188,6 +190,8 @@ public class MemorySwitch<T> extends Switch<T>
             {
                 UnsignedInteger32Type unsignedInteger32Type = (UnsignedInteger32Type)theEObject;
                 T result = caseUnsignedInteger32Type ( unsignedInteger32Type );
+                if ( result == null )
+                    result = caseOrderedType ( unsignedInteger32Type );
                 if ( result == null )
                     result = caseBaseScalarType ( unsignedInteger32Type );
                 if ( result == null )
@@ -216,6 +220,20 @@ public class MemorySwitch<T> extends Switch<T>
             {
                 TypeSystem typeSystem = (TypeSystem)theEObject;
                 T result = caseTypeSystem ( typeSystem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case MemoryPackage.ORDERED_TYPE:
+            {
+                OrderedType orderedType = (OrderedType)theEObject;
+                T result = caseOrderedType ( orderedType );
+                if ( result == null )
+                    result = caseBaseScalarType ( orderedType );
+                if ( result == null )
+                    result = caseScalarType ( orderedType );
+                if ( result == null )
+                    result = caseType ( orderedType );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -333,6 +351,22 @@ public class MemorySwitch<T> extends Switch<T>
      * @generated
      */
     public T caseTypeSystem ( TypeSystem object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Ordered Type</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Ordered Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseOrderedType ( OrderedType object )
     {
         return null;
     }

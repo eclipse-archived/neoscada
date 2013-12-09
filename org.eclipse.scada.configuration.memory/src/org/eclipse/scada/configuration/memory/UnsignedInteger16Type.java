@@ -20,6 +20,6 @@ package org.eclipse.scada.configuration.memory;
  * @model
  * @generated
  */
-public interface UnsignedInteger16Type extends BaseScalarType
+public interface UnsignedInteger16Type extends OrderedType
 {
 } // UnsignedInteger16Type

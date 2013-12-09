@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.memory;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -522,6 +523,61 @@ public interface MemoryPackage extends EPackage
     int USER_DEFINED_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.OrderedTypeImpl <em>Ordered Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.impl.OrderedTypeImpl
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getOrderedType()
+     * @generated
+     */
+    int ORDERED_TYPE = 13;
+
+    /**
+     * The feature id for the '<em><b>Index</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORDERED_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORDERED_TYPE__ORDER = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Ordered Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORDERED_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Encode</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORDERED_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+
+    /**
+     * The number of operations of the '<em>Ordered Type</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORDERED_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.UnsignedInteger16TypeImpl <em>Unsigned Integer16 Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -538,7 +594,16 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER16_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+    int UNSIGNED_INTEGER16_TYPE__INDEX = ORDERED_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNSIGNED_INTEGER16_TYPE__ORDER = ORDERED_TYPE__ORDER;
 
     /**
      * The number of structural features of the '<em>Unsigned Integer16 Type</em>' class.
@@ -547,7 +612,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER16_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+    int UNSIGNED_INTEGER16_TYPE_FEATURE_COUNT = ORDERED_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The operation id for the '<em>Encode</em>' operation.
@@ -556,7 +621,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER16_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+    int UNSIGNED_INTEGER16_TYPE___ENCODE = ORDERED_TYPE___ENCODE;
 
     /**
      * The number of operations of the '<em>Unsigned Integer16 Type</em>' class.
@@ -565,7 +630,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER16_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+    int UNSIGNED_INTEGER16_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.UnsignedInteger32TypeImpl <em>Unsigned Integer32 Type</em>}' class.
@@ -584,7 +649,16 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER32_TYPE__INDEX = BASE_SCALAR_TYPE__INDEX;
+    int UNSIGNED_INTEGER32_TYPE__INDEX = ORDERED_TYPE__INDEX;
+
+    /**
+     * The feature id for the '<em><b>Order</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UNSIGNED_INTEGER32_TYPE__ORDER = ORDERED_TYPE__ORDER;
 
     /**
      * The number of structural features of the '<em>Unsigned Integer32 Type</em>' class.
@@ -593,7 +667,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER32_TYPE_FEATURE_COUNT = BASE_SCALAR_TYPE_FEATURE_COUNT + 0;
+    int UNSIGNED_INTEGER32_TYPE_FEATURE_COUNT = ORDERED_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The operation id for the '<em>Encode</em>' operation.
@@ -602,7 +676,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER32_TYPE___ENCODE = BASE_SCALAR_TYPE___ENCODE;
+    int UNSIGNED_INTEGER32_TYPE___ENCODE = ORDERED_TYPE___ENCODE;
 
     /**
      * The number of operations of the '<em>Unsigned Integer32 Type</em>' class.
@@ -611,7 +685,7 @@ public interface MemoryPackage extends EPackage
      * @generated
      * @ordered
      */
-    int UNSIGNED_INTEGER32_TYPE_OPERATION_COUNT = BASE_SCALAR_TYPE_OPERATION_COUNT + 0;
+    int UNSIGNED_INTEGER32_TYPE_OPERATION_COUNT = ORDERED_TYPE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.memory.impl.UnsignedInteger8TypeImpl <em>Unsigned Integer8 Type</em>}' class.
@@ -713,6 +787,16 @@ public interface MemoryPackage extends EPackage
      * @ordered
      */
     int TYPE_SYSTEM_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.ByteOrder
+     * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getByteOrder()
+     * @generated
+     */
+    int BYTE_ORDER = 14;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.UserDefinedType <em>User Defined Type</em>}'.
@@ -828,6 +912,37 @@ public interface MemoryPackage extends EPackage
      * @generated
      */
     EAttribute getTypeSystem_Name ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.OrderedType <em>Ordered Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Ordered Type</em>'.
+     * @see org.eclipse.scada.configuration.memory.OrderedType
+     * @generated
+     */
+    EClass getOrderedType ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.memory.OrderedType#getOrder <em>Order</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Order</em>'.
+     * @see org.eclipse.scada.configuration.memory.OrderedType#getOrder()
+     * @see #getOrderedType()
+     * @generated
+     */
+    EAttribute getOrderedType_Order ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Byte Order</em>'.
+     * @see org.eclipse.scada.configuration.memory.ByteOrder
+     * @generated
+     */
+    EEnum getByteOrder ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.memory.BitType <em>Bit Type</em>}'.
@@ -1125,6 +1240,34 @@ public interface MemoryPackage extends EPackage
          * @generated
          */
         EAttribute TYPE_SYSTEM__NAME = eINSTANCE.getTypeSystem_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.OrderedTypeImpl <em>Ordered Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.impl.OrderedTypeImpl
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getOrderedType()
+         * @generated
+         */
+        EClass ORDERED_TYPE = eINSTANCE.getOrderedType ();
+
+        /**
+         * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ORDERED_TYPE__ORDER = eINSTANCE.getOrderedType_Order ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.ByteOrder <em>Byte Order</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.memory.ByteOrder
+         * @see org.eclipse.scada.configuration.memory.impl.MemoryPackageImpl#getByteOrder()
+         * @generated
+         */
+        EEnum BYTE_ORDER = eINSTANCE.getByteOrder ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.memory.impl.BitTypeImpl <em>Bit Type</em>}' class.

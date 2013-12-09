@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.memory.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -19,9 +20,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.memory.Attribute;
 import org.eclipse.scada.configuration.memory.BaseScalarType;
 import org.eclipse.scada.configuration.memory.BitType;
+import org.eclipse.scada.configuration.memory.ByteOrder;
 import org.eclipse.scada.configuration.memory.Float32Type;
 import org.eclipse.scada.configuration.memory.MemoryFactory;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
+import org.eclipse.scada.configuration.memory.OrderedType;
 import org.eclipse.scada.configuration.memory.ScalarType;
 import org.eclipse.scada.configuration.memory.Type;
 import org.eclipse.scada.configuration.memory.TypeDefinition;
@@ -88,6 +91,20 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * @generated
      */
     private EClass typeSystemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass orderedTypeEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum byteOrderEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -339,6 +356,36 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getOrderedType ()
+    {
+        return orderedTypeEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOrderedType_Order ()
+    {
+        return (EAttribute)orderedTypeEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getByteOrder ()
+    {
+        return byteOrderEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getBitType ()
     {
         return bitTypeEClass;
@@ -545,6 +592,12 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         createEReference ( typeSystemEClass, TYPE_SYSTEM__TYPES );
         createEReference ( typeSystemEClass, TYPE_SYSTEM__INCLUDES );
         createEAttribute ( typeSystemEClass, TYPE_SYSTEM__NAME );
+
+        orderedTypeEClass = createEClass ( ORDERED_TYPE );
+        createEAttribute ( orderedTypeEClass, ORDERED_TYPE__ORDER );
+
+        // Create enums
+        byteOrderEEnum = createEEnum ( BYTE_ORDER );
     }
 
     /**
@@ -581,10 +634,11 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         float32TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
         baseScalarTypeEClass.getESuperTypes ().add ( this.getScalarType () );
         userDefinedTypeEClass.getESuperTypes ().add ( this.getType () );
-        unsignedInteger16TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        unsignedInteger16TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         scalarTypeEClass.getESuperTypes ().add ( this.getType () );
-        unsignedInteger32TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        unsignedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
         unsignedInteger8TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        orderedTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -631,6 +685,14 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         initEReference ( getTypeSystem_Includes (), this.getTypeSystem (), null, "includes", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
         getTypeSystem_Includes ().getEKeys ().add ( this.getTypeSystem_Name () );
         initEAttribute ( getTypeSystem_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOrderedType_Order (), this.getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        // Initialize enums and add enum literals
+        initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.BIG_ENDIAN );
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.LITTLE_ENDIAN );
 
         // Create resource
         createResource ( eNS_URI );

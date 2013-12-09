@@ -21,14 +21,15 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger16Type;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
-public class UnsignedInteger16TypeImpl extends BaseScalarTypeImpl implements UnsignedInteger16Type
+public class UnsignedInteger16TypeImpl extends OrderedTypeImpl implements UnsignedInteger16Type
 {
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected UnsignedInteger16TypeImpl ()
@@ -39,12 +40,13 @@ public class UnsignedInteger16TypeImpl extends BaseScalarTypeImpl implements Uns
     @Override
     public String encode ()
     {
-        return String.format ( "WORD:%s:0", this.index );
+        return String.format ( "WORD:%s:%s:0", this.index, this.order );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

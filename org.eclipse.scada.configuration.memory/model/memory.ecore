@@ -36,10 +36,10 @@
         eKeys="#//TypeDefinition/name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger16Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger16Type" eSuperTypes="#//OrderedType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScalarType" abstract="true" interface="true"
       eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger32Type" eSuperTypes="#//BaseScalarType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger32Type" eSuperTypes="#//OrderedType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger8Type" eSuperTypes="#//BaseScalarType"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSystem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -48,5 +48,13 @@
         upperBound="-1" eType="#//TypeSystem" eKeys="#//TypeSystem/name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ByteOrder">
+    <eLiterals name="BIG_ENDIAN"/>
+    <eLiterals name="LITTLE_ENDIAN" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedType" abstract="true" eSuperTypes="#//BaseScalarType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="#//ByteOrder"
+        defaultValueLiteral="BIG_ENDIAN"/>
   </eClassifiers>
 </ecore:EPackage>

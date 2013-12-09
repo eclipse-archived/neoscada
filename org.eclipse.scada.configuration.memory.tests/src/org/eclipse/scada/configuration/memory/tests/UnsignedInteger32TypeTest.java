@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger32Type;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnsignedInteger32TypeTest extends BaseScalarTypeTest
+public class UnsignedInteger32TypeTest extends OrderedTypeTest
 {
 
     /**

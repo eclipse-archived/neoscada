@@ -157,6 +157,12 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseOrderedType ( OrderedType object )
+        {
+            return createOrderedTypeAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -278,6 +284,21 @@ public class MemoryAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createTypeSystemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.memory.OrderedType <em>Ordered Type</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.memory.OrderedType
+     * @generated
+     */
+    public Adapter createOrderedTypeAdapter ()
     {
         return null;
     }
