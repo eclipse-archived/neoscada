@@ -69,7 +69,7 @@ public final class Nodes
         {
             return null;
         }
-        if ( node.getName () != null )
+        if ( node.getName () != null && !node.getName ().isEmpty () )
         {
             return node.getName ();
         }

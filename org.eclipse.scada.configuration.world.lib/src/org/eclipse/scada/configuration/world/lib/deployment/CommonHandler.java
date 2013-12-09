@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.CommonDriver;
 import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
-import org.eclipse.scada.configuration.world.lib.WorldRunner;
+import org.eclipse.scada.configuration.world.lib.Nodes;
 import org.eclipse.scada.configuration.world.lib.utils.CopyRecursive;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
@@ -57,7 +57,7 @@ public abstract class CommonHandler implements NodeElementProcessor
 
     public String getPackageName ()
     {
-        return WorldRunner.makeName ( this.applicationNode ) + "-configuration";
+        return Nodes.makeName ( this.applicationNode ) + "-configuration";
     }
 
     protected File getPackageFolder ( final IFolder nodeDir )

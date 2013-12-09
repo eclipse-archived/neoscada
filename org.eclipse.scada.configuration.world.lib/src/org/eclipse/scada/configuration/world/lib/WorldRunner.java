@@ -80,7 +80,7 @@ public class WorldRunner
     {
         logger.debug ( "Processing node: {}", applicationNode ); //$NON-NLS-1$
 
-        final String name = makeName ( applicationNode );
+        final String name = Nodes.makeName ( applicationNode );
 
         final IFolder nodeDir = output.getFolder ( new Path ( name ) );
 
@@ -171,17 +171,5 @@ public class WorldRunner
         }
 
         return clazz.isAssignableFrom ( element.getClass () );
-    }
-
-    public static String makeName ( final ApplicationNode applicationNode )
-    {
-        if ( applicationNode.getName () != null && !applicationNode.getName ().isEmpty () )
-        {
-            return applicationNode.getName ();
-        }
-        else
-        {
-            return applicationNode.getHostName ();
-        }
     }
 }
