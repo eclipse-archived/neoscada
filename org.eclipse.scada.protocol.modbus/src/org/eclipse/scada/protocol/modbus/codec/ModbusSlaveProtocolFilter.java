@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.codec;
 
+import java.nio.ByteOrder;
+
 import org.apache.mina.core.filterchain.IoFilterAdapter;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.core.write.WriteRequest;
@@ -24,12 +26,19 @@ public class ModbusSlaveProtocolFilter extends IoFilterAdapter
 
     private final static Logger logger = LoggerFactory.getLogger ( ModbusSlaveProtocolFilter.class );
 
+    private final ByteOrder dataOrder;
+
+    public ModbusSlaveProtocolFilter ( final ByteOrder dataOrder )
+    {
+        this.dataOrder = dataOrder;
+    }
+
     @Override
     public void filterWrite ( final NextFilter nextFilter, final IoSession session, final WriteRequest writeRequest ) throws Exception
     {
         if ( writeRequest.getMessage () instanceof BaseMessage )
         {
-            final Pdu pdu = ModbusProtocol.encodeAsSlave ( (BaseMessage)writeRequest.getMessage () );
+            final Pdu pdu = ModbusProtocol.encodeAsSlave ( (BaseMessage)writeRequest.getMessage (), this.dataOrder );
             nextFilter.filterWrite ( session, new WriteRequestWrapper ( writeRequest ) {
                 @Override
                 public Object getMessage ()
@@ -51,7 +60,7 @@ public class ModbusSlaveProtocolFilter extends IoFilterAdapter
 
         if ( message instanceof Pdu )
         {
-            nextFilter.messageReceived ( session, ModbusProtocol.decodeAsSlave ( (Pdu)message ) );
+            nextFilter.messageReceived ( session, ModbusProtocol.decodeAsSlave ( (Pdu)message, this.dataOrder ) );
         }
         else
         {

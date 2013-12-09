@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.codec;
 
+import java.nio.ByteOrder;
+
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.protocol.modbus.Constants;
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
@@ -24,7 +26,7 @@ import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 
 public class ModbusProtocol
 {
-    public static Pdu encodeAsMaster ( final BaseMessage message )
+    public static Pdu encodeAsMaster ( final BaseMessage message, final ByteOrder dataOrder )
     {
         final IoBuffer data = IoBuffer.allocate ( 256 );
         if ( message instanceof ReadRequest )
@@ -42,6 +44,8 @@ public class ModbusProtocol
             data.putUnsignedShort ( writeMessage.getStartAddress () );
             data.putUnsignedShort ( numberOfRegisters );
             data.putUnsigned ( writeMessage.getData ().length );
+
+            // FIXME: change byte order
             data.put ( writeMessage.getData () );
         }
         else if ( message instanceof WriteSingleDataRequest )
@@ -49,7 +53,13 @@ public class ModbusProtocol
             final WriteSingleDataRequest writeMessage = (WriteSingleDataRequest)message;
             data.put ( writeMessage.getFunctionCode () );
             data.putUnsignedShort ( writeMessage.getAddress () );
+
+            // change byte order first
+
+            final ByteOrder bo = data.order ();
+            data.order ( dataOrder );
             data.putUnsignedShort ( writeMessage.getValue () );
+            data.order ( bo );
         }
         else
         {
@@ -60,16 +70,19 @@ public class ModbusProtocol
         return new Pdu ( message.getTransactionId (), message.getUnitIdentifier (), data );
     }
 
-    public static Pdu encodeAsSlave ( final BaseMessage message )
+    public static Pdu encodeAsSlave ( final BaseMessage message, final ByteOrder dataOrder )
     {
         final IoBuffer data = IoBuffer.allocate ( 256 );
         if ( message instanceof ReadResponse )
         {
             final ReadResponse readResponseMessage = (ReadResponse)message;
             data.put ( readResponseMessage.getFunctionCode () );
-            int length = readResponseMessage.getData ().remaining ();
+
+            // FIXME: change byte order
+
+            final int length = readResponseMessage.getData ().remaining ();
             data.put ( (byte)length );
-            byte[] remainingData = new byte[length];
+            final byte[] remainingData = new byte[length];
             readResponseMessage.getData ().get ( remainingData );
             data.put ( remainingData );
         }
@@ -85,7 +98,11 @@ public class ModbusProtocol
             final WriteSingleDataResponse writeResponseMessage = (WriteSingleDataResponse)message;
             data.put ( writeResponseMessage.getFunctionCode () );
             data.putUnsignedShort ( writeResponseMessage.getAddress () );
+
+            final ByteOrder bo = data.order ();
+            data.order ( dataOrder );
             data.putUnsignedShort ( writeResponseMessage.getValue () );
+            data.order ( bo );
         }
         else if ( message instanceof ErrorResponse )
         {
@@ -102,7 +119,7 @@ public class ModbusProtocol
         return new Pdu ( message.getTransactionId (), message.getUnitIdentifier (), data );
     }
 
-    public static Object decodeAsMaster ( final Pdu message )
+    public static Object decodeAsMaster ( final Pdu message, final ByteOrder dataOrder )
     {
         final IoBuffer data = message.getData ();
 
@@ -123,7 +140,16 @@ public class ModbusProtocol
                 return new ReadResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, readBytes ( data ) );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            {
+                final int address = data.getUnsignedShort ();
+
+                final ByteOrder bo = data.order ();
+                data.order ( dataOrder );
+                final int value = data.getUnsignedShort ();
+                data.order ( bo );
+
+                return new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, address, value );
+            }
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 return new WriteMultiDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
@@ -132,7 +158,7 @@ public class ModbusProtocol
         }
     }
 
-    public static Object decodeAsSlave ( final Pdu message )
+    public static Object decodeAsSlave ( final Pdu message, final ByteOrder dataOrder )
     {
         final IoBuffer data = message.getData ();
 
@@ -147,11 +173,21 @@ public class ModbusProtocol
                 return new ReadRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
             case Constants.FUNCTION_CODE_WRITE_SINGLE_COIL:
             case Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER:
-                return new WriteSingleDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, data.getUnsignedShort (), data.getUnsignedShort () );
+            {
+                final int address = data.getUnsignedShort ();
+
+                final ByteOrder bo = data.order ();
+                data.order ( dataOrder );
+                final int value = data.getUnsignedShort ();
+                data.order ( bo );
+
+                return new WriteSingleDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, address, value );
+            }
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
-                int startAddress = data.getUnsignedShort ();
-                byte[] b = new byte[data.remaining ()];
+                // FIXME: swap byte order
+                final int startAddress = data.getUnsignedShort ();
+                final byte[] b = new byte[data.remaining ()];
                 data.get ( b );
                 return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b );
             default:
@@ -161,6 +197,7 @@ public class ModbusProtocol
 
     private static IoBuffer readBytes ( final IoBuffer buffer )
     {
+        // FIXME: swap byte order
         final short numOfBytes = buffer.getUnsigned ();
         final byte[] result = new byte[numOfBytes];
         buffer.get ( result, 0, numOfBytes );
