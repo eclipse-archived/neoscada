@@ -24,7 +24,7 @@ public class SlaveFactory extends AbstractServiceConfigurationFactory<ModbusSlav
     private final MasterFactory masterFactory;
 
     private final Executor executor;
-    
+
     private final AtomicInteger transactionId;
 
     public SlaveFactory ( final BundleContext context, final MasterFactory masterFactory, final Executor executor )
@@ -38,7 +38,7 @@ public class SlaveFactory extends AbstractServiceConfigurationFactory<ModbusSlav
     @Override
     protected Entry<ModbusSlave> createService ( final UserInformation userInformation, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
     {
-        return new Entry<ModbusSlave> ( configurationId, ModbusSlave.create ( context, this.executor, configurationId, parameters, this.masterFactory, transactionId ) );
+        return new Entry<ModbusSlave> ( configurationId, ModbusSlave.create ( context, this.executor, configurationId, parameters, this.masterFactory, this.transactionId ) );
     }
 
     @Override

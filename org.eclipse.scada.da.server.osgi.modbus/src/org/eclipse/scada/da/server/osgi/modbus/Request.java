@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
+import java.nio.ByteOrder;
+
 public class Request
 {
     private final int startAddress;
@@ -27,16 +29,25 @@ public class Request
 
     private final boolean eager;
 
+    private final ByteOrder dataOrder;
+
     /**
-     * @param type DISCRETE, COIL, INPUT, HOLDING
-     * @param startAddress in this case it is actually the modbus register 
-     * @param count number of registers to read (must no more than 250)
-     * @param period polling rate
-     * @param timeout after timeout seconds without answer mark values as error
+     * @param type
+     *            DISCRETE, COIL, INPUT, HOLDING
+     * @param startAddress
+     *            in this case it is actually the modbus register
+     * @param count
+     *            number of registers to read (must no more than 250)
+     * @param period
+     *            polling rate
+     * @param timeout
+     *            after timeout seconds without answer mark values as error
      * @param mainTypeName
      * @param eager
+     * @param dataOrder
+     *            the data byte order
      */
-    public Request ( final RequestType type, final int startAddress, final int count, final long period, final long timeout, final String mainTypeName, final boolean eager )
+    public Request ( final RequestType type, final int startAddress, final int count, final long period, final long timeout, final String mainTypeName, final boolean eager, final ByteOrder dataOrder )
     {
         this.type = type;
         this.startAddress = startAddress;
@@ -45,6 +56,7 @@ public class Request
         this.timeout = timeout;
         this.mainTypeName = mainTypeName;
         this.eager = eager;
+        this.dataOrder = dataOrder;
     }
 
     public boolean isEager ()
@@ -82,12 +94,18 @@ public class Request
         return this.type;
     }
 
+    public ByteOrder getDataOrder ()
+    {
+        return this.dataOrder;
+    }
+
     @Override
     public int hashCode ()
     {
         final int prime = 31;
         int result = 1;
         result = prime * result + this.count;
+        result = prime * result + ( this.dataOrder == null ? 0 : this.dataOrder.hashCode () );
         result = prime * result + ( this.eager ? 1231 : 1237 );
         result = prime * result + ( this.mainTypeName == null ? 0 : this.mainTypeName.hashCode () );
         result = prime * result + (int) ( this.period ^ this.period >>> 32 );
@@ -108,12 +126,23 @@ public class Request
         {
             return false;
         }
-        if ( getClass () != obj.getClass () )
+        if ( ! ( obj instanceof Request ) )
         {
             return false;
         }
         final Request other = (Request)obj;
         if ( this.count != other.count )
+        {
+            return false;
+        }
+        if ( this.dataOrder == null )
+        {
+            if ( other.dataOrder != null )
+            {
+                return false;
+            }
+        }
+        else if ( !this.dataOrder.equals ( other.dataOrder ) )
         {
             return false;
         }
@@ -154,7 +183,7 @@ public class Request
     @Override
     public String toString ()
     {
-        return String.format ( "[Request - type: %s, start: %s, count: %s, period: %s, timeout: %s, mainType: %s, eager: %s]", this.type, this.startAddress, this.count, this.period, this.timeout, this.mainTypeName, this.eager );
+        return String.format ( "[Request - type: %s, start: %s, count: %s, period: %s, timeout: %s, mainType: %s, eager: %s, dataOrder: %s]", this.type, this.startAddress, this.count, this.period, this.timeout, this.mainTypeName, this.eager, this.dataOrder );
     }
 
 }

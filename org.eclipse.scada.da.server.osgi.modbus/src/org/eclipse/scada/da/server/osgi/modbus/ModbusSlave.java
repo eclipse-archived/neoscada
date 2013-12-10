@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
+import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -21,6 +22,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.common.io.JobManager;
 import org.eclipse.scada.da.server.osgi.modbus.MasterFactory.Listener;
+import org.eclipse.scada.protocol.modbus.codec.ModbusProtocol;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
@@ -52,7 +54,7 @@ public class ModbusSlave implements Listener
 
     private long timeoutQuietPeriod;
 
-    private AtomicInteger transactionId;
+    private final AtomicInteger transactionId;
 
     public static ModbusSlave create ( final BundleContext context, final Executor executor, final String configurationId, final Map<String, String> parameters, final MasterFactory masterFactory, final AtomicInteger transactionId )
     {
@@ -68,7 +70,7 @@ public class ModbusSlave implements Listener
         this.context = context;
         this.masterFactory = masterFactory;
         this.transactionId = transactionId;
-        
+
         synchronized ( this )
         {
             this.masterFactory.addMasterListener ( this );
@@ -79,6 +81,10 @@ public class ModbusSlave implements Listener
     {
         this.masterFactory.removeMasterListener ( this );
         stop ();
+        for ( final ModbusRequestBlock block : this.blocks.values () )
+        {
+            block.dispose ();
+        }
     }
 
     protected synchronized void configure ( final Map<String, String> properties )
@@ -89,11 +95,13 @@ public class ModbusSlave implements Listener
         this.slaveAddress = Byte.parseByte ( cfg.getStringChecked ( "slave.id", "'slave.id' must be set to a valid modbus slave id" ) );
         this.timeoutQuietPeriod = cfg.getLong ( "timeoutQuietPeriod", 10_000 );
 
+        final ByteOrder dataOrder = ModbusProtocol.makeOrder ( cfg.getString ( "dataOrder" ), ByteOrder.BIG_ENDIAN );
+
         final Set<String> ids = new HashSet<> ();
 
         for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
         {
-            final Request request = parseRequest ( entry.getValue () );
+            final Request request = parseRequest ( entry.getValue (), dataOrder );
             addBlock ( entry.getKey (), request );
             ids.add ( entry.getKey () );
         }
@@ -156,7 +164,7 @@ public class ModbusSlave implements Listener
         stop ();
     }
 
-    private Request parseRequest ( final String value )
+    private Request parseRequest ( final String value, final ByteOrder dataOrder )
     {
         // format: FC:START:COUNT:PERIOD
         // period is in "ms"
@@ -188,7 +196,7 @@ public class ModbusSlave implements Listener
         final long timeout = Long.parseLong ( toks[idx++] );
         final String mainTypeName = toks[idx++];
 
-        return new Request ( type, startAddress, count, period, timeout, mainTypeName, eager );
+        return new Request ( type, startAddress, count, period, timeout, mainTypeName, eager, dataOrder );
     }
 
     public synchronized void start ( final ModbusMaster master, final JobManager jobManager )
@@ -200,7 +208,7 @@ public class ModbusSlave implements Listener
 
         for ( final Map.Entry<String, ModbusRequestBlock> entry : this.blocks.entrySet () )
         {
-            jobManager.addBlock ( this.id + "." + entry.getKey (), entry.getValue () );
+            this.jobManager.addBlock ( this.id + "." + entry.getKey (), entry.getValue () );
         }
     }
 

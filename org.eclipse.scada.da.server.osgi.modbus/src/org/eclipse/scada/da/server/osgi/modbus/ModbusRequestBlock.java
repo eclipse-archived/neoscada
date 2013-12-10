@@ -12,12 +12,14 @@
 
 package org.eclipse.scada.da.server.osgi.modbus;
 
-import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.da.server.common.memory.AbstractRequestBlock;
 import org.eclipse.scada.protocol.modbus.Constants;
+import org.eclipse.scada.protocol.modbus.codec.ModbusProtocol;
 import org.eclipse.scada.protocol.modbus.io.ChecksumProtocolException;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
@@ -37,8 +39,10 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     private final ModbusSlave slave;
 
     private final String id;
-    
-    private AtomicInteger transactionId;
+
+    private final AtomicInteger transactionId;
+
+    private final ByteOrder dataOrder;
 
     public ModbusRequestBlock ( final Executor executor, final String id, final String name, final String mainTypeName, final ModbusSlave slave, final BundleContext context, final Request request, final AtomicInteger transactionId, final boolean enableStatistics )
     {
@@ -49,6 +53,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         this.request = request;
         this.slave = slave;
         this.transactionId = transactionId;
+        this.dataOrder = request.getDataOrder ();
 
         initialize ();
     }
@@ -131,9 +136,22 @@ public class ModbusRequestBlock extends AbstractRequestBlock
     }
 
     @Override
+    public void handleData ( final IoBuffer data )
+    {
+        if ( this.dataOrder == ByteOrder.BIG_ENDIAN )
+        {
+            super.handleData ( data );
+        }
+        else
+        {
+            super.handleData ( ModbusProtocol.convertData ( data, this.dataOrder ) );
+        }
+    }
+
+    @Override
     public Object createPollRequest ()
     {
-        return this.slave.createPollRequest ( transactionId.incrementAndGet (), this.request );
+        return this.slave.createPollRequest ( this.transactionId.incrementAndGet (), this.request );
     }
 
     /* (non-Javadoc)
@@ -149,16 +167,16 @@ public class ModbusRequestBlock extends AbstractRequestBlock
 
     private int toWriteAddress ( final int blockAddress )
     {
-    	// blockAddress is given in bytes, but we have to align it
-    	// back to the actual modbus register
+        // blockAddress is given in bytes, but we have to align it
+        // back to the actual modbus register
         return this.request.getStartAddress () + blockAddress / 2;
     }
 
     private int toWriteAddressBit ( final int blockAddress, final int subIndex )
     {
-    	// blockAddress is given in bytes, but we have to align it
-    	// back to the actual modbus register, in this case it is just 
-    	// a continuous address space
+        // blockAddress is given in bytes, but we have to align it
+        // back to the actual modbus register, in this case it is just 
+        // a continuous address space
         return this.request.getStartAddress () + blockAddress * 8 + subIndex;
     }
 
@@ -169,24 +187,30 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write bits when the block is of type %s", RequestType.COIL ) );
         }
-        this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toWriteAddressBit ( blockAddress, subIndex ), value ), this.request.getTimeout () );
+        this.slave.writeCommand ( new WriteSingleDataRequest ( this.transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_COIL, toWriteAddressBit ( blockAddress, subIndex ), value ), this.request.getTimeout () );
+        // FUNCTION_CODE_WRITE_MULTIPLE_COILS is not supported at the moment, since we do not support setting multiple bits at once.
         requestUpdate ();
     }
 
     @Override
-    public void writeData ( final int blockAddress, final byte[] data )
+    public void writeData ( final int blockAddress, byte[] data )
     {
         if ( this.request.getType () != RequestType.HOLDING )
         {
             throw new IllegalStateException ( String.format ( "Modbus can only write data when the block is of type %s", RequestType.HOLDING ) );
         }
-        if (data.length == 2) {
-            int value = ByteBuffer.wrap ( data ).getShort () & 0xFFFF;
-            this.slave.writeCommand ( new WriteSingleDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toWriteAddress ( blockAddress ), value), this.request.getTimeout () );
-        } else {
-            this.slave.writeCommand ( new WriteMultiDataRequest ( transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toWriteAddress ( blockAddress ), data ), this.request.getTimeout () );
+        if ( data.length == 2 )
+        {
+            final IoBuffer buffer = IoBuffer.wrap ( data );
+            buffer.order ( this.dataOrder );
+            final int value = buffer.getUnsignedShort ();
+            this.slave.writeCommand ( new WriteSingleDataRequest ( this.transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_SINGLE_REGISTER, toWriteAddress ( blockAddress ), value ), this.request.getTimeout () );
         }
-        // FUNCTION_CODE_WRITE_MULTIPLE_COILS is not supported at the moment, since we do not support setting multiple bits at once.
+        else
+        {
+            data = ModbusProtocol.encodeData ( data, this.dataOrder ); // apply requested byte order
+            this.slave.writeCommand ( new WriteMultiDataRequest ( this.transactionId.incrementAndGet (), this.slave.getSlaveAddress (), Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS, toWriteAddress ( blockAddress ), data ), this.request.getTimeout () );
+        }
         requestUpdate ();
     }
 
