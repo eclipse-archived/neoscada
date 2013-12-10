@@ -200,4 +200,43 @@ public class ModbusProtocol
         buffer.get ( result, 0, numOfBytes );
         return IoBuffer.wrap ( result );
     }
+
+    public static IoBuffer convertData ( final IoBuffer data, final ByteOrder dataOrder )
+    {
+        if ( dataOrder == ByteOrder.BIG_ENDIAN )
+        {
+            return data;
+        }
+
+        final IoBuffer result = IoBuffer.allocate ( data.capacity () );
+        result.order ( dataOrder );
+
+        for ( int i = 0; i < data.remaining () / 2; i++ )
+        {
+            // convert to LITTLE_ENDIAN
+            result.putUnsignedShort ( data.getUnsignedShort ( i ) );
+        }
+
+        // the byte order we use is BIG_ENDIAN
+        result.order ( ByteOrder.BIG_ENDIAN );
+
+        return data;
+    }
+
+    public static byte[] encodeData ( final byte[] data, final ByteOrder dataOrder )
+    {
+        if ( dataOrder == ByteOrder.BIG_ENDIAN )
+        {
+            return data;
+        }
+
+        byte t;
+        for ( int i = 0; i < data.length / 2; i++ )
+        {
+            t = data[i * 2];
+            data[i * 2] = data[i * 2 + 1];
+            data[i * 2 + 1] = t;
+        }
+        return data;
+    }
 }
