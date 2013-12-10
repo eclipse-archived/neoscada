@@ -11,7 +11,6 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.modbus;
 
-import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -66,8 +65,6 @@ public class ModbusMaster extends AbstractConnectionDevice
 
     private String protocolType = TYPE_TCP;
 
-    private ByteOrder dataOrder;
-
     public ModbusMaster ( final BundleContext context, final String id, final ScheduledExecutorService executor, final NioProcessor processor, final String threadPrefix, final String itemPrefix )
     {
         super ( context, id, processor, executor, itemPrefix );
@@ -100,23 +97,9 @@ public class ModbusMaster extends AbstractConnectionDevice
         // only relevant for modbus RTU
         this.interFrameDelay = cfg.getDouble ( "interFrameDelay", Double.parseDouble ( System.getProperty ( "org.eclipse.scada.da.server.osgi.modbus.defaultInterFrameDelay", "" + INTER_FRAME_DELAY_DEFAULT ) ) );
 
-        this.dataOrder = makeOrder ( cfg.getString ( "dataOrder", ByteOrder.BIG_ENDIAN.toString () ) );
         this.protocolType = cfg.getStringOfChecked ( "protocolType", TYPE_TCP, allowedModbusVariants );
 
         super.configure ( properties );
-    }
-
-    private static ByteOrder makeOrder ( final String string )
-    {
-        if ( string.equals ( ByteOrder.BIG_ENDIAN.toString () ) )
-        {
-            return ByteOrder.BIG_ENDIAN;
-        }
-        else if ( string.equals ( ByteOrder.LITTLE_ENDIAN.toString () ) )
-        {
-            return ByteOrder.LITTLE_ENDIAN;
-        }
-        throw new IllegalArgumentException ( String.format ( "'%s' is not a valid byte order", string ) );
     }
 
     @Override
@@ -128,13 +111,13 @@ public class ModbusMaster extends AbstractConnectionDevice
         {
             case TYPE_TCP:
                 connector.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( new ModbusTcpEncoder (), new ModbusTcpDecoder () ) );
-                connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter ( this.dataOrder ) );
+                connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter () );
                 break;
             case TYPE_RTU:
                 // convert milliseconds to microseconds to allow more accurate timing
                 final ModbusRtuDecoder rtuDecoder = new ModbusRtuDecoder ( getExecutor (), Double.valueOf ( this.interFrameDelay * 1000 ).longValue (), TimeUnit.MICROSECONDS );
                 connector.getFilterChain ().addLast ( "modbusPdu", new ModbusRtuProtocolCodecFilter ( new ModbusRtuEncoder (), rtuDecoder ) );
-                connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter ( this.dataOrder ) );
+                connector.getFilterChain ().addLast ( "modbus", new ModbusMasterProtocolFilter () );
                 break;
             default:
                 throw new IllegalArgumentException ( String.format ( "'%s' is not an allowed modbus device type", this.protocolType ) );
