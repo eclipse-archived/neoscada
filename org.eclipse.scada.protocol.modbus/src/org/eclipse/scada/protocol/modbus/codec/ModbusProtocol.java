@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.modbus.codec;
 
+import java.nio.ByteOrder;
+
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.protocol.modbus.Constants;
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
@@ -24,6 +26,38 @@ import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 
 public class ModbusProtocol
 {
+
+    /**
+     * Convert the string to a {@link ByteOrder}
+     * 
+     * @param string
+     *            the string to convert
+     * @param defaultOrder
+     *            the default data byte order to use when
+     *            <code>string</string> is <code>null</code>
+     * @return the byte order
+     * @throws IllegalArgumentException
+     *             if the string is neither <code>null</code>, "BIG_ENDIAN" nor
+     *             "LITTLE_ENDIAN"
+     */
+    public static ByteOrder makeOrder ( final String string, final ByteOrder defaultOrder )
+    {
+        if ( string == null )
+        {
+            return defaultOrder;
+        }
+
+        if ( ByteOrder.BIG_ENDIAN.toString ().equals ( string ) )
+        {
+            return ByteOrder.BIG_ENDIAN;
+        }
+        if ( ByteOrder.LITTLE_ENDIAN.toString ().equals ( string ) )
+        {
+            return ByteOrder.LITTLE_ENDIAN;
+        }
+        throw new IllegalArgumentException ( String.format ( "'%s' is not a valid byte order", string ) );
+    }
+
     public static Pdu encodeAsMaster ( final BaseMessage message )
     {
         final IoBuffer data = IoBuffer.allocate ( 256 );
