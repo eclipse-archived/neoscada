@@ -19,7 +19,7 @@ public class RunnerContext implements ExecutableContext
 {
     private final Map<String, Object> map;
 
-    private final Map<String, Object> singletons;
+    private final Map<Class<?>, Object> singletons;
 
     public RunnerContext ()
     {
@@ -38,7 +38,7 @@ public class RunnerContext implements ExecutableContext
         return this.map.get ( name );
     }
 
-    public Map<String, Object> getSingletons ()
+    public Map<Class<?>, Object> getSingletons ()
     {
         return this.singletons;
     }

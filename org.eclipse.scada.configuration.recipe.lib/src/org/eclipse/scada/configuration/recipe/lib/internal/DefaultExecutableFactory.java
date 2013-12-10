@@ -111,11 +111,11 @@ public class DefaultExecutableFactory implements ExecutableFactory
                 logger.debug ( "Return by Executable interface" );
                 if ( clazz.isAnnotationPresent ( Singleton.class ) )
                 {
-                    if ( !ctx.getSingletons ().containsKey ( name ) )
+                    if ( !ctx.getSingletons ().containsKey ( clazz ) )
                     {
-                        ctx.getSingletons ().put ( name, clazz.newInstance () );
+                        ctx.getSingletons ().put ( clazz, clazz.newInstance () );
                     }
-                    return (Executable)ctx.getSingletons ().get ( name );
+                    return (Executable)ctx.getSingletons ().get ( clazz );
                 }
                 else
                 {
@@ -149,11 +149,11 @@ public class DefaultExecutableFactory implements ExecutableFactory
 
         if ( clazz.isAnnotationPresent ( Singleton.class ) )
         {
-            if ( !ctx.getSingletons ().containsKey ( name ) )
+            if ( !ctx.getSingletons ().containsKey ( clazz ) )
             {
-                ctx.getSingletons ().put ( name, clazz.newInstance () );
+                ctx.getSingletons ().put ( clazz, clazz.newInstance () );
             }
-            o = ctx.getSingletons ().get ( name );
+            o = ctx.getSingletons ().get ( clazz );
         }
         else
         {
