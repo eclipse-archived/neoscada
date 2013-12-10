@@ -13,7 +13,6 @@ package org.eclipse.scada.da.server.exporter.modbus;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
-import java.nio.ByteOrder;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -115,7 +114,7 @@ public class ModbusExport
         }
     }
 
-    private void createAcceptor ( final ByteOrder dataOrder )
+    private void createAcceptor ()
     {
         final NioSocketAcceptor acceptor = new NioSocketAcceptor ( this.processor );
         try
@@ -126,7 +125,7 @@ public class ModbusExport
             final ModbusTcpEncoder encoder = new ModbusTcpEncoder ();
             final ModbusTcpDecoder decoder = new ModbusTcpDecoder ();
             acceptor.getFilterChain ().addLast ( "modbusPdu", new ProtocolCodecFilter ( encoder, decoder ) ); //$NON-NLS-1$
-            acceptor.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter ( dataOrder ) ); //$NON-NLS-1$
+            acceptor.getFilterChain ().addLast ( "modbus", new ModbusSlaveProtocolFilter () ); //$NON-NLS-1$
 
             acceptor.setHandler ( new IoHandlerAdapter () {
                 @Override
@@ -178,23 +177,10 @@ public class ModbusExport
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
         setReadTimeout ( cfg.getInteger ( "timeout", 10_000 ) ); //$NON-NLS-1$
-        setPort ( cfg.getInteger ( "port", 502 ), makeOrder ( cfg.getString ( "dataOrder", ByteOrder.BIG_ENDIAN.toString () ) ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        setPort ( cfg.getInteger ( "port", 502 ) ); //$NON-NLS-1$ 
         setSlaveId ( cfg.getInteger ( "slaveId", 1 ) ); //$NON-NLS-1$
         setProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
         configureDefinitions ( cfg );
-    }
-
-    private static ByteOrder makeOrder ( final String string )
-    {
-        if ( string.equals ( ByteOrder.BIG_ENDIAN.toString () ) )
-        {
-            return ByteOrder.BIG_ENDIAN;
-        }
-        else if ( string.equals ( ByteOrder.LITTLE_ENDIAN.toString () ) )
-        {
-            return ByteOrder.LITTLE_ENDIAN;
-        }
-        throw new IllegalArgumentException ( String.format ( "'%s' is not a valid byte order", string ) );
     }
 
     private void setReadTimeout ( final Integer readTimeout )
@@ -208,7 +194,7 @@ public class ModbusExport
         this.slaveId = slaveId;
     }
 
-    private void setPort ( final int port, final ByteOrder dataOrder ) throws IOException
+    private void setPort ( final int port ) throws IOException
     {
         final SocketAddress address = new InetSocketAddress ( port );
 
@@ -217,7 +203,7 @@ public class ModbusExport
             logger.info ( "Rebinding interface - {} to {}", this.currentAddress, address ); //$NON-NLS-1$
             disposeAcceptor ();
             this.currentAddress = address;
-            createAcceptor ( dataOrder );
+            createAcceptor ();
         }
     }
 
