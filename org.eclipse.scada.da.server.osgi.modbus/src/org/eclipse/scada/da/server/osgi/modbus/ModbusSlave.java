@@ -77,6 +77,8 @@ public class ModbusSlave implements Listener
 
     public void dispose ()
     {
+        logger.info ( "Disposing block: {}", this.id );
+
         this.masterFactory.removeMasterListener ( this );
         stop ();
         for ( final ModbusRequestBlock block : this.blocks.values () )
@@ -84,6 +86,8 @@ public class ModbusSlave implements Listener
             block.dispose ();
         }
         this.blocks.clear ();
+
+        logger.info ( "Block {} disposed", this.id );
     }
 
     protected synchronized void configure ( final Map<String, String> properties )
@@ -207,7 +211,7 @@ public class ModbusSlave implements Listener
 
         for ( final Map.Entry<String, ModbusRequestBlock> entry : this.blocks.entrySet () )
         {
-            this.jobManager.addBlock ( this.id + "." + entry.getKey (), entry.getValue () );
+            this.jobManager.addBlock ( makeBlockId ( entry.getKey () ), entry.getValue () );
         }
     }
 
@@ -223,7 +227,7 @@ public class ModbusSlave implements Listener
 
         for ( final Map.Entry<String, ModbusRequestBlock> entry : this.blocks.entrySet () )
         {
-            this.jobManager.removeBlock ( entry.getKey () );
+            this.jobManager.removeBlock ( makeBlockId ( entry.getKey () ) );
         }
 
         this.master = null;
@@ -236,26 +240,32 @@ public class ModbusSlave implements Listener
 
         removeBlock ( id );
 
-        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, this.id + "." + id, this.name, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
+        final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, makeBlockId ( id ), this.name, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
 
         this.blocks.put ( id, block );
 
         if ( this.jobManager != null )
         {
-            this.jobManager.addBlock ( id, block );
+            this.jobManager.addBlock ( makeBlockId ( id ), block );
         }
+    }
+
+    private String makeBlockId ( final String id )
+    {
+        return this.id + "." + id;
     }
 
     protected synchronized void removeBlock ( final String id )
     {
-        logger.debug ( "Removing block: {}", id );
+        logger.trace ( "Removing block: {}", id );
 
         final ModbusRequestBlock block = this.blocks.remove ( id );
         if ( block != null )
         {
+            logger.debug ( "Removed block: {}", id );
             if ( this.jobManager != null )
             {
-                this.jobManager.removeBlock ( id );
+                this.jobManager.removeBlock ( makeBlockId ( id ) );
             }
             block.dispose ();
         }
