@@ -12,11 +12,11 @@
 package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -24,8 +24,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.GlobalizeComponent} object.
@@ -76,23 +79,63 @@ public class GlobalizeComponentItemProvider
      * This adds a property descriptor for the Components feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
-    protected void addComponentsPropertyDescriptor ( Object object )
+    protected void addComponentsPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_GlobalizeComponent_components_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_GlobalizeComponent_components_feature", "_UI_GlobalizeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString ( "_UI_GlobalizeComponent_components_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GlobalizeComponent_components_feature", "_UI_GlobalizeComponent_type" ),
                         ComponentPackage.Literals.GLOBALIZE_COMPONENT__COMPONENTS,
                         true,
                         false,
                         true,
                         null,
                         null,
-                        null ) );
+                        null ) {
+
+                    @Override
+                    public java.util.Collection<?> getChoiceOfValues ( final Object object )
+                    {
+                        if ( ! ( object instanceof GlobalizeComponent ) )
+                        {
+                            return super.getChoiceOfValues ( object );
+                        }
+
+                        final GlobalizeComponent glob = (GlobalizeComponent)object;
+                        if ( glob.getSourceMaster () == null )
+                        {
+                            return Collections.emptyList ();
+                        }
+
+                        final MasterServer im = glob.getSourceMaster ().getImportedMaster ();
+                        if ( im == null )
+                        {
+                            return Collections.emptyList ();
+                        }
+
+                        // remove all components which are not on the target server
+
+                        final Collection<?> result = super.getChoiceOfValues ( glob );
+                        for ( final Iterator<?> i = result.iterator (); i.hasNext (); )
+                        {
+                            final Object o = i.next ();
+                            if ( o instanceof DataComponent )
+                            {
+                                if ( ! ( (DataComponent)o ).getMasterOn ().contains ( im ) )
+                                {
+                                    i.remove ();
+                                }
+                            }
+                        }
+                        return result;
+                    };
+
+                } );
     }
 
     /**
