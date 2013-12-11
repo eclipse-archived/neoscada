@@ -59,7 +59,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="importSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="master" lowerBound="1"
         eType="#//MasterServer" eOpposite="#//MasterServer/importMaster"/>
   </eClassifiers>

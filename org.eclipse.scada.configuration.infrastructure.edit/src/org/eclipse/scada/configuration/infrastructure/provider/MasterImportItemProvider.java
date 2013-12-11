@@ -67,7 +67,6 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
 
             addImportedMasterPropertyDescriptor ( object );
             addIdPropertyDescriptor ( object );
-            addImportSelectorPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -114,29 +113,6 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Import Selector feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addImportSelectorPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterImport_importSelector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importSelector_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.MASTER_IMPORT__IMPORT_SELECTOR,
-                        true,
-                        false,
-                        true,
-                        null,
                         null,
                         null ) );
     }

@@ -582,20 +582,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EReference getMasterImport_ImportSelector ()
-    {
-        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 3 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EReference getMasterImport_Master ()
     {
-        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -1318,7 +1307,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEReference ( masterImportEClass, MASTER_IMPORT__IMPORTED_MASTER );
         createEAttribute ( masterImportEClass, MASTER_IMPORT__ID );
         createEReference ( masterImportEClass, MASTER_IMPORT__CREDENTIALS );
-        createEReference ( masterImportEClass, MASTER_IMPORT__IMPORT_SELECTOR );
         createEReference ( masterImportEClass, MASTER_IMPORT__MASTER );
 
         optionsEClass = createEClass ( OPTIONS );
@@ -1435,7 +1423,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         ProfilePackage theProfilePackage = (ProfilePackage)EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI );
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
         GlobalizePackage theGlobalizePackage = (GlobalizePackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalizePackage.eNS_URI );
-        ItemPackage theItemPackage = (ItemPackage)EPackage.Registry.INSTANCE.getEPackage ( ItemPackage.eNS_URI );
         DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
 
         // Create type parameters
@@ -1489,7 +1476,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getMasterImport_ImportedMaster (), this.getMasterServer (), null, "importedMaster", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getMasterImport_Id (), ecorePackage.getEString (), "id", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterImport_Credentials (), theWorldPackage.getCredentials (), null, "credentials", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMasterImport_ImportSelector (), theItemPackage.getSelector (), null, "importSelector", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterImport_Master (), this.getMasterServer (), this.getMasterServer_ImportMaster (), "master", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( optionsEClass, Options.class, "Options", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

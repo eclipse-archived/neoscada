@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.item.Selector;
 import org.eclipse.scada.configuration.world.Credentials;
 
 /**
@@ -25,7 +24,6 @@ import org.eclipse.scada.configuration.world.Credentials;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getImportedMaster <em>Imported Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getCredentials <em>Credentials</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getImportSelector <em>Import Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster <em>Master</em>}</li>
  * </ul>
  * </p>
@@ -116,32 +114,6 @@ public interface MasterImport extends EObject
      * @generated
      */
     void setCredentials ( Credentials value );
-
-    /**
-     * Returns the value of the '<em><b>Import Selector</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Import Selector</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Import Selector</em>' reference.
-     * @see #setImportSelector(Selector)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getMasterImport_ImportSelector()
-     * @model
-     * @generated
-     */
-    Selector getImportSelector ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getImportSelector <em>Import Selector</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Import Selector</em>' reference.
-     * @see #getImportSelector()
-     * @generated
-     */
-    void setImportSelector ( Selector value );
 
     /**
      * Returns the value of the '<em><b>Master</b></em>' container reference.

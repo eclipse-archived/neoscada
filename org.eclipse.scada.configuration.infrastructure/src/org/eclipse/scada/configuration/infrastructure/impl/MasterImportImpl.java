@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
-import org.eclipse.scada.configuration.item.Selector;
 import org.eclipse.scada.configuration.world.Credentials;
 
 /**
@@ -33,7 +32,6 @@ import org.eclipse.scada.configuration.world.Credentials;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getImportedMaster <em>Imported Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getCredentials <em>Credentials</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getImportSelector <em>Import Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterImportImpl#getMaster <em>Master</em>}</li>
  * </ul>
  * </p>
@@ -81,16 +79,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
      * @ordered
      */
     protected Credentials credentials;
-
-    /**
-     * The cached value of the '{@link #getImportSelector() <em>Import Selector</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getImportSelector()
-     * @generated
-     * @ordered
-     */
-    protected Selector importSelector;
 
     /**
      * <!-- begin-user-doc -->
@@ -270,50 +258,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Selector getImportSelector ()
-    {
-        if ( importSelector != null && importSelector.eIsProxy () )
-        {
-            InternalEObject oldImportSelector = (InternalEObject)importSelector;
-            importSelector = (Selector)eResolveProxy ( oldImportSelector );
-            if ( importSelector != oldImportSelector )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR, oldImportSelector, importSelector ) );
-            }
-        }
-        return importSelector;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Selector basicGetImportSelector ()
-    {
-        return importSelector;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setImportSelector ( Selector newImportSelector )
-    {
-        Selector oldImportSelector = importSelector;
-        importSelector = newImportSelector;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR, oldImportSelector, importSelector ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public MasterServer getMaster ()
     {
         if ( eContainerFeatureID () != InfrastructurePackage.MASTER_IMPORT__MASTER )
@@ -440,10 +384,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
                 if ( resolve )
                     return getCredentials ();
                 return basicGetCredentials ();
-            case InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR:
-                if ( resolve )
-                    return getImportSelector ();
-                return basicGetImportSelector ();
             case InfrastructurePackage.MASTER_IMPORT__MASTER:
                 if ( resolve )
                     return getMaster ();
@@ -471,9 +411,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
             case InfrastructurePackage.MASTER_IMPORT__CREDENTIALS:
                 setCredentials ( (Credentials)newValue );
                 return;
-            case InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR:
-                setImportSelector ( (Selector)newValue );
-                return;
             case InfrastructurePackage.MASTER_IMPORT__MASTER:
                 setMaster ( (MasterServer)newValue );
                 return;
@@ -500,9 +437,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
             case InfrastructurePackage.MASTER_IMPORT__CREDENTIALS:
                 setCredentials ( (Credentials)null );
                 return;
-            case InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR:
-                setImportSelector ( (Selector)null );
-                return;
             case InfrastructurePackage.MASTER_IMPORT__MASTER:
                 setMaster ( (MasterServer)null );
                 return;
@@ -526,8 +460,6 @@ public class MasterImportImpl extends MinimalEObjectImpl.Container implements Ma
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
             case InfrastructurePackage.MASTER_IMPORT__CREDENTIALS:
                 return credentials != null;
-            case InfrastructurePackage.MASTER_IMPORT__IMPORT_SELECTOR:
-                return importSelector != null;
             case InfrastructurePackage.MASTER_IMPORT__MASTER:
                 return basicGetMaster () != null;
         }
