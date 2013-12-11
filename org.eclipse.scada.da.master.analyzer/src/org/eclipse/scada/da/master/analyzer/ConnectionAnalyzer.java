@@ -25,14 +25,14 @@ import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.connection.provider.ConnectionService;
 import org.eclipse.scada.core.connection.provider.info.ConnectionInformationProvider;
-import org.eclipse.scada.utils.stats.StatisticEntry;
 import org.eclipse.scada.core.server.OperationParameters;
-import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
-import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.scada.da.server.common.AttributeMode;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.common.chain.WriteHandler;
 import org.eclipse.scada.da.server.common.exporter.StaticObjectExporter;
+import org.eclipse.scada.da.server.common.osgi.factory.DataItemFactory;
+import org.eclipse.scada.utils.ExceptionHelper;
+import org.eclipse.scada.utils.stats.StatisticEntry;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
@@ -58,7 +58,7 @@ public class ConnectionAnalyzer implements ConnectionStateListener
 
     public ConnectionAnalyzer ( final ScheduledExecutorService executor, final BundleContext context, final ServiceReference<?> reference, final ConnectionService service )
     {
-        this.factory = new DataItemFactory ( context, executor, "org.eclipse.scada.da.master.analyzer.connectionService." + makeId ( reference ) ); //$NON-NLS-1$
+        this.factory = new DataItemFactory ( context, executor, String.format ( "org.eclipse.scada.%s.master.analyzer.connectionService.%s", makeTag ( reference ), makeId ( reference ) ) ); //$NON-NLS-1$
         this.exporter = new StaticObjectExporter<ConnectionAnalyzerStatus> ( this.factory, ConnectionAnalyzerStatus.class, false, false, "state." ); //$NON-NLS-1$
 
         this.statisticsItem = this.factory.createInput ( "statistics", null ); //$NON-NLS-1$
@@ -178,6 +178,19 @@ public class ConnectionAnalyzer implements ConnectionStateListener
         this.job.cancel ( false );
         this.service.getConnection ().removeConnectionStateListener ( this );
         this.factory.dispose ();
+    }
+
+    private static String makeTag ( final ServiceReference<?> reference )
+    {
+        final Object iface = reference.getProperty ( "interface" );
+        if ( iface instanceof String )
+        {
+            return (String)iface;
+        }
+        else
+        {
+            return "" + reference.getProperty ( Constants.SERVICE_ID );
+        }
     }
 
     private static String makeId ( final ServiceReference<?> reference )
