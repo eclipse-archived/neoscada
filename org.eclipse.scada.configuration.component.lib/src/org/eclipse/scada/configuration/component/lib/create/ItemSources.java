@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.component.lib.create;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.generator.Generator;
 import org.eclipse.scada.configuration.generator.GeneratorPlugin;
 import org.eclipse.scada.ui.databinding.AdapterHelper;
@@ -24,7 +24,7 @@ public final class ItemSources
     {
     }
 
-    public static ItemSource createItemSource ( final DataComponent dc )
+    public static ItemSource createItemSource ( final Component dc )
     {
         final ItemSource itemSource = AdapterHelper.adapt ( dc, ItemSource.class );
         if ( itemSource != null )

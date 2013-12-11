@@ -93,21 +93,16 @@ public class Helper
 
     public static class Master
     {
-        private final MasterServer master;
-
         private final WritableSet entries;
 
-        public Master ( final Realm realm, final MasterServer master, final DataComponent component )
+        private final MasterServer master;
+
+        public Master ( final Realm realm, final MasterServer master, final Component component )
         {
             this.master = master;
             this.entries = new WritableSet ( realm );
 
-            logger.debug ( "Filling master with entries" );
-            for ( final Map.Entry<List<String>, Item> entry : createOutputFor ( component, master ).entrySet () )
-            {
-                logger.debug ( "Adding entry for master - key: {}, value: {}", entry.getKey (), entry.getValue () );
-                this.entries.add ( new ItemEntry ( entry.getKey (), entry.getValue () ) );
-            }
+            fillWithEntries ( component, this.entries );
         }
 
         public void dispose ()
@@ -174,37 +169,50 @@ public class Helper
 
     public static IObservableSet createObversableInput ( final Realm realm, final Component component )
     {
-        final WritableSet result = new WritableSet ( realm ) {
-            @Override
-            public synchronized void dispose ()
-            {
-                for ( final Object o : this.wrappedSet )
-                {
-                    if ( o instanceof Master )
-                    {
-                        ( (Master)o ).dispose ();
-                    }
-                }
-                super.dispose ();
-            }
-        };
-
-        if ( ! ( component instanceof DataComponent ) )
+        if ( component instanceof DataComponent )
         {
+            final WritableSet result = new WritableSet ( realm ) {
+                @Override
+                public synchronized void dispose ()
+                {
+                    for ( final Object o : this.wrappedSet )
+                    {
+                        if ( o instanceof Master )
+                        {
+                            ( (Master)o ).dispose ();
+                        }
+                    }
+                    super.dispose ();
+                }
+            };
+
+            final DataComponent dc = (DataComponent)component;
+
+            for ( final MasterServer master : dc.getMasterOn () )
+            {
+                result.add ( new Master ( realm, master, dc ) );
+            }
             return result;
         }
-
-        final DataComponent dc = (DataComponent)component;
-
-        for ( final MasterServer master : dc.getMasterOn () )
+        else
         {
-            result.add ( new Master ( realm, master, dc ) );
+            final WritableSet result = new WritableSet ( realm );
+            fillWithEntries ( component, result );
+            return result;
         }
-
-        return result;
     }
 
-    private static Map<List<String>, Item> createOutputFor ( final DataComponent dc, final MasterServer master )
+    private static void fillWithEntries ( final Component component, final WritableSet result )
+    {
+        logger.debug ( "Filling result with entries" );
+        for ( final Map.Entry<List<String>, Item> entry : createOutputFor ( component ).entrySet () )
+        {
+            logger.debug ( "Adding entry for result - key: {}, value: {}", entry.getKey (), entry.getValue () );
+            result.add ( new ItemEntry ( entry.getKey (), entry.getValue () ) );
+        }
+    }
+
+    private static Map<List<String>, Item> createOutputFor ( final Component dc )
     {
         final ItemSource source = ItemSources.createItemSource ( dc );
         if ( source == null )
