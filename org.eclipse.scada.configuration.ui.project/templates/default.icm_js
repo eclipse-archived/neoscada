@@ -33,4 +33,4 @@ if ( request.hasTag ( "input" ) ) {
 
 // Always add the Attributes Summary
 
-request.addFeature ( DefaultFeatures.ASUM() );
+request.addFeature ( DefaultFeatures.ASUM ( request.getGlobalizationLevel () ) );

@@ -3,6 +3,7 @@ function select () {
 		return true;
 	if ( request.hasTag ( "summary" ) )
 		return true;
+	return false;
 }
 
 select (); // use return value
