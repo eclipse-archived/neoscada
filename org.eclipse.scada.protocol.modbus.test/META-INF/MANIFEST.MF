@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Modbus Protocol Test (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.protocol.modbus.test
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: org.eclipse.scada.protocol.modbus;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.junit
