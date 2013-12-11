@@ -247,9 +247,9 @@ public class JobManager
             return;
         }
 
-        logger.info ( "No job active when ticking... adding job!" );
+        logger.debug ( "No job active when ticking... adding job!" );
         startNextJob ();
-        logger.info ( "New job: {}", this.currentJob );
+        logger.debug ( "New job: {}", this.currentJob );
     }
 
     protected boolean isCurrentJobTimeout ()
