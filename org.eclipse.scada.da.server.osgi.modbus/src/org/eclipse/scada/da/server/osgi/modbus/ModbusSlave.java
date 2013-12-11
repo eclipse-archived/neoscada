@@ -13,9 +13,7 @@ package org.eclipse.scada.da.server.osgi.modbus;
 
 import java.nio.ByteOrder;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -98,34 +96,33 @@ public class ModbusSlave implements Listener
 
         final ByteOrder dataOrder = ModbusProtocol.makeOrder ( cfg.getString ( "dataOrder" ), ByteOrder.BIG_ENDIAN );
 
-        final Set<String> ids = new HashSet<> ();
-
-        for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
+        try
         {
-            final Request request = parseRequest ( entry.getValue (), dataOrder );
-            addBlock ( entry.getKey (), request );
-            ids.add ( entry.getKey () );
+            // we only add blocks since we are re-created on any change
+
+            for ( final Map.Entry<String, String> entry : cfg.getPrefixed ( "block." ).entrySet () )
+            {
+                final Request request = parseRequest ( entry.getValue (), dataOrder );
+                addBlock ( entry.getKey (), request );
+            }
+
+            // set master device
+
+            final String newMasterId = cfg.getStringChecked ( "modbus.master.id", "'modbus.master.id' must be set to the id of a master device" );
+            if ( !newMasterId.equals ( this.masterId ) )
+            {
+                logger.debug ( "setting new master id: {} -> {}", this.masterId, newMasterId );
+
+                unbindMaster ();
+                this.masterId = newMasterId;
+                this.masterFactory.resend ( this );
+            }
         }
-
-        // now remove all that are not there anymore
-
-        final HashSet<String> currentKeys = new HashSet<> ( this.blocks.keySet () );
-        currentKeys.removeAll ( ids );
-        for ( final String id : currentKeys )
+        catch ( final Exception e )
         {
-            removeBlock ( id );
-        }
-
-        // set master device
-
-        final String newMasterId = cfg.getStringChecked ( "modbus.master.id", "'modbus.master.id' must be set to the id of a master device" );
-        if ( !newMasterId.equals ( this.masterId ) )
-        {
-            logger.debug ( "setting new master id: {} -> {}", this.masterId, newMasterId );
-
-            unbindMaster ();
-            this.masterId = newMasterId;
-            this.masterFactory.resend ( this );
+            // dispose since we might have added some blocks already
+            dispose ();
+            throw e;
         }
     }
 
