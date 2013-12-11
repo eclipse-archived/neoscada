@@ -214,13 +214,13 @@ public class ModbusProtocol
         for ( int i = 0; i < data.remaining () / 2; i++ )
         {
             // convert to LITTLE_ENDIAN
-            result.putUnsignedShort ( data.getUnsignedShort ( i ) );
+            result.putUnsignedShort ( data.getUnsignedShort ( i * 2 ) );
         }
 
         // the byte order we use is BIG_ENDIAN
         result.order ( ByteOrder.BIG_ENDIAN );
 
-        return data;
+        return result;
     }
 
     public static byte[] encodeData ( final byte[] data, final ByteOrder dataOrder )
