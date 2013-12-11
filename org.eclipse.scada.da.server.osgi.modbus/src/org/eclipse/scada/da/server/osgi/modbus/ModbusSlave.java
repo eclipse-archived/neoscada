@@ -85,6 +85,7 @@ public class ModbusSlave implements Listener
         {
             block.dispose ();
         }
+        this.blocks.clear ();
     }
 
     protected synchronized void configure ( final Map<String, String> properties )
@@ -107,6 +108,7 @@ public class ModbusSlave implements Listener
         }
 
         // now remove all that are not there anymore
+
         final HashSet<String> currentKeys = new HashSet<> ( this.blocks.keySet () );
         currentKeys.removeAll ( ids );
         for ( final String id : currentKeys )
@@ -235,18 +237,11 @@ public class ModbusSlave implements Listener
     {
         logger.debug ( "Adding block: {}", id );
 
+        removeBlock ( id );
+
         final ModbusRequestBlock block = new ModbusRequestBlock ( this.executor, this.id + "." + id, this.name, request.getMainTypeName (), this, this.context, request, this.transactionId, true );
 
-        final ModbusRequestBlock oldBlock = this.blocks.put ( id, block );
-
-        if ( oldBlock != null )
-        {
-            if ( this.jobManager != null )
-            {
-                this.jobManager.removeBlock ( id );
-            }
-            oldBlock.dispose ();
-        }
+        this.blocks.put ( id, block );
 
         if ( this.jobManager != null )
         {
