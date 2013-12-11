@@ -478,7 +478,9 @@ public class GlobalizationProcessor
     {
         final T connection = clazz.cast ( OsgiFactory.eINSTANCE.create ( connectionClass ) );
 
-        final String cname = String.format ( "global.%s.to.%s", Names.makeName ( global.getGlobal () ), local.getId () );
+        final String tag = connection.getTypeTag ();
+
+        final String cname = String.format ( "global.%s.to.%s.%s", Names.makeName ( global.getGlobal () ), local.getId (), tag );
         connection.setName ( cname );
 
         // set credentials
