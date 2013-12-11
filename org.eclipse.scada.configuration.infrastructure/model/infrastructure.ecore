@@ -40,18 +40,28 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.globalization/model/globalize.ecore#//Authorative"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importMaster" upperBound="-1"
-        eType="#//MasterImport" containment="true"/>
+        eType="#//MasterImport" containment="true" eOpposite="#//MasterImport/master">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A master import definition"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="driver" upperBound="-1"
         eType="#//Driver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="archiveTo" eType="#//ValueArchiveServer"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="localCredentials" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MasterImport">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="importedMaster" eType="#//MasterServer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="importedMaster" eType="#//MasterServer">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The master server that is imported"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="credentials" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="master" lowerBound="1"
+        eType="#//MasterServer" eOpposite="#//MasterServer/importMaster"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Options">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseDaNgpPort" lowerBound="1"

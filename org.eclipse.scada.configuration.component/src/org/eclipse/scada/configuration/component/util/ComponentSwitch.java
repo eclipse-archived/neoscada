@@ -492,8 +492,6 @@ public class ComponentSwitch<T> extends Switch<T>
                 GlobalizeComponent globalizeComponent = (GlobalizeComponent)theEObject;
                 T result = caseGlobalizeComponent ( globalizeComponent );
                 if ( result == null )
-                    result = caseDataComponent ( globalizeComponent );
-                if ( result == null )
                     result = caseComponent ( globalizeComponent );
                 if ( result == null )
                     result = defaultCase ( theEObject );

@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.component.GlobalizeComponent;
  * <!-- end-user-doc -->
  * @generated
  */
-public class GlobalizeComponentTest extends DataComponentTest
+public class GlobalizeComponentTest extends ComponentTest
 {
 
     /**

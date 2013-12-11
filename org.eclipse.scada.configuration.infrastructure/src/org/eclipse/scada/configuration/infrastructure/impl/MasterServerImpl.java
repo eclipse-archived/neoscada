@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.globalization.Authorative;
@@ -142,7 +143,7 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
     {
         if ( importMaster == null )
         {
-            importMaster = new EObjectContainmentEList.Resolving<MasterImport> ( MasterImport.class, this, InfrastructurePackage.MASTER_SERVER__IMPORT_MASTER );
+            importMaster = new EObjectContainmentWithInverseEList.Resolving<MasterImport> ( MasterImport.class, this, InfrastructurePackage.MASTER_SERVER__IMPORT_MASTER, InfrastructurePackage.MASTER_IMPORT__MASTER );
         }
         return importMaster;
     }
@@ -245,6 +246,23 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
         localCredentials = newLocalCredentials;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case InfrastructurePackage.MASTER_SERVER__IMPORT_MASTER:
+                return ( (InternalEList<InternalEObject>)(InternalEList<?>)getImportMaster () ).basicAdd ( otherEnd, msgs );
+        }
+        return super.eInverseAdd ( otherEnd, featureID, msgs );
     }
 
     /**

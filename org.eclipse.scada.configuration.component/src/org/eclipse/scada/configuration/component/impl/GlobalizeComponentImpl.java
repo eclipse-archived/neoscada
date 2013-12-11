@@ -41,7 +41,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  *
  * @generated
  */
-public class GlobalizeComponentImpl extends DataComponentImpl implements GlobalizeComponent
+public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeComponent
 {
     /**
      * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.

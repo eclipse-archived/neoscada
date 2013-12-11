@@ -1704,7 +1704,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         externalValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
-        globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
+        globalizeComponentEClass.getESuperTypes ().add ( this.getComponent () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( systemEClass, org.eclipse.scada.configuration.component.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

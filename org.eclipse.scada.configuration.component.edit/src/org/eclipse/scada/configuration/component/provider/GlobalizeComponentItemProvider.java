@@ -37,7 +37,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  * @generated
  */
 public class GlobalizeComponentItemProvider
-        extends DataComponentItemProvider
+        extends ComponentItemProvider
         implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,

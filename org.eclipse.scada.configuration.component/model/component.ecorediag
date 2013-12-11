@@ -761,7 +761,7 @@
     <element xmi:type="ecore:EReference" href="component.ecore#//RestInterceptor/definition"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wkzRc12oEeOT2rDq00KK6A" points="[60, 8, -226, -19]$[344, 60, 58, 33]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="__S6BEGI8EeO0k-m0GB1KNg" type="3003" source="_9wWpMGI8EeO0k-m0GB1KNg" target="_oATxnO0-EeKGXeBKLQA3cw">
+  <edges xmi:type="notation:Edge" xmi:id="__S6BEGI8EeO0k-m0GB1KNg" type="3003" source="_9wWpMGI8EeO0k-m0GB1KNg" target="_oAR8Z-0-EeKGXeBKLQA3cw">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="__S6BEWI8EeO0k-m0GB1KNg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="__S6BEmI8EeO0k-m0GB1KNg" fontName="Sans"/>
     <element xsi:nil="true"/>

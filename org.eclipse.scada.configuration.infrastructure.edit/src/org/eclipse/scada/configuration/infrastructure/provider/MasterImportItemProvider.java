@@ -34,11 +34,9 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.infrastructure.MasterImport} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.MasterImport} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class MasterImportItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -47,10 +45,9 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public MasterImportItemProvider ( final AdapterFactory adapterFactory )
+    public MasterImportItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -59,13 +56,12 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -73,21 +69,20 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
             addIdPropertyDescriptor ( object );
             addImportSelectorPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Imported Master feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addImportedMasterPropertyDescriptor ( final Object object )
+    protected void addImportedMasterPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterImport_importedMaster_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importedMaster_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -104,14 +99,13 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This adds a property descriptor for the Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addIdPropertyDescriptor ( final Object object )
+    protected void addIdPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterImport_id_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_id_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -128,14 +122,13 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This adds a property descriptor for the Import Selector feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addImportSelectorPropertyDescriptor ( final Object object )
+    protected void addImportSelectorPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterImport_importSelector_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterImport_importSelector_feature", "_UI_MasterImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -149,36 +142,31 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to
-     * deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand},
-     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in
-     * {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if ( this.childrenFeatures == null )
+        if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS );
+            childrenFeatures.add ( InfrastructurePackage.Literals.MASTER_IMPORT__CREDENTIALS );
         }
-        return this.childrenFeatures;
+        return childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -190,11 +178,10 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * This returns MasterImport.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MasterImport" ) ); //$NON-NLS-1$
     }
@@ -230,17 +217,14 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -257,16 +241,14 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
@@ -285,13 +267,12 @@ public class MasterImportItemProvider extends ItemProviderAdapter implements IEd
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

@@ -2370,7 +2370,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__LEVEL = DATA_COMPONENT__LEVEL;
+    int GLOBALIZE_COMPONENT__LEVEL = COMPONENT__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -2379,7 +2379,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE = DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+    int GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE = COMPONENT__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -2388,16 +2388,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR = DATA_COMPONENT__ARCHIVE_SELECTOR;
-
-    /**
-     * The feature id for the '<em><b>Master On</b></em>' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int GLOBALIZE_COMPONENT__MASTER_ON = DATA_COMPONENT__MASTER_ON;
+    int GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR = COMPONENT__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Components</b></em>' reference list.
@@ -2406,7 +2397,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__COMPONENTS = DATA_COMPONENT_FEATURE_COUNT + 0;
+    int GLOBALIZE_COMPONENT__COMPONENTS = COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Source Master</b></em>' reference.
@@ -2415,7 +2406,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__SOURCE_MASTER = DATA_COMPONENT_FEATURE_COUNT + 1;
+    int GLOBALIZE_COMPONENT__SOURCE_MASTER = COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Globalize Component</em>' class.
@@ -2424,7 +2415,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 2;
+    int GLOBALIZE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Globalize Component</em>' class.
@@ -2433,7 +2424,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT_OPERATION_COUNT = DATA_COMPONENT_OPERATION_COUNT + 0;
+    int GLOBALIZE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '<em>Notification</em>' data type.

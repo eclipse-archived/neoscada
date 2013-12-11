@@ -16,15 +16,19 @@ import java.util.Map;
 
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
-import org.eclipse.scada.configuration.component.generator.DataComponentGenerator;
+import org.eclipse.scada.configuration.component.generator.ComponentGenerator;
+import org.eclipse.scada.configuration.component.generator.ItemCreatorImpl;
 import org.eclipse.scada.configuration.component.generator.global.CaptureItemCreatorImpl.ItemCreation;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.ItemSource;
 import org.eclipse.scada.configuration.component.lib.create.ItemSources;
+import org.eclipse.scada.configuration.generator.GenerationContext;
+import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 
-public class GlobalizeGenerator extends DataComponentGenerator
+public class GlobalizeGenerator extends ComponentGenerator implements ItemSource
 {
     private final GlobalizeComponent globalize;
 
@@ -63,4 +67,21 @@ public class GlobalizeGenerator extends DataComponentGenerator
         return result;
     }
 
+    @Override
+    public void generate ( final GenerationContext context )
+    {
+        final MasterServer master = this.globalize.getSourceMaster ().getMaster ();
+        final MasterContext mappedMaster = this.context.getMasterContext ( master );
+        if ( mappedMaster == null )
+        {
+            throw new IllegalStateException ( String.format ( "No mapped master found for: %s", master ) );
+        }
+
+        createItems ( createItemCreator ( mappedMaster ) );
+    }
+
+    protected ItemCreator createItemCreator ( final MasterContext master )
+    {
+        return new ItemCreatorImpl ( this.context, master, this.globalize );
+    }
 }

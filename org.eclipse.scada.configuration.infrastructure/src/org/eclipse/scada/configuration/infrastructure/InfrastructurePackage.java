@@ -485,13 +485,22 @@ public interface InfrastructurePackage extends EPackage
     int MASTER_IMPORT__IMPORT_SELECTOR = 3;
 
     /**
+     * The feature id for the '<em><b>Master</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_IMPORT__MASTER = 4;
+
+    /**
      * The number of structural features of the '<em>Master Import</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MASTER_IMPORT_FEATURE_COUNT = 4;
+    int MASTER_IMPORT_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Master Import</em>' class.
@@ -1948,6 +1957,17 @@ public interface InfrastructurePackage extends EPackage
     EReference getMasterImport_ImportSelector ();
 
     /**
+     * Returns the meta object for the container reference '{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster <em>Master</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Master</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster()
+     * @see #getMasterImport()
+     * @generated
+     */
+    EReference getMasterImport_Master ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Options <em>Options</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2836,6 +2856,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference MASTER_IMPORT__IMPORT_SELECTOR = eINSTANCE.getMasterImport_ImportSelector ();
+
+        /**
+         * The meta object literal for the '<em><b>Master</b></em>' container reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MASTER_IMPORT__MASTER = eINSTANCE.getMasterImport_Master ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.OptionsImpl <em>Options</em>}' class.

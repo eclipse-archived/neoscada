@@ -55,15 +55,20 @@ public interface MasterServer extends EquinoxApplication
     /**
      * Returns the value of the '<em><b>Import Master</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.MasterImport}.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster <em>Master</em>}'.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Import Master</em>' containment reference list
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * A master import definition
+     * <!-- end-model-doc -->
      * @return the value of the '<em>Import Master</em>' containment reference list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getMasterServer_ImportMaster()
-     * @model containment="true" resolveProxies="true"
+     * @see org.eclipse.scada.configuration.infrastructure.MasterImport#getMaster
+     * @model opposite="master" containment="true" resolveProxies="true"
      * @generated
      */
     EList<MasterImport> getImportMaster ();
