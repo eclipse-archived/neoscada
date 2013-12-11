@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.component.DataMapperService;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
@@ -310,6 +311,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass restInterceptorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass globalizeComponentEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1409,6 +1417,26 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getGlobalizeComponent ()
+    {
+        return globalizeComponentEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGlobalizeComponent_Components ()
+    {
+        return (EReference)globalizeComponentEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getNotification ()
     {
         return notificationEDataType;
@@ -1582,6 +1610,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( restInterceptorEClass, REST_INTERCEPTOR__SELECTOR );
         createEReference ( restInterceptorEClass, REST_INTERCEPTOR__DEFINITION );
 
+        globalizeComponentEClass = createEClass ( GLOBALIZE_COMPONENT );
+        createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__COMPONENTS );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -1651,6 +1682,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         externalValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
+        globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( systemEClass, org.eclipse.scada.configuration.component.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1799,6 +1831,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( restInterceptorEClass, RestInterceptor.class, "RestInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Selector (), theItemPackage.getSelector (), null, "selector", null, 0, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Definition (), theInfrastructurePackage.getRestExporterModule (), null, "definition", null, 1, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( globalizeComponentEClass, GlobalizeComponent.class, "GlobalizeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getGlobalizeComponent_Components (), this.getDataComponent (), null, "components", null, 0, -1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

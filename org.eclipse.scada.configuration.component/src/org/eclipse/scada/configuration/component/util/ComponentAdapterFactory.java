@@ -32,6 +32,7 @@ import org.eclipse.scada.configuration.component.DataMapperService;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
@@ -322,6 +323,12 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         public Adapter caseRestInterceptor ( RestInterceptor object )
         {
             return createRestInterceptorAdapter ();
+        }
+
+        @Override
+        public Adapter caseGlobalizeComponent ( GlobalizeComponent object )
+        {
+            return createGlobalizeComponentAdapter ();
         }
 
         @Override
@@ -878,6 +885,21 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createRestInterceptorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.GlobalizeComponent <em>Globalize Component</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent
+     * @generated
+     */
+    public Adapter createGlobalizeComponentAdapter ()
     {
         return null;
     }

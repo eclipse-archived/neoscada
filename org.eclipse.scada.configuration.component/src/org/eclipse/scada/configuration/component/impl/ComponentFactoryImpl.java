@@ -29,6 +29,7 @@ import org.eclipse.scada.configuration.component.DataMapperService;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Level;
@@ -145,6 +146,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createSummariesConfiguration ();
             case ComponentPackage.REST_INTERCEPTOR:
                 return createRestInterceptor ();
+            case ComponentPackage.GLOBALIZE_COMPONENT:
+                return createGlobalizeComponent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -453,6 +456,17 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         RestInterceptorImpl restInterceptor = new RestInterceptorImpl ();
         return restInterceptor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GlobalizeComponent createGlobalizeComponent ()
+    {
+        GlobalizeComponentImpl globalizeComponent = new GlobalizeComponentImpl ();
+        return globalizeComponent;
     }
 
     /**

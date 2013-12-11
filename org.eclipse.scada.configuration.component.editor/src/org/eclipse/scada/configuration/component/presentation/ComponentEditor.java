@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -139,17 +138,14 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * This is an example of a Component model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ComponentEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker
 {
     /**
-     * This keeps track of the editing domain that is used to track all changes
-     * to the model.
+     * This keeps track of the editing domain that is used to track all changes to the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected AdapterFactoryEditingDomain editingDomain;
@@ -158,7 +154,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is the one adapter factory used for providing views of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ComposedAdapterFactory adapterFactory;
@@ -167,7 +162,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is the content outline page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IContentOutlinePage contentOutlinePage;
@@ -176,7 +170,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is a kludge...
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IStatusLineManager contentOutlineStatusLineManager;
@@ -185,7 +178,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is the content outline page's viewer.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TreeViewer contentOutlineViewer;
@@ -194,7 +186,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is the property sheet page.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage> ();
@@ -204,17 +195,14 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * The parent relation must be correctly defined for this to work.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TreeViewer selectionViewer;
 
     /**
-     * This inverts the roll of parent and child in the content provider and
-     * show parents as a tree.
+     * This inverts the roll of parent and child in the content provider and show parents as a tree.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TreeViewer parentViewer;
@@ -223,7 +211,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This shows how a tree view works.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TreeViewer treeViewer;
@@ -233,7 +220,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * A list viewer doesn't support icons.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ListViewer listViewer;
@@ -243,7 +229,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * A table can be used as a list with icons.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TableViewer tableViewer;
@@ -252,7 +237,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This shows how a tree view with columns works.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected TreeViewer treeViewerWithColumns;
@@ -261,17 +245,14 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This keeps track of the active viewer pane, in the book.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ViewerPane currentViewerPane;
 
     /**
-     * This keeps track of the active content viewer, which may be either one of
-     * the viewers in the pages or the content outline viewer.
+     * This keeps track of the active content viewer, which may be either one of the viewers in the pages or the content outline viewer.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Viewer currentViewer;
@@ -280,18 +261,14 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This listens to which ever viewer is active.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ISelectionChangedListener selectionChangedListener;
 
     /**
-     * This keeps track of all the
-     * {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are
-     * listening to this editor.
+     * This keeps track of all the {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are listening to this editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener> ();
@@ -300,18 +277,15 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This keeps track of the selection of the editor as a whole.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ISelection editorSelection = StructuredSelection.EMPTY;
 
     /**
-     * The MarkerHelper is responsible for creating workspace resource markers
-     * presented
+     * The MarkerHelper is responsible for creating workspace resource markers presented
      * in Eclipse's Problems View.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected MarkerHelper markerHelper = new EditUIMarkerHelper ();
@@ -320,26 +294,24 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This listens for when the outline becomes active
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IPartListener partListener = new IPartListener ()
     {
-        @Override
-        public void partActivated ( final IWorkbenchPart p )
+        public void partActivated ( IWorkbenchPart p )
         {
             if ( p instanceof ContentOutline )
             {
-                if ( ( (ContentOutline)p ).getCurrentPage () == ComponentEditor.this.contentOutlinePage )
+                if ( ( (ContentOutline)p ).getCurrentPage () == contentOutlinePage )
                 {
                     getActionBarContributor ().setActiveEditor ( ComponentEditor.this );
 
-                    setCurrentViewer ( ComponentEditor.this.contentOutlineViewer );
+                    setCurrentViewer ( contentOutlineViewer );
                 }
             }
             else if ( p instanceof PropertySheet )
             {
-                if ( ComponentEditor.this.propertySheetPages.contains ( ( (PropertySheet)p ).getCurrentPage () ) )
+                if ( propertySheetPages.contains ( ( (PropertySheet)p ).getCurrentPage () ) )
                 {
                     getActionBarContributor ().setActiveEditor ( ComponentEditor.this );
                     handleActivate ();
@@ -351,26 +323,22 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             }
         }
 
-        @Override
-        public void partBroughtToTop ( final IWorkbenchPart p )
+        public void partBroughtToTop ( IWorkbenchPart p )
         {
             // Ignore.
         }
 
-        @Override
-        public void partClosed ( final IWorkbenchPart p )
+        public void partClosed ( IWorkbenchPart p )
         {
             // Ignore.
         }
 
-        @Override
-        public void partDeactivated ( final IWorkbenchPart p )
+        public void partDeactivated ( IWorkbenchPart p )
         {
             // Ignore.
         }
 
-        @Override
-        public void partOpened ( final IWorkbenchPart p )
+        public void partOpened ( IWorkbenchPart p )
         {
             // Ignore.
         }
@@ -380,7 +348,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Resources that have been removed since last activation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<Resource> removedResources = new ArrayList<Resource> ();
@@ -389,7 +356,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Resources that have been changed since last activation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<Resource> changedResources = new ArrayList<Resource> ();
@@ -398,7 +364,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Resources that have been saved.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<Resource> savedResources = new ArrayList<Resource> ();
@@ -407,7 +372,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Map to store the diagnostic associated with a resource.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic> ();
@@ -416,23 +380,20 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Controls whether the problem indication should be updated.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected boolean updateProblemIndication = true;
 
     /**
-     * Adapter used to update the problem indication when resources are demanded
-     * loaded.
+     * Adapter used to update the problem indication when resources are demanded loaded.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter ()
     {
         @Override
-        public void notifyChanged ( final Notification notification )
+        public void notifyChanged ( Notification notification )
         {
             if ( notification.getNotifier () instanceof Resource )
             {
@@ -442,23 +403,22 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     case Resource.RESOURCE__ERRORS:
                     case Resource.RESOURCE__WARNINGS:
                     {
-                        final Resource resource = (Resource)notification.getNotifier ();
-                        final Diagnostic diagnostic = analyzeResourceProblems ( resource, null );
+                        Resource resource = (Resource)notification.getNotifier ();
+                        Diagnostic diagnostic = analyzeResourceProblems ( resource, null );
                         if ( diagnostic.getSeverity () != Diagnostic.OK )
                         {
-                            ComponentEditor.this.resourceToDiagnosticMap.put ( resource, diagnostic );
+                            resourceToDiagnosticMap.put ( resource, diagnostic );
                         }
                         else
                         {
-                            ComponentEditor.this.resourceToDiagnosticMap.remove ( resource );
+                            resourceToDiagnosticMap.remove ( resource );
                         }
 
-                        if ( ComponentEditor.this.updateProblemIndication )
+                        if ( updateProblemIndication )
                         {
                             getSite ().getShell ().getDisplay ().asyncExec
                                     ( new Runnable ()
                                     {
-                                        @Override
                                         public void run ()
                                         {
                                             updateProblemIndication ();
@@ -476,22 +436,21 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
         }
 
         @Override
-        protected void setTarget ( final Resource target )
+        protected void setTarget ( Resource target )
         {
             basicSetTarget ( target );
         }
 
         @Override
-        protected void unsetTarget ( final Resource target )
+        protected void unsetTarget ( Resource target )
         {
             basicUnsetTarget ( target );
-            ComponentEditor.this.resourceToDiagnosticMap.remove ( target );
-            if ( ComponentEditor.this.updateProblemIndication )
+            resourceToDiagnosticMap.remove ( target );
+            if ( updateProblemIndication )
             {
                 getSite ().getShell ().getDisplay ().asyncExec
                         ( new Runnable ()
                         {
-                            @Override
                             public void run ()
                             {
                                 updateProblemIndication ();
@@ -505,43 +464,40 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This listens for workspace changes.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener ()
     {
-        @Override
-        public void resourceChanged ( final IResourceChangeEvent event )
+        public void resourceChanged ( IResourceChangeEvent event )
         {
-            final IResourceDelta delta = event.getDelta ();
+            IResourceDelta delta = event.getDelta ();
             try
             {
                 class ResourceDeltaVisitor implements IResourceDeltaVisitor
                 {
-                    protected ResourceSet resourceSet = ComponentEditor.this.editingDomain.getResourceSet ();
+                    protected ResourceSet resourceSet = editingDomain.getResourceSet ();
 
                     protected Collection<Resource> changedResources = new ArrayList<Resource> ();
 
                     protected Collection<Resource> removedResources = new ArrayList<Resource> ();
 
-                    @Override
-                    public boolean visit ( final IResourceDelta delta )
+                    public boolean visit ( IResourceDelta delta )
                     {
                         if ( delta.getResource ().getType () == IResource.FILE )
                         {
                             if ( delta.getKind () == IResourceDelta.REMOVED ||
                                     delta.getKind () == IResourceDelta.CHANGED && delta.getFlags () != IResourceDelta.MARKERS )
                             {
-                                final Resource resource = this.resourceSet.getResource ( URI.createPlatformResourceURI ( delta.getFullPath ().toString (), true ), false );
+                                Resource resource = resourceSet.getResource ( URI.createPlatformResourceURI ( delta.getFullPath ().toString (), true ), false );
                                 if ( resource != null )
                                 {
                                     if ( delta.getKind () == IResourceDelta.REMOVED )
                                     {
-                                        this.removedResources.add ( resource );
+                                        removedResources.add ( resource );
                                     }
-                                    else if ( !ComponentEditor.this.savedResources.remove ( resource ) )
+                                    else if ( !savedResources.remove ( resource ) )
                                     {
-                                        this.changedResources.add ( resource );
+                                        changedResources.add ( resource );
                                     }
                                 }
                             }
@@ -553,12 +509,12 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
                     public Collection<Resource> getChangedResources ()
                     {
-                        return this.changedResources;
+                        return changedResources;
                     }
 
                     public Collection<Resource> getRemovedResources ()
                     {
-                        return this.removedResources;
+                        return removedResources;
                     }
                 }
 
@@ -570,10 +526,9 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     getSite ().getShell ().getDisplay ().asyncExec
                             ( new Runnable ()
                             {
-                                @Override
                                 public void run ()
                                 {
-                                    ComponentEditor.this.removedResources.addAll ( visitor.getRemovedResources () );
+                                    removedResources.addAll ( visitor.getRemovedResources () );
                                     if ( !isDirty () )
                                     {
                                         getSite ().getPage ().closeEditor ( ComponentEditor.this, false );
@@ -587,10 +542,9 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     getSite ().getShell ().getDisplay ().asyncExec
                             ( new Runnable ()
                             {
-                                @Override
                                 public void run ()
                                 {
-                                    ComponentEditor.this.changedResources.addAll ( visitor.getChangedResources () );
+                                    changedResources.addAll ( visitor.getChangedResources () );
                                     if ( getSite ().getPage ().getActiveEditor () == ComponentEditor.this )
                                     {
                                         handleActivate ();
@@ -599,7 +553,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                             } );
                 }
             }
-            catch ( final CoreException exception )
+            catch ( CoreException exception )
             {
                 ComponentEditorPlugin.INSTANCE.log ( exception );
             }
@@ -610,23 +564,22 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Handles activation of the editor or it's associated views.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void handleActivate ()
     {
         // Recompute the read only state.
         //
-        if ( this.editingDomain.getResourceToReadOnlyMap () != null )
+        if ( editingDomain.getResourceToReadOnlyMap () != null )
         {
-            this.editingDomain.getResourceToReadOnlyMap ().clear ();
+            editingDomain.getResourceToReadOnlyMap ().clear ();
 
             // Refresh any actions that may become enabled or disabled.
             //
             setSelection ( getSelection () );
         }
 
-        if ( !this.removedResources.isEmpty () )
+        if ( !removedResources.isEmpty () )
         {
             if ( handleDirtyConflict () )
             {
@@ -634,17 +587,17 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             }
             else
             {
-                this.removedResources.clear ();
-                this.changedResources.clear ();
-                this.savedResources.clear ();
+                removedResources.clear ();
+                changedResources.clear ();
+                savedResources.clear ();
             }
         }
-        else if ( !this.changedResources.isEmpty () )
+        else if ( !changedResources.isEmpty () )
         {
-            this.changedResources.removeAll ( this.savedResources );
+            changedResources.removeAll ( savedResources );
             handleChangedResources ();
-            this.changedResources.clear ();
-            this.savedResources.clear ();
+            changedResources.clear ();
+            savedResources.clear ();
         }
     }
 
@@ -652,21 +605,20 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Handles what to do with changed resources on activation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void handleChangedResources ()
     {
-        if ( !this.changedResources.isEmpty () && ( !isDirty () || handleDirtyConflict () ) )
+        if ( !changedResources.isEmpty () && ( !isDirty () || handleDirtyConflict () ) )
         {
             if ( isDirty () )
             {
-                this.changedResources.addAll ( this.editingDomain.getResourceSet ().getResources () );
+                changedResources.addAll ( editingDomain.getResourceSet ().getResources () );
             }
-            this.editingDomain.getCommandStack ().flush ();
+            editingDomain.getCommandStack ().flush ();
 
-            this.updateProblemIndication = false;
-            for ( final Resource resource : this.changedResources )
+            updateProblemIndication = false;
+            for ( Resource resource : changedResources )
             {
                 if ( resource.isLoaded () )
                 {
@@ -675,45 +627,43 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     {
                         resource.load ( Collections.EMPTY_MAP );
                     }
-                    catch ( final IOException exception )
+                    catch ( IOException exception )
                     {
-                        if ( !this.resourceToDiagnosticMap.containsKey ( resource ) )
+                        if ( !resourceToDiagnosticMap.containsKey ( resource ) )
                         {
-                            this.resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
+                            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
                         }
                     }
                 }
             }
 
-            if ( AdapterFactoryEditingDomain.isStale ( this.editorSelection ) )
+            if ( AdapterFactoryEditingDomain.isStale ( editorSelection ) )
             {
                 setSelection ( StructuredSelection.EMPTY );
             }
 
-            this.updateProblemIndication = true;
+            updateProblemIndication = true;
             updateProblemIndication ();
         }
     }
 
     /**
-     * Updates the problems indication with the information described in the
-     * specified diagnostic.
+     * Updates the problems indication with the information described in the specified diagnostic.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void updateProblemIndication ()
     {
-        if ( this.updateProblemIndication )
+        if ( updateProblemIndication )
         {
-            final BasicDiagnostic diagnostic =
+            BasicDiagnostic diagnostic =
                     new BasicDiagnostic
                     ( Diagnostic.OK, "org.eclipse.scada.configuration.component.editor", //$NON-NLS-1$
-                    0,
+                            0,
                             null,
-                            new Object[] { this.editingDomain.getResourceSet () } );
-            for ( final Diagnostic childDiagnostic : this.resourceToDiagnosticMap.values () )
+                            new Object[] { editingDomain.getResourceSet () } );
+            for ( Diagnostic childDiagnostic : resourceToDiagnosticMap.values () )
             {
                 if ( childDiagnostic.getSeverity () != Diagnostic.OK )
                 {
@@ -732,9 +682,9 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             }
             else if ( diagnostic.getSeverity () != Diagnostic.OK )
             {
-                final ProblemEditorPart problemEditorPart = new ProblemEditorPart ();
+                ProblemEditorPart problemEditorPart = new ProblemEditorPart ();
                 problemEditorPart.setDiagnostic ( diagnostic );
-                problemEditorPart.setMarkerHelper ( this.markerHelper );
+                problemEditorPart.setMarkerHelper ( markerHelper );
                 try
                 {
                     addPage ( ++lastEditorPage, problemEditorPart, getEditorInput () );
@@ -742,22 +692,22 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     setActivePage ( lastEditorPage );
                     showTabs ();
                 }
-                catch ( final PartInitException exception )
+                catch ( PartInitException exception )
                 {
                     ComponentEditorPlugin.INSTANCE.log ( exception );
                 }
             }
 
-            if ( this.markerHelper.hasMarkers ( this.editingDomain.getResourceSet () ) )
+            if ( markerHelper.hasMarkers ( editingDomain.getResourceSet () ) )
             {
-                this.markerHelper.deleteMarkers ( this.editingDomain.getResourceSet () );
+                markerHelper.deleteMarkers ( editingDomain.getResourceSet () );
                 if ( diagnostic.getSeverity () != Diagnostic.OK )
                 {
                     try
                     {
-                        this.markerHelper.createMarkers ( diagnostic );
+                        markerHelper.createMarkers ( diagnostic );
                     }
-                    catch ( final CoreException exception )
+                    catch ( CoreException exception )
                     {
                         ComponentEditorPlugin.INSTANCE.log ( exception );
                     }
@@ -770,7 +720,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Shows a dialog that asks if conflicting changes should be discarded.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected boolean handleDirtyConflict ()
@@ -785,7 +734,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This creates a model editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ComponentEditor ()
@@ -798,58 +746,55 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This sets up the editing domain for the model editor.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void initializeEditingDomain ()
     {
         // Create an adapter factory that yields item providers.
         //
-        this.adapterFactory = new ComposedAdapterFactory ( ComposedAdapterFactory.Descriptor.Registry.INSTANCE );
+        adapterFactory = new ComposedAdapterFactory ( ComposedAdapterFactory.Descriptor.Registry.INSTANCE );
 
-        this.adapterFactory.addAdapterFactory ( new ResourceItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new ComponentItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new InfrastructureItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new ItemItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new SecurityItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new WorldItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new OsgiItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new ProfileItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new DeploymentItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new GlobalizeItemProviderAdapterFactory () );
-        this.adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ResourceItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ComponentItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new InfrastructureItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ItemItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new SecurityItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new WorldItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new OsgiItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ProfileItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new DeploymentItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new GlobalizeItemProviderAdapterFactory () );
+        adapterFactory.addAdapterFactory ( new ReflectiveItemProviderAdapterFactory () );
 
         // Create the command stack that will notify this editor as commands are executed.
         //
-        final BasicCommandStack commandStack = new BasicCommandStack ();
+        BasicCommandStack commandStack = new BasicCommandStack ();
 
         // Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
         //
         commandStack.addCommandStackListener
                 ( new CommandStackListener ()
                 {
-                    @Override
                     public void commandStackChanged ( final EventObject event )
                     {
                         getContainer ().getDisplay ().asyncExec
                                 ( new Runnable ()
                                 {
-                                    @Override
                                     public void run ()
                                     {
                                         firePropertyChange ( IEditorPart.PROP_DIRTY );
 
                                         // Try to select the affected objects.
                                         //
-                                        final Command mostRecentCommand = ( (CommandStack)event.getSource () ).getMostRecentCommand ();
+                                        Command mostRecentCommand = ( (CommandStack)event.getSource () ).getMostRecentCommand ();
                                         if ( mostRecentCommand != null )
                                         {
                                             setSelectionToViewer ( mostRecentCommand.getAffectedObjects () );
                                         }
-                                        for ( final Iterator<PropertySheetPage> i = ComponentEditor.this.propertySheetPages.iterator (); i.hasNext (); )
+                                        for ( Iterator<PropertySheetPage> i = propertySheetPages.iterator (); i.hasNext (); )
                                         {
-                                            final PropertySheetPage propertySheetPage = i.next ();
+                                            PropertySheetPage propertySheetPage = i.next ();
                                             if ( propertySheetPage.getControl ().isDisposed () )
                                             {
                                                 i.remove ();
@@ -866,18 +811,17 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
         // Create the editing domain with a special command stack.
         //
-        this.editingDomain = new AdapterFactoryEditingDomain ( this.adapterFactory, commandStack, new HashMap<Resource, Boolean> () );
+        editingDomain = new AdapterFactoryEditingDomain ( adapterFactory, commandStack, new HashMap<Resource, Boolean> () );
     }
 
     /**
      * This is here for the listener to be able to call it.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void firePropertyChange ( final int action )
+    protected void firePropertyChange ( int action )
     {
         super.firePropertyChange ( action );
     }
@@ -886,27 +830,25 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This sets the selection into whichever viewer is active.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public void setSelectionToViewer ( final Collection<?> collection )
+    public void setSelectionToViewer ( Collection<?> collection )
     {
         final Collection<?> theSelection = collection;
         // Make sure it's okay.
         //
         if ( theSelection != null && !theSelection.isEmpty () )
         {
-            final Runnable runnable =
+            Runnable runnable =
                     new Runnable ()
                     {
-                        @Override
                         public void run ()
                         {
                             // Try to select the items in the current content viewer of the editor.
                             //
-                            if ( ComponentEditor.this.currentViewer != null )
+                            if ( currentViewer != null )
                             {
-                                ComponentEditor.this.currentViewer.setSelection ( new StructuredSelection ( theSelection.toArray () ), true );
+                                currentViewer.setSelection ( new StructuredSelection ( theSelection.toArray () ), true );
                             }
                         }
                     };
@@ -915,26 +857,22 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     }
 
     /**
-     * This returns the editing domain as required by the
-     * {@link IEditingDomainProvider} interface.
-     * This is important for implementing the static methods of
-     * {@link AdapterFactoryEditingDomain} and for supporting
-     * {@link org.eclipse.emf.edit.ui.action.CommandAction}.
+     * This returns the editing domain as required by the {@link IEditingDomainProvider} interface.
+     * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
+     * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EditingDomain getEditingDomain ()
     {
-        return this.editingDomain;
+        return editingDomain;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider
@@ -942,10 +880,9 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        public ReverseAdapterFactoryContentProvider ( final AdapterFactory adapterFactory )
+        public ReverseAdapterFactoryContentProvider ( AdapterFactory adapterFactory )
         {
             super ( adapterFactory );
         }
@@ -953,50 +890,46 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public Object[] getElements ( final Object object )
+        public Object[] getElements ( Object object )
         {
-            final Object parent = super.getParent ( object );
+            Object parent = super.getParent ( object );
             return ( parent == null ? Collections.EMPTY_SET : Collections.singleton ( parent ) ).toArray ();
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public Object[] getChildren ( final Object object )
+        public Object[] getChildren ( Object object )
         {
-            final Object parent = super.getParent ( object );
+            Object parent = super.getParent ( object );
             return ( parent == null ? Collections.EMPTY_SET : Collections.singleton ( parent ) ).toArray ();
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public boolean hasChildren ( final Object object )
+        public boolean hasChildren ( Object object )
         {
-            final Object parent = super.getParent ( object );
+            Object parent = super.getParent ( object );
             return parent != null;
         }
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
-        public Object getParent ( final Object object )
+        public Object getParent ( Object object )
         {
             return null;
         }
@@ -1005,48 +938,44 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public void setCurrentViewerPane ( final ViewerPane viewerPane )
+    public void setCurrentViewerPane ( ViewerPane viewerPane )
     {
-        if ( this.currentViewerPane != viewerPane )
+        if ( currentViewerPane != viewerPane )
         {
-            if ( this.currentViewerPane != null )
+            if ( currentViewerPane != null )
             {
-                this.currentViewerPane.showFocus ( false );
+                currentViewerPane.showFocus ( false );
             }
-            this.currentViewerPane = viewerPane;
+            currentViewerPane = viewerPane;
         }
-        setCurrentViewer ( this.currentViewerPane.getViewer () );
+        setCurrentViewer ( currentViewerPane.getViewer () );
     }
 
     /**
-     * This makes sure that one content viewer, either for the current page or
-     * the outline view, if it has focus,
+     * This makes sure that one content viewer, either for the current page or the outline view, if it has focus,
      * is the current one.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public void setCurrentViewer ( final Viewer viewer )
+    public void setCurrentViewer ( Viewer viewer )
     {
         // If it is changing...
         //
-        if ( this.currentViewer != viewer )
+        if ( currentViewer != viewer )
         {
-            if ( this.selectionChangedListener == null )
+            if ( selectionChangedListener == null )
             {
                 // Create the listener on demand.
                 //
-                this.selectionChangedListener =
+                selectionChangedListener =
                         new ISelectionChangedListener ()
                         {
                             // This just notifies those things that are affected by the section.
                             //
-                            @Override
-                            public void selectionChanged ( final SelectionChangedEvent selectionChangedEvent )
+                            public void selectionChanged ( SelectionChangedEvent selectionChangedEvent )
                             {
                                 setSelection ( selectionChangedEvent.getSelection () );
                             }
@@ -1055,40 +984,38 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
             // Stop listening to the old one.
             //
-            if ( this.currentViewer != null )
+            if ( currentViewer != null )
             {
-                this.currentViewer.removeSelectionChangedListener ( this.selectionChangedListener );
+                currentViewer.removeSelectionChangedListener ( selectionChangedListener );
             }
 
             // Start listening to the new one.
             //
             if ( viewer != null )
             {
-                viewer.addSelectionChangedListener ( this.selectionChangedListener );
+                viewer.addSelectionChangedListener ( selectionChangedListener );
             }
 
             // Remember it.
             //
-            this.currentViewer = viewer;
+            currentViewer = viewer;
 
             // Set the editors selection based on the current viewer's selection.
             //
-            setSelection ( this.currentViewer == null ? StructuredSelection.EMPTY : this.currentViewer.getSelection () );
+            setSelection ( currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection () );
         }
     }
 
     /**
-     * This returns the viewer as required by the {@link IViewerProvider}
-     * interface.
+     * This returns the viewer as required by the {@link IViewerProvider} interface.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Viewer getViewer ()
     {
-        return this.currentViewer;
+        return currentViewer;
     }
 
     /**
@@ -1116,55 +1043,51 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     }
 
     /**
-     * This is the method called to load a resource into the editing domain's
-     * resource set based on the editor's input.
+     * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createModel ()
     {
-        final URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
+        URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
         Exception exception = null;
         Resource resource = null;
         try
         {
             // Load the resource through the editing domain.
             //
-            resource = this.editingDomain.getResourceSet ().getResource ( resourceURI, true );
+            resource = editingDomain.getResourceSet ().getResource ( resourceURI, true );
         }
-        catch ( final Exception e )
+        catch ( Exception e )
         {
             exception = e;
-            resource = this.editingDomain.getResourceSet ().getResource ( resourceURI, false );
+            resource = editingDomain.getResourceSet ().getResource ( resourceURI, false );
         }
 
-        final Diagnostic diagnostic = analyzeResourceProblems ( resource, exception );
+        Diagnostic diagnostic = analyzeResourceProblems ( resource, exception );
         if ( diagnostic.getSeverity () != Diagnostic.OK )
         {
-            this.resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
+            resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
         }
-        this.editingDomain.getResourceSet ().eAdapters ().add ( this.problemIndicationAdapter );
+        editingDomain.getResourceSet ().eAdapters ().add ( problemIndicationAdapter );
     }
 
     /**
-     * Returns a diagnostic describing the errors and warnings listed in the
-     * resource
+     * Returns a diagnostic describing the errors and warnings listed in the resource
      * and the specified exception (if any).
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public Diagnostic analyzeResourceProblems ( final Resource resource, final Exception exception )
+    public Diagnostic analyzeResourceProblems ( Resource resource, Exception exception )
     {
         if ( !resource.getErrors ().isEmpty () || !resource.getWarnings ().isEmpty () )
         {
-            final BasicDiagnostic basicDiagnostic =
+            BasicDiagnostic basicDiagnostic =
                     new BasicDiagnostic
                     ( Diagnostic.ERROR, "org.eclipse.scada.configuration.component.editor", //$NON-NLS-1$
-                    0,
+                            0,
                             getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
                             new Object[] { exception == null ? (Object)resource : exception } );
             basicDiagnostic.merge ( EcoreUtil.computeDiagnostic ( resource, true ) );
@@ -1173,7 +1096,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
         else if ( exception != null )
         {
             return new BasicDiagnostic ( Diagnostic.ERROR, "org.eclipse.scada.configuration.component.editor", //$NON-NLS-1$
-            0,
+                    0,
                     getString ( "_UI_CreateModelError_message", resource.getURI () ), //$NON-NLS-1$
                     new Object[] { exception } );
         }
@@ -1187,7 +1110,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is the method used by the framework to install your own controls.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -1204,14 +1126,14 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             // Create a page for the selection tree view.
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
-                                final Tree tree = new Tree ( composite, SWT.MULTI );
-                                final TreeViewer newTreeViewer = new TreeViewer ( tree );
+                                Tree tree = new Tree ( composite, SWT.MULTI );
+                                TreeViewer newTreeViewer = new TreeViewer ( tree );
                                 return newTreeViewer;
                             }
 
@@ -1224,32 +1146,32 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                         };
                 viewerPane.createControl ( getContainer () );
 
-                this.selectionViewer = (TreeViewer)viewerPane.getViewer ();
-                this.selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
+                selectionViewer = (TreeViewer)viewerPane.getViewer ();
+                selectionViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
 
-                this.selectionViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
-                this.selectionViewer.setInput ( this.editingDomain.getResourceSet () );
-                this.selectionViewer.setSelection ( new StructuredSelection ( this.editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
-                viewerPane.setTitle ( this.editingDomain.getResourceSet () );
+                selectionViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                selectionViewer.setInput ( editingDomain.getResourceSet () );
+                selectionViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
+                viewerPane.setTitle ( editingDomain.getResourceSet () );
 
-                new AdapterFactoryTreeEditor ( this.selectionViewer.getTree (), this.adapterFactory );
+                new AdapterFactoryTreeEditor ( selectionViewer.getTree (), adapterFactory );
 
-                createContextMenuFor ( this.selectionViewer );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( selectionViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_SelectionPage_label" ) ); //$NON-NLS-1$
             }
 
             // Create a page for the parent tree view.
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
-                                final Tree tree = new Tree ( composite, SWT.MULTI );
-                                final TreeViewer newTreeViewer = new TreeViewer ( tree );
+                                Tree tree = new Tree ( composite, SWT.MULTI );
+                                TreeViewer newTreeViewer = new TreeViewer ( tree );
                                 return newTreeViewer;
                             }
 
@@ -1262,24 +1184,24 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                         };
                 viewerPane.createControl ( getContainer () );
 
-                this.parentViewer = (TreeViewer)viewerPane.getViewer ();
-                this.parentViewer.setAutoExpandLevel ( 30 );
-                this.parentViewer.setContentProvider ( new ReverseAdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.parentViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
+                parentViewer = (TreeViewer)viewerPane.getViewer ();
+                parentViewer.setAutoExpandLevel ( 30 );
+                parentViewer.setContentProvider ( new ReverseAdapterFactoryContentProvider ( adapterFactory ) );
+                parentViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                createContextMenuFor ( this.parentViewer );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( parentViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_ParentPage_label" ) ); //$NON-NLS-1$
             }
 
             // This is the page for the list viewer
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
                                 return new ListViewer ( composite );
                             }
@@ -1292,23 +1214,23 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                             }
                         };
                 viewerPane.createControl ( getContainer () );
-                this.listViewer = (ListViewer)viewerPane.getViewer ();
-                this.listViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.listViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
+                listViewer = (ListViewer)viewerPane.getViewer ();
+                listViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                listViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                createContextMenuFor ( this.listViewer );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( listViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_ListPage_label" ) ); //$NON-NLS-1$
             }
 
             // This is the page for the tree viewer
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
                                 return new TreeViewer ( composite );
                             }
@@ -1321,25 +1243,25 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                             }
                         };
                 viewerPane.createControl ( getContainer () );
-                this.treeViewer = (TreeViewer)viewerPane.getViewer ();
-                this.treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.treeViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
+                treeViewer = (TreeViewer)viewerPane.getViewer ();
+                treeViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                treeViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                new AdapterFactoryTreeEditor ( this.treeViewer.getTree (), this.adapterFactory );
+                new AdapterFactoryTreeEditor ( treeViewer.getTree (), adapterFactory );
 
-                createContextMenuFor ( this.treeViewer );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( treeViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_TreePage_label" ) ); //$NON-NLS-1$
             }
 
             // This is the page for the table viewer.
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
                                 return new TableViewer ( composite );
                             }
@@ -1352,41 +1274,41 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                             }
                         };
                 viewerPane.createControl ( getContainer () );
-                this.tableViewer = (TableViewer)viewerPane.getViewer ();
+                tableViewer = (TableViewer)viewerPane.getViewer ();
 
-                final Table table = this.tableViewer.getTable ();
-                final TableLayout layout = new TableLayout ();
+                Table table = tableViewer.getTable ();
+                TableLayout layout = new TableLayout ();
                 table.setLayout ( layout );
                 table.setHeaderVisible ( true );
                 table.setLinesVisible ( true );
 
-                final TableColumn objectColumn = new TableColumn ( table, SWT.NONE );
+                TableColumn objectColumn = new TableColumn ( table, SWT.NONE );
                 layout.addColumnData ( new ColumnWeightData ( 3, 100, true ) );
                 objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) ); //$NON-NLS-1$
                 objectColumn.setResizable ( true );
 
-                final TableColumn selfColumn = new TableColumn ( table, SWT.NONE );
+                TableColumn selfColumn = new TableColumn ( table, SWT.NONE );
                 layout.addColumnData ( new ColumnWeightData ( 2, 100, true ) );
                 selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) ); //$NON-NLS-1$
                 selfColumn.setResizable ( true );
 
-                this.tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
-                this.tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.tableViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
+                tableViewer.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
+                tableViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                tableViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                createContextMenuFor ( this.tableViewer );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( tableViewer );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_TablePage_label" ) ); //$NON-NLS-1$
             }
 
             // This is the page for the table tree viewer.
             //
             {
-                final ViewerPane viewerPane =
+                ViewerPane viewerPane =
                         new ViewerPane ( getSite ().getPage (), ComponentEditor.this )
                         {
                             @Override
-                            public Viewer createViewer ( final Composite composite )
+                            public Viewer createViewer ( Composite composite )
                             {
                                 return new TreeViewer ( composite );
                             }
@@ -1400,36 +1322,35 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                         };
                 viewerPane.createControl ( getContainer () );
 
-                this.treeViewerWithColumns = (TreeViewer)viewerPane.getViewer ();
+                treeViewerWithColumns = (TreeViewer)viewerPane.getViewer ();
 
-                final Tree tree = this.treeViewerWithColumns.getTree ();
+                Tree tree = treeViewerWithColumns.getTree ();
                 tree.setLayoutData ( new FillLayout () );
                 tree.setHeaderVisible ( true );
                 tree.setLinesVisible ( true );
 
-                final TreeColumn objectColumn = new TreeColumn ( tree, SWT.NONE );
+                TreeColumn objectColumn = new TreeColumn ( tree, SWT.NONE );
                 objectColumn.setText ( getString ( "_UI_ObjectColumn_label" ) ); //$NON-NLS-1$
                 objectColumn.setResizable ( true );
                 objectColumn.setWidth ( 250 );
 
-                final TreeColumn selfColumn = new TreeColumn ( tree, SWT.NONE );
+                TreeColumn selfColumn = new TreeColumn ( tree, SWT.NONE );
                 selfColumn.setText ( getString ( "_UI_SelfColumn_label" ) ); //$NON-NLS-1$
                 selfColumn.setResizable ( true );
                 selfColumn.setWidth ( 200 );
 
-                this.treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
-                this.treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-                this.treeViewerWithColumns.setLabelProvider ( new AdapterFactoryLabelProvider ( this.adapterFactory ) );
+                treeViewerWithColumns.setColumnProperties ( new String[] { "a", "b" } ); //$NON-NLS-1$ //$NON-NLS-2$
+                treeViewerWithColumns.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                treeViewerWithColumns.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
 
-                createContextMenuFor ( this.treeViewerWithColumns );
-                final int pageIndex = addPage ( viewerPane.getControl () );
+                createContextMenuFor ( treeViewerWithColumns );
+                int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex, getString ( "_UI_TreeWithColumnsPage_label" ) ); //$NON-NLS-1$
             }
 
             getSite ().getShell ().getDisplay ().asyncExec
                     ( new Runnable ()
                     {
-                        @Override
                         public void run ()
                         {
                             setActivePage ( 0 );
@@ -1446,13 +1367,13 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     boolean guard = false;
 
                     @Override
-                    public void controlResized ( final ControlEvent event )
+                    public void controlResized ( ControlEvent event )
                     {
-                        if ( !this.guard )
+                        if ( !guard )
                         {
-                            this.guard = true;
+                            guard = true;
                             hideTabs ();
-                            this.guard = false;
+                            guard = false;
                         }
                     }
                 } );
@@ -1460,7 +1381,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
         getSite ().getShell ().getDisplay ().asyncExec
                 ( new Runnable ()
                 {
-                    @Override
                     public void run ()
                     {
                         updateProblemIndication ();
@@ -1473,7 +1393,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * this hides the single tab at the bottom.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void hideTabs ()
@@ -1484,7 +1403,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             if ( getContainer () instanceof CTabFolder )
             {
                 ( (CTabFolder)getContainer () ).setTabHeight ( 1 );
-                final Point point = getContainer ().getSize ();
+                Point point = getContainer ().getSize ();
                 getContainer ().setSize ( point.x, point.y + 6 );
             }
         }
@@ -1495,7 +1414,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * this shows the tabs at the bottom.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void showTabs ()
@@ -1506,7 +1424,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
             if ( getContainer () instanceof CTabFolder )
             {
                 ( (CTabFolder)getContainer () ).setTabHeight ( SWT.DEFAULT );
-                final Point point = getContainer ().getSize ();
+                Point point = getContainer ().getSize ();
                 getContainer ().setSize ( point.x, point.y - 6 );
             }
         }
@@ -1516,17 +1434,16 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is used to track the active viewer.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void pageChange ( final int pageIndex )
+    protected void pageChange ( int pageIndex )
     {
         super.pageChange ( pageIndex );
 
-        if ( this.contentOutlinePage != null )
+        if ( contentOutlinePage != null )
         {
-            handleContentOutlineSelection ( this.contentOutlinePage.getSelection () );
+            handleContentOutlineSelection ( contentOutlinePage.getSelection () );
         }
     }
 
@@ -1534,12 +1451,11 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is how the framework determines which interfaces we implement.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Class key )
+    public Object getAdapter ( Class key )
     {
         if ( key.equals ( IContentOutlinePage.class ) )
         {
@@ -1563,133 +1479,128 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This accesses a cached version of the content outliner.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IContentOutlinePage getContentOutlinePage ()
     {
-        if ( this.contentOutlinePage == null )
+        if ( contentOutlinePage == null )
         {
             // The content outline is just a tree.
             //
             class MyContentOutlinePage extends ContentOutlinePage
             {
                 @Override
-                public void createControl ( final Composite parent )
+                public void createControl ( Composite parent )
                 {
                     super.createControl ( parent );
-                    ComponentEditor.this.contentOutlineViewer = getTreeViewer ();
-                    ComponentEditor.this.contentOutlineViewer.addSelectionChangedListener ( this );
+                    contentOutlineViewer = getTreeViewer ();
+                    contentOutlineViewer.addSelectionChangedListener ( this );
 
                     // Set up the tree viewer.
                     //
-                    ComponentEditor.this.contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( ComponentEditor.this.adapterFactory ) );
-                    ComponentEditor.this.contentOutlineViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( ComponentEditor.this.adapterFactory ) );
-                    ComponentEditor.this.contentOutlineViewer.setInput ( ComponentEditor.this.editingDomain.getResourceSet () );
+                    contentOutlineViewer.setContentProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+                    contentOutlineViewer.setLabelProvider ( new AdapterFactoryLabelProvider ( adapterFactory ) );
+                    contentOutlineViewer.setInput ( editingDomain.getResourceSet () );
 
                     // Make sure our popups work.
                     //
-                    createContextMenuFor ( ComponentEditor.this.contentOutlineViewer );
+                    createContextMenuFor ( contentOutlineViewer );
 
-                    if ( !ComponentEditor.this.editingDomain.getResourceSet ().getResources ().isEmpty () )
+                    if ( !editingDomain.getResourceSet ().getResources ().isEmpty () )
                     {
                         // Select the root object in the view.
                         //
-                        ComponentEditor.this.contentOutlineViewer.setSelection ( new StructuredSelection ( ComponentEditor.this.editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
+                        contentOutlineViewer.setSelection ( new StructuredSelection ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ), true );
                     }
                 }
 
                 @Override
-                public void makeContributions ( final IMenuManager menuManager, final IToolBarManager toolBarManager, final IStatusLineManager statusLineManager )
+                public void makeContributions ( IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager )
                 {
                     super.makeContributions ( menuManager, toolBarManager, statusLineManager );
-                    ComponentEditor.this.contentOutlineStatusLineManager = statusLineManager;
+                    contentOutlineStatusLineManager = statusLineManager;
                 }
 
                 @Override
-                public void setActionBars ( final IActionBars actionBars )
+                public void setActionBars ( IActionBars actionBars )
                 {
                     super.setActionBars ( actionBars );
                     getActionBarContributor ().shareGlobalActions ( this, actionBars );
                 }
             }
 
-            this.contentOutlinePage = new MyContentOutlinePage ();
+            contentOutlinePage = new MyContentOutlinePage ();
 
             // Listen to selection so that we can handle it is a special way.
             //
-            this.contentOutlinePage.addSelectionChangedListener
+            contentOutlinePage.addSelectionChangedListener
                     ( new ISelectionChangedListener ()
                     {
                         // This ensures that we handle selections correctly.
                         //
-                        @Override
-                        public void selectionChanged ( final SelectionChangedEvent event )
+                        public void selectionChanged ( SelectionChangedEvent event )
                         {
                             handleContentOutlineSelection ( event.getSelection () );
                         }
                     } );
         }
 
-        return this.contentOutlinePage;
+        return contentOutlinePage;
     }
 
     /**
      * This accesses a cached version of the property sheet.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        final PropertySheetPage propertySheetPage =
-                new ExtendedPropertySheetPage ( this.editingDomain )
+        PropertySheetPage propertySheetPage =
+                new ExtendedPropertySheetPage ( editingDomain )
                 {
                     @Override
-                    public void setSelectionToViewer ( final List<?> selection )
+                    public void setSelectionToViewer ( List<?> selection )
                     {
                         ComponentEditor.this.setSelectionToViewer ( selection );
                         ComponentEditor.this.setFocus ();
                     }
 
                     @Override
-                    public void setActionBars ( final IActionBars actionBars )
+                    public void setActionBars ( IActionBars actionBars )
                     {
                         super.setActionBars ( actionBars );
                         getActionBarContributor ().shareGlobalActions ( this, actionBars );
                     }
                 };
-        propertySheetPage.setPropertySourceProvider ( new AdapterFactoryContentProvider ( this.adapterFactory ) );
-        this.propertySheetPages.add ( propertySheetPage );
+        propertySheetPage.setPropertySourceProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
+        propertySheetPages.add ( propertySheetPage );
 
         return propertySheetPage;
     }
 
     /**
-     * This deals with how we want selection in the outliner to affect the other
-     * views.
+     * This deals with how we want selection in the outliner to affect the other views.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public void handleContentOutlineSelection ( final ISelection selection )
+    public void handleContentOutlineSelection ( ISelection selection )
     {
-        if ( this.currentViewerPane != null && !selection.isEmpty () && selection instanceof IStructuredSelection )
+        if ( currentViewerPane != null && !selection.isEmpty () && selection instanceof IStructuredSelection )
         {
-            final Iterator<?> selectedElements = ( (IStructuredSelection)selection ).iterator ();
+            Iterator<?> selectedElements = ( (IStructuredSelection)selection ).iterator ();
             if ( selectedElements.hasNext () )
             {
                 // Get the first selected element.
                 //
-                final Object selectedElement = selectedElements.next ();
+                Object selectedElement = selectedElements.next ();
 
                 // If it's the selection viewer, then we want it to select the same selection as this selection.
                 //
-                if ( this.currentViewerPane.getViewer () == this.selectionViewer )
+                if ( currentViewerPane.getViewer () == selectionViewer )
                 {
-                    final ArrayList<Object> selectionList = new ArrayList<Object> ();
+                    ArrayList<Object> selectionList = new ArrayList<Object> ();
                     selectionList.add ( selectedElement );
                     while ( selectedElements.hasNext () )
                     {
@@ -1698,16 +1609,16 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
                     // Set the selection to the widget.
                     //
-                    this.selectionViewer.setSelection ( new StructuredSelection ( selectionList ) );
+                    selectionViewer.setSelection ( new StructuredSelection ( selectionList ) );
                 }
                 else
                 {
                     // Set the input to the widget.
                     //
-                    if ( this.currentViewerPane.getViewer ().getInput () != selectedElement )
+                    if ( currentViewerPane.getViewer ().getInput () != selectedElement )
                     {
-                        this.currentViewerPane.getViewer ().setInput ( selectedElement );
-                        this.currentViewerPane.setTitle ( selectedElement );
+                        currentViewerPane.getViewer ().setInput ( selectedElement );
+                        currentViewerPane.setTitle ( selectedElement );
                     }
                 }
             }
@@ -1715,29 +1626,25 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     }
 
     /**
-     * This is for implementing {@link IEditorPart} and simply tests the command
-     * stack.
+     * This is for implementing {@link IEditorPart} and simply tests the command stack.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isDirty ()
     {
-        return ( (BasicCommandStack)this.editingDomain.getCommandStack () ).isSaveNeeded ();
+        return ( (BasicCommandStack)editingDomain.getCommandStack () ).isSaveNeeded ();
     }
 
     /**
-     * This is for implementing {@link IEditorPart} and simply saves the model
-     * file.
+     * This is for implementing {@link IEditorPart} and simply saves the model file.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void doSave ( final IProgressMonitor progressMonitor )
+    public void doSave ( IProgressMonitor progressMonitor )
     {
         // Save only resources that have actually changed.
         //
@@ -1747,33 +1654,33 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
         // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
-        final WorkspaceModifyOperation operation =
+        WorkspaceModifyOperation operation =
                 new WorkspaceModifyOperation ()
                 {
                     // This is the method that gets invoked when the operation runs.
                     //
                     @Override
-                    public void execute ( final IProgressMonitor monitor )
+                    public void execute ( IProgressMonitor monitor )
                     {
                         // Save the resources to the file system.
                         //
                         boolean first = true;
-                        for ( final Resource resource : ComponentEditor.this.editingDomain.getResourceSet ().getResources () )
+                        for ( Resource resource : editingDomain.getResourceSet ().getResources () )
                         {
-                            if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !ComponentEditor.this.editingDomain.isReadOnly ( resource ) )
+                            if ( ( first || !resource.getContents ().isEmpty () || isPersisted ( resource ) ) && !editingDomain.isReadOnly ( resource ) )
                             {
                                 try
                                 {
-                                    final long timeStamp = resource.getTimeStamp ();
+                                    long timeStamp = resource.getTimeStamp ();
                                     resource.save ( saveOptions );
                                     if ( resource.getTimeStamp () != timeStamp )
                                     {
-                                        ComponentEditor.this.savedResources.add ( resource );
+                                        savedResources.add ( resource );
                                     }
                                 }
-                                catch ( final Exception exception )
+                                catch ( Exception exception )
                                 {
-                                    ComponentEditor.this.resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
+                                    resourceToDiagnosticMap.put ( resource, analyzeResourceProblems ( resource, exception ) );
                                 }
                                 first = false;
                             }
@@ -1781,7 +1688,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     }
                 };
 
-        this.updateProblemIndication = false;
+        updateProblemIndication = false;
         try
         {
             // This runs the options, and shows progress.
@@ -1790,42 +1697,39 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
 
             // Refresh the necessary state.
             //
-            ( (BasicCommandStack)this.editingDomain.getCommandStack () ).saveIsDone ();
+            ( (BasicCommandStack)editingDomain.getCommandStack () ).saveIsDone ();
             firePropertyChange ( IEditorPart.PROP_DIRTY );
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             // Something went wrong that shouldn't.
             //
             ComponentEditorPlugin.INSTANCE.log ( exception );
         }
-        this.updateProblemIndication = true;
+        updateProblemIndication = true;
         updateProblemIndication ();
     }
 
     /**
-     * This returns whether something has been persisted to the URI of the
-     * specified resource.
-     * The implementation uses the URI converter from the editor's resource set
-     * to try to open an input stream.
+     * This returns whether something has been persisted to the URI of the specified resource.
+     * The implementation uses the URI converter from the editor's resource set to try to open an input stream.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected boolean isPersisted ( final Resource resource )
+    protected boolean isPersisted ( Resource resource )
     {
         boolean result = false;
         try
         {
-            final InputStream stream = this.editingDomain.getResourceSet ().getURIConverter ().createInputStream ( resource.getURI () );
+            InputStream stream = editingDomain.getResourceSet ().getURIConverter ().createInputStream ( resource.getURI () );
             if ( stream != null )
             {
                 result = true;
                 stream.close ();
             }
         }
-        catch ( final IOException e )
+        catch ( IOException e )
         {
             // Ignore
         }
@@ -1836,7 +1740,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This always returns true because it is not currently supported.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -1849,18 +1752,17 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This also changes the editor's input.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void doSaveAs ()
     {
-        final SaveAsDialog saveAsDialog = new SaveAsDialog ( getSite ().getShell () );
+        SaveAsDialog saveAsDialog = new SaveAsDialog ( getSite ().getShell () );
         saveAsDialog.open ();
-        final IPath path = saveAsDialog.getResult ();
+        IPath path = saveAsDialog.getResult ();
         if ( path != null )
         {
-            final IFile file = ResourcesPlugin.getWorkspace ().getRoot ().getFile ( path );
+            IFile file = ResourcesPlugin.getWorkspace ().getRoot ().getFile ( path );
             if ( file != null )
             {
                 doSaveAs ( URI.createPlatformResourceURI ( file.getFullPath ().toString (), true ), new FileEditorInput ( file ) );
@@ -1871,15 +1773,14 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void doSaveAs ( final URI uri, final IEditorInput editorInput )
+    protected void doSaveAs ( URI uri, IEditorInput editorInput )
     {
-        this.editingDomain.getResourceSet ().getResources ().get ( 0 ).setURI ( uri );
+        ( editingDomain.getResourceSet ().getResources ().get ( 0 ) ).setURI ( uri );
         setInputWithNotify ( editorInput );
         setPartName ( editorInput.getName () );
-        final IProgressMonitor progressMonitor =
+        IProgressMonitor progressMonitor =
                 getActionBars ().getStatusLineManager () != null ?
                         getActionBars ().getStatusLineManager ().getProgressMonitor () :
                         new NullProgressMonitor ();
@@ -1889,13 +1790,12 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void gotoMarker ( final IMarker marker )
+    public void gotoMarker ( IMarker marker )
     {
-        final List<?> targetObjects = this.markerHelper.getTargetObjects ( this.editingDomain, marker );
+        List<?> targetObjects = markerHelper.getTargetObjects ( editingDomain, marker );
         if ( !targetObjects.isEmpty () )
         {
             setSelectionToViewer ( targetObjects );
@@ -1906,32 +1806,30 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This is called during startup.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void init ( final IEditorSite site, final IEditorInput editorInput )
+    public void init ( IEditorSite site, IEditorInput editorInput )
     {
         setSite ( site );
         setInputWithNotify ( editorInput );
         setPartName ( editorInput.getName () );
         site.setSelectionProvider ( this );
-        site.getPage ().addPartListener ( this.partListener );
-        ResourcesPlugin.getWorkspace ().addResourceChangeListener ( this.resourceChangeListener, IResourceChangeEvent.POST_CHANGE );
+        site.getPage ().addPartListener ( partListener );
+        ResourcesPlugin.getWorkspace ().addResourceChangeListener ( resourceChangeListener, IResourceChangeEvent.POST_CHANGE );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void setFocus ()
     {
-        if ( this.currentViewerPane != null )
+        if ( currentViewerPane != null )
         {
-            this.currentViewerPane.setFocus ();
+            currentViewerPane.setFocus ();
         }
         else
         {
@@ -1943,57 +1841,51 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void addSelectionChangedListener ( final ISelectionChangedListener listener )
+    public void addSelectionChangedListener ( ISelectionChangedListener listener )
     {
-        this.selectionChangedListeners.add ( listener );
+        selectionChangedListeners.add ( listener );
     }
 
     /**
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void removeSelectionChangedListener ( final ISelectionChangedListener listener )
+    public void removeSelectionChangedListener ( ISelectionChangedListener listener )
     {
-        this.selectionChangedListeners.remove ( listener );
+        selectionChangedListeners.remove ( listener );
     }
 
     /**
-     * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to
-     * return this editor's overall selection.
+     * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ISelection getSelection ()
     {
-        return this.editorSelection;
+        return editorSelection;
     }
 
     /**
-     * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to
-     * set this editor's overall selection.
+     * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
      * Calling this result will notify the listeners.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSelection ( final ISelection selection )
+    public void setSelection ( ISelection selection )
     {
-        this.editorSelection = selection;
+        editorSelection = selection;
 
-        for ( final ISelectionChangedListener listener : this.selectionChangedListeners )
+        for ( ISelectionChangedListener listener : selectionChangedListeners )
         {
             listener.selectionChanged ( new SelectionChangedEvent ( this, selection ) );
         }
@@ -2003,19 +1895,18 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public void setStatusLineManager ( final ISelection selection )
+    public void setStatusLineManager ( ISelection selection )
     {
-        final IStatusLineManager statusLineManager = this.currentViewer != null && this.currentViewer == this.contentOutlineViewer ?
-                this.contentOutlineStatusLineManager : getActionBars ().getStatusLineManager ();
+        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
+                contentOutlineStatusLineManager : getActionBars ().getStatusLineManager ();
 
         if ( statusLineManager != null )
         {
             if ( selection instanceof IStructuredSelection )
             {
-                final Collection<?> collection = ( (IStructuredSelection)selection ).toList ();
+                Collection<?> collection = ( (IStructuredSelection)selection ).toList ();
                 switch ( collection.size () )
                 {
                     case 0:
@@ -2025,7 +1916,7 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
                     }
                     case 1:
                     {
-                        final String text = new AdapterFactoryItemDelegator ( this.adapterFactory ).getText ( collection.iterator ().next () );
+                        String text = new AdapterFactoryItemDelegator ( adapterFactory ).getText ( collection.iterator ().next () );
                         statusLineManager.setMessage ( getString ( "_UI_SingleObjectSelected", text ) ); //$NON-NLS-1$
                         break;
                     }
@@ -2047,10 +1938,9 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This looks up a string in the plugin's plugin.properties file.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    private static String getString ( final String key )
+    private static String getString ( String key )
     {
         return ComponentEditorPlugin.INSTANCE.getString ( key );
     }
@@ -2059,24 +1949,21 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * This looks up a string in plugin.properties, making a substitution.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    private static String getString ( final String key, final Object s1 )
+    private static String getString ( String key, Object s1 )
     {
         return ComponentEditorPlugin.INSTANCE.getString ( key, new Object[] { s1 } );
     }
 
     /**
-     * This implements {@link org.eclipse.jface.action.IMenuListener} to help
-     * fill the context menus with contributions from the Edit menu.
+     * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus with contributions from the Edit menu.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void menuAboutToShow ( final IMenuManager menuManager )
+    public void menuAboutToShow ( IMenuManager menuManager )
     {
         ( (IMenuListener)getEditorSite ().getActionBarContributor () ).menuAboutToShow ( menuManager );
     }
@@ -2084,7 +1971,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public EditingDomainActionBarContributor getActionBarContributor ()
@@ -2095,7 +1981,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IActionBars getActionBars ()
@@ -2106,44 +1991,42 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public AdapterFactory getAdapterFactory ()
     {
-        return this.adapterFactory;
+        return adapterFactory;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public void dispose ()
     {
-        this.updateProblemIndication = false;
+        updateProblemIndication = false;
 
-        ResourcesPlugin.getWorkspace ().removeResourceChangeListener ( this.resourceChangeListener );
+        ResourcesPlugin.getWorkspace ().removeResourceChangeListener ( resourceChangeListener );
 
-        getSite ().getPage ().removePartListener ( this.partListener );
+        getSite ().getPage ().removePartListener ( partListener );
 
-        this.adapterFactory.dispose ();
+        adapterFactory.dispose ();
 
         if ( getActionBarContributor ().getActiveEditor () == this )
         {
             getActionBarContributor ().setActiveEditor ( null );
         }
 
-        for ( final PropertySheetPage propertySheetPage : this.propertySheetPages )
+        for ( PropertySheetPage propertySheetPage : propertySheetPages )
         {
             propertySheetPage.dispose ();
         }
 
-        if ( this.contentOutlinePage != null )
+        if ( contentOutlinePage != null )
         {
-            this.contentOutlinePage.dispose ();
+            contentOutlinePage.dispose ();
         }
 
         super.dispose ();
@@ -2153,7 +2036,6 @@ public class ComponentEditor extends MultiPageEditorPart implements IEditingDoma
      * Returns whether the outline view should be presented to the user.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected boolean showOutlineView ()

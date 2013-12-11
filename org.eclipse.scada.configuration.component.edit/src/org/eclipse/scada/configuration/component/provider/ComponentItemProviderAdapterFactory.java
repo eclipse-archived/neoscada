@@ -727,6 +727,31 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.GlobalizeComponent} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GlobalizeComponentItemProvider globalizeComponentItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.GlobalizeComponent}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGlobalizeComponentAdapter ()
+    {
+        if ( globalizeComponentItemProvider == null )
+        {
+            globalizeComponentItemProvider = new GlobalizeComponentItemProvider ( this );
+        }
+
+        return globalizeComponentItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -917,6 +942,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             summariesConfigurationItemProvider.dispose ();
         if ( restInterceptorItemProvider != null )
             restInterceptorItemProvider.dispose ();
+        if ( globalizeComponentItemProvider != null )
+            globalizeComponentItemProvider.dispose ();
     }
 
     /**

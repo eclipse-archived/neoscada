@@ -31,6 +31,7 @@ import org.eclipse.scada.configuration.component.DataMapperService;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.FormulaModule;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
@@ -482,6 +483,18 @@ public class ComponentSwitch<T> extends Switch<T>
                 T result = caseRestInterceptor ( restInterceptor );
                 if ( result == null )
                     result = caseItemInterceptor ( restInterceptor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.GLOBALIZE_COMPONENT:
+            {
+                GlobalizeComponent globalizeComponent = (GlobalizeComponent)theEObject;
+                T result = caseGlobalizeComponent ( globalizeComponent );
+                if ( result == null )
+                    result = caseDataComponent ( globalizeComponent );
+                if ( result == null )
+                    result = caseComponent ( globalizeComponent );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -1047,6 +1060,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseRestInterceptor ( RestInterceptor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Globalize Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Globalize Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGlobalizeComponent ( GlobalizeComponent object )
     {
         return null;
     }

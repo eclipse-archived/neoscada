@@ -256,6 +256,15 @@ public interface ComponentFactory extends EFactory
     RestInterceptor createRestInterceptor ();
 
     /**
+     * Returns a new object of class '<em>Globalize Component</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Globalize Component</em>'.
+     * @generated
+     */
+    GlobalizeComponent createGlobalizeComponent ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

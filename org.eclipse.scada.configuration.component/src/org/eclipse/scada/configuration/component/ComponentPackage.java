@@ -2336,6 +2336,79 @@ public interface ComponentPackage extends EPackage
     int REST_INTERCEPTOR_OPERATION_COUNT = ITEM_INTERCEPTOR_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl <em>Globalize Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getGlobalizeComponent()
+     * @generated
+     */
+    int GLOBALIZE_COMPONENT = 35;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__LEVEL = DATA_COMPONENT__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE = DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR = DATA_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__MASTER_ON = DATA_COMPONENT__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Components</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__COMPONENTS = DATA_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Globalize Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Globalize Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT_OPERATION_COUNT = DATA_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2343,7 +2416,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 35;
+    int NOTIFICATION = 36;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.System <em>System</em>}'.
@@ -3425,6 +3498,27 @@ public interface ComponentPackage extends EPackage
     EReference getRestInterceptor_Definition ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.GlobalizeComponent <em>Globalize Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Globalize Component</em>'.
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent
+     * @generated
+     */
+    EClass getGlobalizeComponent ();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getComponents <em>Components</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Components</em>'.
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent#getComponents()
+     * @see #getGlobalizeComponent()
+     * @generated
+     */
+    EReference getGlobalizeComponent_Components ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4344,6 +4438,24 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference REST_INTERCEPTOR__DEFINITION = eINSTANCE.getRestInterceptor_Definition ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl <em>Globalize Component</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getGlobalizeComponent()
+         * @generated
+         */
+        EClass GLOBALIZE_COMPONENT = eINSTANCE.getGlobalizeComponent ();
+
+        /**
+         * The meta object literal for the '<em><b>Components</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GLOBALIZE_COMPONENT__COMPONENTS = eINSTANCE.getGlobalizeComponent_Components ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.
