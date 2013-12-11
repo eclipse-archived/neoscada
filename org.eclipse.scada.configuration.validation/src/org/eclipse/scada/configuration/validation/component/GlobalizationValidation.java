@@ -63,6 +63,13 @@ public class GlobalizationValidation extends AbstractModelConstraint
         final MasterImport sourceMaster = glob.getSourceMaster ();
         if ( sourceMaster != null )
         {
+            if ( glob.getMasterOn ().size () != 1 || !glob.getMasterOn ().contains ( sourceMaster.eContainer () ) )
+            {
+                result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( glob ), "The globalization component must run on exactly one master, the one the MasterImport belongs to (not references to!)" ) );
+            }
+
+            // check components
+
             final List<DataComponent> illegal = new LinkedList<> ();
             for ( final DataComponent dc : glob.getComponents () )
             {
