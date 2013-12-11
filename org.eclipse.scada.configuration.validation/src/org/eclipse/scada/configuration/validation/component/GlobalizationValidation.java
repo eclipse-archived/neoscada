@@ -74,7 +74,7 @@ public class GlobalizationValidation extends AbstractModelConstraint
 
             if ( !illegal.isEmpty () )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, illegal, IStatus.ERROR, 1, "The globalization component imports components through MasterImport {1} but some referenced component do not run there.", sourceMaster ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, illegal, IStatus.ERROR, 1, "The globalization component imports components through MasterImport {0} but some referenced component do not run there.", sourceMaster ) );
             }
         }
     }
