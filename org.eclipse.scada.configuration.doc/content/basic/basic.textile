@@ -1,3 +1,4 @@
+{toc}
 
 h1. Introduction
 
