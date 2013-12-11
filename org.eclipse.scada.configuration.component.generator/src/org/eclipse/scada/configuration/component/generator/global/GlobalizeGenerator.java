@@ -48,6 +48,8 @@ public class GlobalizeGenerator extends ComponentGenerator implements ItemSource
             {
                 final CreationRequest<SourceItem> req = itemCreator.createImportItem ( this.globalize.getSourceMaster (), entry.getValue ().getItem ().getName () );
                 req.request ( entry.getValue ().getCustomizationRequest () );
+                req.addCustomizationTags ( "globalized" );
+                req.incrementGlobalizationLevel ();
 
                 // override the local tags with the original local tags, not the modified ones
                 req.localTags ( entry.getKey () );

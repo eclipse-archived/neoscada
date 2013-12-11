@@ -34,13 +34,21 @@ public class CustomizationRequest
 
     private final Object component;
 
-    public CustomizationRequest ( final Object component, final Item item, final List<String> hierarchy, final List<String> localTags, final Set<String> customizationTags )
+    private final int globalizationLevel;
+
+    public CustomizationRequest ( final Object component, final Item item, final List<String> hierarchy, final List<String> localTags, final Set<String> customizationTags, final int globalizationLevel )
     {
         this.component = component;
         this.item = item;
         this.hierarchy = Collections.unmodifiableList ( new ArrayList<> ( hierarchy ) );
         this.localTags = new LinkedList<> ( localTags );
         this.customizationTags = new HashSet<> ( customizationTags );
+        this.globalizationLevel = globalizationLevel;
+    }
+
+    public int getGlobalizationLevel ()
+    {
+        return this.globalizationLevel;
     }
 
     public Object getComponent ()

@@ -38,6 +38,8 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
 
     private final Set<MasterListener<T>> masterListeners = new HashSet<> ();
 
+    private int globalizationLevel = 1;
+
     public AbstractCreationRequest ( final Object component, final List<String> hierarchy )
     {
         this.component = component;
@@ -120,10 +122,32 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
     }
 
     @Override
+    public CreationRequest<T> addCustomizationTags ( final String... tags )
+    {
+        if ( tags != null )
+        {
+            this.customizationTags.addAll ( Arrays.asList ( tags ) );
+        }
+        return this;
+    }
+
+    @Override
+    public CreationRequest<T> addCustomizationTags ( final Collection<String> tags )
+    {
+        if ( tags != null )
+        {
+            this.customizationTags.addAll ( tags );
+        }
+        return this;
+    }
+
+    @Override
     public CreationRequest<T> request ( final CustomizationRequest request )
     {
         customizationTags ( request.getCustomizationTags () );
         localTags ( request.getLocalTags () );
+
+        this.globalizationLevel = request.getGlobalizationLevel ();
 
         if ( request.getItem ().getInformation () != null )
         {
@@ -134,10 +158,23 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
         return this;
     }
 
+    @Override
+    public CreationRequest<T> incrementGlobalizationLevel ()
+    {
+        this.globalizationLevel++;
+        return this;
+    }
+
+    @Override
+    public int getGlobalizationLevel ()
+    {
+        return this.globalizationLevel;
+    }
+
     public CustomizationRequest buildRequest ( final Item item )
     {
         item.setInformation ( this.itemInformation );
-        return new CustomizationRequest ( this.component, item, this.hierarchy, this.localTags, this.customizationTags );
+        return new CustomizationRequest ( this.component, item, this.hierarchy, this.localTags, this.customizationTags, this.globalizationLevel );
     }
 
     @Override
