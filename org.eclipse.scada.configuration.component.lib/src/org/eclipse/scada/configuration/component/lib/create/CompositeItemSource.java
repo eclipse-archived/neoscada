@@ -8,12 +8,9 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.ui.component;
+package org.eclipse.scada.configuration.component.lib.create;
 
 import java.util.Set;
-
-import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
-import org.eclipse.scada.configuration.component.lib.create.ItemSource;
 
 public class CompositeItemSource implements ItemSource
 {

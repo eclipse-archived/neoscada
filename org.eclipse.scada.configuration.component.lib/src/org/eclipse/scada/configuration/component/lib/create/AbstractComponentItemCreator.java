@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.component.Components;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
+import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
@@ -168,4 +169,11 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
         return addItem ( item );
     }
 
+    @Override
+    public CreationRequest<SourceItem> createImportItem ( final MasterImport masterImport, final String sourceName )
+    {
+        final SourceItem item = OsgiFactory.eINSTANCE.createSourceItem ();
+        item.setSourceName ( sourceName );
+        return addItem ( item );
+    }
 }

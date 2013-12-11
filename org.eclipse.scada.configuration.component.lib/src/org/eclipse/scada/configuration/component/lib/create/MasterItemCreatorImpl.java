@@ -112,4 +112,5 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
             handler.interceptItem ( item, i, masterContext );
         }
     }
+
 }

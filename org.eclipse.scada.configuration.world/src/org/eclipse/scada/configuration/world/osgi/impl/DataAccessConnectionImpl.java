@@ -70,6 +70,7 @@ public class DataAccessConnectionImpl extends ConnectionImpl implements DataAcce
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String makeUri ( final boolean localhost )
     {
         return super.makeBasicUri ( localhost, "da", "ngp" );

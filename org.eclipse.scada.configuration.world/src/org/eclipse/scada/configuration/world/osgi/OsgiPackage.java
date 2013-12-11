@@ -270,13 +270,22 @@ public interface OsgiPackage extends EPackage
     int CONNECTION___MAKE_URI__BOOLEAN = WorldPackage.DOCUMENTABLE_OPERATION_COUNT + 2;
 
     /**
+     * The operation id for the '<em>Get Matching Endpoint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = WorldPackage.DOCUMENTABLE_OPERATION_COUNT + 3;
+
+    /**
      * The number of operations of the '<em>Connection</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONNECTION_OPERATION_COUNT = WorldPackage.DOCUMENTABLE_OPERATION_COUNT + 3;
+    int CONNECTION_OPERATION_COUNT = WorldPackage.DOCUMENTABLE_OPERATION_COUNT + 4;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExporterImpl <em>Exporter</em>}' class.
@@ -423,6 +432,15 @@ public interface OsgiPackage extends EPackage
      * @ordered
      */
     int DATA_ACCESS_CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER = CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER;
+
+    /**
+     * The operation id for the '<em>Get Matching Endpoint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_ACCESS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER;
 
     /**
      * The operation id for the '<em>Get Type Tag</em>' operation.
@@ -4825,6 +4843,15 @@ public interface OsgiPackage extends EPackage
     int ALARMS_EVENTS_CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER = CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER;
 
     /**
+     * The operation id for the '<em>Get Matching Endpoint</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ALARMS_EVENTS_CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER;
+
+    /**
      * The operation id for the '<em>Get Type Tag</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6485,6 +6512,16 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EOperation getConnection__MakeUri__boolean ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getMatchingEndpoint(org.eclipse.scada.configuration.world.osgi.Exporter) <em>Get Matching Endpoint</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Matching Endpoint</em>' operation.
+     * @see org.eclipse.scada.configuration.world.osgi.Connection#getMatchingEndpoint(org.eclipse.scada.configuration.world.osgi.Exporter)
+     * @generated
+     */
+    EOperation getConnection__GetMatchingEndpoint__Exporter ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.Exporter <em>Exporter</em>}'.
@@ -9699,6 +9736,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EOperation CONNECTION___MAKE_URI__BOOLEAN = eINSTANCE.getConnection__MakeUri__boolean ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Matching Endpoint</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER = eINSTANCE.getConnection__GetMatchingEndpoint__Exporter ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExporterImpl <em>Exporter</em>}' class.

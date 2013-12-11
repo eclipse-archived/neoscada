@@ -221,5 +221,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//DataComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//DataComponent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
   </eClassifiers>
 </ecore:EPackage>

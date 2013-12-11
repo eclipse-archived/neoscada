@@ -1032,6 +1032,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getConnection__GetMatchingEndpoint__Exporter ()
+    {
+        return connectionEClass.getEOperations ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getExporter ()
     {
@@ -4234,6 +4244,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEOperation ( connectionEClass, CONNECTION___GET_TYPE_TAG );
         createEOperation ( connectionEClass, CONNECTION___GET_POSSIBLE_ENDPOINTS__EXPORTER );
         createEOperation ( connectionEClass, CONNECTION___MAKE_URI__BOOLEAN );
+        createEOperation ( connectionEClass, CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER );
 
         exporterEClass = createEClass ( EXPORTER );
         createEReference ( exporterEClass, EXPORTER__ENDPOINTS );
@@ -4744,6 +4755,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         op = initEOperation ( getConnection__MakeUri__boolean (), ecorePackage.getEString (), "makeUri", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
         addEParameter ( op, ecorePackage.getEBoolean (), "localhost", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        op = initEOperation ( getConnection__GetMatchingEndpoint__Exporter (), theWorldPackage.getEndpoint (), "getMatchingEndpoint", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, this.getExporter (), "exporter", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( exporterEClass, Exporter.class, "Exporter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExporter_Endpoints (), theWorldPackage.getEndpoint (), null, "endpoints", null, 0, -1, Exporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

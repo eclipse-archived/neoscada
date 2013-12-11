@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Runner (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.generator.component;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.eclipse.scada.configuration.generator.component.ComponentGeneratorPlugin
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.configuration.generator.component;version="0.1.0";
   uses:="org.eclipse.core.runtime,

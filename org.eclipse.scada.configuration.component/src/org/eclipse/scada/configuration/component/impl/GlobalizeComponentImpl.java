@@ -13,15 +13,19 @@ package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
+import org.eclipse.scada.configuration.infrastructure.MasterImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +35,7 @@ import org.eclipse.scada.configuration.component.GlobalizeComponent;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster <em>Source Master</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +52,16 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
      * @ordered
      */
     protected EList<DataComponent> components;
+
+    /**
+     * The cached value of the '{@link #getSourceMaster() <em>Source Master</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSourceMaster()
+     * @generated
+     * @ordered
+     */
+    protected MasterImport sourceMaster;
 
     /**
      * <!-- begin-user-doc -->
@@ -88,6 +103,49 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
      * <!-- end-user-doc -->
      * @generated
      */
+    public MasterImport getSourceMaster ()
+    {
+        if ( sourceMaster != null && sourceMaster.eIsProxy () )
+        {
+            InternalEObject oldSourceMaster = (InternalEObject)sourceMaster;
+            sourceMaster = (MasterImport)eResolveProxy ( oldSourceMaster );
+            if ( sourceMaster != oldSourceMaster )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, sourceMaster ) );
+            }
+        }
+        return sourceMaster;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MasterImport basicGetSourceMaster ()
+    {
+        return sourceMaster;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSourceMaster ( MasterImport newSourceMaster )
+    {
+        MasterImport oldSourceMaster = sourceMaster;
+        sourceMaster = newSourceMaster;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, sourceMaster ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -95,6 +153,10 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
         {
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return getComponents ();
+            case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
+                if ( resolve )
+                    return getSourceMaster ();
+                return basicGetSourceMaster ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -114,6 +176,9 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
                 getComponents ().clear ();
                 getComponents ().addAll ( (Collection<? extends DataComponent>)newValue );
                 return;
+            case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
+                setSourceMaster ( (MasterImport)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -131,6 +196,9 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 getComponents ().clear ();
                 return;
+            case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
+                setSourceMaster ( (MasterImport)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -147,6 +215,8 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
         {
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return components != null && !components.isEmpty ();
+            case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
+                return sourceMaster != null;
         }
         return super.eIsSet ( featureID );
     }

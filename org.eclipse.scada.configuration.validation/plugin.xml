@@ -127,5 +127,30 @@
             </constraint>
          </constraints>
       </constraintProvider>
+      
+        <constraintProvider
+            cache="true"
+            mode="Batch">
+         <package
+               namespaceUri="http://eclipse.org/SCADA/Configuration/Component">
+         </package>
+         <constraints
+               categories="org.eclipse.scada.configuration">
+            <constraint
+                  class="org.eclipse.scada.configuration.validation.component.GlobalizationValidation"
+                  id="org.eclipse.scada.configuration.validation.component.Globalization"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Globalization"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  message body text
+               </message>
+            </constraint>
+         </constraints>
+      </constraintProvider>
+      
   </extension>
 </plugin>

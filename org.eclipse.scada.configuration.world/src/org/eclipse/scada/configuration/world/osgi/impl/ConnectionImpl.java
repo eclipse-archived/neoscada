@@ -171,6 +171,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getShortDescription ()
     {
         return shortDescription;
@@ -181,6 +182,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setShortDescription ( String newShortDescription )
     {
         String oldShortDescription = shortDescription;
@@ -194,6 +196,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName ()
     {
         return name;
@@ -204,6 +207,7 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName ( String newName )
     {
         String oldName = name;
@@ -402,7 +406,6 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public EList<Endpoint> getPossibleEndpoints ( Exporter exporter )
     {
         // TODO: implement this method
@@ -569,8 +572,24 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container implem
                 return getPossibleEndpoints ( (Exporter)arguments.get ( 0 ) );
             case OsgiPackage.CONNECTION___MAKE_URI__BOOLEAN:
                 return makeUri ( (Boolean)arguments.get ( 0 ) );
+            case OsgiPackage.CONNECTION___GET_MATCHING_ENDPOINT__EXPORTER:
+                return getMatchingEndpoint ( (Exporter)arguments.get ( 0 ) );
         }
         return super.eInvoke ( operationID, arguments );
+    }
+
+    @Override
+    public Endpoint getMatchingEndpoint ( final Exporter exporter )
+    {
+        final EList<Endpoint> result = getPossibleEndpoints ( exporter );
+        if ( result.contains ( getEndpoint () ) )
+        {
+            return getEndpoint ();
+        }
+        else
+        {
+            return null;
+        }
     }
 
     /**

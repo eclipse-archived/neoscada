@@ -2391,13 +2391,22 @@ public interface ComponentPackage extends EPackage
     int GLOBALIZE_COMPONENT__COMPONENTS = DATA_COMPONENT_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Source Master</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__SOURCE_MASTER = DATA_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Globalize Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 1;
+    int GLOBALIZE_COMPONENT_FEATURE_COUNT = DATA_COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Globalize Component</em>' class.
@@ -3519,6 +3528,17 @@ public interface ComponentPackage extends EPackage
     EReference getGlobalizeComponent_Components ();
 
     /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getSourceMaster <em>Source Master</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Source Master</em>'.
+     * @see org.eclipse.scada.configuration.component.GlobalizeComponent#getSourceMaster()
+     * @see #getGlobalizeComponent()
+     * @generated
+     */
+    EReference getGlobalizeComponent_SourceMaster ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4456,6 +4476,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference GLOBALIZE_COMPONENT__COMPONENTS = eINSTANCE.getGlobalizeComponent_Components ();
+
+        /**
+         * The meta object literal for the '<em><b>Source Master</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GLOBALIZE_COMPONENT__SOURCE_MASTER = eINSTANCE.getGlobalizeComponent_SourceMaster ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

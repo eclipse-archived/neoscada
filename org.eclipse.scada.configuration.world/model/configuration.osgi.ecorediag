@@ -44,6 +44,10 @@
         <element xmi:type="ecore:EOperation" href="configuration.ecore#//osgi/Connection/getPossibleEndpoints"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_lwKV4e0oEeKQYeFaFmhbgg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_WHiRoGJMEeO0k-m0GB1KNg" type="2002">
+        <element xmi:type="ecore:EOperation" href="configuration.ecore#//osgi/Connection/getMatchingEndpoint"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_WHiRoWJMEeO0k-m0GB1KNg"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_ix2bkO0xEeKQYeFaFmhbgg" type="2002">
         <element xmi:type="ecore:EOperation" href="configuration.ecore#//osgi/Connection/makeUri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ix2bke0xEeKQYeFaFmhbgg"/>

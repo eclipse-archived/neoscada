@@ -27,8 +27,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.generator.GenerationContext;
 import org.eclipse.scada.configuration.generator.Generator;
 import org.eclipse.scada.configuration.generator.GeneratorContext;
+import org.eclipse.scada.configuration.generator.GeneratorPlugin;
 import org.eclipse.scada.configuration.generator.PreparationContext;
-import org.eclipse.scada.configuration.generator.component.ComponentGeneratorPlugin;
 import org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,7 +93,7 @@ public class GeneratorProcessor
         while ( ti.hasNext () )
         {
             final Object source = ti.next ();
-            final Set<Generator> gens = ComponentGeneratorPlugin.createGeneratorsFor ( source );
+            final Set<Generator> gens = GeneratorPlugin.createGeneratorsFor ( source );
             if ( !gens.isEmpty () )
             {
                 generatorMap.put ( source, gens );

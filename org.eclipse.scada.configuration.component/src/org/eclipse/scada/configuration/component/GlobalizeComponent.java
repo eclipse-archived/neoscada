@@ -12,6 +12,7 @@
 package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.scada.configuration.infrastructure.MasterImport;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getComponents <em>Components</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getSourceMaster <em>Source Master</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,5 +48,31 @@ public interface GlobalizeComponent extends DataComponent
      * @generated
      */
     EList<DataComponent> getComponents ();
+
+    /**
+     * Returns the value of the '<em><b>Source Master</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Source Master</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Source Master</em>' reference.
+     * @see #setSourceMaster(MasterImport)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getGlobalizeComponent_SourceMaster()
+     * @model required="true"
+     * @generated
+     */
+    MasterImport getSourceMaster ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.GlobalizeComponent#getSourceMaster <em>Source Master</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Source Master</em>' reference.
+     * @see #getSourceMaster()
+     * @generated
+     */
+    void setSourceMaster ( MasterImport value );
 
 } // GlobalizeComponent

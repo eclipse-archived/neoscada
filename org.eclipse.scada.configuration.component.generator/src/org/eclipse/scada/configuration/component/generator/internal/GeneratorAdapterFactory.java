@@ -16,9 +16,11 @@ import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.ExternalValue;
+import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.PersistentValue;
 import org.eclipse.scada.configuration.component.generator.connection.DriverConnectionAnalyzerGenerator;
+import org.eclipse.scada.configuration.component.generator.global.GlobalizeGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperAnalyzerGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperServiceGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.MappedSourceValueGenerator;
@@ -65,6 +67,10 @@ public class GeneratorAdapterFactory implements IAdapterFactory
         else if ( adaptableObject instanceof MappedSourceValue )
         {
             return new MappedSourceValueGenerator ( (MappedSourceValue)adaptableObject );
+        }
+        else if ( adaptableObject instanceof GlobalizeComponent )
+        {
+            return new GlobalizeGenerator ( (GlobalizeComponent)adaptableObject );
         }
         return null;
     }

@@ -67,6 +67,7 @@ public class GlobalizeComponentItemProvider
             super.getPropertyDescriptors ( object );
 
             addComponentsPropertyDescriptor ( object );
+            addSourceMasterPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,6 +87,29 @@ public class GlobalizeComponentItemProvider
                         getString ( "_UI_GlobalizeComponent_components_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_GlobalizeComponent_components_feature", "_UI_GlobalizeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         ComponentPackage.Literals.GLOBALIZE_COMPONENT__COMPONENTS,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Source Master feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSourceMasterPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_GlobalizeComponent_sourceMaster_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_GlobalizeComponent_sourceMaster_feature", "_UI_GlobalizeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.GLOBALIZE_COMPONENT__SOURCE_MASTER,
                         true,
                         false,
                         true,

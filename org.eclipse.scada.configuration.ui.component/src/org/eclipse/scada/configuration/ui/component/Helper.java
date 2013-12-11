@@ -12,7 +12,6 @@ package org.eclipse.scada.configuration.ui.component;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,13 +25,11 @@ import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.generator.util.Components;
 import org.eclipse.scada.configuration.component.lib.create.AbstractComponentItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.ItemSource;
+import org.eclipse.scada.configuration.component.lib.create.ItemSources;
 import org.eclipse.scada.configuration.component.lib.create.MasterListener;
-import org.eclipse.scada.configuration.generator.Generator;
-import org.eclipse.scada.configuration.generator.component.ComponentGeneratorPlugin;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.world.osgi.Item;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -209,7 +206,7 @@ public class Helper
 
     private static Map<List<String>, Item> createOutputFor ( final DataComponent dc, final MasterServer master )
     {
-        final ItemSource source = createItemSource ( dc );
+        final ItemSource source = ItemSources.createItemSource ( dc );
         if ( source == null )
         {
             return Collections.emptyMap ();
@@ -225,30 +222,4 @@ public class Helper
         return entries;
     }
 
-    public static ItemSource createItemSource ( final DataComponent dc )
-    {
-        final ItemSource itemSource = AdapterHelper.adapt ( dc, ItemSource.class );
-        if ( itemSource != null )
-        {
-            return itemSource;
-        }
-
-        final Set<Generator> generators = ComponentGeneratorPlugin.createGeneratorsFor ( dc );
-        final Set<ItemSource> sources = new HashSet<> ();
-
-        for ( final Generator generator : generators )
-        {
-            final ItemSource source = AdapterHelper.adapt ( generator, ItemSource.class );
-            if ( source != null )
-            {
-                sources.add ( source );
-            }
-        }
-
-        if ( sources.isEmpty () )
-        {
-            return null;
-        }
-        return new CompositeItemSource ( sources );
-    }
 }

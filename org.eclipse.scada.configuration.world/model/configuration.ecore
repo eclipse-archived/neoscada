@@ -120,6 +120,9 @@
       <eOperations name="makeUri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
+      <eOperations name="getMatchingEndpoint" eType="#//Endpoint">
+        <eParameters name="exporter" eType="#//osgi/Exporter"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
           eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

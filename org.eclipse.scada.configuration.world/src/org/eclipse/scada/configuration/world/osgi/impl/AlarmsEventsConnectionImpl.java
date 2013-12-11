@@ -70,6 +70,7 @@ public class AlarmsEventsConnectionImpl extends ConnectionImpl implements Alarms
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String makeUri ( final boolean localhost )
     {
         return super.makeBasicUri ( localhost, "ae", "ngp" );

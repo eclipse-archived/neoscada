@@ -119,6 +119,21 @@ public abstract class AbstractCreationRequest<T extends Item> implements Creatio
         return this;
     }
 
+    @Override
+    public CreationRequest<T> request ( final CustomizationRequest request )
+    {
+        customizationTags ( request.getCustomizationTags () );
+        localTags ( request.getLocalTags () );
+
+        if ( request.getItem ().getInformation () != null )
+        {
+            this.itemInformation.setDataType ( request.getItem ().getInformation ().getDataType () );
+            this.itemInformation.setDescription ( request.getItem ().getInformation ().getDescription () );
+            this.itemInformation.setSystem ( request.getItem ().getInformation ().getSystem () );
+        }
+        return this;
+    }
+
     public CustomizationRequest buildRequest ( final Item item )
     {
         item.setInformation ( this.itemInformation );

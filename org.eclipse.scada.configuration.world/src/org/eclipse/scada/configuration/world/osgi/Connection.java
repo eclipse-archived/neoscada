@@ -81,8 +81,8 @@ public interface Connection extends Documentable
      * Returns the value of the '<em><b>Credentials</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Credentials</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Credentials</em>' reference isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Credentials</em>' containment reference.
@@ -107,8 +107,8 @@ public interface Connection extends Documentable
      * Returns the value of the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Timeout</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Timeout</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Timeout</em>' attribute.
@@ -152,5 +152,13 @@ public interface Connection extends Documentable
      * @generated
      */
     String makeUri ( boolean localhost );
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model
+     * @generated
+     */
+    Endpoint getMatchingEndpoint ( Exporter exporter );
 
 } // Connection
