@@ -207,7 +207,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="SummariesConfiguration" eSuperTypes="#//Configuration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemThreshold" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemInterceptors" upperBound="-1"
         eType="#//ItemInterceptor" containment="true"/>

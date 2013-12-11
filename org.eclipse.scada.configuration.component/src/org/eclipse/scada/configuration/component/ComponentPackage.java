@@ -2272,13 +2272,22 @@ public interface ComponentPackage extends EPackage
     int ITEM_INTERCEPTOR = 32;
 
     /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_INTERCEPTOR__MASTER_ON = 0;
+
+    /**
      * The number of structural features of the '<em>Item Interceptor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR_FEATURE_COUNT = 0;
+    int ITEM_INTERCEPTOR_FEATURE_COUNT = 1;
 
     /**
      * The number of operations of the '<em>Item Interceptor</em>' class.
@@ -2298,6 +2307,15 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     int REST_INTERCEPTOR = 34;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR__MASTER_ON = ITEM_INTERCEPTOR__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Selector</b></em>' containment reference.
@@ -3454,6 +3472,17 @@ public interface ComponentPackage extends EPackage
     EClass getItemInterceptor ();
 
     /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn <em>Master On</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Master On</em>'.
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn()
+     * @see #getItemInterceptor()
+     * @generated
+     */
+    EReference getItemInterceptor_MasterOn ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.Container <em>Container</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4414,6 +4443,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EClass ITEM_INTERCEPTOR = eINSTANCE.getItemInterceptor ();
+
+        /**
+         * The meta object literal for the '<em><b>Master On</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM_INTERCEPTOR__MASTER_ON = eINSTANCE.getItemInterceptor_MasterOn ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ContainerImpl <em>Container</em>}' class.

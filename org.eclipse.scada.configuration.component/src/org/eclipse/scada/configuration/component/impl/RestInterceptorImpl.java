@@ -11,17 +11,21 @@
  */
 package org.eclipse.scada.configuration.component.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.RestInterceptor;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.item.Selector;
 
@@ -32,6 +36,7 @@ import org.eclipse.scada.configuration.item.Selector;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getSelector <em>Selector</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl#getDefinition <em>Definition</em>}</li>
  * </ul>
@@ -41,6 +46,16 @@ import org.eclipse.scada.configuration.item.Selector;
  */
 public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements RestInterceptor
 {
+    /**
+     * The cached value of the '{@link #getMasterOn() <em>Master On</em>}' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMasterOn()
+     * @generated
+     * @ordered
+     */
+    protected EList<MasterServer> masterOn;
+
     /**
      * The cached value of the '{@link #getSelector() <em>Selector</em>}' containment reference.
      * <!-- begin-user-doc -->
@@ -80,6 +95,20 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     protected EClass eStaticClass ()
     {
         return ComponentPackage.Literals.REST_INTERCEPTOR;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<MasterServer> getMasterOn ()
+    {
+        if ( masterOn == null )
+        {
+            masterOn = new EObjectResolvingEList<MasterServer> ( MasterServer.class, this, ComponentPackage.REST_INTERCEPTOR__MASTER_ON );
+        }
+        return masterOn;
     }
 
     /**
@@ -231,6 +260,8 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
+            case ComponentPackage.REST_INTERCEPTOR__MASTER_ON:
+                return getMasterOn ();
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 if ( resolve )
                     return getSelector ();
@@ -248,11 +279,16 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
+            case ComponentPackage.REST_INTERCEPTOR__MASTER_ON:
+                getMasterOn ().clear ();
+                getMasterOn ().addAll ( (Collection<? extends MasterServer>)newValue );
+                return;
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 setSelector ( (Selector)newValue );
                 return;
@@ -273,6 +309,9 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
+            case ComponentPackage.REST_INTERCEPTOR__MASTER_ON:
+                getMasterOn ().clear ();
+                return;
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 setSelector ( (Selector)null );
                 return;
@@ -293,6 +332,8 @@ public class RestInterceptorImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
+            case ComponentPackage.REST_INTERCEPTOR__MASTER_ON:
+                return masterOn != null && !masterOn.isEmpty ();
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 return selector != null;
             case ComponentPackage.REST_INTERCEPTOR__DEFINITION:
