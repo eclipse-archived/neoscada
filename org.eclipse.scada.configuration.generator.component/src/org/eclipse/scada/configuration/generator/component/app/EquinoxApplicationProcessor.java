@@ -28,14 +28,14 @@ public abstract class EquinoxApplicationProcessor<App extends EquinoxApplication
 
     @Inject
     @Named ( "componentModel" )
-    protected org.eclipse.scada.configuration.component.System system;
+    protected org.eclipse.scada.configuration.component.ComponentWorld system;
 
     public EquinoxApplicationProcessor ( final Class<App> clazz )
     {
         this.clazz = clazz;
     }
 
-    public EquinoxApplicationProcessor ( final Class<App> clazz, final org.eclipse.scada.configuration.component.System system )
+    public EquinoxApplicationProcessor ( final Class<App> clazz, final org.eclipse.scada.configuration.component.ComponentWorld system )
     {
         this.clazz = clazz;
         this.system = system;

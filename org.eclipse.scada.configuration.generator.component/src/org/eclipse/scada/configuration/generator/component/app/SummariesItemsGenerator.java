@@ -54,7 +54,7 @@ public class SummariesItemsGenerator extends MasterApplicationProcessor
     {
     }
 
-    public SummariesItemsGenerator ( final org.eclipse.scada.configuration.component.System system, final WorldGenerator worldGenerator )
+    public SummariesItemsGenerator ( final org.eclipse.scada.configuration.component.ComponentWorld system, final WorldGenerator worldGenerator )
     {
         super ( system, worldGenerator );
     }

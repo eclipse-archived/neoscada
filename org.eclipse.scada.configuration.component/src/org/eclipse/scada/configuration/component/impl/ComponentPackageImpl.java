@@ -27,6 +27,7 @@ import org.eclipse.scada.configuration.component.ComponentDanglingReference;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.ConstantValue;
 import org.eclipse.scada.configuration.component.DanglingItemReference;
@@ -72,7 +73,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass systemEClass = null;
+    private EClass componentWorldEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -397,9 +398,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSystem ()
+    public EClass getComponentWorld ()
     {
-        return systemEClass;
+        return componentWorldEClass;
     }
 
     /**
@@ -407,9 +408,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_Levels ()
+    public EReference getComponentWorld_Levels ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -417,9 +418,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_Configurations ()
+    public EReference getComponentWorld_Configurations ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -427,9 +428,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_Services ()
+    public EReference getComponentWorld_Services ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -437,9 +438,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_Infrastructure ()
+    public EReference getComponentWorld_Infrastructure ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -447,9 +448,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_DefaultCustomizationPipeline ()
+    public EReference getComponentWorld_DefaultCustomizationPipeline ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -457,9 +458,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSystem_DefaultArchiveSelector ()
+    public EReference getComponentWorld_DefaultArchiveSelector ()
     {
-        return (EReference)systemEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)componentWorldEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -1493,13 +1494,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         isCreated = true;
 
         // Create classes and their features
-        systemEClass = createEClass ( SYSTEM );
-        createEReference ( systemEClass, SYSTEM__LEVELS );
-        createEReference ( systemEClass, SYSTEM__CONFIGURATIONS );
-        createEReference ( systemEClass, SYSTEM__SERVICES );
-        createEReference ( systemEClass, SYSTEM__INFRASTRUCTURE );
-        createEReference ( systemEClass, SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE );
-        createEReference ( systemEClass, SYSTEM__DEFAULT_ARCHIVE_SELECTOR );
+        componentWorldEClass = createEClass ( COMPONENT_WORLD );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__LEVELS );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__CONFIGURATIONS );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__SERVICES );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__INFRASTRUCTURE );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE );
+        createEReference ( componentWorldEClass, COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR );
 
         levelEClass = createEClass ( LEVEL );
         createEReference ( levelEClass, LEVEL__COMPONENTS );
@@ -1675,7 +1676,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        systemEClass.getESuperTypes ().add ( this.getContainer () );
+        componentWorldEClass.getESuperTypes ().add ( this.getContainer () );
         levelEClass.getESuperTypes ().add ( this.getContainer () );
         dataComponentEClass.getESuperTypes ().add ( this.getComponent () );
         constantValueEClass.getESuperTypes ().add ( this.getSingleValue () );
@@ -1708,13 +1709,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( systemEClass, org.eclipse.scada.configuration.component.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getSystem_Levels (), this.getLevel (), null, "levels", null, 0, -1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystem_Configurations (), this.getConfiguration (), null, "configurations", null, 0, -1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystem_Services (), this.getService (), null, "services", null, 0, -1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystem_Infrastructure (), theInfrastructurePackage.getWorld (), null, "infrastructure", null, 1, 1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystem_DefaultCustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "defaultCustomizationPipeline", null, 0, 1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystem_DefaultArchiveSelector (), theItemPackage.getSelector (), null, "defaultArchiveSelector", null, 0, 1, org.eclipse.scada.configuration.component.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Levels (), this.getLevel (), null, "levels", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Configurations (), this.getConfiguration (), null, "configurations", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Services (), this.getService (), null, "services", null, 0, -1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_Infrastructure (), theInfrastructurePackage.getWorld (), null, "infrastructure", null, 1, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_DefaultCustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "defaultCustomizationPipeline", null, 0, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentWorld_DefaultArchiveSelector (), theItemPackage.getSelector (), null, "defaultArchiveSelector", null, 0, 1, ComponentWorld.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( levelEClass, Level.class, "Level", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getLevel_Components (), this.getComponent (), this.getComponent_Level (), "components", null, 0, -1, Level.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

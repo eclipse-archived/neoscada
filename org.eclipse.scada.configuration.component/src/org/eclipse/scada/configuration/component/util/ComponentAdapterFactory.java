@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.CalculationComponent;
@@ -116,9 +117,9 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     protected ComponentSwitch<Adapter> modelSwitch = new ComponentSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseSystem ( org.eclipse.scada.configuration.component.System object )
+        public Adapter caseComponentWorld ( ComponentWorld object )
         {
-            return createSystemAdapter ();
+            return createComponentWorldAdapter ();
         }
 
         @Override
@@ -365,16 +366,16 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.System <em>System</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.eclipse.scada.configuration.component.System
+     * @see org.eclipse.scada.configuration.component.ComponentWorld
      * @generated
      */
-    public Adapter createSystemAdapter ()
+    public Adapter createComponentWorldAdapter ()
     {
         return null;
     }

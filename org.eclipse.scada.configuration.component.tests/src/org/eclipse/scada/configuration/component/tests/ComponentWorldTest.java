@@ -1,25 +1,28 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.tests;
 
 import junit.textui.TestRunner;
+
 import org.eclipse.scada.configuration.component.ComponentFactory;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>System</b></em>'.
+ * A test case for the model object '<em><b>World</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemTest extends ContainerTest
+public class ComponentWorldTest extends ContainerTest
 {
 
     /**
@@ -29,30 +32,30 @@ public class SystemTest extends ContainerTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( SystemTest.class );
+        TestRunner.run ( ComponentWorldTest.class );
     }
 
     /**
-     * Constructs a new System test case with the given name.
+     * Constructs a new World test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemTest ( String name )
+    public ComponentWorldTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this System test case.
+     * Returns the fixture for this World test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected org.eclipse.scada.configuration.component.System getFixture ()
+    protected ComponentWorld getFixture ()
     {
-        return (org.eclipse.scada.configuration.component.System)fixture;
+        return (ComponentWorld)fixture;
     }
 
     /**
@@ -64,7 +67,7 @@ public class SystemTest extends ContainerTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( ComponentFactory.eINSTANCE.createSystem () );
+        setFixture ( ComponentFactory.eINSTANCE.createComponentWorld () );
     }
 
     /**
@@ -79,4 +82,4 @@ public class SystemTest extends ContainerTest
         setFixture ( null );
     }
 
-} //SystemTest
+} //ComponentWorldTest

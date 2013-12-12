@@ -31,13 +31,13 @@ public interface ComponentFactory extends EFactory
     ComponentFactory eINSTANCE = org.eclipse.scada.configuration.component.impl.ComponentFactoryImpl.init ();
 
     /**
-     * Returns a new object of class '<em>System</em>'.
+     * Returns a new object of class '<em>World</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return a new object of class '<em>System</em>'.
+     * @return a new object of class '<em>World</em>'.
      * @generated
      */
-    System createSystem ();
+    ComponentWorld createComponentWorld ();
 
     /**
      * Returns a new object of class '<em>Level</em>'.

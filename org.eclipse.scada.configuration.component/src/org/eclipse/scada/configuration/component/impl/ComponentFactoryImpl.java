@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.CalculationComponent;
@@ -96,8 +97,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         switch ( eClass.getClassifierID () )
         {
-            case ComponentPackage.SYSTEM:
-                return createSystem ();
+            case ComponentPackage.COMPONENT_WORLD:
+                return createComponentWorld ();
             case ComponentPackage.LEVEL:
                 return createLevel ();
             case ComponentPackage.CONSTANT_VALUE:
@@ -188,10 +189,10 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
      * <!-- end-user-doc -->
      * @generated
      */
-    public org.eclipse.scada.configuration.component.System createSystem ()
+    public ComponentWorld createComponentWorld ()
     {
-        SystemImpl system = new SystemImpl ();
-        return system;
+        ComponentWorldImpl componentWorld = new ComponentWorldImpl ();
+        return componentWorld;
     }
 
     /**

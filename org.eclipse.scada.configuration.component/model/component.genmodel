@@ -13,13 +13,13 @@
       childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.component"
       fileExtensions="escm" ecorePackage="component.ecore#/">
     <genDataTypes ecoreDataType="component.ecore#//Notification"/>
-    <genClasses ecoreClass="component.ecore#//System">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//System/levels"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//System/configurations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//System/services"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//System/infrastructure"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//System/defaultCustomizationPipeline"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//System/defaultArchiveSelector"/>
+    <genClasses ecoreClass="component.ecore#//ComponentWorld">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/levels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/services"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/infrastructure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/defaultCustomizationPipeline"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ComponentWorld/defaultArchiveSelector"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//Level">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Level/components"/>
@@ -142,13 +142,19 @@
     <genClasses ecoreClass="component.ecore#//SummariesConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SummariesConfiguration/itemThreshold"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="component.ecore#//ItemInterceptor"/>
+    <genClasses image="false" ecoreClass="component.ecore#//ItemInterceptor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ItemInterceptor/masterOn"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//Container">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//Container/itemInterceptors"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//RestInterceptor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//RestInterceptor/contextId"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//RestInterceptor/selector"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//RestInterceptor/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//GlobalizeComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/components"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/sourceMaster"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

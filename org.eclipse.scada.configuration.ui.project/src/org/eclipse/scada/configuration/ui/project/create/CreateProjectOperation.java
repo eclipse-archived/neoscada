@@ -38,10 +38,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.component.ComponentFactory;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
-import org.eclipse.scada.configuration.component.System;
 import org.eclipse.scada.configuration.component.exec.ExecComponentsFactory;
 import org.eclipse.scada.configuration.component.exec.LoadAverage;
 import org.eclipse.scada.configuration.generator.Profiles;
@@ -134,7 +134,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final Selector globalizeSelector = createSelector ( new Path ( "templates/globalize.isel_js" ) ); //$NON-NLS-1$
 
         final World world = createInfrastructure ( rs, security, masterProfile, hdProfile );
-        final System system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
+        final ComponentWorld system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
         final DeploymentInformation di = createDeploymentInformation ();
 
         final Definition defaultRecipe = RecipeBuilder.createDefaultRecipe ();
@@ -309,9 +309,9 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         world.getOptions ().setDefaultUserService ( service );
     }
 
-    private System createComponents ( final World world, final CustomizationPipeline pipeline, final Selector archiveSelector, final Selector globalizeSelector )
+    private org.eclipse.scada.configuration.component.ComponentWorld createComponents ( final World world, final CustomizationPipeline pipeline, final Selector archiveSelector, final Selector globalizeSelector )
     {
-        final System system = ComponentFactory.eINSTANCE.createSystem ();
+        final ComponentWorld system = ComponentFactory.eINSTANCE.createComponentWorld ();
 
         system.setInfrastructure ( world );
 
@@ -365,7 +365,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         return null;
     }
 
-    private Level makeLevel ( final System system, final List<String> hier, final String... subs )
+    private Level makeLevel ( final org.eclipse.scada.configuration.component.ComponentWorld system, final List<String> hier, final String... subs )
     {
         if ( hier.isEmpty () )
         {

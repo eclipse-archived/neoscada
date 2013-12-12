@@ -14,8 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.scada.configuration.component.Component;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Level;
-import org.eclipse.scada.configuration.component.System;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.item.CustomizationRunner;
@@ -35,15 +35,15 @@ public final class Components
 
         pipelines.add ( component.getCustomizationPipeline () );
 
-        System system = null;
+        ComponentWorld system = null;
         Level currentLevel = component.getLevel ();
         while ( currentLevel != null )
         {
             pipelines.add ( currentLevel.getCustomizationPipeline () );
-            if ( currentLevel.getParent () == null && currentLevel.eContainer () instanceof System )
+            if ( currentLevel.getParent () == null && currentLevel.eContainer () instanceof ComponentWorld )
             {
                 // we found to root of all
-                system = (System)currentLevel.eContainer ();
+                system = (ComponentWorld)currentLevel.eContainer ();
             }
             currentLevel = currentLevel.getParent ();
         }
@@ -62,15 +62,15 @@ public final class Components
 
         selectors.add ( component.getArchiveSelector () );
 
-        System system = null;
+        ComponentWorld system = null;
         Level currentLevel = component.getLevel ();
         while ( currentLevel != null )
         {
             selectors.add ( currentLevel.getArchiveSelector () );
-            if ( currentLevel.getParent () == null && currentLevel.eContainer () instanceof System )
+            if ( currentLevel.getParent () == null && currentLevel.eContainer () instanceof ComponentWorld )
             {
                 // we found to root of all
-                system = (System)currentLevel.eContainer ();
+                system = (ComponentWorld)currentLevel.eContainer ();
             }
             currentLevel = currentLevel.getParent ();
         }

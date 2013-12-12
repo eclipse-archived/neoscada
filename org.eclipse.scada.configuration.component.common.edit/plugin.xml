@@ -34,5 +34,4 @@
             uri="http://eclipse.org/SCADA/Configuration/Component"
             class="org.eclipse.scada.configuration.component.common.provider.CommonItemProviderAdapterFactory$ComponentChildCreationExtender"/>
    </extension>
-
 </plugin>

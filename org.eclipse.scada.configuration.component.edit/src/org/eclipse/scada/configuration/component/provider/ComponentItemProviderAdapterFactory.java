@@ -102,28 +102,28 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.System} instances.
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.ComponentWorld} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SystemItemProvider systemItemProvider;
+    protected ComponentWorldItemProvider componentWorldItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.System}.
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.ComponentWorld}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    public Adapter createSystemAdapter ()
+    public Adapter createComponentWorldAdapter ()
     {
-        if ( systemItemProvider == null )
+        if ( componentWorldItemProvider == null )
         {
-            systemItemProvider = new SystemItemProvider ( this );
+            componentWorldItemProvider = new ComponentWorldItemProvider ( this );
         }
 
-        return systemItemProvider;
+        return componentWorldItemProvider;
     }
 
     /**
@@ -892,8 +892,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
      */
     public void dispose ()
     {
-        if ( systemItemProvider != null )
-            systemItemProvider.dispose ();
+        if ( componentWorldItemProvider != null )
+            componentWorldItemProvider.dispose ();
         if ( levelItemProvider != null )
             levelItemProvider.dispose ();
         if ( constantValueItemProvider != null )

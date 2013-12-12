@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.component.Component;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Components;
 import org.eclipse.scada.configuration.component.Configuration;
-import org.eclipse.scada.configuration.component.System;
 import org.eclipse.scada.configuration.component.lib.Configurations;
 import org.eclipse.scada.configuration.generator.FinishContext;
 import org.eclipse.scada.configuration.generator.Generator;
@@ -48,14 +48,14 @@ public abstract class ComponentGenerator implements Generator
         return clazz.cast ( EcoreUtil.create ( eClazz ) );
     }
 
-    protected System findSystem ()
+    protected ComponentWorld findSystem ()
     {
         EObject current = this.component.getLevel ();
         while ( current != null )
         {
-            if ( current instanceof System )
+            if ( current instanceof ComponentWorld )
             {
-                return (System)current;
+                return (ComponentWorld)current;
             }
             current = current.eContainer ();
         }

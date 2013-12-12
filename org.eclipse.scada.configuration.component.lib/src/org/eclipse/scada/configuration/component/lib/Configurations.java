@@ -20,7 +20,7 @@ public final class Configurations
     {
     }
 
-    public static <T extends Configuration> T findDefaultConfiguration ( final org.eclipse.scada.configuration.component.System system, final Class<T> clazz )
+    public static <T extends Configuration> T findDefaultConfiguration ( final org.eclipse.scada.configuration.component.ComponentWorld system, final Class<T> clazz )
     {
         final LinkedList<Configuration> candidates = new LinkedList<> ();
 

@@ -28,7 +28,7 @@ public class SummariesCompressor extends MasterApplicationProcessor
     {
     }
 
-    public SummariesCompressor ( final org.eclipse.scada.configuration.component.System system, final WorldGenerator world )
+    public SummariesCompressor ( final org.eclipse.scada.configuration.component.ComponentWorld system, final WorldGenerator world )
     {
         super ( system, world );
     }

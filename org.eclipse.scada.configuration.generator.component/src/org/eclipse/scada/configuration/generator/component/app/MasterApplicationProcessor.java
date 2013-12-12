@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.generator.component.app;
 import javax.inject.Inject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.scada.configuration.component.System;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator;
@@ -29,7 +29,7 @@ public abstract class MasterApplicationProcessor extends EquinoxApplicationProce
         super ( MasterServer.class );
     }
 
-    public MasterApplicationProcessor ( final System system, final WorldGenerator worldGenerator )
+    public MasterApplicationProcessor ( final ComponentWorld system, final WorldGenerator worldGenerator )
     {
         super ( MasterServer.class, system );
         this.worldGenerator = worldGenerator;

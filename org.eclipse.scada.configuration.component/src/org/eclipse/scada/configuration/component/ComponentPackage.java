@@ -115,14 +115,14 @@ public interface ComponentPackage extends EPackage
     int CONTAINER_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.SystemImpl <em>System</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl <em>World</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.component.impl.SystemImpl
-     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getSystem()
+     * @see org.eclipse.scada.configuration.component.impl.ComponentWorldImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentWorld()
      * @generated
      */
-    int SYSTEM = 0;
+    int COMPONENT_WORLD = 0;
 
     /**
      * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
@@ -131,7 +131,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
+    int COMPONENT_WORLD__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
 
     /**
      * The feature id for the '<em><b>Levels</b></em>' containment reference list.
@@ -140,7 +140,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__LEVELS = CONTAINER_FEATURE_COUNT + 0;
+    int COMPONENT_WORLD__LEVELS = CONTAINER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
@@ -149,7 +149,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__CONFIGURATIONS = CONTAINER_FEATURE_COUNT + 1;
+    int COMPONENT_WORLD__CONFIGURATIONS = CONTAINER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Services</b></em>' containment reference list.
@@ -158,7 +158,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__SERVICES = CONTAINER_FEATURE_COUNT + 2;
+    int COMPONENT_WORLD__SERVICES = CONTAINER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Infrastructure</b></em>' reference.
@@ -167,7 +167,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__INFRASTRUCTURE = CONTAINER_FEATURE_COUNT + 3;
+    int COMPONENT_WORLD__INFRASTRUCTURE = CONTAINER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Default Customization Pipeline</b></em>' reference.
@@ -176,7 +176,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE = CONTAINER_FEATURE_COUNT + 4;
+    int COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE = CONTAINER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Default Archive Selector</b></em>' reference.
@@ -185,25 +185,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SYSTEM__DEFAULT_ARCHIVE_SELECTOR = CONTAINER_FEATURE_COUNT + 5;
+    int COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR = CONTAINER_FEATURE_COUNT + 5;
 
     /**
-     * The number of structural features of the '<em>System</em>' class.
+     * The number of structural features of the '<em>World</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYSTEM_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 6;
+    int COMPONENT_WORLD_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 6;
 
     /**
-     * The number of operations of the '<em>System</em>' class.
+     * The number of operations of the '<em>World</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
+    int COMPONENT_WORLD_OPERATION_COUNT = CONTAINER_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.LevelImpl <em>Level</em>}' class.
@@ -2455,80 +2455,80 @@ public interface ComponentPackage extends EPackage
     int NOTIFICATION = 36;
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.System <em>System</em>}'.
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for class '<em>System</em>'.
-     * @see org.eclipse.scada.configuration.component.System
+     * @return the meta object for class '<em>World</em>'.
+     * @see org.eclipse.scada.configuration.component.ComponentWorld
      * @generated
      */
-    EClass getSystem ();
+    EClass getComponentWorld ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.System#getLevels <em>Levels</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.ComponentWorld#getLevels <em>Levels</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Levels</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getLevels()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getLevels()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_Levels ();
+    EReference getComponentWorld_Levels ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.System#getConfigurations <em>Configurations</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.ComponentWorld#getConfigurations <em>Configurations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Configurations</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getConfigurations()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getConfigurations()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_Configurations ();
+    EReference getComponentWorld_Configurations ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.System#getServices <em>Services</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.ComponentWorld#getServices <em>Services</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the containment reference list '<em>Services</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getServices()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getServices()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_Services ();
+    EReference getComponentWorld_Services ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.System#getInfrastructure <em>Infrastructure</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ComponentWorld#getInfrastructure <em>Infrastructure</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the reference '<em>Infrastructure</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getInfrastructure()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getInfrastructure()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_Infrastructure ();
+    EReference getComponentWorld_Infrastructure ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.System#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ComponentWorld#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the reference '<em>Default Customization Pipeline</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getDefaultCustomizationPipeline()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getDefaultCustomizationPipeline()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_DefaultCustomizationPipeline ();
+    EReference getComponentWorld_DefaultCustomizationPipeline ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.System#getDefaultArchiveSelector <em>Default Archive Selector</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ComponentWorld#getDefaultArchiveSelector <em>Default Archive Selector</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the reference '<em>Default Archive Selector</em>'.
-     * @see org.eclipse.scada.configuration.component.System#getDefaultArchiveSelector()
-     * @see #getSystem()
+     * @see org.eclipse.scada.configuration.component.ComponentWorld#getDefaultArchiveSelector()
+     * @see #getComponentWorld()
      * @generated
      */
-    EReference getSystem_DefaultArchiveSelector ();
+    EReference getComponentWorld_DefaultArchiveSelector ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.Level <em>Level</em>}'.
@@ -3612,14 +3612,14 @@ public interface ComponentPackage extends EPackage
     interface Literals
     {
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.SystemImpl <em>System</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl <em>World</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.component.impl.SystemImpl
-         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getSystem()
+         * @see org.eclipse.scada.configuration.component.impl.ComponentWorldImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentWorld()
          * @generated
          */
-        EClass SYSTEM = eINSTANCE.getSystem ();
+        EClass COMPONENT_WORLD = eINSTANCE.getComponentWorld ();
 
         /**
          * The meta object literal for the '<em><b>Levels</b></em>' containment reference list feature.
@@ -3627,7 +3627,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__LEVELS = eINSTANCE.getSystem_Levels ();
+        EReference COMPONENT_WORLD__LEVELS = eINSTANCE.getComponentWorld_Levels ();
 
         /**
          * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
@@ -3635,7 +3635,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__CONFIGURATIONS = eINSTANCE.getSystem_Configurations ();
+        EReference COMPONENT_WORLD__CONFIGURATIONS = eINSTANCE.getComponentWorld_Configurations ();
 
         /**
          * The meta object literal for the '<em><b>Services</b></em>' containment reference list feature.
@@ -3643,7 +3643,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__SERVICES = eINSTANCE.getSystem_Services ();
+        EReference COMPONENT_WORLD__SERVICES = eINSTANCE.getComponentWorld_Services ();
 
         /**
          * The meta object literal for the '<em><b>Infrastructure</b></em>' reference feature.
@@ -3651,7 +3651,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__INFRASTRUCTURE = eINSTANCE.getSystem_Infrastructure ();
+        EReference COMPONENT_WORLD__INFRASTRUCTURE = eINSTANCE.getComponentWorld_Infrastructure ();
 
         /**
          * The meta object literal for the '<em><b>Default Customization Pipeline</b></em>' reference feature.
@@ -3659,7 +3659,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE = eINSTANCE.getSystem_DefaultCustomizationPipeline ();
+        EReference COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE = eINSTANCE.getComponentWorld_DefaultCustomizationPipeline ();
 
         /**
          * The meta object literal for the '<em><b>Default Archive Selector</b></em>' reference feature.
@@ -3667,7 +3667,7 @@ public interface ComponentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference SYSTEM__DEFAULT_ARCHIVE_SELECTOR = eINSTANCE.getSystem_DefaultArchiveSelector ();
+        EReference COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR = eINSTANCE.getComponentWorld_DefaultArchiveSelector ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.LevelImpl <em>Level</em>}' class.

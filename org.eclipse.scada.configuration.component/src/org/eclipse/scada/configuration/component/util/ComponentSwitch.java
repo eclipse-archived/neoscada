@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.CalculationComponent;
@@ -115,12 +116,12 @@ public class ComponentSwitch<T> extends Switch<T>
     {
         switch ( classifierID )
         {
-            case ComponentPackage.SYSTEM:
+            case ComponentPackage.COMPONENT_WORLD:
             {
-                org.eclipse.scada.configuration.component.System system = (org.eclipse.scada.configuration.component.System)theEObject;
-                T result = caseSystem ( system );
+                ComponentWorld componentWorld = (ComponentWorld)theEObject;
+                T result = caseComponentWorld ( componentWorld );
                 if ( result == null )
-                    result = caseContainer ( system );
+                    result = caseContainer ( componentWorld );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -505,17 +506,17 @@ public class ComponentSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>System</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>World</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>System</em>'.
+     * @return the result of interpreting the object as an instance of '<em>World</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSystem ( org.eclipse.scada.configuration.component.System object )
+    public T caseComponentWorld ( ComponentWorld object )
     {
         return null;
     }

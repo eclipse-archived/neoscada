@@ -1,20 +1,24 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,16 +27,25 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.System} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentWorld} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemItemProvider extends ContainerItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class ComponentWorldItemProvider
+        extends ContainerItemProvider
+        implements
+        IEditingDomainItemProvider,
+        IStructuredItemContentProvider,
+        ITreeItemContentProvider,
+        IItemLabelProvider,
+        IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -40,7 +53,7 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
-    public SystemItemProvider ( AdapterFactory adapterFactory )
+    public ComponentWorldItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -77,9 +90,9 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_System_infrastructure_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_System_infrastructure_feature", "_UI_System_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.SYSTEM__INFRASTRUCTURE,
+                        getString ( "_UI_ComponentWorld_infrastructure_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_infrastructure_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.COMPONENT_WORLD__INFRASTRUCTURE,
                         true,
                         false,
                         true,
@@ -100,9 +113,9 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_System_defaultCustomizationPipeline_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_System_defaultCustomizationPipeline_feature", "_UI_System_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE,
+                        getString ( "_UI_ComponentWorld_defaultCustomizationPipeline_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultCustomizationPipeline_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE,
                         true,
                         false,
                         true,
@@ -123,9 +136,9 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_System_defaultArchiveSelector_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_System_defaultArchiveSelector_feature", "_UI_System_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.SYSTEM__DEFAULT_ARCHIVE_SELECTOR,
+                        getString ( "_UI_ComponentWorld_defaultArchiveSelector_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultArchiveSelector_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR,
                         true,
                         false,
                         true,
@@ -148,9 +161,9 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ComponentPackage.Literals.SYSTEM__LEVELS );
-            childrenFeatures.add ( ComponentPackage.Literals.SYSTEM__CONFIGURATIONS );
-            childrenFeatures.add ( ComponentPackage.Literals.SYSTEM__SERVICES );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__LEVELS );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES );
         }
         return childrenFeatures;
     }
@@ -170,7 +183,7 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
     }
 
     /**
-     * This returns System.gif.
+     * This returns ComponentWorld.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -178,7 +191,7 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/System" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ComponentWorld" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -190,7 +203,7 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_System_type" ); //$NON-NLS-1$
+        return getString ( "_UI_ComponentWorld_type" ); //$NON-NLS-1$
     }
 
     /**
@@ -205,11 +218,11 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( org.eclipse.scada.configuration.component.System.class ) )
+        switch ( notification.getFeatureID ( ComponentWorld.class ) )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -230,37 +243,37 @@ public class SystemItemProvider extends ContainerItemProvider implements IEditin
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__LEVELS,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__LEVELS,
                         ComponentFactory.eINSTANCE.createLevel () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__CONFIGURATIONS,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS,
                         ComponentFactory.eINSTANCE.createMarkerConfiguration () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__CONFIGURATIONS,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS,
                         ComponentFactory.eINSTANCE.createSummariesConfiguration () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__SERVICES,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES,
                         ComponentFactory.eINSTANCE.createDataMapperService () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__SERVICES,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES,
                         ComponentFactory.eINSTANCE.createFormulaModule () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__SERVICES,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES,
                         ComponentFactory.eINSTANCE.createAverageModule () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ComponentPackage.Literals.SYSTEM__SERVICES,
+                ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES,
                         ComponentFactory.eINSTANCE.createScriptModule () ) );
     }
 

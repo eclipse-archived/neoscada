@@ -12,7 +12,6 @@ package org.eclipse.scada.configuration.component.tests;
 
 import java.io.File;
 import java.io.IOException;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -23,6 +22,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.util.ComponentResourceFactoryImpl;
 
 /**
@@ -71,7 +71,7 @@ public class ComponentExample
             try
             {
                 Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.escm" ), ComponentPackage.eCONTENT_TYPE ); //$NON-NLS-1$
-                org.eclipse.scada.configuration.component.System root = ComponentFactory.eINSTANCE.createSystem ();
+                ComponentWorld root = ComponentFactory.eINSTANCE.createComponentWorld ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );
             }

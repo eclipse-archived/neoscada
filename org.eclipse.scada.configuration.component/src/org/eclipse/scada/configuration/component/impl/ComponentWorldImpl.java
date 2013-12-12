@@ -1,51 +1,61 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.Service;
+
 import org.eclipse.scada.configuration.infrastructure.World;
+
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>System</b></em>'.
+ * An implementation of the model object '<em><b>World</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getLevels <em>Levels</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getConfigurations <em>Configurations</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getServices <em>Services</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getInfrastructure <em>Infrastructure</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.SystemImpl#getDefaultArchiveSelector <em>Default Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getLevels <em>Levels</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getInfrastructure <em>Infrastructure</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getDefaultCustomizationPipeline <em>Default Customization Pipeline</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentWorldImpl#getDefaultArchiveSelector <em>Default Archive Selector</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SystemImpl extends ContainerImpl implements org.eclipse.scada.configuration.component.System
+public class ComponentWorldImpl extends ContainerImpl implements ComponentWorld
 {
     /**
      * The cached value of the '{@link #getLevels() <em>Levels</em>}' containment reference list.
@@ -112,7 +122,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
      * <!-- end-user-doc -->
      * @generated
      */
-    protected SystemImpl ()
+    protected ComponentWorldImpl ()
     {
         super ();
     }
@@ -125,7 +135,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     @Override
     protected EClass eStaticClass ()
     {
-        return ComponentPackage.Literals.SYSTEM;
+        return ComponentPackage.Literals.COMPONENT_WORLD;
     }
 
     /**
@@ -137,7 +147,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         if ( levels == null )
         {
-            levels = new EObjectContainmentEList.Resolving<Level> ( Level.class, this, ComponentPackage.SYSTEM__LEVELS );
+            levels = new EObjectContainmentEList.Resolving<Level> ( Level.class, this, ComponentPackage.COMPONENT_WORLD__LEVELS );
         }
         return levels;
     }
@@ -151,7 +161,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         if ( configurations == null )
         {
-            configurations = new EObjectContainmentEList.Resolving<Configuration> ( Configuration.class, this, ComponentPackage.SYSTEM__CONFIGURATIONS );
+            configurations = new EObjectContainmentEList.Resolving<Configuration> ( Configuration.class, this, ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS );
         }
         return configurations;
     }
@@ -165,7 +175,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         if ( services == null )
         {
-            services = new EObjectContainmentEList.Resolving<Service> ( Service.class, this, ComponentPackage.SYSTEM__SERVICES );
+            services = new EObjectContainmentEList.Resolving<Service> ( Service.class, this, ComponentPackage.COMPONENT_WORLD__SERVICES );
         }
         return services;
     }
@@ -184,7 +194,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
             if ( infrastructure != oldInfrastructure )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SYSTEM__INFRASTRUCTURE, oldInfrastructure, infrastructure ) );
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE, oldInfrastructure, infrastructure ) );
             }
         }
         return infrastructure;
@@ -210,7 +220,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
         World oldInfrastructure = infrastructure;
         infrastructure = newInfrastructure;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SYSTEM__INFRASTRUCTURE, oldInfrastructure, infrastructure ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE, oldInfrastructure, infrastructure ) );
     }
 
     /**
@@ -227,7 +237,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
             if ( defaultCustomizationPipeline != oldDefaultCustomizationPipeline )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE, oldDefaultCustomizationPipeline, defaultCustomizationPipeline ) );
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE, oldDefaultCustomizationPipeline, defaultCustomizationPipeline ) );
             }
         }
         return defaultCustomizationPipeline;
@@ -253,7 +263,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
         CustomizationPipeline oldDefaultCustomizationPipeline = defaultCustomizationPipeline;
         defaultCustomizationPipeline = newDefaultCustomizationPipeline;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE, oldDefaultCustomizationPipeline, defaultCustomizationPipeline ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE, oldDefaultCustomizationPipeline, defaultCustomizationPipeline ) );
     }
 
     /**
@@ -270,7 +280,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
             if ( defaultArchiveSelector != oldDefaultArchiveSelector )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR, oldDefaultArchiveSelector, defaultArchiveSelector ) );
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR, oldDefaultArchiveSelector, defaultArchiveSelector ) );
             }
         }
         return defaultArchiveSelector;
@@ -296,7 +306,7 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
         Selector oldDefaultArchiveSelector = defaultArchiveSelector;
         defaultArchiveSelector = newDefaultArchiveSelector;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR, oldDefaultArchiveSelector, defaultArchiveSelector ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR, oldDefaultArchiveSelector, defaultArchiveSelector ) );
     }
 
     /**
@@ -309,11 +319,11 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         switch ( featureID )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
                 return ( (InternalEList<?>)getLevels () ).basicRemove ( otherEnd, msgs );
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
                 return ( (InternalEList<?>)getConfigurations () ).basicRemove ( otherEnd, msgs );
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 return ( (InternalEList<?>)getServices () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
@@ -329,21 +339,21 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         switch ( featureID )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
                 return getLevels ();
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
                 return getConfigurations ();
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 return getServices ();
-            case ComponentPackage.SYSTEM__INFRASTRUCTURE:
+            case ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE:
                 if ( resolve )
                     return getInfrastructure ();
                 return basicGetInfrastructure ();
-            case ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE:
                 if ( resolve )
                     return getDefaultCustomizationPipeline ();
                 return basicGetDefaultCustomizationPipeline ();
-            case ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR:
                 if ( resolve )
                     return getDefaultArchiveSelector ();
                 return basicGetDefaultArchiveSelector ();
@@ -362,25 +372,25 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         switch ( featureID )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
                 getLevels ().clear ();
                 getLevels ().addAll ( (Collection<? extends Level>)newValue );
                 return;
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
                 getConfigurations ().clear ();
                 getConfigurations ().addAll ( (Collection<? extends Configuration>)newValue );
                 return;
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 getServices ().clear ();
                 getServices ().addAll ( (Collection<? extends Service>)newValue );
                 return;
-            case ComponentPackage.SYSTEM__INFRASTRUCTURE:
+            case ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE:
                 setInfrastructure ( (World)newValue );
                 return;
-            case ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE:
                 setDefaultCustomizationPipeline ( (CustomizationPipeline)newValue );
                 return;
-            case ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR:
                 setDefaultArchiveSelector ( (Selector)newValue );
                 return;
         }
@@ -397,22 +407,22 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         switch ( featureID )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
                 getLevels ().clear ();
                 return;
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
                 getConfigurations ().clear ();
                 return;
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 getServices ().clear ();
                 return;
-            case ComponentPackage.SYSTEM__INFRASTRUCTURE:
+            case ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE:
                 setInfrastructure ( (World)null );
                 return;
-            case ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE:
                 setDefaultCustomizationPipeline ( (CustomizationPipeline)null );
                 return;
-            case ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR:
                 setDefaultArchiveSelector ( (Selector)null );
                 return;
         }
@@ -429,20 +439,20 @@ public class SystemImpl extends ContainerImpl implements org.eclipse.scada.confi
     {
         switch ( featureID )
         {
-            case ComponentPackage.SYSTEM__LEVELS:
+            case ComponentPackage.COMPONENT_WORLD__LEVELS:
                 return levels != null && !levels.isEmpty ();
-            case ComponentPackage.SYSTEM__CONFIGURATIONS:
+            case ComponentPackage.COMPONENT_WORLD__CONFIGURATIONS:
                 return configurations != null && !configurations.isEmpty ();
-            case ComponentPackage.SYSTEM__SERVICES:
+            case ComponentPackage.COMPONENT_WORLD__SERVICES:
                 return services != null && !services.isEmpty ();
-            case ComponentPackage.SYSTEM__INFRASTRUCTURE:
+            case ComponentPackage.COMPONENT_WORLD__INFRASTRUCTURE:
                 return infrastructure != null;
-            case ComponentPackage.SYSTEM__DEFAULT_CUSTOMIZATION_PIPELINE:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_CUSTOMIZATION_PIPELINE:
                 return defaultCustomizationPipeline != null;
-            case ComponentPackage.SYSTEM__DEFAULT_ARCHIVE_SELECTOR:
+            case ComponentPackage.COMPONENT_WORLD__DEFAULT_ARCHIVE_SELECTOR:
                 return defaultArchiveSelector != null;
         }
         return super.eIsSet ( featureID );
     }
 
-} //SystemImpl
+} //ComponentWorldImpl

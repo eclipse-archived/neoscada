@@ -17,8 +17,8 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
-import org.eclipse.scada.configuration.component.System;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -33,7 +33,7 @@ public class MarkerGroupGeneratorProcessor extends MasterApplicationProcessor
     {
     }
 
-    public MarkerGroupGeneratorProcessor ( final System system, final WorldGenerator world )
+    public MarkerGroupGeneratorProcessor ( final ComponentWorld system, final WorldGenerator world )
     {
         super ( system, world );
     }

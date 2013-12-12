@@ -11,7 +11,7 @@
 package org.eclipse.scada.configuration.generator.component.app;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.scada.configuration.component.System;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.infrastructure.lib.WorldGenerator;
 import org.eclipse.scada.configuration.lib.Items;
@@ -24,7 +24,7 @@ public class AlarmsInformationProcessor extends MasterApplicationProcessor
     {
     }
 
-    public AlarmsInformationProcessor ( final System system, final WorldGenerator worldGenerator )
+    public AlarmsInformationProcessor ( final ComponentWorld system, final WorldGenerator worldGenerator )
     {
         super ( system, worldGenerator );
     }

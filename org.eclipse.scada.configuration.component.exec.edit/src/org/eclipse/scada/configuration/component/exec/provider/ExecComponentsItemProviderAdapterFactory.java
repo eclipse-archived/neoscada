@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.component.exec.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -35,6 +34,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.exec.ExecComponentsFactory;
 import org.eclipse.scada.configuration.component.exec.ExecComponentsPackage;
@@ -454,16 +454,16 @@ public class ExecComponentsItemProviderAdapterFactory extends ExecComponentsAdap
              * @generated
              */
             @Override
-            public Object caseSystem ( org.eclipse.scada.configuration.component.System object )
+            public Object caseComponentWorld ( ComponentWorld object )
             {
                 newChildDescriptors.add
                         ( createChildParameter
-                        ( ComponentPackage.Literals.SYSTEM__CONFIGURATIONS,
+                        ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS,
                                 ExecComponentsFactory.eINSTANCE.createLoadAverageConfiguration () ) );
 
                 newChildDescriptors.add
                         ( createChildParameter
-                        ( ComponentPackage.Literals.SYSTEM__CONFIGURATIONS,
+                        ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS,
                                 ExecComponentsFactory.eINSTANCE.createPingCheckConfiguration () ) );
 
                 return null;

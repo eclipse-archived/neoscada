@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.scada.configuration.component.System;
+import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.generator.component.app.AlarmsInformationProcessor;
 import org.eclipse.scada.configuration.generator.component.app.GeneratorProcessor;
 import org.eclipse.scada.configuration.generator.component.app.MarkerGroupGeneratorProcessor;
@@ -41,7 +41,7 @@ public class SystemRunner
 
         monitor.setTaskName ( "Loading model" );
 
-        final System system = new ModelLoader<System> ( System.class ).load ( input );
+        final ComponentWorld system = new ModelLoader<ComponentWorld> ( ComponentWorld.class ).load ( input );
 
         final WorldGenerator gen = new WorldGenerator ( system.getInfrastructure () );
         gen.generate ( monitor );
