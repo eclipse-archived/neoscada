@@ -35,18 +35,19 @@ public interface HeartbeatGenerator extends DataComponent
 {
     /**
      * Returns the value of the '<em><b>Period</b></em>' attribute.
+     * The default value is <code>"1000"</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
      * The generator period in milliseconds
      * <!-- end-model-doc -->
      * @return the value of the '<em>Period</em>' attribute.
-     * @see #setPeriod(int)
+     * @see #setPeriod(long)
      * @see org.eclipse.scada.configuration.component.common.CommonPackage#getHeartbeatGenerator_Period()
-     * @model required="true"
+     * @model default="1000" required="true"
      * @generated
      */
-    int getPeriod ();
+    long getPeriod ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator#getPeriod <em>Period</em>}' attribute.
@@ -56,7 +57,7 @@ public interface HeartbeatGenerator extends DataComponent
      * @see #getPeriod()
      * @generated
      */
-    void setPeriod ( int value );
+    void setPeriod ( long value );
 
     /**
      * Returns the value of the '<em><b>Target Item</b></em>' containment reference.

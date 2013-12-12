@@ -232,6 +232,161 @@ public interface CommonPackage extends EPackage
     int TOGGLE_HEARTBEAT_GENERATOR_OPERATION_COUNT = HEARTBEAT_GENERATOR_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatDetectorImpl <em>Heartbeat Detector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.common.impl.HeartbeatDetectorImpl
+     * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getHeartbeatDetector()
+     * @generated
+     */
+    int HEARTBEAT_DETECTOR = 2;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__LEVEL = ComponentPackage.DATA_COMPONENT__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__CUSTOMIZATION_PIPELINE = ComponentPackage.DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = ComponentPackage.DATA_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__MASTER_ON = ComponentPackage.DATA_COMPONENT__MASTER_ON;
+
+    /**
+     * The number of structural features of the '<em>Heartbeat Detector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR_FEATURE_COUNT = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Heartbeat Detector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR_OPERATION_COUNT = ComponentPackage.DATA_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl <em>Change Heartbeat Detector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl
+     * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getChangeHeartbeatDetector()
+     * @generated
+     */
+    int CHANGE_HEARTBEAT_DETECTOR = 3;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__LEVEL = HEARTBEAT_DETECTOR__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__CUSTOMIZATION_PIPELINE = HEARTBEAT_DETECTOR__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__MASTER_ON = HEARTBEAT_DETECTOR__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__TIMEOUT = HEARTBEAT_DETECTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Check Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD = HEARTBEAT_DETECTOR_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Source Item</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM = HEARTBEAT_DETECTOR_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Change Heartbeat Detector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR_FEATURE_COUNT = HEARTBEAT_DETECTOR_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Change Heartbeat Detector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR_OPERATION_COUNT = HEARTBEAT_DETECTOR_OPERATION_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator <em>Heartbeat Generator</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -272,6 +427,59 @@ public interface CommonPackage extends EPackage
      * @generated
      */
     EClass getToggleHeartbeatGenerator ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.HeartbeatDetector <em>Heartbeat Detector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Heartbeat Detector</em>'.
+     * @see org.eclipse.scada.configuration.component.common.HeartbeatDetector
+     * @generated
+     */
+    EClass getHeartbeatDetector ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector <em>Change Heartbeat Detector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Change Heartbeat Detector</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector
+     * @generated
+     */
+    EClass getChangeHeartbeatDetector ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getTimeout <em>Timeout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getTimeout()
+     * @see #getChangeHeartbeatDetector()
+     * @generated
+     */
+    EAttribute getChangeHeartbeatDetector_Timeout ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getCheckPeriod <em>Check Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Check Period</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getCheckPeriod()
+     * @see #getChangeHeartbeatDetector()
+     * @generated
+     */
+    EAttribute getChangeHeartbeatDetector_CheckPeriod ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getSourceItem <em>Source Item</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Source Item</em>'.
+     * @see org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector#getSourceItem()
+     * @see #getChangeHeartbeatDetector()
+     * @generated
+     */
+    EReference getChangeHeartbeatDetector_SourceItem ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -332,6 +540,50 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EClass TOGGLE_HEARTBEAT_GENERATOR = eINSTANCE.getToggleHeartbeatGenerator ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatDetectorImpl <em>Heartbeat Detector</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.common.impl.HeartbeatDetectorImpl
+         * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getHeartbeatDetector()
+         * @generated
+         */
+        EClass HEARTBEAT_DETECTOR = eINSTANCE.getHeartbeatDetector ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl <em>Change Heartbeat Detector</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl
+         * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getChangeHeartbeatDetector()
+         * @generated
+         */
+        EClass CHANGE_HEARTBEAT_DETECTOR = eINSTANCE.getChangeHeartbeatDetector ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_HEARTBEAT_DETECTOR__TIMEOUT = eINSTANCE.getChangeHeartbeatDetector_Timeout ();
+
+        /**
+         * The meta object literal for the '<em><b>Check Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD = eINSTANCE.getChangeHeartbeatDetector_CheckPeriod ();
+
+        /**
+         * The meta object literal for the '<em><b>Source Item</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM = eINSTANCE.getChangeHeartbeatDetector_SourceItem ();
 
     }
 

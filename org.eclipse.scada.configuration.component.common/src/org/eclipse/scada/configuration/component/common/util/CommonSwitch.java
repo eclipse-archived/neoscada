@@ -110,6 +110,32 @@ public class CommonSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case CommonPackage.HEARTBEAT_DETECTOR:
+            {
+                HeartbeatDetector heartbeatDetector = (HeartbeatDetector)theEObject;
+                T result = caseHeartbeatDetector ( heartbeatDetector );
+                if ( result == null )
+                    result = caseDataComponent ( heartbeatDetector );
+                if ( result == null )
+                    result = caseComponent ( heartbeatDetector );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case CommonPackage.CHANGE_HEARTBEAT_DETECTOR:
+            {
+                ChangeHeartbeatDetector changeHeartbeatDetector = (ChangeHeartbeatDetector)theEObject;
+                T result = caseChangeHeartbeatDetector ( changeHeartbeatDetector );
+                if ( result == null )
+                    result = caseHeartbeatDetector ( changeHeartbeatDetector );
+                if ( result == null )
+                    result = caseDataComponent ( changeHeartbeatDetector );
+                if ( result == null )
+                    result = caseComponent ( changeHeartbeatDetector );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -143,6 +169,38 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseToggleHeartbeatGenerator ( ToggleHeartbeatGenerator object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Heartbeat Detector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Heartbeat Detector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseHeartbeatDetector ( HeartbeatDetector object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Change Heartbeat Detector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Change Heartbeat Detector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseChangeHeartbeatDetector ( ChangeHeartbeatDetector object )
     {
         return null;
     }

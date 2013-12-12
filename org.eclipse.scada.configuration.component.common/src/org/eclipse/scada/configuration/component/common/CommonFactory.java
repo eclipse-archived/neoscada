@@ -41,6 +41,15 @@ public interface CommonFactory extends EFactory
     ToggleHeartbeatGenerator createToggleHeartbeatGenerator ();
 
     /**
+     * Returns a new object of class '<em>Change Heartbeat Detector</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Change Heartbeat Detector</em>'.
+     * @generated
+     */
+    ChangeHeartbeatDetector createChangeHeartbeatDetector ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -1705,6 +1705,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
         globalizeComponentEClass.getESuperTypes ().add ( this.getComponent () );
+        globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( systemEClass, org.eclipse.scada.configuration.component.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1796,7 +1797,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEOperation ( getInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( componentReferenceInputDefinitionEClass, ComponentReferenceInputDefinition.class, "ComponentReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getComponentReferenceInputDefinition_Component (), this.getDataComponent (), null, "component", null, 1, 1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentReferenceInputDefinition_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getComponentReferenceInputDefinition_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, ComponentReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEOperation ( getComponentReferenceInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
@@ -1836,7 +1837,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         initEClass ( componentDanglingReferenceEClass, ComponentDanglingReference.class, "ComponentDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getComponentDanglingReference_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getComponentDanglingReference_Component (), this.getDataComponent (), null, "component", null, 1, 1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponentDanglingReference_Component (), this.getComponent (), null, "component", null, 1, 1, ComponentDanglingReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( externalValueEClass, ExternalValue.class, "ExternalValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExternalValue_Connection (), theInfrastructurePackage.getDriver (), null, "connection", null, 1, 1, ExternalValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

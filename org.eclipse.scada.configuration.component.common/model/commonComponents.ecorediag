@@ -74,6 +74,46 @@
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TUzy8mGqEeOT2rDq00KK6A" x="96" y="-60"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_MJ24wGMWEeO0k-m0GB1KNg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_MJ4G4GMWEeO0k-m0GB1KNg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_MJ4G4WMWEeO0k-m0GB1KNg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_MJ4G4mMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_MJ4G42MWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_MJ4G5GMWEeO0k-m0GB1KNg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_MJ5VAGMWEeO0k-m0GB1KNg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_MJ5VAWMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_MJ5VAmMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_MJ5VA2MWEeO0k-m0GB1KNg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_MJ24wWMWEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="commonComponents.ecore#//HeartbeatDetector"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MJ24wmMWEeO0k-m0GB1KNg" x="720" y="96"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_PGGncGMWEeO0k-m0GB1KNg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_PGH1kGMWEeO0k-m0GB1KNg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_PGH1kWMWEeO0k-m0GB1KNg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_TyI4wGMWEeO0k-m0GB1KNg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="commonComponents.ecore#//ChangeHeartbeatDetector/timeout"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TyI4wWMWEeO0k-m0GB1KNg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_icXRgGMWEeO0k-m0GB1KNg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="commonComponents.ecore#//ChangeHeartbeatDetector/checkPeriod"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_icXRgWMWEeO0k-m0GB1KNg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_PGH1kmMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_PGH1k2MWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_PGH1lGMWEeO0k-m0GB1KNg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_PGIcoGMWEeO0k-m0GB1KNg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_PGIcoWMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_PGIcomMWEeO0k-m0GB1KNg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_PGIco2MWEeO0k-m0GB1KNg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_PGGncWMWEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="commonComponents.ecore#//ChangeHeartbeatDetector"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PGGncmMWEeO0k-m0GB1KNg" x="696" y="-60"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_1w8tcWGeEeOT2rDq00KK6A"/>
   <element xmi:type="ecore:EPackage" href="commonComponents.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_5AzUoGGeEeOT2rDq00KK6A" type="3003" source="_2GvXQGGeEeOT2rDq00KK6A" target="_4krZUGGeEeOT2rDq00KK6A">
@@ -99,5 +139,29 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_Xo9vwmGqEeOT2rDq00KK6A" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="commonComponents.ecore#//HeartbeatGenerator/targetItem"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xo9vw2GqEeOT2rDq00KK6A" points="[-3, -24, -10, 107]$[-15, -168, -22, -37]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Nr3eEGMWEeO0k-m0GB1KNg" type="3003" source="_MJ24wGMWEeO0k-m0GB1KNg" target="_4krZUGGeEeOT2rDq00KK6A">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Nr3eEWMWEeO0k-m0GB1KNg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Nr3eEmMWEeO0k-m0GB1KNg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Nr3eE2MWEeO0k-m0GB1KNg" points="[-71, -8, 161, -2]$[-167, -8, 65, -2]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_QUDoUGMWEeO0k-m0GB1KNg" type="3003" source="_PGGncGMWEeO0k-m0GB1KNg" target="_MJ24wGMWEeO0k-m0GB1KNg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_QUDoUWMWEeO0k-m0GB1KNg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_QUDoUmMWEeO0k-m0GB1KNg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QUDoU2MWEeO0k-m0GB1KNg" points="[-8, -20, -1, 55]$[-8, -95, -1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_KPzxmWMXEeO0k-m0GB1KNg" type="3002" source="_PGGncGMWEeO0k-m0GB1KNg" target="_TUzy8GGqEeOT2rDq00KK6A">
+    <children xmi:type="notation:Node" xmi:id="_KP0YlmMXEeO0k-m0GB1KNg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KP0YmGMXEeO0k-m0GB1KNg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_KP0YqWMXEeO0k-m0GB1KNg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KP0YqmMXEeO0k-m0GB1KNg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_KPzxm2MXEeO0k-m0GB1KNg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_KPzxnWMXEeO0k-m0GB1KNg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="commonComponents.ecore#//ChangeHeartbeatDetector/sourceItem"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KPzxnmMXEeO0k-m0GB1KNg" points="[-94, -3, 445, -7]$[-384, -3, 155, -7]"/>
   </edges>
 </notation:Diagram>

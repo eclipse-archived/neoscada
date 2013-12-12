@@ -149,6 +149,19 @@
                   message body text
                </message>
             </constraint>
+			<constraint
+                  class="org.eclipse.scada.configuration.validation.component.ComponentReferenceValidation"
+                  id="org.eclipse.scada.configuration.validation.component.ComponentReference"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Component Reference"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  message body text
+               </message>
+            </constraint>
          </constraints>
       </constraintProvider>
       

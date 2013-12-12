@@ -131,7 +131,7 @@
       </eAnnotations>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
-        eType="#//DataComponent"/>
+        eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -196,7 +196,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
-        eType="#//DataComponent"/>
+        eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalValue" eSuperTypes="#//SingleValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
@@ -221,7 +221,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//Component">
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//Component ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//DataComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"

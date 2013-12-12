@@ -135,6 +135,31 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ChangeHeartbeatDetectorItemProvider changeHeartbeatDetectorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createChangeHeartbeatDetectorAdapter ()
+    {
+        if ( changeHeartbeatDetectorItemProvider == null )
+        {
+            changeHeartbeatDetectorItemProvider = new ChangeHeartbeatDetectorItemProvider ( this );
+        }
+
+        return changeHeartbeatDetectorItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -277,6 +302,8 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     {
         if ( toggleHeartbeatGeneratorItemProvider != null )
             toggleHeartbeatGeneratorItemProvider.dispose ();
+        if ( changeHeartbeatDetectorItemProvider != null )
+            changeHeartbeatDetectorItemProvider.dispose ();
     }
 
     /**
@@ -335,6 +362,11 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
                         ( createChildParameter
                         ( ComponentPackage.Literals.LEVEL__COMPONENTS,
                                 CommonFactory.eINSTANCE.createToggleHeartbeatGenerator () ) );
+
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
+                                CommonFactory.eINSTANCE.createChangeHeartbeatDetector () ) );
 
                 return null;
             }

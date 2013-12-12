@@ -11,16 +11,15 @@
 package org.eclipse.scada.configuration.component.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentDanglingReference;
 import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.DataComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,7 +55,7 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
      * @generated
      * @ordered
      */
-    protected DataComponent component;
+    protected Component component;
 
     /**
      * <!-- begin-user-doc -->
@@ -98,12 +97,12 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataComponent getComponent ()
+    public Component getComponent ()
     {
         if ( component != null && component.eIsProxy () )
         {
             InternalEObject oldComponent = (InternalEObject)component;
-            component = (DataComponent)eResolveProxy ( oldComponent );
+            component = (Component)eResolveProxy ( oldComponent );
             if ( component != oldComponent )
             {
                 if ( eNotificationRequired () )
@@ -118,7 +117,7 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataComponent basicGetComponent ()
+    public Component basicGetComponent ()
     {
         return component;
     }
@@ -128,9 +127,9 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setComponent ( DataComponent newComponent )
+    public void setComponent ( Component newComponent )
     {
-        DataComponent oldComponent = component;
+        Component oldComponent = component;
         component = newComponent;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT_DANGLING_REFERENCE__COMPONENT, oldComponent, component ) );
@@ -172,7 +171,7 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
                 getLocalTag ().addAll ( (Collection<? extends String>)newValue );
                 return;
             case ComponentPackage.COMPONENT_DANGLING_REFERENCE__COMPONENT:
-                setComponent ( (DataComponent)newValue );
+                setComponent ( (Component)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -192,7 +191,7 @@ public class ComponentDanglingReferenceImpl extends DanglingItemReferenceImpl im
                 getLocalTag ().clear ();
                 return;
             case ComponentPackage.COMPONENT_DANGLING_REFERENCE__COMPONENT:
-                setComponent ( (DataComponent)null );
+                setComponent ( (Component)null );
                 return;
         }
         super.eUnset ( featureID );

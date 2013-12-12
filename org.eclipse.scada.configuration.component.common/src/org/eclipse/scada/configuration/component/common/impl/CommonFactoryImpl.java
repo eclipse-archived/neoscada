@@ -72,6 +72,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
         {
             case CommonPackage.TOGGLE_HEARTBEAT_GENERATOR:
                 return createToggleHeartbeatGenerator ();
+            case CommonPackage.CHANGE_HEARTBEAT_DETECTOR:
+                return createChangeHeartbeatDetector ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -86,6 +88,17 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         ToggleHeartbeatGeneratorImpl toggleHeartbeatGenerator = new ToggleHeartbeatGeneratorImpl ();
         return toggleHeartbeatGenerator;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ChangeHeartbeatDetector createChangeHeartbeatDetector ()
+    {
+        ChangeHeartbeatDetectorImpl changeHeartbeatDetector = new ChangeHeartbeatDetectorImpl ();
+        return changeHeartbeatDetector;
     }
 
     /**

@@ -99,6 +99,18 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseHeartbeatDetector ( HeartbeatDetector object )
+                {
+                    return createHeartbeatDetectorAdapter ();
+                }
+
+                @Override
+                public Adapter caseChangeHeartbeatDetector ( ChangeHeartbeatDetector object )
+                {
+                    return createChangeHeartbeatDetectorAdapter ();
+                }
+
+                @Override
                 public Adapter caseComponent ( Component object )
                 {
                     return createComponentAdapter ();
@@ -157,6 +169,36 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createToggleHeartbeatGeneratorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.common.HeartbeatDetector <em>Heartbeat Detector</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.common.HeartbeatDetector
+     * @generated
+     */
+    public Adapter createHeartbeatDetectorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector <em>Change Heartbeat Detector</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector
+     * @generated
+     */
+    public Adapter createChangeHeartbeatDetectorAdapter ()
     {
         return null;
     }

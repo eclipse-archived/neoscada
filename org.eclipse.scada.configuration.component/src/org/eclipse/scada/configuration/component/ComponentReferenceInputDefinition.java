@@ -40,12 +40,12 @@ public interface ComponentReferenceInputDefinition extends InputDefinition
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Component</em>' reference.
-     * @see #setComponent(DataComponent)
+     * @see #setComponent(Component)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponentReferenceInputDefinition_Component()
      * @model required="true"
      * @generated
      */
-    DataComponent getComponent ();
+    Component getComponent ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition#getComponent <em>Component</em>}' reference.
@@ -55,7 +55,7 @@ public interface ComponentReferenceInputDefinition extends InputDefinition
      * @see #getComponent()
      * @generated
      */
-    void setComponent ( DataComponent value );
+    void setComponent ( Component value );
 
     /**
      * Returns the value of the '<em><b>Local Tag</b></em>' attribute list.

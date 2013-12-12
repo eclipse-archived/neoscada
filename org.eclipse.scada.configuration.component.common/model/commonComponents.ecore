@@ -5,7 +5,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="HeartbeatGenerator" abstract="true"
       eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The generator period in milliseconds"/>
       </eAnnotations>
@@ -15,4 +15,18 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToggleHeartbeatGenerator" eSuperTypes="#//HeartbeatGenerator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeartbeatDetector" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeHeartbeatDetector" eSuperTypes="#//HeartbeatDetector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="10000">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The timeout of the detector in milliseconds."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkPeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

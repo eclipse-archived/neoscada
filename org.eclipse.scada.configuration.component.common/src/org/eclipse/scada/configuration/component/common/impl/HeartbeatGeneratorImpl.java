@@ -49,7 +49,7 @@ public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implement
      * @generated
      * @ordered
      */
-    protected static final int PERIOD_EDEFAULT = 0;
+    protected static final long PERIOD_EDEFAULT = 1000L;
 
     /**
      * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
@@ -59,7 +59,7 @@ public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implement
      * @generated
      * @ordered
      */
-    protected int period = PERIOD_EDEFAULT;
+    protected long period = PERIOD_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getTargetItem() <em>Target Item</em>}' containment reference.
@@ -97,7 +97,7 @@ public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implement
      * <!-- end-user-doc -->
      * @generated
      */
-    public int getPeriod ()
+    public long getPeriod ()
     {
         return period;
     }
@@ -107,9 +107,9 @@ public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implement
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPeriod ( int newPeriod )
+    public void setPeriod ( long newPeriod )
     {
-        int oldPeriod = period;
+        long oldPeriod = period;
         period = newPeriod;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.HEARTBEAT_GENERATOR__PERIOD, oldPeriod, period ) );
@@ -212,7 +212,7 @@ public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implement
         switch ( featureID )
         {
             case CommonPackage.HEARTBEAT_GENERATOR__PERIOD:
-                setPeriod ( (Integer)newValue );
+                setPeriod ( (Long)newValue );
                 return;
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 setTargetItem ( (InputDefinition)newValue );

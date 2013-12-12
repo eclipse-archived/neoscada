@@ -56,12 +56,12 @@ public interface ComponentDanglingReference extends DanglingItemReference
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Component</em>' reference.
-     * @see #setComponent(DataComponent)
+     * @see #setComponent(Component)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponentDanglingReference_Component()
      * @model required="true"
      * @generated
      */
-    DataComponent getComponent ();
+    Component getComponent ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.component.ComponentDanglingReference#getComponent <em>Component</em>}' reference.
@@ -71,6 +71,6 @@ public interface ComponentDanglingReference extends DanglingItemReference
      * @see #getComponent()
      * @generated
      */
-    void setComponent ( DataComponent value );
+    void setComponent ( Component value );
 
 } // ComponentDanglingReference

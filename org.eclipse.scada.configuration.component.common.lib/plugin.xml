@@ -4,7 +4,14 @@
 <extension
          point="org.eclipse.core.runtime.adapters">
            <factory
-            adaptableType="org.eclipse.scada.configuration.component.common.HeartbeatGenerator"
+            adaptableType="org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator"
+            class="org.eclipse.scada.configuration.component.common.lib.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.configuration.generator.Generator">
+         </adapter>
+         </factory>
+          <factory
+            adaptableType="org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector"
             class="org.eclipse.scada.configuration.component.common.lib.AdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">

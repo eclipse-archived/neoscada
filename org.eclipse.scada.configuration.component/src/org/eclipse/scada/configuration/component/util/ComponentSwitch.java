@@ -494,6 +494,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( globalizeComponent );
                 if ( result == null )
+                    result = caseDocumentable ( globalizeComponent );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }

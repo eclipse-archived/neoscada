@@ -2391,13 +2391,31 @@ public interface ComponentPackage extends EPackage
     int GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR = COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__SHORT_DESCRIPTION = COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__NAME = COMPONENT_FEATURE_COUNT + 1;
+
+    /**
      * The feature id for the '<em><b>Components</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__COMPONENTS = COMPONENT_FEATURE_COUNT + 0;
+    int GLOBALIZE_COMPONENT__COMPONENTS = COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Source Master</b></em>' reference.
@@ -2406,7 +2424,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT__SOURCE_MASTER = COMPONENT_FEATURE_COUNT + 1;
+    int GLOBALIZE_COMPONENT__SOURCE_MASTER = COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Globalize Component</em>' class.
@@ -2415,7 +2433,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int GLOBALIZE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
+    int GLOBALIZE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Globalize Component</em>' class.

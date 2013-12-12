@@ -17,8 +17,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.CommonFactory;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
+import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 
@@ -43,6 +45,20 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass toggleHeartbeatGeneratorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass heartbeatDetectorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass changeHeartbeatDetectorEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -155,6 +171,56 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getHeartbeatDetector ()
+    {
+        return heartbeatDetectorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getChangeHeartbeatDetector ()
+    {
+        return changeHeartbeatDetectorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeHeartbeatDetector_Timeout ()
+    {
+        return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeHeartbeatDetector_CheckPeriod ()
+    {
+        return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getChangeHeartbeatDetector_SourceItem ()
+    {
+        return (EReference)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -186,6 +252,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEReference ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__TARGET_ITEM );
 
         toggleHeartbeatGeneratorEClass = createEClass ( TOGGLE_HEARTBEAT_GENERATOR );
+
+        heartbeatDetectorEClass = createEClass ( HEARTBEAT_DETECTOR );
+
+        changeHeartbeatDetectorEClass = createEClass ( CHANGE_HEARTBEAT_DETECTOR );
+        createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__TIMEOUT );
+        createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD );
+        createEReference ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM );
     }
 
     /**
@@ -223,13 +296,22 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Add supertypes to classes
         heartbeatGeneratorEClass.getESuperTypes ().add ( theComponentPackage.getDataComponent () );
         toggleHeartbeatGeneratorEClass.getESuperTypes ().add ( this.getHeartbeatGenerator () );
+        heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getDataComponent () );
+        changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getHeartbeatGenerator_Period (), ecorePackage.getEInt (), "period", null, 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getHeartbeatGenerator_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getHeartbeatGenerator_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( toggleHeartbeatGeneratorEClass, ToggleHeartbeatGenerator.class, "ToggleHeartbeatGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( heartbeatDetectorEClass, HeartbeatDetector.class, "HeartbeatDetector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( changeHeartbeatDetectorEClass, ChangeHeartbeatDetector.class, "ChangeHeartbeatDetector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getChangeHeartbeatDetector_Timeout (), ecorePackage.getELong (), "timeout", "10000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getChangeHeartbeatDetector_CheckPeriod (), ecorePackage.getELong (), "checkPeriod", "1000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getChangeHeartbeatDetector_SourceItem (), theComponentPackage.getInputDefinition (), null, "sourceItem", null, 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

@@ -15,6 +15,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -25,10 +26,12 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.GlobalizeComponent} object.
@@ -69,10 +72,58 @@ public class GlobalizeComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
+            addShortDescriptionPropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
             addComponentsPropertyDescriptor ( object );
             addSourceMasterPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Short Description feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addShortDescriptionPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Documentable_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_name_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.DOCUMENTABLE__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -182,7 +233,10 @@ public class GlobalizeComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_GlobalizeComponent_type" ); //$NON-NLS-1$
+        String label = ( (GlobalizeComponent)object ).getName ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_GlobalizeComponent_type" ) : //$NON-NLS-1$
+                getString ( "_UI_GlobalizeComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -196,6 +250,14 @@ public class GlobalizeComponentItemProvider
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
+
+        switch ( notification.getFeatureID ( GlobalizeComponent.class ) )
+        {
+            case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+        }
         super.notifyChanged ( notification );
     }
 

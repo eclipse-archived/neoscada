@@ -26,6 +26,8 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
+import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +36,8 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster <em>Source Master</em>}</li>
  * </ul>
@@ -43,6 +47,46 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  */
 public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeComponent
 {
+    /**
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
     /**
      * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
      * <!-- begin-user-doc -->
@@ -82,6 +126,52 @@ public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeCo
     protected EClass eStaticClass ()
     {
         return ComponentPackage.Literals.GLOBALIZE_COMPONENT;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getShortDescription ()
+    {
+        return shortDescription;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setShortDescription ( String newShortDescription )
+    {
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__NAME, oldName, name ) );
     }
 
     /**
@@ -151,6 +241,10 @@ public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeCo
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+                return getShortDescription ();
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                return getName ();
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return getComponents ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
@@ -172,6 +266,12 @@ public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeCo
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+                setShortDescription ( (String)newValue );
+                return;
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                setName ( (String)newValue );
+                return;
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 getComponents ().clear ();
                 getComponents ().addAll ( (Collection<? extends DataComponent>)newValue );
@@ -193,6 +293,12 @@ public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeCo
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
+                return;
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 getComponents ().clear ();
                 return;
@@ -213,12 +319,82 @@ public class GlobalizeComponentImpl extends ComponentImpl implements GlobalizeCo
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return components != null && !components.isEmpty ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
                 return sourceMaster != null;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == Documentable.class )
+        {
+            switch ( derivedFeatureID )
+            {
+                case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
+                    return WorldPackage.DOCUMENTABLE__SHORT_DESCRIPTION;
+                case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                    return WorldPackage.DOCUMENTABLE__NAME;
+                default:
+                    return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == Documentable.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case WorldPackage.DOCUMENTABLE__SHORT_DESCRIPTION:
+                    return ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION;
+                case WorldPackage.DOCUMENTABLE__NAME:
+                    return ComponentPackage.GLOBALIZE_COMPONENT__NAME;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (shortDescription: " ); //$NON-NLS-1$
+        result.append ( shortDescription );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GlobalizeComponentImpl

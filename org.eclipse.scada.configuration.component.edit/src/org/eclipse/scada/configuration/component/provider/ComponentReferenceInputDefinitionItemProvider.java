@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -26,6 +27,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.DataComponent;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition} object.
@@ -69,23 +71,57 @@ public class ComponentReferenceInputDefinitionItemProvider extends InputDefiniti
      * This adds a property descriptor for the Component feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
-    protected void addComponentPropertyDescriptor ( Object object )
+    protected void addComponentPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString ( "_UI_ComponentReferenceInputDefinition_component_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentReferenceInputDefinition_component_feature", "_UI_ComponentReferenceInputDefinition_type" ),
                         ComponentPackage.Literals.COMPONENT_REFERENCE_INPUT_DEFINITION__COMPONENT,
                         true,
                         false,
                         true,
                         null,
                         null,
-                        null ) );
+                        null ) {
+                    @Override
+                    public Collection<?> getChoiceOfValues ( final Object object )
+                    {
+                        final ComponentReferenceInputDefinition ref = (ComponentReferenceInputDefinition)object;
+                        if ( ! ( ref.eContainer () instanceof DataComponent ) )
+                        {
+                            return super.getChoiceOfValues ( object );
+                        }
+
+                        final Collection<Object> result = new HashSet<> ();
+                        final DataComponent container = (DataComponent)ref.eContainer ();
+                        for ( final Object o : super.getChoiceOfValues ( object ) )
+                        {
+                            if ( o == container )
+                            {
+                                // remove self
+                                continue;
+                            }
+
+                            if ( ! ( o instanceof DataComponent ) )
+                            {
+                                result.add ( o );
+                                continue;
+                            }
+                            final DataComponent dc = (DataComponent)o;
+                            if ( dc.getMasterOn ().containsAll ( container.getMasterOn () ) )
+                            {
+                                result.add ( dc );
+                            }
+                        }
+                        return result;
+                    }
+                } );
     }
 
     /**

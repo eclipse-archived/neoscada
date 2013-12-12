@@ -11,7 +11,8 @@
 package org.eclipse.scada.configuration.component.common.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
-import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
+import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
+import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 import org.eclipse.scada.configuration.generator.Generator;
 
 public class AdapterFactory implements IAdapterFactory
@@ -19,16 +20,20 @@ public class AdapterFactory implements IAdapterFactory
 
     @SuppressWarnings ( "rawtypes" )
     @Override
-    public Object getAdapter ( final Object adaptableObject, final Class adapterType )
+    public Generator getAdapter ( final Object adaptableObject, final Class adapterType )
     {
         if ( !Generator.class.equals ( adapterType ) )
         {
             return null;
         }
 
-        if ( adaptableObject instanceof HeartbeatGenerator )
+        if ( adaptableObject instanceof ToggleHeartbeatGenerator )
         {
-            return new HeartbeatGeneratorGenerator ( (HeartbeatGenerator)adaptableObject );
+            return new ToggleHeartbeatGeneratorGenerator ( (ToggleHeartbeatGenerator)adaptableObject );
+        }
+        else if ( adaptableObject instanceof ChangeHeartbeatDetector )
+        {
+            return new ChangeHeartbeatDetectorGenerator ( (ChangeHeartbeatDetector)adaptableObject );
         }
         return null;
     }
