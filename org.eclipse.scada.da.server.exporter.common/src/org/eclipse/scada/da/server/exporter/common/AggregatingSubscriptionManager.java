@@ -43,7 +43,7 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
      */
     public AggregatingSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final Listener listener )
     {
-        super ( hiveSource, properties );
+        super ( hiveSource, properties, executor );
         this.executor = executor;
         this.listener = listener;
     }
