@@ -484,7 +484,7 @@ public class GlobalizationProcessor
         connection.setName ( cname );
 
         // set credentials
-        connection.setCredentials ( findCredentials ( global, local ) );
+        connection.setCredentials ( EcoreUtil.copy ( findCredentials ( global, local ) ) );
 
         // add connection to "from"
         global.getGlobal ().getConnections ().add ( connection );
