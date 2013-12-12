@@ -18,18 +18,15 @@ import org.eclipse.scada.configuration.item.Selector;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Rest Interceptor</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector
- * <em>Selector</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition
- * <em>Definition</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor()
  * @model
  * @generated
@@ -37,15 +34,13 @@ import org.eclipse.scada.configuration.item.Selector;
 public interface RestInterceptor extends ItemInterceptor
 {
     /**
-     * Returns the value of the '<em><b>Selector</b></em>' containment
-     * reference.
+     * Returns the value of the '<em><b>Selector</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Selector</em>' reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Selector</em>' containment reference.
      * @see #setSelector(Selector)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor_Selector()
@@ -55,15 +50,10 @@ public interface RestInterceptor extends ItemInterceptor
     Selector getSelector ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector
-     * <em>Selector</em>}' containment reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.RestInterceptor#getSelector <em>Selector</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Selector</em>' containment
-     *            reference.
+     * @param value the new value of the '<em>Selector</em>' containment reference.
      * @see #getSelector()
      * @generated
      */
@@ -77,7 +67,6 @@ public interface RestInterceptor extends ItemInterceptor
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Definition</em>' reference.
      * @see #setDefinition(RestExporterModule)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getRestInterceptor_Definition()
@@ -87,14 +76,10 @@ public interface RestInterceptor extends ItemInterceptor
     RestExporterModule getDefinition ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition
-     * <em>Definition</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.RestInterceptor#getDefinition <em>Definition</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Definition</em>' reference.
+     * @param value the new value of the '<em>Definition</em>' reference.
      * @see #getDefinition()
      * @generated
      */

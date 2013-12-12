@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
+import org.eclipse.scada.configuration.world.osgi.TransientItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,6 +60,13 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
     public CreationRequest<PersistentItem> createPersistentItem ()
     {
         final PersistentItem item = OsgiFactory.eINSTANCE.createPersistentItem ();
+        return addItem ( item );
+    }
+
+    @Override
+    public CreationRequest<TransientItem> createTransientItem ()
+    {
+        final TransientItem item = OsgiFactory.eINSTANCE.createTransientItem ();
         return addItem ( item );
     }
 

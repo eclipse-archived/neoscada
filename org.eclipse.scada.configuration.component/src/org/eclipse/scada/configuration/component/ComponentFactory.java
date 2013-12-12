@@ -265,6 +265,15 @@ public interface ComponentFactory extends EFactory
     GlobalizeComponent createGlobalizeComponent ();
 
     /**
+     * Returns a new object of class '<em>Transient Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Transient Value</em>'.
+     * @generated
+     */
+    TransientValue createTransientValue ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

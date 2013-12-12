@@ -19,6 +19,7 @@ import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.PersistentValue;
+import org.eclipse.scada.configuration.component.TransientValue;
 import org.eclipse.scada.configuration.component.generator.connection.DriverConnectionAnalyzerGenerator;
 import org.eclipse.scada.configuration.component.generator.global.GlobalizeGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperAnalyzerGenerator;
@@ -27,6 +28,7 @@ import org.eclipse.scada.configuration.component.generator.mapper.MappedSourceVa
 import org.eclipse.scada.configuration.component.generator.simple.ConstantValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.ExternalValueGenerator;
 import org.eclipse.scada.configuration.component.generator.simple.PersistentValueGenerator;
+import org.eclipse.scada.configuration.component.generator.simple.TransientValueGenerator;
 import org.eclipse.scada.configuration.generator.Generator;
 
 public class GeneratorAdapterFactory implements IAdapterFactory
@@ -47,6 +49,10 @@ public class GeneratorAdapterFactory implements IAdapterFactory
         else if ( adaptableObject instanceof PersistentValue )
         {
             return new PersistentValueGenerator ( (PersistentValue)adaptableObject );
+        }
+        else if ( adaptableObject instanceof TransientValue )
+        {
+            return new TransientValueGenerator ( (TransientValue)adaptableObject );
         }
         else if ( adaptableObject instanceof ExternalValue )
         {

@@ -2445,6 +2445,97 @@ public interface ComponentPackage extends EPackage
     int GLOBALIZE_COMPONENT_OPERATION_COUNT = COMPONENT_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.TransientValueImpl <em>Transient Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.TransientValueImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTransientValue()
+     * @generated
+     */
+    int TRANSIENT_VALUE = 36;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__NAME = SINGLE_VALUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The number of structural features of the '<em>Transient Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Transient Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2452,7 +2543,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 36;
+    int NOTIFICATION = 37;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -3577,6 +3668,16 @@ public interface ComponentPackage extends EPackage
     EReference getGlobalizeComponent_SourceMaster ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.TransientValue <em>Transient Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Transient Value</em>'.
+     * @see org.eclipse.scada.configuration.component.TransientValue
+     * @generated
+     */
+    EClass getTransientValue ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4530,6 +4631,16 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference GLOBALIZE_COMPONENT__SOURCE_MASTER = eINSTANCE.getGlobalizeComponent_SourceMaster ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.TransientValueImpl <em>Transient Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.TransientValueImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTransientValue()
+         * @generated
+         */
+        EClass TRANSIENT_VALUE = eINSTANCE.getTransientValue ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

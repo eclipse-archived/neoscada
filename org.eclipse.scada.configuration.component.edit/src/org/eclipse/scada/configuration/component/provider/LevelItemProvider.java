@@ -285,6 +285,11 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( ComponentPackage.Literals.LEVEL__COMPONENTS,
+                        ComponentFactory.eINSTANCE.createTransientValue () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( ComponentPackage.Literals.LEVEL__LEVELS,
                         ComponentFactory.eINSTANCE.createLevel () ) );
     }

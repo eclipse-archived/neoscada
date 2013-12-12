@@ -333,6 +333,12 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseTransientValue ( TransientValue object )
+        {
+            return createTransientValueAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -901,6 +907,21 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGlobalizeComponentAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.TransientValue <em>Transient Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.TransientValue
+     * @generated
+     */
+    public Adapter createTransientValueAdapter ()
     {
         return null;
     }

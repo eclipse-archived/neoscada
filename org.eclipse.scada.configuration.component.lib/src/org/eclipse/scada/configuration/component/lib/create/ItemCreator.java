@@ -20,12 +20,15 @@ import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
+import org.eclipse.scada.configuration.world.osgi.TransientItem;
 
 public interface ItemCreator
 {
     public abstract void createMarker ( IStatus status );
 
     public abstract CreationRequest<PersistentItem> createPersistentItem ();
+
+    public abstract CreationRequest<TransientItem> createTransientItem ();
 
     public abstract CreationRequest<ConstantItem> createConstantItem ( String value );
 
@@ -44,5 +47,4 @@ public interface ItemCreator
     public abstract <T extends Item> CreationRequest<T> addItem ( T item );
 
     public void markUnsupported ();
-
 }

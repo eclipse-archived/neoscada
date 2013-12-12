@@ -55,6 +55,7 @@ import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
 import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
+import org.eclipse.scada.configuration.component.TransientValue;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.item.ItemPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -319,6 +320,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass globalizeComponentEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass transientValueEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1458,6 +1466,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getTransientValue ()
+    {
+        return transientValueEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getNotification ()
     {
         return notificationEDataType;
@@ -1636,6 +1654,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__COMPONENTS );
         createEReference ( globalizeComponentEClass, GLOBALIZE_COMPONENT__SOURCE_MASTER );
 
+        transientValueEClass = createEClass ( TRANSIENT_VALUE );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -1707,6 +1727,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
         globalizeComponentEClass.getESuperTypes ().add ( this.getComponent () );
         globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        transientValueEClass.getESuperTypes ().add ( this.getSingleValue () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1860,6 +1881,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( globalizeComponentEClass, GlobalizeComponent.class, "GlobalizeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_Components (), this.getDataComponent (), null, "components", null, 0, -1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobalizeComponent_SourceMaster (), theInfrastructurePackage.getMasterImport (), null, "sourceMaster", null, 1, 1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( transientValueEClass, TransientValue.class, "TransientValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

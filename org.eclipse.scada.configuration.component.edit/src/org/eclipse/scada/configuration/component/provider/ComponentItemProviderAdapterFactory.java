@@ -752,6 +752,31 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.TransientValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TransientValueItemProvider transientValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.TransientValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTransientValueAdapter ()
+    {
+        if ( transientValueItemProvider == null )
+        {
+            transientValueItemProvider = new TransientValueItemProvider ( this );
+        }
+
+        return transientValueItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -944,6 +969,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             restInterceptorItemProvider.dispose ();
         if ( globalizeComponentItemProvider != null )
             globalizeComponentItemProvider.dispose ();
+        if ( transientValueItemProvider != null )
+            transientValueItemProvider.dispose ();
     }
 
     /**

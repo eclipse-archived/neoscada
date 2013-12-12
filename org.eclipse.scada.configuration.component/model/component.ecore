@@ -227,4 +227,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransientValue" eSuperTypes="#//SingleValue"/>
 </ecore:EPackage>
