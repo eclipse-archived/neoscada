@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.generator.util.Components;
 import org.eclipse.scada.configuration.component.lib.create.AbstractComponentItemCreator;
@@ -52,7 +52,7 @@ public class CaptureItemCreatorImpl extends AbstractComponentItemCreator
     }
 
     @Override
-    public void createMarker ( final Status status )
+    public void createMarker ( final IStatus status )
     {
         // TODO: add real UI marker
     }

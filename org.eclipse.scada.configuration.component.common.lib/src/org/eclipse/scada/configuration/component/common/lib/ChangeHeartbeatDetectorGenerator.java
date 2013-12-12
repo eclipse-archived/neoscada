@@ -14,8 +14,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.generator.AbstractDanglingGenerator;
+import org.eclipse.scada.configuration.component.lib.Activator;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 import org.eclipse.scada.configuration.world.osgi.CodeFragment;
@@ -61,6 +64,12 @@ public class ChangeHeartbeatDetectorGenerator extends AbstractDanglingGenerator
     @Override
     public void createItems ( final ItemCreator itemCreator )
     {
+        if ( this.detector.getSourceItem () == null )
+        {
+            itemCreator.createMarker ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, "Source item is not set" ) );
+            return;
+        }
+
         final ScriptItem item = OsgiFactory.eINSTANCE.createScriptItem ();
 
         final CodeFragment initCode = OsgiFactory.eINSTANCE.createCodeFragment ();

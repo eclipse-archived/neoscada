@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.lib.create;
 
-import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
@@ -23,7 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.SourceItem;
 
 public interface ItemCreator
 {
-    public abstract void createMarker ( Status status );
+    public abstract void createMarker ( IStatus status );
 
     public abstract CreationRequest<PersistentItem> createPersistentItem ();
 

@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.component.lib.create;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.Container;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
@@ -61,7 +61,7 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
     }
 
     @Override
-    public void createMarker ( final Status status )
+    public void createMarker ( final IStatus status )
     {
         // this is a no-op for this implementation
     }
