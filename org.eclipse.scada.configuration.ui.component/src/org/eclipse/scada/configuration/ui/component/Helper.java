@@ -19,7 +19,7 @@ import java.util.Set;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.WritableSet;
-import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.generator.util.Components;
@@ -49,7 +49,7 @@ public class Helper
         }
 
         @Override
-        public void createMarker ( final Status status )
+        public void createMarker ( final IStatus status )
         {
             // TODO: add real UI marker
         }
