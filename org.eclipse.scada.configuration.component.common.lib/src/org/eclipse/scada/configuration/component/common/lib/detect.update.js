@@ -1,4 +1,4 @@
-var value = values.get("A");
+var value = data.get("A");
 
 if (!(value === undefined) && value != null && value.isConnected() && !value.isError () ) {
 	var c = value.getTimestamp();
