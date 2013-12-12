@@ -67,7 +67,7 @@ public class ScriptItemGenerator extends ItemGenerator
         }
         if ( this.item.getUpdateScript () != null )
         {
-            Helper.addOptional ( data, "update", this.item.getUpdateScript ().getCode () ); //$NON-NLS-1$
+            Helper.addOptional ( data, "updateCommand", this.item.getUpdateScript ().getCode () ); //$NON-NLS-1$
         }
         if ( this.item.getWriteCommandScript () != null )
         {
