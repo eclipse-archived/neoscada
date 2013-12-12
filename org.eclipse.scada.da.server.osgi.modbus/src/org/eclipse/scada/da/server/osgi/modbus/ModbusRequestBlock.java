@@ -120,7 +120,7 @@ public class ModbusRequestBlock extends AbstractRequestBlock
                     logger.info ( "Reply was not for us (we: {}, they: {})", this.slave.getSlaveAddress (), slaveAddress );
                     return false;
                 }
-                handleData ( ( (ReadResponse)message ).getData () );
+                handleData ( (ReadResponse)message );
                 return true;
             }
             else
@@ -135,17 +135,22 @@ public class ModbusRequestBlock extends AbstractRequestBlock
         }
     }
 
-    @Override
-    public void handleData ( final IoBuffer data )
+    protected void handleData ( final ReadResponse readResponse )
     {
-        if ( this.dataOrder == ByteOrder.BIG_ENDIAN )
+        IoBuffer data = readResponse.getData ();
+
+        if ( this.dataOrder != ByteOrder.BIG_ENDIAN )
         {
-            super.handleData ( data );
+            switch ( readResponse.getFunctionCode () )
+            {
+                case Constants.FUNCTION_CODE_READ_HOLDING_REGISTERS: //$FALL-THROUGH$
+                case Constants.FUNCTION_CODE_READ_INPUT_REGISTERS:
+                    // only switch bytes if byte order is not BIG_ENDIAN and we do read analog registers
+                    data = ModbusProtocol.convertData ( readResponse.getData (), this.dataOrder );
+                    break;
+            }
         }
-        else
-        {
-            super.handleData ( ModbusProtocol.convertData ( data, this.dataOrder ) );
-        }
+        handleData ( data );
     }
 
     @Override
