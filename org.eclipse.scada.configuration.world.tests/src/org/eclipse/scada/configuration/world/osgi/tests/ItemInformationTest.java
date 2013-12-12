@@ -22,82 +22,75 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ItemInformationTest extends TestCase
-{
+public class ItemInformationTest extends TestCase {
 
-    /**
-     * The fixture for this Item Information test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ItemInformation fixture = null;
+	/**
+	 * The fixture for this Item Information test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemInformation fixture = null;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( ItemInformationTest.class );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(ItemInformationTest.class);
+	}
 
-    /**
-     * Constructs a new Item Information test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ItemInformationTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Item Information test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemInformationTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Item Information test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ItemInformation fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Item Information test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ItemInformation fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Item Information test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ItemInformation getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Item Information test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemInformation getFixture() {
+		return fixture;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( OsgiFactory.eINSTANCE.createItemInformation () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(OsgiFactory.eINSTANCE.createItemInformation());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
 
 } //ItemInformationTest

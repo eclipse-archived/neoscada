@@ -29,22 +29,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Markers extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Marker Groups</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MarkerGroup}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Marker Groups</em>' containment reference list
-     * isn't clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Marker Groups</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkers_MarkerGroups()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<MarkerGroup> getMarkerGroups ();
+public interface Markers extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Marker Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MarkerGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Marker Groups</em>' containment reference list
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Marker Groups</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkers_MarkerGroups()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<MarkerGroup> getMarkerGroups();
 
 } // Markers

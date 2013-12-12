@@ -21,64 +21,60 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DebianDeploymentMechanismTest extends CommonDeploymentMechanismTest
-{
+public class DebianDeploymentMechanismTest extends
+		CommonDeploymentMechanismTest {
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( DebianDeploymentMechanismTest.class );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(DebianDeploymentMechanismTest.class);
+	}
 
-    /**
-     * Constructs a new Debian Deployment Mechanism test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DebianDeploymentMechanismTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Debian Deployment Mechanism test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DebianDeploymentMechanismTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Returns the fixture for this Debian Deployment Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected DebianDeploymentMechanism getFixture ()
-    {
-        return (DebianDeploymentMechanism)fixture;
-    }
+	/**
+	 * Returns the fixture for this Debian Deployment Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected DebianDeploymentMechanism getFixture() {
+		return (DebianDeploymentMechanism) fixture;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(DeploymentFactory.eINSTANCE
+				.createDebianDeploymentMechanism());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
 
 } //DebianDeploymentMechanismTest

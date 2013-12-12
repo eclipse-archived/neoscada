@@ -22,82 +22,75 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MarkerGroupTest extends TestCase
-{
+public class MarkerGroupTest extends TestCase {
 
-    /**
-     * The fixture for this Marker Group test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MarkerGroup fixture = null;
+	/**
+	 * The fixture for this Marker Group test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarkerGroup fixture = null;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( MarkerGroupTest.class );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(MarkerGroupTest.class);
+	}
 
-    /**
-     * Constructs a new Marker Group test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public MarkerGroupTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Marker Group test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MarkerGroupTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Marker Group test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( MarkerGroup fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Marker Group test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(MarkerGroup fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Marker Group test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MarkerGroup getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Marker Group test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarkerGroup getFixture() {
+		return fixture;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( OsgiFactory.eINSTANCE.createMarkerGroup () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(OsgiFactory.eINSTANCE.createMarkerGroup());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
 
 } //MarkerGroupTest

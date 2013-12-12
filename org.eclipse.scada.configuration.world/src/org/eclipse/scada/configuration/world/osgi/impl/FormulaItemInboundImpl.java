@@ -39,206 +39,196 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  *
  * @generated
  */
-public class FormulaItemInboundImpl extends MinimalEObjectImpl.Container implements FormulaItemInbound
-{
-    /**
-     * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getInputs()
-     * @generated
-     * @ordered
-     */
-    protected EList<TypedItemReference> inputs;
+public class FormulaItemInboundImpl extends MinimalEObjectImpl.Container
+		implements FormulaItemInbound {
+	/**
+	 * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TypedItemReference> inputs;
 
-    /**
-     * The default value of the '{@link #getInputFormula() <em>Input Formula</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getInputFormula()
-     * @generated
-     * @ordered
-     */
-    protected static final String INPUT_FORMULA_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getInputFormula() <em>Input Formula</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputFormula()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INPUT_FORMULA_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getInputFormula() <em>Input Formula</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getInputFormula()
-     * @generated
-     * @ordered
-     */
-    protected String inputFormula = INPUT_FORMULA_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getInputFormula() <em>Input Formula</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputFormula()
+	 * @generated
+	 * @ordered
+	 */
+	protected String inputFormula = INPUT_FORMULA_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected FormulaItemInboundImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FormulaItemInboundImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.FORMULA_ITEM_INBOUND;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.FORMULA_ITEM_INBOUND;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<TypedItemReference> getInputs ()
-    {
-        if ( inputs == null )
-        {
-            inputs = new EObjectContainmentEList.Resolving<TypedItemReference> ( TypedItemReference.class, this, OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS );
-        }
-        return inputs;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TypedItemReference> getInputs() {
+		if (inputs == null) {
+			inputs = new EObjectContainmentEList.Resolving<TypedItemReference>(
+					TypedItemReference.class, this,
+					OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS);
+		}
+		return inputs;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getInputFormula ()
-    {
-        return inputFormula;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInputFormula() {
+		return inputFormula;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setInputFormula ( String newInputFormula )
-    {
-        String oldInputFormula = inputFormula;
-        inputFormula = newInputFormula;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA, oldInputFormula, inputFormula ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputFormula(String newInputFormula) {
+		String oldInputFormula = inputFormula;
+		inputFormula = newInputFormula;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA,
+					oldInputFormula, inputFormula));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
-                return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
+			return ((InternalEList<?>) getInputs()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
-                return getInputs ();
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
-                return getInputFormula ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
+			return getInputs();
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
+			return getInputFormula();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
-                getInputs ().clear ();
-                getInputs ().addAll ( (Collection<? extends TypedItemReference>)newValue );
-                return;
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
-                setInputFormula ( (String)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
+			getInputs().clear();
+			getInputs().addAll(
+					(Collection<? extends TypedItemReference>) newValue);
+			return;
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
+			setInputFormula((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
-                getInputs ().clear ();
-                return;
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
-                setInputFormula ( INPUT_FORMULA_EDEFAULT );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
+			getInputs().clear();
+			return;
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
+			setInputFormula(INPUT_FORMULA_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
-                return inputs != null && !inputs.isEmpty ();
-            case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
-                return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null : !INPUT_FORMULA_EDEFAULT.equals ( inputFormula );
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUTS:
+			return inputs != null && !inputs.isEmpty();
+		case OsgiPackage.FORMULA_ITEM_INBOUND__INPUT_FORMULA:
+			return INPUT_FORMULA_EDEFAULT == null ? inputFormula != null
+					: !INPUT_FORMULA_EDEFAULT.equals(inputFormula);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (inputFormula: " ); //$NON-NLS-1$
-        result.append ( inputFormula );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (inputFormula: "); //$NON-NLS-1$
+		result.append(inputFormula);
+		result.append(')');
+		return result.toString();
+	}
 
 } //FormulaItemInboundImpl

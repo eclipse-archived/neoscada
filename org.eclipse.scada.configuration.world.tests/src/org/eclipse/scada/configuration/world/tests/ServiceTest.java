@@ -21,48 +21,44 @@ import org.eclipse.scada.configuration.world.Service;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ServiceTest extends TestCase
-{
+public abstract class ServiceTest extends TestCase {
 
-    /**
-     * The fixture for this Service test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Service fixture = null;
+	/**
+	 * The fixture for this Service test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Service fixture = null;
 
-    /**
-     * Constructs a new Service test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ServiceTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Service test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ServiceTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Service test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( Service fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Service test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Service fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Service test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Service getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Service test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Service getFixture() {
+		return fixture;
+	}
 
 } //ServiceTest

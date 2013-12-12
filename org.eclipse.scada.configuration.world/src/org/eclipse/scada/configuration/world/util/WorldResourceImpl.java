@@ -20,24 +20,21 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see org.eclipse.scada.configuration.world.util.WorldResourceFactoryImpl
  * @generated
  */
-public class WorldResourceImpl extends XMIResourceImpl
-{
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param uri the URI of the new resource.
-     * @generated
-     */
-    public WorldResourceImpl ( URI uri )
-    {
-        super ( uri );
-    }
+public class WorldResourceImpl extends XMIResourceImpl {
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param uri the URI of the new resource.
+	 * @generated
+	 */
+	public WorldResourceImpl(URI uri) {
+		super(uri);
+	}
 
-    @Override
-    protected boolean useUUIDs ()
-    {
-        return true;
-    }
+	@Override
+	protected boolean useUUIDs() {
+		return true;
+	}
 
 } //ConfigurationResourceImpl

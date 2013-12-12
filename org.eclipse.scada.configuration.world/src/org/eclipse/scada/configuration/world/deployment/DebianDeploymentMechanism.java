@@ -28,22 +28,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DebianDeploymentMechanism extends CommonDeploymentMechanism
-{
-    /**
-     * Returns the value of the '<em><b>Additional Dependencies</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Additional Dependencies</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Additional Dependencies</em>' attribute list.
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getDebianDeploymentMechanism_AdditionalDependencies()
-     * @model ordered="false"
-     * @generated
-     */
-    EList<String> getAdditionalDependencies ();
+public interface DebianDeploymentMechanism extends CommonDeploymentMechanism {
+	/**
+	 * Returns the value of the '<em><b>Additional Dependencies</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Additional Dependencies</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Additional Dependencies</em>' attribute list.
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getDebianDeploymentMechanism_AdditionalDependencies()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<String> getAdditionalDependencies();
 
 } // DebianDeploymentMechanism

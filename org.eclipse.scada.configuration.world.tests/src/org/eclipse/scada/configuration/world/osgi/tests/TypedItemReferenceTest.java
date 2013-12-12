@@ -21,64 +21,58 @@ import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypedItemReferenceTest extends ItemReferenceTest
-{
+public class TypedItemReferenceTest extends ItemReferenceTest {
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( TypedItemReferenceTest.class );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(TypedItemReferenceTest.class);
+	}
 
-    /**
-     * Constructs a new Typed Item Reference test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public TypedItemReferenceTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Typed Item Reference test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypedItemReferenceTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Returns the fixture for this Typed Item Reference test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected TypedItemReference getFixture ()
-    {
-        return (TypedItemReference)fixture;
-    }
+	/**
+	 * Returns the fixture for this Typed Item Reference test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected TypedItemReference getFixture() {
+		return (TypedItemReference) fixture;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( OsgiFactory.eINSTANCE.createTypedItemReference () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(OsgiFactory.eINSTANCE.createTypedItemReference());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
 
 } //TypedItemReferenceTest

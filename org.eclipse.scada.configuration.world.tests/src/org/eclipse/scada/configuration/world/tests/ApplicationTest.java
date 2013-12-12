@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.Application;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ApplicationTest extends TestCase
-{
+public abstract class ApplicationTest extends TestCase {
 
-    /**
-     * The fixture for this Application test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Application fixture = null;
+	/**
+	 * The fixture for this Application test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Application fixture = null;
 
-    /**
-     * Constructs a new Application test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ApplicationTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Application test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Application test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( Application fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Application test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Application fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Application test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Application getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Application test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Application getFixture() {
+		return fixture;
+	}
 
 } //ApplicationTest

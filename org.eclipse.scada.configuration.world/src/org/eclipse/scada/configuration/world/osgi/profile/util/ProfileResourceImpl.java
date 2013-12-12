@@ -20,18 +20,16 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * @see org.eclipse.scada.configuration.world.osgi.profile.util.ProfileResourceFactoryImpl
  * @generated
  */
-public class ProfileResourceImpl extends XMLResourceImpl
-{
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param uri the URI of the new resource.
-     * @generated
-     */
-    public ProfileResourceImpl ( URI uri )
-    {
-        super ( uri );
-    }
+public class ProfileResourceImpl extends XMLResourceImpl {
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param uri the URI of the new resource.
+	 * @generated
+	 */
+	public ProfileResourceImpl(URI uri) {
+		super(uri);
+	}
 
 } //ProfileResourceImpl

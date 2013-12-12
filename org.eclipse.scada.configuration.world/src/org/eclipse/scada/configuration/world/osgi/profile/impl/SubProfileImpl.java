@@ -39,206 +39,196 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *
  * @generated
  */
-public class SubProfileImpl extends MinimalEObjectImpl.Container implements SubProfile
-{
-    /**
-     * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getProperty()
-     * @generated
-     * @ordered
-     */
-    protected EList<SystemProperty> property;
+public class SubProfileImpl extends MinimalEObjectImpl.Container implements
+		SubProfile {
+	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SystemProperty> property;
 
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SubProfileImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubProfileImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return ProfilePackage.Literals.SUB_PROFILE;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ProfilePackage.Literals.SUB_PROFILE;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<SystemProperty> getProperty ()
-    {
-        if ( property == null )
-        {
-            property = new EObjectContainmentEList.Resolving<SystemProperty> ( SystemProperty.class, this, ProfilePackage.SUB_PROFILE__PROPERTY );
-        }
-        return property;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SystemProperty> getProperty() {
+		if (property == null) {
+			property = new EObjectContainmentEList.Resolving<SystemProperty>(
+					SystemProperty.class, this,
+					ProfilePackage.SUB_PROFILE__PROPERTY);
+		}
+		return property;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName ()
-    {
-        return name;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName ( String newName )
-    {
-        String oldName = name;
-        name = newName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ProfilePackage.SUB_PROFILE__NAME, oldName, name ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					ProfilePackage.SUB_PROFILE__NAME, oldName, name));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case ProfilePackage.SUB_PROFILE__PROPERTY:
-                return ( (InternalEList<?>)getProperty () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case ProfilePackage.SUB_PROFILE__PROPERTY:
+			return ((InternalEList<?>) getProperty()).basicRemove(otherEnd,
+					msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case ProfilePackage.SUB_PROFILE__PROPERTY:
-                return getProperty ();
-            case ProfilePackage.SUB_PROFILE__NAME:
-                return getName ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case ProfilePackage.SUB_PROFILE__PROPERTY:
+			return getProperty();
+		case ProfilePackage.SUB_PROFILE__NAME:
+			return getName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case ProfilePackage.SUB_PROFILE__PROPERTY:
-                getProperty ().clear ();
-                getProperty ().addAll ( (Collection<? extends SystemProperty>)newValue );
-                return;
-            case ProfilePackage.SUB_PROFILE__NAME:
-                setName ( (String)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case ProfilePackage.SUB_PROFILE__PROPERTY:
+			getProperty().clear();
+			getProperty().addAll(
+					(Collection<? extends SystemProperty>) newValue);
+			return;
+		case ProfilePackage.SUB_PROFILE__NAME:
+			setName((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case ProfilePackage.SUB_PROFILE__PROPERTY:
-                getProperty ().clear ();
-                return;
-            case ProfilePackage.SUB_PROFILE__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case ProfilePackage.SUB_PROFILE__PROPERTY:
+			getProperty().clear();
+			return;
+		case ProfilePackage.SUB_PROFILE__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case ProfilePackage.SUB_PROFILE__PROPERTY:
-                return property != null && !property.isEmpty ();
-            case ProfilePackage.SUB_PROFILE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case ProfilePackage.SUB_PROFILE__PROPERTY:
+			return property != null && !property.isEmpty();
+		case ProfilePackage.SUB_PROFILE__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
+					.equals(name);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: "); //$NON-NLS-1$
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SubProfileImpl

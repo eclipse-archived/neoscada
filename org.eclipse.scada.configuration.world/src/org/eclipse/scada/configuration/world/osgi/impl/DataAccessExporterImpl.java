@@ -36,161 +36,149 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class DataAccessExporterImpl extends ExporterImpl implements DataAccessExporter
-{
-    /**
-     * The cached value of the '{@link #getExports() <em>Exports</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getExports()
-     * @generated
-     * @ordered
-     */
-    protected EList<ItemExport> exports;
+public class DataAccessExporterImpl extends ExporterImpl implements
+		DataAccessExporter {
+	/**
+	 * The cached value of the '{@link #getExports() <em>Exports</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExports()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ItemExport> exports;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DataAccessExporterImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataAccessExporterImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.DATA_ACCESS_EXPORTER;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.DATA_ACCESS_EXPORTER;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<ItemExport> getExports ()
-    {
-        if ( exports == null )
-        {
-            exports = new EObjectContainmentEList.Resolving<ItemExport> ( ItemExport.class, this, OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS );
-        }
-        return exports;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ItemExport> getExports() {
+		if (exports == null) {
+			exports = new EObjectContainmentEList.Resolving<ItemExport>(
+					ItemExport.class, this,
+					OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS);
+		}
+		return exports;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getTypeTag ()
-    {
-        return "da";
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTypeTag() {
+		return "da";
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
-                return ( (InternalEList<?>)getExports () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
+			return ((InternalEList<?>) getExports())
+					.basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
-                return getExports ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
+			return getExports();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
-                getExports ().clear ();
-                getExports ().addAll ( (Collection<? extends ItemExport>)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
+			getExports().clear();
+			getExports().addAll((Collection<? extends ItemExport>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
-                getExports ().clear ();
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
+			getExports().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
-                return exports != null && !exports.isEmpty ();
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER__EXPORTS:
+			return exports != null && !exports.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
-    {
-        switch ( operationID )
-        {
-            case OsgiPackage.DATA_ACCESS_EXPORTER___GET_TYPE_TAG:
-                return getTypeTag ();
-        }
-        return super.eInvoke ( operationID, arguments );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments)
+			throws InvocationTargetException {
+		switch (operationID) {
+		case OsgiPackage.DATA_ACCESS_EXPORTER___GET_TYPE_TAG:
+			return getTypeTag();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
 } //DataAccessExporterImpl

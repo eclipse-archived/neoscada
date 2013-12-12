@@ -26,62 +26,57 @@ import org.eclipse.scada.configuration.world.osgi.MasterServer;
  * </p>
  * @generated
  */
-public abstract class MasterServerTest extends TestCase
-{
+public abstract class MasterServerTest extends TestCase {
 
-    /**
-     * The fixture for this Master Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MasterServer fixture = null;
+	/**
+	 * The fixture for this Master Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MasterServer fixture = null;
 
-    /**
-     * Constructs a new Master Server test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public MasterServerTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Master Server test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MasterServerTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Master Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( MasterServer fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Master Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(MasterServer fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Master Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MasterServer getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Master Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MasterServer getFixture() {
+		return fixture;
+	}
 
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile() <em>Get Profile</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile()
-     * @generated
-     */
-    public void testGetProfile ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
+	/**
+	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile() <em>Get Profile</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile()
+	 * @generated
+	 */
+	public void testGetProfile() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 } //MasterServerTest

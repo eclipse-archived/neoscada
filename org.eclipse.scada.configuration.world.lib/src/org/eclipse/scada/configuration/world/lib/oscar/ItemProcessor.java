@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.world.lib.oscar.item.ReferenceItemGenerat
 import org.eclipse.scada.configuration.world.lib.oscar.item.ScriptItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.SourceItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.SummaryItemGenerator;
+import org.eclipse.scada.configuration.world.lib.oscar.item.TransientItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.WeakReferenceDataSourceItemGenerator;
 import org.eclipse.scada.configuration.world.osgi.AverageItem;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
@@ -35,6 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 import org.eclipse.scada.configuration.world.osgi.SummaryItem;
+import org.eclipse.scada.configuration.world.osgi.TransientItem;
 import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
 
 public class ItemProcessor extends BasicOscarProcessor
@@ -76,6 +78,10 @@ public class ItemProcessor extends BasicOscarProcessor
         else if ( item instanceof PersistentItem )
         {
             new PersistentItemGenerator ( (PersistentItem)item, this.ctx, this.priorities ).generate ();
+        }
+        else if ( item instanceof TransientItem )
+        {
+            new TransientItemGenerator ( (TransientItem)item, this.ctx, this.priorities ).generate ();
         }
         else if ( item instanceof ProxyItem )
         {

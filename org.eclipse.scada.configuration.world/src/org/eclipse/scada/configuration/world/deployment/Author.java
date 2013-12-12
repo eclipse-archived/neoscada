@@ -29,58 +29,57 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Author extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Name()
-     * @model required="true"
-     * @generated
-     */
-    String getName ();
+public interface Author extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
-    /**
-     * Returns the value of the '<em><b>Email</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Email</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Email</em>' attribute.
-     * @see #setEmail(String)
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Email()
-     * @model required="true"
-     * @generated
-     */
-    String getEmail ();
+	/**
+	 * Returns the value of the '<em><b>Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Email</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Email</em>' attribute.
+	 * @see #setEmail(String)
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Email()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getEmail();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getEmail <em>Email</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Email</em>' attribute.
-     * @see #getEmail()
-     * @generated
-     */
-    void setEmail ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getEmail <em>Email</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Email</em>' attribute.
+	 * @see #getEmail()
+	 * @generated
+	 */
+	void setEmail(String value);
 
 } // Author

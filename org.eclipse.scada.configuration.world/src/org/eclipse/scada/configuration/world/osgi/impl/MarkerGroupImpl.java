@@ -42,241 +42,228 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class MarkerGroupImpl extends MinimalEObjectImpl.Container implements MarkerGroup
-{
-    /**
-     * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getItems()
-     * @generated
-     * @ordered
-     */
-    protected EList<Item> items;
+public class MarkerGroupImpl extends MinimalEObjectImpl.Container implements
+		MarkerGroup {
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
-    /**
-     * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getMarkers()
-     * @generated
-     * @ordered
-     */
-    protected EList<MarkerEntry> markers;
+	/**
+	 * The cached value of the '{@link #getMarkers() <em>Markers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMarkers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MarkerEntry> markers;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MarkerGroupImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarkerGroupImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.MARKER_GROUP;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.MARKER_GROUP;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getName ()
-    {
-        return name;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setName ( String newName )
-    {
-        String oldName = name;
-        name = newName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.MARKER_GROUP__NAME, oldName, name ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					OsgiPackage.MARKER_GROUP__NAME, oldName, name));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<MarkerEntry> getMarkers ()
-    {
-        if ( markers == null )
-        {
-            markers = new EObjectContainmentEList.Resolving<MarkerEntry> ( MarkerEntry.class, this, OsgiPackage.MARKER_GROUP__MARKERS );
-        }
-        return markers;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<MarkerEntry> getMarkers() {
+		if (markers == null) {
+			markers = new EObjectContainmentEList.Resolving<MarkerEntry>(
+					MarkerEntry.class, this, OsgiPackage.MARKER_GROUP__MARKERS);
+		}
+		return markers;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.MARKER_GROUP__MARKERS:
-                return ( (InternalEList<?>)getMarkers () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case OsgiPackage.MARKER_GROUP__MARKERS:
+			return ((InternalEList<?>) getMarkers())
+					.basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<Item> getItems ()
-    {
-        if ( items == null )
-        {
-            items = new EObjectResolvingEList<Item> ( Item.class, this, OsgiPackage.MARKER_GROUP__ITEMS );
-        }
-        return items;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectResolvingEList<Item>(Item.class, this,
+					OsgiPackage.MARKER_GROUP__ITEMS);
+		}
+		return items;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.MARKER_GROUP__ITEMS:
-                return getItems ();
-            case OsgiPackage.MARKER_GROUP__NAME:
-                return getName ();
-            case OsgiPackage.MARKER_GROUP__MARKERS:
-                return getMarkers ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.MARKER_GROUP__ITEMS:
+			return getItems();
+		case OsgiPackage.MARKER_GROUP__NAME:
+			return getName();
+		case OsgiPackage.MARKER_GROUP__MARKERS:
+			return getMarkers();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.MARKER_GROUP__ITEMS:
-                getItems ().clear ();
-                getItems ().addAll ( (Collection<? extends Item>)newValue );
-                return;
-            case OsgiPackage.MARKER_GROUP__NAME:
-                setName ( (String)newValue );
-                return;
-            case OsgiPackage.MARKER_GROUP__MARKERS:
-                getMarkers ().clear ();
-                getMarkers ().addAll ( (Collection<? extends MarkerEntry>)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.MARKER_GROUP__ITEMS:
+			getItems().clear();
+			getItems().addAll((Collection<? extends Item>) newValue);
+			return;
+		case OsgiPackage.MARKER_GROUP__NAME:
+			setName((String) newValue);
+			return;
+		case OsgiPackage.MARKER_GROUP__MARKERS:
+			getMarkers().clear();
+			getMarkers().addAll((Collection<? extends MarkerEntry>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.MARKER_GROUP__ITEMS:
-                getItems ().clear ();
-                return;
-            case OsgiPackage.MARKER_GROUP__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case OsgiPackage.MARKER_GROUP__MARKERS:
-                getMarkers ().clear ();
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.MARKER_GROUP__ITEMS:
+			getItems().clear();
+			return;
+		case OsgiPackage.MARKER_GROUP__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case OsgiPackage.MARKER_GROUP__MARKERS:
+			getMarkers().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.MARKER_GROUP__ITEMS:
-                return items != null && !items.isEmpty ();
-            case OsgiPackage.MARKER_GROUP__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case OsgiPackage.MARKER_GROUP__MARKERS:
-                return markers != null && !markers.isEmpty ();
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.MARKER_GROUP__ITEMS:
+			return items != null && !items.isEmpty();
+		case OsgiPackage.MARKER_GROUP__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
+					.equals(name);
+		case OsgiPackage.MARKER_GROUP__MARKERS:
+			return markers != null && !markers.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: "); //$NON-NLS-1$
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //MarkerGroupImpl

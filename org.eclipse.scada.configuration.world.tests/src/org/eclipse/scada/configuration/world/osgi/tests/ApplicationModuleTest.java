@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ApplicationModuleTest extends TestCase
-{
+public abstract class ApplicationModuleTest extends TestCase {
 
-    /**
-     * The fixture for this Application Module test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ApplicationModule fixture = null;
+	/**
+	 * The fixture for this Application Module test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationModule fixture = null;
 
-    /**
-     * Constructs a new Application Module test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ApplicationModuleTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Application Module test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationModuleTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Application Module test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ApplicationModule fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Application Module test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ApplicationModule fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Application Module test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ApplicationModule getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Application Module test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationModule getFixture() {
+		return fixture;
+	}
 
 } //ApplicationModuleTest

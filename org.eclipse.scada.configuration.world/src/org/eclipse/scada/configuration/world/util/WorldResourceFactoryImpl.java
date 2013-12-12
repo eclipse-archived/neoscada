@@ -24,34 +24,32 @@ import org.eclipse.emf.ecore.xmi.impl.URIHandlerImpl;
  * @see org.eclipse.scada.configuration.world.util.WorldResourceImpl
  * @generated
  */
-public class WorldResourceFactoryImpl extends ResourceFactoryImpl
-{
-    /**
-     * Creates an instance of the resource factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public WorldResourceFactoryImpl ()
-    {
-        super ();
-    }
+public class WorldResourceFactoryImpl extends ResourceFactoryImpl {
+	/**
+	 * Creates an instance of the resource factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public WorldResourceFactoryImpl() {
+		super();
+	}
 
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    @Override
-    public Resource createResource ( final URI uri )
-    {
-        final XMIResource result = new WorldResourceImpl ( uri );
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public Resource createResource(final URI uri) {
+		final XMIResource result = new WorldResourceImpl(uri);
 
-        result.getDefaultSaveOptions ().put ( XMLResource.OPTION_URI_HANDLER, new URIHandlerImpl.PlatformSchemeAware () );
+		result.getDefaultSaveOptions().put(XMLResource.OPTION_URI_HANDLER,
+				new URIHandlerImpl.PlatformSchemeAware());
 
-        return result;
-    }
+		return result;
+	}
 
 } //ConfigurationResourceFactoryImpl

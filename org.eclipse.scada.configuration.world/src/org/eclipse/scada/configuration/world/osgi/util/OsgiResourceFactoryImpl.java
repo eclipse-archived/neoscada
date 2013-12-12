@@ -21,30 +21,27 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * @see org.eclipse.scada.configuration.world.osgi.util.OsgiResourceImpl
  * @generated
  */
-public class OsgiResourceFactoryImpl extends ResourceFactoryImpl
-{
-    /**
-     * Creates an instance of the resource factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public OsgiResourceFactoryImpl ()
-    {
-        super ();
-    }
+public class OsgiResourceFactoryImpl extends ResourceFactoryImpl {
+	/**
+	 * Creates an instance of the resource factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsgiResourceFactoryImpl() {
+		super();
+	}
 
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Resource createResource ( URI uri )
-    {
-        Resource result = new OsgiResourceImpl ( uri );
-        return result;
-    }
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Resource createResource(URI uri) {
+		Resource result = new OsgiResourceImpl(uri);
+		return result;
+	}
 
 } //OsgiResourceFactoryImpl

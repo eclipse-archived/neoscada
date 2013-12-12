@@ -31,64 +31,63 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface MarkerGroup extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
-     * should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Name()
-     * @model required="true"
-     * @generated
-     */
-    String getName ();
+public interface MarkerGroup extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Name()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getName();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MarkerGroup#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MarkerGroup#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
-    /**
-     * Returns the value of the '<em><b>Markers</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MarkerEntry}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Markers</em>' attribute list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Markers</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Markers()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<MarkerEntry> getMarkers ();
+	/**
+	 * Returns the value of the '<em><b>Markers</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MarkerEntry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Markers</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Markers</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Markers()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<MarkerEntry> getMarkers();
 
-    /**
-     * Returns the value of the '<em><b>Items</b></em>' reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Items</em>' containment reference list isn't
-     * clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Items</em>' reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Items()
-     * @model
-     * @generated
-     */
-    EList<Item> getItems ();
+	/**
+	 * Returns the value of the '<em><b>Items</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Items</em>' containment reference list isn't
+	 * clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Items</em>' reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMarkerGroup_Items()
+	 * @model
+	 * @generated
+	 */
+	EList<Item> getItems();
 
 } // MarkerGroup

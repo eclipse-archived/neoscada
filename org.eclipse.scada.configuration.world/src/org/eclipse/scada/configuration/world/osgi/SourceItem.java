@@ -27,58 +27,57 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface SourceItem extends Item
-{
-    /**
-     * Returns the value of the '<em><b>Connection</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Connection</em>' reference isn't clear, there
-     * really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Connection</em>' reference.
-     * @see #setConnection(DataAccessConnection)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSourceItem_Connection()
-     * @model required="true"
-     * @generated
-     */
-    DataAccessConnection getConnection ();
+public interface SourceItem extends Item {
+	/**
+	 * Returns the value of the '<em><b>Connection</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connection</em>' reference isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connection</em>' reference.
+	 * @see #setConnection(DataAccessConnection)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSourceItem_Connection()
+	 * @model required="true"
+	 * @generated
+	 */
+	DataAccessConnection getConnection();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getConnection <em>Connection</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Connection</em>' reference.
-     * @see #getConnection()
-     * @generated
-     */
-    void setConnection ( DataAccessConnection value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getConnection <em>Connection</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connection</em>' reference.
+	 * @see #getConnection()
+	 * @generated
+	 */
+	void setConnection(DataAccessConnection value);
 
-    /**
-     * Returns the value of the '<em><b>Source Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Source Name</em>' attribute isn't clear, there
-     * really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Source Name</em>' attribute.
-     * @see #setSourceName(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSourceItem_SourceName()
-     * @model required="true"
-     * @generated
-     */
-    String getSourceName ();
+	/**
+	 * Returns the value of the '<em><b>Source Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Name</em>' attribute isn't clear, there
+	 * really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Name</em>' attribute.
+	 * @see #setSourceName(String)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSourceItem_SourceName()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getSourceName();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getSourceName <em>Source Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Source Name</em>' attribute.
-     * @see #getSourceName()
-     * @generated
-     */
-    void setSourceName ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SourceItem#getSourceName <em>Source Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Name</em>' attribute.
+	 * @see #getSourceName()
+	 * @generated
+	 */
+	void setSourceName(String value);
 
 } // SourceItem

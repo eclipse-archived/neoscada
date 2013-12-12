@@ -29,154 +29,146 @@ import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
  *
  * @generated
  */
-public class WeakReferenceDataSourceItemImpl extends ItemImpl implements WeakReferenceDataSourceItem
-{
-    /**
-     * The default value of the '{@link #getDataSourceId() <em>Data Source Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDataSourceId()
-     * @generated
-     * @ordered
-     */
-    protected static final String DATA_SOURCE_ID_EDEFAULT = null;
+public class WeakReferenceDataSourceItemImpl extends ItemImpl implements
+		WeakReferenceDataSourceItem {
+	/**
+	 * The default value of the '{@link #getDataSourceId() <em>Data Source Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataSourceId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DATA_SOURCE_ID_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getDataSourceId() <em>Data Source Id</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDataSourceId()
-     * @generated
-     * @ordered
-     */
-    protected String dataSourceId = DATA_SOURCE_ID_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getDataSourceId() <em>Data Source Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataSourceId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dataSourceId = DATA_SOURCE_ID_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected WeakReferenceDataSourceItemImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WeakReferenceDataSourceItemImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.WEAK_REFERENCE_DATA_SOURCE_ITEM;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.WEAK_REFERENCE_DATA_SOURCE_ITEM;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getDataSourceId ()
-    {
-        return dataSourceId;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDataSourceId() {
+		return dataSourceId;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setDataSourceId ( String newDataSourceId )
-    {
-        String oldDataSourceId = dataSourceId;
-        dataSourceId = newDataSourceId;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID, oldDataSourceId, dataSourceId ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDataSourceId(String newDataSourceId) {
+		String oldDataSourceId = dataSourceId;
+		dataSourceId = newDataSourceId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID,
+					oldDataSourceId, dataSourceId));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
-                return getDataSourceId ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
+			return getDataSourceId();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
-                setDataSourceId ( (String)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
+			setDataSourceId((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
-                setDataSourceId ( DATA_SOURCE_ID_EDEFAULT );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
+			setDataSourceId(DATA_SOURCE_ID_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
-                return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null : !DATA_SOURCE_ID_EDEFAULT.equals ( dataSourceId );
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.WEAK_REFERENCE_DATA_SOURCE_ITEM__DATA_SOURCE_ID:
+			return DATA_SOURCE_ID_EDEFAULT == null ? dataSourceId != null
+					: !DATA_SOURCE_ID_EDEFAULT.equals(dataSourceId);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (dataSourceId: " ); //$NON-NLS-1$
-        result.append ( dataSourceId );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (dataSourceId: "); //$NON-NLS-1$
+		result.append(dataSourceId);
+		result.append(')');
+		return result.toString();
+	}
 
 } //WeakReferenceDataSourceItemImpl

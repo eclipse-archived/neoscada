@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanis
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class CommonDeploymentMechanismTest extends TestCase
-{
+public abstract class CommonDeploymentMechanismTest extends TestCase {
 
-    /**
-     * The fixture for this Common Deployment Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CommonDeploymentMechanism fixture = null;
+	/**
+	 * The fixture for this Common Deployment Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommonDeploymentMechanism fixture = null;
 
-    /**
-     * Constructs a new Common Deployment Mechanism test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public CommonDeploymentMechanismTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Common Deployment Mechanism test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommonDeploymentMechanismTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Common Deployment Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( CommonDeploymentMechanism fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Common Deployment Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(CommonDeploymentMechanism fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Common Deployment Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CommonDeploymentMechanism getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Common Deployment Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommonDeploymentMechanism getFixture() {
+		return fixture;
+	}
 
 } //CommonDeploymentMechanismTest

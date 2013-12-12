@@ -32,119 +32,107 @@ import org.eclipse.scada.configuration.world.osgi.ProxyItem;
  *
  * @generated
  */
-public class ProxyItemImpl extends ItemImpl implements ProxyItem
-{
-    /**
-     * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getItems()
-     * @generated
-     * @ordered
-     */
-    protected EList<Item> items;
+public class ProxyItemImpl extends ItemImpl implements ProxyItem {
+	/**
+	 * The cached value of the '{@link #getItems() <em>Items</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getItems()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Item> items;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProxyItemImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyItemImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.PROXY_ITEM;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.PROXY_ITEM;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<Item> getItems ()
-    {
-        if ( items == null )
-        {
-            items = new EObjectResolvingEList<Item> ( Item.class, this, OsgiPackage.PROXY_ITEM__ITEMS );
-        }
-        return items;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Item> getItems() {
+		if (items == null) {
+			items = new EObjectResolvingEList<Item>(Item.class, this,
+					OsgiPackage.PROXY_ITEM__ITEMS);
+		}
+		return items;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.PROXY_ITEM__ITEMS:
-                return getItems ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.PROXY_ITEM__ITEMS:
+			return getItems();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.PROXY_ITEM__ITEMS:
-                getItems ().clear ();
-                getItems ().addAll ( (Collection<? extends Item>)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.PROXY_ITEM__ITEMS:
+			getItems().clear();
+			getItems().addAll((Collection<? extends Item>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.PROXY_ITEM__ITEMS:
-                getItems ().clear ();
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.PROXY_ITEM__ITEMS:
+			getItems().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.PROXY_ITEM__ITEMS:
-                return items != null && !items.isEmpty ();
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.PROXY_ITEM__ITEMS:
+			return items != null && !items.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //ProxyItemImpl

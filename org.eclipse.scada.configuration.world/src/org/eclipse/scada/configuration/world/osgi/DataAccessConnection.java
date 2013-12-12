@@ -21,24 +21,23 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface DataAccessConnection extends Connection
-{
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model kind="operation" required="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return \"da\";'"
-     * @generated
-     */
-    String getTypeTag ();
+public interface DataAccessConnection extends Connection {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return \"da\";'"
+	 * @generated
+	 */
+	String getTypeTag();
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model required="true"
-     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return super.makeBasicUri ( localhost, \"da\", \"ngp\" );'"
-     * @generated
-     */
-    String makeUri ( boolean localhost );
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return super.makeBasicUri ( localhost, \"da\", \"ngp\" );'"
+	 * @generated
+	 */
+	String makeUri(boolean localhost);
 
 } // DataAccessConnection

@@ -37,254 +37,242 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  *
  * @generated
  */
-public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container implements SimpleNodeMappingEntry
-{
-    /**
-     * The default value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFromHostName()
-     * @generated
-     * @ordered
-     */
-    protected static final String FROM_HOST_NAME_EDEFAULT = null;
+public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
+		implements SimpleNodeMappingEntry {
+	/**
+	 * The default value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromHostName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FROM_HOST_NAME_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getFromHostName()
-     * @generated
-     * @ordered
-     */
-    protected String fromHostName = FROM_HOST_NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFromHostName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String fromHostName = FROM_HOST_NAME_EDEFAULT;
 
-    /**
-     * The default value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getToHostName()
-     * @generated
-     * @ordered
-     */
-    protected static final String TO_HOST_NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToHostName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TO_HOST_NAME_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getToHostName()
-     * @generated
-     * @ordered
-     */
-    protected String toHostName = TO_HOST_NAME_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToHostName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String toHostName = TO_HOST_NAME_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SimpleNodeMappingEntryImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleNodeMappingEntryImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return DeploymentPackage.Literals.SIMPLE_NODE_MAPPING_ENTRY;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return DeploymentPackage.Literals.SIMPLE_NODE_MAPPING_ENTRY;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getFromHostName ()
-    {
-        return fromHostName;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getFromHostName() {
+		return fromHostName;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setFromHostName ( String newFromHostName )
-    {
-        String oldFromHostName = fromHostName;
-        fromHostName = newFromHostName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME, oldFromHostName, fromHostName ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFromHostName(String newFromHostName) {
+		String oldFromHostName = fromHostName;
+		fromHostName = newFromHostName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME,
+					oldFromHostName, fromHostName));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getToHostName ()
-    {
-        return toHostName;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getToHostName() {
+		return toHostName;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setToHostName ( String newToHostName )
-    {
-        String oldToHostName = toHostName;
-        toHostName = newToHostName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME, oldToHostName, toHostName ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setToHostName(String newToHostName) {
+		String oldToHostName = toHostName;
+		toHostName = newToHostName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME,
+					oldToHostName, toHostName));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    @Override
-    public boolean mapNode ( final Node node )
-    {
-        if ( node == null )
-        {
-            return false;
-        }
-        if ( node.getHostName () == null )
-        {
-            return false;
-        }
-        if ( node.getHostName ().equalsIgnoreCase ( getFromHostName () ) )
-        {
-            node.setHostName ( getToHostName () );
-            return true;
-        }
-        return false;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean mapNode(final Node node) {
+		if (node == null) {
+			return false;
+		}
+		if (node.getHostName() == null) {
+			return false;
+		}
+		if (node.getHostName().equalsIgnoreCase(getFromHostName())) {
+			node.setHostName(getToHostName());
+			return true;
+		}
+		return false;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
-                return getFromHostName ();
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
-                return getToHostName ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
+			return getFromHostName();
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
+			return getToHostName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
-                setFromHostName ( (String)newValue );
-                return;
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
-                setToHostName ( (String)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
+			setFromHostName((String) newValue);
+			return;
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
+			setToHostName((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
-                setFromHostName ( FROM_HOST_NAME_EDEFAULT );
-                return;
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
-                setToHostName ( TO_HOST_NAME_EDEFAULT );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
+			setFromHostName(FROM_HOST_NAME_EDEFAULT);
+			return;
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
+			setToHostName(TO_HOST_NAME_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
-                return FROM_HOST_NAME_EDEFAULT == null ? fromHostName != null : !FROM_HOST_NAME_EDEFAULT.equals ( fromHostName );
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
-                return TO_HOST_NAME_EDEFAULT == null ? toHostName != null : !TO_HOST_NAME_EDEFAULT.equals ( toHostName );
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
+			return FROM_HOST_NAME_EDEFAULT == null ? fromHostName != null
+					: !FROM_HOST_NAME_EDEFAULT.equals(fromHostName);
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
+			return TO_HOST_NAME_EDEFAULT == null ? toHostName != null
+					: !TO_HOST_NAME_EDEFAULT.equals(toHostName);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
-    {
-        switch ( operationID )
-        {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
-                return mapNode ( (Node)arguments.get ( 0 ) );
-        }
-        return super.eInvoke ( operationID, arguments );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments)
+			throws InvocationTargetException {
+		switch (operationID) {
+		case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
+			return mapNode((Node) arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (fromHostName: " ); //$NON-NLS-1$
-        result.append ( fromHostName );
-        result.append ( ", toHostName: " ); //$NON-NLS-1$
-        result.append ( toHostName );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (fromHostName: "); //$NON-NLS-1$
+		result.append(fromHostName);
+		result.append(", toHostName: "); //$NON-NLS-1$
+		result.append(toHostName);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SimpleNodeMappingEntryImpl

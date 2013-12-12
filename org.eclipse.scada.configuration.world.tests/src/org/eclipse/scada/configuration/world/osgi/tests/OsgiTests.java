@@ -21,49 +21,45 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OsgiTests extends TestSuite
-{
+public class OsgiTests extends TestSuite {
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( suite () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(suite());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static Test suite ()
-    {
-        TestSuite suite = new OsgiTests ( "osgi Tests" ); //$NON-NLS-1$
-        suite.addTestSuite ( DataAccessConnectionTest.class );
-        suite.addTestSuite ( DataAccessExporterTest.class );
-        suite.addTestSuite ( DefaultMasterServerTest.class );
-        suite.addTestSuite ( CustomMasterServerTest.class );
-        suite.addTestSuite ( AlarmsEventsExporterTest.class );
-        suite.addTestSuite ( AlarmsEventsConnectionTest.class );
-        suite.addTestSuite ( DefaultValueArchiveServerTest.class );
-        suite.addTestSuite ( HistoricalDataExporterTest.class );
-        suite.addTestSuite ( ConfigurationAdministratorExporterTest.class );
-        suite.addTestSuite ( EventStorageJdbcTest.class );
-        suite.addTestSuite ( EventStoragePostgresTest.class );
-        return suite;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static Test suite() {
+		TestSuite suite = new OsgiTests("osgi Tests"); //$NON-NLS-1$
+		suite.addTestSuite(DataAccessConnectionTest.class);
+		suite.addTestSuite(DataAccessExporterTest.class);
+		suite.addTestSuite(DefaultMasterServerTest.class);
+		suite.addTestSuite(CustomMasterServerTest.class);
+		suite.addTestSuite(AlarmsEventsExporterTest.class);
+		suite.addTestSuite(AlarmsEventsConnectionTest.class);
+		suite.addTestSuite(DefaultValueArchiveServerTest.class);
+		suite.addTestSuite(HistoricalDataExporterTest.class);
+		suite.addTestSuite(ConfigurationAdministratorExporterTest.class);
+		suite.addTestSuite(EventStorageJdbcTest.class);
+		suite.addTestSuite(EventStoragePostgresTest.class);
+		return suite;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public OsgiTests ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsgiTests(String name) {
+		super(name);
+	}
 
 } //OsgiTests

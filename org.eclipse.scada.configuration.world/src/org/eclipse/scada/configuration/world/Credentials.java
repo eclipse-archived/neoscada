@@ -22,6 +22,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Credentials extends EObject
-{
+public interface Credentials extends EObject {
 } // Credentials

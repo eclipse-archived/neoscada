@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.osgi.ExternalEventFilter;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ExternalEventFilterTest extends TestCase
-{
+public abstract class ExternalEventFilterTest extends TestCase {
 
-    /**
-     * The fixture for this External Event Filter test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExternalEventFilter fixture = null;
+	/**
+	 * The fixture for this External Event Filter test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalEventFilter fixture = null;
 
-    /**
-     * Constructs a new External Event Filter test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ExternalEventFilterTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new External Event Filter test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExternalEventFilterTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this External Event Filter test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ExternalEventFilter fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this External Event Filter test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ExternalEventFilter fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this External Event Filter test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExternalEventFilter getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this External Event Filter test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalEventFilter getFixture() {
+		return fixture;
+	}
 
 } //ExternalEventFilterTest

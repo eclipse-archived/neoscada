@@ -27,62 +27,57 @@ import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
  * </p>
  * @generated
  */
-public abstract class NodeMappingEntryTest extends TestCase
-{
+public abstract class NodeMappingEntryTest extends TestCase {
 
-    /**
-     * The fixture for this Node Mapping Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NodeMappingEntry fixture = null;
+	/**
+	 * The fixture for this Node Mapping Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NodeMappingEntry fixture = null;
 
-    /**
-     * Constructs a new Node Mapping Entry test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NodeMappingEntryTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Node Mapping Entry test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NodeMappingEntryTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Node Mapping Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( NodeMappingEntry fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Node Mapping Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(NodeMappingEntry fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Node Mapping Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected NodeMappingEntry getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Node Mapping Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NodeMappingEntry getFixture() {
+		return fixture;
+	}
 
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node)
-     * @generated
-     */
-    public void testMapNode__Node ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
+	/**
+	 * Tests the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node)
+	 * @generated
+	 */
+	public void testMapNode__Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 } //NodeMappingEntryTest

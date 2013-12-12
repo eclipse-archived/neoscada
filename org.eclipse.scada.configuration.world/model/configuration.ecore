@@ -786,6 +786,7 @@
         <details key="documentation" value="This is a marker interface for standalone configuration element that can be used directly in the infrastructure model."/>
       </eAnnotations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TransientItem" eSuperTypes="#//osgi/Item"/>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

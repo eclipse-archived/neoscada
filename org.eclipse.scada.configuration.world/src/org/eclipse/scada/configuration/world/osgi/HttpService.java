@@ -29,32 +29,31 @@ import org.eclipse.scada.configuration.world.Endpoint;
  * @model annotation="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup groupId='http.service'"
  * @generated
  */
-public interface HttpService extends ApplicationConfiguration
-{
-    /**
-     * Returns the value of the '<em><b>Endpoint</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Endpoint</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Endpoint</em>' reference.
-     * @see #setEndpoint(Endpoint)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getHttpService_Endpoint()
-     * @model required="true"
-     * @generated
-     */
-    Endpoint getEndpoint ();
+public interface HttpService extends ApplicationConfiguration {
+	/**
+	 * Returns the value of the '<em><b>Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Endpoint</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Endpoint</em>' reference.
+	 * @see #setEndpoint(Endpoint)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getHttpService_Endpoint()
+	 * @model required="true"
+	 * @generated
+	 */
+	Endpoint getEndpoint();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.HttpService#getEndpoint <em>Endpoint</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint</em>' reference.
-     * @see #getEndpoint()
-     * @generated
-     */
-    void setEndpoint ( Endpoint value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.HttpService#getEndpoint <em>Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Endpoint</em>' reference.
+	 * @see #getEndpoint()
+	 * @generated
+	 */
+	void setEndpoint(Endpoint value);
 
 } // HttpService

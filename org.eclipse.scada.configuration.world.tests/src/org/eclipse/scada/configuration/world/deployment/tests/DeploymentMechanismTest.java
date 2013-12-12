@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class DeploymentMechanismTest extends TestCase
-{
+public abstract class DeploymentMechanismTest extends TestCase {
 
-    /**
-     * The fixture for this Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeploymentMechanism fixture = null;
+	/**
+	 * The fixture for this Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeploymentMechanism fixture = null;
 
-    /**
-     * Constructs a new Mechanism test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DeploymentMechanismTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Mechanism test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeploymentMechanismTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( DeploymentMechanism fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(DeploymentMechanism fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Mechanism test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeploymentMechanism getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Mechanism test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeploymentMechanism getFixture() {
+		return fixture;
+	}
 
 } //DeploymentMechanismTest

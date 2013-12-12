@@ -27,78 +27,72 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * </p>
  * @generated
  */
-public class ConfigurationAdministratorExporterTest extends ExporterTest
-{
+public class ConfigurationAdministratorExporterTest extends ExporterTest {
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( ConfigurationAdministratorExporterTest.class );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(ConfigurationAdministratorExporterTest.class);
+	}
 
-    /**
-     * Constructs a new Configuration Administrator Exporter test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ConfigurationAdministratorExporterTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Configuration Administrator Exporter test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConfigurationAdministratorExporterTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Returns the fixture for this Configuration Administrator Exporter test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected ConfigurationAdministratorExporter getFixture ()
-    {
-        return (ConfigurationAdministratorExporter)fixture;
-    }
+	/**
+	 * Returns the fixture for this Configuration Administrator Exporter test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected ConfigurationAdministratorExporter getFixture() {
+		return (ConfigurationAdministratorExporter) fixture;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#setUp()
-     * @generated
-     */
-    @Override
-    protected void setUp () throws Exception
-    {
-        setFixture ( OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(OsgiFactory.eINSTANCE
+				.createConfigurationAdministratorExporter());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see junit.framework.TestCase#tearDown()
-     * @generated
-     */
-    @Override
-    protected void tearDown () throws Exception
-    {
-        setFixture ( null );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
 
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter#getTypeTag()
-     * @generated
-     */
-    public void testGetTypeTag ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
+	/**
+	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter#getTypeTag()
+	 * @generated
+	 */
+	public void testGetTypeTag() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 } //ConfigurationAdministratorExporterTest

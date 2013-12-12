@@ -26,32 +26,31 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface SimpleExternalEventFilter extends ExternalEventFilter
-{
-    /**
-     * Returns the value of the '<em><b>Filter</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Filter</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Filter</em>' attribute.
-     * @see #setFilter(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSimpleExternalEventFilter_Filter()
-     * @model required="true"
-     * @generated
-     */
-    String getFilter ();
+public interface SimpleExternalEventFilter extends ExternalEventFilter {
+	/**
+	 * Returns the value of the '<em><b>Filter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Filter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Filter</em>' attribute.
+	 * @see #setFilter(String)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getSimpleExternalEventFilter_Filter()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getFilter();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter#getFilter <em>Filter</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Filter</em>' attribute.
-     * @see #getFilter()
-     * @generated
-     */
-    void setFilter ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter#getFilter <em>Filter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Filter</em>' attribute.
+	 * @see #getFilter()
+	 * @generated
+	 */
+	void setFilter(String value);
 
 } // SimpleExternalEventFilter

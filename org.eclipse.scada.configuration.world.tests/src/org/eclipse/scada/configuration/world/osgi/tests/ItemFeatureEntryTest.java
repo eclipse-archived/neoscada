@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ItemFeatureEntryTest extends TestCase
-{
+public abstract class ItemFeatureEntryTest extends TestCase {
 
-    /**
-     * The fixture for this Item Feature Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ItemFeatureEntry fixture = null;
+	/**
+	 * The fixture for this Item Feature Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemFeatureEntry fixture = null;
 
-    /**
-     * Constructs a new Item Feature Entry test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ItemFeatureEntryTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Item Feature Entry test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemFeatureEntryTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Item Feature Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ItemFeatureEntry fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Item Feature Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ItemFeatureEntry fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Item Feature Entry test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ItemFeatureEntry getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Item Feature Entry test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemFeatureEntry getFixture() {
+		return fixture;
+	}
 
 } //ItemFeatureEntryTest

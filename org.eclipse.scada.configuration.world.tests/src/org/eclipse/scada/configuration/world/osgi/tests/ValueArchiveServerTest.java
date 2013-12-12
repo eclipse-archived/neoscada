@@ -26,62 +26,57 @@ import org.eclipse.scada.configuration.world.osgi.ValueArchiveServer;
  * </p>
  * @generated
  */
-public abstract class ValueArchiveServerTest extends TestCase
-{
+public abstract class ValueArchiveServerTest extends TestCase {
 
-    /**
-     * The fixture for this Value Archive Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ValueArchiveServer fixture = null;
+	/**
+	 * The fixture for this Value Archive Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueArchiveServer fixture = null;
 
-    /**
-     * Constructs a new Value Archive Server test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ValueArchiveServerTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Value Archive Server test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValueArchiveServerTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Value Archive Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ValueArchiveServer fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Value Archive Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ValueArchiveServer fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Value Archive Server test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ValueArchiveServer getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Value Archive Server test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValueArchiveServer getFixture() {
+		return fixture;
+	}
 
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile() <em>Get Profile</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile()
-     * @generated
-     */
-    public void testGetProfile ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
-    }
+	/**
+	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile() <em>Get Profile</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication#getProfile()
+	 * @generated
+	 */
+	public void testGetProfile() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
 
 } //ValueArchiveServerTest

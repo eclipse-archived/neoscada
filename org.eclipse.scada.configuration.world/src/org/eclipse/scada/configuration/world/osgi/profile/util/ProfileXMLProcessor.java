@@ -23,36 +23,32 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProfileXMLProcessor extends XMLProcessor
-{
-    /**
-     * Public constructor to instantiate the helper.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ProfileXMLProcessor ()
-    {
-        super ( ( EPackage.Registry.INSTANCE ) );
-        ProfilePackage.eINSTANCE.eClass ();
-    }
+public class ProfileXMLProcessor extends XMLProcessor {
+	/**
+	 * Public constructor to instantiate the helper.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProfileXMLProcessor() {
+		super((EPackage.Registry.INSTANCE));
+		ProfilePackage.eINSTANCE.eClass();
+	}
 
-    /**
-     * Register for "*" and "xml" file extensions the ProfileResourceFactoryImpl factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected Map<String, Resource.Factory> getRegistrations ()
-    {
-        if ( registrations == null )
-        {
-            super.getRegistrations ();
-            registrations.put ( XML_EXTENSION, new ProfileResourceFactoryImpl () );
-            registrations.put ( STAR_EXTENSION, new ProfileResourceFactoryImpl () );
-        }
-        return registrations;
-    }
+	/**
+	 * Register for "*" and "xml" file extensions the ProfileResourceFactoryImpl factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected Map<String, Resource.Factory> getRegistrations() {
+		if (registrations == null) {
+			super.getRegistrations();
+			registrations.put(XML_EXTENSION, new ProfileResourceFactoryImpl());
+			registrations.put(STAR_EXTENSION, new ProfileResourceFactoryImpl());
+		}
+		return registrations;
+	}
 
 } //ProfileXMLProcessor

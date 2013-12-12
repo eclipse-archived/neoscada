@@ -26,53 +26,49 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  *
  * @generated
  */
-public class ConfigurationAdministratorExporterImpl extends ExporterImpl implements ConfigurationAdministratorExporter
-{
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ConfigurationAdministratorExporterImpl ()
-    {
-        super ();
-    }
+public class ConfigurationAdministratorExporterImpl extends ExporterImpl
+		implements ConfigurationAdministratorExporter {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConfigurationAdministratorExporterImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getTypeTag ()
-    {
-        return "ca";
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTypeTag() {
+		return "ca";
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
-    {
-        switch ( operationID )
-        {
-            case OsgiPackage.CONFIGURATION_ADMINISTRATOR_EXPORTER___GET_TYPE_TAG:
-                return getTypeTag ();
-        }
-        return super.eInvoke ( operationID, arguments );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments)
+			throws InvocationTargetException {
+		switch (operationID) {
+		case OsgiPackage.CONFIGURATION_ADMINISTRATOR_EXPORTER___GET_TYPE_TAG:
+			return getTypeTag();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
 } //ConfigurationAdministratorExporterImpl

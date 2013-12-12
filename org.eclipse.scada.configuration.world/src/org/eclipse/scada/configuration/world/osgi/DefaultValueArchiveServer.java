@@ -20,6 +20,5 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface DefaultValueArchiveServer extends ValueArchiveServer
-{
+public interface DefaultValueArchiveServer extends ValueArchiveServer {
 } // DefaultValueArchiveServer

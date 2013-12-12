@@ -29,22 +29,21 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model
  * @generated
  */
-public interface Blockings extends Documentable, ApplicationModule
-{
-    /**
-     * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.BlockGroup}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Groups</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Groups</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBlockings_Groups()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<BlockGroup> getGroups ();
+public interface Blockings extends Documentable, ApplicationModule {
+	/**
+	 * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.BlockGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Groups</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Groups</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBlockings_Groups()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<BlockGroup> getGroups();
 
 } // Blockings

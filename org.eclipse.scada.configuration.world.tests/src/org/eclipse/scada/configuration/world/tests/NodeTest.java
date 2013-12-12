@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.Node;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class NodeTest extends TestCase
-{
+public abstract class NodeTest extends TestCase {
 
-    /**
-     * The fixture for this Node test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Node fixture = null;
+	/**
+	 * The fixture for this Node test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Node fixture = null;
 
-    /**
-     * Constructs a new Node test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public NodeTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Node test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NodeTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Node test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( Node fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Node test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Node fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Node test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Node getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Node test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Node getFixture() {
+		return fixture;
+	}
 
 } //NodeTest

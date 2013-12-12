@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface DeploymentMechanism extends EObject
-{
+public interface DeploymentMechanism extends EObject {
 
 } // DeploymentMechanism

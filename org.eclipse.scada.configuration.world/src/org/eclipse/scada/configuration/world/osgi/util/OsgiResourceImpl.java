@@ -20,24 +20,21 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see org.eclipse.scada.configuration.world.osgi.util.OsgiResourceFactoryImpl
  * @generated
  */
-public class OsgiResourceImpl extends XMIResourceImpl
-{
-    /**
-     * Creates an instance of the resource.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param uri the URI of the new resource.
-     * @generated
-     */
-    public OsgiResourceImpl ( URI uri )
-    {
-        super ( uri );
-    }
+public class OsgiResourceImpl extends XMIResourceImpl {
+	/**
+	 * Creates an instance of the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param uri the URI of the new resource.
+	 * @generated
+	 */
+	public OsgiResourceImpl(URI uri) {
+		super(uri);
+	}
 
-    @Override
-    protected boolean useUUIDs ()
-    {
-        return true;
-    }
+	@Override
+	protected boolean useUUIDs() {
+		return true;
+	}
 
 } //OsgiResourceImpl

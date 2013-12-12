@@ -28,22 +28,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface MasterHandlerPriorities extends Documentable
-{
-    /**
-     * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.HandlerPriorityRule}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Rules</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.WorldPackage#getMasterHandlerPriorities_Rules()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<HandlerPriorityRule> getRules ();
+public interface MasterHandlerPriorities extends Documentable {
+	/**
+	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.HandlerPriorityRule}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rules</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.WorldPackage#getMasterHandlerPriorities_Rules()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<HandlerPriorityRule> getRules();
 
 } // MasterHandlerPriorities

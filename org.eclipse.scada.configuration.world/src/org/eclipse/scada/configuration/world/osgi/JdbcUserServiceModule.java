@@ -28,22 +28,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface JdbcUserServiceModule extends ApplicationModule
-{
-    /**
-     * Returns the value of the '<em><b>User Services</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.JdbcUserService}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>User Services</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>User Services</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getJdbcUserServiceModule_UserServices()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<JdbcUserService> getUserServices ();
+public interface JdbcUserServiceModule extends ApplicationModule {
+	/**
+	 * Returns the value of the '<em><b>User Services</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.JdbcUserService}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User Services</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User Services</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getJdbcUserServiceModule_UserServices()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<JdbcUserService> getUserServices();
 
 } // JdbcUserServiceModule

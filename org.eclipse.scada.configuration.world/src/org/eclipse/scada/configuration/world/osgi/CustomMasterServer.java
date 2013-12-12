@@ -28,32 +28,31 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * @model
  * @generated
  */
-public interface CustomMasterServer extends MasterServer
-{
-    /**
-     * Returns the value of the '<em><b>Profile</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Profile</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Profile</em>' reference.
-     * @see #setProfile(Profile)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getCustomMasterServer_Profile()
-     * @model required="true"
-     * @generated
-     */
-    Profile getProfile ();
+public interface CustomMasterServer extends MasterServer {
+	/**
+	 * Returns the value of the '<em><b>Profile</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Profile</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Profile</em>' reference.
+	 * @see #setProfile(Profile)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getCustomMasterServer_Profile()
+	 * @model required="true"
+	 * @generated
+	 */
+	Profile getProfile();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.CustomMasterServer#getProfile <em>Profile</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Profile</em>' reference.
-     * @see #getProfile()
-     * @generated
-     */
-    void setProfile ( Profile value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.CustomMasterServer#getProfile <em>Profile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Profile</em>' reference.
+	 * @see #getProfile()
+	 * @generated
+	 */
+	void setProfile(Profile value);
 
 } // CustomMasterServer

@@ -29,58 +29,57 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Documentable extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Short Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Short Description</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Short Description</em>' attribute.
-     * @see #setShortDescription(String)
-     * @see org.eclipse.scada.configuration.world.WorldPackage#getDocumentable_ShortDescription()
-     * @model
-     * @generated
-     */
-    String getShortDescription ();
+public interface Documentable extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Short Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Short Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Short Description</em>' attribute.
+	 * @see #setShortDescription(String)
+	 * @see org.eclipse.scada.configuration.world.WorldPackage#getDocumentable_ShortDescription()
+	 * @model
+	 * @generated
+	 */
+	String getShortDescription();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.Documentable#getShortDescription <em>Short Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Short Description</em>' attribute.
-     * @see #getShortDescription()
-     * @generated
-     */
-    void setShortDescription ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.Documentable#getShortDescription <em>Short Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Short Description</em>' attribute.
+	 * @see #getShortDescription()
+	 * @generated
+	 */
+	void setShortDescription(String value);
 
-    /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
-     * should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.eclipse.scada.configuration.world.WorldPackage#getDocumentable_Name()
-     * @model
-     * @generated
-     */
-    String getName ();
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+	 * should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see org.eclipse.scada.configuration.world.WorldPackage#getDocumentable_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.Documentable#getName <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
-     * @generated
-     */
-    void setName ( String value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.Documentable#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Documentable

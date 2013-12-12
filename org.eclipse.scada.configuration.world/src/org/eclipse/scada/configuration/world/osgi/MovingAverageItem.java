@@ -27,61 +27,60 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface MovingAverageItem extends Item
-{
-    /**
-     * Returns the value of the '<em><b>Source</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Source</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Source</em>' reference.
-     * @see #setSource(MovingAverage)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMovingAverageItem_Source()
-     * @model required="true"
-     * @generated
-     */
-    MovingAverage getSource ();
+public interface MovingAverageItem extends Item {
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(MovingAverage)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMovingAverageItem_Source()
+	 * @model required="true"
+	 * @generated
+	 */
+	MovingAverage getSource();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem#getSource <em>Source</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Source</em>' reference.
-     * @see #getSource()
-     * @generated
-     */
-    void setSource ( MovingAverage value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem#getSource <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(MovingAverage value);
 
-    /**
-     * Returns the value of the '<em><b>Type</b></em>' attribute.
-     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Type</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Type</em>' attribute.
-     * @see org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType
-     * @see #setType(MovingAverageReferenceType)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMovingAverageItem_Type()
-     * @model required="true"
-     * @generated
-     */
-    MovingAverageReferenceType getType ();
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType
+	 * @see #setType(MovingAverageReferenceType)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMovingAverageItem_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	MovingAverageReferenceType getType();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem#getType <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Type</em>' attribute.
-     * @see org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType
-     * @see #getType()
-     * @generated
-     */
-    void setType ( MovingAverageReferenceType value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(MovingAverageReferenceType value);
 
 } // MovingAverageItem

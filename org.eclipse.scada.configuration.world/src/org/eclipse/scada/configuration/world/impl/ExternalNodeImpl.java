@@ -23,27 +23,24 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class ExternalNodeImpl extends NodeImpl implements ExternalNode
-{
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExternalNodeImpl ()
-    {
-        super ();
-    }
+public class ExternalNodeImpl extends NodeImpl implements ExternalNode {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalNodeImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return WorldPackage.Literals.EXTERNAL_NODE;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return WorldPackage.Literals.EXTERNAL_NODE;
+	}
 
 } //ExternalNodeImpl

@@ -25,14 +25,13 @@ import org.eclipse.scada.configuration.world.Node;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NodeMappingEntry extends EObject
-{
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @model required="true"
-     * @generated
-     */
-    boolean mapNode ( Node node );
+public interface NodeMappingEntry extends EObject {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean mapNode(Node node);
 
 } // NodeMappingEntry

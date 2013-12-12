@@ -32,84 +32,83 @@ import org.eclipse.scada.core.Variant;
  * @model
  * @generated
  */
-public interface ListMonitorEntry extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Value</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Value</em>' attribute.
-     * @see #setValue(Variant)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_Value()
-     * @model dataType="org.eclipse.scada.configuration.world.osgi.Variant" required="true"
-     * @generated
-     */
-    Variant getValue ();
+public interface ListMonitorEntry extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(Variant)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_Value()
+	 * @model dataType="org.eclipse.scada.configuration.world.osgi.Variant" required="true"
+	 * @generated
+	 */
+	Variant getValue();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getValue <em>Value</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Value</em>' attribute.
-     * @see #getValue()
-     * @generated
-     */
-    void setValue ( Variant value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(Variant value);
 
-    /**
-     * Returns the value of the '<em><b>Require Ack</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Require Ack</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Require Ack</em>' attribute.
-     * @see #setRequireAck(Boolean)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_RequireAck()
-     * @model
-     * @generated
-     */
-    Boolean getRequireAck ();
+	/**
+	 * Returns the value of the '<em><b>Require Ack</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Require Ack</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Require Ack</em>' attribute.
+	 * @see #setRequireAck(Boolean)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_RequireAck()
+	 * @model
+	 * @generated
+	 */
+	Boolean getRequireAck();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getRequireAck <em>Require Ack</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Require Ack</em>' attribute.
-     * @see #getRequireAck()
-     * @generated
-     */
-    void setRequireAck ( Boolean value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getRequireAck <em>Require Ack</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Require Ack</em>' attribute.
+	 * @see #getRequireAck()
+	 * @generated
+	 */
+	void setRequireAck(Boolean value);
 
-    /**
-     * Returns the value of the '<em><b>Severity</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Severity</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Severity</em>' attribute.
-     * @see #setSeverity(Severity)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_Severity()
-     * @model dataType="org.eclipse.scada.configuration.world.osgi.Severity"
-     * @generated
-     */
-    Severity getSeverity ();
+	/**
+	 * Returns the value of the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Severity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Severity</em>' attribute.
+	 * @see #setSeverity(Severity)
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getListMonitorEntry_Severity()
+	 * @model dataType="org.eclipse.scada.configuration.world.osgi.Severity"
+	 * @generated
+	 */
+	Severity getSeverity();
 
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getSeverity <em>Severity</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Severity</em>' attribute.
-     * @see #getSeverity()
-     * @generated
-     */
-    void setSeverity ( Severity value );
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry#getSeverity <em>Severity</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Severity</em>' attribute.
+	 * @see #getSeverity()
+	 * @generated
+	 */
+	void setSeverity(Severity value);
 
 } // ListMonitorEntry

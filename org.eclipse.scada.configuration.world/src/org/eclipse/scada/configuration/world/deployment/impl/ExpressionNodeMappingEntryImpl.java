@@ -39,257 +39,245 @@ import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEnt
  *
  * @generated
  */
-public class ExpressionNodeMappingEntryImpl extends MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry
-{
-    /**
-     * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPattern()
-     * @generated
-     * @ordered
-     */
-    protected static final Pattern PATTERN_EDEFAULT = null;
+public class ExpressionNodeMappingEntryImpl extends
+		MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry {
+	/**
+	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Pattern PATTERN_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getPattern()
-     * @generated
-     * @ordered
-     */
-    protected Pattern pattern = PATTERN_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPattern()
+	 * @generated
+	 * @ordered
+	 */
+	protected Pattern pattern = PATTERN_EDEFAULT;
 
-    /**
-     * The default value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getReplacement()
-     * @generated
-     * @ordered
-     */
-    protected static final String REPLACEMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplacement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REPLACEMENT_EDEFAULT = null;
 
-    /**
-     * The cached value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getReplacement()
-     * @generated
-     * @ordered
-     */
-    protected String replacement = REPLACEMENT_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReplacement()
+	 * @generated
+	 * @ordered
+	 */
+	protected String replacement = REPLACEMENT_EDEFAULT;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ExpressionNodeMappingEntryImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExpressionNodeMappingEntryImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return DeploymentPackage.Literals.EXPRESSION_NODE_MAPPING_ENTRY;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Pattern getPattern ()
-    {
-        return pattern;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Pattern getPattern() {
+		return pattern;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setPattern ( Pattern newPattern )
-    {
-        Pattern oldPattern = pattern;
-        pattern = newPattern;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, oldPattern, pattern ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPattern(Pattern newPattern) {
+		Pattern oldPattern = pattern;
+		pattern = newPattern;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN,
+					oldPattern, pattern));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getReplacement ()
-    {
-        return replacement;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getReplacement() {
+		return replacement;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setReplacement ( String newReplacement )
-    {
-        String oldReplacement = replacement;
-        replacement = newReplacement;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, oldReplacement, replacement ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReplacement(String newReplacement) {
+		String oldReplacement = replacement;
+		replacement = newReplacement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT,
+					oldReplacement, replacement));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    @Override
-    public boolean mapNode ( final Node node )
-    {
-        if ( node == null || node.getHostName () == null )
-        {
-            return false;
-        }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public boolean mapNode(final Node node) {
+		if (node == null || node.getHostName() == null) {
+			return false;
+		}
 
-        // recompile as case insensitve
-        final Pattern pattern = Pattern.compile ( getPattern ().pattern (), Pattern.CASE_INSENSITIVE );
-        final Matcher m = pattern.matcher ( node.getHostName () );
-        if ( m.matches () )
-        {
-            node.setHostName ( m.replaceAll ( this.replacement ) );
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+		// recompile as case insensitve
+		final Pattern pattern = Pattern.compile(getPattern().pattern(),
+				Pattern.CASE_INSENSITIVE);
+		final Matcher m = pattern.matcher(node.getHostName());
+		if (m.matches()) {
+			node.setHostName(m.replaceAll(this.replacement));
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                return getPattern ();
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                return getReplacement ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
+			return getPattern();
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
+			return getReplacement();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                setPattern ( (Pattern)newValue );
-                return;
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                setReplacement ( (String)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
+			setPattern((Pattern) newValue);
+			return;
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
+			setReplacement((String) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                setPattern ( PATTERN_EDEFAULT );
-                return;
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                setReplacement ( REPLACEMENT_EDEFAULT );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
+			setPattern(PATTERN_EDEFAULT);
+			return;
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
+			setReplacement(REPLACEMENT_EDEFAULT);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals ( pattern );
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                return REPLACEMENT_EDEFAULT == null ? replacement != null : !REPLACEMENT_EDEFAULT.equals ( replacement );
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
+			return PATTERN_EDEFAULT == null ? pattern != null
+					: !PATTERN_EDEFAULT.equals(pattern);
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
+			return REPLACEMENT_EDEFAULT == null ? replacement != null
+					: !REPLACEMENT_EDEFAULT.equals(replacement);
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
-    {
-        switch ( operationID )
-        {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
-                return mapNode ( (Node)arguments.get ( 0 ) );
-        }
-        return super.eInvoke ( operationID, arguments );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments)
+			throws InvocationTargetException {
+		switch (operationID) {
+		case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
+			return mapNode((Node) arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-            return super.toString ();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
 
-        StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (pattern: " ); //$NON-NLS-1$
-        result.append ( pattern );
-        result.append ( ", replacement: " ); //$NON-NLS-1$
-        result.append ( replacement );
-        result.append ( ')' );
-        return result.toString ();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (pattern: "); //$NON-NLS-1$
+		result.append(pattern);
+		result.append(", replacement: "); //$NON-NLS-1$
+		result.append(replacement);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ExpressionNodeMappingEntryImpl

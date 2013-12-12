@@ -20,7 +20,6 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface PersistentItem extends Item
-{
+public interface PersistentItem extends Item {
 
 } // PersistentItem

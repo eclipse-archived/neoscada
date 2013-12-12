@@ -30,22 +30,21 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DeploymentInformation extends EObject
-{
-    /**
-     * Returns the value of the '<em><b>Authors</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.deployment.Author}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Authors</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Authors</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getDeploymentInformation_Authors()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<Author> getAuthors ();
+public interface DeploymentInformation extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Authors</b></em>' containment reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.deployment.Author}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Authors</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Authors</em>' containment reference list.
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getDeploymentInformation_Authors()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<Author> getAuthors();
 
 } // DeploymentInformation

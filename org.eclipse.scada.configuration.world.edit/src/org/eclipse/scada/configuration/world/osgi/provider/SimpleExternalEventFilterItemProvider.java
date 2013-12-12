@@ -34,119 +34,114 @@ import org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleExternalEventFilterItemProvider extends ExternalEventFilterItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider
-{
-    /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public SimpleExternalEventFilterItemProvider ( AdapterFactory adapterFactory )
-    {
-        super ( adapterFactory );
-    }
+public class SimpleExternalEventFilterItemProvider extends
+		ExternalEventFilterItemProvider implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider,
+		IItemLabelProvider, IItemPropertySource, ITableItemLabelProvider {
+	/**
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SimpleExternalEventFilterItemProvider(AdapterFactory adapterFactory) {
+		super(adapterFactory);
+	}
 
-    /**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
-    {
-        if ( itemPropertyDescriptors == null )
-        {
-            super.getPropertyDescriptors ( object );
+	/**
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
 
-            addFilterPropertyDescriptor ( object );
-        }
-        return itemPropertyDescriptors;
-    }
+			addFilterPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 
-    /**
-     * This adds a property descriptor for the Filter feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addFilterPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_SimpleExternalEventFilter_filter_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
+	/**
+	 * This adds a property descriptor for the Filter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFilterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_SimpleExternalEventFilter_filter_feature"), //$NON-NLS-1$
+						getString(
+								"_UI_PropertyDescriptor_description", "_UI_SimpleExternalEventFilter_filter_feature", "_UI_SimpleExternalEventFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+						OsgiPackage.Literals.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER,
+						true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
 
-    /**
-     * This returns SimpleExternalEventFilter.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object getImage ( Object object )
-    {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/SimpleExternalEventFilter" ) ); //$NON-NLS-1$
-    }
+	/**
+	 * This returns SimpleExternalEventFilter.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(
+				object,
+				getResourceLocator().getImage(
+						"full/obj16/SimpleExternalEventFilter")); //$NON-NLS-1$
+	}
 
-    /**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getText ( Object object )
-    {
-        String label = ( (SimpleExternalEventFilter)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_SimpleExternalEventFilter_type" ) : //$NON-NLS-1$
-                getString ( "_UI_SimpleExternalEventFilter_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
-    }
+	/**
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getText(Object object) {
+		String label = ((SimpleExternalEventFilter) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_SimpleExternalEventFilter_type") : //$NON-NLS-1$
+				getString("_UI_SimpleExternalEventFilter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+	}
 
-    /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void notifyChanged ( Notification notification )
-    {
-        updateChildren ( notification );
+	/**
+	 * This handles model notifications by calling {@link #updateChildren} to update any cached
+	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void notifyChanged(Notification notification) {
+		updateChildren(notification);
 
-        switch ( notification.getFeatureID ( SimpleExternalEventFilter.class ) )
-        {
-            case OsgiPackage.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-        }
-        super.notifyChanged ( notification );
-    }
+		switch (notification.getFeatureID(SimpleExternalEventFilter.class)) {
+		case OsgiPackage.SIMPLE_EXTERNAL_EVENT_FILTER__FILTER:
+			fireNotifyChanged(new ViewerNotification(notification,
+					notification.getNotifier(), false, true));
+			return;
+		}
+		super.notifyChanged(notification);
+	}
 
-    /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
-    {
-        super.collectNewChildDescriptors ( newChildDescriptors, object );
-    }
+	/**
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void collectNewChildDescriptors(
+			Collection<Object> newChildDescriptors, Object object) {
+		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
 
 }

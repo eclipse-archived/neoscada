@@ -35,135 +35,126 @@ import org.eclipse.scada.configuration.world.osgi.SimpleDataMapper;
  *
  * @generated
  */
-public class SimpleDataMapperImpl extends DataMapperImpl implements SimpleDataMapper
-{
-    /**
-     * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEntries()
-     * @generated
-     * @ordered
-     */
-    protected EList<DataMapperEntry> entries;
+public class SimpleDataMapperImpl extends DataMapperImpl implements
+		SimpleDataMapper {
+	/**
+	 * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEntries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataMapperEntry> entries;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SimpleDataMapperImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleDataMapperImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.SIMPLE_DATA_MAPPER;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.SIMPLE_DATA_MAPPER;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EList<DataMapperEntry> getEntries ()
-    {
-        if ( entries == null )
-        {
-            entries = new EObjectContainmentEList.Resolving<DataMapperEntry> ( DataMapperEntry.class, this, OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES );
-        }
-        return entries;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataMapperEntry> getEntries() {
+		if (entries == null) {
+			entries = new EObjectContainmentEList.Resolving<DataMapperEntry>(
+					DataMapperEntry.class, this,
+					OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES);
+		}
+		return entries;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
-                return ( (InternalEList<?>)getEntries () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
+			return ((InternalEList<?>) getEntries())
+					.basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
-                return getEntries ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
+			return getEntries();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
-                getEntries ().clear ();
-                getEntries ().addAll ( (Collection<? extends DataMapperEntry>)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
+			getEntries().clear();
+			getEntries().addAll(
+					(Collection<? extends DataMapperEntry>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
-                getEntries ().clear ();
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
+			getEntries().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
-                return entries != null && !entries.isEmpty ();
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.SIMPLE_DATA_MAPPER__ENTRIES:
+			return entries != null && !entries.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //SimpleDataMapperImpl

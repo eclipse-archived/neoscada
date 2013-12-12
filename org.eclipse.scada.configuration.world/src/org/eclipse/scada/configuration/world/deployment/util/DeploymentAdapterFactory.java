@@ -24,323 +24,295 @@ import org.eclipse.scada.configuration.world.deployment.*;
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage
  * @generated
  */
-public class DeploymentAdapterFactory extends AdapterFactoryImpl
-{
-    /**
-     * The cached model package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected static DeploymentPackage modelPackage;
+public class DeploymentAdapterFactory extends AdapterFactoryImpl {
+	/**
+	 * The cached model package.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static DeploymentPackage modelPackage;
 
-    /**
-     * Creates an instance of the adapter factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DeploymentAdapterFactory ()
-    {
-        if ( modelPackage == null )
-        {
-            modelPackage = DeploymentPackage.eINSTANCE;
-        }
-    }
+	/**
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeploymentAdapterFactory() {
+		if (modelPackage == null) {
+			modelPackage = DeploymentPackage.eINSTANCE;
+		}
+	}
 
-    /**
-     * Returns whether this factory is applicable for the type of the object.
-     * <!-- begin-user-doc -->
-     * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
-     * <!-- end-user-doc -->
-     * @return whether this factory is applicable for the type of the object.
-     * @generated
-     */
-    @Override
-    public boolean isFactoryForType ( Object object )
-    {
-        if ( object == modelPackage )
-        {
-            return true;
-        }
-        if ( object instanceof EObject )
-        {
-            return ( (EObject)object ).eClass ().getEPackage () == modelPackage;
-        }
-        return false;
-    }
+	/**
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+	 * <!-- end-user-doc -->
+	 * @return whether this factory is applicable for the type of the object.
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object object) {
+		if (object == modelPackage) {
+			return true;
+		}
+		if (object instanceof EObject) {
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
+		}
+		return false;
+	}
 
-    /**
-     * The switch that delegates to the <code>createXXX</code> methods.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DeploymentSwitch<Adapter> modelSwitch = new DeploymentSwitch<Adapter> ()
-    {
-        @Override
-        public Adapter caseDeploymentMechanism ( DeploymentMechanism object )
-        {
-            return createDeploymentMechanismAdapter ();
-        }
+	/**
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeploymentSwitch<Adapter> modelSwitch = new DeploymentSwitch<Adapter>() {
+		@Override
+		public Adapter caseDeploymentMechanism(DeploymentMechanism object) {
+			return createDeploymentMechanismAdapter();
+		}
 
-        @Override
-        public Adapter caseDebianDeploymentMechanism ( DebianDeploymentMechanism object )
-        {
-            return createDebianDeploymentMechanismAdapter ();
-        }
+		@Override
+		public Adapter caseDebianDeploymentMechanism(
+				DebianDeploymentMechanism object) {
+			return createDebianDeploymentMechanismAdapter();
+		}
 
-        @Override
-        public Adapter caseAuthor ( Author object )
-        {
-            return createAuthorAdapter ();
-        }
+		@Override
+		public Adapter caseAuthor(Author object) {
+			return createAuthorAdapter();
+		}
 
-        @Override
-        public Adapter caseRedhatDeploymentMechanism ( RedhatDeploymentMechanism object )
-        {
-            return createRedhatDeploymentMechanismAdapter ();
-        }
+		@Override
+		public Adapter caseRedhatDeploymentMechanism(
+				RedhatDeploymentMechanism object) {
+			return createRedhatDeploymentMechanismAdapter();
+		}
 
-        @Override
-        public Adapter caseDeploymentInformation ( DeploymentInformation object )
-        {
-            return createDeploymentInformationAdapter ();
-        }
+		@Override
+		public Adapter caseDeploymentInformation(DeploymentInformation object) {
+			return createDeploymentInformationAdapter();
+		}
 
-        @Override
-        public Adapter caseCommonDeploymentMechanism ( CommonDeploymentMechanism object )
-        {
-            return createCommonDeploymentMechanismAdapter ();
-        }
+		@Override
+		public Adapter caseCommonDeploymentMechanism(
+				CommonDeploymentMechanism object) {
+			return createCommonDeploymentMechanismAdapter();
+		}
 
-        @Override
-        public Adapter caseChangeEntry ( ChangeEntry object )
-        {
-            return createChangeEntryAdapter ();
-        }
+		@Override
+		public Adapter caseChangeEntry(ChangeEntry object) {
+			return createChangeEntryAdapter();
+		}
 
-        @Override
-        public Adapter caseNodeMappings ( NodeMappings object )
-        {
-            return createNodeMappingsAdapter ();
-        }
+		@Override
+		public Adapter caseNodeMappings(NodeMappings object) {
+			return createNodeMappingsAdapter();
+		}
 
-        @Override
-        public Adapter caseExpressionNodeMappingEntry ( ExpressionNodeMappingEntry object )
-        {
-            return createExpressionNodeMappingEntryAdapter ();
-        }
+		@Override
+		public Adapter caseExpressionNodeMappingEntry(
+				ExpressionNodeMappingEntry object) {
+			return createExpressionNodeMappingEntryAdapter();
+		}
 
-        @Override
-        public Adapter caseNodeMappingEntry ( NodeMappingEntry object )
-        {
-            return createNodeMappingEntryAdapter ();
-        }
+		@Override
+		public Adapter caseNodeMappingEntry(NodeMappingEntry object) {
+			return createNodeMappingEntryAdapter();
+		}
 
-        @Override
-        public Adapter caseSimpleNodeMappingEntry ( SimpleNodeMappingEntry object )
-        {
-            return createSimpleNodeMappingEntryAdapter ();
-        }
+		@Override
+		public Adapter caseSimpleNodeMappingEntry(SimpleNodeMappingEntry object) {
+			return createSimpleNodeMappingEntryAdapter();
+		}
 
-        @Override
-        public Adapter defaultCase ( EObject object )
-        {
-            return createEObjectAdapter ();
-        }
-    };
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
-    /**
-     * Creates an adapter for the <code>target</code>.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param target the object to adapt.
-     * @return the adapter for the <code>target</code>.
-     * @generated
-     */
-    @Override
-    public Adapter createAdapter ( Notifier target )
-    {
-        return modelSwitch.doSwitch ( (EObject)target );
-    }
+	/**
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param target the object to adapt.
+	 * @return the adapter for the <code>target</code>.
+	 * @generated
+	 */
+	@Override
+	public Adapter createAdapter(Notifier target) {
+		return modelSwitch.doSwitch((EObject) target);
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism <em>Mechanism</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentMechanism
-     * @generated
-     */
-    public Adapter createDeploymentMechanismAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism <em>Mechanism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentMechanism
+	 * @generated
+	 */
+	public Adapter createDeploymentMechanismAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism <em>Debian Deployment Mechanism</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism
-     * @generated
-     */
-    public Adapter createDebianDeploymentMechanismAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism <em>Debian Deployment Mechanism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism
+	 * @generated
+	 */
+	public Adapter createDebianDeploymentMechanismAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.Author <em>Author</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.Author
-     * @generated
-     */
-    public Adapter createAuthorAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.Author <em>Author</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.Author
+	 * @generated
+	 */
+	public Adapter createAuthorAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism <em>Redhat Deployment Mechanism</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism
-     * @generated
-     */
-    public Adapter createRedhatDeploymentMechanismAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism <em>Redhat Deployment Mechanism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism
+	 * @generated
+	 */
+	public Adapter createRedhatDeploymentMechanismAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation <em>Information</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.DeploymentInformation
-     * @generated
-     */
-    public Adapter createDeploymentInformationAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation <em>Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentInformation
+	 * @generated
+	 */
+	public Adapter createDeploymentInformationAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism <em>Common Deployment Mechanism</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism
-     * @generated
-     */
-    public Adapter createCommonDeploymentMechanismAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism <em>Common Deployment Mechanism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism
+	 * @generated
+	 */
+	public Adapter createCommonDeploymentMechanismAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.ChangeEntry
-     * @generated
-     */
-    public Adapter createChangeEntryAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.ChangeEntry
+	 * @generated
+	 */
+	public Adapter createChangeEntryAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings <em>Node Mappings</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings
-     * @generated
-     */
-    public Adapter createNodeMappingsAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings <em>Node Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.NodeMappings
+	 * @generated
+	 */
+	public Adapter createNodeMappingsAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry <em>Expression Node Mapping Entry</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry
-     * @generated
-     */
-    public Adapter createExpressionNodeMappingEntryAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry <em>Expression Node Mapping Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry
+	 * @generated
+	 */
+	public Adapter createExpressionNodeMappingEntryAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
-     * @generated
-     */
-    public Adapter createNodeMappingEntryAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+	 * @generated
+	 */
+	public Adapter createNodeMappingEntryAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry <em>Simple Node Mapping Entry</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry
-     * @generated
-     */
-    public Adapter createSimpleNodeMappingEntryAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry <em>Simple Node Mapping Entry</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry
+	 * @generated
+	 */
+	public Adapter createSimpleNodeMappingEntryAdapter() {
+		return null;
+	}
 
-    /**
-     * Creates a new adapter for the default case.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @generated
-     */
-    public Adapter createEObjectAdapter ()
-    {
-        return null;
-    }
+	/**
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @generated
+	 */
+	public Adapter createEObjectAdapter() {
+		return null;
+	}
 
 } //DeploymentAdapterFactory

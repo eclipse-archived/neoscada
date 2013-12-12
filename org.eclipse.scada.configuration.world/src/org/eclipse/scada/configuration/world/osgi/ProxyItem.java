@@ -28,22 +28,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ProxyItem extends Item
-{
-    /**
-     * Returns the value of the '<em><b>Items</b></em>' reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Items</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Items</em>' reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getProxyItem_Items()
-     * @model
-     * @generated
-     */
-    EList<Item> getItems ();
+public interface ProxyItem extends Item {
+	/**
+	 * Returns the value of the '<em><b>Items</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Items</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Items</em>' reference list.
+	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getProxyItem_Items()
+	 * @model
+	 * @generated
+	 */
+	EList<Item> getItems();
 
 } // ProxyItem

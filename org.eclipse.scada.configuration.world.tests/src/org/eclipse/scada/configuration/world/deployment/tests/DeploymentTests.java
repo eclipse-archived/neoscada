@@ -20,40 +20,36 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeploymentTests extends TestSuite
-{
+public class DeploymentTests extends TestSuite {
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static void main ( String[] args )
-    {
-        TestRunner.run ( suite () );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(suite());
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public static Test suite ()
-    {
-        TestSuite suite = new DeploymentTests ( "deployment Tests" ); //$NON-NLS-1$
-        suite.addTestSuite ( ExpressionNodeMappingEntryTest.class );
-        suite.addTestSuite ( SimpleNodeMappingEntryTest.class );
-        return suite;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static Test suite() {
+		TestSuite suite = new DeploymentTests("deployment Tests"); //$NON-NLS-1$
+		suite.addTestSuite(ExpressionNodeMappingEntryTest.class);
+		suite.addTestSuite(SimpleNodeMappingEntryTest.class);
+		return suite;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DeploymentTests ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DeploymentTests(String name) {
+		super(name);
+	}
 
 } //DeploymentTests

@@ -23,27 +23,25 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
  *
  * @generated
  */
-public class RedhatDeploymentMechanismImpl extends CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism
-{
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected RedhatDeploymentMechanismImpl ()
-    {
-        super ();
-    }
+public class RedhatDeploymentMechanismImpl extends
+		CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RedhatDeploymentMechanismImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM;
+	}
 
 } //RedhatDeploymentMechanismImpl

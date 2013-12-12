@@ -46,332 +46,314 @@ import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ProfileItemProviderAdapterFactory extends ProfileAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender
-{
-    /**
-     * This keeps track of the root adapter factory that delegates to this adapter factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ComposedAdapterFactory parentAdapterFactory;
+public class ProfileItemProviderAdapterFactory extends ProfileAdapterFactory
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable,
+		IChildCreationExtender {
+	/**
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComposedAdapterFactory parentAdapterFactory;
 
-    /**
-     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier ();
+	/**
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-    /**
-     * This helps manage the child creation extenders.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager ( WorldEditPlugin.INSTANCE, ProfilePackage.eNS_URI );
+	/**
+	 * This helps manage the child creation extenders.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
+			WorldEditPlugin.INSTANCE, ProfilePackage.eNS_URI);
 
-    /**
-     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected Collection<Object> supportedTypes = new ArrayList<Object> ();
+	/**
+	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-    /**
-     * This constructs an instance.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ProfileItemProviderAdapterFactory ()
-    {
-        supportedTypes.add ( IEditingDomainItemProvider.class );
-        supportedTypes.add ( IStructuredItemContentProvider.class );
-        supportedTypes.add ( ITreeItemContentProvider.class );
-        supportedTypes.add ( IItemLabelProvider.class );
-        supportedTypes.add ( IItemPropertySource.class );
-        supportedTypes.add ( ITableItemLabelProvider.class );
-    }
+	/**
+	 * This constructs an instance.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProfileItemProviderAdapterFactory() {
+		supportedTypes.add(IEditingDomainItemProvider.class);
+		supportedTypes.add(IStructuredItemContentProvider.class);
+		supportedTypes.add(ITreeItemContentProvider.class);
+		supportedTypes.add(IItemLabelProvider.class);
+		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(ITableItemLabelProvider.class);
+	}
 
-    /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.Profile} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ProfileItemProvider profileItemProvider;
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.Profile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProfileItemProvider profileItemProvider;
 
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.Profile}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createProfileAdapter ()
-    {
-        if ( profileItemProvider == null )
-        {
-            profileItemProvider = new ProfileItemProvider ( this );
-        }
+	/**
+	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.Profile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProfileAdapter() {
+		if (profileItemProvider == null) {
+			profileItemProvider = new ProfileItemProvider(this);
+		}
 
-        return profileItemProvider;
-    }
+		return profileItemProvider;
+	}
 
-    /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected StartBundleItemProvider startBundleItemProvider;
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StartBundleItemProvider startBundleItemProvider;
 
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createStartBundleAdapter ()
-    {
-        if ( startBundleItemProvider == null )
-        {
-            startBundleItemProvider = new StartBundleItemProvider ( this );
-        }
+	/**
+	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStartBundleAdapter() {
+		if (startBundleItemProvider == null) {
+			startBundleItemProvider = new StartBundleItemProvider(this);
+		}
 
-        return startBundleItemProvider;
-    }
+		return startBundleItemProvider;
+	}
 
-    /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SystemPropertyItemProvider systemPropertyItemProvider;
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SystemPropertyItemProvider systemPropertyItemProvider;
 
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSystemPropertyAdapter ()
-    {
-        if ( systemPropertyItemProvider == null )
-        {
-            systemPropertyItemProvider = new SystemPropertyItemProvider ( this );
-        }
+	/**
+	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.SystemProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSystemPropertyAdapter() {
+		if (systemPropertyItemProvider == null) {
+			systemPropertyItemProvider = new SystemPropertyItemProvider(this);
+		}
 
-        return systemPropertyItemProvider;
-    }
+		return systemPropertyItemProvider;
+	}
 
-    /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.SubProfile} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected SubProfileItemProvider subProfileItemProvider;
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.SubProfile} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubProfileItemProvider subProfileItemProvider;
 
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.SubProfile}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createSubProfileAdapter ()
-    {
-        if ( subProfileItemProvider == null )
-        {
-            subProfileItemProvider = new SubProfileItemProvider ( this );
-        }
+	/**
+	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.SubProfile}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubProfileAdapter() {
+		if (subProfileItemProvider == null) {
+			subProfileItemProvider = new SubProfileItemProvider(this);
+		}
 
-        return subProfileItemProvider;
-    }
+		return subProfileItemProvider;
+	}
 
-    /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected BundleStartLevelItemProvider bundleStartLevelItemProvider;
+	/**
+	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BundleStartLevelItemProvider bundleStartLevelItemProvider;
 
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createBundleStartLevelAdapter ()
-    {
-        if ( bundleStartLevelItemProvider == null )
-        {
-            bundleStartLevelItemProvider = new BundleStartLevelItemProvider ( this );
-        }
+	/**
+	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBundleStartLevelAdapter() {
+		if (bundleStartLevelItemProvider == null) {
+			bundleStartLevelItemProvider = new BundleStartLevelItemProvider(
+					this);
+		}
 
-        return bundleStartLevelItemProvider;
-    }
+		return bundleStartLevelItemProvider;
+	}
 
-    /**
-     * This returns the root adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ComposeableAdapterFactory getRootAdapterFactory ()
-    {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
-    }
+	/**
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposeableAdapterFactory getRootAdapterFactory() {
+		return parentAdapterFactory == null ? this : parentAdapterFactory
+				.getRootAdapterFactory();
+	}
 
-    /**
-     * This sets the composed adapter factory that contains this factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setParentAdapterFactory ( ComposedAdapterFactory parentAdapterFactory )
-    {
-        this.parentAdapterFactory = parentAdapterFactory;
-    }
+	/**
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentAdapterFactory(
+			ComposedAdapterFactory parentAdapterFactory) {
+		this.parentAdapterFactory = parentAdapterFactory;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean isFactoryForType ( Object type )
-    {
-        return supportedTypes.contains ( type ) || super.isFactoryForType ( type );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isFactoryForType(Object type) {
+		return supportedTypes.contains(type) || super.isFactoryForType(type);
+	}
 
-    /**
-     * This implementation substitutes the factory itself as the key for the adapter.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter adapt ( Notifier notifier, Object type )
-    {
-        return super.adapt ( notifier, this );
-    }
+	/**
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter adapt(Notifier notifier, Object type) {
+		return super.adapt(notifier, this);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object adapt ( Object object, Object type )
-    {
-        if ( isFactoryForType ( type ) )
-        {
-            Object adapter = super.adapt ( object, type );
-            if ( ! ( type instanceof Class<?> ) || ( ( (Class<?>)type ).isInstance ( adapter ) ) )
-            {
-                return adapter;
-            }
-        }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object adapt(Object object, Object type) {
+		if (isFactoryForType(type)) {
+			Object adapter = super.adapt(object, type);
+			if (!(type instanceof Class<?>)
+					|| (((Class<?>) type).isInstance(adapter))) {
+				return adapter;
+			}
+		}
 
-        return null;
-    }
+		return null;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public List<IChildCreationExtender> getChildCreationExtenders ()
-    {
-        return childCreationExtenderManager.getChildCreationExtenders ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<IChildCreationExtender> getChildCreationExtenders() {
+		return childCreationExtenderManager.getChildCreationExtenders();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Collection<?> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
-    {
-        return childCreationExtenderManager.getNewChildDescriptors ( object, editingDomain );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection<?> getNewChildDescriptors(Object object,
+			EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object,
+				editingDomain);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ResourceLocator getResourceLocator ()
-    {
-        return childCreationExtenderManager;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceLocator getResourceLocator() {
+		return childCreationExtenderManager;
+	}
 
-    /**
-     * This adds a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void addListener ( INotifyChangedListener notifyChangedListener )
-    {
-        changeNotifier.addListener ( notifyChangedListener );
-    }
+	/**
+	 * This adds a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.addListener(notifyChangedListener);
+	}
 
-    /**
-     * This removes a listener.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void removeListener ( INotifyChangedListener notifyChangedListener )
-    {
-        changeNotifier.removeListener ( notifyChangedListener );
-    }
+	/**
+	 * This removes a listener.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
+		changeNotifier.removeListener(notifyChangedListener);
+	}
 
-    /**
-     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void fireNotifyChanged ( Notification notification )
-    {
-        changeNotifier.fireNotifyChanged ( notification );
+	/**
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void fireNotifyChanged(Notification notification) {
+		changeNotifier.fireNotifyChanged(notification);
 
-        if ( parentAdapterFactory != null )
-        {
-            parentAdapterFactory.fireNotifyChanged ( notification );
-        }
-    }
+		if (parentAdapterFactory != null) {
+			parentAdapterFactory.fireNotifyChanged(notification);
+		}
+	}
 
-    /**
-     * This disposes all of the item providers created by this factory. 
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void dispose ()
-    {
-        if ( profileItemProvider != null )
-            profileItemProvider.dispose ();
-        if ( startBundleItemProvider != null )
-            startBundleItemProvider.dispose ();
-        if ( systemPropertyItemProvider != null )
-            systemPropertyItemProvider.dispose ();
-        if ( subProfileItemProvider != null )
-            subProfileItemProvider.dispose ();
-        if ( bundleStartLevelItemProvider != null )
-            bundleStartLevelItemProvider.dispose ();
-    }
+	/**
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void dispose() {
+		if (profileItemProvider != null)
+			profileItemProvider.dispose();
+		if (startBundleItemProvider != null)
+			startBundleItemProvider.dispose();
+		if (systemPropertyItemProvider != null)
+			systemPropertyItemProvider.dispose();
+		if (subProfileItemProvider != null)
+			subProfileItemProvider.dispose();
+		if (bundleStartLevelItemProvider != null)
+			bundleStartLevelItemProvider.dispose();
+	}
 
 }

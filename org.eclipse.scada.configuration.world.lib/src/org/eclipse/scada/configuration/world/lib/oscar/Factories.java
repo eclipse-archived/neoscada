@@ -53,6 +53,8 @@ public interface Factories
 
     public static final String FACTORY_DA_DS_SOURCE = "org.eclipse.scada.da.datasource.ds"; //$NON-NLS-1$
 
+	public static final String FACTORY_DA_MEMORY_SOURCE = "org.eclipse.scada.da.datasource.memory"; //$NON-NLS-1$
+    
     public static final String FACTORY_DA_PROXY_SOURCE = "da.datasource.proxy"; //$NON-NLS-1$
 
     public static final String FACTORY_DA_MASTER_HANDLER_SUM = "da.master.handler.sum"; //$NON-NLS-1$
@@ -92,4 +94,6 @@ public interface Factories
     public static final String FACTORY_AE_EXTERNAL = "ae.monitor.ae.event.external";
 
     public static final String FACTORY_DA_REST_EXPORTER = "org.eclipse.scada.da.server.exporter.rest.context";
+
+
 }

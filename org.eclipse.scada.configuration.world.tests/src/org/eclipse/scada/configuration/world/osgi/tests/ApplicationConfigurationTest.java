@@ -20,48 +20,44 @@ import org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ApplicationConfigurationTest extends TestCase
-{
+public abstract class ApplicationConfigurationTest extends TestCase {
 
-    /**
-     * The fixture for this Application Configuration test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ApplicationConfiguration fixture = null;
+	/**
+	 * The fixture for this Application Configuration test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationConfiguration fixture = null;
 
-    /**
-     * Constructs a new Application Configuration test case with the given name.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ApplicationConfigurationTest ( String name )
-    {
-        super ( name );
-    }
+	/**
+	 * Constructs a new Application Configuration test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApplicationConfigurationTest(String name) {
+		super(name);
+	}
 
-    /**
-     * Sets the fixture for this Application Configuration test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( ApplicationConfiguration fixture )
-    {
-        this.fixture = fixture;
-    }
+	/**
+	 * Sets the fixture for this Application Configuration test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ApplicationConfiguration fixture) {
+		this.fixture = fixture;
+	}
 
-    /**
-     * Returns the fixture for this Application Configuration test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected ApplicationConfiguration getFixture ()
-    {
-        return fixture;
-    }
+	/**
+	 * Returns the fixture for this Application Configuration test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApplicationConfiguration getFixture() {
+		return fixture;
+	}
 
 } //ApplicationConfigurationTest

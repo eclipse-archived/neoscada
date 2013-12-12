@@ -20,6 +20,5 @@ package org.eclipse.scada.configuration.world.deployment;
  * @model
  * @generated
  */
-public interface RedhatDeploymentMechanism extends CommonDeploymentMechanism
-{
+public interface RedhatDeploymentMechanism extends CommonDeploymentMechanism {
 } // RedhatDeploymentMechanism

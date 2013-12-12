@@ -31,148 +31,137 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *
  * @generated
  */
-public class CustomMasterServerImpl extends MasterServerImpl implements CustomMasterServer
-{
-    /**
-     * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getProfile()
-     * @generated
-     * @ordered
-     */
-    protected Profile profile;
+public class CustomMasterServerImpl extends MasterServerImpl implements
+		CustomMasterServer {
+	/**
+	 * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProfile()
+	 * @generated
+	 * @ordered
+	 */
+	protected Profile profile;
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected CustomMasterServerImpl ()
-    {
-        super ();
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CustomMasterServerImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass ()
-    {
-        return OsgiPackage.Literals.CUSTOM_MASTER_SERVER;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return OsgiPackage.Literals.CUSTOM_MASTER_SERVER;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Profile getProfile ()
-    {
-        if ( profile != null && profile.eIsProxy () )
-        {
-            InternalEObject oldProfile = (InternalEObject)profile;
-            profile = (Profile)eResolveProxy ( oldProfile );
-            if ( profile != oldProfile )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE, oldProfile, profile ) );
-            }
-        }
-        return profile;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Profile getProfile() {
+		if (profile != null && profile.eIsProxy()) {
+			InternalEObject oldProfile = (InternalEObject) profile;
+			profile = (Profile) eResolveProxy(oldProfile);
+			if (profile != oldProfile) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE,
+							oldProfile, profile));
+			}
+		}
+		return profile;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Profile basicGetProfile ()
-    {
-        return profile;
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Profile basicGetProfile() {
+		return profile;
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setProfile ( Profile newProfile )
-    {
-        Profile oldProfile = profile;
-        profile = newProfile;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE, oldProfile, profile ) );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProfile(Profile newProfile) {
+		Profile oldProfile = profile;
+		profile = newProfile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE, oldProfile,
+					profile));
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
-                if ( resolve )
-                    return getProfile ();
-                return basicGetProfile ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
+			if (resolve)
+				return getProfile();
+			return basicGetProfile();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eSet ( int featureID, Object newValue )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
-                setProfile ( (Profile)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
+			setProfile((Profile) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void eUnset ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
-                setProfile ( (Profile)null );
-                return;
-        }
-        super.eUnset ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
+			setProfile((Profile) null);
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( int featureID )
-    {
-        switch ( featureID )
-        {
-            case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
-                return profile != null;
-        }
-        return super.eIsSet ( featureID );
-    }
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case OsgiPackage.CUSTOM_MASTER_SERVER__PROFILE:
+			return profile != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //CustomMasterServerImpl
