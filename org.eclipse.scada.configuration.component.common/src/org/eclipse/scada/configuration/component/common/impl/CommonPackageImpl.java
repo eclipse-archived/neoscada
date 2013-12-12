@@ -294,9 +294,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        heartbeatGeneratorEClass.getESuperTypes ().add ( theComponentPackage.getDataComponent () );
+        heartbeatGeneratorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         toggleHeartbeatGeneratorEClass.getESuperTypes ().add ( this.getHeartbeatGenerator () );
-        heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getDataComponent () );
+        heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
 
         // Initialize classes, features, and operations; add parameters

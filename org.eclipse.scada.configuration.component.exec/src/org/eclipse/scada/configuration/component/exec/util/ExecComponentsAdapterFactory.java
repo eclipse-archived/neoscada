@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.exec.*;
 
 /**
@@ -127,6 +128,12 @@ public class ExecComponentsAdapterFactory extends AdapterFactoryImpl
         public Adapter caseDataComponent ( DataComponent object )
         {
             return createDataComponentAdapter ();
+        }
+
+        @Override
+        public Adapter caseMasterComponent ( MasterComponent object )
+        {
+            return createMasterComponentAdapter ();
         }
 
         @Override
@@ -272,6 +279,21 @@ public class ExecComponentsAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDataComponentAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.MasterComponent <em>Master Component</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.MasterComponent
+     * @generated
+     */
+    public Adapter createMasterComponentAdapter ()
     {
         return null;
     }

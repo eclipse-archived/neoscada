@@ -13,18 +13,15 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import org.eclipse.scada.configuration.component.provider.DataComponentItemProvider;
+import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.HeartbeatDetector} object.
@@ -33,7 +30,7 @@ import org.eclipse.scada.configuration.component.provider.DataComponentItemProvi
  * @generated
  */
 public class HeartbeatDetectorItemProvider
-        extends DataComponentItemProvider
+        extends MasterComponentItemProvider
         implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,

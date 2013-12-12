@@ -1,27 +1,28 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.tests;
 
 import junit.textui.TestRunner;
 
 import org.eclipse.scada.configuration.component.ComponentFactory;
-import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
+import org.eclipse.scada.configuration.component.MasterComponent;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Data Mapper Analyzer</b></em>'.
+ * A test case for the model object '<em><b>Master Component</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataMapperAnalyzerTest extends MasterComponentTest
+public class MasterComponentTest extends DataComponentTest
 {
 
     /**
@@ -31,30 +32,30 @@ public class DataMapperAnalyzerTest extends MasterComponentTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( DataMapperAnalyzerTest.class );
+        TestRunner.run ( MasterComponentTest.class );
     }
 
     /**
-     * Constructs a new Data Mapper Analyzer test case with the given name.
+     * Constructs a new Master Component test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public DataMapperAnalyzerTest ( String name )
+    public MasterComponentTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this Data Mapper Analyzer test case.
+     * Returns the fixture for this Master Component test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
-    protected DataMapperAnalyzer getFixture ()
+    protected MasterComponent getFixture ()
     {
-        return (DataMapperAnalyzer)fixture;
+        return (MasterComponent)fixture;
     }
 
     /**
@@ -66,7 +67,7 @@ public class DataMapperAnalyzerTest extends MasterComponentTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( ComponentFactory.eINSTANCE.createDataMapperAnalyzer () );
+        setFixture ( ComponentFactory.eINSTANCE.createMasterComponent () );
     }
 
     /**
@@ -81,4 +82,4 @@ public class DataMapperAnalyzerTest extends MasterComponentTest
         setFixture ( null );
     }
 
-} //DataMapperAnalyzerTest
+} //MasterComponentTest

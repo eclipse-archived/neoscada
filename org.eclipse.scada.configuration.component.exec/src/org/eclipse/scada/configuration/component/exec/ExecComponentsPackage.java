@@ -87,7 +87,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__LEVEL = ComponentPackage.DATA_COMPONENT__LEVEL;
+    int EXEC_JOB__LEVEL = ComponentPackage.MASTER_COMPONENT__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -96,7 +96,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__CUSTOMIZATION_PIPELINE = ComponentPackage.DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+    int EXEC_JOB__CUSTOMIZATION_PIPELINE = ComponentPackage.MASTER_COMPONENT__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -105,7 +105,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__ARCHIVE_SELECTOR = ComponentPackage.DATA_COMPONENT__ARCHIVE_SELECTOR;
+    int EXEC_JOB__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -114,7 +114,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__MASTER_ON = ComponentPackage.DATA_COMPONENT__MASTER_ON;
+    int EXEC_JOB__MASTER_ON = ComponentPackage.MASTER_COMPONENT__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Runs On</b></em>' reference.
@@ -123,7 +123,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__RUNS_ON = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 0;
+    int EXEC_JOB__RUNS_ON = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -132,7 +132,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB__NAME = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 1;
+    int EXEC_JOB__NAME = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Exec Job</em>' class.
@@ -141,7 +141,16 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB_FEATURE_COUNT = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 2;
+    int EXEC_JOB_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXEC_JOB___GET_MASTER_ON = ComponentPackage.MASTER_COMPONENT___GET_MASTER_ON;
 
     /**
      * The operation id for the '<em>Has Exec Driver</em>' operation.
@@ -150,7 +159,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB___HAS_EXEC_DRIVER__DIAGNOSTICCHAIN_MAP = ComponentPackage.DATA_COMPONENT_OPERATION_COUNT + 0;
+    int EXEC_JOB___HAS_EXEC_DRIVER__DIAGNOSTICCHAIN_MAP = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Exec Job</em>' class.
@@ -159,7 +168,7 @@ public interface ExecComponentsPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXEC_JOB_OPERATION_COUNT = ComponentPackage.DATA_COMPONENT_OPERATION_COUNT + 1;
+    int EXEC_JOB_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.exec.impl.LoadAverageImpl <em>Load Average</em>}' class.
@@ -233,6 +242,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int LOAD_AVERAGE_FEATURE_COUNT = EXEC_JOB_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LOAD_AVERAGE___GET_MASTER_ON = EXEC_JOB___GET_MASTER_ON;
 
     /**
      * The operation id for the '<em>Has Exec Driver</em>' operation.
@@ -381,6 +399,15 @@ public interface ExecComponentsPackage extends EPackage
     int PING_CHECK_FEATURE_COUNT = EXEC_JOB_FEATURE_COUNT + 1;
 
     /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PING_CHECK___GET_MASTER_ON = EXEC_JOB___GET_MASTER_ON;
+
+    /**
      * The operation id for the '<em>Has Exec Driver</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -507,6 +534,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int SYSTEM_INFORMATION_VM_STAT_FEATURE_COUNT = EXEC_JOB_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_INFORMATION_VM_STAT___GET_MASTER_ON = EXEC_JOB___GET_MASTER_ON;
 
     /**
      * The operation id for the '<em>Has Exec Driver</em>' operation.

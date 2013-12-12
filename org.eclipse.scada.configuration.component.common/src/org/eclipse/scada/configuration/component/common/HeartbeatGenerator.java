@@ -11,8 +11,8 @@
  */
 package org.eclipse.scada.configuration.component.common;
 
-import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
+import org.eclipse.scada.configuration.component.MasterComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.component.InputDefinition;
  * @model abstract="true"
  * @generated
  */
-public interface HeartbeatGenerator extends DataComponent
+public interface HeartbeatGenerator extends MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Period</b></em>' attribute.

@@ -36,7 +36,7 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  *
  * @generated
  */
-public abstract class SingleValueImpl extends DataComponentImpl implements SingleValue
+public abstract class SingleValueImpl extends MasterComponentImpl implements SingleValue
 {
     /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.

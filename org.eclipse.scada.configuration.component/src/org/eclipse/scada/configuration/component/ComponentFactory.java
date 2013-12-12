@@ -274,6 +274,15 @@ public interface ComponentFactory extends EFactory
     TransientValue createTransientValue ();
 
     /**
+     * Returns a new object of class '<em>Master Component</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Master Component</em>'.
+     * @generated
+     */
+    MasterComponent createMasterComponent ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

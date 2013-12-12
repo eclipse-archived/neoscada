@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.world.osgi.DataType;
  * @model abstract="true"
  * @generated
  */
-public interface SingleValue extends DataComponent
+public interface SingleValue extends MasterComponent
 {
 
     /**

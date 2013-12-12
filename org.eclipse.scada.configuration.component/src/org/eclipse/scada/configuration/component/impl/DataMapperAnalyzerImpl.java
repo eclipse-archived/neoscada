@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.component.DataMapperService;
  *
  * @generated
  */
-public class DataMapperAnalyzerImpl extends DataComponentImpl implements DataMapperAnalyzer
+public class DataMapperAnalyzerImpl extends MasterComponentImpl implements DataMapperAnalyzer
 {
     /**
      * The cached value of the '{@link #getDataMapper() <em>Data Mapper</em>}' reference.

@@ -169,6 +169,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseSingleValue ( constantValue );
                 if ( result == null )
+                    result = caseMasterComponent ( constantValue );
+                if ( result == null )
                     result = caseDataComponent ( constantValue );
                 if ( result == null )
                     result = caseComponent ( constantValue );
@@ -201,6 +203,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseSingleValue ( persistentValue );
                 if ( result == null )
+                    result = caseMasterComponent ( persistentValue );
+                if ( result == null )
                     result = caseDataComponent ( persistentValue );
                 if ( result == null )
                     result = caseComponent ( persistentValue );
@@ -212,6 +216,8 @@ public class ComponentSwitch<T> extends Switch<T>
             {
                 DriverConnectionAnalyzer driverConnectionAnalyzer = (DriverConnectionAnalyzer)theEObject;
                 T result = caseDriverConnectionAnalyzer ( driverConnectionAnalyzer );
+                if ( result == null )
+                    result = caseMasterComponent ( driverConnectionAnalyzer );
                 if ( result == null )
                     result = caseDataComponent ( driverConnectionAnalyzer );
                 if ( result == null )
@@ -225,6 +231,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 MasterImportConnectionAnalyzer masterImportConnectionAnalyzer = (MasterImportConnectionAnalyzer)theEObject;
                 T result = caseMasterImportConnectionAnalyzer ( masterImportConnectionAnalyzer );
                 if ( result == null )
+                    result = caseMasterComponent ( masterImportConnectionAnalyzer );
+                if ( result == null )
                     result = caseDataComponent ( masterImportConnectionAnalyzer );
                 if ( result == null )
                     result = caseComponent ( masterImportConnectionAnalyzer );
@@ -237,6 +245,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 SingleValue singleValue = (SingleValue)theEObject;
                 T result = caseSingleValue ( singleValue );
                 if ( result == null )
+                    result = caseMasterComponent ( singleValue );
+                if ( result == null )
                     result = caseDataComponent ( singleValue );
                 if ( result == null )
                     result = caseComponent ( singleValue );
@@ -248,6 +258,8 @@ public class ComponentSwitch<T> extends Switch<T>
             {
                 DataMapperAnalyzer dataMapperAnalyzer = (DataMapperAnalyzer)theEObject;
                 T result = caseDataMapperAnalyzer ( dataMapperAnalyzer );
+                if ( result == null )
+                    result = caseMasterComponent ( dataMapperAnalyzer );
                 if ( result == null )
                     result = caseDataComponent ( dataMapperAnalyzer );
                 if ( result == null )
@@ -271,9 +283,11 @@ public class ComponentSwitch<T> extends Switch<T>
                 MappedSourceValue mappedSourceValue = (MappedSourceValue)theEObject;
                 T result = caseMappedSourceValue ( mappedSourceValue );
                 if ( result == null )
-                    result = caseDataComponent ( mappedSourceValue );
-                if ( result == null )
                     result = caseDocumentable ( mappedSourceValue );
+                if ( result == null )
+                    result = caseMasterComponent ( mappedSourceValue );
+                if ( result == null )
+                    result = caseDataComponent ( mappedSourceValue );
                 if ( result == null )
                     result = caseComponent ( mappedSourceValue );
                 if ( result == null )
@@ -285,9 +299,11 @@ public class ComponentSwitch<T> extends Switch<T>
                 CalculationComponent calculationComponent = (CalculationComponent)theEObject;
                 T result = caseCalculationComponent ( calculationComponent );
                 if ( result == null )
-                    result = caseDataComponent ( calculationComponent );
-                if ( result == null )
                     result = caseDocumentable ( calculationComponent );
+                if ( result == null )
+                    result = caseMasterComponent ( calculationComponent );
+                if ( result == null )
+                    result = caseDataComponent ( calculationComponent );
                 if ( result == null )
                     result = caseComponent ( calculationComponent );
                 if ( result == null )
@@ -445,6 +461,8 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseSingleValue ( externalValue );
                 if ( result == null )
+                    result = caseMasterComponent ( externalValue );
+                if ( result == null )
                     result = caseDataComponent ( externalValue );
                 if ( result == null )
                     result = caseComponent ( externalValue );
@@ -493,9 +511,11 @@ public class ComponentSwitch<T> extends Switch<T>
                 GlobalizeComponent globalizeComponent = (GlobalizeComponent)theEObject;
                 T result = caseGlobalizeComponent ( globalizeComponent );
                 if ( result == null )
-                    result = caseComponent ( globalizeComponent );
-                if ( result == null )
                     result = caseDocumentable ( globalizeComponent );
+                if ( result == null )
+                    result = caseDataComponent ( globalizeComponent );
+                if ( result == null )
+                    result = caseComponent ( globalizeComponent );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -507,9 +527,23 @@ public class ComponentSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseSingleValue ( transientValue );
                 if ( result == null )
+                    result = caseMasterComponent ( transientValue );
+                if ( result == null )
                     result = caseDataComponent ( transientValue );
                 if ( result == null )
                     result = caseComponent ( transientValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.MASTER_COMPONENT:
+            {
+                MasterComponent masterComponent = (MasterComponent)theEObject;
+                T result = caseMasterComponent ( masterComponent );
+                if ( result == null )
+                    result = caseDataComponent ( masterComponent );
+                if ( result == null )
+                    result = caseComponent ( masterComponent );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -1107,6 +1141,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseTransientValue ( TransientValue object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterComponent ( MasterComponent object )
     {
         return null;
     }

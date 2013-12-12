@@ -18,7 +18,7 @@ import org.eclipse.scada.configuration.component.SingleValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class SingleValueTest extends DataComponentTest
+public abstract class SingleValueTest extends MasterComponentTest
 {
 
     /**

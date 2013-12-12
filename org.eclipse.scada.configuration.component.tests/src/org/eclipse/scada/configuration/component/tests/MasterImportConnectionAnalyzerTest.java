@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MasterImportConnectionAnalyzerTest extends DataComponentTest
+public class MasterImportConnectionAnalyzerTest extends MasterComponentTest
 {
 
     /**

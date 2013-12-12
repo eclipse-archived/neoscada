@@ -11,9 +11,8 @@
 package org.eclipse.scada.configuration.component.exec;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 
 /**
@@ -33,7 +32,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * @model
  * @generated
  */
-public interface ExecJob extends DataComponent
+public interface ExecJob extends MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Runs On</b></em>' reference.

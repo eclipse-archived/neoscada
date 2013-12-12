@@ -11,7 +11,7 @@
  */
 package org.eclipse.scada.configuration.component.common;
 
-import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.MasterComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +23,6 @@ import org.eclipse.scada.configuration.component.DataComponent;
  * @model abstract="true"
  * @generated
  */
-public interface HeartbeatDetector extends DataComponent
+public interface HeartbeatDetector extends MasterComponent
 {
 } // HeartbeatDetector

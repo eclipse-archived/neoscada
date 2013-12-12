@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://eclipse.org/SCADA/Configuration/Component/Common"
     nsPrefix="common">
   <eClassifiers xsi:type="ecore:EClass" name="HeartbeatGenerator" abstract="true"
-      eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent">
+      eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -15,7 +15,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToggleHeartbeatGenerator" eSuperTypes="#//HeartbeatGenerator"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HeartbeatDetector" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeartbeatDetector" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeHeartbeatDetector" eSuperTypes="#//HeartbeatDetector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="10000">

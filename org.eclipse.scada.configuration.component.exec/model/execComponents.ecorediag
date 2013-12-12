@@ -100,6 +100,44 @@
     <element xmi:type="ecore:EClass" href="execComponents.ecore#//SystemInformationVMStat"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_n3EdAgo9EeOZ0OsoPMo03g" x="672" y="384"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_evrjkGNGEeO9EKVyUKzxnQ" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ewZVQGNGEeO9EKVyUKzxnQ" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ewZVQWNGEeO9EKVyUKzxnQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_ewCv8GNGEeO9EKVyUKzxnQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_ewCv8WNGEeO9EKVyUKzxnQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ewCv8mNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ewCv82NGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ewCv9GNGEeO9EKVyUKzxnQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ewDXAGNGEeO9EKVyUKzxnQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ewDXAWNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ewDXAmNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ewDXA2NGEeO9EKVyUKzxnQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_evrjkWNGEeO9EKVyUKzxnQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_evrjkmNGEeO9EKVyUKzxnQ" x="564" y="-24"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hgyZQGNGEeO9EKVyUKzxnQ" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hg9_cGNGEeO9EKVyUKzxnQ" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hg9_cWNGEeO9EKVyUKzxnQ" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_hgzAUGNGEeO9EKVyUKzxnQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_hgzAUWNGEeO9EKVyUKzxnQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hgzAUmNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hgzAU2NGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hgzAVGNGEeO9EKVyUKzxnQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_hgznYGNGEeO9EKVyUKzxnQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_hgznYWNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hgznYmNGEeO9EKVyUKzxnQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hgznY2NGEeO9EKVyUKzxnQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_hgyZQWNGEeO9EKVyUKzxnQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hgyZQmNGEeO9EKVyUKzxnQ" x="624" y="120"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_YncnQQo0EeOZ0OsoPMo03g"/>
   <element xmi:type="ecore:EPackage" href="execComponents.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="__4RiUAo0EeOZ0OsoPMo03g" type="3003" source="__IfEIAo0EeOZ0OsoPMo03g" target="_dJdZ4Ao0EeOZ0OsoPMo03g">
@@ -119,5 +157,17 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_ykmWsgo9EeOZ0OsoPMo03g" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ykmWswo9EeOZ0OsoPMo03g" points="[-6, -20, 65, 228]$[-69, -272, 2, -24]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ewQyYGNGEeO9EKVyUKzxnQ" type="3003" source="_dJdZ4Ao0EeOZ0OsoPMo03g" target="_hgyZQGNGEeO9EKVyUKzxnQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ewQyYWNGEeO9EKVyUKzxnQ" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ewQyYmNGEeO9EKVyUKzxnQ" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ewQyY2NGEeO9EKVyUKzxnQ" points="[-72, -28, 661, 265]$[-732, -293, 1, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_hg68IGNGEeO9EKVyUKzxnQ" type="3003" source="_hgyZQGNGEeO9EKVyUKzxnQ" target="_evrjkGNGEeO9EKVyUKzxnQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_hg68IWNGEeO9EKVyUKzxnQ" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_hg68ImNGEeO9EKVyUKzxnQ" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hg68I2NGEeO9EKVyUKzxnQ" points="[-9, -29, 9, 111]$[-9, -107, 9, 33]"/>
   </edges>
 </notation:Diagram>

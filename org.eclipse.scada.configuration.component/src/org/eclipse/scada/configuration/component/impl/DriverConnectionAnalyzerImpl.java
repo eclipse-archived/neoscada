@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  *
  * @generated
  */
-public class DriverConnectionAnalyzerImpl extends DataComponentImpl implements DriverConnectionAnalyzer
+public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements DriverConnectionAnalyzer
 {
     /**
      * The cached value of the '{@link #getConnection() <em>Connection</em>}' reference.

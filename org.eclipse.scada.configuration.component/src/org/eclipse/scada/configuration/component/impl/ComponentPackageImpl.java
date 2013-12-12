@@ -45,6 +45,7 @@ import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
@@ -333,6 +334,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass masterComponentEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EDataType notificationEDataType = null;
 
     /**
@@ -596,9 +604,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getDataComponent_MasterOn ()
+    public EOperation getDataComponent__GetMasterOn ()
     {
-        return (EReference)dataComponentEClass.getEStructuralFeatures ().get ( 0 );
+        return dataComponentEClass.getEOperations ().get ( 0 );
     }
 
     /**
@@ -1476,6 +1484,26 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMasterComponent ()
+    {
+        return masterComponentEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMasterComponent_MasterOn ()
+    {
+        return (EReference)masterComponentEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getNotification ()
     {
         return notificationEDataType;
@@ -1534,7 +1562,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( componentEClass, COMPONENT__ARCHIVE_SELECTOR );
 
         dataComponentEClass = createEClass ( DATA_COMPONENT );
-        createEReference ( dataComponentEClass, DATA_COMPONENT__MASTER_ON );
+        createEOperation ( dataComponentEClass, DATA_COMPONENT___GET_MASTER_ON );
 
         configurationEClass = createEClass ( CONFIGURATION );
 
@@ -1656,6 +1684,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         transientValueEClass = createEClass ( TRANSIENT_VALUE );
 
+        masterComponentEClass = createEClass ( MASTER_COMPONENT );
+        createEReference ( masterComponentEClass, MASTER_COMPONENT__MASTER_ON );
+
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
     }
@@ -1702,15 +1733,15 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         constantValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         markerConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         persistentValueEClass.getESuperTypes ().add ( this.getSingleValue () );
-        driverConnectionAnalyzerEClass.getESuperTypes ().add ( this.getDataComponent () );
-        masterImportConnectionAnalyzerEClass.getESuperTypes ().add ( this.getDataComponent () );
-        singleValueEClass.getESuperTypes ().add ( this.getDataComponent () );
-        dataMapperAnalyzerEClass.getESuperTypes ().add ( this.getDataComponent () );
+        driverConnectionAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        masterImportConnectionAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        singleValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        dataMapperAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
         dataMapperServiceEClass.getESuperTypes ().add ( this.getService () );
-        mappedSourceValueEClass.getESuperTypes ().add ( this.getDataComponent () );
         mappedSourceValueEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        calculationComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
+        mappedSourceValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
         calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        calculationComponentEClass.getESuperTypes ().add ( this.getMasterComponent () );
         calculationModuleEClass.getESuperTypes ().add ( this.getService () );
         itemReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
         componentReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
@@ -1725,9 +1756,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         externalValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
-        globalizeComponentEClass.getESuperTypes ().add ( this.getComponent () );
         globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
         transientValueEClass.getESuperTypes ().add ( this.getSingleValue () );
+        masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentWorldEClass, ComponentWorld.class, "ComponentWorld", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1752,7 +1784,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getComponent_ArchiveSelector (), theItemPackage.getSelector (), null, "archiveSelector", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( dataComponentEClass, DataComponent.class, "DataComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getDataComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, DataComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDataComponent__GetMasterOn (), theInfrastructurePackage.getMasterServer (), "getMasterOn", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( configurationEClass, Configuration.class, "Configuration", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -1883,6 +1916,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getGlobalizeComponent_SourceMaster (), theInfrastructurePackage.getMasterImport (), null, "sourceMaster", null, 1, 1, GlobalizeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( transientValueEClass, TransientValue.class, "TransientValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( masterComponentEClass, MasterComponent.class, "MasterComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getMasterComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, MasterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

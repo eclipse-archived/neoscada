@@ -36,8 +36,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataComponent" abstract="true" eSuperTypes="#//Component">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+    <eOperations name="getMasterOn" upperBound="-1" eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configuration" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConstantValue" eSuperTypes="#//SingleValue">
@@ -50,21 +49,21 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="PersistentValue" eSuperTypes="#//SingleValue"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DriverConnectionAnalyzer" eSuperTypes="#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="DriverConnectionAnalyzer" eSuperTypes="#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MasterImportConnectionAnalyzer" eSuperTypes="#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="MasterImportConnectionAnalyzer" eSuperTypes="#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SingleValue" abstract="true" eSuperTypes="#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="SingleValue" abstract="true" eSuperTypes="#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/DataType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataMapperAnalyzer" eSuperTypes="#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="DataMapperAnalyzer" eSuperTypes="#//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapper" lowerBound="1"
         eType="#//DataMapperService"/>
   </eClassifiers>
@@ -75,13 +74,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="#//DataComponent ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" lowerBound="1"
         eType="#//DataMapperService"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="#//DataComponent ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
         eType="#//CalculationModule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
@@ -221,11 +220,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//Component ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//DataComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//DataComponent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TransientValue" eSuperTypes="#//SingleValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MasterComponent" eSuperTypes="#//DataComponent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+  </eClassifiers>
 </ecore:EPackage>

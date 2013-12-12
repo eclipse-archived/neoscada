@@ -29,7 +29,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model
  * @generated
  */
-public interface MappedSourceValue extends DataComponent, Documentable
+public interface MappedSourceValue extends Documentable, MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Mapper</b></em>' reference.

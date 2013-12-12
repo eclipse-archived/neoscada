@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.DataComponent;
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.exec.*;
 
 /**
@@ -86,6 +87,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 ExecJob execJob = (ExecJob)theEObject;
                 T result = caseExecJob ( execJob );
                 if ( result == null )
+                    result = caseMasterComponent ( execJob );
+                if ( result == null )
                     result = caseDataComponent ( execJob );
                 if ( result == null )
                     result = caseComponent ( execJob );
@@ -99,6 +102,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 T result = caseLoadAverage ( loadAverage );
                 if ( result == null )
                     result = caseExecJob ( loadAverage );
+                if ( result == null )
+                    result = caseMasterComponent ( loadAverage );
                 if ( result == null )
                     result = caseDataComponent ( loadAverage );
                 if ( result == null )
@@ -124,6 +129,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseExecJob ( pingCheck );
                 if ( result == null )
+                    result = caseMasterComponent ( pingCheck );
+                if ( result == null )
                     result = caseDataComponent ( pingCheck );
                 if ( result == null )
                     result = caseComponent ( pingCheck );
@@ -147,6 +154,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 T result = caseSystemInformationVMStat ( systemInformationVMStat );
                 if ( result == null )
                     result = caseExecJob ( systemInformationVMStat );
+                if ( result == null )
+                    result = caseMasterComponent ( systemInformationVMStat );
                 if ( result == null )
                     result = caseDataComponent ( systemInformationVMStat );
                 if ( result == null )
@@ -284,6 +293,22 @@ public class ExecComponentsSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDataComponent ( DataComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterComponent ( MasterComponent object )
     {
         return null;
     }

@@ -151,6 +151,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createGlobalizeComponent ();
             case ComponentPackage.TRANSIENT_VALUE:
                 return createTransientValue ();
+            case ComponentPackage.MASTER_COMPONENT:
+                return createMasterComponent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -481,6 +483,17 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         TransientValueImpl transientValue = new TransientValueImpl ();
         return transientValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public MasterComponent createMasterComponent ()
+    {
+        MasterComponentImpl masterComponent = new MasterComponentImpl ();
+        return masterComponent;
     }
 
     /**

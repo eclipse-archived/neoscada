@@ -43,6 +43,7 @@ public class CommonComponentsAllTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new CommonComponentsAllTests ( "CommonComponents Tests" ); //$NON-NLS-1$
+        suite.addTest ( CommonTests.suite () );
         return suite;
     }
 

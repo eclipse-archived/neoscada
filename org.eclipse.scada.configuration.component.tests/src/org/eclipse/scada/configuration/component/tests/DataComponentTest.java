@@ -16,6 +16,12 @@ import org.eclipse.scada.configuration.component.DataComponent;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Data Component</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.DataComponent#getMasterOn() <em>Get Master On</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class DataComponentTest extends ComponentTest
@@ -42,6 +48,20 @@ public abstract class DataComponentTest extends ComponentTest
     protected DataComponent getFixture ()
     {
         return (DataComponent)fixture;
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.component.DataComponent#getMasterOn() <em>Get Master On</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.DataComponent#getMasterOn()
+     * @generated
+     */
+    public void testGetMasterOn ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //DataComponentTest

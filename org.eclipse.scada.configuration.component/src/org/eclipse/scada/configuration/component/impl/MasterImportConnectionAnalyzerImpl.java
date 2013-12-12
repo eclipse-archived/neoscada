@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  *
  * @generated
  */
-public class MasterImportConnectionAnalyzerImpl extends DataComponentImpl implements MasterImportConnectionAnalyzer
+public class MasterImportConnectionAnalyzerImpl extends MasterComponentImpl implements MasterImportConnectionAnalyzer
 {
     /**
      * The cached value of the '{@link #getConnection() <em>Connection</em>}' reference.

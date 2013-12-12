@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
 
+import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.common.*;
 
 /**
@@ -89,6 +90,8 @@ public class CommonSwitch<T> extends Switch<T>
                 HeartbeatGenerator heartbeatGenerator = (HeartbeatGenerator)theEObject;
                 T result = caseHeartbeatGenerator ( heartbeatGenerator );
                 if ( result == null )
+                    result = caseMasterComponent ( heartbeatGenerator );
+                if ( result == null )
                     result = caseDataComponent ( heartbeatGenerator );
                 if ( result == null )
                     result = caseComponent ( heartbeatGenerator );
@@ -103,6 +106,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseHeartbeatGenerator ( toggleHeartbeatGenerator );
                 if ( result == null )
+                    result = caseMasterComponent ( toggleHeartbeatGenerator );
+                if ( result == null )
                     result = caseDataComponent ( toggleHeartbeatGenerator );
                 if ( result == null )
                     result = caseComponent ( toggleHeartbeatGenerator );
@@ -114,6 +119,8 @@ public class CommonSwitch<T> extends Switch<T>
             {
                 HeartbeatDetector heartbeatDetector = (HeartbeatDetector)theEObject;
                 T result = caseHeartbeatDetector ( heartbeatDetector );
+                if ( result == null )
+                    result = caseMasterComponent ( heartbeatDetector );
                 if ( result == null )
                     result = caseDataComponent ( heartbeatDetector );
                 if ( result == null )
@@ -128,6 +135,8 @@ public class CommonSwitch<T> extends Switch<T>
                 T result = caseChangeHeartbeatDetector ( changeHeartbeatDetector );
                 if ( result == null )
                     result = caseHeartbeatDetector ( changeHeartbeatDetector );
+                if ( result == null )
+                    result = caseMasterComponent ( changeHeartbeatDetector );
                 if ( result == null )
                     result = caseDataComponent ( changeHeartbeatDetector );
                 if ( result == null )
@@ -233,6 +242,22 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDataComponent ( DataComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Master Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMasterComponent ( MasterComponent object )
     {
         return null;
     }

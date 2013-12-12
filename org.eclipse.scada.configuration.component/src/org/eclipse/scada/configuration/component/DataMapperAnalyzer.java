@@ -26,7 +26,7 @@ package org.eclipse.scada.configuration.component;
  * @model
  * @generated
  */
-public interface DataMapperAnalyzer extends DataComponent
+public interface DataMapperAnalyzer extends MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Data Mapper</b></em>' reference.

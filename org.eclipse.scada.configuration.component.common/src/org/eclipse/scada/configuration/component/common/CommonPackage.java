@@ -84,7 +84,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__LEVEL = ComponentPackage.DATA_COMPONENT__LEVEL;
+    int HEARTBEAT_GENERATOR__LEVEL = ComponentPackage.MASTER_COMPONENT__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -93,7 +93,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__CUSTOMIZATION_PIPELINE = ComponentPackage.DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+    int HEARTBEAT_GENERATOR__CUSTOMIZATION_PIPELINE = ComponentPackage.MASTER_COMPONENT__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -102,7 +102,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__ARCHIVE_SELECTOR = ComponentPackage.DATA_COMPONENT__ARCHIVE_SELECTOR;
+    int HEARTBEAT_GENERATOR__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -111,7 +111,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__MASTER_ON = ComponentPackage.DATA_COMPONENT__MASTER_ON;
+    int HEARTBEAT_GENERATOR__MASTER_ON = ComponentPackage.MASTER_COMPONENT__MASTER_ON;
 
     /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -120,7 +120,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__PERIOD = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 0;
+    int HEARTBEAT_GENERATOR__PERIOD = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Target Item</b></em>' containment reference.
@@ -129,7 +129,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR__TARGET_ITEM = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 1;
+    int HEARTBEAT_GENERATOR__TARGET_ITEM = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Heartbeat Generator</em>' class.
@@ -138,7 +138,16 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR_FEATURE_COUNT = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 2;
+    int HEARTBEAT_GENERATOR_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_GENERATOR___GET_MASTER_ON = ComponentPackage.MASTER_COMPONENT___GET_MASTER_ON;
 
     /**
      * The number of operations of the '<em>Heartbeat Generator</em>' class.
@@ -147,7 +156,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_GENERATOR_OPERATION_COUNT = ComponentPackage.DATA_COMPONENT_OPERATION_COUNT + 0;
+    int HEARTBEAT_GENERATOR_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.ToggleHeartbeatGeneratorImpl <em>Toggle Heartbeat Generator</em>}' class.
@@ -223,6 +232,15 @@ public interface CommonPackage extends EPackage
     int TOGGLE_HEARTBEAT_GENERATOR_FEATURE_COUNT = HEARTBEAT_GENERATOR_FEATURE_COUNT + 0;
 
     /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TOGGLE_HEARTBEAT_GENERATOR___GET_MASTER_ON = HEARTBEAT_GENERATOR___GET_MASTER_ON;
+
+    /**
      * The number of operations of the '<em>Toggle Heartbeat Generator</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -248,7 +266,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR__LEVEL = ComponentPackage.DATA_COMPONENT__LEVEL;
+    int HEARTBEAT_DETECTOR__LEVEL = ComponentPackage.MASTER_COMPONENT__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -257,7 +275,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR__CUSTOMIZATION_PIPELINE = ComponentPackage.DATA_COMPONENT__CUSTOMIZATION_PIPELINE;
+    int HEARTBEAT_DETECTOR__CUSTOMIZATION_PIPELINE = ComponentPackage.MASTER_COMPONENT__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -266,7 +284,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = ComponentPackage.DATA_COMPONENT__ARCHIVE_SELECTOR;
+    int HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -275,7 +293,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR__MASTER_ON = ComponentPackage.DATA_COMPONENT__MASTER_ON;
+    int HEARTBEAT_DETECTOR__MASTER_ON = ComponentPackage.MASTER_COMPONENT__MASTER_ON;
 
     /**
      * The number of structural features of the '<em>Heartbeat Detector</em>' class.
@@ -284,7 +302,16 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR_FEATURE_COUNT = ComponentPackage.DATA_COMPONENT_FEATURE_COUNT + 0;
+    int HEARTBEAT_DETECTOR_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR___GET_MASTER_ON = ComponentPackage.MASTER_COMPONENT___GET_MASTER_ON;
 
     /**
      * The number of operations of the '<em>Heartbeat Detector</em>' class.
@@ -293,7 +320,7 @@ public interface CommonPackage extends EPackage
      * @generated
      * @ordered
      */
-    int HEARTBEAT_DETECTOR_OPERATION_COUNT = ComponentPackage.DATA_COMPONENT_OPERATION_COUNT + 0;
+    int HEARTBEAT_DETECTOR_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.ChangeHeartbeatDetectorImpl <em>Change Heartbeat Detector</em>}' class.
@@ -376,6 +403,15 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int CHANGE_HEARTBEAT_DETECTOR_FEATURE_COUNT = HEARTBEAT_DETECTOR_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR___GET_MASTER_ON = HEARTBEAT_DETECTOR___GET_MASTER_ON;
 
     /**
      * The number of operations of the '<em>Change Heartbeat Detector</em>' class.

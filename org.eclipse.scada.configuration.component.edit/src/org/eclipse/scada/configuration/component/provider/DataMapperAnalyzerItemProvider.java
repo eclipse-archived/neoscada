@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataMapperAnalyzerItemProvider extends DataComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class DataMapperAnalyzerItemProvider extends MasterComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.

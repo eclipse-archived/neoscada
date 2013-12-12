@@ -28,7 +28,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * @model
  * @generated
  */
-public interface DriverConnectionAnalyzer extends DataComponent
+public interface DriverConnectionAnalyzer extends MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Connection</b></em>' reference.

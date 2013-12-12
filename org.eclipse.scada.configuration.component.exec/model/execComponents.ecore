@@ -5,7 +5,7 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Reports system information using &quot;vmstat&quot;."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="ExecJob" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="ExecJob" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
     <eOperations name="hasExecDriver" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
       <eParameters name="context">

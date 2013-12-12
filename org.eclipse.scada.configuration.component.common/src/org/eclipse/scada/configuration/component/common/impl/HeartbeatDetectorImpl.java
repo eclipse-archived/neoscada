@@ -12,11 +12,9 @@
 package org.eclipse.scada.configuration.component.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
-
-import org.eclipse.scada.configuration.component.impl.DataComponentImpl;
+import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +25,7 @@ import org.eclipse.scada.configuration.component.impl.DataComponentImpl;
  *
  * @generated
  */
-public abstract class HeartbeatDetectorImpl extends DataComponentImpl implements HeartbeatDetector
+public abstract class HeartbeatDetectorImpl extends MasterComponentImpl implements HeartbeatDetector
 {
     /**
      * <!-- begin-user-doc -->

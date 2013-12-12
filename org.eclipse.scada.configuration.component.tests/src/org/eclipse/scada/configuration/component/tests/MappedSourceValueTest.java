@@ -1,14 +1,17 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.component.tests;
+
+import junit.framework.TestCase;
 
 import junit.textui.TestRunner;
 
@@ -21,8 +24,16 @@ import org.eclipse.scada.configuration.component.MappedSourceValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappedSourceValueTest extends DataComponentTest
+public class MappedSourceValueTest extends TestCase
 {
+
+    /**
+     * The fixture for this Mapped Source Value test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MappedSourceValue fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -46,15 +57,25 @@ public class MappedSourceValueTest extends DataComponentTest
     }
 
     /**
+     * Sets the fixture for this Mapped Source Value test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( MappedSourceValue fixture )
+    {
+        this.fixture = fixture;
+    }
+
+    /**
      * Returns the fixture for this Mapped Source Value test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     protected MappedSourceValue getFixture ()
     {
-        return (MappedSourceValue)fixture;
+        return fixture;
     }
 
     /**

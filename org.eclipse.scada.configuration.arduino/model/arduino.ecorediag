@@ -128,25 +128,6 @@
     <element xmi:type="ecore:EClass" href="arduino.ecore#//ArduinoDevice"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_otv5MQ_WEeOR1p6S2BCQ0A" x="360" y="-204"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_ssJBYA_WEeOR1p6S2BCQ0A" type="1001">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ssjREA_WEeOR1p6S2BCQ0A" source="Shortcut">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ssjREQ_WEeOR1p6S2BCQ0A" key="modelID" value="EcoreTools"/>
-    </eAnnotations>
-    <children xmi:type="notation:Node" xmi:id="_ssKPgA_WEeOR1p6S2BCQ0A" type="4001"/>
-    <children xmi:type="notation:Node" xmi:id="_ssKPgQ_WEeOR1p6S2BCQ0A" type="5001">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_ssKPgg_WEeOR1p6S2BCQ0A"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_ssKPgw_WEeOR1p6S2BCQ0A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_ssKPhA_WEeOR1p6S2BCQ0A"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_ssK2kA_WEeOR1p6S2BCQ0A" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_ssK2kQ_WEeOR1p6S2BCQ0A"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_ssK2kg_WEeOR1p6S2BCQ0A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_ssK2kw_WEeOR1p6S2BCQ0A"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_ssJBYQ_WEeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure.model/model/infrastructure.ecore#//Device"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ssJBYg_WEeOR1p6S2BCQ0A" x="360" y="-84"/>
-  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_AJ1W0Q4vEeOrf9oDPL5Plg"/>
   <element xmi:type="ecore:EPackage" href="arduino.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_SmkX4A4vEeOrf9oDPL5Plg" type="3003" source="_AoiFAA4vEeOrf9oDPL5Plg" target="_QkytYA4vEeOrf9oDPL5Plg">
@@ -196,17 +177,5 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_IN_oIg-8EeOR1p6S2BCQ0A" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="arduino.ecore#//ArduinoConnection/endpoint"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IN_oIw-8EeOR1p6S2BCQ0A" points="[17, -33, -78, 135]$[90, -201, -5, -33]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_ssdxgA_WEeOR1p6S2BCQ0A" type="3003" source="_ssJBYA_WEeOR1p6S2BCQ0A" target="_arUeYA5kEeOR1p6S2BCQ0A">
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ssdxgQ_WEeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_ssdxgg_WEeOR1p6S2BCQ0A" fontName="Sans"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ssdxgw_WEeOR1p6S2BCQ0A" points="[-6, 29, -25, -127]$[-6, 115, -25, -41]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_tYHWkA_WEeOR1p6S2BCQ0A" type="3003" source="_otvSIA_WEeOR1p6S2BCQ0A" target="_ssJBYA_WEeOR1p6S2BCQ0A">
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_tYHWkQ_WEeOR1p6S2BCQ0A" routing="Rectilinear" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_tYHWkg_WEeOR1p6S2BCQ0A" fontName="Sans"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tYHWkw_WEeOR1p6S2BCQ0A" points="[-2, 21, 6, -108]$[-2, 100, 6, -29]"/>
   </edges>
 </notation:Diagram>

@@ -28,7 +28,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterImport;
  * @model
  * @generated
  */
-public interface MasterImportConnectionAnalyzer extends DataComponent
+public interface MasterImportConnectionAnalyzer extends MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Connection</b></em>' reference.

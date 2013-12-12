@@ -31,7 +31,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model
  * @generated
  */
-public interface CalculationComponent extends DataComponent, Documentable
+public interface CalculationComponent extends Documentable, MasterComponent
 {
     /**
      * Returns the value of the '<em><b>Implementation</b></em>' reference.

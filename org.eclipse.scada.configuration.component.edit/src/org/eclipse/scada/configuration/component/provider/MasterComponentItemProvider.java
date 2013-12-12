@@ -1,19 +1,22 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2013 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.component.exec.provider;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.component.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +24,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.component.exec.ExecComponentsPackage;
-import org.eclipse.scada.configuration.component.exec.ExecJob;
-import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
+
+import org.eclipse.scada.configuration.component.ComponentPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.exec.ExecJob} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.MasterComponent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExecJobItemProvider extends MasterComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
+public class MasterComponentItemProvider
+        extends DataComponentItemProvider
+        implements
+        IEditingDomainItemProvider,
+        IStructuredItemContentProvider,
+        ITreeItemContentProvider,
+        IItemLabelProvider,
+        IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
@@ -41,7 +48,7 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    public ExecJobItemProvider ( AdapterFactory adapterFactory )
+    public MasterComponentItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -59,50 +66,26 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
         {
             super.getPropertyDescriptors ( object );
 
-            addRunsOnPropertyDescriptor ( object );
-            addNamePropertyDescriptor ( object );
+            addMasterOnPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Master On feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addMasterOnPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ExecJob_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExecJob_name_feature", "_UI_ExecJob_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ExecComponentsPackage.Literals.EXEC_JOB__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Runs On feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addRunsOnPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_ExecJob_runsOn_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExecJob_runsOn_feature", "_UI_ExecJob_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ExecComponentsPackage.Literals.EXEC_JOB__RUNS_ON,
+                        getString ( "_UI_MasterComponent_masterOn_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterComponent_masterOn_feature", "_UI_MasterComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.MASTER_COMPONENT__MASTER_ON,
                         true,
                         false,
                         true,
@@ -112,7 +95,7 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
     }
 
     /**
-     * This returns ExecJob.gif.
+     * This returns MasterComponent.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -120,7 +103,7 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ExecJob" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MasterComponent" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -132,10 +115,7 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
     @Override
     public String getText ( Object object )
     {
-        String label = ( (ExecJob)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ExecJob_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ExecJob_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_MasterComponent_type" ); //$NON-NLS-1$
     }
 
     /**
@@ -149,13 +129,6 @@ public class ExecJobItemProvider extends MasterComponentItemProvider implements 
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
-
-        switch ( notification.getFeatureID ( ExecJob.class ) )
-        {
-            case ExecComponentsPackage.EXEC_JOB__NAME:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-        }
         super.notifyChanged ( notification );
     }
 

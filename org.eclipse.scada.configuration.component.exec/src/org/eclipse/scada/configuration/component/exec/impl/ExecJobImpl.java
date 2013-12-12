@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.scada.configuration.component.exec.ExecComponentsPackage;
 import org.eclipse.scada.configuration.component.exec.ExecJob;
 import org.eclipse.scada.configuration.component.exec.util.ExecComponentsValidator;
-import org.eclipse.scada.configuration.component.impl.DataComponentImpl;
+import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 
@@ -41,7 +41,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  *
  * @generated
  */
-public class ExecJobImpl extends DataComponentImpl implements ExecJob
+public class ExecJobImpl extends MasterComponentImpl implements ExecJob
 {
     private static final String DRIVER_TYPE_ID = "org.eclipse.scada.da.server.exec";
 

@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DriverConnectionAnalyzerTest extends DataComponentTest
+public class DriverConnectionAnalyzerTest extends MasterComponentTest
 {
 
     /**

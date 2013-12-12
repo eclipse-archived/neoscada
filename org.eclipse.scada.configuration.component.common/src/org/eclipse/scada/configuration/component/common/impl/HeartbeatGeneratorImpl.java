@@ -12,18 +12,14 @@
 package org.eclipse.scada.configuration.component.common.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
-
-import org.eclipse.scada.configuration.component.impl.DataComponentImpl;
+import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +35,7 @@ import org.eclipse.scada.configuration.component.impl.DataComponentImpl;
  *
  * @generated
  */
-public abstract class HeartbeatGeneratorImpl extends DataComponentImpl implements HeartbeatGenerator
+public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl implements HeartbeatGenerator
 {
     /**
      * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.

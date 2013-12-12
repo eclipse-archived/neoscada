@@ -374,7 +374,7 @@ public class ExecComponentsPackageImpl extends EPackageImpl implements ExecCompo
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        execJobEClass.getESuperTypes ().add ( theComponentPackage.getDataComponent () );
+        execJobEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         loadAverageEClass.getESuperTypes ().add ( this.getExecJob () );
         loadAverageConfigurationEClass.getESuperTypes ().add ( theComponentPackage.getConfiguration () );
         pingCheckEClass.getESuperTypes ().add ( this.getExecJob () );
