@@ -18,11 +18,11 @@ import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.OperationException;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.core.WriteResult;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
-import org.eclipse.scada.da.server.common.DataItem;
 
 public class BitVariable extends ScalarVariable
 {
@@ -40,6 +40,12 @@ public class BitVariable extends ScalarVariable
         final byte b = data.get ( toAddress ( this.index ) );
         final boolean flag = ( b & 1 << this.subIndex ) != 0;
         return Variant.valueOf ( flag );
+    }
+
+    @Override
+    protected Variant makeGlobalIndexValue ()
+    {
+        return Variant.valueOf ( String.format ( "%s.%s", this.offset + this.index, this.subIndex ) );
     }
 
     @Override

@@ -42,7 +42,7 @@ public abstract class ScalarVariable implements Variable
 
     private final Attribute[] attributes;
 
-    private int offset;
+    protected int offset;
 
     protected MemoryRequestBlock block;
 
@@ -85,7 +85,7 @@ public abstract class ScalarVariable implements Variable
 
         attributes.put ( "communcation.error", Variant.TRUE );
 
-        MemoryDeviceDataitem item = this.item;
+        final MemoryDeviceDataitem item = this.item;
         if ( item != null )
         {
             item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
@@ -175,9 +175,14 @@ public abstract class ScalarVariable implements Variable
             attr.handleData ( data, attributes, timestamp );
         }
 
-        attributes.put ( "globalIndex", Variant.valueOf ( this.offset + this.index ) );
+        attributes.put ( "globalIndex", makeGlobalIndexValue () );
 
         this.item.updateData ( value, attributes, AttributeMode.SET );
+    }
+
+    protected Variant makeGlobalIndexValue ()
+    {
+        return Variant.valueOf ( this.offset + this.index );
     }
 
     protected int toAddress ( final int localAddress )
