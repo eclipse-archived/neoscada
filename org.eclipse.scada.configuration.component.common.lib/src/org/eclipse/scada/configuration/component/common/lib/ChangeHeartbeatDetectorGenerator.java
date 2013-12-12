@@ -73,7 +73,7 @@ public class ChangeHeartbeatDetectorGenerator extends AbstractDanglingGenerator
         final ScriptItem item = OsgiFactory.eINSTANCE.createScriptItem ();
 
         final CodeFragment initCode = OsgiFactory.eINSTANCE.createCodeFragment ();
-        initCode.setCode ( String.format ( "heartbeatTimeout = %s;", this.detector.getTimeout () ) );
+        initCode.setCode ( String.format ( "heartbeatTimeout = %s; lastChange = null;", this.detector.getTimeout () ) );
 
         final CodeFragment timerCode = OsgiFactory.eINSTANCE.createCodeFragment ();
         timerCode.setCode ( this.timerCodeString );
