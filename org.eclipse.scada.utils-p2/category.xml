@@ -7,7 +7,7 @@
       <category name="org.eclipse.scada.utils.sdk.category"/>
    </feature>
    <feature url="features/org.eclipse.scada.ui.utils_0.1.0.qualifier.jar" id="org.eclipse.scada.ui.utils" version="0.1.0.qualifier">
-      <category name="org.eclipse.scada.ui.utils.category"/>
+      <category name="org.eclipse.scada.utils.category"/>
    </feature>
    <category-def name="org.eclipse.scada.utils.category" label="Eclipse SCADA Utils (Incubation)">
       <description>
@@ -17,11 +17,6 @@
    <category-def name="org.eclipse.scada.utils.sdk.category" label="Eclipse SCADA Utils SDK (Incubation)">
       <description>
          Binaries and sources to all Eclipse SCADA Utils modules.
-      </description>
-   </category-def>
-   <category-def name="org.eclipse.scada.ui.utils.category" label="Eclipse SCADA UI Utils (Incubation)">
-      <description>
-         UI utilities.
       </description>
    </category-def>
 </site>
