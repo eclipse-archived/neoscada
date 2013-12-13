@@ -35,7 +35,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/archiveSelector"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//DataComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataComponent/masterOn"/>
+      <genOperations ecoreOperation="component.ecore#//DataComponent/getMasterOn"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//Configuration"/>
     <genClasses ecoreClass="component.ecore#//ConstantValue">
@@ -155,6 +155,10 @@
     <genClasses ecoreClass="component.ecore#//GlobalizeComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/components"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//GlobalizeComponent/sourceMaster"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//TransientValue"/>
+    <genClasses ecoreClass="component.ecore#//MasterComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterComponent/masterOn"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
