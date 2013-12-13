@@ -115,4 +115,9 @@ public class MultiConfigurationEditor extends MultiPageEditorPart
         this.basicEditor.handleInsert ();
     }
 
+    public void refresh ()
+    {
+        getEditorInput ().performLoad ( new NullProgressMonitor () );
+    }
+
 }

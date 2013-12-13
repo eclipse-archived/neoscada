@@ -71,6 +71,15 @@
                style="push"
                toolbarPath="additions">
          </action>
+         <action
+               class="org.eclipse.scada.ca.ui.editor.config.RefreshAction"
+               definitionId="org.eclipse.ui.file.refresh"
+               icon="icons/refresh.gif"
+               id="org.eclipse.scada.ca.ui.editor.RefreshAction"
+               label="Refresh"
+               style="push"
+               toolbarPath="additions">
+         </action>
       </editorContribution>
    </extension>
    <extension
