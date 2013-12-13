@@ -5,7 +5,7 @@
     modelPluginID="org.eclipse.scada.configuration.infrastructure" modelName="Infrastructure"
     nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
     operationReflection="true" importOrganizing="true">
   <foreignModel>infrastructure.ecore</foreignModel>
   <genPackages prefix="Infrastructure" basePackage="org.eclipse.scada.configuration"
@@ -23,6 +23,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultDriverPassword"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/applicationConfigurations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/defaultDriverAccessCredentials"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/configurations"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//Node">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Node/hostName"/>
@@ -39,7 +40,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/importedMaster"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//MasterImport/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/credentials"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/importSelector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference infrastructure.ecore#//MasterImport/master"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//Options">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//Options/baseDaNgpPort"/>
@@ -54,6 +55,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxApplication/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//EquinoxApplication/instanceNumber"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/configurations"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//EquinoxApplication/configuration"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//CommonDriver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//CommonDriver/password"/>
@@ -66,6 +68,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/masters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/valueArchives"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//SystemNode/applications"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/services"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//SystemPropertyUserService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemPropertyUserService/users"/>
@@ -104,6 +107,19 @@
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//ExternalDriverPlaceholder">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ExternalDriverPlaceholder/endpoints"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ApplicationConfiguration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//ApplicationConfiguration/modules"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//Configurations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//Configurations/configurations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="infrastructure.ecore#//Module"/>
+    <genClasses ecoreClass="infrastructure.ecore#//HttpServiceModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//HttpServiceModule/port"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//RestExporterModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//RestExporterModule/contextId"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

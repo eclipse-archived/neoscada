@@ -136,6 +136,9 @@
         <genOperations ecoreOperation="configuration.ecore#//osgi/Connection/makeUri">
           <genParameters ecoreParameter="configuration.ecore#//osgi/Connection/makeUri/localhost"/>
         </genOperations>
+        <genOperations ecoreOperation="configuration.ecore#//osgi/Connection/getMatchingEndpoint">
+          <genParameters ecoreParameter="configuration.ecore#//osgi/Connection/getMatchingEndpoint/exporter"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/Exporter">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -522,6 +525,7 @@
             ecoreFeature="ecore:EReference configuration.ecore#//osgi/HttpService/endpoint"/>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/IndependentConfiguration"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/TransientItem"/>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"
           extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"
