@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_4tAhoGPdEeO9EKVyUKzxnQ" documentation="Edition Context for component GenPackage">
+    <categories xmi:id="_4tAhoWPdEeO9EKVyUKzxnQ" name="component">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhomPdEeO9EKVyUKzxnQ" name="ComponentWorld" views="_4tBI3GPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAho2PdEeO9EKVyUKzxnQ" name="itemInterceptors" views="_4tBI3mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Container/itemInterceptors"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhpGPdEeO9EKVyUKzxnQ" name="configurations" views="_4tBI32PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld/configurations"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhpWPdEeO9EKVyUKzxnQ" name="services" views="_4tBI4GPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld/services"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhpmPdEeO9EKVyUKzxnQ" name="infrastructure" views="_4tBI4WPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld/infrastructure"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhp2PdEeO9EKVyUKzxnQ" name="defaultCustomizationPipeline" views="_4tBI4mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld/defaultCustomizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhqGPdEeO9EKVyUKzxnQ" name="defaultArchiveSelector" views="_4tBI42PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld/defaultArchiveSelector"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentWorld"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhqWPdEeO9EKVyUKzxnQ" name="Level" views="_4tBI5GPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhqmPdEeO9EKVyUKzxnQ" name="itemInterceptors" views="_4tBI5mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Container/itemInterceptors"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhq2PdEeO9EKVyUKzxnQ" name="parent" views="_4tBI52PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Level/parent"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhrGPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBI6GPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Level/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhrWPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBI6WPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Level/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhrmPdEeO9EKVyUKzxnQ" name="name" views="_4tBI6mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Level/name"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Level"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhr2PdEeO9EKVyUKzxnQ" name="ConstantValue" views="_4tBI62PdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhsGPdEeO9EKVyUKzxnQ" name="level" views="_4tBI7WPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhsWPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBI7mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhsmPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBI72PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhs2PdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBI8GPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhtGPdEeO9EKVyUKzxnQ" name="name" views="_4tBI8WPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhtWPdEeO9EKVyUKzxnQ" name="dataType" views="_4tBI8mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/dataType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhtmPdEeO9EKVyUKzxnQ" name="customizationTags" views="_4tBI82PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/customizationTags"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAht2PdEeO9EKVyUKzxnQ" name="value" views="_4tBI9GPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ConstantValue/value"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ConstantValue"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhuGPdEeO9EKVyUKzxnQ" name="MarkerConfiguration" views="_4tBI9WPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhuWPdEeO9EKVyUKzxnQ" name="markers" views="_4tBI92PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MarkerConfiguration/markers"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MarkerConfiguration"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhumPdEeO9EKVyUKzxnQ" name="PersistentValue" views="_4tBI-GPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhu2PdEeO9EKVyUKzxnQ" name="level" views="_4tBI-mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhvGPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBI-2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhvWPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBI_GPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhvmPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBI_WPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhv2PdEeO9EKVyUKzxnQ" name="name" views="_4tBI_mPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhwGPdEeO9EKVyUKzxnQ" name="dataType" views="_4tBI_2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/dataType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhwWPdEeO9EKVyUKzxnQ" name="customizationTags" views="_4tBJAGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/customizationTags"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//PersistentValue"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhwmPdEeO9EKVyUKzxnQ" name="DriverConnectionAnalyzer" views="_4tBJAWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhw2PdEeO9EKVyUKzxnQ" name="level" views="_4tBJA2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhxGPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJBGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhxWPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJBWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhxmPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJBmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhx2PdEeO9EKVyUKzxnQ" name="connection" views="_4tBJB2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DriverConnectionAnalyzer/connection"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DriverConnectionAnalyzer"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhyGPdEeO9EKVyUKzxnQ" name="MasterImportConnectionAnalyzer" views="_4tBJCGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhyWPdEeO9EKVyUKzxnQ" name="level" views="_4tBJCmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhymPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJC2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhy2PdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJDGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhzGPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJDWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhzWPdEeO9EKVyUKzxnQ" name="connection" views="_4tBJDmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterImportConnectionAnalyzer/connection"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterImportConnectionAnalyzer"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAhzmPdEeO9EKVyUKzxnQ" name="DataMapperAnalyzer" views="_4tBJD2PdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhz2PdEeO9EKVyUKzxnQ" name="level" views="_4tBJEWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh0GPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJEmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh0WPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJE2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh0mPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJFGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh02PdEeO9EKVyUKzxnQ" name="dataMapper" views="_4tBJFWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DataMapperAnalyzer/dataMapper"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DataMapperAnalyzer"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh1GPdEeO9EKVyUKzxnQ" name="DataMapperService" views="_4tBJFmPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh1WPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJGGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DataMapperService/masterOn"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DataMapperService"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh1mPdEeO9EKVyUKzxnQ" name="MappedSourceValue" views="_4tBJGWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh12PdEeO9EKVyUKzxnQ" name="shortDescription" views="_4tBJG2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/shortDescription"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh2GPdEeO9EKVyUKzxnQ" name="name" views="_4tBJHGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh2WPdEeO9EKVyUKzxnQ" name="level" views="_4tBJHWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh2mPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJHmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh22PdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJH2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh3GPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJIGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh3WPdEeO9EKVyUKzxnQ" name="mapper" views="_4tBJIWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MappedSourceValue/mapper"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MappedSourceValue"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh3mPdEeO9EKVyUKzxnQ" name="CalculationComponent" views="_4tBJImPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh32PdEeO9EKVyUKzxnQ" name="shortDescription" views="_4tBJJGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/shortDescription"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh4GPdEeO9EKVyUKzxnQ" name="name" views="_4tBJJWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh4WPdEeO9EKVyUKzxnQ" name="level" views="_4tBJJmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh4mPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJJ2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh42PdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJKGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh5GPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJKWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh5WPdEeO9EKVyUKzxnQ" name="implementation" views="_4tBJKmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//CalculationComponent/implementation"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh5mPdEeO9EKVyUKzxnQ" name="outputs" views="_4tBJK2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//CalculationComponent/outputs"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh52PdEeO9EKVyUKzxnQ" name="inputs" views="_4tBJLGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//CalculationComponent/inputs"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//CalculationComponent"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh6GPdEeO9EKVyUKzxnQ" name="InputSpecification" views="_4tBJLWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh6WPdEeO9EKVyUKzxnQ" name="name" views="_4tBJL2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//InputSpecification/name"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//InputSpecification"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh6mPdEeO9EKVyUKzxnQ" name="OutputSpecification" views="_4tBJMGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh62PdEeO9EKVyUKzxnQ" name="name" views="_4tBJMmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputSpecification/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh7GPdEeO9EKVyUKzxnQ" name="dataType" views="_4tBJM2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputSpecification/dataType"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputSpecification"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh7WPdEeO9EKVyUKzxnQ" name="OutputDefinition" views="_4tBJNGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh7mPdEeO9EKVyUKzxnQ" name="name" views="_4tBJNmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputDefinition/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh72PdEeO9EKVyUKzxnQ" name="localTag" views="_4tBJN2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputDefinition/localTag"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//OutputDefinition"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh8GPdEeO9EKVyUKzxnQ" name="ItemReferenceInputDefinition" views="_4tBJOGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh8WPdEeO9EKVyUKzxnQ" name="name" views="_4tBJOmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh8mPdEeO9EKVyUKzxnQ" name="itemId" views="_4tBJO2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ItemReferenceInputDefinition/itemId"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ItemReferenceInputDefinition"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh82PdEeO9EKVyUKzxnQ" name="ComponentReferenceInputDefinition" views="_4tBJPGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh9GPdEeO9EKVyUKzxnQ" name="name" views="_4tBJPmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh9WPdEeO9EKVyUKzxnQ" name="component" views="_4tBJP2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentReferenceInputDefinition/component"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh9mPdEeO9EKVyUKzxnQ" name="localTag" views="_4tBJQGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentReferenceInputDefinition/localTag"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentReferenceInputDefinition"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh92PdEeO9EKVyUKzxnQ" name="FormulaModule" views="_4tBJQWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh-GPdEeO9EKVyUKzxnQ" name="shortDescription" views="_4tBJQ2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/shortDescription"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh-WPdEeO9EKVyUKzxnQ" name="name" views="_4tBJRGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh-mPdEeO9EKVyUKzxnQ" name="inputs" views="_4tBJRWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//FormulaModule/inputs"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh-2PdEeO9EKVyUKzxnQ" name="scriptEngine" views="_4tBJRmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//FormulaModule/scriptEngine"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh_GPdEeO9EKVyUKzxnQ" name="init" views="_4tBJR2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//FormulaModule/init"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//FormulaModule"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh_WPdEeO9EKVyUKzxnQ" name="AverageModule" views="_4tBJSGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAh_mPdEeO9EKVyUKzxnQ" name="validSourcesRequired" views="_4tBJSmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//AverageModule/validSourcesRequired"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//AverageModule"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAh_2PdEeO9EKVyUKzxnQ" name="ScriptModule" views="_4tBJS2PdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiAGPdEeO9EKVyUKzxnQ" name="shortDescription" views="_4tBJTWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/shortDescription"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiAWPdEeO9EKVyUKzxnQ" name="name" views="_4tBJTmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiAmPdEeO9EKVyUKzxnQ" name="inputs" views="_4tBJT2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ScriptModule/inputs"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiA2PdEeO9EKVyUKzxnQ" name="outputs" views="_4tBJUGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ScriptModule/outputs"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiBGPdEeO9EKVyUKzxnQ" name="scriptEngine" views="_4tBJUWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ScriptModule/scriptEngine"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ScriptModule"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tAiBWPdEeO9EKVyUKzxnQ" name="Script" views="_4tBJUmPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAiBmPdEeO9EKVyUKzxnQ" name="code" views="_4tBJVGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Script/code"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Script"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIsGPdEeO9EKVyUKzxnQ" name="AbsoluteDanglingReference" views="_4tBJVWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIsWPdEeO9EKVyUKzxnQ" name="name" views="_4tBJV2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item/name"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//AbsoluteDanglingReference"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIsmPdEeO9EKVyUKzxnQ" name="ComponentDanglingReference" views="_4tBJWGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIs2PdEeO9EKVyUKzxnQ" name="name" views="_4tBJWmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBItGPdEeO9EKVyUKzxnQ" name="localTag" views="_4tBJW2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentDanglingReference/localTag"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBItWPdEeO9EKVyUKzxnQ" name="component" views="_4tBJXGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentDanglingReference/component"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ComponentDanglingReference"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBItmPdEeO9EKVyUKzxnQ" name="ExternalValue" views="_4tBJXWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIt2PdEeO9EKVyUKzxnQ" name="level" views="_4tBJX2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIuGPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJYGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIuWPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJYWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIumPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJYmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIu2PdEeO9EKVyUKzxnQ" name="name" views="_4tBJY2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIvGPdEeO9EKVyUKzxnQ" name="dataType" views="_4tBJZGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/dataType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIvWPdEeO9EKVyUKzxnQ" name="customizationTags" views="_4tBJZWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/customizationTags"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIvmPdEeO9EKVyUKzxnQ" name="connection" views="_4tBJZmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ExternalValue/connection"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIv2PdEeO9EKVyUKzxnQ" name="sourceName" views="_4tBJZ2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ExternalValue/sourceName"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ExternalValue"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIwGPdEeO9EKVyUKzxnQ" name="SummariesConfiguration" views="_4tBJaGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIwWPdEeO9EKVyUKzxnQ" name="itemThreshold" views="_4tBJamPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SummariesConfiguration/itemThreshold"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SummariesConfiguration"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIwmPdEeO9EKVyUKzxnQ" name="RestInterceptor" views="_4tBJa2PdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIw2PdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJbWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIxGPdEeO9EKVyUKzxnQ" name="definition" views="_4tBJbmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//RestInterceptor/definition"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//RestInterceptor"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIxWPdEeO9EKVyUKzxnQ" name="GlobalizeComponent" views="_4tBJb2PdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIxmPdEeO9EKVyUKzxnQ" name="shortDescription" views="_4tBJcWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/shortDescription"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIx2PdEeO9EKVyUKzxnQ" name="name" views="_4tBJcmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIyGPdEeO9EKVyUKzxnQ" name="level" views="_4tBJc2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIyWPdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJdGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIymPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJdWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIy2PdEeO9EKVyUKzxnQ" name="components" views="_4tBJdmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//GlobalizeComponent/components"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIzGPdEeO9EKVyUKzxnQ" name="sourceMaster" views="_4tBJd2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//GlobalizeComponent/sourceMaster"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//GlobalizeComponent"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBIzWPdEeO9EKVyUKzxnQ" name="TransientValue" views="_4tBJeGPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIzmPdEeO9EKVyUKzxnQ" name="level" views="_4tBJemPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBIz2PdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJe2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI0GPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJfGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI0WPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJfWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI0mPdEeO9EKVyUKzxnQ" name="name" views="_4tBJfmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI02PdEeO9EKVyUKzxnQ" name="dataType" views="_4tBJf2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/dataType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI1GPdEeO9EKVyUKzxnQ" name="customizationTags" views="_4tBJgGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue/customizationTags"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//TransientValue"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_4tBI1WPdEeO9EKVyUKzxnQ" name="MasterComponent" views="_4tBJgWPdEeO9EKVyUKzxnQ">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI1mPdEeO9EKVyUKzxnQ" name="level" views="_4tBJg2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/level"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI12PdEeO9EKVyUKzxnQ" name="customizationPipeline" views="_4tBJhGPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/customizationPipeline"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI2GPdEeO9EKVyUKzxnQ" name="archiveSelector" views="_4tBJhWPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//Component/archiveSelector"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tBI2WPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJhmPdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/org.eclipse.scada.configuration.component/model/component.genmodel#//component"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_4tBI2mPdEeO9EKVyUKzxnQ" documentation="Views repository for component GenPackage" name="component">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_4tBI22PdEeO9EKVyUKzxnQ" name="component">
+      <views xmi:id="_4tBI3GPdEeO9EKVyUKzxnQ" name="ComponentWorld">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBI3WPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI3mPdEeO9EKVyUKzxnQ" name="itemInterceptors">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI32PdEeO9EKVyUKzxnQ" name="configurations">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI4GPdEeO9EKVyUKzxnQ" name="services">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI4WPdEeO9EKVyUKzxnQ" name="infrastructure">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI4mPdEeO9EKVyUKzxnQ" name="defaultCustomizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI42PdEeO9EKVyUKzxnQ" name="defaultArchiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBI5GPdEeO9EKVyUKzxnQ" name="Level">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBI5WPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI5mPdEeO9EKVyUKzxnQ" name="itemInterceptors">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI52PdEeO9EKVyUKzxnQ" name="parent">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI6GPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI6WPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI6mPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBI62PdEeO9EKVyUKzxnQ" name="ConstantValue">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBI7GPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI7WPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI7mPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI72PdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI8GPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI8WPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI8mPdEeO9EKVyUKzxnQ" name="dataType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI82PdEeO9EKVyUKzxnQ" name="customizationTags">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI9GPdEeO9EKVyUKzxnQ" name="value">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBI9WPdEeO9EKVyUKzxnQ" name="MarkerConfiguration">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBI9mPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI92PdEeO9EKVyUKzxnQ" name="markers">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBI-GPdEeO9EKVyUKzxnQ" name="PersistentValue">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBI-WPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI-mPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI-2PdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI_GPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI_WPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI_mPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBI_2PdEeO9EKVyUKzxnQ" name="dataType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJAGPdEeO9EKVyUKzxnQ" name="customizationTags">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJAWPdEeO9EKVyUKzxnQ" name="DriverConnectionAnalyzer">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJAmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJA2PdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJBGPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJBWPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJBmPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJB2PdEeO9EKVyUKzxnQ" name="connection">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJCGPdEeO9EKVyUKzxnQ" name="MasterImportConnectionAnalyzer">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJCWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJCmPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJC2PdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJDGPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJDWPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJDmPdEeO9EKVyUKzxnQ" name="connection">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJD2PdEeO9EKVyUKzxnQ" name="DataMapperAnalyzer">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJEGPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJEWPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJEmPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJE2PdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJFGPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJFWPdEeO9EKVyUKzxnQ" name="dataMapper">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJFmPdEeO9EKVyUKzxnQ" name="DataMapperService">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJF2PdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJGGPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJGWPdEeO9EKVyUKzxnQ" name="MappedSourceValue">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJGmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJG2PdEeO9EKVyUKzxnQ" name="shortDescription">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJHGPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJHWPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJHmPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJH2PdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJIGPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJIWPdEeO9EKVyUKzxnQ" name="mapper">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJImPdEeO9EKVyUKzxnQ" name="CalculationComponent">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJI2PdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJJGPdEeO9EKVyUKzxnQ" name="shortDescription">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJJWPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJJmPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJJ2PdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJKGPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJKWPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJKmPdEeO9EKVyUKzxnQ" name="implementation">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJK2PdEeO9EKVyUKzxnQ" name="outputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJLGPdEeO9EKVyUKzxnQ" name="inputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJLWPdEeO9EKVyUKzxnQ" name="InputSpecification">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJLmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJL2PdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJMGPdEeO9EKVyUKzxnQ" name="OutputSpecification">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJMWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJMmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJM2PdEeO9EKVyUKzxnQ" name="dataType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJNGPdEeO9EKVyUKzxnQ" name="OutputDefinition">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJNWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJNmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJN2PdEeO9EKVyUKzxnQ" name="localTag">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJOGPdEeO9EKVyUKzxnQ" name="ItemReferenceInputDefinition">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJOWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJOmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJO2PdEeO9EKVyUKzxnQ" name="itemId">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJPGPdEeO9EKVyUKzxnQ" name="ComponentReferenceInputDefinition">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJPWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJPmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJP2PdEeO9EKVyUKzxnQ" name="component">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJQGPdEeO9EKVyUKzxnQ" name="localTag">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJQWPdEeO9EKVyUKzxnQ" name="FormulaModule">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJQmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJQ2PdEeO9EKVyUKzxnQ" name="shortDescription">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJRGPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJRWPdEeO9EKVyUKzxnQ" name="inputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJRmPdEeO9EKVyUKzxnQ" name="scriptEngine">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJR2PdEeO9EKVyUKzxnQ" name="init">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJSGPdEeO9EKVyUKzxnQ" name="AverageModule">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJSWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJSmPdEeO9EKVyUKzxnQ" name="validSourcesRequired">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJS2PdEeO9EKVyUKzxnQ" name="ScriptModule">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJTGPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJTWPdEeO9EKVyUKzxnQ" name="shortDescription">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJTmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJT2PdEeO9EKVyUKzxnQ" name="inputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJUGPdEeO9EKVyUKzxnQ" name="outputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJUWPdEeO9EKVyUKzxnQ" name="scriptEngine">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJUmPdEeO9EKVyUKzxnQ" name="Script">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJU2PdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJVGPdEeO9EKVyUKzxnQ" name="code">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJVWPdEeO9EKVyUKzxnQ" name="AbsoluteDanglingReference">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJVmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJV2PdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJWGPdEeO9EKVyUKzxnQ" name="ComponentDanglingReference">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJWWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJWmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJW2PdEeO9EKVyUKzxnQ" name="localTag">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJXGPdEeO9EKVyUKzxnQ" name="component">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJXWPdEeO9EKVyUKzxnQ" name="ExternalValue">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJXmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJX2PdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJYGPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJYWPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJYmPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJY2PdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJZGPdEeO9EKVyUKzxnQ" name="dataType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJZWPdEeO9EKVyUKzxnQ" name="customizationTags">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJZmPdEeO9EKVyUKzxnQ" name="connection">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJZ2PdEeO9EKVyUKzxnQ" name="sourceName">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJaGPdEeO9EKVyUKzxnQ" name="SummariesConfiguration">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJaWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJamPdEeO9EKVyUKzxnQ" name="itemThreshold">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJa2PdEeO9EKVyUKzxnQ" name="RestInterceptor">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJbGPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJbWPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJbmPdEeO9EKVyUKzxnQ" name="definition">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJb2PdEeO9EKVyUKzxnQ" name="GlobalizeComponent">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJcGPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJcWPdEeO9EKVyUKzxnQ" name="shortDescription">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJcmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJc2PdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJdGPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJdWPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJdmPdEeO9EKVyUKzxnQ" name="components">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJd2PdEeO9EKVyUKzxnQ" name="sourceMaster">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJeGPdEeO9EKVyUKzxnQ" name="TransientValue">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJeWPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJemPdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJe2PdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJfGPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJfWPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJfmPdEeO9EKVyUKzxnQ" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJf2PdEeO9EKVyUKzxnQ" name="dataType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJgGPdEeO9EKVyUKzxnQ" name="customizationTags">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.3"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_4tBJgWPdEeO9EKVyUKzxnQ" name="MasterComponent">
+        <elements xsi:type="eef-views:Container" xmi:id="_4tBJgmPdEeO9EKVyUKzxnQ" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJg2PdEeO9EKVyUKzxnQ" name="level">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJhGPdEeO9EKVyUKzxnQ" name="customizationPipeline">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJhWPdEeO9EKVyUKzxnQ" name="archiveSelector">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_4tBJhmPdEeO9EKVyUKzxnQ" name="masterOn">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>
