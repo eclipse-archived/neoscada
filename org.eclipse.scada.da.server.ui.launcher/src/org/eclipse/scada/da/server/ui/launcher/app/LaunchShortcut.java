@@ -246,6 +246,7 @@ public class LaunchShortcut implements ILaunchShortcut2
         for ( final StartBundle sb : profile.getStart () )
         {
             final Bundle b = new Bundle ( sb.getName () );
+            b.autostart = true;
             all.put ( b.name, b );
         }
 
@@ -257,7 +258,6 @@ public class LaunchShortcut implements ILaunchShortcut2
                 throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Bundle start level for missing bundle (%s).", sbl.getName () ) ) );
             }
 
-            b.autostart = true;
             b.startLevel = sbl.getLevel ();
         }
 
