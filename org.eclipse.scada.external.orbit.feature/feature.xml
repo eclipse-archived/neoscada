@@ -161,7 +161,14 @@
          id="org.apache.poi"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="3.9.0.v201303080712"
+         unpack="false"/>
+
+   <plugin
+         id="osgi.enterprise"
+         download-size="0"
+         install-size="0"
+         version="4.2.0.201003190513"
          unpack="false"/>
 
 </feature>
