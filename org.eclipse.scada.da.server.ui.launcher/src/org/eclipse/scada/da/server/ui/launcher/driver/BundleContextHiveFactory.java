@@ -8,7 +8,7 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.ui.launcher;
+package org.eclipse.scada.da.server.ui.launcher.driver;
 
 import java.util.Collection;
 

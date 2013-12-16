@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.ui.launcher;
+package org.eclipse.scada.da.server.ui.launcher.driver;
 
 public interface ConfiguratorLauncherConstants
 {

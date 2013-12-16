@@ -8,12 +8,13 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.ui.launcher;
+package org.eclipse.scada.da.server.ui.launcher.driver;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.scada.da.server.ui.HivesPlugin;
+import org.eclipse.scada.da.server.ui.launcher.Activator;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.databinding.SelectionHelper;
 import org.eclipse.ui.statushandlers.StatusManager;
