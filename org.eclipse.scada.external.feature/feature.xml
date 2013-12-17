@@ -17,6 +17,10 @@
       %license
    </license>
 
+   <url>
+      <discovery label="Eclipse Kepler" url="http://download.eclipse.org/releases/kepler"/>
+   </url>
+
    <plugin
          id="org.apache.mina.filter.compression"
          download-size="0"
