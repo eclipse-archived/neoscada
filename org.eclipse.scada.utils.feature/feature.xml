@@ -27,8 +27,12 @@
    <requires>
       <import plugin="com.google.guava"/>
       <import plugin="org.apache.commons.beanutils"/>
-      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.slf4j.api"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="javax.inject"/>
+      <import plugin="osgi.enterprise"/>
+      <import plugin="org.apache.commons.dbcp"/>
+      <import plugin="org.apache.commons.pool"/>
    </requires>
 
    <plugin
