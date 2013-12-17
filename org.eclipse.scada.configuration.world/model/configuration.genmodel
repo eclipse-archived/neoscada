@@ -531,7 +531,7 @@
           extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"
           fileExtensions="xml" ecorePackage="configuration.ecore#//osgi/profile">
         <genClasses ecoreClass="configuration.ecore#//osgi/profile/Profile">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/installationUnits"/>
+          <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/installationUnits"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/jvmArgument"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/start"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/setbsl"/>
