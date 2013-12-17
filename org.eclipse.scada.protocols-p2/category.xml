@@ -6,6 +6,9 @@
    <feature url="features/org.eclipse.scada.protocols.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.protocols.sdk" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.protocols.sdk.category"/>
    </feature>
+   <feature url="features/org.eclipse.scada.protocols.editors_0.1.0.qualifier.jar" id="org.eclipse.scada.protocols.editors" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.protocols.sdk.category"/>
+   </feature>
    <category-def name="org.eclipse.scada.protocols.category" label="Eclipse SCADA Protocols (Incubation)">
       <description>
          Various protocol implementations.
