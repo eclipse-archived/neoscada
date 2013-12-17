@@ -68,6 +68,15 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * A launch shortcut for Eclipse SCADA OSGi Profiles
+ * <p>
+ * Note: The launcher uses the environment variable SCADA_PROFILE as a marker.
+ * The variable itself has no function in the application.
+ * </p>
+ * 
+ * @author Jens Reimann
+ */
 @SuppressWarnings ( "restriction" )
 public class LaunchShortcut implements ILaunchShortcut2
 {
