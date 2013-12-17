@@ -294,13 +294,6 @@ public class LaunchShortcut implements ILaunchShortcut2
             {
                 features.put ( f.getFeature ().getId (), f );
             }
-            /*
-            for ( final IFeatureModel f : fmm.getExternalModels () )
-            {
-                features.put ( f.getFeature ().getId (), f );
-            }
-            */
-
             final Set<String> bundles = new HashSet<> ();
 
             final Queue<String> initialUnits = new LinkedList<> ( profile.getInstallationUnits () );
@@ -439,11 +432,13 @@ public class LaunchShortcut implements ILaunchShortcut2
 
     private String[] getExcludedFragments ()
     {
-        return new String[] { "org.eclipse.ui.workbench.compatibility" };
+        return new String[] { "org.eclipse.ui.workbench.compatibility" }; //$NON-NLS-1$
     }
 
-    protected ILaunchConfiguration findConfiguration ( final IResource resource ) throws CoreException, IOException
+    protected Collection<ILaunchConfiguration> findConfigurations ( final IResource resource ) throws CoreException, IOException
     {
+        final Collection<ILaunchConfiguration> result = new LinkedList<> ();
+
         final File sourceFile = resource.getLocation ().toFile ().getCanonicalFile ();
 
         final ILaunchConfiguration[] cfgs = DebugPlugin.getDefault ().getLaunchManager ().getLaunchConfigurations ( getConfigurationType () );
@@ -452,7 +447,7 @@ public class LaunchShortcut implements ILaunchShortcut2
             final Map<?, ?> envs = cfg.getAttribute ( ATTR_ENV_VARS, Collections.EMPTY_MAP );
             if ( envs != null )
             {
-                final Object profile = envs.get ( "SCADA_PROFILE" );
+                final Object profile = envs.get ( "SCADA_PROFILE" ); //$NON-NLS-1$
                 if ( profile instanceof String )
                 {
                     String profileString = (String)profile;
@@ -462,7 +457,7 @@ public class LaunchShortcut implements ILaunchShortcut2
                     {
                         if ( sourceFile.equals ( other.getCanonicalFile () ) )
                         {
-                            return cfg;
+                            result.add ( cfg );
                         }
                     }
                     catch ( final IOException e )
@@ -472,7 +467,8 @@ public class LaunchShortcut implements ILaunchShortcut2
                 }
             }
         }
-        return null;
+
+        return result;
     }
 
     protected ILaunchConfigurationType getConfigurationType ()
@@ -485,10 +481,15 @@ public class LaunchShortcut implements ILaunchShortcut2
     {
         try
         {
-            ILaunchConfiguration cfg = findConfiguration ( resource );
-            if ( cfg == null )
+            final Collection<ILaunchConfiguration> cfgs = findConfigurations ( resource );
+            ILaunchConfiguration cfg;
+            if ( cfgs.isEmpty () )
             {
                 cfg = createConfiguration ( resource );
+            }
+            else
+            {
+                cfg = cfgs.iterator ().next ();
             }
             if ( cfg != null )
             {
@@ -535,25 +536,37 @@ public class LaunchShortcut implements ILaunchShortcut2
     @Override
     public ILaunchConfiguration[] getLaunchConfigurations ( final ISelection selection )
     {
-        return null;
+        return findConfigurationsAsArray ( SelectionHelper.first ( selection, IResource.class ) );
     }
 
     @Override
     public ILaunchConfiguration[] getLaunchConfigurations ( final IEditorPart editorpart )
     {
-        return null;
+        return findConfigurationsAsArray ( (IResource)editorpart.getEditorInput ().getAdapter ( IResource.class ) );
+    }
+
+    private ILaunchConfiguration[] findConfigurationsAsArray ( final IResource resource )
+    {
+        try
+        {
+            return findConfigurations ( resource ).toArray ( new ILaunchConfiguration[0] );
+        }
+        catch ( CoreException | IOException e )
+        {
+            return null;
+        }
     }
 
     @Override
     public IResource getLaunchableResource ( final ISelection selection )
     {
-        return null;
+        return SelectionHelper.first ( selection, IResource.class );
     }
 
     @Override
     public IResource getLaunchableResource ( final IEditorPart editorpart )
     {
-        return null;
+        return (IResource)editorpart.getEditorInput ().getAdapter ( IResource.class );
     }
 
 }
