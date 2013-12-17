@@ -12,6 +12,7 @@ package org.eclipse.scada.da.server.ui.launcher.app;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -20,6 +21,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.regex.Matcher;
 
@@ -45,6 +47,11 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.pde.internal.core.DependencyManager;
+import org.eclipse.pde.internal.core.FeatureModelManager;
+import org.eclipse.pde.internal.core.ifeature.IFeatureChild;
+import org.eclipse.pde.internal.core.ifeature.IFeatureImport;
+import org.eclipse.pde.internal.core.ifeature.IFeatureModel;
+import org.eclipse.pde.internal.core.ifeature.IFeaturePlugin;
 import org.eclipse.pde.launching.IPDELauncherConstants;
 import org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
@@ -58,10 +65,15 @@ import org.eclipse.scada.utils.lang.Pair;
 import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.statushandlers.StatusManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SuppressWarnings ( "restriction" )
 public class LaunchShortcut implements ILaunchShortcut2
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( LaunchShortcut.class );
+
     private static final String ATTR_ENV_VARS = "org.eclipse.debug.core.environmentVariables";
 
     private static final String CONFIGURATION_TYPE_ID = "org.eclipse.pde.ui.EquinoxLauncher";
@@ -232,10 +244,8 @@ public class LaunchShortcut implements ILaunchShortcut2
         return sb.toString ();
     }
 
-    protected void addAllBundels ( final ILaunchConfigurationWorkingCopy cfg, final Profile profile ) throws CoreException
+    protected void addAllBundels ( final ILaunchConfigurationWorkingCopy cfg, final Profile profile ) throws CoreException, InterruptedException
     {
-        // PluginRegistry
-
         final Map<String, Bundle> all = new HashMap<> ();
 
         for ( final Bundle b : getInitialBundles () )
@@ -243,9 +253,11 @@ public class LaunchShortcut implements ILaunchShortcut2
             all.put ( b.name, b );
         }
 
+        fillFromTargetPlatform ( profile, all );
+
         for ( final StartBundle sb : profile.getStart () )
         {
-            final Bundle b = new Bundle ( sb.getName () );
+            final Bundle b = all.get ( sb.getName () );
             b.autostart = true;
             all.put ( b.name, b );
         }
@@ -270,6 +282,85 @@ public class LaunchShortcut implements ILaunchShortcut2
 
         cfg.setAttribute ( IPDELauncherConstants.TARGET_BUNDLES, toString ( targetResult ) );
         cfg.setAttribute ( IPDELauncherConstants.WORKSPACE_BUNDLES, toString ( workspaceResult ) );
+    }
+
+    private void fillFromTargetPlatform ( final Profile profile, final Map<String, Bundle> all ) throws CoreException, InterruptedException
+    {
+        final FeatureModelManager fmm = new FeatureModelManager ();
+        try
+        {
+            final Map<String, IFeatureModel> features = new HashMap<> ();
+            for ( final IFeatureModel f : fmm.getModels () )
+            {
+                features.put ( f.getFeature ().getId (), f );
+            }
+            /*
+            for ( final IFeatureModel f : fmm.getExternalModels () )
+            {
+                features.put ( f.getFeature ().getId (), f );
+            }
+            */
+
+            final Set<String> bundles = new HashSet<> ();
+
+            final Queue<String> initialUnits = new LinkedList<> ( profile.getInstallationUnits () );
+
+            while ( !initialUnits.isEmpty () )
+            {
+                String iu = initialUnits.poll ();
+
+                if ( iu.endsWith ( ".feature.group" ) )
+                {
+                    iu = iu.substring ( 0, iu.length () - ".feature.group".length () );
+                }
+
+                final IFeatureModel f = features.get ( iu );
+                if ( f == null )
+                {
+                    // must be a bundle then
+                    bundles.add ( iu );
+                    continue;
+                }
+
+                for ( final IFeaturePlugin bundle : f.getFeature ().getPlugins () )
+                {
+                    bundles.add ( bundle.getId () );
+                }
+                for ( final IFeatureImport imp : f.getFeature ().getImports () )
+                {
+                    // actually we should remember it is a feature, but then again...
+                    initialUnits.add ( imp.getId () );
+                }
+                for ( final IFeatureChild child : f.getFeature ().getIncludedFeatures () )
+                {
+                    // actually we should remember it is a feature, but then again...
+                    initialUnits.add ( child.getId () );
+                }
+            }
+
+            final Set<String> missing = new HashSet<> ();
+            for ( final String b : bundles )
+            {
+                final IPluginModelBase model = PluginRegistry.findModel ( b );
+                if ( model == null )
+                {
+                    missing.add ( b );
+                }
+                else
+                {
+                    all.put ( b, new Bundle ( b ) );
+                }
+            }
+
+            if ( !missing.isEmpty () )
+            {
+                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, MessageFormat.format ( "Missing {0,choice,1#one installable unit|1<{0,number,integer} installable units} in the target platform: {1}", missing.size (), missing ) ) );
+            }
+        }
+        finally
+        {
+            fmm.shutdown ();
+        }
     }
 
     private void split ( final Map<String, Bundle> all, final Set<Bundle> targetResult, final Set<Bundle> workspaceResult )
@@ -406,10 +497,12 @@ public class LaunchShortcut implements ILaunchShortcut2
         }
         catch ( final CoreException e )
         {
+            logger.debug ( "Failed to launch profile", e );
             log ( "Failed to launch profile", e.getStatus () );
         }
         catch ( final Exception e )
         {
+            logger.debug ( "Failed to launch profile", e );
             log ( "Failed to launch profile", StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
     }
