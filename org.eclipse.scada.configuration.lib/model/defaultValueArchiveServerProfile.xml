@@ -23,7 +23,10 @@
 	<start>org.eclipse.scada.hd.server.storage.hds</start>
 	<start>org.eclipse.scada.hd.server.storage.master.hds</start>
 	
-	<feature>org.eclipse.scada.core.feature.group</feature>
+	<feature>org.eclipse.scada.core.protocols.feature.group</feature>
+	<feature>org.eclipse.scada.core.server.feature.group</feature>
+	<feature>org.eclipse.scada.core.client.feature.group</feature>
+	<feature>org.eclipse.scada.core.common.feature.group</feature>
 	
 	<argument>-Xmx192m</argument>
 	<argument>-Xms192m</argument>
