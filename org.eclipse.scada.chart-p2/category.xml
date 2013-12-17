@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.chart_0.1.0.qualifier.jar" id="org.eclipse.scada.chart" version="0.1.0.qualifier">
-      <category name="org.eclipse.scada.chart.category"/>
-   </feature>
-   <feature url="features/org.eclipse.scada.chart.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.chart.sdk" version="0.1.0.qualifier">
-      <category name="org.eclipse.scada.chart.sdk.category"/>
-   </feature>
-   <category-def name="org.eclipse.scada.chart.category" label="Eclipse SCADA Time Series Chart (Incubation)">
-      <description>
-         The Eclipse SCADA time series chart widget.
-      </description>
-   </category-def>
-   <category-def name="org.eclipse.scada.chart.sdk.category" label="Eclipse SCADA Time Series Chart SDK (Incubation)">
-      <description>
-         Binaries and sources of the time series chart widget.
-      </description>
-   </category-def>
+   <feature url="features/org.eclipse.scada.chart_0.1.0.qualifier.jar" id="org.eclipse.scada.chart" version="0.1.0.qualifier"/>
+   <feature url="features/org.eclipse.scada.chart.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.chart.sdk" version="0.1.0.qualifier"/>
 </site>
