@@ -2,6 +2,5 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Reference" link_to="toc.xml#reference"> 
-	<topic href="reference/api/overview-summary.html" label="API Reference">
-	</topic> 
+ <link toc="tocjavadoc.xml"/> 
 </toc>
