@@ -5,14 +5,17 @@
    <extension
          point="org.eclipse.help.toc">
       <toc
-            file="toc.xml"
+            file="toc/toc.xml"
             primary="true">
       </toc>
       <toc
-            file="tocgettingstarted.xml">
+            file="toc/tocgettingstarted.xml">
       </toc>
       <toc
-            file="tocreference.xml">
+            file="toc/tocreference.xml">
+      </toc>
+      <toc
+            file="toc/tocjavadoc.xml">
       </toc>
    </extension>
    
