@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Create branch $branch
+
+[ -d workspace ] && die "Workspace still exists"
+
+mkdir workspace
+pushd workspace
+
+mkdir logs
+
+# clone the repository
+section Clone repositories
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+  cloneRepository "$repo"
+  echo
+done
+
+# create the branch
+section Create branch: $branch
+  
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+  echo Create branch on $repo
+  pushd "$repo" &>/dev/null
+  git branch "$branch"
+  popd &>/dev/null
+done 
+
+popd
+
+echo
+echo
+echo Now check the branch and push it using "pushBranch"

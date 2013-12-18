@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+[ -d workspace ] || die "Workspace does not exists"
+
+pushd workspace
+
+section Build superParent 
+
+mvn clean install -f org.eclipse.scada.releng/superParent/pom.xml
+
+section "Build Main (this might take A WHILE)"
+
+mvn clean verify \
+  -f org.eclipse.scada.releng/aggregator/pom.xml \
+  -Prpm -Pdeb -Peclipse-hudson \
+  -Pmilestone '-P!nightly' '-P!integration' \
+  -Ddownload.root=/tmp/my-download-test \
+  -Declipse.download.root=http://download.eclipse.org
+  
+popd # workspace

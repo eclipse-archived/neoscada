@@ -21,7 +21,7 @@ from optparse import OptionParser
 
 version=os.getenv('VERSION','0.1.0')
 buildType=os.getenv('BUILD_TYPE','N')
-buildTypeLong=os.getenv('BUILD_TYPE_LONG','nigthly')
+buildTypeLong=os.getenv('BUILD_TYPE_LONG','nightly')
 buildTypeLabel=buildTypeLong.title()
 
 compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
@@ -31,6 +31,7 @@ compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArt
     <property name="p2.timestamp" value="%(timestamp)s"/>
     <property name="p2.compressed" value="false"/>
     <property name="p2.mirrorsURL" value="http://www.eclipse.org/downloads/download.php?file=/eclipsescada/updates/%(buildTypeLong)s&amp;amp;protocol=http&amp;amp;format=xml"/>
+    <property name="p2.statsURL" value="http://download.eclipse.org/stats/"/>
   </properties>
   <children size="%(children_size)s">
     %(children)s
