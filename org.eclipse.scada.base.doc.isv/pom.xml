@@ -36,7 +36,7 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<outputDirectory>${basedir}/reference/api</outputDirectory>
-							<tocFile>${basedir}/tocjavadoc.xml</tocFile>
+							<tocFile>${basedir}/toc/tocjavadoc.xml</tocFile>
 							<javadocOptions>
 								<additionalArguments>
 									<additionalArgument>-linkoffline http://docs.oracle.com/javase/7/docs/api/ ${basedir}/input/javase-7</additionalArgument>
