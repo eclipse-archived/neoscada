@@ -136,6 +136,7 @@ public class JavadocMojo extends AbstractMojo
     {
         getLog ().info ( "Scopes: " + this.scopes );
         getLog ().info ( "Output directory: " + this.outputDirectory );
+        getLog ().info ( "BaseDir: " + this.basedir );
 
         if ( this.cleanFirst )
         {
@@ -181,6 +182,7 @@ public class JavadocMojo extends AbstractMojo
         tocWriter.setOptions ( this.tocOptions );
         tocWriter.setJavadocDir ( this.outputDirectory );
         tocWriter.setBasedir ( this.basedir );
+        tocWriter.setLog ( getLog () );
 
         try
         {

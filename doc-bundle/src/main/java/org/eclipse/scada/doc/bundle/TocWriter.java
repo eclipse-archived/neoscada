@@ -23,6 +23,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.logging.Log;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ProcessingInstruction;
@@ -35,8 +36,15 @@ public class TocWriter
 
     private File basedir;
 
+    private Log log;
+
     public TocWriter ()
     {
+    }
+
+    public void setLog ( final Log log )
+    {
+        this.log = log;
     }
 
     public void setBasedir ( final File basedir )
@@ -136,6 +144,8 @@ public class TocWriter
 
     private String makeRelative ( final File base, final File file )
     {
-        return base.toURI ().relativize ( file.toURI () ).getPath ();
+        final String result = base.toURI ().relativize ( file.toURI () ).getPath ();
+        this.log.info ( String.format ( "Make relative - base: %s, file: %s -> %s", base, file, result ) );
+        return result;
     }
 }
