@@ -33,7 +33,6 @@
 	</repositories>
 
 	<modules>
-		<module>../org.eclipse.scada.utils-target</module>
 		<module>../org.eclipse.scada.utils-p2</module> <!-- holds the p2 repository -->
 
 		<module>../org.eclipse.scada.license.feature</module>
