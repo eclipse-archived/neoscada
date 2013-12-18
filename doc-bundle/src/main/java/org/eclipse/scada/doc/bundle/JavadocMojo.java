@@ -30,19 +30,40 @@ import org.apache.maven.toolchain.ToolchainManager;
 import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.tycho.core.osgitools.BundleReader;
 
+/**
+ * Create the javadoc based API reference for this bundle <br/>
+ * This mojo creates the javadoc documentation by calling the javadoc
+ * application from the command line. In addition it creates a read to include
+ * toc-xml file for the Eclipse Help system. <br/>
+ * The sources for creating the javadoc are generated automatically based on the
+ * dependency that this project has. As dependency you can specify any other
+ * maven project, for example the feature project that references you other
+ * bundles. Included features will be added to the list.
+ * 
+ * @author Jens Reimann
+ */
 @Mojo ( name = "javadoc",
         requiresProject = true,
         defaultPhase = LifecyclePhase.PROCESS_SOURCES )
 public class JavadocMojo extends AbstractMojo
 {
+    /**
+     * The directory where the javadoc content will be generated
+     */
     @Parameter ( property = "outputDirectory",
             defaultValue = "${project.build.directory}/reference/api",
             required = true )
     private File outputDirectory;
 
+    /**
+     * The build directory where temporary build files will be placed
+     */
     @Parameter ( property = "project.build.directory", required = true )
     private File buildDirectory;
 
+    /**
+     * An option to clean out the while outputDirectory first.
+     */
     @Parameter ( property = "cleanFirst", defaultValue = "true" )
     private boolean cleanFirst;
 
@@ -55,18 +76,34 @@ public class JavadocMojo extends AbstractMojo
     @Parameter ( property = "reactorProjects", readonly = true, required = true )
     protected List<MavenProject> reactorProjects;
 
+    /**
+     * The scopes that the depencies must have in order to be included
+     */
     @Parameter ( property = "scopes", defaultValue = "compile,provided" )
     private Set<String> scopes = new HashSet<String> ();
 
+    /**
+     * Maven module types that will be used to include the source
+     */
     @Parameter ( property = "sourceTypes", defaultValue = "eclipse-plugin" )
     private Set<String> sourceTypes = new HashSet<String> ();
 
+    /**
+     * Options for calling the javadoc application
+     */
     @Parameter ( property = "javadocOptions" )
     private JavadocOptions javadocOptions = new JavadocOptions ();
 
+    /**
+     * Options for creating the toc files.
+     */
     @Parameter ( property = "tocOptions" )
     private final TocOptions tocOptions = new TocOptions ();
 
+    /**
+     * The output location of the toc file.<br/>
+     * This file will be overwritten.
+     */
     @Parameter ( property = "tocFile", required = false, defaultValue = "${project.build.directory}/tocjavadoc.xml" )
     private File tocFile;
 

@@ -1,18 +1,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>org.eclipse.scada.releng</groupId>
 	<artifactId>doc-bundle</artifactId>
 	<packaging>maven-plugin</packaging>
 	<version>0.0.3-SNAPSHOT</version>
-	
+
 	<name>Eclipse SCADA Doc Bundle Mojo</name>
-	
+	<description>A mojo for simplifying the process of creating an Eclipse documentation bundle</description>
+
+	<developers>
+		<developer>
+			<id>jens.reimann@ibh-systems.com</id>
+			<email>jens.reimann@ibh-systems.com</email>
+			<organization>IBH SYSTEMS GmbH</organization>
+			<organizationUrl>http://ibh-systems.com</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git://git.eclipse.org/gitroot/eclipsescada/org.eclipse.scada.releng.git</connection>
+		<url>http://git.eclipse.org/c/eclipsescada/org.eclipse.scada.releng.git</url>
+	</scm>
+
 	<organization>
 		<name>Eclipse Foundation</name>
 		<url>http://www.eclipse.org/</url>
 	</organization>
+
+	<inceptionYear>2013</inceptionYear>
 
 	<properties>
 		<mojo.java.target>1.6</mojo.java.target>
@@ -81,9 +98,6 @@
 		</license>
 	</licenses>
 
-	<inceptionYear>2013</inceptionYear>
-	
-	
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -104,6 +118,32 @@
 					<groupId>org.codehaus.plexus</groupId>
 					<artifactId>plexus-component-metadata</artifactId>
 					<version>1.5.5</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<relativizeDecorationLinks>false</relativizeDecorationLinks>
+						<reportPlugins>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-plugin-plugin</artifactId>
+								<version>3.2</version>
+								<configuration>
+									<requirements>
+										<maven>3.0</maven>
+									</requirements>
+								</configuration>
+							</plugin>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-project-info-reports-plugin</artifactId>
+								<version>2.7</version>
+							</plugin>
+						</reportPlugins>
+					</configuration>
 				</plugin>
 			</plugins>
 
@@ -146,4 +186,14 @@
 		</plugins>
 
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.2</version>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>

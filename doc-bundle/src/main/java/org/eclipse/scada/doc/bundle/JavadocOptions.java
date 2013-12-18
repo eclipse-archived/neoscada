@@ -13,6 +13,13 @@ package org.eclipse.scada.doc.bundle;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * The javadoc options<br/>
+ * At the moment the list of real options is quite small, but most
+ * arguments can be passed using the <code>additionalArguments</code> property.
+ * 
+ * @author Jens Reimann
+ */
 public class JavadocOptions
 {
     private String executable;
