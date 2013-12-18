@@ -24,9 +24,21 @@ public class JavadocOptions
 {
     private String executable;
 
+    private boolean ignoreError = true;
+
     private List<String> jvmOptions = new LinkedList<String> ();
 
     private List<String> additionalArguments = new LinkedList<String> ();
+
+    public void setIgnoreError ( final boolean ignoreError )
+    {
+        this.ignoreError = ignoreError;
+    }
+
+    public boolean isIgnoreError ()
+    {
+        return this.ignoreError;
+    }
 
     public void setExecutable ( final String executable )
     {

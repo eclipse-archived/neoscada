@@ -114,7 +114,14 @@ public class JavadocRunner
             final int rc = CommandLineUtils.executeCommandLine ( cli, new DefaultConsumer (), new DefaultConsumer () );
             if ( rc != 0 )
             {
-                throw new MojoExecutionException ( "Failed to execute javadoc - rc = " + rc );
+                if ( !this.options.isIgnoreError () )
+                {
+                    throw new MojoExecutionException ( "Failed to execute javadoc - rc = " + rc );
+                }
+                else
+                {
+                    this.log.info ( "execution failed with rc = " + rc );
+                }
             }
         }
         finally

@@ -44,6 +44,7 @@ import org.eclipse.tycho.core.osgitools.BundleReader;
  */
 @Mojo ( name = "javadoc",
         requiresProject = true,
+        threadSafe = false,
         defaultPhase = LifecyclePhase.PROCESS_SOURCES )
 public class JavadocMojo extends AbstractMojo
 {
