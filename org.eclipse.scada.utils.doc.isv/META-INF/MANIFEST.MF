@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Utils Documentation Bundle (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.utils.doc.isv;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

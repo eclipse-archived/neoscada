@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<feature id="org.eclipse.scada.utils.sdk"
-	label="%featureName"
-	plugin="org.eclipse.scada.utils"
-	provider-name="%providerName" version="0.1.0.qualifier">
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.scada.utils.sdk"
+      label="%featureName"
+      version="0.1.0.qualifier"
+      provider-name="%providerName"
+      plugin="org.eclipse.scada.utils">
 
    <description>
       %description
@@ -16,12 +18,27 @@
       %license
    </license>
 
-   <includes id="org.eclipse.scada.utils" version="0.0.0"/>
+   <includes
+         id="org.eclipse.scada.utils"
+         version="0.0.0"/>
 
-   <includes id="org.eclipse.scada.utils.source" version="0.0.0"/>
-   
-   <includes id="org.eclipse.scada.ui.utils" version="0.0.0"/>
+   <includes
+         id="org.eclipse.scada.utils.source"
+         version="0.0.0"/>
 
-   <includes id="org.eclipse.scada.ui.utils.source" version="0.0.0"/>
+   <includes
+         id="org.eclipse.scada.ui.utils"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.scada.ui.utils.source"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.scada.utils.doc.isv"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>

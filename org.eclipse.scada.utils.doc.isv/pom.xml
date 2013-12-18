@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>org.eclipse.scada.utils-parent</artifactId>
+		<groupId>org.eclipse.scada.utils</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.scada.utils-parent</relativePath>
+	</parent>
+	<groupId>org.eclipse.scada.utils</groupId>
+	<artifactId>org.eclipse.scada.utils.doc.isv</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>eclipse-plugin</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.scada.utils.features</groupId>
+			<artifactId>org.eclipse.scada.utils</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
+			<type>pom</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.scada.releng</groupId>
+				<artifactId>doc-bundle</artifactId>
+				<executions>
+					<execution>
+						<id>javadoc</id>
+						<goals>
+							<goal>javadoc</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<outputDirectory>${basedir}/reference/api</outputDirectory>
+							<tocFile>${basedir}/toc/tocjavadoc.xml</tocFile>
+							<javadocOptions>
+								<additionalArguments>
+									<additionalArgument>-linkoffline http://docs.oracle.com/javase/7/docs/api/ ${basedir}/input/javase-7</additionalArgument>
+									<additionalArgument>-linkoffline http://www.osgi.org/javadoc/r4v43/ ${basedir}/input/osgi-r4v43</additionalArgument>
+								</additionalArguments>
+							</javadocOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
