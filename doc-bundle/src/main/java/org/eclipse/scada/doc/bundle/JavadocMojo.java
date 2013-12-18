@@ -55,6 +55,9 @@ public class JavadocMojo extends AbstractMojo
             required = true )
     private File outputDirectory;
 
+    @Parameter ( property = "basedir", required = true, readonly = true )
+    private File basedir;
+
     /**
      * The build directory where temporary build files will be placed
      */
@@ -163,6 +166,7 @@ public class JavadocMojo extends AbstractMojo
         final TocWriter tocWriter = new TocWriter ();
         tocWriter.setOptions ( this.tocOptions );
         tocWriter.setJavadocDir ( this.outputDirectory );
+        tocWriter.setBasedir ( this.basedir );
 
         try
         {

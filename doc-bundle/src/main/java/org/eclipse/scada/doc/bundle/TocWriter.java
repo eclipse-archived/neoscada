@@ -33,8 +33,15 @@ public class TocWriter
 
     private File javadocDir;
 
+    private File basedir;
+
     public TocWriter ()
     {
+    }
+
+    public void setBasedir ( final File basedir )
+    {
+        this.basedir = basedir;
     }
 
     public void setJavadocDir ( final File javadocDir )
@@ -94,10 +101,10 @@ public class TocWriter
         doc.appendChild ( toc );
         toc.setAttribute ( "label", this.options.getLabel () );
 
-        final Element main = createTopic ( doc, tocFile, toc, this.options.getLabel (), "overview-summary.html" );
-        final Element packages = createTopic ( doc, tocFile, main, "Packages", null );
-        createTopic ( doc, tocFile, main, "Constant Values", "constant-values.html" );
-        createTopic ( doc, tocFile, main, "Deprecated List", "deprecated-list.html" );
+        final Element main = createTopic ( doc, toc, this.options.getLabel (), "overview-summary.html" );
+        final Element packages = createTopic ( doc, main, "Packages", null );
+        createTopic ( doc, main, "Constant Values", "constant-values.html" );
+        createTopic ( doc, main, "Deprecated List", "deprecated-list.html" );
 
         final LineNumberReader reader = new LineNumberReader ( new FileReader ( new File ( this.javadocDir, "package-list" ) ) );
         try
@@ -106,7 +113,7 @@ public class TocWriter
 
             while ( ( line = reader.readLine () ) != null )
             {
-                createTopic ( doc, tocFile, packages, line, line.replace ( '.', '/' ) + "/package-summary.html" );
+                createTopic ( doc, packages, line, line.replace ( '.', '/' ) + "/package-summary.html" );
             }
         }
         finally
@@ -115,22 +122,20 @@ public class TocWriter
         }
     }
 
-    private Element createTopic ( final Document doc, final File tocFile, final Element parent, final String label, final String fileName )
+    private Element createTopic ( final Document doc, final Element parent, final String label, final String fileName )
     {
         final Element topic = doc.createElement ( "topic" );
         parent.appendChild ( topic );
         topic.setAttribute ( "label", label );
         if ( fileName != null )
         {
-            topic.setAttribute ( "href", makeRelative ( tocFile, new File ( this.javadocDir.toString (), fileName ) ) );
+            topic.setAttribute ( "href", makeRelative ( this.basedir, new File ( this.javadocDir.toString (), fileName ) ) );
         }
         return topic;
     }
 
-    private String makeRelative ( final File tocFile, final File file )
+    private String makeRelative ( final File base, final File file )
     {
-        final File base = tocFile.getParentFile ();
-
         return base.toURI ().relativize ( file.toURI () ).getPath ();
     }
 }
