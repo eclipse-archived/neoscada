@@ -85,6 +85,7 @@ public class JavadocRunner
     public void run () throws Exception
     {
         this.output.mkdirs ();
+        this.buildDirectory.mkdirs ();
 
         final Commandline cli = new Commandline ();
         cli.setExecutable ( getExecutable () );
