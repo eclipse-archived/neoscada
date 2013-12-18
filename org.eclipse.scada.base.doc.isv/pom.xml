@@ -27,7 +27,6 @@
 			<plugin>
 				<groupId>org.eclipse.scada.releng</groupId>
 				<artifactId>doc-bundle</artifactId>
-				<version>0.0.2</version>
 				<executions>
 					<execution>
 						<id>javadoc</id>
