@@ -81,7 +81,7 @@ public class JavadocMojo extends AbstractMojo
     protected List<MavenProject> reactorProjects;
 
     /**
-     * The scopes that the depencies must have in order to be included
+     * The scopes that the dependencies must have in order to be included
      */
     @Parameter ( property = "scopes", defaultValue = "compile,provided" )
     private Set<String> scopes = new HashSet<String> ();
