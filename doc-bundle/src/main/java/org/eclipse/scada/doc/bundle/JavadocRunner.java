@@ -12,6 +12,7 @@ package org.eclipse.scada.doc.bundle;
 
 import java.io.File;
 import java.io.PrintStream;
+import java.util.Collection;
 import java.util.Set;
 
 import org.apache.maven.execution.MavenSession;
@@ -43,6 +44,8 @@ public class JavadocRunner
     private File buildDirectory;
 
     private BundleReader bundleReader;
+
+    private Collection<String> classPath;
 
     public JavadocRunner ()
     {
@@ -98,6 +101,7 @@ public class JavadocRunner
             cli.createArg ().setValue ( "@" + optionsFile.getAbsolutePath () );
             addJvmArgs ( ps );
             addSourcePaths ( ps );
+            addClassPath ( ps );
             final int count = addPackages ( ps );
 
             if ( count <= 0 )
@@ -128,6 +132,11 @@ public class JavadocRunner
         {
             ps.close ();
         }
+    }
+
+    private void addClassPath ( final PrintStream ps )
+    {
+        addPathArgument ( ps, "-classpath", this.classPath );
     }
 
     private void addArguments ( final PrintStream ps )
@@ -181,32 +190,10 @@ public class JavadocRunner
         return manifestElements.length;
     }
 
-    protected int addPackages ( final String exp, final PrintStream ps )
+    private void addPath ( final PrintStream ps, final Collection<?> path )
     {
-        this.log.info ( "Add from export: " + exp );
-
-        int count = 0;
-
-        final String[] pkgs = exp.split ( "," );
-        for ( final String pkg : pkgs )
-        {
-            final String[] p = pkg.split ( ";" );
-            if ( p.length >= 1 )
-            {
-                count++;
-                ps.println ( p[0] );
-            }
-        }
-
-        return count;
-    }
-
-    private void addSourcePaths ( final PrintStream ps )
-    {
-        ps.print ( "-sourcepath " );
-
         boolean first = true;
-        for ( final File path : this.sourceFolders )
+        for ( final Object ele : path )
         {
             if ( !first )
             {
@@ -216,10 +203,20 @@ public class JavadocRunner
             {
                 first = false;
             }
-            ps.print ( path.toString () );
+            ps.print ( ele );
         }
+    }
 
-        ps.println ();
+    private void addSourcePaths ( final PrintStream ps )
+    {
+        addPathArgument ( ps, "-sourcepath", this.sourceFolders );
+    }
+
+    private void addPathArgument ( final PrintStream ps, final String arg, final Collection<?> path )
+    {
+        ps.print ( arg + " \"" );
+        addPath ( ps, path );
+        ps.println ( "\"" );
     }
 
     protected String getExecutable ()
@@ -256,5 +253,10 @@ public class JavadocRunner
     public void setSourceFolders ( final Set<File> sourceFolders )
     {
         this.sourceFolders = sourceFolders;
+    }
+
+    public void setClassPath ( final Collection<String> classPath )
+    {
+        this.classPath = classPath;
     }
 }

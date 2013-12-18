@@ -25,6 +25,7 @@ import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.toolchain.ToolchainManager;
 import org.codehaus.plexus.util.FileUtils;
@@ -45,7 +46,8 @@ import org.eclipse.tycho.core.osgitools.BundleReader;
 @Mojo ( name = "javadoc",
         requiresProject = true,
         threadSafe = false,
-        defaultPhase = LifecyclePhase.PROCESS_SOURCES )
+        requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
+        defaultPhase = LifecyclePhase.PROCESS_CLASSES )
 public class JavadocMojo extends AbstractMojo
 {
     /**
@@ -148,19 +150,30 @@ public class JavadocMojo extends AbstractMojo
         runner.setToolchainManager ( this.toolchainManager );
         runner.setSession ( this.session );
 
-        final Set<File> sourceFolders = new HashSet<File> ();
+        final GatherSourcesVisitor gsv = new GatherSourcesVisitor ();
+        visitProjects ( this.session.getCurrentProject ().getDependencies (), this.scopes, gsv );
 
-        gatherSourceFolders ( this.session.getCurrentProject ().getDependencies (), sourceFolders );
-
-        getLog ().info ( String.format ( "%s source folders", sourceFolders.size () ) );
-        for ( final File file : sourceFolders )
+        getLog ().info ( String.format ( "%s source folders", gsv.getSourceFolders ().size () ) );
+        for ( final File file : gsv.getSourceFolders () )
         {
             getLog ().info ( "Source folder: " + file );
         }
 
+        final GatherClasspathVisitor gcv = new GatherClasspathVisitor ();
+        visitProjects ( this.session.getCurrentProject ().getDependencies (), this.scopes, gcv );
+
+        final Collection<String> cp = gcv.getClassPath ();
+
+        getLog ().info ( String.format ( "%s classpath deps", cp.size () ) );
+        for ( final String ele : cp )
+        {
+            getLog ().info ( "CP: " + ele );
+        }
+
         runner.setBundleReader ( this.bundleReader );
         runner.setOptions ( this.javadocOptions );
-        runner.setSourceFolders ( sourceFolders );
+        runner.setSourceFolders ( gsv.getSourceFolders () );
+        runner.setClassPath ( cp );
 
         // Setup toc writer
 
@@ -198,7 +211,7 @@ public class JavadocMojo extends AbstractMojo
     }
 
     @SuppressWarnings ( "unchecked" )
-    private void gatherSourceFolders ( final List<?> dependencies, final Set<File> sourceFolders )
+    private void visitProjects ( final List<?> dependencies, final Set<String> scopes, final ProjectVisitor visitor ) throws MojoExecutionException
     {
         for ( final Dependency dep : (List<Dependency>)dependencies )
         {
@@ -206,15 +219,70 @@ public class JavadocMojo extends AbstractMojo
 
             final String scope = dep.getScope ();
 
-            if ( this.scopes.contains ( scope ) )
+            if ( scopes.contains ( scope ) )
             {
-                addFromDeps ( dep, sourceFolders );
+                visitDeps ( dep, visitor, scopes );
             }
         }
     }
 
-    @SuppressWarnings ( "unchecked" )
-    private void addFromDeps ( final Dependency dep, final Set<File> sourceFolders )
+    private interface ProjectVisitor
+    {
+        public void visit ( MavenProject project ) throws MojoExecutionException;
+    }
+
+    private class GatherSourcesVisitor implements ProjectVisitor
+    {
+        private final Set<File> sourceFolders = new HashSet<File> ();
+
+        @SuppressWarnings ( "unchecked" )
+        @Override
+        public void visit ( final MavenProject project )
+        {
+            if ( JavadocMojo.this.sourceTypes.contains ( project.getPackaging () ) )
+            {
+                for ( final String root : (Collection<String>)project.getCompileSourceRoots () )
+                {
+                    getLog ().debug ( "\tAdding source root: " + root );
+                    final File rootFile = new File ( root );
+                    if ( rootFile.isDirectory () )
+                    {
+                        this.sourceFolders.add ( rootFile );
+                    }
+                }
+            }
+        }
+
+        public Set<File> getSourceFolders ()
+        {
+            return this.sourceFolders;
+        }
+    }
+
+    private class GatherClasspathVisitor implements ProjectVisitor
+    {
+        private final Set<String> classPath = new HashSet<String> ();
+
+        @SuppressWarnings ( "unchecked" )
+        @Override
+        public void visit ( final MavenProject project ) throws MojoExecutionException
+        {
+            for ( final Dependency dep : (List<Dependency>)project.getDependencies () )
+            {
+                if ( dep.getSystemPath () != null )
+                {
+                    this.classPath.add ( dep.getSystemPath () );
+                }
+            }
+        }
+
+        public Set<String> getClassPath ()
+        {
+            return this.classPath;
+        }
+    }
+
+    private void visitDeps ( final Dependency dep, final ProjectVisitor visitor, final Set<String> scopes ) throws MojoExecutionException
     {
         final MavenProject project = findProject ( dep.getGroupId (), dep.getArtifactId () );
         if ( project == null )
@@ -225,21 +293,10 @@ public class JavadocMojo extends AbstractMojo
 
         getLog ().debug ( "Adding sources from: " + project );
 
-        if ( this.sourceTypes.contains ( dep.getType () ) )
-        {
-            for ( final String root : (Collection<String>)project.getCompileSourceRoots () )
-            {
-                getLog ().debug ( "\tAdding source root: " + root );
-                final File rootFile = new File ( root );
-                if ( rootFile.isDirectory () )
-                {
-                    sourceFolders.add ( rootFile );
-                }
-            }
-        }
+        visitor.visit ( project );
 
         getLog ().debug ( "Scanning dependencies: " + project.getDependencies ().size () );
-        gatherSourceFolders ( project.getDependencies (), sourceFolders );
+        visitProjects ( project.getDependencies (), scopes, visitor );
 
         getLog ().debug ( "Done processing: " + project );
     }
