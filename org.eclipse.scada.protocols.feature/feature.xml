@@ -26,9 +26,8 @@
       <import plugin="org.slf4j.api"/>
       <import plugin="com.google.guava"/>
       <import plugin="org.apache.mina.filter.compression"/>
-      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
       <import plugin="org.eclipse.scada.utils.stats"/>
-      <import plugin="org.junit"/>
+      <import feature="org.eclipse.scada.license" version="0.1.0.qualifier"/>
    </requires>
 
    <plugin
