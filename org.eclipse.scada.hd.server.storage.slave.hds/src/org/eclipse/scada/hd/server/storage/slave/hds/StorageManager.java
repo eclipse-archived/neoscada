@@ -14,7 +14,10 @@ package org.eclipse.scada.hd.server.storage.slave.hds;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -22,8 +25,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.eclipse.scada.hd.data.HistoricalItemInformation;
 import org.eclipse.scada.hd.server.storage.hds.AbstractStorageManager;
+import org.eclipse.scada.hd.server.storage.hds.StorageInformation;
 import org.eclipse.scada.hds.DataFilePool;
+import org.eclipse.scada.utils.str.Tables;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -109,6 +115,35 @@ public class StorageManager extends AbstractStorageManager
     public String probe ( final File file )
     {
         return super.probe ( file );
+    }
+
+    public void list ()
+    {
+        this.lock.lock ();
+        try
+        {
+
+            final List<List<String>> data = new LinkedList<> ();
+
+            for ( final Map.Entry<File, StorageImpl> entry : this.storages.entrySet () )
+            {
+                final HistoricalItemInformation hi = entry.getValue ().getInformation ();
+                final StorageInformation si = entry.getValue ().getStorageInformation ();
+
+                final LinkedList<String> row = new LinkedList<> ();
+                data.add ( row );
+                row.add ( "" + hi.getItemId () );
+                row.add ( "" + si.getConfiguration ().getCount () );
+                row.add ( "" + si.getConfiguration ().getTimeSlice () );
+                row.add ( "" + entry.getKey () );
+            }
+
+            Tables.showTable ( System.out, Arrays.asList ( "ID", "File Count", "Time Slice", "File" ), data, 2 );
+        }
+        finally
+        {
+            this.lock.unlock ();
+        }
     }
 
     public void addStorage ( final File storageDirectory ) throws Exception
