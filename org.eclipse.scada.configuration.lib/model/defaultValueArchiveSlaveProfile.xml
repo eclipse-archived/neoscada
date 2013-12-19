@@ -10,6 +10,6 @@
 	<!-- Eclipse SCADA HD -->
 	
 	<property key="org.eclipse.scada.hd.server.storage.hds.useNaNs">true</property>
-	<property key="org.eclipse.scada.hd.server.storage.hds.basePath">${user.home}/hds.slave</property>
+	<property key="org.eclipse.scada.hd.server.storage.slave.hds.basePath">${user.home}/hds.slave</property>
 
 </profile:profile>
