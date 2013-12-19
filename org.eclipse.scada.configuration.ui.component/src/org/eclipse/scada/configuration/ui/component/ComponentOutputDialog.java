@@ -23,9 +23,14 @@ import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerColumn;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.window.IShellProvider;
+import org.eclipse.scada.configuration.ui.component.Helper.ItemEntry;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
+import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.eclipse.scada.ui.databinding.ObservableMapStyledCellLabelProvider;
+import org.eclipse.scada.utils.str.StringHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -134,6 +139,23 @@ public class ComponentOutputDialog extends Dialog
             {
                 handleDispose ();
             }
+        } );
+        this.viewer.setComparator ( new ViewerComparator () {
+            @Override
+            public int compare ( final Viewer viewer, final Object e1, final Object e2 )
+            {
+                final ItemEntry i1 = AdapterHelper.adapt ( e1, ItemEntry.class );
+                final ItemEntry i2 = AdapterHelper.adapt ( e2, ItemEntry.class );
+                if ( i1 == i2 )
+                {
+                    return 0;
+                }
+                if ( i1 == null )
+                {
+                    return -1;
+                }
+                return StringHelper.join ( i1.getLocal (), "." ).compareTo ( StringHelper.join ( i2.getLocal (), "." ) );
+            };
         } );
         this.viewer.setInput ( this.input );
 
