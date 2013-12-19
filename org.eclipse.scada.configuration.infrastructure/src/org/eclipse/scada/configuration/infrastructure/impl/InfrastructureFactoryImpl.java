@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Configurations;
@@ -30,16 +29,19 @@ import org.eclipse.scada.configuration.infrastructure.JdbcUserService;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserEntry;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.infrastructure.World;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class InfrastructureFactoryImpl extends EFactoryImpl implements InfrastructureFactory
@@ -48,19 +50,20 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static InfrastructureFactory init ()
     {
         try
         {
-            InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
+            final InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
             if ( theInfrastructureFactory != null )
             {
                 return theInfrastructureFactory;
             }
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -71,6 +74,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InfrastructureFactoryImpl ()
@@ -81,10 +85,11 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public EObject create ( EClass eClass )
+    public EObject create ( final EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -148,220 +153,247 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
     public MasterServer createMasterServer ()
     {
-        MasterServerImpl masterServer = new MasterServerImpl ();
+        final MasterServerImpl masterServer = new MasterServerImpl ();
+        masterServer.setName ( "master" );
+        masterServer.setInstanceNumber ( 1 );
         return masterServer;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public MasterImport createMasterImport ()
     {
-        MasterImportImpl masterImport = new MasterImportImpl ();
+        final MasterImportImpl masterImport = new MasterImportImpl ();
         return masterImport;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Options createOptions ()
     {
-        OptionsImpl options = new OptionsImpl ();
+        final OptionsImpl options = new OptionsImpl ();
         return options;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public CommonDriver createCommonDriver ()
     {
-        CommonDriverImpl commonDriver = new CommonDriverImpl ();
+        final CommonDriverImpl commonDriver = new CommonDriverImpl ();
         return commonDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ExternalNode createExternalNode ()
     {
-        ExternalNodeImpl externalNode = new ExternalNodeImpl ();
+        final ExternalNodeImpl externalNode = new ExternalNodeImpl ();
         return externalNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public SystemNode createSystemNode ()
     {
-        SystemNodeImpl systemNode = new SystemNodeImpl ();
+        final SystemNodeImpl systemNode = new SystemNodeImpl ();
         return systemNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public SystemPropertyUserService createSystemPropertyUserService ()
     {
-        SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
+        final SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
         return systemPropertyUserService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public UserEntry createUserEntry ()
     {
-        UserEntryImpl userEntry = new UserEntryImpl ();
+        final UserEntryImpl userEntry = new UserEntryImpl ();
         return userEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public JdbcUserService createJdbcUserService ()
     {
-        JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
+        final JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
         return jdbcUserService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
     public ValueArchiveServer createValueArchiveServer ()
     {
-        ValueArchiveServerImpl valueArchiveServer = new ValueArchiveServerImpl ();
+        final ValueArchiveServerImpl valueArchiveServer = new ValueArchiveServerImpl ();
+        valueArchiveServer.setName ( "hdserver" );
+        valueArchiveServer.setInstanceNumber ( 2 );
         return valueArchiveServer;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EquinoxDriver createEquinoxDriver ()
     {
-        EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
+        final EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
         return equinoxDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ExternalDriver createExternalDriver ()
     {
-        ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
+        final ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
         return externalDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ExternalDriverPlaceholder createExternalDriverPlaceholder ()
     {
-        ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
+        final ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
         return externalDriverPlaceholder;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ApplicationConfiguration createApplicationConfiguration ()
     {
-        ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
+        final ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
         return applicationConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Configurations createConfigurations ()
     {
-        ConfigurationsImpl configurations = new ConfigurationsImpl ();
+        final ConfigurationsImpl configurations = new ConfigurationsImpl ();
         return configurations;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public HttpServiceModule createHttpServiceModule ()
     {
-        HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
+        final HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
         return httpServiceModule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public RestExporterModule createRestExporterModule ()
     {
-        RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
+        final RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
         return restExporterModule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
+    @Override
     public ValueArchiveSlave createValueArchiveSlave ()
     {
-        ValueArchiveSlaveImpl valueArchiveSlave = new ValueArchiveSlaveImpl ();
+        final ValueArchiveSlaveImpl valueArchiveSlave = new ValueArchiveSlaveImpl ();
+        valueArchiveSlave.setName ( "hdslave" );
+        valueArchiveSlave.setInstanceNumber ( 3 );
         return valueArchiveSlave;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -373,6 +405,7 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */
