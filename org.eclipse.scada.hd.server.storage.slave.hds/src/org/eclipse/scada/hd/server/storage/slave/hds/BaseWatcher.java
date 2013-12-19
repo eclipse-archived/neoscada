@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - improve logging
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.slave.hds;
 
@@ -93,6 +94,8 @@ public class BaseWatcher
 
         private void storageRemoved ()
         {
+            logger.debug ( "Storage removed" );
+
             if ( this.id != null )
             {
                 this.baseWatcher.removeStorage ( this.id, this.path.toFile () );
@@ -102,6 +105,7 @@ public class BaseWatcher
 
         private void storageAdded ( final String id )
         {
+            logger.debug ( "Storage added: {}", id );
             try
             {
                 this.id = null;
@@ -116,6 +120,8 @@ public class BaseWatcher
 
         public void dispose ()
         {
+            logger.debug ( "Disposing: {}", this.id );
+
             this.baseWatcher.removeWatcherMap ( this.path );
             this.baseWatcher.removeWatcherMap ( new File ( this.path.toFile (), "native" ).toPath () );
 
