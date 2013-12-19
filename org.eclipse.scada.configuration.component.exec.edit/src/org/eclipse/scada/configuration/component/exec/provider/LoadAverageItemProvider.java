@@ -24,9 +24,11 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.configuration.component.exec.LoadAverage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.exec.LoadAverage} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.exec.LoadAverage} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class LoadAverageItemProvider extends ExecJobItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -35,9 +37,10 @@ public class LoadAverageItemProvider extends ExecJobItemProvider implements IEdi
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public LoadAverageItemProvider ( AdapterFactory adapterFactory )
+    public LoadAverageItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -46,69 +49,77 @@ public class LoadAverageItemProvider extends ExecJobItemProvider implements IEdi
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This returns LoadAverage.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/LoadAverage" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/LoadAverage.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (LoadAverage)object ).getName ();
+        final String label = ( (LoadAverage)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_LoadAverage_type" ) : //$NON-NLS-1$
                 getString ( "_UI_LoadAverage_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
