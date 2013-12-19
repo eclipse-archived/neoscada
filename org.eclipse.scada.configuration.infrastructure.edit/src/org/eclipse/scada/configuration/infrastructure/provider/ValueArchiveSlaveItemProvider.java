@@ -16,20 +16,22 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
+import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave}
+ * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ValueArchiveSlaveItemProvider
@@ -45,9 +47,10 @@ public class ValueArchiveSlaveItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public ValueArchiveSlaveItemProvider ( AdapterFactory adapterFactory )
+    public ValueArchiveSlaveItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -56,27 +59,29 @@ public class ValueArchiveSlaveItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This returns ValueArchiveSlave.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ValueArchiveSlave" ) ); //$NON-NLS-1$
     }
@@ -85,40 +90,56 @@ public class ValueArchiveSlaveItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (ValueArchiveSlave)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ValueArchiveSlave_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ValueArchiveSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        final String label;
+
+        final ValueArchiveSlave target = (ValueArchiveSlave)object;
+        if ( target.eContainer () instanceof Node )
+        {
+            label = String.format ( "%s @ %s", target.getName (), ( (Node)target.eContainer () ).getHostName () );
+        }
+        else
+        {
+            label = ( (ValueArchiveSlave)object ).getName ();
+        }
+
+        return label == null || label.length () == 0 ? getString ( "_UI_ValueArchiveSlave_type" ) : //$NON-NLS-1$
+        getString ( "_UI_ValueArchiveSlave_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
