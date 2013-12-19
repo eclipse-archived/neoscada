@@ -14,7 +14,7 @@ import java.io.PrintStream;
 import java.util.List;
 
 /**
- * @since 1.1
+ * @since 0.1.0
  */
 public final class Tables
 {
@@ -22,6 +22,18 @@ public final class Tables
     {
     }
 
+    /**
+     * Print out a table
+     * 
+     * @param out
+     *            the stream to print to
+     * @param header
+     *            the column headers
+     * @param data
+     *            the data, in rows and cells
+     * @param gap
+     *            gap between columns
+     */
     public static void showTable ( final PrintStream out, final List<String> header, final List<List<String>> data, int gap )
     {
         if ( gap < 0 )
