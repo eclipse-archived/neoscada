@@ -13,6 +13,8 @@ package org.eclipse.scada.configuration.world.lib.deployment;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.HashMap;
@@ -113,23 +115,26 @@ public class RedhatHandler extends CommonHandler
 
         // run rpmbuild
 
-        monitor.setTaskName ( "Running rpmbuild" );
-
+        if ( Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
         {
-            final ProcessBuilder processBuilder = new ProcessBuilder ( "rpmbuild", "--define", "_topdir " + buildRoot.toString (), "-bb", specFile.toString () );
-            processBuilder.directory ( packageFolder );
-            try
-            {
-                final int rc = new ProcessRunner ( processBuilder ).run ();
-                logger.info ( "rc = {}", rc );
-            }
-            catch ( final Exception e )
-            {
-                logger.warn ( "Failed to generate rpm package", e );
-            }
-        }
+            monitor.setTaskName ( "Running rpmbuild" );
 
-        nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
+            {
+                final ProcessBuilder processBuilder = new ProcessBuilder ( "rpmbuild", "--define", "_topdir " + buildRoot.toString (), "-bb", specFile.toString () );
+                processBuilder.directory ( packageFolder );
+                try
+                {
+                    final int rc = new ProcessRunner ( processBuilder ).run ();
+                    logger.info ( "rc = {}", rc );
+                }
+                catch ( final Exception e )
+                {
+                    logger.warn ( "Failed to generate rpm package", e );
+                }
+            }
+
+            nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
+        }
     }
 
     private String makeStop ()
@@ -247,9 +252,12 @@ public class RedhatHandler extends CommonHandler
 
     private String makeChangeLog ( final List<ChangeEntry> changes )
     {
+        final ArrayList<ChangeEntry> sortedChanges = new ArrayList<> ( changes );
+        Collections.sort ( sortedChanges, new ChangeEntryComparator ( false ) );
+
         final StringBuilder sb = new StringBuilder ();
 
-        for ( final ChangeEntry entry : changes )
+        for ( final ChangeEntry entry : sortedChanges )
         {
             final Formatter f = new Formatter ( sb, Locale.ENGLISH );
             f.format ( "* %3$ta %3$tb %3$td %3$tY %1$s <%2$s> %4$s", entry.getAuthor ().getName (), entry.getAuthor ().getEmail (), entry.getDate (), entry.getVersion () );
