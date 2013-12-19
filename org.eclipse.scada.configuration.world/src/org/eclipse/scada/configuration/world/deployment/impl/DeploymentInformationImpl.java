@@ -37,124 +37,136 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * @generated
  */
 public class DeploymentInformationImpl extends MinimalEObjectImpl.Container
-		implements DeploymentInformation {
-	/**
-	 * The cached value of the '{@link #getAuthors() <em>Authors</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAuthors()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Author> authors;
+        implements DeploymentInformation
+{
+    /**
+     * The cached value of the '{@link #getAuthors() <em>Authors</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAuthors()
+     * @generated
+     * @ordered
+     */
+    protected EList<Author> authors;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeploymentInformationImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DeploymentInformationImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return DeploymentPackage.Literals.DEPLOYMENT_INFORMATION;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return DeploymentPackage.Literals.DEPLOYMENT_INFORMATION;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Author> getAuthors() {
-		if (authors == null) {
-			authors = new EObjectContainmentEList.Resolving<Author>(
-					Author.class, this,
-					DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS);
-		}
-		return authors;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Author> getAuthors ()
+    {
+        if ( authors == null )
+        {
+            authors = new EObjectContainmentEList.Resolving<Author> ( Author.class, this, DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS );
+        }
+        return authors;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
-			return ((InternalEList<?>) getAuthors())
-					.basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
+            int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
+                return ( (InternalEList<?>)getAuthors () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
-			return getAuthors();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
+                return getAuthors ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
-			getAuthors().clear();
-			getAuthors().addAll((Collection<? extends Author>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
+                getAuthors ().clear ();
+                getAuthors ().addAll ( (Collection<? extends Author>)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
-			getAuthors().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
+                getAuthors ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
-			return authors != null && !authors.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.DEPLOYMENT_INFORMATION__AUTHORS:
+                return authors != null && !authors.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
 
 } //DeploymentInformationImpl

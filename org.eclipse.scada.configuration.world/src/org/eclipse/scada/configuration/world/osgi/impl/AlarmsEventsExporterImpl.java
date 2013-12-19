@@ -27,48 +27,54 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * @generated
  */
 public class AlarmsEventsExporterImpl extends ExporterImpl implements
-		AlarmsEventsExporter {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AlarmsEventsExporterImpl() {
-		super();
-	}
+        AlarmsEventsExporter
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AlarmsEventsExporterImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.ALARMS_EVENTS_EXPORTER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.ALARMS_EVENTS_EXPORTER;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTypeTag() {
-		return "ae";
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTypeTag ()
+    {
+        return "ae";
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments)
-			throws InvocationTargetException {
-		switch (operationID) {
-		case OsgiPackage.ALARMS_EVENTS_EXPORTER___GET_TYPE_TAG:
-			return getTypeTag();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments )
+            throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case OsgiPackage.ALARMS_EVENTS_EXPORTER___GET_TYPE_TAG:
+                return getTypeTag ();
+        }
+        return super.eInvoke ( operationID, arguments );
+    }
 
 } //AlarmsEventsExporterImpl

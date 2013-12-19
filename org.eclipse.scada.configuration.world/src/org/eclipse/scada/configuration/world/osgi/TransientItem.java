@@ -21,5 +21,6 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface TransientItem extends Item {
+public interface TransientItem extends Item
+{
 } // TransientItem

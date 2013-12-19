@@ -40,228 +40,241 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class WorldImpl extends MinimalEObjectImpl.Container implements World {
-	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNodes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Node> nodes;
+public class WorldImpl extends MinimalEObjectImpl.Container implements World
+{
+    /**
+     * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNodes()
+     * @generated
+     * @ordered
+     */
+    protected EList<Node> nodes;
 
-	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected Options options;
+    /**
+     * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOptions()
+     * @generated
+     * @ordered
+     */
+    protected Options options;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WorldImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected WorldImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return WorldPackage.Literals.WORLD;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return WorldPackage.Literals.WORLD;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Node> getNodes() {
-		if (nodes == null) {
-			nodes = new EObjectContainmentEList.Resolving<Node>(Node.class,
-					this, WorldPackage.WORLD__NODES);
-		}
-		return nodes;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Node> getNodes ()
+    {
+        if ( nodes == null )
+        {
+            nodes = new EObjectContainmentEList.Resolving<Node> ( Node.class, this, WorldPackage.WORLD__NODES );
+        }
+        return nodes;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Options getOptions() {
-		if (options != null && options.eIsProxy()) {
-			InternalEObject oldOptions = (InternalEObject) options;
-			options = (Options) eResolveProxy(oldOptions);
-			if (options != oldOptions) {
-				InternalEObject newOptions = (InternalEObject) options;
-				NotificationChain msgs = oldOptions.eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS,
-						null, null);
-				if (newOptions.eInternalContainer() == null) {
-					msgs = newOptions.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-							- WorldPackage.WORLD__OPTIONS, null, msgs);
-				}
-				if (msgs != null)
-					msgs.dispatch();
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							WorldPackage.WORLD__OPTIONS, oldOptions, options));
-			}
-		}
-		return options;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Options getOptions ()
+    {
+        if ( options != null && options.eIsProxy () )
+        {
+            InternalEObject oldOptions = (InternalEObject)options;
+            options = (Options)eResolveProxy ( oldOptions );
+            if ( options != oldOptions )
+            {
+                InternalEObject newOptions = (InternalEObject)options;
+                NotificationChain msgs = oldOptions.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS, null, null );
+                if ( newOptions.eInternalContainer () == null )
+                {
+                    msgs = newOptions.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, WorldPackage.WORLD__OPTIONS, oldOptions, options ) );
+            }
+        }
+        return options;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Options basicGetOptions() {
-		return options;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Options basicGetOptions ()
+    {
+        return options;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOptions(Options newOptions,
-			NotificationChain msgs) {
-		Options oldOptions = options;
-		options = newOptions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this,
-					Notification.SET, WorldPackage.WORLD__OPTIONS, oldOptions,
-					newOptions);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetOptions ( Options newOptions,
+            NotificationChain msgs )
+    {
+        Options oldOptions = options;
+        options = newOptions;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, WorldPackage.WORLD__OPTIONS, oldOptions, newOptions );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOptions(Options newOptions) {
-		if (newOptions != options) {
-			NotificationChain msgs = null;
-			if (options != null)
-				msgs = ((InternalEObject) options).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS,
-						null, msgs);
-			if (newOptions != null)
-				msgs = ((InternalEObject) newOptions).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS,
-						null, msgs);
-			msgs = basicSetOptions(newOptions, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					WorldPackage.WORLD__OPTIONS, newOptions, newOptions));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOptions ( Options newOptions )
+    {
+        if ( newOptions != options )
+        {
+            NotificationChain msgs = null;
+            if ( options != null )
+                msgs = ( (InternalEObject)options ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS, null, msgs );
+            if ( newOptions != null )
+                msgs = ( (InternalEObject)newOptions ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.WORLD__OPTIONS, null, msgs );
+            msgs = basicSetOptions ( newOptions, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.WORLD__OPTIONS, newOptions, newOptions ) );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case WorldPackage.WORLD__NODES:
-			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
-		case WorldPackage.WORLD__OPTIONS:
-			return basicSetOptions(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
+            int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.WORLD__NODES:
+                return ( (InternalEList<?>)getNodes () ).basicRemove ( otherEnd, msgs );
+            case WorldPackage.WORLD__OPTIONS:
+                return basicSetOptions ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case WorldPackage.WORLD__NODES:
-			return getNodes();
-		case WorldPackage.WORLD__OPTIONS:
-			if (resolve)
-				return getOptions();
-			return basicGetOptions();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.WORLD__NODES:
+                return getNodes ();
+            case WorldPackage.WORLD__OPTIONS:
+                if ( resolve )
+                    return getOptions ();
+                return basicGetOptions ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case WorldPackage.WORLD__NODES:
-			getNodes().clear();
-			getNodes().addAll((Collection<? extends Node>) newValue);
-			return;
-		case WorldPackage.WORLD__OPTIONS:
-			setOptions((Options) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.WORLD__NODES:
+                getNodes ().clear ();
+                getNodes ().addAll ( (Collection<? extends Node>)newValue );
+                return;
+            case WorldPackage.WORLD__OPTIONS:
+                setOptions ( (Options)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case WorldPackage.WORLD__NODES:
-			getNodes().clear();
-			return;
-		case WorldPackage.WORLD__OPTIONS:
-			setOptions((Options) null);
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.WORLD__NODES:
+                getNodes ().clear ();
+                return;
+            case WorldPackage.WORLD__OPTIONS:
+                setOptions ( (Options)null );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case WorldPackage.WORLD__NODES:
-			return nodes != null && !nodes.isEmpty();
-		case WorldPackage.WORLD__OPTIONS:
-			return options != null;
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.WORLD__NODES:
+                return nodes != null && !nodes.isEmpty ();
+            case WorldPackage.WORLD__OPTIONS:
+                return options != null;
+        }
+        return super.eIsSet ( featureID );
+    }
 
 } //WorldImpl

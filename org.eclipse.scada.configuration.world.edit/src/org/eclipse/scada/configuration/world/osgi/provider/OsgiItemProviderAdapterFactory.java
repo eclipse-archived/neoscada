@@ -1924,6 +1924,31 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DefaultEquinoxApplicationItemProvider defaultEquinoxApplicationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDefaultEquinoxApplicationAdapter ()
+    {
+        if ( defaultEquinoxApplicationItemProvider == null )
+        {
+            defaultEquinoxApplicationItemProvider = new DefaultEquinoxApplicationItemProvider ( this );
+        }
+
+        return defaultEquinoxApplicationItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2212,6 +2237,8 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             httpServiceItemProvider.dispose ();
         if ( transientItemItemProvider != null )
             transientItemItemProvider.dispose ();
+        if ( defaultEquinoxApplicationItemProvider != null )
+            defaultEquinoxApplicationItemProvider.dispose ();
     }
 
 }

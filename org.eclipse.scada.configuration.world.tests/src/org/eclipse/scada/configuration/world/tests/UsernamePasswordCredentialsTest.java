@@ -22,75 +22,82 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsernamePasswordCredentialsTest extends TestCase {
+public class UsernamePasswordCredentialsTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Username Password Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UsernamePasswordCredentials fixture = null;
+    /**
+     * The fixture for this Username Password Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected UsernamePasswordCredentials fixture = null;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(UsernamePasswordCredentialsTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( UsernamePasswordCredentialsTest.class );
+    }
 
-	/**
-	 * Constructs a new Username Password Credentials test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UsernamePasswordCredentialsTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Username Password Credentials test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public UsernamePasswordCredentialsTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Username Password Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(UsernamePasswordCredentials fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Username Password Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( UsernamePasswordCredentials fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Username Password Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UsernamePasswordCredentials getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Username Password Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected UsernamePasswordCredentials getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(WorldFactory.eINSTANCE.createUsernamePasswordCredentials());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( WorldFactory.eINSTANCE.createUsernamePasswordCredentials () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //UsernamePasswordCredentialsTest

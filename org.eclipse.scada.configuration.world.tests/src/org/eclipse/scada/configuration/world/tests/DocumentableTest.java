@@ -20,44 +20,48 @@ import org.eclipse.scada.configuration.world.Documentable;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class DocumentableTest extends TestCase {
+public abstract class DocumentableTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Documentable test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Documentable fixture = null;
+    /**
+     * The fixture for this Documentable test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Documentable fixture = null;
 
-	/**
-	 * Constructs a new Documentable test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DocumentableTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Documentable test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DocumentableTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Documentable test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Documentable fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Documentable test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Documentable fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Documentable test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Documentable getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Documentable test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Documentable getFixture ()
+    {
+        return fixture;
+    }
 
 } //DocumentableTest

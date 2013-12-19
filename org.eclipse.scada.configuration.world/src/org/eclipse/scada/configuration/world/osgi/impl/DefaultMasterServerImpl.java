@@ -34,52 +34,61 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * @generated
  */
 public class DefaultMasterServerImpl extends MasterServerImpl implements
-		DefaultMasterServer {
+        DefaultMasterServer
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DefaultMasterServerImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DefaultMasterServerImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.DEFAULT_MASTER_SERVER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.DEFAULT_MASTER_SERVER;
+    }
 
-	private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultMasterServerProfile.xml#/";
+    private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultMasterServerProfile.xml#/";
 
-	private Profile profile;
+    private Profile profile;
 
-	@Override
-	public Profile getProfile() {
-		if (this.profile == null) {
-			final ResourceSet rs = new ResourceSetImpl();
-			final Resource r = rs.createResource(URI.createURI(DEFAULT_URI));
-			try {
-				r.load(null);
-			} catch (final IOException e) {
-				throw new RuntimeException(e);
-			}
-			this.profile = (Profile) EcoreUtil.getObjectByType(r.getContents(),
-					ProfilePackage.Literals.PROFILE);
-			if (this.profile == null) {
-				throw new IllegalStateException(
-						String.format(
-								"Resource loaded from %s does not contain an object of type %s",
-								DEFAULT_URI, Profile.class.getName()));
-			}
-		}
+    @Override
+    public Profile getProfile ()
+    {
+        if ( this.profile == null )
+        {
+            final ResourceSet rs = new ResourceSetImpl ();
+            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ) );
+            try
+            {
+                r.load ( null );
+            }
+            catch ( final IOException e )
+            {
+                throw new RuntimeException ( e );
+            }
+            this.profile = (Profile)EcoreUtil.getObjectByType ( r.getContents (),
+                    ProfilePackage.Literals.PROFILE );
+            if ( this.profile == null )
+            {
+                throw new IllegalStateException (
+                        String.format (
+                                "Resource loaded from %s does not contain an object of type %s",
+                                DEFAULT_URI, Profile.class.getName () ) );
+            }
+        }
 
-		return this.profile;
-	}
+        return this.profile;
+    }
 
 } //DefaultMasterServerImpl

@@ -21,58 +21,64 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EventLoggerTest extends ItemFeatureEntryTest {
+public class EventLoggerTest extends ItemFeatureEntryTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(EventLoggerTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( EventLoggerTest.class );
+    }
 
-	/**
-	 * Constructs a new Event Logger test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventLoggerTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Event Logger test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventLoggerTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Event Logger test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EventLogger getFixture() {
-		return (EventLogger) fixture;
-	}
+    /**
+     * Returns the fixture for this Event Logger test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EventLogger getFixture ()
+    {
+        return (EventLogger)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createEventLogger());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createEventLogger () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //EventLoggerTest

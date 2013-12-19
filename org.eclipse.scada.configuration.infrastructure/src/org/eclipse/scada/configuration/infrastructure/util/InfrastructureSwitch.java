@@ -324,6 +324,16 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.VALUE_ARCHIVE_SLAVE:
+            {
+                ValueArchiveSlave valueArchiveSlave = (ValueArchiveSlave)theEObject;
+                T result = caseValueArchiveSlave ( valueArchiveSlave );
+                if ( result == null )
+                    result = caseEquinoxApplication ( valueArchiveSlave );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -725,6 +735,22 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseRestExporterModule ( RestExporterModule object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Value Archive Slave</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Value Archive Slave</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseValueArchiveSlave ( ValueArchiveSlave object )
     {
         return null;
     }

@@ -231,6 +231,12 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseValueArchiveSlave ( ValueArchiveSlave object )
+        {
+            return createValueArchiveSlaveAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -640,6 +646,21 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createRestExporterModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave <em>Value Archive Slave</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave
+     * @generated
+     */
+    public Adapter createValueArchiveSlaveAdapter ()
     {
         return null;
     }

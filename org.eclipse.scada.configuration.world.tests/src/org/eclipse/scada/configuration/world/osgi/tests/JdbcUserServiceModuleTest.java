@@ -22,75 +22,82 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class JdbcUserServiceModuleTest extends TestCase {
+public class JdbcUserServiceModuleTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Jdbc User Service Module test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JdbcUserServiceModule fixture = null;
+    /**
+     * The fixture for this Jdbc User Service Module test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected JdbcUserServiceModule fixture = null;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(JdbcUserServiceModuleTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( JdbcUserServiceModuleTest.class );
+    }
 
-	/**
-	 * Constructs a new Jdbc User Service Module test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public JdbcUserServiceModuleTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Jdbc User Service Module test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public JdbcUserServiceModuleTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Jdbc User Service Module test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(JdbcUserServiceModule fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Jdbc User Service Module test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( JdbcUserServiceModule fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Jdbc User Service Module test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JdbcUserServiceModule getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Jdbc User Service Module test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected JdbcUserServiceModule getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createJdbcUserServiceModule());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createJdbcUserServiceModule () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //JdbcUserServiceModuleTest

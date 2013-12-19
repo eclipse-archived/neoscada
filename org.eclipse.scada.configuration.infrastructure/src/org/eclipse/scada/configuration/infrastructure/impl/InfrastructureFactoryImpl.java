@@ -124,6 +124,8 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createHttpServiceModule ();
             case InfrastructurePackage.REST_EXPORTER_MODULE:
                 return createRestExporterModule ();
+            case InfrastructurePackage.VALUE_ARCHIVE_SLAVE:
+                return createValueArchiveSlave ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -344,6 +346,17 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     {
         RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
         return restExporterModule;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ValueArchiveSlave createValueArchiveSlave ()
+    {
+        ValueArchiveSlaveImpl valueArchiveSlave = new ValueArchiveSlaveImpl ();
+        return valueArchiveSlave;
     }
 
     /**

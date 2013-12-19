@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -93,7 +92,6 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureItemProviderAdapterFactory;
-import org.eclipse.scada.configuration.item.provider.ItemItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.security.provider.SecurityItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.deployment.provider.DeploymentItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
@@ -758,7 +756,6 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
         adapterFactory.addAdapterFactory ( new InfrastructureItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new ConfigurationItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new GlobalizeItemProviderAdapterFactory () );
-        adapterFactory.addAdapterFactory ( new ItemItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new SecurityItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new WorldItemProviderAdapterFactory () );
         adapterFactory.addAdapterFactory ( new OsgiItemProviderAdapterFactory () );

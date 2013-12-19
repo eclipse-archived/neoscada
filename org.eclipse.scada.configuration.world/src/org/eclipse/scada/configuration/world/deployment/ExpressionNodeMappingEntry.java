@@ -34,57 +34,58 @@ import java.util.regex.Pattern;
  * @model
  * @generated
  */
-public interface ExpressionNodeMappingEntry extends NodeMappingEntry {
-	/**
-	 * Returns the value of the '<em><b>Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Pattern</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pattern</em>' attribute.
-	 * @see #setPattern(Pattern)
-	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getExpressionNodeMappingEntry_Pattern()
-	 * @model dataType="org.eclipse.scada.configuration.world.Pattern" required="true"
-	 * @generated
-	 */
-	Pattern getPattern();
+public interface ExpressionNodeMappingEntry extends NodeMappingEntry
+{
+    /**
+     * Returns the value of the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Pattern</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Pattern</em>' attribute.
+     * @see #setPattern(Pattern)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getExpressionNodeMappingEntry_Pattern()
+     * @model dataType="org.eclipse.scada.configuration.world.Pattern" required="true"
+     * @generated
+     */
+    Pattern getPattern ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getPattern <em>Pattern</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pattern</em>' attribute.
-	 * @see #getPattern()
-	 * @generated
-	 */
-	void setPattern(Pattern value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getPattern <em>Pattern</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Pattern</em>' attribute.
+     * @see #getPattern()
+     * @generated
+     */
+    void setPattern ( Pattern value );
 
-	/**
-	 * Returns the value of the '<em><b>Replacement</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Replacement</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Replacement</em>' attribute.
-	 * @see #setReplacement(String)
-	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getExpressionNodeMappingEntry_Replacement()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getReplacement();
+    /**
+     * Returns the value of the '<em><b>Replacement</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Replacement</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Replacement</em>' attribute.
+     * @see #setReplacement(String)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getExpressionNodeMappingEntry_Replacement()
+     * @model required="true"
+     * @generated
+     */
+    String getReplacement ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getReplacement <em>Replacement</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Replacement</em>' attribute.
-	 * @see #getReplacement()
-	 * @generated
-	 */
-	void setReplacement(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry#getReplacement <em>Replacement</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Replacement</em>' attribute.
+     * @see #getReplacement()
+     * @generated
+     */
+    void setReplacement ( String value );
 
 } // ExpressionNodeMappingEntry

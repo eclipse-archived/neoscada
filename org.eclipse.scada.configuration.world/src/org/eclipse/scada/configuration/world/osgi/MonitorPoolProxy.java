@@ -30,37 +30,38 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model
  * @generated
  */
-public interface MonitorPoolProxy extends Documentable {
-	/**
-	 * Returns the value of the '<em><b>Local</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Local</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Local</em>' reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPoolProxy_Local()
-	 * @model
-	 * @generated
-	 */
-	EList<MonitorPool> getLocal();
+public interface MonitorPoolProxy extends Documentable
+{
+    /**
+     * Returns the value of the '<em><b>Local</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local</em>' reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPoolProxy_Local()
+     * @model
+     * @generated
+     */
+    EList<MonitorPool> getLocal ();
 
-	/**
-	 * Returns the value of the '<em><b>Remote</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Remote</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Remote</em>' reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPoolProxy_Remote()
-	 * @model
-	 * @generated
-	 */
-	EList<MonitorPool> getRemote();
+    /**
+     * Returns the value of the '<em><b>Remote</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Remote</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Remote</em>' reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPoolProxy_Remote()
+     * @model
+     * @generated
+     */
+    EList<MonitorPool> getRemote ();
 
 } // MonitorPoolProxy

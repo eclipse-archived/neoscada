@@ -26,57 +26,62 @@ import org.eclipse.scada.configuration.world.osgi.Exporter;
  * </p>
  * @generated
  */
-public abstract class ExporterTest extends TestCase {
+public abstract class ExporterTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Exporter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Exporter fixture = null;
+    /**
+     * The fixture for this Exporter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Exporter fixture = null;
 
-	/**
-	 * Constructs a new Exporter test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExporterTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Exporter test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExporterTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Exporter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Exporter fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Exporter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Exporter fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Exporter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Exporter getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Exporter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Exporter getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.Exporter#getTypeTag() <em>Get Type Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.osgi.Exporter#getTypeTag()
-	 * @generated
-	 */
-	public void testGetTypeTag() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.Exporter#getTypeTag() <em>Get Type Tag</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.Exporter#getTypeTag()
+     * @generated
+     */
+    public void testGetTypeTag ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
 } //ExporterTest

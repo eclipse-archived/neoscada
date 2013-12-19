@@ -25,5 +25,6 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface IndependentConfiguration extends ApplicationConfiguration {
+public interface IndependentConfiguration extends ApplicationConfiguration
+{
 } // IndependentConfiguration

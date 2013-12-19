@@ -20,6 +20,7 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface Block extends ItemFeatureEntry {
+public interface Block extends ItemFeatureEntry
+{
 
 } // Block

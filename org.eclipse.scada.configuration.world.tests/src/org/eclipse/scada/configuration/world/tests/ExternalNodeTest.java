@@ -21,58 +21,64 @@ import org.eclipse.scada.configuration.world.WorldFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ExternalNodeTest extends NodeTest {
+public class ExternalNodeTest extends NodeTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(ExternalNodeTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( ExternalNodeTest.class );
+    }
 
-	/**
-	 * Constructs a new External Node test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExternalNodeTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new External Node test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExternalNodeTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this External Node test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected ExternalNode getFixture() {
-		return (ExternalNode) fixture;
-	}
+    /**
+     * Returns the fixture for this External Node test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected ExternalNode getFixture ()
+    {
+        return (ExternalNode)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(WorldFactory.eINSTANCE.createExternalNode());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( WorldFactory.eINSTANCE.createExternalNode () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //ExternalNodeTest

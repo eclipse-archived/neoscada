@@ -22,75 +22,82 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CodeFragmentTest extends TestCase {
+public class CodeFragmentTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Code Fragment test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CodeFragment fixture = null;
+    /**
+     * The fixture for this Code Fragment test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CodeFragment fixture = null;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(CodeFragmentTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( CodeFragmentTest.class );
+    }
 
-	/**
-	 * Constructs a new Code Fragment test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CodeFragmentTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Code Fragment test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CodeFragmentTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Code Fragment test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(CodeFragment fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Code Fragment test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( CodeFragment fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Code Fragment test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CodeFragment getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Code Fragment test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CodeFragment getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createCodeFragment());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createCodeFragment () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //CodeFragmentTest

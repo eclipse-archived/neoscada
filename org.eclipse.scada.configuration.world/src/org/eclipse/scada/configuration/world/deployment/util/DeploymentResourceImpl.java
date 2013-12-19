@@ -21,16 +21,18 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  * @see org.eclipse.scada.configuration.world.deployment.util.DeploymentResourceFactoryImpl
  * @generated
  */
-public class DeploymentResourceImpl extends XMIResourceImpl {
-	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
-	 * @generated
-	 */
-	public DeploymentResourceImpl(URI uri) {
-		super(uri);
-	}
+public class DeploymentResourceImpl extends XMIResourceImpl
+{
+    /**
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param uri the URI of the new resource.
+     * @generated
+     */
+    public DeploymentResourceImpl ( URI uri )
+    {
+        super ( uri );
+    }
 
 } //DeploymentResourceImpl

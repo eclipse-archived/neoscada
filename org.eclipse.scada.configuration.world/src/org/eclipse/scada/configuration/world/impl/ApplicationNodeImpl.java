@@ -37,163 +37,173 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *
  * @generated
  */
-public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode {
-	/**
-	 * The cached value of the '{@link #getApplications() <em>Applications</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApplications()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Application> applications;
+public class ApplicationNodeImpl extends NodeImpl implements ApplicationNode
+{
+    /**
+     * The cached value of the '{@link #getApplications() <em>Applications</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getApplications()
+     * @generated
+     * @ordered
+     */
+    protected EList<Application> applications;
 
-	/**
-	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getServices()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Service> services;
+    /**
+     * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getServices()
+     * @generated
+     * @ordered
+     */
+    protected EList<Service> services;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ApplicationNodeImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ApplicationNodeImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return WorldPackage.Literals.APPLICATION_NODE;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return WorldPackage.Literals.APPLICATION_NODE;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Application> getApplications() {
-		if (applications == null) {
-			applications = new EObjectContainmentEList.Resolving<Application>(
-					Application.class, this,
-					WorldPackage.APPLICATION_NODE__APPLICATIONS);
-		}
-		return applications;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Application> getApplications ()
+    {
+        if ( applications == null )
+        {
+            applications = new EObjectContainmentEList.Resolving<Application> ( Application.class, this, WorldPackage.APPLICATION_NODE__APPLICATIONS );
+        }
+        return applications;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Service> getServices() {
-		if (services == null) {
-			services = new EObjectContainmentEList.Resolving<Service>(
-					Service.class, this,
-					WorldPackage.APPLICATION_NODE__SERVICES);
-		}
-		return services;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Service> getServices ()
+    {
+        if ( services == null )
+        {
+            services = new EObjectContainmentEList.Resolving<Service> ( Service.class, this, WorldPackage.APPLICATION_NODE__SERVICES );
+        }
+        return services;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case WorldPackage.APPLICATION_NODE__APPLICATIONS:
-			return ((InternalEList<?>) getApplications()).basicRemove(otherEnd,
-					msgs);
-		case WorldPackage.APPLICATION_NODE__SERVICES:
-			return ((InternalEList<?>) getServices()).basicRemove(otherEnd,
-					msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
+            int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+                return ( (InternalEList<?>)getApplications () ).basicRemove ( otherEnd, msgs );
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return ( (InternalEList<?>)getServices () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case WorldPackage.APPLICATION_NODE__APPLICATIONS:
-			return getApplications();
-		case WorldPackage.APPLICATION_NODE__SERVICES:
-			return getServices();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+                return getApplications ();
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return getServices ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case WorldPackage.APPLICATION_NODE__APPLICATIONS:
-			getApplications().clear();
-			getApplications().addAll(
-					(Collection<? extends Application>) newValue);
-			return;
-		case WorldPackage.APPLICATION_NODE__SERVICES:
-			getServices().clear();
-			getServices().addAll((Collection<? extends Service>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+                getApplications ().clear ();
+                getApplications ().addAll ( (Collection<? extends Application>)newValue );
+                return;
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                getServices ().clear ();
+                getServices ().addAll ( (Collection<? extends Service>)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case WorldPackage.APPLICATION_NODE__APPLICATIONS:
-			getApplications().clear();
-			return;
-		case WorldPackage.APPLICATION_NODE__SERVICES:
-			getServices().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+                getApplications ().clear ();
+                return;
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                getServices ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case WorldPackage.APPLICATION_NODE__APPLICATIONS:
-			return applications != null && !applications.isEmpty();
-		case WorldPackage.APPLICATION_NODE__SERVICES:
-			return services != null && !services.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case WorldPackage.APPLICATION_NODE__APPLICATIONS:
+                return applications != null && !applications.isEmpty ();
+            case WorldPackage.APPLICATION_NODE__SERVICES:
+                return services != null && !services.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
 
 } //ApplicationNodeImpl

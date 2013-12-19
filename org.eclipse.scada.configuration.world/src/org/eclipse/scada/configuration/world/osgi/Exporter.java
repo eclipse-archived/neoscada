@@ -30,29 +30,30 @@ import org.eclipse.scada.configuration.world.Endpoint;
  * @model abstract="true"
  * @generated
  */
-public interface Exporter extends Documentable {
-	/**
-	 * Returns the value of the '<em><b>Endpoints</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.Endpoint}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Endpoints</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Endpoints</em>' reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExporter_Endpoints()
-	 * @model keys="portNumber"
-	 * @generated
-	 */
-	EList<Endpoint> getEndpoints();
+public interface Exporter extends Documentable
+{
+    /**
+     * Returns the value of the '<em><b>Endpoints</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Endpoint}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Endpoints</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Endpoints</em>' reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExporter_Endpoints()
+     * @model keys="portNumber"
+     * @generated
+     */
+    EList<Endpoint> getEndpoints ();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	String getTypeTag();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" required="true"
+     * @generated
+     */
+    String getTypeTag ();
 
 } // Exporter

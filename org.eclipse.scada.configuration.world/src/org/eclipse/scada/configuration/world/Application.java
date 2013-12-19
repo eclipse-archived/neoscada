@@ -20,6 +20,7 @@ package org.eclipse.scada.configuration.world;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Application extends Documentable {
+public interface Application extends Documentable
+{
 
 } // Application

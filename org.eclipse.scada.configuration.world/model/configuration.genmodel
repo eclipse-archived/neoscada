@@ -526,6 +526,10 @@
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/IndependentConfiguration"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/TransientItem"/>
+      <genClasses ecoreClass="configuration.ecore#//osgi/DefaultEquinoxApplication">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/DefaultEquinoxApplication/profile"/>
+      </genClasses>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"
           extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"

@@ -20,14 +20,15 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface ConfigurationAdministratorExporter extends Exporter {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return \"ca\";'"
-	 * @generated
-	 */
-	String getTypeTag();
+public interface ConfigurationAdministratorExporter extends Exporter
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" required="true"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return \"ca\";'"
+     * @generated
+     */
+    String getTypeTag ();
 
 } // ConfigurationAdministratorExporter

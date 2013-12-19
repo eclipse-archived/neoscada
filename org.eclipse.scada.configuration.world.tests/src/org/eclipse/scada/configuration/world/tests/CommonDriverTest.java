@@ -20,44 +20,48 @@ import org.eclipse.scada.configuration.world.CommonDriver;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class CommonDriverTest extends TestCase {
+public abstract class CommonDriverTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Common Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CommonDriver fixture = null;
+    /**
+     * The fixture for this Common Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CommonDriver fixture = null;
 
-	/**
-	 * Constructs a new Common Driver test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CommonDriverTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Common Driver test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CommonDriverTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Common Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(CommonDriver fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Common Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( CommonDriver fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Common Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CommonDriver getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Common Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CommonDriver getFixture ()
+    {
+        return fixture;
+    }
 
 } //CommonDriverTest

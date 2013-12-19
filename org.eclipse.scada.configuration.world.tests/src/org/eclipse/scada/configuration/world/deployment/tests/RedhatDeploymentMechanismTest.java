@@ -22,59 +22,64 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
  * @generated
  */
 public class RedhatDeploymentMechanismTest extends
-		CommonDeploymentMechanismTest {
+        CommonDeploymentMechanismTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(RedhatDeploymentMechanismTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( RedhatDeploymentMechanismTest.class );
+    }
 
-	/**
-	 * Constructs a new Redhat Deployment Mechanism test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedhatDeploymentMechanismTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Redhat Deployment Mechanism test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RedhatDeploymentMechanismTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Redhat Deployment Mechanism test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected RedhatDeploymentMechanism getFixture() {
-		return (RedhatDeploymentMechanism) fixture;
-	}
+    /**
+     * Returns the fixture for this Redhat Deployment Mechanism test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected RedhatDeploymentMechanism getFixture ()
+    {
+        return (RedhatDeploymentMechanism)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(DeploymentFactory.eINSTANCE
-				.createRedhatDeploymentMechanism());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //RedhatDeploymentMechanismTest

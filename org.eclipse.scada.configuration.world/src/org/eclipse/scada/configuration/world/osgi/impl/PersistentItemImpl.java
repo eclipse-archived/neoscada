@@ -23,24 +23,27 @@ import org.eclipse.scada.configuration.world.osgi.PersistentItem;
  *
  * @generated
  */
-public class PersistentItemImpl extends ItemImpl implements PersistentItem {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PersistentItemImpl() {
-		super();
-	}
+public class PersistentItemImpl extends ItemImpl implements PersistentItem
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PersistentItemImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.PERSISTENT_ITEM;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.PERSISTENT_ITEM;
+    }
 
 } //PersistentItemImpl

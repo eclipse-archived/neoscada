@@ -25,6 +25,7 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
 
@@ -41,6 +42,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getValueArchives <em>Value Archives</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.SystemNodeImpl#getValueSlaves <em>Value Slaves</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +89,16 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
      * @ordered
      */
     protected EList<Service> services;
+
+    /**
+     * The cached value of the '{@link #getValueSlaves() <em>Value Slaves</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getValueSlaves()
+     * @generated
+     * @ordered
+     */
+    protected EList<ValueArchiveSlave> valueSlaves;
 
     /**
      * <!-- begin-user-doc -->
@@ -190,6 +202,20 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<ValueArchiveSlave> getValueSlaves ()
+    {
+        if ( valueSlaves == null )
+        {
+            valueSlaves = new EObjectContainmentEList.Resolving<ValueArchiveSlave> ( ValueArchiveSlave.class, this, InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES );
+        }
+        return valueSlaves;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings ( "unchecked" )
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
@@ -224,6 +250,8 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
                 return ( (InternalEList<?>)getApplications () ).basicRemove ( otherEnd, msgs );
             case InfrastructurePackage.SYSTEM_NODE__SERVICES:
                 return ( (InternalEList<?>)getServices () ).basicRemove ( otherEnd, msgs );
+            case InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES:
+                return ( (InternalEList<?>)getValueSlaves () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -252,6 +280,8 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
                 return ( (FeatureMap.Internal)getApplications () ).getWrapper ();
             case InfrastructurePackage.SYSTEM_NODE__SERVICES:
                 return getServices ();
+            case InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES:
+                return getValueSlaves ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -290,6 +320,10 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
                 getServices ().clear ();
                 getServices ().addAll ( (Collection<? extends Service>)newValue );
                 return;
+            case InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES:
+                getValueSlaves ().clear ();
+                getValueSlaves ().addAll ( (Collection<? extends ValueArchiveSlave>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -322,6 +356,9 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
             case InfrastructurePackage.SYSTEM_NODE__SERVICES:
                 getServices ().clear ();
                 return;
+            case InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES:
+                getValueSlaves ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -348,6 +385,8 @@ public class SystemNodeImpl extends NodeImpl implements SystemNode
                 return applications != null && !applications.isEmpty ();
             case InfrastructurePackage.SYSTEM_NODE__SERVICES:
                 return services != null && !services.isEmpty ();
+            case InfrastructurePackage.SYSTEM_NODE__VALUE_SLAVES:
+                return valueSlaves != null && !valueSlaves.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

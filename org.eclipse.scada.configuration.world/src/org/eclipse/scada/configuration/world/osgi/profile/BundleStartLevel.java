@@ -29,59 +29,60 @@ import org.eclipse.emf.ecore.EObject;
  * @model extendedMetaData="name='BundleStartLevel' kind='simple'"
  * @generated
  */
-public interface BundleStartLevel extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Level</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Level</em>' attribute.
-	 * @see #setLevel(int)
-	 * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getBundleStartLevel_Level()
-	 * @model required="true"
-	 *        extendedMetaData="kind='attribute'"
-	 * @generated
-	 */
-	int getLevel();
+public interface BundleStartLevel extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Level</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Level</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Level</em>' attribute.
+     * @see #setLevel(int)
+     * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getBundleStartLevel_Level()
+     * @model required="true"
+     *        extendedMetaData="kind='attribute'"
+     * @generated
+     */
+    int getLevel ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel#getLevel <em>Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Level</em>' attribute.
-	 * @see #getLevel()
-	 * @generated
-	 */
-	void setLevel(int value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel#getLevel <em>Level</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Level</em>' attribute.
+     * @see #getLevel()
+     * @generated
+     */
+    void setLevel ( int value );
 
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getBundleStartLevel_Name()
-	 * @model required="true"
-	 *        extendedMetaData="name=':0' kind='simple'"
-	 * @generated
-	 */
-	String getName();
+    /**
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getBundleStartLevel_Name()
+     * @model required="true"
+     *        extendedMetaData="name=':0' kind='simple'"
+     * @generated
+     */
+    String getName ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
+     * @generated
+     */
+    void setName ( String value );
 
 } // BundleStartLevel

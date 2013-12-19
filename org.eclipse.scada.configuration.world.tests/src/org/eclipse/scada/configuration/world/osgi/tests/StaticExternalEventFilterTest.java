@@ -21,58 +21,64 @@ import org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StaticExternalEventFilterTest extends ExternalEventFilterTest {
+public class StaticExternalEventFilterTest extends ExternalEventFilterTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(StaticExternalEventFilterTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( StaticExternalEventFilterTest.class );
+    }
 
-	/**
-	 * Constructs a new Static External Event Filter test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StaticExternalEventFilterTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Static External Event Filter test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StaticExternalEventFilterTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Static External Event Filter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected StaticExternalEventFilter getFixture() {
-		return (StaticExternalEventFilter) fixture;
-	}
+    /**
+     * Returns the fixture for this Static External Event Filter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected StaticExternalEventFilter getFixture ()
+    {
+        return (StaticExternalEventFilter)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createStaticExternalEventFilter());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createStaticExternalEventFilter () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //StaticExternalEventFilterTest

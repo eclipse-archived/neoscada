@@ -26,31 +26,32 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface WeakReferenceDataSourceItem extends Item {
-	/**
-	 * Returns the value of the '<em><b>Data Source Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Data Source Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Source Id</em>' attribute.
-	 * @see #setDataSourceId(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getWeakReferenceDataSourceItem_DataSourceId()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getDataSourceId();
+public interface WeakReferenceDataSourceItem extends Item
+{
+    /**
+     * Returns the value of the '<em><b>Data Source Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Data Source Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Data Source Id</em>' attribute.
+     * @see #setDataSourceId(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getWeakReferenceDataSourceItem_DataSourceId()
+     * @model required="true"
+     * @generated
+     */
+    String getDataSourceId ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem#getDataSourceId <em>Data Source Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Source Id</em>' attribute.
-	 * @see #getDataSourceId()
-	 * @generated
-	 */
-	void setDataSourceId(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem#getDataSourceId <em>Data Source Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Data Source Id</em>' attribute.
+     * @see #getDataSourceId()
+     * @generated
+     */
+    void setDataSourceId ( String value );
 
 } // WeakReferenceDataSourceItem

@@ -32,70 +32,79 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * @generated
  */
 public class AlarmsEventsConnectionImpl extends ConnectionImpl implements
-		AlarmsEventsConnection {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AlarmsEventsConnectionImpl() {
-		super();
-	}
+        AlarmsEventsConnection
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AlarmsEventsConnectionImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.ALARMS_EVENTS_CONNECTION;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.ALARMS_EVENTS_CONNECTION;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getTypeTag() {
-		return "ae";
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getTypeTag ()
+    {
+        return "ae";
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String makeUri(final boolean localhost) {
-		return super.makeBasicUri(localhost, "ae", "ngp");
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String makeUri ( final boolean localhost )
+    {
+        return super.makeBasicUri ( localhost, "ae", "ngp" );
+    }
 
-	@Override
-	public EList<Endpoint> getPossibleEndpoints(final Exporter exporter) {
-		if (!(exporter instanceof AlarmsEventsExporter)) {
-			return ECollections.emptyEList();
-		}
+    @Override
+    public EList<Endpoint> getPossibleEndpoints ( final Exporter exporter )
+    {
+        if ( ! ( exporter instanceof AlarmsEventsExporter ) )
+        {
+            return ECollections.emptyEList ();
+        }
 
-		return exporter.getEndpoints();
-	}
+        return exporter.getEndpoints ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments)
-			throws InvocationTargetException {
-		switch (operationID) {
-		case OsgiPackage.ALARMS_EVENTS_CONNECTION___GET_TYPE_TAG:
-			return getTypeTag();
-		case OsgiPackage.ALARMS_EVENTS_CONNECTION___MAKE_URI__BOOLEAN:
-			return makeUri((Boolean) arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments )
+            throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case OsgiPackage.ALARMS_EVENTS_CONNECTION___GET_TYPE_TAG:
+                return getTypeTag ();
+            case OsgiPackage.ALARMS_EVENTS_CONNECTION___MAKE_URI__BOOLEAN:
+                return makeUri ( (Boolean)arguments.get ( 0 ) );
+        }
+        return super.eInvoke ( operationID, arguments );
+    }
 
 } //AlarmsEventsConnectionImpl

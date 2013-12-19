@@ -32,51 +32,52 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NodeMappings extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Entries</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entries</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getNodeMappings_Entries()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<NodeMappingEntry> getEntries();
+public interface NodeMappings extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Entries</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Entries</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getNodeMappings_Entries()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<NodeMappingEntry> getEntries ();
 
-	/**
-	 * Returns the value of the '<em><b>Fallback Mode</b></em>' attribute.
-	 * The default value is <code>"FAIL"</code>.
-	 * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fallback Mode</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fallback Mode</em>' attribute.
-	 * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
-	 * @see #setFallbackMode(FallbackNodeMappingMode)
-	 * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getNodeMappings_FallbackMode()
-	 * @model default="FAIL" required="true"
-	 * @generated
-	 */
-	FallbackNodeMappingMode getFallbackMode();
+    /**
+     * Returns the value of the '<em><b>Fallback Mode</b></em>' attribute.
+     * The default value is <code>"FAIL"</code>.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Fallback Mode</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Fallback Mode</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
+     * @see #setFallbackMode(FallbackNodeMappingMode)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getNodeMappings_FallbackMode()
+     * @model default="FAIL" required="true"
+     * @generated
+     */
+    FallbackNodeMappingMode getFallbackMode ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode <em>Fallback Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fallback Mode</em>' attribute.
-	 * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
-	 * @see #getFallbackMode()
-	 * @generated
-	 */
-	void setFallbackMode(FallbackNodeMappingMode value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode <em>Fallback Mode</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Fallback Mode</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode
+     * @see #getFallbackMode()
+     * @generated
+     */
+    void setFallbackMode ( FallbackNodeMappingMode value );
 
 } // NodeMappings

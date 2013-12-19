@@ -29,37 +29,38 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ApplicationNode extends Node {
-	/**
-	 * Returns the value of the '<em><b>Applications</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.Application}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Applications</em>' containment reference list
-	 * isn't clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Applications</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode_Applications()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<Application> getApplications();
+public interface ApplicationNode extends Node
+{
+    /**
+     * Returns the value of the '<em><b>Applications</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Application}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Applications</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Applications</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode_Applications()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Application> getApplications ();
 
-	/**
-	 * Returns the value of the '<em><b>Services</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.Service}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Services</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode_Services()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<Service> getServices();
+    /**
+     * Returns the value of the '<em><b>Services</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Service}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Services</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getApplicationNode_Services()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Service> getServices ();
 
 } // ApplicationNode

@@ -33,179 +33,196 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage
  * @generated
  */
-public class ProfileSwitch<T> extends Switch<T> {
-	/**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static ProfilePackage modelPackage;
+public class ProfileSwitch<T> extends Switch<T>
+{
+    /**
+     * The cached model package
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static ProfilePackage modelPackage;
 
-	/**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProfileSwitch() {
-		if (modelPackage == null) {
-			modelPackage = ProfilePackage.eINSTANCE;
-		}
-	}
+    /**
+     * Creates an instance of the switch.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProfileSwitch ()
+    {
+        if ( modelPackage == null )
+        {
+            modelPackage = ProfilePackage.eINSTANCE;
+        }
+    }
 
-	/**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
-	 * @return whether this is a switch for the given package.
-	 * @generated
-	 */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
-		return ePackage == modelPackage;
-	}
+    /**
+     * Checks whether this is a switch for the given package.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @parameter ePackage the package in question.
+     * @return whether this is a switch for the given package.
+     * @generated
+     */
+    @Override
+    protected boolean isSwitchFor ( EPackage ePackage )
+    {
+        return ePackage == modelPackage;
+    }
 
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-		case ProfilePackage.PROFILE: {
-			Profile profile = (Profile) theEObject;
-			T result = caseProfile(profile);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ProfilePackage.START_BUNDLE: {
-			StartBundle startBundle = (StartBundle) theEObject;
-			T result = caseStartBundle(startBundle);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ProfilePackage.SYSTEM_PROPERTY: {
-			SystemProperty systemProperty = (SystemProperty) theEObject;
-			T result = caseSystemProperty(systemProperty);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ProfilePackage.SUB_PROFILE: {
-			SubProfile subProfile = (SubProfile) theEObject;
-			T result = caseSubProfile(subProfile);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ProfilePackage.BUNDLE_START_LEVEL: {
-			BundleStartLevel bundleStartLevel = (BundleStartLevel) theEObject;
-			T result = caseBundleStartLevel(bundleStartLevel);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
-		}
-	}
+    /**
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
+    @Override
+    protected T doSwitch ( int classifierID, EObject theEObject )
+    {
+        switch ( classifierID )
+        {
+            case ProfilePackage.PROFILE:
+            {
+                Profile profile = (Profile)theEObject;
+                T result = caseProfile ( profile );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ProfilePackage.START_BUNDLE:
+            {
+                StartBundle startBundle = (StartBundle)theEObject;
+                T result = caseStartBundle ( startBundle );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ProfilePackage.SYSTEM_PROPERTY:
+            {
+                SystemProperty systemProperty = (SystemProperty)theEObject;
+                T result = caseSystemProperty ( systemProperty );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ProfilePackage.SUB_PROFILE:
+            {
+                SubProfile subProfile = (SubProfile)theEObject;
+                T result = caseSubProfile ( subProfile );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ProfilePackage.BUNDLE_START_LEVEL:
+            {
+                BundleStartLevel bundleStartLevel = (BundleStartLevel)theEObject;
+                T result = caseBundleStartLevel ( bundleStartLevel );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            default:
+                return defaultCase ( theEObject );
+        }
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Profile</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Profile</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProfile(Profile object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Profile</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Profile</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProfile ( Profile object )
+    {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Start Bundle</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Start Bundle</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStartBundle(StartBundle object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Start Bundle</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Start Bundle</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStartBundle ( StartBundle object )
+    {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>System Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>System Property</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSystemProperty(SystemProperty object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>System Property</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>System Property</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSystemProperty ( SystemProperty object )
+    {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sub Profile</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sub Profile</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSubProfile(SubProfile object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Sub Profile</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Sub Profile</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSubProfile ( SubProfile object )
+    {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Bundle Start Level</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bundle Start Level</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBundleStartLevel(BundleStartLevel object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Bundle Start Level</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Bundle Start Level</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBundleStartLevel ( BundleStartLevel object )
+    {
+        return null;
+    }
 
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	@Override
-	public T defaultCase(EObject object) {
-		return null;
-	}
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch, but this is the last case anyway.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+     * @generated
+     */
+    @Override
+    public T defaultCase ( EObject object )
+    {
+        return null;
+    }
 
 } //ProfileSwitch

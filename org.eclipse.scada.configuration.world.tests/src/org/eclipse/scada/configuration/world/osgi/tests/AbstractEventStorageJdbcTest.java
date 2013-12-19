@@ -27,70 +27,76 @@ import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
  * </p>
  * @generated
  */
-public abstract class AbstractEventStorageJdbcTest extends TestCase {
+public abstract class AbstractEventStorageJdbcTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Abstract Event Storage Jdbc test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractEventStorageJdbc fixture = null;
+    /**
+     * The fixture for this Abstract Event Storage Jdbc test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AbstractEventStorageJdbc fixture = null;
 
-	/**
-	 * Constructs a new Abstract Event Storage Jdbc test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractEventStorageJdbcTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Abstract Event Storage Jdbc test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AbstractEventStorageJdbcTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Abstract Event Storage Jdbc test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(AbstractEventStorageJdbc fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Abstract Event Storage Jdbc test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( AbstractEventStorageJdbc fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Abstract Event Storage Jdbc test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AbstractEventStorageJdbc getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Abstract Event Storage Jdbc test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AbstractEventStorageJdbc getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName()
-	 * @generated
-	 */
-	public void testGetJdbcDriverName() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName()
+     * @generated
+     */
+    public void testGetJdbcDriverName ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles() <em>Get Driver Bundles</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles()
-	 * @generated
-	 */
-	public void testGetDriverBundles() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles() <em>Get Driver Bundles</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles()
+     * @generated
+     */
+    public void testGetDriverBundles ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
 } //AbstractEventStorageJdbcTest

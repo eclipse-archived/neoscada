@@ -20,44 +20,48 @@ import org.eclipse.scada.configuration.world.osgi.EventStorage;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class EventStorageTest extends TestCase {
+public abstract class EventStorageTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Event Storage test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EventStorage fixture = null;
+    /**
+     * The fixture for this Event Storage test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventStorage fixture = null;
 
-	/**
-	 * Constructs a new Event Storage test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventStorageTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Event Storage test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventStorageTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Event Storage test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(EventStorage fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Event Storage test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( EventStorage fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Event Storage test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EventStorage getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Event Storage test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventStorage getFixture ()
+    {
+        return fixture;
+    }
 
 } //EventStorageTest

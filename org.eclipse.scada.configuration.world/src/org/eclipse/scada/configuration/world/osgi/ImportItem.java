@@ -26,31 +26,32 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface ImportItem extends Item {
-	/**
-	 * Returns the value of the '<em><b>Export</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Export</em>' reference list isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Export</em>' reference.
-	 * @see #setExport(ItemExport)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getImportItem_Export()
-	 * @model required="true"
-	 * @generated
-	 */
-	ItemExport getExport();
+public interface ImportItem extends Item
+{
+    /**
+     * Returns the value of the '<em><b>Export</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Export</em>' reference list isn't clear, there
+     * really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Export</em>' reference.
+     * @see #setExport(ItemExport)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getImportItem_Export()
+     * @model required="true"
+     * @generated
+     */
+    ItemExport getExport ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ImportItem#getExport <em>Export</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Export</em>' reference.
-	 * @see #getExport()
-	 * @generated
-	 */
-	void setExport(ItemExport value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ImportItem#getExport <em>Export</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Export</em>' reference.
+     * @see #getExport()
+     * @generated
+     */
+    void setExport ( ItemExport value );
 
 } // ImportItem

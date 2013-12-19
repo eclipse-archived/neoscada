@@ -34,168 +34,169 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ScriptItem extends Item {
-	/**
-	 * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ItemReference}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Inputs</em>' containment reference list isn't
-	 * clear, there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inputs</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Inputs()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<ItemReference> getInputs();
+public interface ScriptItem extends Item
+{
+    /**
+     * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ItemReference}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Inputs</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Inputs</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Inputs()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<ItemReference> getInputs ();
 
-	/**
-	 * Returns the value of the '<em><b>Init Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Init Script</em>' attribute isn't clear, there
-	 * really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Init Script</em>' containment reference.
-	 * @see #setInitScript(CodeFragment)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_InitScript()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	CodeFragment getInitScript();
+    /**
+     * Returns the value of the '<em><b>Init Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Init Script</em>' attribute isn't clear, there
+     * really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Init Script</em>' containment reference.
+     * @see #setInitScript(CodeFragment)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_InitScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    CodeFragment getInitScript ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitScript <em>Init Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Init Script</em>' containment reference.
-	 * @see #getInitScript()
-	 * @generated
-	 */
-	void setInitScript(CodeFragment value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getInitScript <em>Init Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Init Script</em>' containment reference.
+     * @see #getInitScript()
+     * @generated
+     */
+    void setInitScript ( CodeFragment value );
 
-	/**
-	 * Returns the value of the '<em><b>Update Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Update Script</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Update Script</em>' containment reference.
-	 * @see #setUpdateScript(CodeFragment)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_UpdateScript()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	CodeFragment getUpdateScript();
+    /**
+     * Returns the value of the '<em><b>Update Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Update Script</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Update Script</em>' containment reference.
+     * @see #setUpdateScript(CodeFragment)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_UpdateScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    CodeFragment getUpdateScript ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getUpdateScript <em>Update Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Update Script</em>' containment reference.
-	 * @see #getUpdateScript()
-	 * @generated
-	 */
-	void setUpdateScript(CodeFragment value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getUpdateScript <em>Update Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Update Script</em>' containment reference.
+     * @see #getUpdateScript()
+     * @generated
+     */
+    void setUpdateScript ( CodeFragment value );
 
-	/**
-	 * Returns the value of the '<em><b>Timer</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Timer</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Timer</em>' containment reference.
-	 * @see #setTimer(ScriptTimer)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Timer()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	ScriptTimer getTimer();
+    /**
+     * Returns the value of the '<em><b>Timer</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Timer</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Timer</em>' containment reference.
+     * @see #setTimer(ScriptTimer)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Timer()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    ScriptTimer getTimer ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getTimer <em>Timer</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timer</em>' containment reference.
-	 * @see #getTimer()
-	 * @generated
-	 */
-	void setTimer(ScriptTimer value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getTimer <em>Timer</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Timer</em>' containment reference.
+     * @see #getTimer()
+     * @generated
+     */
+    void setTimer ( ScriptTimer value );
 
-	/**
-	 * Returns the value of the '<em><b>Script Engine</b></em>' attribute.
-	 * The default value is <code>"JavaScript"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Script Engine</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Script Engine</em>' attribute.
-	 * @see #setScriptEngine(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_ScriptEngine()
-	 * @model default="JavaScript" required="true"
-	 * @generated
-	 */
-	String getScriptEngine();
+    /**
+     * Returns the value of the '<em><b>Script Engine</b></em>' attribute.
+     * The default value is <code>"JavaScript"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Script Engine</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Script Engine</em>' attribute.
+     * @see #setScriptEngine(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_ScriptEngine()
+     * @model default="JavaScript" required="true"
+     * @generated
+     */
+    String getScriptEngine ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getScriptEngine <em>Script Engine</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Script Engine</em>' attribute.
-	 * @see #getScriptEngine()
-	 * @generated
-	 */
-	void setScriptEngine(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getScriptEngine <em>Script Engine</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Script Engine</em>' attribute.
+     * @see #getScriptEngine()
+     * @generated
+     */
+    void setScriptEngine ( String value );
 
-	/**
-	 * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ItemReference}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commands</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Commands()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<ItemReference> getCommands();
+    /**
+     * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.ItemReference}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Commands</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_Commands()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<ItemReference> getCommands ();
 
-	/**
-	 * Returns the value of the '<em><b>Write Command Script</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Write Command Script</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Write Command Script</em>' containment reference.
-	 * @see #setWriteCommandScript(CodeFragment)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_WriteCommandScript()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	CodeFragment getWriteCommandScript();
+    /**
+     * Returns the value of the '<em><b>Write Command Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Write Command Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Write Command Script</em>' containment reference.
+     * @see #setWriteCommandScript(CodeFragment)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getScriptItem_WriteCommandScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    CodeFragment getWriteCommandScript ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getWriteCommandScript <em>Write Command Script</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Write Command Script</em>' containment reference.
-	 * @see #getWriteCommandScript()
-	 * @generated
-	 */
-	void setWriteCommandScript(CodeFragment value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem#getWriteCommandScript <em>Write Command Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Write Command Script</em>' containment reference.
+     * @see #getWriteCommandScript()
+     * @generated
+     */
+    void setWriteCommandScript ( CodeFragment value );
 
 } // ScriptItem

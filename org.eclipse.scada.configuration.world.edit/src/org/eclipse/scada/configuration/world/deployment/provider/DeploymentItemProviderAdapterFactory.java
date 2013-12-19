@@ -40,354 +40,377 @@ import org.eclipse.scada.configuration.world.deployment.util.DeploymentAdapterFa
  * @generated
  */
 public class DeploymentItemProviderAdapterFactory extends
-		DeploymentAdapterFactory implements ComposeableAdapterFactory,
-		IChangeNotifier, IDisposable {
-	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComposedAdapterFactory parentAdapterFactory;
+        DeploymentAdapterFactory implements ComposeableAdapterFactory,
+        IChangeNotifier, IDisposable
+{
+    /**
+     * This keeps track of the root adapter factory that delegates to this adapter factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ComposedAdapterFactory parentAdapterFactory;
 
-	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+    /**
+     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IChangeNotifier changeNotifier = new ChangeNotifier ();
 
-	/**
-	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+    /**
+     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Collection<Object> supportedTypes = new ArrayList<Object> ();
 
-	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeploymentItemProviderAdapterFactory() {
-		supportedTypes.add(IEditingDomainItemProvider.class);
-		supportedTypes.add(IStructuredItemContentProvider.class);
-		supportedTypes.add(ITreeItemContentProvider.class);
-		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);
-		supportedTypes.add(ITableItemLabelProvider.class);
-	}
+    /**
+     * This constructs an instance.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DeploymentItemProviderAdapterFactory ()
+    {
+        supportedTypes.add ( IEditingDomainItemProvider.class );
+        supportedTypes.add ( IStructuredItemContentProvider.class );
+        supportedTypes.add ( ITreeItemContentProvider.class );
+        supportedTypes.add ( IItemLabelProvider.class );
+        supportedTypes.add ( IItemPropertySource.class );
+        supportedTypes.add ( ITableItemLabelProvider.class );
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DebianDeploymentMechanismItemProvider debianDeploymentMechanismItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DebianDeploymentMechanismItemProvider debianDeploymentMechanismItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDebianDeploymentMechanismAdapter() {
-		if (debianDeploymentMechanismItemProvider == null) {
-			debianDeploymentMechanismItemProvider = new DebianDeploymentMechanismItemProvider(
-					this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDebianDeploymentMechanismAdapter ()
+    {
+        if ( debianDeploymentMechanismItemProvider == null )
+        {
+            debianDeploymentMechanismItemProvider = new DebianDeploymentMechanismItemProvider ( this );
+        }
 
-		return debianDeploymentMechanismItemProvider;
-	}
+        return debianDeploymentMechanismItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.Author} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AuthorItemProvider authorItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.Author} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AuthorItemProvider authorItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.Author}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAuthorAdapter() {
-		if (authorItemProvider == null) {
-			authorItemProvider = new AuthorItemProvider(this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.Author}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAuthorAdapter ()
+    {
+        if ( authorItemProvider == null )
+        {
+            authorItemProvider = new AuthorItemProvider ( this );
+        }
 
-		return authorItemProvider;
-	}
+        return authorItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RedhatDeploymentMechanismItemProvider redhatDeploymentMechanismItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RedhatDeploymentMechanismItemProvider redhatDeploymentMechanismItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRedhatDeploymentMechanismAdapter() {
-		if (redhatDeploymentMechanismItemProvider == null) {
-			redhatDeploymentMechanismItemProvider = new RedhatDeploymentMechanismItemProvider(
-					this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRedhatDeploymentMechanismAdapter ()
+    {
+        if ( redhatDeploymentMechanismItemProvider == null )
+        {
+            redhatDeploymentMechanismItemProvider = new RedhatDeploymentMechanismItemProvider ( this );
+        }
 
-		return redhatDeploymentMechanismItemProvider;
-	}
+        return redhatDeploymentMechanismItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DeploymentInformationItemProvider deploymentInformationItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DeploymentInformationItemProvider deploymentInformationItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDeploymentInformationAdapter() {
-		if (deploymentInformationItemProvider == null) {
-			deploymentInformationItemProvider = new DeploymentInformationItemProvider(
-					this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.DeploymentInformation}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDeploymentInformationAdapter ()
+    {
+        if ( deploymentInformationItemProvider == null )
+        {
+            deploymentInformationItemProvider = new DeploymentInformationItemProvider ( this );
+        }
 
-		return deploymentInformationItemProvider;
-	}
+        return deploymentInformationItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.ChangeEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChangeEntryItemProvider changeEntryItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.ChangeEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ChangeEntryItemProvider changeEntryItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.ChangeEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChangeEntryAdapter() {
-		if (changeEntryItemProvider == null) {
-			changeEntryItemProvider = new ChangeEntryItemProvider(this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.ChangeEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createChangeEntryAdapter ()
+    {
+        if ( changeEntryItemProvider == null )
+        {
+            changeEntryItemProvider = new ChangeEntryItemProvider ( this );
+        }
 
-		return changeEntryItemProvider;
-	}
+        return changeEntryItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.NodeMappings} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NodeMappingsItemProvider nodeMappingsItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.NodeMappings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected NodeMappingsItemProvider nodeMappingsItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.NodeMappings}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNodeMappingsAdapter() {
-		if (nodeMappingsItemProvider == null) {
-			nodeMappingsItemProvider = new NodeMappingsItemProvider(this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.NodeMappings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createNodeMappingsAdapter ()
+    {
+        if ( nodeMappingsItemProvider == null )
+        {
+            nodeMappingsItemProvider = new NodeMappingsItemProvider ( this );
+        }
 
-		return nodeMappingsItemProvider;
-	}
+        return nodeMappingsItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExpressionNodeMappingEntryItemProvider expressionNodeMappingEntryItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ExpressionNodeMappingEntryItemProvider expressionNodeMappingEntryItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExpressionNodeMappingEntryAdapter() {
-		if (expressionNodeMappingEntryItemProvider == null) {
-			expressionNodeMappingEntryItemProvider = new ExpressionNodeMappingEntryItemProvider(
-					this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createExpressionNodeMappingEntryAdapter ()
+    {
+        if ( expressionNodeMappingEntryItemProvider == null )
+        {
+            expressionNodeMappingEntryItemProvider = new ExpressionNodeMappingEntryItemProvider ( this );
+        }
 
-		return expressionNodeMappingEntryItemProvider;
-	}
+        return expressionNodeMappingEntryItemProvider;
+    }
 
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SimpleNodeMappingEntryItemProvider simpleNodeMappingEntryItemProvider;
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SimpleNodeMappingEntryItemProvider simpleNodeMappingEntryItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSimpleNodeMappingEntryAdapter() {
-		if (simpleNodeMappingEntryItemProvider == null) {
-			simpleNodeMappingEntryItemProvider = new SimpleNodeMappingEntryItemProvider(
-					this);
-		}
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSimpleNodeMappingEntryAdapter ()
+    {
+        if ( simpleNodeMappingEntryItemProvider == null )
+        {
+            simpleNodeMappingEntryItemProvider = new SimpleNodeMappingEntryItemProvider ( this );
+        }
 
-		return simpleNodeMappingEntryItemProvider;
-	}
+        return simpleNodeMappingEntryItemProvider;
+    }
 
-	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory
-				.getRootAdapterFactory();
-	}
+    /**
+     * This returns the root adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ComposeableAdapterFactory getRootAdapterFactory ()
+    {
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
+    }
 
-	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentAdapterFactory(
-			ComposedAdapterFactory parentAdapterFactory) {
-		this.parentAdapterFactory = parentAdapterFactory;
-	}
+    /**
+     * This sets the composed adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setParentAdapterFactory (
+            ComposedAdapterFactory parentAdapterFactory )
+    {
+        this.parentAdapterFactory = parentAdapterFactory;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isFactoryForType(Object type) {
-		return supportedTypes.contains(type) || super.isFactoryForType(type);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isFactoryForType ( Object type )
+    {
+        return supportedTypes.contains ( type ) || super.isFactoryForType ( type );
+    }
 
-	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
-		return super.adapt(notifier, this);
-	}
+    /**
+     * This implementation substitutes the factory itself as the key for the adapter.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter adapt ( Notifier notifier, Object type )
+    {
+        return super.adapt ( notifier, this );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
-			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>)
-					|| (((Class<?>) type).isInstance(adapter))) {
-				return adapter;
-			}
-		}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object adapt ( Object object, Object type )
+    {
+        if ( isFactoryForType ( type ) )
+        {
+            Object adapter = super.adapt ( object, type );
+            if ( ! ( type instanceof Class<?> ) || ( ( (Class<?>)type ).isInstance ( adapter ) ) )
+            {
+                return adapter;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 
-	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.addListener(notifyChangedListener);
-	}
+    /**
+     * This adds a listener.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void addListener ( INotifyChangedListener notifyChangedListener )
+    {
+        changeNotifier.addListener ( notifyChangedListener );
+    }
 
-	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.removeListener(notifyChangedListener);
-	}
+    /**
+     * This removes a listener.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void removeListener ( INotifyChangedListener notifyChangedListener )
+    {
+        changeNotifier.removeListener ( notifyChangedListener );
+    }
 
-	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void fireNotifyChanged(Notification notification) {
-		changeNotifier.fireNotifyChanged(notification);
+    /**
+     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void fireNotifyChanged ( Notification notification )
+    {
+        changeNotifier.fireNotifyChanged ( notification );
 
-		if (parentAdapterFactory != null) {
-			parentAdapterFactory.fireNotifyChanged(notification);
-		}
-	}
+        if ( parentAdapterFactory != null )
+        {
+            parentAdapterFactory.fireNotifyChanged ( notification );
+        }
+    }
 
-	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void dispose() {
-		if (debianDeploymentMechanismItemProvider != null)
-			debianDeploymentMechanismItemProvider.dispose();
-		if (authorItemProvider != null)
-			authorItemProvider.dispose();
-		if (redhatDeploymentMechanismItemProvider != null)
-			redhatDeploymentMechanismItemProvider.dispose();
-		if (deploymentInformationItemProvider != null)
-			deploymentInformationItemProvider.dispose();
-		if (changeEntryItemProvider != null)
-			changeEntryItemProvider.dispose();
-		if (nodeMappingsItemProvider != null)
-			nodeMappingsItemProvider.dispose();
-		if (expressionNodeMappingEntryItemProvider != null)
-			expressionNodeMappingEntryItemProvider.dispose();
-		if (simpleNodeMappingEntryItemProvider != null)
-			simpleNodeMappingEntryItemProvider.dispose();
-	}
+    /**
+     * This disposes all of the item providers created by this factory. 
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void dispose ()
+    {
+        if ( debianDeploymentMechanismItemProvider != null )
+            debianDeploymentMechanismItemProvider.dispose ();
+        if ( authorItemProvider != null )
+            authorItemProvider.dispose ();
+        if ( redhatDeploymentMechanismItemProvider != null )
+            redhatDeploymentMechanismItemProvider.dispose ();
+        if ( deploymentInformationItemProvider != null )
+            deploymentInformationItemProvider.dispose ();
+        if ( changeEntryItemProvider != null )
+            changeEntryItemProvider.dispose ();
+        if ( nodeMappingsItemProvider != null )
+            nodeMappingsItemProvider.dispose ();
+        if ( expressionNodeMappingEntryItemProvider != null )
+            expressionNodeMappingEntryItemProvider.dispose ();
+        if ( simpleNodeMappingEntryItemProvider != null )
+            simpleNodeMappingEntryItemProvider.dispose ();
+    }
 
 }

@@ -41,248 +41,262 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * @generated
  */
 public class BlockingsImpl extends MinimalEObjectImpl.Container implements
-		Blockings {
-	/**
-	 * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getShortDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
+        Blockings
+{
+    /**
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
-	/**
-	 * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getShortDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getShortDescription()
+     * @generated
+     * @ordered
+     */
+    protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
 
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
 
-	/**
-	 * The cached value of the '{@link #getGroups() <em>Groups</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGroups()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BlockGroup> groups;
+    /**
+     * The cached value of the '{@link #getGroups() <em>Groups</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getGroups()
+     * @generated
+     * @ordered
+     */
+    protected EList<BlockGroup> groups;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BlockingsImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BlockingsImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.BLOCKINGS;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.BLOCKINGS;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getShortDescription() {
-		return shortDescription;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getShortDescription ()
+    {
+        return shortDescription;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setShortDescription(String newShortDescription) {
-		String oldShortDescription = shortDescription;
-		shortDescription = newShortDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION,
-					oldShortDescription, shortDescription));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setShortDescription ( String newShortDescription )
+    {
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName ()
+    {
+        return name;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					OsgiPackage.BLOCKINGS__NAME, oldName, name));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.BLOCKINGS__NAME, oldName, name ) );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BlockGroup> getGroups() {
-		if (groups == null) {
-			groups = new EObjectContainmentEList.Resolving<BlockGroup>(
-					BlockGroup.class, this, OsgiPackage.BLOCKINGS__GROUPS);
-		}
-		return groups;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<BlockGroup> getGroups ()
+    {
+        if ( groups == null )
+        {
+            groups = new EObjectContainmentEList.Resolving<BlockGroup> ( BlockGroup.class, this, OsgiPackage.BLOCKINGS__GROUPS );
+        }
+        return groups;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case OsgiPackage.BLOCKINGS__GROUPS:
-			return ((InternalEList<?>) getGroups()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd,
+            int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BLOCKINGS__GROUPS:
+                return ( (InternalEList<?>)getGroups () ).basicRemove ( otherEnd, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
-			return getShortDescription();
-		case OsgiPackage.BLOCKINGS__NAME:
-			return getName();
-		case OsgiPackage.BLOCKINGS__GROUPS:
-			return getGroups();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
+                return getShortDescription ();
+            case OsgiPackage.BLOCKINGS__NAME:
+                return getName ();
+            case OsgiPackage.BLOCKINGS__GROUPS:
+                return getGroups ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
-			setShortDescription((String) newValue);
-			return;
-		case OsgiPackage.BLOCKINGS__NAME:
-			setName((String) newValue);
-			return;
-		case OsgiPackage.BLOCKINGS__GROUPS:
-			getGroups().clear();
-			getGroups().addAll((Collection<? extends BlockGroup>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
+                setShortDescription ( (String)newValue );
+                return;
+            case OsgiPackage.BLOCKINGS__NAME:
+                setName ( (String)newValue );
+                return;
+            case OsgiPackage.BLOCKINGS__GROUPS:
+                getGroups ().clear ();
+                getGroups ().addAll ( (Collection<? extends BlockGroup>)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
-			setShortDescription(SHORT_DESCRIPTION_EDEFAULT);
-			return;
-		case OsgiPackage.BLOCKINGS__NAME:
-			setName(NAME_EDEFAULT);
-			return;
-		case OsgiPackage.BLOCKINGS__GROUPS:
-			getGroups().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
+                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
+                return;
+            case OsgiPackage.BLOCKINGS__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
+            case OsgiPackage.BLOCKINGS__GROUPS:
+                getGroups ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
-			return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null
-					: !SHORT_DESCRIPTION_EDEFAULT.equals(shortDescription);
-		case OsgiPackage.BLOCKINGS__NAME:
-			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT
-					.equals(name);
-		case OsgiPackage.BLOCKINGS__GROUPS:
-			return groups != null && !groups.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BLOCKINGS__SHORT_DESCRIPTION:
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
+            case OsgiPackage.BLOCKINGS__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case OsgiPackage.BLOCKINGS__GROUPS:
+                return groups != null && !groups.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (shortDescription: "); //$NON-NLS-1$
-		result.append(shortDescription);
-		result.append(", name: "); //$NON-NLS-1$
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (shortDescription: " ); //$NON-NLS-1$
+        result.append ( shortDescription );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ')' );
+        return result.toString ();
+    }
 
 } //BlockingsImpl

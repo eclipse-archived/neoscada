@@ -25,24 +25,27 @@ import org.eclipse.scada.configuration.world.osgi.TransientItem;
  *
  * @generated
  */
-public class TransientItemImpl extends ItemImpl implements TransientItem {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TransientItemImpl() {
-		super();
-	}
+public class TransientItemImpl extends ItemImpl implements TransientItem
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TransientItemImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.TRANSIENT_ITEM;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.TRANSIENT_ITEM;
+    }
 
 } //TransientItemImpl

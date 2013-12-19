@@ -20,6 +20,7 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface DefaultMasterServer extends MasterServer {
+public interface DefaultMasterServer extends MasterServer
+{
 
 } // DefaultMasterServer

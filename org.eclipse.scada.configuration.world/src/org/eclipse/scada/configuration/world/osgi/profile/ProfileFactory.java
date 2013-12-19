@@ -20,68 +20,68 @@ import org.eclipse.emf.ecore.EFactory;
  * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage
  * @generated
  */
-public interface ProfileFactory extends EFactory {
-	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	ProfileFactory eINSTANCE = org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileFactoryImpl
-			.init();
+public interface ProfileFactory extends EFactory
+{
+    /**
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    ProfileFactory eINSTANCE = org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileFactoryImpl.init ();
 
-	/**
-	 * Returns a new object of class '<em>Profile</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Profile</em>'.
-	 * @generated
-	 */
-	Profile createProfile();
+    /**
+     * Returns a new object of class '<em>Profile</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Profile</em>'.
+     * @generated
+     */
+    Profile createProfile ();
 
-	/**
-	 * Returns a new object of class '<em>Start Bundle</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Start Bundle</em>'.
-	 * @generated
-	 */
-	StartBundle createStartBundle();
+    /**
+     * Returns a new object of class '<em>Start Bundle</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Start Bundle</em>'.
+     * @generated
+     */
+    StartBundle createStartBundle ();
 
-	/**
-	 * Returns a new object of class '<em>System Property</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>System Property</em>'.
-	 * @generated
-	 */
-	SystemProperty createSystemProperty();
+    /**
+     * Returns a new object of class '<em>System Property</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>System Property</em>'.
+     * @generated
+     */
+    SystemProperty createSystemProperty ();
 
-	/**
-	 * Returns a new object of class '<em>Sub Profile</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sub Profile</em>'.
-	 * @generated
-	 */
-	SubProfile createSubProfile();
+    /**
+     * Returns a new object of class '<em>Sub Profile</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Sub Profile</em>'.
+     * @generated
+     */
+    SubProfile createSubProfile ();
 
-	/**
-	 * Returns a new object of class '<em>Bundle Start Level</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bundle Start Level</em>'.
-	 * @generated
-	 */
-	BundleStartLevel createBundleStartLevel();
+    /**
+     * Returns a new object of class '<em>Bundle Start Level</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Bundle Start Level</em>'.
+     * @generated
+     */
+    BundleStartLevel createBundleStartLevel ();
 
-	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
-	ProfilePackage getProfilePackage();
+    /**
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
+    ProfilePackage getProfilePackage ();
 
 } //ProfileFactory

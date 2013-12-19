@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model abstract="true"
  * @generated
  */
-public interface ExternalEventFilter extends Documentable {
+public interface ExternalEventFilter extends Documentable
+{
 
 } // ExternalEventFilter

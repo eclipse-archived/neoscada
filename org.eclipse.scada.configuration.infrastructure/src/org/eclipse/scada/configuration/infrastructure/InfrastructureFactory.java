@@ -193,6 +193,15 @@ public interface InfrastructureFactory extends EFactory
     RestExporterModule createRestExporterModule ();
 
     /**
+     * Returns a new object of class '<em>Value Archive Slave</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Value Archive Slave</em>'.
+     * @generated
+     */
+    ValueArchiveSlave createValueArchiveSlave ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

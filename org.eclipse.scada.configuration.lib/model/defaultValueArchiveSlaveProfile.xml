@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="common.profile.xml#/ defaultValueArchiveBaseProfile.xml#/" name="Default Value Slave Profile">
+
+	<start>org.eclipse.scada.hd.server.storage.slave.hds</start>
+
+	<!-- equinox -->
+	
+	<property key="osgi.console.ssh">2503</property>
+	
+	<!-- Eclipse SCADA HD -->
+	
+	<property key="org.eclipse.scada.hd.server.storage.hds.useNaNs">true</property>
+	<property key="org.eclipse.scada.hd.server.storage.hds.basePath">${user.home}/hds.slave</property>
+
+</profile:profile>

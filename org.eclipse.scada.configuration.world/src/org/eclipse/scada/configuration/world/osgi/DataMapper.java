@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model abstract="true"
  * @generated
  */
-public interface DataMapper extends Documentable {
+public interface DataMapper extends Documentable
+{
 
 } // DataMapper

@@ -42,8 +42,8 @@ import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserEntry;
 import org.eclipse.scada.configuration.infrastructure.UserService;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.infrastructure.World;
-import org.eclipse.scada.configuration.item.ItemPackage;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
@@ -234,6 +234,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     private EClass restExporterModuleEClass = null;
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass valueArchiveSlaveEClass = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
      * package
@@ -287,7 +294,6 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         // Initialize simple dependencies
         GlobalizePackage.eINSTANCE.eClass ();
-        ItemPackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theInfrastructurePackage.createPackageContents ();
@@ -854,6 +860,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSystemNode_ValueSlaves ()
+    {
+        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getSystemPropertyUserService ()
     {
@@ -1252,6 +1268,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getValueArchiveSlave ()
+    {
+        return valueArchiveSlaveEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public InfrastructureFactory getInfrastructureFactory ()
     {
@@ -1337,6 +1363,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEReference ( systemNodeEClass, SYSTEM_NODE__VALUE_ARCHIVES );
         createEAttribute ( systemNodeEClass, SYSTEM_NODE__APPLICATIONS );
         createEReference ( systemNodeEClass, SYSTEM_NODE__SERVICES );
+        createEReference ( systemNodeEClass, SYSTEM_NODE__VALUE_SLAVES );
 
         systemPropertyUserServiceEClass = createEClass ( SYSTEM_PROPERTY_USER_SERVICE );
         createEReference ( systemPropertyUserServiceEClass, SYSTEM_PROPERTY_USER_SERVICE__USERS );
@@ -1390,6 +1417,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         restExporterModuleEClass = createEClass ( REST_EXPORTER_MODULE );
         createEAttribute ( restExporterModuleEClass, REST_EXPORTER_MODULE__CONTEXT_ID );
+
+        valueArchiveSlaveEClass = createEClass ( VALUE_ARCHIVE_SLAVE );
     }
 
     /**
@@ -1446,6 +1475,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         applicationConfigurationEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         httpServiceModuleEClass.getESuperTypes ().add ( this.getModule () );
         restExporterModuleEClass.getESuperTypes ().add ( this.getModule () );
+        valueArchiveSlaveEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1506,6 +1536,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getSystemNode_ValueArchives (), this.getValueArchiveServer (), null, "valueArchives", null, 0, -1, SystemNode.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSystemNode_Applications (), ecorePackage.getEFeatureMapEntry (), "applications", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getSystemNode_Services (), theWorldPackage.getService (), null, "services", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSystemNode_ValueSlaves (), this.getValueArchiveSlave (), null, "valueSlaves", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( systemPropertyUserServiceEClass, SystemPropertyUserService.class, "SystemPropertyUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getSystemPropertyUserService_Users (), this.getUserEntry (), null, "users", null, 0, -1, SystemPropertyUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -1559,6 +1590,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( restExporterModuleEClass, RestExporterModule.class, "RestExporterModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getRestExporterModule_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

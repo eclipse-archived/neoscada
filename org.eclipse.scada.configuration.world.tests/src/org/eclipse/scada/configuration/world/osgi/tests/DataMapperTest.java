@@ -20,44 +20,48 @@ import org.eclipse.scada.configuration.world.osgi.DataMapper;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class DataMapperTest extends TestCase {
+public abstract class DataMapperTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Data Mapper test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataMapper fixture = null;
+    /**
+     * The fixture for this Data Mapper test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataMapper fixture = null;
 
-	/**
-	 * Constructs a new Data Mapper test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataMapperTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Data Mapper test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataMapperTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Data Mapper test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(DataMapper fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Data Mapper test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( DataMapper fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Data Mapper test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataMapper getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Data Mapper test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataMapper getFixture ()
+    {
+        return fixture;
+    }
 
 } //DataMapperTest

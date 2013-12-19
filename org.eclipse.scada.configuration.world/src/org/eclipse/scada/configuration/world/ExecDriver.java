@@ -28,31 +28,32 @@ import org.eclipse.scada.da.exec.configuration.RootType;
  * @model
  * @generated
  */
-public interface ExecDriver extends CommonDriver {
-	/**
-	 * Returns the value of the '<em><b>Root</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Root</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' containment reference.
-	 * @see #setRoot(RootType)
-	 * @see org.eclipse.scada.configuration.world.WorldPackage#getExecDriver_Root()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	RootType getRoot();
+public interface ExecDriver extends CommonDriver
+{
+    /**
+     * Returns the value of the '<em><b>Root</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Root</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Root</em>' containment reference.
+     * @see #setRoot(RootType)
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getExecDriver_Root()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    RootType getRoot ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.ExecDriver#getRoot <em>Root</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' containment reference.
-	 * @see #getRoot()
-	 * @generated
-	 */
-	void setRoot(RootType value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.ExecDriver#getRoot <em>Root</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Root</em>' containment reference.
+     * @see #getRoot()
+     * @generated
+     */
+    void setRoot ( RootType value );
 
 } // ExecDriver

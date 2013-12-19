@@ -27,71 +27,78 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * </p>
  * @generated
  */
-public class AlarmsEventsExporterTest extends ExporterTest {
+public class AlarmsEventsExporterTest extends ExporterTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(AlarmsEventsExporterTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( AlarmsEventsExporterTest.class );
+    }
 
-	/**
-	 * Constructs a new Alarms Events Exporter test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AlarmsEventsExporterTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Alarms Events Exporter test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AlarmsEventsExporterTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Alarms Events Exporter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected AlarmsEventsExporter getFixture() {
-		return (AlarmsEventsExporter) fixture;
-	}
+    /**
+     * Returns the fixture for this Alarms Events Exporter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected AlarmsEventsExporter getFixture ()
+    {
+        return (AlarmsEventsExporter)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createAlarmsEventsExporter());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createAlarmsEventsExporter () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter#getTypeTag()
-	 * @generated
-	 */
-	public void testGetTypeTag() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter#getTypeTag()
+     * @generated
+     */
+    public void testGetTypeTag ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
 } //AlarmsEventsExporterTest

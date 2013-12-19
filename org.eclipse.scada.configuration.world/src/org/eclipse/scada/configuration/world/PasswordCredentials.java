@@ -26,31 +26,32 @@ package org.eclipse.scada.configuration.world;
  * @model
  * @generated
  */
-public interface PasswordCredentials extends Credentials {
-	/**
-	 * Returns the value of the '<em><b>Password</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Password</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Password</em>' attribute.
-	 * @see #setPassword(String)
-	 * @see org.eclipse.scada.configuration.world.WorldPackage#getPasswordCredentials_Password()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getPassword();
+public interface PasswordCredentials extends Credentials
+{
+    /**
+     * Returns the value of the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Password</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Password</em>' attribute.
+     * @see #setPassword(String)
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getPasswordCredentials_Password()
+     * @model required="true"
+     * @generated
+     */
+    String getPassword ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.PasswordCredentials#getPassword <em>Password</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Password</em>' attribute.
-	 * @see #getPassword()
-	 * @generated
-	 */
-	void setPassword(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.PasswordCredentials#getPassword <em>Password</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Password</em>' attribute.
+     * @see #getPassword()
+     * @generated
+     */
+    void setPassword ( String value );
 
 } // PasswordCredentials

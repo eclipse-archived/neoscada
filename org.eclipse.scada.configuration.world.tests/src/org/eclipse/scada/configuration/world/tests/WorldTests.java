@@ -21,35 +21,39 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class WorldTests extends TestSuite {
+public class WorldTests extends TestSuite
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(suite());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( suite () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static Test suite() {
-		TestSuite suite = new WorldTests("world Tests"); //$NON-NLS-1$
-		suite.addTestSuite(ExecDriverTest.class);
-		return suite;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static Test suite ()
+    {
+        TestSuite suite = new WorldTests ( "world Tests" ); //$NON-NLS-1$
+        suite.addTestSuite ( ExecDriverTest.class );
+        return suite;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public WorldTests(String name) {
-		super(name);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public WorldTests ( String name )
+    {
+        super ( name );
+    }
 
 } //ConfigurationTests

@@ -20,44 +20,48 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class CredentialsTest extends TestCase {
+public abstract class CredentialsTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Credentials fixture = null;
+    /**
+     * The fixture for this Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Credentials fixture = null;
 
-	/**
-	 * Constructs a new Credentials test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CredentialsTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Credentials test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CredentialsTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Credentials fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Credentials fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Credentials test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Credentials getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Credentials test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Credentials getFixture ()
+    {
+        return fixture;
+    }
 
 } //CredentialsTest

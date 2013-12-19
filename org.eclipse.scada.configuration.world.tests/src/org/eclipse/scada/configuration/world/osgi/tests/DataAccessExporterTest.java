@@ -27,71 +27,78 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
  * </p>
  * @generated
  */
-public class DataAccessExporterTest extends ExporterTest {
+public class DataAccessExporterTest extends ExporterTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(DataAccessExporterTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( DataAccessExporterTest.class );
+    }
 
-	/**
-	 * Constructs a new Data Access Exporter test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataAccessExporterTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Data Access Exporter test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataAccessExporterTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Data Access Exporter test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected DataAccessExporter getFixture() {
-		return (DataAccessExporter) fixture;
-	}
+    /**
+     * Returns the fixture for this Data Access Exporter test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected DataAccessExporter getFixture ()
+    {
+        return (DataAccessExporter)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(OsgiFactory.eINSTANCE.createDataAccessExporter());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( OsgiFactory.eINSTANCE.createDataAccessExporter () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.osgi.DataAccessExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.osgi.DataAccessExporter#getTypeTag()
-	 * @generated
-	 */
-	public void testGetTypeTag() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.osgi.DataAccessExporter#getTypeTag() <em>Get Type Tag</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.DataAccessExporter#getTypeTag()
+     * @generated
+     */
+    public void testGetTypeTag ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
 } //DataAccessExporterTest

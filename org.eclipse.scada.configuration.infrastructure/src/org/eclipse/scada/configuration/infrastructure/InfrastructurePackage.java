@@ -950,13 +950,22 @@ public interface InfrastructurePackage extends EPackage
     int SYSTEM_NODE__SERVICES = NODE_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Value Slaves</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_NODE__VALUE_SLAVES = NODE_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>System Node</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SYSTEM_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 6;
+    int SYSTEM_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 7;
 
     /**
      * The number of operations of the '<em>System Node</em>' class.
@@ -1666,6 +1675,70 @@ public interface InfrastructurePackage extends EPackage
     int REST_EXPORTER_MODULE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl <em>Value Archive Slave</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getValueArchiveSlave()
+     * @generated
+     */
+    int VALUE_ARCHIVE_SLAVE = 25;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__NAME = EQUINOX_APPLICATION__NAME;
+
+    /**
+     * The feature id for the '<em><b>Instance Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__INSTANCE_NUMBER = EQUINOX_APPLICATION__INSTANCE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__CONFIGURATIONS = EQUINOX_APPLICATION__CONFIGURATIONS;
+
+    /**
+     * The feature id for the '<em><b>Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__CONFIGURATION = EQUINOX_APPLICATION__CONFIGURATION;
+
+    /**
+     * The number of structural features of the '<em>Value Archive Slave</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Value Archive Slave</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE_OPERATION_COUNT = EQUINOX_APPLICATION_OPERATION_COUNT + 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2207,6 +2280,17 @@ public interface InfrastructurePackage extends EPackage
     EReference getSystemNode_Services ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getValueSlaves <em>Value Slaves</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Value Slaves</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.SystemNode#getValueSlaves()
+     * @see #getSystemNode()
+     * @generated
+     */
+    EReference getSystemNode_ValueSlaves ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService <em>System Property User Service</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2596,6 +2680,16 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EAttribute getRestExporterModule_ContextId ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave <em>Value Archive Slave</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Value Archive Slave</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave
+     * @generated
+     */
+    EClass getValueArchiveSlave ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -3040,6 +3134,14 @@ public interface InfrastructurePackage extends EPackage
         EReference SYSTEM_NODE__SERVICES = eINSTANCE.getSystemNode_Services ();
 
         /**
+         * The meta object literal for the '<em><b>Value Slaves</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SYSTEM_NODE__VALUE_SLAVES = eINSTANCE.getSystemNode_ValueSlaves ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.SystemPropertyUserServiceImpl <em>System Property User Service</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3366,6 +3468,16 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute REST_EXPORTER_MODULE__CONTEXT_ID = eINSTANCE.getRestExporterModule_ContextId ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl <em>Value Archive Slave</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.ValueArchiveSlaveImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getValueArchiveSlave()
+         * @generated
+         */
+        EClass VALUE_ARCHIVE_SLAVE = eINSTANCE.getValueArchiveSlave ();
 
     }
 

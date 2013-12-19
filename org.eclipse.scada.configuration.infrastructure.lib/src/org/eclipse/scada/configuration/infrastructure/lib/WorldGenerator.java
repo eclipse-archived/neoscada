@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.generator.GeneratorContext.GlobalContext;
@@ -42,8 +43,10 @@ import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
 import org.eclipse.scada.configuration.recipe.lib.Output;
+import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.utils.TypeWalker;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.Credentials;
@@ -55,6 +58,7 @@ import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.lib.Nodes;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
+import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
 import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
@@ -128,7 +132,7 @@ public class WorldGenerator
         return this.driverMap;
     }
 
-    public void generate ( final IProgressMonitor monitor )
+    public void generate ( final IProgressMonitor monitor ) throws Exception
     {
         this.world = WorldFactory.eINSTANCE.createWorld ();
         this.world.setOptions ( WorldFactory.eINSTANCE.createOptions () );
@@ -152,7 +156,7 @@ public class WorldGenerator
         this.world.getNodes ().add ( cfgNode );
     }
 
-    protected void fillWorld ()
+    protected void fillWorld () throws Exception
     {
         final Map<org.eclipse.scada.configuration.infrastructure.Node, Node> nodes = new HashMap<> ();
 
@@ -262,6 +266,25 @@ public class WorldGenerator
 
                     this.archiveMap.put ( this.ctxMap.get ( entry.getKey () ).getImplementation (), archive );
                 }
+            }
+
+            for ( final ValueArchiveSlave slave : infraNode.getValueSlaves () )
+            {
+                final int in = slave.getInstanceNumber ();
+
+                final DefaultEquinoxApplication app = OsgiFactory.eINSTANCE.createDefaultEquinoxApplication ();
+                app.setName ( slave.getName () );
+                app.setProfile ( new ModelLoader<> ( Profile.class ).load ( URI.createURI ( "platform:/plguin/org.eclipse.scada.configuration.lib/model/defaultValueServiceSlaveProfile.xml" ) ) );
+                node.getApplications ().add ( app );
+
+                // add security configuration
+                app.setSecurityConfiguration ( this.infrastructure.getDefaultSecurityConfiguration () );
+
+                // add user service
+                Worlds.addUserService ( app, null, this.options );
+
+                createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
+                createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
             }
 
         }

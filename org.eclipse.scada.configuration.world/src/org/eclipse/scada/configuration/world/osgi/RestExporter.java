@@ -31,63 +31,64 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface RestExporter extends ApplicationModule {
-	/**
-	 * Returns the value of the '<em><b>Items</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Items</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Items</em>' reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_Items()
-	 * @model
-	 * @generated
-	 */
-	EList<Item> getItems();
+public interface RestExporter extends ApplicationModule
+{
+    /**
+     * Returns the value of the '<em><b>Items</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.Item}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Items</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Items</em>' reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_Items()
+     * @model
+     * @generated
+     */
+    EList<Item> getItems ();
 
-	/**
-	 * Returns the value of the '<em><b>Hive Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Hive Properties</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hive Properties</em>' containment reference list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_HiveProperties()
-	 * @model containment="true" resolveProxies="true"
-	 * @generated
-	 */
-	EList<PropertyEntry> getHiveProperties();
+    /**
+     * Returns the value of the '<em><b>Hive Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hive Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hive Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_HiveProperties()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<PropertyEntry> getHiveProperties ();
 
-	/**
-	 * Returns the value of the '<em><b>Context Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Context Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Context Id</em>' attribute.
-	 * @see #setContextId(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_ContextId()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getContextId();
+    /**
+     * Returns the value of the '<em><b>Context Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Context Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Context Id</em>' attribute.
+     * @see #setContextId(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getRestExporter_ContextId()
+     * @model required="true"
+     * @generated
+     */
+    String getContextId ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getContextId <em>Context Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context Id</em>' attribute.
-	 * @see #getContextId()
-	 * @generated
-	 */
-	void setContextId(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.RestExporter#getContextId <em>Context Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Context Id</em>' attribute.
+     * @see #getContextId()
+     * @generated
+     */
+    void setContextId ( String value );
 
 } // RestExporter

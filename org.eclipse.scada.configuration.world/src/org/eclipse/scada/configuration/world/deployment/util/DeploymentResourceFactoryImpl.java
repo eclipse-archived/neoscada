@@ -23,27 +23,30 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * @see org.eclipse.scada.configuration.world.deployment.util.DeploymentResourceImpl
  * @generated
  */
-public class DeploymentResourceFactoryImpl extends ResourceFactoryImpl {
-	/**
-	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeploymentResourceFactoryImpl() {
-		super();
-	}
+public class DeploymentResourceFactoryImpl extends ResourceFactoryImpl
+{
+    /**
+     * Creates an instance of the resource factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DeploymentResourceFactoryImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Resource createResource(URI uri) {
-		Resource result = new DeploymentResourceImpl(uri);
-		return result;
-	}
+    /**
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Resource createResource ( URI uri )
+    {
+        Resource result = new DeploymentResourceImpl ( uri );
+        return result;
+    }
 
 } //DeploymentResourceFactoryImpl

@@ -20,5 +20,6 @@ package org.eclipse.scada.configuration.world;
  * @model
  * @generated
  */
-public interface ExternalNode extends Node {
+public interface ExternalNode extends Node
+{
 } // ExternalNode

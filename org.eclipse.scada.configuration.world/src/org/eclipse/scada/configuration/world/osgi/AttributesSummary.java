@@ -29,46 +29,47 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface AttributesSummary extends ItemFeatureEntry {
-	/**
-	 * Returns the value of the '<em><b>Attributes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The attribute groups to summarize.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Attributes</em>' attribute list.
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAttributesSummary_Attributes()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getAttributes();
+public interface AttributesSummary extends ItemFeatureEntry
+{
+    /**
+     * Returns the value of the '<em><b>Attributes</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The attribute groups to summarize.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Attributes</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAttributesSummary_Attributes()
+     * @model
+     * @generated
+     */
+    EList<String> getAttributes ();
 
-	/**
-	 * Returns the value of the '<em><b>Output Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Output Prefix</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Prefix</em>' attribute.
-	 * @see #setOutputPrefix(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAttributesSummary_OutputPrefix()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getOutputPrefix();
+    /**
+     * Returns the value of the '<em><b>Output Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Output Prefix</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Output Prefix</em>' attribute.
+     * @see #setOutputPrefix(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAttributesSummary_OutputPrefix()
+     * @model required="true"
+     * @generated
+     */
+    String getOutputPrefix ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.AttributesSummary#getOutputPrefix <em>Output Prefix</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Prefix</em>' attribute.
-	 * @see #getOutputPrefix()
-	 * @generated
-	 */
-	void setOutputPrefix(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.AttributesSummary#getOutputPrefix <em>Output Prefix</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Output Prefix</em>' attribute.
+     * @see #getOutputPrefix()
+     * @generated
+     */
+    void setOutputPrefix ( String value );
 
 } // AttributesSummary

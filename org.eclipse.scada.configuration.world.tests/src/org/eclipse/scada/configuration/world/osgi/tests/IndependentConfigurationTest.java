@@ -21,44 +21,48 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class IndependentConfigurationTest extends TestCase {
+public abstract class IndependentConfigurationTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Independent Configuration test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IndependentConfiguration fixture = null;
+    /**
+     * The fixture for this Independent Configuration test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IndependentConfiguration fixture = null;
 
-	/**
-	 * Constructs a new Independent Configuration test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IndependentConfigurationTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Independent Configuration test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IndependentConfigurationTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Independent Configuration test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(IndependentConfiguration fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Independent Configuration test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( IndependentConfiguration fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Independent Configuration test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IndependentConfiguration getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Independent Configuration test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IndependentConfiguration getFixture ()
+    {
+        return fixture;
+    }
 
 } //IndependentConfigurationTest

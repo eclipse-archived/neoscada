@@ -29,59 +29,60 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ItemFeatureEntry extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
-	 * should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemFeatureEntry_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
+public interface ItemFeatureEntry extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+     * should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemFeatureEntry_Name()
+     * @model required="true"
+     * @generated
+     */
+    String getName ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
+     * @generated
+     */
+    void setName ( String value );
 
-	/**
-	 * Returns the value of the '<em><b>Item</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.world.osgi.Item#getItemFeatures <em>Item Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item</em>' container reference.
-	 * @see #setItem(Item)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemFeatureEntry_Item()
-	 * @see org.eclipse.scada.configuration.world.osgi.Item#getItemFeatures
-	 * @model opposite="itemFeatures" required="true" transient="false"
-	 * @generated
-	 */
-	Item getItem();
+    /**
+     * Returns the value of the '<em><b>Item</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.world.osgi.Item#getItemFeatures <em>Item Features</em>}'.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Item</em>' container reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Item</em>' container reference.
+     * @see #setItem(Item)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getItemFeatureEntry_Item()
+     * @see org.eclipse.scada.configuration.world.osgi.Item#getItemFeatures
+     * @model opposite="itemFeatures" required="true" transient="false"
+     * @generated
+     */
+    Item getItem ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry#getItem <em>Item</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item</em>' container reference.
-	 * @see #getItem()
-	 * @generated
-	 */
-	void setItem(Item value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry#getItem <em>Item</em>}' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Item</em>' container reference.
+     * @see #getItem()
+     * @generated
+     */
+    void setItem ( Item value );
 
 } // ItemFeatureEntry

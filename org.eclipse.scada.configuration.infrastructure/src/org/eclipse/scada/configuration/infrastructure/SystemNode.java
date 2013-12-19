@@ -29,6 +29,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getValueArchives <em>Value Archives</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getApplications <em>Applications</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getServices <em>Services</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getValueSlaves <em>Value Slaves</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +139,21 @@ public interface SystemNode extends Node
      * @generated
      */
     EList<Service> getServices ();
+
+    /**
+     * Returns the value of the '<em><b>Value Slaves</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Value Slaves</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Value Slaves</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getSystemNode_ValueSlaves()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<ValueArchiveSlave> getValueSlaves ();
 
 } // SystemNode

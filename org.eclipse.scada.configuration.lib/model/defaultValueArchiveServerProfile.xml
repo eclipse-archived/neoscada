@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="common.profile.xml#/" name="Default Master Server Profile">
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile" xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile" includes="common.profile.xml#/ defaultValueArchiveBaseProfile.xml#/" name="Default Value Server Profile">
 
-	<start>org.eclipse.scada.sec.audit.log.slf4j</start>
-
-	<start>org.eclipse.scada.da.server.osgi.exporter.net</start>
-	<start>org.eclipse.scada.da.client.net</start>
-	<start>org.eclipse.scada.da.client.ngp</start>
-	<start>org.eclipse.scada.da.server.common.osgi</start>
-	<start>org.eclipse.scada.da.connection.provider</start>
-	<start>org.eclipse.scada.da.client.connection.service</start>
-	<start>org.eclipse.scada.da.master.analyzer</start>
-	<start>org.eclipse.scada.da.datasource.item</start>
-	<start>org.eclipse.scada.da.datasource.proxy</start>
-	<start>org.eclipse.scada.ds.storage.file</start>
-
-	<start>org.eclipse.scada.hd.server.common</start>
-	<start>org.eclipse.scada.hd.server.common.item</start>
-	<start>org.eclipse.scada.hd.server.exporter.net</start>
-	<start>org.eclipse.scada.hd.server.exporter.ngp</start>
-	<start>org.eclipse.scada.hd.server.net</start>
-	<start>org.eclipse.scada.hd.server.proxy</start>
-	<start>org.eclipse.scada.hd.server.storage.hds</start>
 	<start>org.eclipse.scada.hd.server.storage.master.hds</start>
-	
-	<feature>org.eclipse.scada.core.protocols.feature.group</feature>
-	<feature>org.eclipse.scada.core.server.feature.group</feature>
-	<feature>org.eclipse.scada.core.client.feature.group</feature>
-	<feature>org.eclipse.scada.core.common.feature.group</feature>
-	
-	<argument>-Xmx192m</argument>
-	<argument>-Xms192m</argument>
-	<argument>-XX:PermSize=64m</argument>
-	<argument>-XX:MaxPermSize=128m</argument>
-	<argument>-XX:+UseParNewGC</argument>
-	<argument>-XX:+UseConcMarkSweepGC</argument>
-	<argument>-XX:+CMSIncrementalMode</argument>
-	<argument>-XX:+CMSParallelRemarkEnabled</argument>
 	
 	<!-- equinox -->
 	

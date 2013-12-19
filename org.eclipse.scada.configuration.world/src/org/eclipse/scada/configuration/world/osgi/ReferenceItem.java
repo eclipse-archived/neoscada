@@ -26,31 +26,32 @@ package org.eclipse.scada.configuration.world.osgi;
  * @model
  * @generated
  */
-public interface ReferenceItem extends Item {
-	/**
-	 * Returns the value of the '<em><b>Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Item)
-	 * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getReferenceItem_Source()
-	 * @model required="true"
-	 * @generated
-	 */
-	Item getSource();
+public interface ReferenceItem extends Item
+{
+    /**
+     * Returns the value of the '<em><b>Source</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Source</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Source</em>' reference.
+     * @see #setSource(Item)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getReferenceItem_Source()
+     * @model required="true"
+     * @generated
+     */
+    Item getSource ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ReferenceItem#getSource <em>Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' reference.
-	 * @see #getSource()
-	 * @generated
-	 */
-	void setSource(Item value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.ReferenceItem#getSource <em>Source</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Source</em>' reference.
+     * @see #getSource()
+     * @generated
+     */
+    void setSource ( Item value );
 
 } // ReferenceItem

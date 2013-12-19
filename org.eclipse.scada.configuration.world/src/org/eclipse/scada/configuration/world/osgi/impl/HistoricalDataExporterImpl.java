@@ -27,48 +27,54 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * @generated
  */
 public class HistoricalDataExporterImpl extends ExporterImpl implements
-		HistoricalDataExporter {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected HistoricalDataExporterImpl() {
-		super();
-	}
+        HistoricalDataExporter
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected HistoricalDataExporterImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTypeTag() {
-		return "hd";
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getTypeTag ()
+    {
+        return "hd";
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments)
-			throws InvocationTargetException {
-		switch (operationID) {
-		case OsgiPackage.HISTORICAL_DATA_EXPORTER___GET_TYPE_TAG:
-			return getTypeTag();
-		}
-		return super.eInvoke(operationID, arguments);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments )
+            throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case OsgiPackage.HISTORICAL_DATA_EXPORTER___GET_TYPE_TAG:
+                return getTypeTag ();
+        }
+        return super.eInvoke ( operationID, arguments );
+    }
 
 } //HistoricalDataExporterImpl

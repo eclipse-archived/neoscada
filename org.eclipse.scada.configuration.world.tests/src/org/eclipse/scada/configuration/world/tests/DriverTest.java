@@ -26,57 +26,62 @@ import org.eclipse.scada.configuration.world.Driver;
  * </p>
  * @generated
  */
-public abstract class DriverTest extends TestCase {
+public abstract class DriverTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Driver fixture = null;
+    /**
+     * The fixture for this Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Driver fixture = null;
 
-	/**
-	 * Constructs a new Driver test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DriverTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Driver test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DriverTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Driver fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Driver fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Driver test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Driver getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Driver test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Driver getFixture ()
+    {
+        return fixture;
+    }
 
-	/**
-	 * Tests the '{@link org.eclipse.scada.configuration.world.Driver#getEndpoints() <em>Get Endpoints</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.scada.configuration.world.Driver#getEndpoints()
-	 * @generated
-	 */
-	public void testGetEndpoints() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.world.Driver#getEndpoints() <em>Get Endpoints</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.Driver#getEndpoints()
+     * @generated
+     */
+    public void testGetEndpoints ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
+    }
 
 } //DriverTest
