@@ -78,6 +78,7 @@
 		<module>../org.eclipse.scada.ide-p2</module> <!-- holds the p2 build -->
 
 		<module>../org.eclipse.scada.configuration.feature</module>
+		<module>../org.eclipse.scada.configuration.doc.feature</module>
 		<module>../org.eclipse.scada.configuration.sdk.feature</module>
 
 		<module>../org.eclipse.scada.ide.protocol.ngp.feature</module>
