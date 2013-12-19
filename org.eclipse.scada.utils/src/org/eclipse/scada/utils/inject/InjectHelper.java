@@ -26,7 +26,7 @@ public class InjectHelper
 
     public static void injectFields ( final Object target, final Collection<Field> fields, final Map<String, Object> context, final List<Object> specialInstances )
     {
-        for ( final Field field : fields )
+        fields: for ( final Field field : fields )
         {
             // check annotation
 
@@ -70,7 +70,7 @@ public class InjectHelper
                             throw new RuntimeException ( e );
                         }
                         // continue with other fields
-                        continue;
+                        continue fields;
                     }
                 }
             }
