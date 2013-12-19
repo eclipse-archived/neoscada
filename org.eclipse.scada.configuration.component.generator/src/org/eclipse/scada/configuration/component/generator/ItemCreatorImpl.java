@@ -178,7 +178,7 @@ public class ItemCreatorImpl extends MasterItemCreatorImpl
             final ValueArchiveServer archive = this.ctx.getArchiveServer ( this.master.getImplementation () );
             if ( archive == null )
             {
-                throw new IllegalStateException ( String.format ( "Item %s should be archive but no archive server is configured on %s", item, this.master ) );
+                throw new IllegalStateException ( String.format ( "Item %s should be archived but no archive server is configured on %s", item, this.master ) );
             }
             Items.addArchive ( archive, item );
         }

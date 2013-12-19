@@ -89,6 +89,19 @@ public interface GeneratorContext
         {
             this.globalContext = globalContext;
         }
+
+        @Override
+        public String toString ()
+        {
+            if ( definition != null )
+            {
+                return definition.toString ();
+            }
+            else
+            {
+                return "null";
+            }
+        }
     }
 
     public Map<Driver, org.eclipse.scada.configuration.world.Driver> getDriverMap ();
