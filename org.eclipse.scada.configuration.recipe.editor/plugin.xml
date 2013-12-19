@@ -20,7 +20,7 @@
             id="org.eclipse.scada.configuration.recipe.presentation.RecipeModelWizardID"
             name="%_UI_RecipeModelWizard_label"
             class="org.eclipse.scada.configuration.recipe.presentation.RecipeModelWizard"
-            category="org.eclipse.scada.configuration.models"
+            category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
             icon="icons/full/obj16/RecipeModelFile.gif">
          <description>%_UI_RecipeModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

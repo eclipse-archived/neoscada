@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib;
 
+import java.util.Map;
+
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.eclipse.core.resources.IContainer;
@@ -23,6 +26,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.recipe.lib.ExecutableContext;
 import org.eclipse.scada.configuration.utils.Factories;
 import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.world.Application;
@@ -47,6 +51,21 @@ public class WorldRunner
     private final static Logger logger = LoggerFactory.getLogger ( WorldRunner.class );
 
     private static final String ELE_NODE_ELEMENT_PROCESSOR = "nodeElementProcessor"; //$NON-NLS-1$
+
+    @Inject
+    private ExecutableContext context;
+
+    private ExecutableContext getContext ()
+    {
+        if ( this.context != null )
+        {
+            return this.context;
+        }
+        else
+        {
+            return ExecutableContext.EMPTY;
+        }
+    }
 
     public void processUri ( final URI input, final IContainer output, final IProgressMonitor monitor ) throws Exception
     {
@@ -94,7 +113,7 @@ public class WorldRunner
             logger.debug ( "Processing application: {}", app ); //$NON-NLS-1$
 
             final NodeElementProcessor processor = createProcessor ( app, world, applicationNode );
-            processor.process ( phase, nodeDir, monitor );
+            processor.process ( phase, nodeDir, monitor, getContext ().getProperties () );
         }
 
         for ( final DeploymentMechanism deploy : applicationNode.getDeployments () )
@@ -102,7 +121,7 @@ public class WorldRunner
             logger.debug ( "Processing deployment: {}", deploy ); //$NON-NLS-1$
 
             final NodeElementProcessor processor = createProcessor ( deploy, world, applicationNode );
-            processor.process ( phase, nodeDir, monitor );
+            processor.process ( phase, nodeDir, monitor, getContext ().getProperties () );
         }
 
         for ( final Service service : applicationNode.getServices () )
@@ -110,7 +129,7 @@ public class WorldRunner
             logger.debug ( "Processing service: {}", service ); //$NON-NLS-1$
 
             final NodeElementProcessor processor = createProcessor ( service, world, applicationNode );
-            processor.process ( phase, nodeDir, monitor );
+            processor.process ( phase, nodeDir, monitor, getContext ().getProperties () );
         }
     }
 
@@ -123,7 +142,7 @@ public class WorldRunner
             return new NodeElementProcessor () {
 
                 @Override
-                public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor ) throws Exception
+                public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
                 {
                     // no-op
                 }

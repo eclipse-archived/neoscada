@@ -53,6 +53,24 @@ public abstract class CommonHandler implements NodeElementProcessor
         this.applicationNode = applicationNode;
     }
 
+    @Override
+    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
+    {
+        if ( phase != null && !"package".equals ( phase ) )
+        {
+            return;
+        }
+
+        if ( Boolean.parseBoolean ( properties.get ( "skipDeployment" ) ) )
+        {
+            return;
+        }
+
+        handleProcess ( nodeDir, monitor, properties );
+    }
+
+    protected abstract void handleProcess ( IFolder nodeDir, IProgressMonitor monitor, Map<String, String> properties ) throws Exception;
+
     protected abstract String getBaseFolderName ();
 
     public String getPackageName ()

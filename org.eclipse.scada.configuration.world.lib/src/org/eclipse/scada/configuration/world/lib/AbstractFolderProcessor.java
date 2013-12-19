@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib;
 
+import java.util.Map;
+
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.world.Documentable;
@@ -22,7 +24,7 @@ public abstract class AbstractFolderProcessor extends BasicProcessor implements 
     }
 
     @Override
-    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
+    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
     {
         if ( phase != null && !"package".equals ( phase ) )
         {

@@ -45,9 +45,11 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.scada.configuration.recipe.Definition;
 import org.eclipse.scada.configuration.recipe.RecipeFactory;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
 import org.eclipse.scada.configuration.recipe.provider.RecipeEditPlugin;
+import org.eclipse.scada.ui.databinding.SelectionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -199,12 +201,19 @@ public class RecipeModelWizard extends Wizard implements INewWizard
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated NOT
      */
     protected EObject createInitialModel ()
     {
         final EClass eClass = (EClass)this.recipePackage.getEClassifier ( this.initialObjectCreationPage.getInitialObjectName () );
         final EObject rootObject = this.recipeFactory.create ( eClass );
+
+        if ( rootObject instanceof Definition )
+        {
+            final List<Definition> defs = SelectionHelper.list ( this.selection, Definition.class );
+            ( (Definition)rootObject ).getImport ().addAll ( defs );
+        }
+
         return rootObject;
     }
 

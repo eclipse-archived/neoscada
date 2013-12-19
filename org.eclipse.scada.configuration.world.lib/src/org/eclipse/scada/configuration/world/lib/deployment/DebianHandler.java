@@ -55,13 +55,8 @@ public class DebianHandler extends CommonHandler
     }
 
     @Override
-    public void process ( final String phase, final IFolder nodeDir, final IProgressMonitor monitor ) throws Exception
+    protected void handleProcess ( final IFolder nodeDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
     {
-        if ( phase != null && !"package".equals ( phase ) )
-        {
-            return;
-        }
-
         final File packageFolder = getPackageFolder ( nodeDir );
 
         final String packageName = getPackageName ();

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib;
 
+import java.util.Map;
+
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
 
@@ -29,8 +31,10 @@ public interface NodeElementProcessor
      *            the base directory for output
      * @param monitor
      *            the monitor
+     * @param properties
+     *            global properties that miay influence the processing
      * @throws Exception
      *             if anything goes wrong
      */
-    public void process ( String phase, IFolder baseDir, IProgressMonitor monitor ) throws Exception;
+    public void process ( String phase, IFolder baseDir, IProgressMonitor monitor, Map<String, String> properties ) throws Exception;
 }

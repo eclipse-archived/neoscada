@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.world.lib;
 
 import java.io.FileOutputStream;
+import java.util.Map;
 import java.util.Properties;
 
 import org.eclipse.core.resources.IFile;
@@ -38,7 +39,7 @@ public abstract class DriverProcessor implements NodeElementProcessor
     }
 
     @Override
-    public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor ) throws Exception
+    public void process ( final String phase, final IFolder baseDir, final IProgressMonitor monitor, final Map<String, String> properties ) throws Exception
     {
         if ( phase != null && !"process".equals ( phase ) )
         {
