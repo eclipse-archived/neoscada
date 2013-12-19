@@ -92,13 +92,17 @@ public class AbstractStorageManager
      */
     protected String probe ( final File file )
     {
+        logger.debug ( "Probing: {}", file );
+
         final File settingsFile = new File ( file, "settings.xml" );
         if ( !settingsFile.isFile () )
         {
+            logger.debug ( "No settings file: {}", settingsFile );
             return null;
         }
         if ( !settingsFile.canRead () )
         {
+            logger.debug ( "Settings file not readable: {}", settingsFile );
             return null;
         }
 
@@ -106,6 +110,7 @@ public class AbstractStorageManager
         try
         {
             p.loadFromXML ( new FileInputStream ( settingsFile ) );
+            logger.debug ( "Loaded properties: {}", p );
             return p.getProperty ( "id" );
         }
         catch ( final Exception e )

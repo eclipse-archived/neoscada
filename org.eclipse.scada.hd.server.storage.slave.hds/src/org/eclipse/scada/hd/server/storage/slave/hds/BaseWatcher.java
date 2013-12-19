@@ -71,6 +71,8 @@ public class BaseWatcher
             baseWatcher.addWatcherMap ( new File ( path.toFile (), "native" ).toPath (), this );
 
             final File nativeDir = new File ( path.toFile (), "native" );
+            logger.debug ( "Checking native dir: {}", nativeDir );
+
             if ( nativeDir.exists () && nativeDir.isDirectory () )
             {
                 this.nativeKey = nativeDir.toPath ().register ( this.watcher, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE );
@@ -81,6 +83,9 @@ public class BaseWatcher
         public void check ()
         {
             final String id = this.storageManager.probe ( this.path.toFile () );
+
+            logger.debug ( "Checking - id: {}, file: {}", id, this.path );
+
             if ( id == null )
             {
                 logger.info ( "Path {} is not a valid storage", this.path );
