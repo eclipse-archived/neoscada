@@ -13,6 +13,9 @@
                class="org.eclipse.scada.configuration.world.osgi.ValueArchiveServer">
          </forClass>
          <forClass
+               class="org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication">
+         </forClass>
+         <forClass
                class="org.eclipse.scada.configuration.world.ExecDriver">
          </forClass>
          <forClass

@@ -17,8 +17,10 @@ import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanis
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.DebianHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.RedhatHandler;
+import org.eclipse.scada.configuration.world.lib.oscar.DefaultEquinoxApplicationProcessor;
 import org.eclipse.scada.configuration.world.lib.oscar.MasterServerProcessor;
 import org.eclipse.scada.configuration.world.lib.oscar.ValueArchiveServerProcessor;
+import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.ValueArchiveServer;
 
@@ -47,6 +49,10 @@ public class DefaultNodeElementProcessorFactoryImpl implements NodeElementProces
         else if ( element instanceof RedhatDeploymentMechanism )
         {
             return new RedhatHandler ( applicationNode, (RedhatDeploymentMechanism)element );
+        }
+        else if ( element instanceof DefaultEquinoxApplication )
+        {
+            return new DefaultEquinoxApplicationProcessor ( (DefaultEquinoxApplication)element );
         }
         return null;
     }
