@@ -115,7 +115,7 @@ public class RedhatHandler extends CommonHandler
 
         // run rpmbuild
 
-        if ( Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
+        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
         {
             monitor.setTaskName ( "Running rpmbuild" );
 

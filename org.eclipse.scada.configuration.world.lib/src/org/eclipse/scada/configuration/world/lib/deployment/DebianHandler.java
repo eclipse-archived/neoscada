@@ -92,7 +92,7 @@ public class DebianHandler extends CommonHandler
 
         // run debuild
 
-        if ( Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
+        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
         {
 
             monitor.setTaskName ( "Running \"debuild -us -uc\"" );
