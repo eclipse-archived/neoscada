@@ -258,6 +258,31 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.recipe.PropertyEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PropertyEntryItemProvider propertyEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.recipe.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPropertyEntryAdapter ()
+    {
+        if ( propertyEntryItemProvider == null )
+        {
+            propertyEntryItemProvider = new PropertyEntryItemProvider ( this );
+        }
+
+        return propertyEntryItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -382,6 +407,8 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
             captureOutputItemProvider.dispose ();
         if ( inputReferenceItemProvider != null )
             inputReferenceItemProvider.dispose ();
+        if ( propertyEntryItemProvider != null )
+            propertyEntryItemProvider.dispose ();
     }
 
 }

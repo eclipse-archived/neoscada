@@ -95,6 +95,15 @@ public interface RecipeFactory extends EFactory
     InputReference createInputReference ();
 
     /**
+     * Returns a new object of class '<em>Property Entry</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Property Entry</em>'.
+     * @generated
+     */
+    PropertyEntry createPropertyEntry ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

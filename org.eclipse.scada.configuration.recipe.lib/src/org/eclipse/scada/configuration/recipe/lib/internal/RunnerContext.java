@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.recipe.lib.internal;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,10 +22,18 @@ public class RunnerContext implements ExecutableContext
 
     private final Map<Class<?>, Object> singletons;
 
-    public RunnerContext ()
+    private final Map<String, String> properties;
+
+    public RunnerContext ( final Map<String, String> properties )
     {
         this.map = new HashMap<> ();
         this.singletons = new HashMap<> ();
+        this.properties = Collections.unmodifiableMap ( properties );
+    }
+
+    public Map<String, String> getProperties ()
+    {
+        return this.properties;
     }
 
     public Map<String, Object> getMap ()

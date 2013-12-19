@@ -26,10 +26,13 @@ public class RecipeImpl implements Recipe
 
     private final Map<String, Object> initialContent;
 
-    public RecipeImpl ( final List<TaskRunner> tasks, final Map<String, Object> initialContent )
+    private final Map<String, String> properties;
+
+    public RecipeImpl ( final List<TaskRunner> tasks, final Map<String, Object> initialContent, final Map<String, String> properties )
     {
         this.tasks = tasks;
         this.initialContent = initialContent;
+        this.properties = properties;
     }
 
     @Override
@@ -41,7 +44,7 @@ public class RecipeImpl implements Recipe
     @Override
     public void execute ( final Map<String, Object> initialContext, final IProgressMonitor monitor )
     {
-        final RunnerContext ctx = new RunnerContext ();
+        final RunnerContext ctx = new RunnerContext ( this.properties );
         ctx.getMap ().putAll ( this.initialContent );
         ctx.getMap ().putAll ( initialContext );
 

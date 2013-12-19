@@ -10,7 +10,23 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.recipe.lib;
 
+import java.util.Map;
+
 public interface ExecutableContext
 {
+    /**
+     * Get an object from the current context
+     * 
+     * @param name
+     *            the name of the object
+     * @return the object, or <code>null</code> if the object could not be found
+     */
     public Object getValue ( String name );
+
+    /**
+     * Get the static properties
+     * 
+     * @return An unmodifiable map of the definition properties
+     */
+    public Map<String, String> getProperties ();
 }

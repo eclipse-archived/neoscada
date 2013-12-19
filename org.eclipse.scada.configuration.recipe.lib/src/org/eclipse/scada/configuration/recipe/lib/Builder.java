@@ -21,6 +21,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.scada.configuration.recipe.Definition;
+import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.Task;
 import org.eclipse.scada.configuration.recipe.lib.internal.DefaultExecutableFactory;
 import org.eclipse.scada.configuration.recipe.lib.internal.RecipeImpl;
@@ -54,10 +55,38 @@ public class Builder
 
         final URI rootUri = this.rootDefinition.eResource ().getURI ();
 
-        final Map<String, Object> initialContent = new HashMap<String, Object> ();
-        initialContent.put ( "documentRoot", rootUri.toString () );
+        final Map<String, String> properties = new HashMap<> ();
+        gatherProperties ( properties );
 
-        return new RecipeImpl ( convert ( result, factory ), initialContent );
+        final Map<String, Object> initialContent = new HashMap<String, Object> ();
+        initialContent.put ( "documentRoot", rootUri.toString () ); //$NON-NLS-1$
+
+        return new RecipeImpl ( convert ( result, factory ), initialContent, properties );
+    }
+
+    protected void gatherProperties ( final Map<String, String> properties )
+    {
+        gatherProperties ( this.rootDefinition, properties );
+    }
+
+    protected void gatherProperties ( final Definition definition, final Map<String, String> properties )
+    {
+        for ( final Definition imported : definition.getImport () )
+        {
+            gatherProperties ( imported, properties );
+        }
+
+        for ( final PropertyEntry entry : definition.getProperties () )
+        {
+            if ( entry.getValue () != null )
+            {
+                properties.put ( entry.getKey (), entry.getValue () );
+            }
+            else
+            {
+                properties.remove ( entry.getKey () );
+            }
+        }
     }
 
     private List<TaskRunner> convert ( final List<Task> input, final ExecutableFactory factory )

@@ -122,13 +122,22 @@ public interface RecipePackage extends EPackage
     int DEFINITION__ID = 3;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFINITION__PROPERTIES = 4;
+
+    /**
      * The number of structural features of the '<em>Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEFINITION_FEATURE_COUNT = 4;
+    int DEFINITION_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Definition</em>' class.
@@ -525,6 +534,52 @@ public interface RecipePackage extends EPackage
     int INPUT_REFERENCE_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl
+     * @see org.eclipse.scada.configuration.recipe.impl.RecipePackageImpl#getPropertyEntry()
+     * @generated
+     */
+    int PROPERTY_ENTRY = 8;
+
+    /**
+     * The feature id for the '<em><b>Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__KEY = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_OPERATION_COUNT = 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Definition <em>Definition</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -577,6 +632,17 @@ public interface RecipePackage extends EPackage
      * @generated
      */
     EAttribute getDefinition_Id ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.recipe.Definition#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Definition#getProperties()
+     * @see #getDefinition()
+     * @generated
+     */
+    EReference getDefinition_Properties ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Task <em>Task</em>}'.
@@ -857,6 +923,38 @@ public interface RecipePackage extends EPackage
     EAttribute getInputReference_Name ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.PropertyEntry <em>Property Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Property Entry</em>'.
+     * @see org.eclipse.scada.configuration.recipe.PropertyEntry
+     * @generated
+     */
+    EClass getPropertyEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.recipe.PropertyEntry#getKey <em>Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Key</em>'.
+     * @see org.eclipse.scada.configuration.recipe.PropertyEntry#getKey()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Key ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.recipe.PropertyEntry#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.eclipse.scada.configuration.recipe.PropertyEntry#getValue()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Value ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -921,6 +1019,14 @@ public interface RecipePackage extends EPackage
          * @generated
          */
         EAttribute DEFINITION__ID = eINSTANCE.getDefinition_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEFINITION__PROPERTIES = eINSTANCE.getDefinition_Properties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl <em>Task</em>}' class.
@@ -1143,6 +1249,32 @@ public interface RecipePackage extends EPackage
          * @generated
          */
         EAttribute INPUT_REFERENCE__NAME = eINSTANCE.getInputReference_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.recipe.impl.PropertyEntryImpl
+         * @see org.eclipse.scada.configuration.recipe.impl.RecipePackageImpl#getPropertyEntry()
+         * @generated
+         */
+        EClass PROPERTY_ENTRY = eINSTANCE.getPropertyEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__KEY = eINSTANCE.getPropertyEntry_Key ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
 
     }
 

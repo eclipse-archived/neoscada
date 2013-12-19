@@ -19,8 +19,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,17 +30,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.configuration.recipe.Definition;
-import org.eclipse.scada.configuration.recipe.RecipeFactory;
+import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.recipe.Definition} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.recipe.PropertyEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DefinitionItemProvider
+public class PropertyEntryItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +54,7 @@ public class DefinitionItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public DefinitionItemProvider ( AdapterFactory adapterFactory )
+    public PropertyEntryItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,51 +72,27 @@ public class DefinitionItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addImportPropertyDescriptor ( object );
-            addNamePropertyDescriptor ( object );
-            addIdPropertyDescriptor ( object );
+            addKeyPropertyDescriptor ( object );
+            addValuePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Import feature.
+     * This adds a property descriptor for the Key feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addImportPropertyDescriptor ( Object object )
+    protected void addKeyPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Definition_import_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_import_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__IMPORT,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addNamePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Definition_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_name_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__NAME,
+                        getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_key_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        RecipePackage.Literals.PROPERTY_ENTRY__KEY,
                         true,
                         false,
                         false,
@@ -129,20 +102,20 @@ public class DefinitionItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Value feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addValuePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Definition_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Definition_id_feature", "_UI_Definition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        RecipePackage.Literals.DEFINITION__ID,
+                        getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_value_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        RecipePackage.Literals.PROPERTY_ENTRY__VALUE,
                         true,
                         false,
                         false,
@@ -152,41 +125,7 @@ public class DefinitionItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
-    {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( RecipePackage.Literals.DEFINITION__TASK );
-            childrenFeatures.add ( RecipePackage.Literals.DEFINITION__PROPERTIES );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns Definition.gif.
+     * This returns PropertyEntry.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -194,7 +133,7 @@ public class DefinitionItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Definition" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PropertyEntry" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -206,10 +145,10 @@ public class DefinitionItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Definition)object ).getName ();
+        String label = ( (PropertyEntry)object ).getKey ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_Definition_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Definition_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_PropertyEntry_type" ) : //$NON-NLS-1$
+                getString ( "_UI_PropertyEntry_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -224,15 +163,11 @@ public class DefinitionItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Definition.class ) )
+        switch ( notification.getFeatureID ( PropertyEntry.class ) )
         {
-            case RecipePackage.DEFINITION__NAME:
-            case RecipePackage.DEFINITION__ID:
+            case RecipePackage.PROPERTY_ENTRY__KEY:
+            case RecipePackage.PROPERTY_ENTRY__VALUE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case RecipePackage.DEFINITION__TASK:
-            case RecipePackage.DEFINITION__PROPERTIES:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -249,16 +184,6 @@ public class DefinitionItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.DEFINITION__TASK,
-                        RecipeFactory.eINSTANCE.createTask () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( RecipePackage.Literals.DEFINITION__PROPERTIES,
-                        RecipeFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

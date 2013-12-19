@@ -3,6 +3,7 @@
   <xsd:complexType name="Definition">
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="task" type="recipe:Task"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="properties" type="recipe:PropertyEntry"/>
     </xsd:sequence>
     <xsd:attribute name="name" type="xsd:string" use="required"/>
     <xsd:attribute name="id" type="xsd:string" use="required"/>
@@ -55,4 +56,9 @@
     <xsd:attribute name="name" type="xsd:string" use="required"/>
   </xsd:complexType>
   <xsd:element name="InputReference" type="recipe:InputReference"/>
+  <xsd:complexType name="PropertyEntry">
+    <xsd:attribute name="key" type="xsd:string" use="required"/>
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="PropertyEntry" type="recipe:PropertyEntry"/>
 </xsd:schema>

@@ -273,7 +273,7 @@ public class DefaultExecutableFactory implements ExecutableFactory
             map.put ( ref.getName (), getReference ( ctx.getMap (), ref.getExpression () ) );
         }
 
-        final RunnerContext result = new RunnerContext ();
+        final RunnerContext result = new RunnerContext ( ctx.getProperties () );
         result.getMap ().putAll ( map );
         return result;
     }

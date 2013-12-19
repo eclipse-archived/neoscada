@@ -19,10 +19,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.recipe.Definition;
+import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
 import org.eclipse.scada.configuration.recipe.Task;
 
@@ -37,6 +39,7 @@ import org.eclipse.scada.configuration.recipe.Task;
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getImport <em>Import</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.recipe.impl.DefinitionImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +106,16 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
      * @ordered
      */
     protected String id = ID_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * <!-- begin-user-doc -->
@@ -204,6 +217,20 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, RecipePackage.DEFINITION__PROPERTIES );
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings ( "unchecked" )
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
@@ -228,6 +255,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
         {
             case RecipePackage.DEFINITION__TASK:
                 return ( (InternalEList<?>)getTask () ).basicRemove ( otherEnd, msgs );
+            case RecipePackage.DEFINITION__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -250,6 +279,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
                 return getName ();
             case RecipePackage.DEFINITION__ID:
                 return getId ();
+            case RecipePackage.DEFINITION__PROPERTIES:
+                return getProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -279,6 +310,10 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
             case RecipePackage.DEFINITION__ID:
                 setId ( (String)newValue );
                 return;
+            case RecipePackage.DEFINITION__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -305,6 +340,9 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
             case RecipePackage.DEFINITION__ID:
                 setId ( ID_EDEFAULT );
                 return;
+            case RecipePackage.DEFINITION__PROPERTIES:
+                getProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -327,6 +365,8 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case RecipePackage.DEFINITION__ID:
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+            case RecipePackage.DEFINITION__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
