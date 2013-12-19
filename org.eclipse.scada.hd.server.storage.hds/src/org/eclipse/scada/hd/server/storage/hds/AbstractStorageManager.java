@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixing
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.hds;
 
@@ -49,6 +50,11 @@ public class AbstractStorageManager
     protected Map<String, File> findStorages ()
     {
         logger.info ( "Scanning for storages: {}", this.base );
+
+        if ( !this.base.exists () )
+        {
+            throw new IllegalStateException ( String.format ( "The storage base directory does not exists: %s", this.base ) );
+        }
 
         final Map<String, File> storages = new HashMap<String, File> ();
 
