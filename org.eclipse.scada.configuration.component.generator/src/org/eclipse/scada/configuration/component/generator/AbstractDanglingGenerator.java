@@ -23,6 +23,16 @@ import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
 
+/**
+ * Help in creating a component generator that uses script items and maybe other
+ * dangling references. <br/>
+ * Script items created by this generator must be created using the
+ * {@link #createScriptItem(CreationRequest)} method in order to he processed.
+ * All item references will be replaced with the correct items in the "finish"
+ * step automatically.
+ * 
+ * @author Jens Reimann
+ */
 public abstract class AbstractDanglingGenerator extends DataComponentGenerator
 {
 
