@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS Gmbh - add some documentation
+ *     IBH SYSTEMS GmbH - add some documentation
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
