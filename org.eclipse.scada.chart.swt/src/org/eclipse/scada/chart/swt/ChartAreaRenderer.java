@@ -125,7 +125,11 @@ public class ChartAreaRenderer extends ChartRenderer
             }
 
         };
-        this.mouseMoveListenerMap.put ( listener, proxyListener );
+        final MouseMoveListener oldListener = this.mouseMoveListenerMap.put ( listener, proxyListener );
+        if ( oldListener != null )
+        {
+            this.control.removeMouseMoveListener ( oldListener );
+        }
         this.control.addMouseMoveListener ( proxyListener );
     }
 
