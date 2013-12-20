@@ -31,6 +31,8 @@ import org.eclipse.scada.da.datasource.DataSourceListener;
 import org.eclipse.scada.da.datasource.SingleDataSourceTracker;
 import org.eclipse.scada.da.datasource.SingleDataSourceTracker.ServiceListener;
 import org.eclipse.scada.da.datasource.base.DataInputSource;
+import org.eclipse.scada.da.datasource.data.DataItemValueLight;
+import org.eclipse.scada.da.datasource.data.DataItemValueRange;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.osgi.framework.InvalidSyntaxException;
