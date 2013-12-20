@@ -154,7 +154,7 @@ public abstract class QueryInput extends LineInput
             return;
         }
 
-        final Date c = selectedTimestamp;
+        final long c = selectedTimestamp.getTime ();
 
         for ( int i = 0; i < infos.size (); i++ )
         {
@@ -165,14 +165,7 @@ public abstract class QueryInput extends LineInput
                 continue;
             }
 
-            /*
-            if ( vi.getStartTimestamp () == null || vi.getEndTimestamp () == null )
-            {
-                continue;
-            }
-            */
-
-            if ( new Date ( vi.getStartTimestamp () ).before ( c ) && new Date ( vi.getEndTimestamp () ).after ( c ) )
+            if ( vi.getStartTimestamp () <= c && vi.getEndTimestamp () >= c )
             {
                 super.setSelectedTimestamp ( new Date ( vi.getStartTimestamp () ) );
                 setSelectedValue ( valueToString ( this.query, i, this.channelName ) );
