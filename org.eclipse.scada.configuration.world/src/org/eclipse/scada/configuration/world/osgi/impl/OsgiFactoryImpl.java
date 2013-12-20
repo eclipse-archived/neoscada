@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.scada.ae.data.Severity;
 import org.eclipse.scada.configuration.world.osgi.*;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.VariantEditor;
 
 /**
  * <!-- begin-user-doc -->
@@ -1247,23 +1248,23 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public Variant createVariantFromString ( EDataType eDataType,
             String initialValue )
     {
-        return (Variant)super.createFromString ( eDataType, initialValue );
+        return VariantEditor.toVariant ( initialValue );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * @generated NOT
      */
     public String convertVariantToString ( EDataType eDataType,
             Object instanceValue )
     {
-        return super.convertToString ( eDataType, instanceValue );
+        return instanceValue == null ? null : ((Variant) instanceValue).toString ();
     }
 
     /**
