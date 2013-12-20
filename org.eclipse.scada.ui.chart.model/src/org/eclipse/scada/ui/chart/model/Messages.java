@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixing, Eclipse migration
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.model;
 
