@@ -305,7 +305,6 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Servi
 
     private void sendQueryDataPacket ( final long queryId, final int index, final Map<String, List<Double>> values, final List<ValueInformation> valueInformation )
     {
-
         final List<ValueEntry> data = new ArrayList<ValueEntry> ();
         for ( final Map.Entry<String, List<Double>> entry : values.entrySet () )
         {

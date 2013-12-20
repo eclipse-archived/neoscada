@@ -72,6 +72,7 @@ public class QueryImpl implements Query, QueryListener
     public void changeParameters ( final QueryParameters parameters )
     {
         logger.debug ( "changeParameters: parameters: {}", parameters );
+
         this.query.changeParameters ( parameters );
     }
 
@@ -79,6 +80,7 @@ public class QueryImpl implements Query, QueryListener
     public void updateParameters ( final QueryParameters parameters, final Set<String> valueTypes )
     {
         logger.debug ( "updateParameters: parameters: {}, valueTypes: {}", new Object[] { parameters, valueTypes } );
+
         if ( parameters == null )
         {
             throw new IllegalArgumentException ( "'parameters' must not be null" );
