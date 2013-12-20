@@ -20,7 +20,6 @@ import org.eclipse.scada.hd.data.QueryParameters;
  * A client connection to the historical data server
  * 
  * @author Jens Reimann
- * @since 0.14.0
  */
 public interface Connection extends org.eclipse.scada.core.client.Connection
 {
