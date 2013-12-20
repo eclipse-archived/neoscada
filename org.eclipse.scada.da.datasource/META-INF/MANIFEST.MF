@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.eclipse.scada.da.datasource
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.da.datasource;version="0.1.0",
- org.eclipse.scada.da.datasource.base;version="0.1.0"
+ org.eclipse.scada.da.datasource.base;version="0.1.0",
+ org.eclipse.scada.da.datasource.data;version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
