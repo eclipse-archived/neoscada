@@ -14,7 +14,5 @@ import java.util.Date;
 
 public interface DataFactory
 {
-
     public QueryDataBuffer.Data create ( Date start, Date end );
-
 }

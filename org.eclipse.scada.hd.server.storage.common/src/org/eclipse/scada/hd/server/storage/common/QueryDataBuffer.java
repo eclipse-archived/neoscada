@@ -189,6 +189,16 @@ public abstract class QueryDataBuffer
 
     protected abstract Data[] getData ();
 
+    /**
+     * Create a new query data buffer
+     * 
+     * @param listener
+     *            the listener that will receive update events
+     * @param executor
+     *            the executor that will be used to send update events
+     * @param fixedStartDate
+     * @param fixedEndDate
+     */
     public QueryDataBuffer ( final QueryListener listener, final Executor executor, final Date fixedStartDate, final Date fixedEndDate )
     {
         super ();
@@ -203,6 +213,15 @@ public abstract class QueryDataBuffer
         fillDataCells ( data, start.getTimeInMillis (), end.getTimeInMillis (), dataFactory );
     }
 
+    /**
+     * This fills the data cell buffer with start and end timestamp for each
+     * entry
+     * 
+     * @param data
+     * @param start
+     * @param end
+     * @param dataFactory
+     */
     protected static void fillDataCells ( final QueryDataBuffer.Data[] data, final long start, final long end, final DataFactory dataFactory )
     {
         // create data buffer

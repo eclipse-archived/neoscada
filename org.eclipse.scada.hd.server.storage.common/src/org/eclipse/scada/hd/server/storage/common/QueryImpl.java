@@ -36,7 +36,7 @@ public class QueryImpl implements Query
 
     private final boolean updateData;
 
-    private final QueryBuffer buffer;
+    private final UpdatableQueryBuffer buffer;
 
     private static class LoadState
     {
@@ -107,7 +107,7 @@ public class QueryImpl implements Query
         this.listener = listener;
         this.updateData = updateData;
 
-        this.buffer = new QueryBuffer ( this.listener, eventExecutor, fixedStartDate, fixedEndDate );
+        this.buffer = new UpdatableQueryBuffer ( this.listener, eventExecutor, fixedStartDate, fixedEndDate );
 
         this.state.set ( new LoadState ( false, false, parameters ) );
 

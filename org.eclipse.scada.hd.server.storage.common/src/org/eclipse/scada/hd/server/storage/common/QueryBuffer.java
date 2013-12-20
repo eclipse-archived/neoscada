@@ -14,13 +14,9 @@ package org.eclipse.scada.hd.server.storage.common;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Executor;
 
 import org.eclipse.scada.hd.QueryListener;
 import org.eclipse.scada.hd.QueryState;
@@ -35,7 +31,7 @@ public class QueryBuffer extends QueryDataBuffer
 
     private QueryParameters parameters;
 
-    private static class Entry implements Comparable<Entry>
+    static class Entry implements Comparable<Entry>
     {
         private final double value;
 
@@ -173,12 +169,9 @@ public class QueryBuffer extends QueryDataBuffer
 
     private final boolean renderWhileLoading = Boolean.getBoolean ( "org.eclipse.scada.hd.server.storage.hds.renderWhileLoading" );
 
-    private final ScheduledExecutorService scheduledExecutor;
-
-    public QueryBuffer ( final QueryListener listener, final ScheduledExecutorService executor, final Date fixedStartDate, final Date fixedEndDate )
+    public QueryBuffer ( final QueryListener listener, final Executor executor, final Date fixedStartDate, final Date fixedEndDate )
     {
         super ( listener, executor, fixedStartDate, fixedEndDate );
-        this.scheduledExecutor = executor;
     }
 
     @Override
@@ -206,7 +199,6 @@ public class QueryBuffer extends QueryDataBuffer
                 return new Data ( start, end );
             }
         } );
-
     }
 
     public QueryParameters getParameters ()
@@ -226,6 +218,11 @@ public class QueryBuffer extends QueryDataBuffer
     {
         final Date timestamp = entry.getTimestamp ();
         logger.debug ( "Received new data: {}", entry );
+
+        if ( this.parameters == null )
+        {
+            throw new IllegalStateException ( "Received data before parameter update" );
+        }
 
         if ( timestamp.before ( new Date ( this.parameters.getStartTimestamp () ) ) )
         {
@@ -329,6 +326,7 @@ public class QueryBuffer extends QueryDataBuffer
                 }
             }
 
+            // copy values to data cells
             this.data[i].setAverage ( avg.getAverage ( this.data[i].getEnd ().getTime () ) );
             this.data[i].setStdDev ( avg.getDeviation ( this.data[i].getEnd ().getTime () ) );
             this.data[i].setQuality ( quality.getAverage ( this.data[i].getEnd ().getTime () ) );
@@ -411,50 +409,6 @@ public class QueryBuffer extends QueryDataBuffer
     public synchronized void close ()
     {
         notifyStateUpdate ( QueryState.DISCONNECTED );
-    }
-
-    private final List<Entry> updateList = new LinkedList<Entry> ();
-
-    private final int updateListMax = Integer.getInteger ( "org.eclipse.scada.hd.server.storage.hds.updateListMax", 10 );
-
-    private final long updateTimeMax = Long.getLong ( "org.eclipse.scada.hd.server.storage.hds.updateTimeMax", 1000 );
-
-    private ScheduledFuture<?> flushFuture;
-
-    /**
-     * Update data after loading has completed
-     */
-    public synchronized void updateData ( final double value, final Date timestamp, final boolean error, final boolean manual )
-    {
-        this.updateList.add ( new Entry ( value, timestamp, error, manual ) );
-        if ( this.updateList.size () > this.updateListMax )
-        {
-            flushUpdateQueue ();
-        }
-        else if ( this.flushFuture == null )
-        {
-            this.flushFuture = this.scheduledExecutor.schedule ( new Runnable () {
-
-                @Override
-                public void run ()
-                {
-                    flushUpdateQueue ();
-
-                }
-            }, this.updateTimeMax, TimeUnit.MILLISECONDS );
-        }
-    }
-
-    private synchronized void flushUpdateQueue ()
-    {
-        this.flushFuture = null;
-
-        for ( final Entry entry : this.updateList )
-        {
-            insertData ( entry );
-        }
-        this.updateList.clear ();
-        complete ();
     }
 
 }

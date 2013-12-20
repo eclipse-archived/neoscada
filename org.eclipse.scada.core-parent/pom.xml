@@ -244,6 +244,11 @@
 		<module>../org.eclipse.scada.core.client.feature</module>
 		<module>../org.eclipse.scada.core.common.feature</module>
 		<module>../org.eclipse.scada.core.server.feature</module>
+		
+		<!-- testing -->
+		
+		<module>../org.eclipse.scada.hd.testing</module>
+		<module>../org.eclipse.scada.hd.server.storage.common.test</module>
 	</modules>
 
 </project>
