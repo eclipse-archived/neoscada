@@ -45,6 +45,7 @@ public class CommonTests extends TestSuite
         TestSuite suite = new CommonTests ( "common Tests" ); //$NON-NLS-1$
         suite.addTestSuite ( ToggleHeartbeatGeneratorTest.class );
         suite.addTestSuite ( ChangeHeartbeatDetectorTest.class );
+        suite.addTestSuite ( TimerActionTest.class );
         return suite;
     }
 

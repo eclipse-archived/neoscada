@@ -29,4 +29,16 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimerAction" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The generator period in milliseconds"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+  </eClassifiers>
 </ecore:EPackage>

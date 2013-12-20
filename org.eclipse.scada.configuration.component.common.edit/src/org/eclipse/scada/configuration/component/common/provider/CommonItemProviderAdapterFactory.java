@@ -160,6 +160,31 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.common.TimerAction} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TimerActionItemProvider timerActionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.common.TimerAction}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTimerActionAdapter ()
+    {
+        if ( timerActionItemProvider == null )
+        {
+            timerActionItemProvider = new TimerActionItemProvider ( this );
+        }
+
+        return timerActionItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -304,6 +329,8 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
             toggleHeartbeatGeneratorItemProvider.dispose ();
         if ( changeHeartbeatDetectorItemProvider != null )
             changeHeartbeatDetectorItemProvider.dispose ();
+        if ( timerActionItemProvider != null )
+            timerActionItemProvider.dispose ();
     }
 
     /**
@@ -367,6 +394,11 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
                         ( createChildParameter
                         ( ComponentPackage.Literals.LEVEL__COMPONENTS,
                                 CommonFactory.eINSTANCE.createChangeHeartbeatDetector () ) );
+
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( ComponentPackage.Literals.LEVEL__COMPONENTS,
+                                CommonFactory.eINSTANCE.createTimerAction () ) );
 
                 return null;
             }

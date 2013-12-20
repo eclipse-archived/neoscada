@@ -22,7 +22,9 @@ import org.eclipse.scada.configuration.component.common.CommonFactory;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
+import org.eclipse.scada.configuration.component.common.TimerAction;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
+import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +61,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass changeHeartbeatDetectorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass timerActionEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -221,6 +230,46 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getTimerAction ()
+    {
+        return timerActionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimerAction_Period ()
+    {
+        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getTimerAction_TargetItem ()
+    {
+        return (EReference)timerActionEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimerAction_Value ()
+    {
+        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -259,6 +308,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__TIMEOUT );
         createEAttribute ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD );
         createEReference ( changeHeartbeatDetectorEClass, CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM );
+
+        timerActionEClass = createEClass ( TIMER_ACTION );
+        createEAttribute ( timerActionEClass, TIMER_ACTION__PERIOD );
+        createEReference ( timerActionEClass, TIMER_ACTION__TARGET_ITEM );
+        createEAttribute ( timerActionEClass, TIMER_ACTION__VALUE );
     }
 
     /**
@@ -288,6 +342,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Obtain other dependent packages
         ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
+        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
 
         // Create type parameters
 
@@ -298,6 +353,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         toggleHeartbeatGeneratorEClass.getESuperTypes ().add ( this.getHeartbeatGenerator () );
         heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
+        timerActionEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -312,6 +368,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEAttribute ( getChangeHeartbeatDetector_Timeout (), ecorePackage.getELong (), "timeout", "10000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getChangeHeartbeatDetector_CheckPeriod (), ecorePackage.getELong (), "checkPeriod", "1000", 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getChangeHeartbeatDetector_SourceItem (), theComponentPackage.getInputDefinition (), null, "sourceItem", null, 1, 1, ChangeHeartbeatDetector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( timerActionEClass, TimerAction.class, "TimerAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTimerAction_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getTimerAction_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getTimerAction_Value (), theOsgiPackage.getVariant (), "value", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

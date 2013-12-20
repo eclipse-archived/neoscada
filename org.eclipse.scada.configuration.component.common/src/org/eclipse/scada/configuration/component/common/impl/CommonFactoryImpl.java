@@ -74,6 +74,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
                 return createToggleHeartbeatGenerator ();
             case CommonPackage.CHANGE_HEARTBEAT_DETECTOR:
                 return createChangeHeartbeatDetector ();
+            case CommonPackage.TIMER_ACTION:
+                return createTimerAction ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -99,6 +101,17 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         ChangeHeartbeatDetectorImpl changeHeartbeatDetector = new ChangeHeartbeatDetectorImpl ();
         return changeHeartbeatDetector;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimerAction createTimerAction ()
+    {
+        TimerActionImpl timerAction = new TimerActionImpl ();
+        return timerAction;
     }
 
     /**

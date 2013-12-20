@@ -112,6 +112,12 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseTimerAction ( TimerAction object )
+                {
+                    return createTimerActionAdapter ();
+                }
+
+                @Override
                 public Adapter caseComponent ( Component object )
                 {
                     return createComponentAdapter ();
@@ -206,6 +212,21 @@ public class CommonAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createChangeHeartbeatDetectorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.common.TimerAction <em>Timer Action</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.common.TimerAction
+     * @generated
+     */
+    public Adapter createTimerActionAdapter ()
     {
         return null;
     }
