@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA HD Unit Tests (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.testing
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.testing.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.junit;bundle-version="4.8.0"
