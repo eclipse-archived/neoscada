@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix archive visitor bug
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -271,11 +272,15 @@ public class DataStoreAccesor extends AbstractValueSource
     @Override
     public boolean visit ( final ValueVisitor visitor, final Date start, final Date end )
     {
+        logger.debug ( "Process visit - start: {}, end: {}", start, end );
+
         Date current = this.quantizer.getStart ( start );
+
+        logger.debug ( "Quantized start: {}", current );
 
         // read backwards till first entry
 
-        logger.debug ( "Searching backwards" );
+        logger.trace ( "Searching backwards" );
 
         boolean firstRead = false;
         do
@@ -291,7 +296,12 @@ public class DataStoreAccesor extends AbstractValueSource
             {
                 try
                 {
+                    // we are using the startTimestamp here since we are actually
+                    // searching backwards, and current it this end of the time period
+                    // but we do open by the start of the time period, so we use startTimestamp
+                    // which is set to previous(current)
                     file = createOrGetFile ( startTimestamp, false );
+                    logger.trace ( "Aquire file - {} -> {}", startTimestamp, file );
                 }
                 catch ( final Exception e )
                 {
@@ -306,7 +316,7 @@ public class DataStoreAccesor extends AbstractValueSource
                 {
                     try
                     {
-                        logger.debug ( "Visiting file" );
+                        logger.trace ( "Visiting file" );
                         firstRead = file.visitFirstValue ( visitor );
                     }
                     catch ( final Exception e )
@@ -324,14 +334,17 @@ public class DataStoreAccesor extends AbstractValueSource
             }
 
             current = startTimestamp;
+            logger.debug ( "Current timestamp is now: {}", current );
 
         } while ( !firstRead && this.quantizer.getValidStart ( current ) != null );
 
         // now read forward
         logger.debug ( "Searching forwards" );
 
-        // current = this.quantizer.getStart ( start );
-        current = this.quantizer.getPrevious ( start );
+        // use get start to get quantized starting point
+        current = this.quantizer.getStart ( start );
+
+        logger.debug ( "Starting with: {}", current );
 
         do
         {
@@ -344,6 +357,7 @@ public class DataStoreAccesor extends AbstractValueSource
                 try
                 {
                     file = createOrGetFile ( current, false );
+                    logger.trace ( "Aquire file - {} -> {}", current, file );
                 }
                 catch ( final Exception e )
                 {
@@ -391,6 +405,8 @@ public class DataStoreAccesor extends AbstractValueSource
 
             current = next;
         } while ( current.before ( end ) );
+
+        logger.debug ( "Completed visit" );
 
         return true;
     }

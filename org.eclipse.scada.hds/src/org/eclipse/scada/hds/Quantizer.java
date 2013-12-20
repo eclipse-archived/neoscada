@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS Gmbh - add some documentation
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -78,13 +79,33 @@ public class Quantizer
         return getValidStart ( timestamp, new Date () );
     }
 
+    /**
+     * Quantize to starting point before or at given timestamp
+     * 
+     * @param timestamp
+     *            the given timestamp
+     * @return the quantized timestamp or <code>null</code> if given timestamp
+     *         was null
+     */
     public Date getStart ( final Date timestamp )
     {
+        if ( timestamp == null )
+        {
+            return null;
+        }
+
         final long tix = timestamp.getTime () / this.millisTime * this.millisTime;
         logger.trace ( "Timestamp {} -> {}", timestamp.getTime (), tix );
         return new Date ( tix );
     }
 
+    /**
+     * Get the timestamp following a quantized timestamp
+     * 
+     * @param start
+     *            a already quantized timestamp
+     * @return the timestamp which is exactly one step behind the given timstamp
+     */
     public Date getNext ( final Date start )
     {
         if ( start == null )
@@ -97,6 +118,13 @@ public class Quantizer
         }
     }
 
+    /**
+     * Get the timestamp preceeding a quantized timestamp
+     * 
+     * @param start
+     *            a already quantized timestamp
+     * @return the timestamp which is exactly one step before the given timstamp
+     */
     public Date getPrevious ( final Date start )
     {
         if ( start == null )
