@@ -18,6 +18,9 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.core.AttributesHelper;
 import org.eclipse.scada.core.InvalidSessionException;
@@ -42,6 +45,8 @@ import org.slf4j.LoggerFactory;
 public abstract class AbstractSubscriptionManager
 {
     private final static Logger logger = LoggerFactory.getLogger ( AbstractSubscriptionManager.class );
+
+    private static final long RECREATE_DELAY = Long.getLong ( "org.eclipse.scada.da.server.exporter.common.hive.recreateDelay", 10_000 );
 
     private Hive hive;
 
@@ -83,6 +88,10 @@ public abstract class AbstractSubscriptionManager
         }
     };
 
+    private final ScheduledExecutorService executor;
+
+    private ScheduledFuture<?> sessionJob;
+
     /**
      * Create a new subscription manager
      * 
@@ -91,10 +100,11 @@ public abstract class AbstractSubscriptionManager
      * @param properties
      *            the hive connection properties
      */
-    public AbstractSubscriptionManager ( final HiveSource hiveSource, final Properties properties )
+    public AbstractSubscriptionManager ( final HiveSource hiveSource, final Properties properties, final ScheduledExecutorService executor )
     {
         this.properties = properties;
         this.hiveSource = hiveSource;
+        this.executor = executor;
     }
 
     public synchronized void start ()
@@ -152,20 +162,39 @@ public abstract class AbstractSubscriptionManager
         {
             logger.info ( "Creating new session" );
 
-            this.createSessionFuture = hive.createSession ( this.properties, new PropertiesCredentialsCallback ( this.properties ) );
-            this.createSessionFuture.addListener ( new FutureListener<Session> () {
-
-                @Override
-                public void complete ( final Future<Session> future )
-                {
-                    handleCreateSessionResult ( future );
-                }
-            } );
+            createSession ();
         }
+    }
+
+    private synchronized void createSession ()
+    {
+        if ( this.hive == null )
+        {
+            logger.debug ( "Hive is gone, so stop it" );
+            return;
+        }
+
+        logger.debug ( "Start creating a new session" );
+
+        this.createSessionFuture = this.hive.createSession ( this.properties, new PropertiesCredentialsCallback ( this.properties ) );
+        this.createSessionFuture.addListener ( new FutureListener<Session> () {
+
+            @Override
+            public void complete ( final Future<Session> future )
+            {
+                handleCreateSessionResult ( future );
+            }
+        } );
     }
 
     protected void unbind ()
     {
+        if ( this.sessionJob != null )
+        {
+            this.sessionJob.cancel ( false );
+            this.sessionJob = null;
+        }
+
         if ( this.session != null && this.hive != null )
         {
             try
@@ -180,6 +209,7 @@ public abstract class AbstractSubscriptionManager
             this.session = null;
             this.hive = null;
         }
+
         if ( this.createSessionFuture != null )
         {
             this.createSessionFuture.cancel ( true );
@@ -191,6 +221,8 @@ public abstract class AbstractSubscriptionManager
     {
         this.createSessionFuture = null;
 
+        logger.debug ( "Creation session call returned" );
+
         try
         {
             this.session = future.get ();
@@ -201,7 +233,28 @@ public abstract class AbstractSubscriptionManager
         catch ( InterruptedException | ExecutionException e )
         {
             logger.warn ( "Failed to create hive session", e );
+            rescheduleSession ();
         }
+    }
+
+    private synchronized void rescheduleSession ()
+    {
+        logger.info ( "Reschedule session creation" );
+        this.sessionJob = this.executor.schedule ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                timerCreateSession ();
+            }
+        }, RECREATE_DELAY, TimeUnit.MILLISECONDS );
+    }
+
+    private synchronized void timerCreateSession ()
+    {
+        logger.debug ( "Starting session by timer" );
+        this.sessionJob = null;
+        createSession ();
     }
 
     private void subscribeItems ()

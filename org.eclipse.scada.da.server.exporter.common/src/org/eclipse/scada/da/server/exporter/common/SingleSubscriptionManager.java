@@ -42,7 +42,7 @@ public class SingleSubscriptionManager extends AbstractSubscriptionManager
 
     public SingleSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties )
     {
-        super ( hiveSource, properties );
+        super ( hiveSource, properties, executor );
         this.executor = executor;
     }
 

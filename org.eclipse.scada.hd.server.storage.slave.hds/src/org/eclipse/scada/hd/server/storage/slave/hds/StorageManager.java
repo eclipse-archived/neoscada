@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - improve logging
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.slave.hds;
 
@@ -112,6 +113,8 @@ public class StorageManager extends AbstractStorageManager
 
     public void addStorage ( final File storageDirectory ) throws Exception
     {
+        logger.debug ( "Adding storage: {}", storageDirectory );
+
         this.lock.lock ();
         try
         {
@@ -127,6 +130,8 @@ public class StorageManager extends AbstractStorageManager
 
     public void removeStorage ( final File storageDirectory )
     {
+        logger.debug ( "Removing storage: {}", storageDirectory );
+
         this.lock.lock ();
         try
         {
@@ -145,6 +150,7 @@ public class StorageManager extends AbstractStorageManager
     public void fileChanged ( final File storageDirectory, final String id, final File fileChanged )
     {
         this.lock.lock ();
+        logger.debug ( "fileChanged - storageDirectory: {}, id: {}, fileChanged: {}", storageDirectory, id, fileChanged );
         try
         {
             final StorageImpl storage = this.storages.get ( storageDirectory );
