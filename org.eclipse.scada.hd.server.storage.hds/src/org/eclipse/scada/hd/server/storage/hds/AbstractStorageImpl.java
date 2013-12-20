@@ -243,6 +243,8 @@ public abstract class AbstractStorageImpl implements HistoricalItem, ValueSource
     @Override
     public boolean visit ( final QueryParameters parameters, final ValueVisitor visitor )
     {
+        logger.debug ( "Visiting - parameters: {}", parameters );
+
         return this.nativeLevel.visit ( visitor, new Date ( parameters.getStartTimestamp () ), new Date ( parameters.getEndTimestamp () ) );
     }
 
