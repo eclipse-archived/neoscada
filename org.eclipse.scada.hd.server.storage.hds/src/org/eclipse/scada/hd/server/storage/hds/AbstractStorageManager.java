@@ -34,7 +34,7 @@ public class AbstractStorageManager
     public AbstractStorageManager ( final File base )
     {
         this.base = base;
-        this.queryExecutor = new ScheduledExportedExecutorService ( "HDSQuery", Integer.getInteger ( "org.eclipse.scada.hd.server.storage.hds.coreQueryThread", 1 ) );
+        this.queryExecutor = new ScheduledExportedExecutorService ( "HDSQuery/" + base, Integer.getInteger ( "org.eclipse.scada.hd.server.storage.hds.coreQueryThread", 1 ) );
     }
 
     public File getBase ()
