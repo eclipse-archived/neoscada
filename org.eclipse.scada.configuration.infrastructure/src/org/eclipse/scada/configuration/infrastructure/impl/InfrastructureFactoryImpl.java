@@ -11,10 +11,12 @@
 package org.eclipse.scada.configuration.infrastructure.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Configurations;
@@ -41,7 +43,6 @@ import org.eclipse.scada.configuration.infrastructure.World;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class InfrastructureFactoryImpl extends EFactoryImpl implements InfrastructureFactory
@@ -50,20 +51,19 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static InfrastructureFactory init ()
     {
         try
         {
-            final InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
+            InfrastructureFactory theInfrastructureFactory = (InfrastructureFactory)EPackage.Registry.INSTANCE.getEFactory ( InfrastructurePackage.eNS_URI );
             if ( theInfrastructureFactory != null )
             {
                 return theInfrastructureFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -74,7 +74,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public InfrastructureFactoryImpl ()
@@ -85,11 +84,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -139,6 +137,40 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString ( EDataType eDataType, String initialValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case InfrastructurePackage.SLAVE_STORAGE_LAYOUT:
+                return createSlaveStorageLayoutFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case InfrastructurePackage.SLAVE_STORAGE_LAYOUT:
+                return convertSlaveStorageLayoutToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * 
      * @generated NOT
      */
@@ -168,104 +200,96 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public MasterImport createMasterImport ()
     {
-        final MasterImportImpl masterImport = new MasterImportImpl ();
+        MasterImportImpl masterImport = new MasterImportImpl ();
         return masterImport;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Options createOptions ()
     {
-        final OptionsImpl options = new OptionsImpl ();
+        OptionsImpl options = new OptionsImpl ();
         return options;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public CommonDriver createCommonDriver ()
     {
-        final CommonDriverImpl commonDriver = new CommonDriverImpl ();
+        CommonDriverImpl commonDriver = new CommonDriverImpl ();
         return commonDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalNode createExternalNode ()
     {
-        final ExternalNodeImpl externalNode = new ExternalNodeImpl ();
+        ExternalNodeImpl externalNode = new ExternalNodeImpl ();
         return externalNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SystemNode createSystemNode ()
     {
-        final SystemNodeImpl systemNode = new SystemNodeImpl ();
+        SystemNodeImpl systemNode = new SystemNodeImpl ();
         return systemNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SystemPropertyUserService createSystemPropertyUserService ()
     {
-        final SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
+        SystemPropertyUserServiceImpl systemPropertyUserService = new SystemPropertyUserServiceImpl ();
         return systemPropertyUserService;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public UserEntry createUserEntry ()
     {
-        final UserEntryImpl userEntry = new UserEntryImpl ();
+        UserEntryImpl userEntry = new UserEntryImpl ();
         return userEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public JdbcUserService createJdbcUserService ()
     {
-        final JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
+        JdbcUserServiceImpl jdbcUserService = new JdbcUserServiceImpl ();
         return jdbcUserService;
     }
 
@@ -287,91 +311,84 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EquinoxDriver createEquinoxDriver ()
     {
-        final EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
+        EquinoxDriverImpl equinoxDriver = new EquinoxDriverImpl ();
         return equinoxDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalDriver createExternalDriver ()
     {
-        final ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
+        ExternalDriverImpl externalDriver = new ExternalDriverImpl ();
         return externalDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExternalDriverPlaceholder createExternalDriverPlaceholder ()
     {
-        final ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
+        ExternalDriverPlaceholderImpl externalDriverPlaceholder = new ExternalDriverPlaceholderImpl ();
         return externalDriverPlaceholder;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ApplicationConfiguration createApplicationConfiguration ()
     {
-        final ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
+        ApplicationConfigurationImpl applicationConfiguration = new ApplicationConfigurationImpl ();
         return applicationConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Configurations createConfigurations ()
     {
-        final ConfigurationsImpl configurations = new ConfigurationsImpl ();
+        ConfigurationsImpl configurations = new ConfigurationsImpl ();
         return configurations;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public HttpServiceModule createHttpServiceModule ()
     {
-        final HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
+        HttpServiceModuleImpl httpServiceModule = new HttpServiceModuleImpl ();
         return httpServiceModule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public RestExporterModule createRestExporterModule ()
     {
-        final RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
+        RestExporterModuleImpl restExporterModule = new RestExporterModuleImpl ();
         return restExporterModule;
     }
 
@@ -393,7 +410,29 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    public SlaveStorageLayout createSlaveStorageLayoutFromString ( EDataType eDataType, String initialValue )
+    {
+        SlaveStorageLayout result = SlaveStorageLayout.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertSlaveStorageLayoutToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -405,7 +444,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

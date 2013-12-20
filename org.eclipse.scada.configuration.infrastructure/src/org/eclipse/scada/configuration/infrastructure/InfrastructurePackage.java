@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -1721,13 +1722,31 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SLAVE__CONFIGURATION = EQUINOX_APPLICATION__CONFIGURATION;
 
     /**
+     * The feature id for the '<em><b>Storage Path</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__STORAGE_PATH = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Storage Layout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT = EQUINOX_APPLICATION_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Value Archive Slave</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int VALUE_ARCHIVE_SLAVE_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 0;
+    int VALUE_ARCHIVE_SLAVE_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Value Archive Slave</em>' class.
@@ -1737,6 +1756,16 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int VALUE_ARCHIVE_SLAVE_OPERATION_COUNT = EQUINOX_APPLICATION_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
+     * @generated
+     */
+    int SLAVE_STORAGE_LAYOUT = 26;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -2692,6 +2721,38 @@ public interface InfrastructurePackage extends EPackage
     EClass getValueArchiveSlave ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave#getStoragePath <em>Storage Path</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Storage Path</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave#getStoragePath()
+     * @see #getValueArchiveSlave()
+     * @generated
+     */
+    EAttribute getValueArchiveSlave_StoragePath ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave#getStorageLayout <em>Storage Layout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Storage Layout</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave#getStorageLayout()
+     * @see #getValueArchiveSlave()
+     * @generated
+     */
+    EAttribute getValueArchiveSlave_StorageLayout ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Slave Storage Layout</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout
+     * @generated
+     */
+    EEnum getSlaveStorageLayout ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3478,6 +3539,32 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EClass VALUE_ARCHIVE_SLAVE = eINSTANCE.getValueArchiveSlave ();
+
+        /**
+         * The meta object literal for the '<em><b>Storage Path</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VALUE_ARCHIVE_SLAVE__STORAGE_PATH = eINSTANCE.getValueArchiveSlave_StoragePath ();
+
+        /**
+         * The meta object literal for the '<em><b>Storage Layout</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT = eINSTANCE.getValueArchiveSlave_StorageLayout ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
+         * @generated
+         */
+        EEnum SLAVE_STORAGE_LAYOUT = eINSTANCE.getSlaveStorageLayout ();
 
     }
 

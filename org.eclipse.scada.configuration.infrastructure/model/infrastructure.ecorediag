@@ -508,6 +508,14 @@
   <children xmi:type="notation:Node" xmi:id="_T1dhMGi2EeOHrO1eEeyYMQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_T1evUGi2EeOHrO1eEeyYMQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_T1evUWi2EeOHrO1eEeyYMQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_oo0hwGi-EeOHrO1eEeyYMQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ValueArchiveSlave/storagePath"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oo0hwWi-EeOHrO1eEeyYMQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_JDymwGlYEeOHrO1eEeyYMQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ValueArchiveSlave/storageLayout"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_JDymwWlYEeOHrO1eEeyYMQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_T1evUmi2EeOHrO1eEeyYMQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_T1evU2i2EeOHrO1eEeyYMQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_T1evVGi2EeOHrO1eEeyYMQ"/>
@@ -519,7 +527,26 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_T1dhMWi2EeOHrO1eEeyYMQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="infrastructure.ecore#//ValueArchiveSlave"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T1dhMmi2EeOHrO1eEeyYMQ" x="60" y="672"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T1dhMmi2EeOHrO1eEeyYMQ" x="12" y="672"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_E4j8cGlYEeOHrO1eEeyYMQ" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_E4lxoGlYEeOHrO1eEeyYMQ" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_E4mYsGlYEeOHrO1eEeyYMQ" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_HF59wGlYEeOHrO1eEeyYMQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="infrastructure.ecore#//SlaveStorageLayout/SINGLE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HF59wWlYEeOHrO1eEeyYMQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_H_9LMGlYEeOHrO1eEeyYMQ" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="infrastructure.ecore#//SlaveStorageLayout/MULTI"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_H_9LMWlYEeOHrO1eEeyYMQ"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_E4mYsWlYEeOHrO1eEeyYMQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_E4mYsmlYEeOHrO1eEeyYMQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_E4mYs2lYEeOHrO1eEeyYMQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_E4j8cWlYEeOHrO1eEeyYMQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="infrastructure.ecore#//SlaveStorageLayout"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E4j8cmlYEeOHrO1eEeyYMQ" x="-192" y="565"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_RZM6NGi2EeOHrO1eEeyYMQ"/>
   <element xmi:type="ecore:EPackage" href="infrastructure.ecore#/"/>

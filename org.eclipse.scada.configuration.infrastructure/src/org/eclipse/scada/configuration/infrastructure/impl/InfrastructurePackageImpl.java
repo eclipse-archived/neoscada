@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -37,6 +38,7 @@ import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
+import org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserEntry;
@@ -239,6 +241,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass valueArchiveSlaveEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum slaveStorageLayoutEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -1278,6 +1287,36 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getValueArchiveSlave_StoragePath ()
+    {
+        return (EAttribute)valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getValueArchiveSlave_StorageLayout ()
+    {
+        return (EAttribute)valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getSlaveStorageLayout ()
+    {
+        return slaveStorageLayoutEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public InfrastructureFactory getInfrastructureFactory ()
     {
@@ -1419,6 +1458,11 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEAttribute ( restExporterModuleEClass, REST_EXPORTER_MODULE__CONTEXT_ID );
 
         valueArchiveSlaveEClass = createEClass ( VALUE_ARCHIVE_SLAVE );
+        createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_PATH );
+        createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT );
+
+        // Create enums
+        slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
 
     /**
@@ -1592,6 +1636,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEAttribute ( getRestExporterModule_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getValueArchiveSlave_StoragePath (), ecorePackage.getEString (), "storagePath", "/var/lib/eclipsescada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getValueArchiveSlave_StorageLayout (), this.getSlaveStorageLayout (), "storageLayout", "MULTI", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        // Initialize enums and add enum literals
+        initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
+        addEEnumLiteral ( slaveStorageLayoutEEnum, SlaveStorageLayout.SINGLE );
+        addEEnumLiteral ( slaveStorageLayoutEEnum, SlaveStorageLayout.MULTI );
 
         // Create resource
         createResource ( eNS_URI );

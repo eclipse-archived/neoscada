@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.generator.GeneratorContext.GlobalContext;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
+import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.globalization.EventPoolImport;
 import org.eclipse.scada.configuration.globalization.Global;
 import org.eclipse.scada.configuration.globalization.Globalization;
@@ -285,6 +286,18 @@ public class WorldGenerator
 
                 createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
                 createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
+
+                final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+                switch ( slave.getStorageLayout () )
+                {
+                    case MULTI:
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", "@" + slave.getStoragePath (), false );
+                        break;
+                    case SINGLE:
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", slave.getStoragePath (), false );
+                        break;
+                }
+
             }
 
         }
