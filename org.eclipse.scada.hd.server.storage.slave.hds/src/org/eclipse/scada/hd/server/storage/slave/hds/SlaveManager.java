@@ -1,13 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.slave.hds;
 
@@ -19,19 +18,13 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.eclipse.scada.hds.DataFilePool;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.str.StringReplacer;
-import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
 
-public class Activator implements BundleActivator
+public class SlaveManager
 {
+
     private static final String BASE_PATH_PROP = "org.eclipse.scada.hd.server.storage.slave.hds.basePath";
-
-    private static BundleContext context;
-
-    static BundleContext getContext ()
-    {
-        return context;
-    }
 
     private ScheduledExecutorService executor;
 
@@ -41,14 +34,9 @@ public class Activator implements BundleActivator
 
     private ScheduledExportedExecutorService eventExecutor;
 
-    /*
-     * (non-Javadoc)
-     * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void start ( final BundleContext bundleContext ) throws Exception
+    public SlaveManager ()
     {
-        Activator.context = bundleContext;
+        final BundleContext bundleContext = FrameworkUtil.getBundle ( SlaveManager.class ).getBundleContext ();
 
         this.executor = new ScheduledExportedExecutorService ( BASE_PATH_PROP, 1 );
         this.eventExecutor = new ScheduledExportedExecutorService ( "org.eclipse.scada.hd.server.storage.slave.hds.events", 1 );
@@ -74,6 +62,7 @@ public class Activator implements BundleActivator
                     {
                         throw new IllegalStateException ( String.format ( "'%s' is not a directory", dir ) );
                     }
+                    // FIXME: this should be done periodically
                     for ( final File child : dir.listFiles () )
                     {
                         this.storageManagers.add ( new StorageManager ( bundleContext, child, this.pool, this.executor, this.eventExecutor ) );
@@ -88,11 +77,11 @@ public class Activator implements BundleActivator
         catch ( final Exception e )
         {
             dispose ();
-            throw new Exception ( "Failed to start up bundle", e );
+            throw new RuntimeException ( "Failed to start up service", e );
         }
     }
 
-    private void dispose ()
+    public void dispose ()
     {
         if ( this.pool != null )
         {
@@ -119,15 +108,22 @@ public class Activator implements BundleActivator
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-     */
-    @Override
-    public void stop ( final BundleContext bundleContext ) throws Exception
+    public void listslaves ()
     {
-        dispose ();
-        Activator.context = null;
+        for ( final StorageManager sm : this.storageManagers )
+        {
+            System.out.println ( sm.getBase () );
+        }
+    }
+
+    public void dumpslaves ()
+    {
+        for ( final StorageManager sm : this.storageManagers )
+        {
+            System.out.println ( ">>>>>>>>>>>>>>>>>>>> " + sm.getBase () );
+            sm.listfiles ( System.out );
+            System.out.println ( "<<<<<<<<<<<<<<<<<<<< " + sm.getBase () );
+        }
     }
 
 }

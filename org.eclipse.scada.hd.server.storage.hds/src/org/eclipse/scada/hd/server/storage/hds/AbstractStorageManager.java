@@ -37,6 +37,11 @@ public class AbstractStorageManager
         this.queryExecutor = new ScheduledExportedExecutorService ( "HDSQuery", Integer.getInteger ( "org.eclipse.scada.hd.server.storage.hds.coreQueryThread", 1 ) );
     }
 
+    public File getBase ()
+    {
+        return this.base;
+    }
+
     public void dispose ()
     {
         this.queryExecutor.shutdown ();

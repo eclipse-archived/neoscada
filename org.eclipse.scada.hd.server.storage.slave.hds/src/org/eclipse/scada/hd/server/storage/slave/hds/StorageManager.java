@@ -1,19 +1,18 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - improve logging
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.slave.hds;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -117,14 +116,13 @@ public class StorageManager extends AbstractStorageManager
         return super.probe ( file );
     }
 
-    public void list ()
+    void listfiles ( final PrintStream ps )
     {
+        final List<List<String>> data = new LinkedList<> ();
+
         this.lock.lock ();
         try
         {
-
-            final List<List<String>> data = new LinkedList<> ();
-
             for ( final Map.Entry<File, StorageImpl> entry : this.storages.entrySet () )
             {
                 final HistoricalItemInformation hi = entry.getValue ().getInformation ();
@@ -137,13 +135,13 @@ public class StorageManager extends AbstractStorageManager
                 row.add ( "" + si.getConfiguration ().getTimeSlice () );
                 row.add ( "" + entry.getKey () );
             }
-
-            Tables.showTable ( System.out, Arrays.asList ( "ID", "File Count", "Time Slice", "File" ), data, 2 );
         }
         finally
         {
             this.lock.unlock ();
         }
+
+        Tables.showTable ( ps, Arrays.asList ( "ID", "File Count", "Time Slice", "Store" ), data, 2 );
     }
 
     public void addStorage ( final File storageDirectory ) throws Exception
