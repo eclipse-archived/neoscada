@@ -8,8 +8,8 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
+ *     IBH SYSTEMS GmbH - bug fixing
  *******************************************************************************/
-
 
 package org.eclipse.scada.core.ngp.common.codec.osbp;
 
@@ -610,7 +610,7 @@ public class DefaultBinaryContext implements BinaryContext
     public double decodePrimitiveDouble ( final IoBuffer buffer ) throws Exception
     {
         checkType ( buffer, TYPE_DOUBLE, false );
-        return buffer.getLong ();
+        return buffer.getDouble ();
     }
 
     @Override
