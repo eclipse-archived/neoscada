@@ -5,7 +5,7 @@
 	</topic>
 	<topic href="content/basic/basic.html#Basicconfiguration" label="Basic configuration">
 		<topic href="content/basic/basic.html#Createanewproject" label="Create a new project"></topic>
-		<topic href="content/basic/basic.html#Createtheconfiguration" label="Create the configuration"></topic>
+		<topic href="content/basic/basic.html#Generatethedeployables" label="Generate the deployables"></topic>
 		<topic href="content/basic/basic.html#Createsomedeploymentmechanism" label="Create some deployment mechanism"></topic>
 	</topic>
 </toc>

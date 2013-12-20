@@ -21,7 +21,7 @@ Create a new project using the "Create Project" wizard and create a new project 
 
 The default project will be filled with some nodes and some basic components.
 
-h2. Create the configuration
+h2. Generate the deployables
 
 Right click on the ".recipe" file an select "Run Recipe" from the "Eclipse SCADA Configuration" sub-menu.
 
@@ -44,3 +44,4 @@ Be sure to fill out the maintainer field and create at least one change entry (c
 Running the recipe again will now create a .deb or .rpm file, depending on your configuration.
 
 _Note_ you will need to have "debuild" or "rpmbuild" installed for actually creating packages. 
+ 
