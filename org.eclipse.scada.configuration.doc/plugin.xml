@@ -8,9 +8,6 @@
                 primary="true">
           </toc>
           <toc
-                file="toc/tocgettingstarted.xml">
-          </toc>
-          <toc
                 file="toc/tocreference.xml">
           </toc>
           <toc
