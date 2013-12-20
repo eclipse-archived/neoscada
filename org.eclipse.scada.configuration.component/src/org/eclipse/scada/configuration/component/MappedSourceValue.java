@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.Documentable;
 
 /**
@@ -22,6 +23,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.MappedSourceValue#getMapper <em>Mapper</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.MappedSourceValue#getInput <em>Input</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.MappedSourceValue#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,5 +84,21 @@ public interface MappedSourceValue extends Documentable, MasterComponent
      * @generated
      */
     void setInput ( InputDefinition value );
+
+    /**
+     * Returns the value of the '<em><b>Customization Tags</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Customization Tags</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Customization Tags</em>' attribute list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getMappedSourceValue_CustomizationTags()
+     * @model
+     * @generated
+     */
+    EList<String> getCustomizationTags ();
 
 } // MappedSourceValue

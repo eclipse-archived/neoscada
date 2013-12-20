@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.component.OutputDefinition;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getLocalTag <em>Local Tag</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.OutputDefinitionImpl#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,16 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
      * @ordered
      */
     protected EList<String> localTag;
+
+    /**
+     * The cached value of the '{@link #getCustomizationTags() <em>Customization Tags</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCustomizationTags()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> customizationTags;
 
     /**
      * <!-- begin-user-doc -->
@@ -130,6 +141,20 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getCustomizationTags ()
+    {
+        if ( customizationTags == null )
+        {
+            customizationTags = new EDataTypeUniqueEList<String> ( String.class, this, ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS );
+        }
+        return customizationTags;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -139,6 +164,8 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
                 return getName ();
             case ComponentPackage.OUTPUT_DEFINITION__LOCAL_TAG:
                 return getLocalTag ();
+            case ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS:
+                return getCustomizationTags ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -161,6 +188,10 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
                 getLocalTag ().clear ();
                 getLocalTag ().addAll ( (Collection<? extends String>)newValue );
                 return;
+            case ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS:
+                getCustomizationTags ().clear ();
+                getCustomizationTags ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -181,6 +212,9 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
             case ComponentPackage.OUTPUT_DEFINITION__LOCAL_TAG:
                 getLocalTag ().clear ();
                 return;
+            case ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS:
+                getCustomizationTags ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -199,6 +233,8 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.OUTPUT_DEFINITION__LOCAL_TAG:
                 return localTag != null && !localTag.isEmpty ();
+            case ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS:
+                return customizationTags != null && !customizationTags.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -219,6 +255,8 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
         result.append ( name );
         result.append ( ", localTag: " ); //$NON-NLS-1$
         result.append ( localTag );
+        result.append ( ", customizationTags: " ); //$NON-NLS-1$
+        result.append ( customizationTags );
         result.append ( ')' );
         return result.toString ();
     }

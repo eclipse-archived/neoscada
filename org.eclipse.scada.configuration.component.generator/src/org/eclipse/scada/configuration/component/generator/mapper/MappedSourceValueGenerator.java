@@ -44,7 +44,7 @@ public class MappedSourceValueGenerator extends DataComponentGenerator
     {
         final DanglingItemReference source = this.mappedSourceValue.getInput ().createReference ();
         final CreationRequest<ReferenceItem> c = itemCreator.createReferenceItem ( source );
-        c.customizationTags ( "input" );
+        c.customizationTags ( this.mappedSourceValue.getCustomizationTags () );
         c.localTags ( this.mappedSourceValue.getName () );
         final ReferenceItem item = c.create ();
 

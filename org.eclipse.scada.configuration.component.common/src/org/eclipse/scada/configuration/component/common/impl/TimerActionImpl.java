@@ -38,6 +38,7 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.common.impl.TimerActionImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +95,26 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
      * @ordered
      */
     protected Variant value = VALUE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = "$TIMER_ACTION"; //$NON-NLS-1$
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -219,6 +240,29 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.TIMER_ACTION__NAME, oldName, name ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -246,6 +290,8 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
                 return getTargetItem ();
             case CommonPackage.TIMER_ACTION__VALUE:
                 return getValue ();
+            case CommonPackage.TIMER_ACTION__NAME:
+                return getName ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -268,6 +314,9 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
                 return;
             case CommonPackage.TIMER_ACTION__VALUE:
                 setValue ( (Variant)newValue );
+                return;
+            case CommonPackage.TIMER_ACTION__NAME:
+                setName ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -292,6 +341,9 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
             case CommonPackage.TIMER_ACTION__VALUE:
                 setValue ( VALUE_EDEFAULT );
                 return;
+            case CommonPackage.TIMER_ACTION__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -312,6 +364,8 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
                 return targetItem != null;
             case CommonPackage.TIMER_ACTION__VALUE:
                 return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
+            case CommonPackage.TIMER_ACTION__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
         }
         return super.eIsSet ( featureID );
     }
@@ -332,6 +386,8 @@ public class TimerActionImpl extends MasterComponentImpl implements TimerAction
         result.append ( period );
         result.append ( ", value: " ); //$NON-NLS-1$
         result.append ( value );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( name );
         result.append ( ')' );
         return result.toString ();
     }

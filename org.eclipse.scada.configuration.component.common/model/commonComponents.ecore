@@ -40,5 +40,7 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        defaultValueLiteral="$TIMER_ACTION"/>
   </eClassifiers>
 </ecore:EPackage>

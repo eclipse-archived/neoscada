@@ -69,7 +69,7 @@ public class AverageModuleGenerator extends CalculationComponentGenerator<Averag
             }
             final CreationRequest<AverageItem> c = createAverageItem ( creator, type );
             c.localTags ( output.getLocalTag () );
-            c.customizationTags ( "input" ); //$NON-NLS-1$ // the output of a calculation module is an input for the system
+            c.customizationTags ( output.getCustomizationTags () );// the output of a calculation module is an input for the system
             c.dataType ( outputSpec.getDataType () );
 
             c.addMasterListener ( new MasterListener<AverageItem> () {

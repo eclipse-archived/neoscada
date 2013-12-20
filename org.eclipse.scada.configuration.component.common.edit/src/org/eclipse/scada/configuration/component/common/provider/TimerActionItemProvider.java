@@ -77,6 +77,7 @@ public class TimerActionItemProvider
 
             addPeriodPropertyDescriptor ( object );
             addValuePropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -119,6 +120,29 @@ public class TimerActionItemProvider
                         getString ( "_UI_TimerAction_value_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_value_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         CommonPackage.Literals.TIMER_ACTION__VALUE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_TimerAction_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_TimerAction_name_feature", "_UI_TimerAction_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        CommonPackage.Literals.TIMER_ACTION__NAME,
                         true,
                         false,
                         false,
@@ -181,8 +205,10 @@ public class TimerActionItemProvider
     @Override
     public String getText ( Object object )
     {
-        TimerAction timerAction = (TimerAction)object;
-        return getString ( "_UI_TimerAction_type" ) + " " + timerAction.getPeriod (); //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (TimerAction)object ).getName ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_TimerAction_type" ) : //$NON-NLS-1$
+                getString ( "_UI_TimerAction_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -201,6 +227,7 @@ public class TimerActionItemProvider
         {
             case CommonPackage.TIMER_ACTION__PERIOD:
             case CommonPackage.TIMER_ACTION__VALUE:
+            case CommonPackage.TIMER_ACTION__NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case CommonPackage.TIMER_ACTION__TARGET_ITEM:

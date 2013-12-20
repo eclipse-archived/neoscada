@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.component.Component;
@@ -47,6 +48,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getMapper <em>Mapper</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getInput <em>Input</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,6 +145,16 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
      * @ordered
      */
     protected InputDefinition input;
+
+    /**
+     * The cached value of the '{@link #getCustomizationTags() <em>Customization Tags</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getCustomizationTags()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> customizationTags;
 
     /**
      * <!-- begin-user-doc -->
@@ -498,6 +510,20 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getCustomizationTags ()
+    {
+        if ( customizationTags == null )
+        {
+            customizationTags = new EDataTypeUniqueEList<String> ( String.class, this, ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS );
+        }
+        return customizationTags;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -581,6 +607,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                 if ( resolve )
                     return getInput ();
                 return basicGetInput ();
+            case ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS:
+                return getCustomizationTags ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -621,6 +649,10 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:
                 setInput ( (InputDefinition)newValue );
                 return;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS:
+                getCustomizationTags ().clear ();
+                getCustomizationTags ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -659,6 +691,9 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:
                 setInput ( (InputDefinition)null );
                 return;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS:
+                getCustomizationTags ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -689,6 +724,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                 return mapper != null;
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:
                 return input != null;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS:
+                return customizationTags != null && !customizationTags.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -795,6 +832,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
         result.append ( shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
         result.append ( name );
+        result.append ( ", customizationTags: " ); //$NON-NLS-1$
+        result.append ( customizationTags );
         result.append ( ')' );
         return result.toString ();
     }

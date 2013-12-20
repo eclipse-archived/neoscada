@@ -79,6 +79,8 @@
         eType="#//DataMapperService"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
@@ -109,6 +111,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemReferenceInputDefinition" eSuperTypes="#//InputDefinition">
     <eOperations name="createReference" lowerBound="1" eType="#//DanglingItemReference">

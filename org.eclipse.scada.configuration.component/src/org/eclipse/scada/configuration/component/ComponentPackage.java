@@ -1265,13 +1265,22 @@ public interface ComponentPackage extends EPackage
     int MAPPED_SOURCE_VALUE__INPUT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Mapped Source Value</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 6;
+    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 7;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -1567,13 +1576,22 @@ public interface ComponentPackage extends EPackage
     int OUTPUT_DEFINITION__LOCAL_TAG = 1;
 
     /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int OUTPUT_DEFINITION__CUSTOMIZATION_TAGS = 2;
+
+    /**
      * The number of structural features of the '<em>Output Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int OUTPUT_DEFINITION_FEATURE_COUNT = 2;
+    int OUTPUT_DEFINITION_FEATURE_COUNT = 3;
 
     /**
      * The number of operations of the '<em>Output Definition</em>' class.
@@ -3175,6 +3193,17 @@ public interface ComponentPackage extends EPackage
     EReference getMappedSourceValue_Input ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.component.MappedSourceValue#getCustomizationTags <em>Customization Tags</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Customization Tags</em>'.
+     * @see org.eclipse.scada.configuration.component.MappedSourceValue#getCustomizationTags()
+     * @see #getMappedSourceValue()
+     * @generated
+     */
+    EAttribute getMappedSourceValue_CustomizationTags ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.CalculationComponent <em>Calculation Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3333,6 +3362,17 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EAttribute getOutputDefinition_LocalTag ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.component.OutputDefinition#getCustomizationTags <em>Customization Tags</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Customization Tags</em>'.
+     * @see org.eclipse.scada.configuration.component.OutputDefinition#getCustomizationTags()
+     * @see #getOutputDefinition()
+     * @generated
+     */
+    EAttribute getOutputDefinition_CustomizationTags ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ItemReferenceInputDefinition <em>Item Reference Input Definition</em>}'.
@@ -4279,6 +4319,14 @@ public interface ComponentPackage extends EPackage
         EReference MAPPED_SOURCE_VALUE__INPUT = eINSTANCE.getMappedSourceValue_Input ();
 
         /**
+         * The meta object literal for the '<em><b>Customization Tags</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = eINSTANCE.getMappedSourceValue_CustomizationTags ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl <em>Calculation Component</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4407,6 +4455,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute OUTPUT_DEFINITION__LOCAL_TAG = eINSTANCE.getOutputDefinition_LocalTag ();
+
+        /**
+         * The meta object literal for the '<em><b>Customization Tags</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute OUTPUT_DEFINITION__CUSTOMIZATION_TAGS = eINSTANCE.getOutputDefinition_CustomizationTags ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ItemReferenceInputDefinitionImpl <em>Item Reference Input Definition</em>}' class.

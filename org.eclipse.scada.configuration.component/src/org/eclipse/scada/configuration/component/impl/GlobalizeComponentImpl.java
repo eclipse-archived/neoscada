@@ -41,40 +41,24 @@ import org.eclipse.scada.configuration.item.Selector;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getShortDescription
- * <em>Short Description</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getLevel
- * <em>Level</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getCustomizationPipeline
- * <em>Customization Pipeline</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getArchiveSelector
- * <em>Archive Selector</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents
- * <em>Components</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster
- * <em>Source Master</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents <em>Components</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster <em>Source Master</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container implements GlobalizeComponent
 {
     /**
-     * The default value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -82,11 +66,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -97,7 +79,6 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -108,7 +89,6 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -116,11 +96,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getCustomizationPipeline()
-     * <em>Customization Pipeline</em>}' reference.
+     * The cached value of the '{@link #getCustomizationPipeline() <em>Customization Pipeline</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCustomizationPipeline()
      * @generated
      * @ordered
@@ -128,11 +106,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     protected CustomizationPipeline customizationPipeline;
 
     /**
-     * The cached value of the '{@link #getArchiveSelector()
-     * <em>Archive Selector</em>}' reference.
+     * The cached value of the '{@link #getArchiveSelector() <em>Archive Selector</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getArchiveSelector()
      * @generated
      * @ordered
@@ -140,11 +116,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     protected Selector archiveSelector;
 
     /**
-     * The cached value of the '{@link #getComponents() <em>Components</em>}'
-     * reference list.
+     * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getComponents()
      * @generated
      * @ordered
@@ -152,11 +126,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     protected EList<DataComponent> components;
 
     /**
-     * The cached value of the '{@link #getSourceMaster()
-     * <em>Source Master</em>}' reference.
+     * The cached value of the '{@link #getSourceMaster() <em>Source Master</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSourceMaster()
      * @generated
      * @ordered
@@ -166,7 +138,6 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected GlobalizeComponentImpl ()
@@ -177,7 +148,6 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -189,99 +159,84 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getShortDescription ()
     {
-        return this.shortDescription;
+        return shortDescription;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setShortDescription ( final String newShortDescription )
+    public void setShortDescription ( String newShortDescription )
     {
-        final String oldShortDescription = this.shortDescription;
-        this.shortDescription = newShortDescription;
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Level getLevel ()
     {
         if ( eContainerFeatureID () != ComponentPackage.GLOBALIZE_COMPONENT__LEVEL )
-        {
             return null;
-        }
         return (Level)eContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Level basicGetLevel ()
     {
         if ( eContainerFeatureID () != ComponentPackage.GLOBALIZE_COMPONENT__LEVEL )
-        {
             return null;
-        }
         return (Level)eInternalContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetLevel ( final Level newLevel, NotificationChain msgs )
+    public NotificationChain basicSetLevel ( Level newLevel, NotificationChain msgs )
     {
         msgs = eBasicSetContainer ( (InternalEObject)newLevel, ComponentPackage.GLOBALIZE_COMPONENT__LEVEL, msgs );
         return msgs;
@@ -290,209 +245,176 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setLevel ( final Level newLevel )
+    public void setLevel ( Level newLevel )
     {
-        if ( newLevel != eInternalContainer () || eContainerFeatureID () != ComponentPackage.GLOBALIZE_COMPONENT__LEVEL && newLevel != null )
+        if ( newLevel != eInternalContainer () || ( eContainerFeatureID () != ComponentPackage.GLOBALIZE_COMPONENT__LEVEL && newLevel != null ) )
         {
             if ( EcoreUtil.isAncestor ( this, newLevel ) )
-            {
                 throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
-            }
             NotificationChain msgs = null;
             if ( eInternalContainer () != null )
-            {
                 msgs = eBasicRemoveFromContainer ( msgs );
-            }
             if ( newLevel != null )
-            {
                 msgs = ( (InternalEObject)newLevel ).eInverseAdd ( this, ComponentPackage.LEVEL__COMPONENTS, Level.class, msgs );
-            }
             msgs = basicSetLevel ( newLevel, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__LEVEL, newLevel, newLevel ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public CustomizationPipeline getCustomizationPipeline ()
     {
-        if ( this.customizationPipeline != null && this.customizationPipeline.eIsProxy () )
+        if ( customizationPipeline != null && customizationPipeline.eIsProxy () )
         {
-            final InternalEObject oldCustomizationPipeline = (InternalEObject)this.customizationPipeline;
-            this.customizationPipeline = (CustomizationPipeline)eResolveProxy ( oldCustomizationPipeline );
-            if ( this.customizationPipeline != oldCustomizationPipeline )
+            InternalEObject oldCustomizationPipeline = (InternalEObject)customizationPipeline;
+            customizationPipeline = (CustomizationPipeline)eResolveProxy ( oldCustomizationPipeline );
+            if ( customizationPipeline != oldCustomizationPipeline )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, this.customizationPipeline ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, customizationPipeline ) );
             }
         }
-        return this.customizationPipeline;
+        return customizationPipeline;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public CustomizationPipeline basicGetCustomizationPipeline ()
     {
-        return this.customizationPipeline;
+        return customizationPipeline;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCustomizationPipeline ( final CustomizationPipeline newCustomizationPipeline )
+    public void setCustomizationPipeline ( CustomizationPipeline newCustomizationPipeline )
     {
-        final CustomizationPipeline oldCustomizationPipeline = this.customizationPipeline;
-        this.customizationPipeline = newCustomizationPipeline;
+        CustomizationPipeline oldCustomizationPipeline = customizationPipeline;
+        customizationPipeline = newCustomizationPipeline;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, this.customizationPipeline ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, customizationPipeline ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Selector getArchiveSelector ()
     {
-        if ( this.archiveSelector != null && this.archiveSelector.eIsProxy () )
+        if ( archiveSelector != null && archiveSelector.eIsProxy () )
         {
-            final InternalEObject oldArchiveSelector = (InternalEObject)this.archiveSelector;
-            this.archiveSelector = (Selector)eResolveProxy ( oldArchiveSelector );
-            if ( this.archiveSelector != oldArchiveSelector )
+            InternalEObject oldArchiveSelector = (InternalEObject)archiveSelector;
+            archiveSelector = (Selector)eResolveProxy ( oldArchiveSelector );
+            if ( archiveSelector != oldArchiveSelector )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, this.archiveSelector ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, archiveSelector ) );
             }
         }
-        return this.archiveSelector;
+        return archiveSelector;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Selector basicGetArchiveSelector ()
     {
-        return this.archiveSelector;
+        return archiveSelector;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setArchiveSelector ( final Selector newArchiveSelector )
+    public void setArchiveSelector ( Selector newArchiveSelector )
     {
-        final Selector oldArchiveSelector = this.archiveSelector;
-        this.archiveSelector = newArchiveSelector;
+        Selector oldArchiveSelector = archiveSelector;
+        archiveSelector = newArchiveSelector;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, this.archiveSelector ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, archiveSelector ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<DataComponent> getComponents ()
     {
-        if ( this.components == null )
+        if ( components == null )
         {
-            this.components = new EObjectResolvingEList<DataComponent> ( DataComponent.class, this, ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS );
+            components = new EObjectResolvingEList<DataComponent> ( DataComponent.class, this, ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS );
         }
-        return this.components;
+        return components;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public MasterImport getSourceMaster ()
     {
-        if ( this.sourceMaster != null && this.sourceMaster.eIsProxy () )
+        if ( sourceMaster != null && sourceMaster.eIsProxy () )
         {
-            final InternalEObject oldSourceMaster = (InternalEObject)this.sourceMaster;
-            this.sourceMaster = (MasterImport)eResolveProxy ( oldSourceMaster );
-            if ( this.sourceMaster != oldSourceMaster )
+            InternalEObject oldSourceMaster = (InternalEObject)sourceMaster;
+            sourceMaster = (MasterImport)eResolveProxy ( oldSourceMaster );
+            if ( sourceMaster != oldSourceMaster )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, this.sourceMaster ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, sourceMaster ) );
             }
         }
-        return this.sourceMaster;
+        return sourceMaster;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public MasterImport basicGetSourceMaster ()
     {
-        return this.sourceMaster;
+        return sourceMaster;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSourceMaster ( final MasterImport newSourceMaster )
+    public void setSourceMaster ( MasterImport newSourceMaster )
     {
-        final MasterImport oldSourceMaster = this.sourceMaster;
-        this.sourceMaster = newSourceMaster;
+        MasterImport oldSourceMaster = sourceMaster;
+        sourceMaster = newSourceMaster;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, this.sourceMaster ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER, oldSourceMaster, sourceMaster ) );
     }
 
     /**
@@ -517,19 +439,16 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( final InternalEObject otherEnd, final int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
             case ComponentPackage.GLOBALIZE_COMPONENT__LEVEL:
                 if ( eInternalContainer () != null )
-                {
                     msgs = eBasicRemoveFromContainer ( msgs );
-                }
                 return basicSetLevel ( (Level)otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
@@ -538,11 +457,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -555,11 +473,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( final NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {
@@ -572,11 +489,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -586,29 +502,21 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
                 return getName ();
             case ComponentPackage.GLOBALIZE_COMPONENT__LEVEL:
                 if ( resolve )
-                {
                     return getLevel ();
-                }
                 return basicGetLevel ();
             case ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE:
                 if ( resolve )
-                {
                     return getCustomizationPipeline ();
-                }
                 return basicGetCustomizationPipeline ();
             case ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR:
                 if ( resolve )
-                {
                     return getArchiveSelector ();
-                }
                 return basicGetArchiveSelector ();
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return getComponents ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
                 if ( resolve )
-                {
                     return getSourceMaster ();
-                }
                 return basicGetSourceMaster ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -617,12 +525,11 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -655,11 +562,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -691,28 +597,27 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ComponentPackage.GLOBALIZE_COMPONENT__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
             case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.GLOBALIZE_COMPONENT__LEVEL:
                 return basicGetLevel () != null;
             case ComponentPackage.GLOBALIZE_COMPONENT__CUSTOMIZATION_PIPELINE:
-                return this.customizationPipeline != null;
+                return customizationPipeline != null;
             case ComponentPackage.GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR:
-                return this.archiveSelector != null;
+                return archiveSelector != null;
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
-                return this.components != null && !this.components.isEmpty ();
+                return components != null && !components.isEmpty ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
-                return this.sourceMaster != null;
+                return sourceMaster != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -720,11 +625,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
     {
         if ( baseClass == Component.class )
         {
@@ -754,11 +658,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
     {
         if ( baseClass == Component.class )
         {
@@ -788,11 +691,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eDerivedOperationID ( final int baseOperationID, final Class<?> baseClass )
+    public int eDerivedOperationID ( int baseOperationID, Class<?> baseClass )
     {
         if ( baseClass == Component.class )
         {
@@ -818,11 +720,10 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -835,22 +736,19 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( this.shortDescription );
+        result.append ( shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( this.name );
+        result.append ( name );
         result.append ( ')' );
         return result.toString ();
     }

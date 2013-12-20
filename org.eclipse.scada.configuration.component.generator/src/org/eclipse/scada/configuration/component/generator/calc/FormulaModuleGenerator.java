@@ -62,7 +62,7 @@ public class FormulaModuleGenerator extends CalculationComponentGenerator<Formul
         // create the item
         final CreationRequest<FormulaItem> c = createFormulaItem ( creator );
         c.dataType ( outputSpec.getDataType () );
-        c.customizationTags ( "input" ); //$NON-NLS-1$ // the output of a calculation module is an input for the system
+        c.customizationTags ( output.getCustomizationTags () ); // the output of a calculation module is an input for the system
         c.localTags ( output.getLocalTag () );
 
         c.addMasterListener ( new MasterListener<FormulaItem> () {

@@ -496,13 +496,22 @@ public interface CommonPackage extends EPackage
     int TIMER_ACTION__VALUE = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_ACTION__NAME = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Timer Action</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int TIMER_ACTION_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 3;
+    int TIMER_ACTION_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -661,6 +670,17 @@ public interface CommonPackage extends EPackage
     EAttribute getTimerAction_Value ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.TimerAction#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.component.common.TimerAction#getName()
+     * @see #getTimerAction()
+     * @generated
+     */
+    EAttribute getTimerAction_Name ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -797,6 +817,14 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EAttribute TIMER_ACTION__VALUE = eINSTANCE.getTimerAction_Value ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TIMER_ACTION__NAME = eINSTANCE.getTimerAction_Name ();
 
     }
 

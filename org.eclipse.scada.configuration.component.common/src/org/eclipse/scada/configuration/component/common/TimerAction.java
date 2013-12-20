@@ -27,6 +27,7 @@ import org.eclipse.scada.core.Variant;
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getTargetItem <em>Target Item</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.common.TimerAction#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,5 +114,32 @@ public interface TimerAction extends MasterComponent
      * @generated
      */
     void setValue ( Variant value );
+
+    /**
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * The default value is <code>"$TIMER_ACTION"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see org.eclipse.scada.configuration.component.common.CommonPackage#getTimerAction_Name()
+     * @model default="$TIMER_ACTION" dataType="org.eclipse.emf.ecore.xml.type.String" required="true"
+     * @generated
+     */
+    String getName ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.common.TimerAction#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
+     * @generated
+     */
+    void setName ( String value );
 
 } // TimerAction

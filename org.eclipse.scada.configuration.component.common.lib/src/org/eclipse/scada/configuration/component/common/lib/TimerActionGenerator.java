@@ -59,7 +59,7 @@ public class TimerActionGenerator extends AbstractDanglingGenerator
 
         final CreationRequest<ScriptItem> req = itemCreator.addItem (
                 item );
-        req.localTags ( "$TIMER_ACTION" );
+        req.localTags ( timerAction.getName () );
 
         if ( this.timerAction.getValue ().getType ().name ().equals ( "DOUBLE" ) )
         {

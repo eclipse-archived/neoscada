@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getLocalTag <em>Local Tag</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#getCustomizationTags <em>Customization Tags</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,21 @@ public interface OutputDefinition extends EObject
      * @generated
      */
     EList<String> getLocalTag ();
+
+    /**
+     * Returns the value of the '<em><b>Customization Tags</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Customization Tags</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Customization Tags</em>' attribute list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getOutputDefinition_CustomizationTags()
+     * @model
+     * @generated
+     */
+    EList<String> getCustomizationTags ();
 
 } // OutputDefinition

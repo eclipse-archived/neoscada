@@ -30,11 +30,9 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ComponentWorld;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.component.ComponentWorld} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.ComponentWorld} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ComponentWorldItemProvider
@@ -50,10 +48,9 @@ public class ComponentWorldItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ComponentWorldItemProvider ( final AdapterFactory adapterFactory )
+    public ComponentWorldItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -62,13 +59,12 @@ public class ComponentWorldItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -76,21 +72,20 @@ public class ComponentWorldItemProvider
             addDefaultCustomizationPipelinePropertyDescriptor ( object );
             addDefaultArchiveSelectorPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Infrastructure feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addInfrastructurePropertyDescriptor ( final Object object )
+    protected void addInfrastructurePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ComponentWorld_infrastructure_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_infrastructure_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -104,18 +99,16 @@ public class ComponentWorldItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Default Customization Pipeline
-     * feature.
+     * This adds a property descriptor for the Default Customization Pipeline feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addDefaultCustomizationPipelinePropertyDescriptor ( final Object object )
+    protected void addDefaultCustomizationPipelinePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ComponentWorld_defaultCustomizationPipeline_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultCustomizationPipeline_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -132,14 +125,13 @@ public class ComponentWorldItemProvider
      * This adds a property descriptor for the Default Archive Selector feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addDefaultArchiveSelectorPropertyDescriptor ( final Object object )
+    protected void addDefaultArchiveSelectorPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ComponentWorld_defaultArchiveSelector_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ComponentWorld_defaultArchiveSelector_feature", "_UI_ComponentWorld_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -153,38 +145,33 @@ public class ComponentWorldItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to
-     * deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand},
-     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in
-     * {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if ( this.childrenFeatures == null )
+        if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            this.childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__LEVELS );
-            this.childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS );
-            this.childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__LEVELS );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__CONFIGURATIONS );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT_WORLD__SERVICES );
         }
-        return this.childrenFeatures;
+        return childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -209,27 +196,23 @@ public class ComponentWorldItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
         return getString ( "_UI_ComponentWorld_type" ); //$NON-NLS-1$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -245,16 +228,14 @@ public class ComponentWorldItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 

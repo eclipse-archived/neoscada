@@ -59,7 +59,7 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
         // create the item
         final CreationRequest<ScriptItem> c = createScriptItem ( creator );
         c.localTags ( output.getLocalTag () );
-        c.customizationTags ( "input" ); //$NON-NLS-1$ // the output of a calculation module is an input for the system
+        c.customizationTags ( output.getCustomizationTags () ); //$NON-NLS-1$ // the output of a calculation module is an input for the system
         c.dataType ( outputSpec.getDataType () );
 
         c.addMasterListener ( new MasterListener<ScriptItem> () {

@@ -71,6 +71,7 @@ public class MappedSourceValueItemProvider extends ItemProviderAdapter implement
             addArchiveSelectorPropertyDescriptor ( object );
             addMasterOnPropertyDescriptor ( object );
             addMapperPropertyDescriptor ( object );
+            addCustomizationTagsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -214,6 +215,29 @@ public class MappedSourceValueItemProvider extends ItemProviderAdapter implement
     }
 
     /**
+     * This adds a property descriptor for the Customization Tags feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addCustomizationTagsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MappedSourceValue_customizationTags_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MappedSourceValue_customizationTags_feature", "_UI_MappedSourceValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -289,6 +313,7 @@ public class MappedSourceValueItemProvider extends ItemProviderAdapter implement
         {
             case ComponentPackage.MAPPED_SOURCE_VALUE__SHORT_DESCRIPTION:
             case ComponentPackage.MAPPED_SOURCE_VALUE__NAME:
+            case ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:

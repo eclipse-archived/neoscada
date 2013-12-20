@@ -64,6 +64,7 @@ public class OutputDefinitionItemProvider extends ItemProviderAdapter implements
 
             addNamePropertyDescriptor ( object );
             addLocalTagPropertyDescriptor ( object );
+            addCustomizationTagsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -115,6 +116,29 @@ public class OutputDefinitionItemProvider extends ItemProviderAdapter implements
     }
 
     /**
+     * This adds a property descriptor for the Customization Tags feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addCustomizationTagsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_OutputDefinition_customizationTags_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_OutputDefinition_customizationTags_feature", "_UI_OutputDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns OutputDefinition.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -157,6 +181,7 @@ public class OutputDefinitionItemProvider extends ItemProviderAdapter implements
         {
             case ComponentPackage.OUTPUT_DEFINITION__NAME:
             case ComponentPackage.OUTPUT_DEFINITION__LOCAL_TAG:
+            case ComponentPackage.OUTPUT_DEFINITION__CUSTOMIZATION_TAGS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

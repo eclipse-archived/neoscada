@@ -394,6 +394,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         // Initialize simple dependencies
         InfrastructurePackage.eINSTANCE.eClass ();
+        ItemPackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theComponentPackage.createPackageContents ();
@@ -844,6 +845,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getMappedSourceValue_CustomizationTags ()
+    {
+        return (EAttribute)mappedSourceValueEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getCalculationComponent ()
     {
         return calculationComponentEClass;
@@ -987,6 +998,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     public EAttribute getOutputDefinition_LocalTag ()
     {
         return (EAttribute)outputDefinitionEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOutputDefinition_CustomizationTags ()
+    {
+        return (EAttribute)outputDefinitionEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -1597,6 +1618,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         mappedSourceValueEClass = createEClass ( MAPPED_SOURCE_VALUE );
         createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__MAPPER );
         createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__INPUT );
+        createEAttribute ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS );
 
         calculationComponentEClass = createEClass ( CALCULATION_COMPONENT );
         createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__IMPLEMENTATION );
@@ -1617,6 +1639,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         outputDefinitionEClass = createEClass ( OUTPUT_DEFINITION );
         createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__NAME );
         createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__LOCAL_TAG );
+        createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__CUSTOMIZATION_TAGS );
 
         itemReferenceInputDefinitionEClass = createEClass ( ITEM_REFERENCE_INPUT_DEFINITION );
         createEAttribute ( itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID );
@@ -1820,6 +1843,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( mappedSourceValueEClass, MappedSourceValue.class, "MappedSourceValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMappedSourceValue_Mapper (), this.getDataMapperService (), null, "mapper", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMappedSourceValue_Input (), this.getInputDefinition (), null, "input", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMappedSourceValue_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( calculationComponentEClass, CalculationComponent.class, "CalculationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCalculationComponent_Implementation (), this.getCalculationModule (), null, "implementation", null, 1, 1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -1840,6 +1864,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getOutputDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getOutputDefinition_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getOutputDefinition_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( itemReferenceInputDefinitionEClass, ItemReferenceInputDefinition.class, "ItemReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getItemReferenceInputDefinition_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

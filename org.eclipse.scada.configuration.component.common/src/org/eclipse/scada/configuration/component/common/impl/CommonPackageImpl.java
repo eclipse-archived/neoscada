@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.CommonFactory;
@@ -120,6 +121,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
         // Initialize simple dependencies
         ComponentPackage.eINSTANCE.eClass ();
+        XMLTypePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theCommonPackage.createPackageContents ();
@@ -270,6 +272,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getTimerAction_Name ()
+    {
+        return (EAttribute)timerActionEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -313,6 +325,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEAttribute ( timerActionEClass, TIMER_ACTION__PERIOD );
         createEReference ( timerActionEClass, TIMER_ACTION__TARGET_ITEM );
         createEAttribute ( timerActionEClass, TIMER_ACTION__VALUE );
+        createEAttribute ( timerActionEClass, TIMER_ACTION__NAME );
     }
 
     /**
@@ -343,6 +356,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Obtain other dependent packages
         ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage ( XMLTypePackage.eNS_URI );
 
         // Create type parameters
 
@@ -373,6 +387,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEAttribute ( getTimerAction_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getTimerAction_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getTimerAction_Value (), theOsgiPackage.getVariant (), "value", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getTimerAction_Name (), theXMLTypePackage.getString (), "name", "$TIMER_ACTION", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Create resource
         createResource ( eNS_URI );
