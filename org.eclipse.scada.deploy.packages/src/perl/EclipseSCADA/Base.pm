@@ -24,10 +24,11 @@ require Carp;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 sub excluded {
    my $file = shift;
+   return 1 if $file =~ .*\.source_.*;
    foreach my $exp ( @_ ) {
       return 1 if $file =~ $exp;
    }
