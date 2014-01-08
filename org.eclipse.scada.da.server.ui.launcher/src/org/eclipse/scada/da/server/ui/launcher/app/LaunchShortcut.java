@@ -25,9 +25,12 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.variables.VariablesPlugin;
 import org.eclipse.debug.core.DebugPlugin;
@@ -114,16 +117,18 @@ public class LaunchShortcut implements ILaunchShortcut2
         cfg.setAttribute ( IPDELauncherConstants.AUTOMATIC_ADD, false );
         cfg.setAttribute ( IPDELauncherConstants.AUTOMATIC_VALIDATE, true );
         cfg.setAttribute ( IPDELauncherConstants.DEFAULT_AUTO_START, false );
+        cfg.setAttribute ( IPDELauncherConstants.CONFIG_USE_DEFAULT_AREA, false );
+        cfg.setAttribute ( IPDELauncherConstants.CONFIG_LOCATION, getConfigurationArea ( profile ) );
 
         addAllBundels ( cfg, profile );
-        addJvmOptions ( cfg, profile );
+        addJvmOptions ( cfg, profile, resource.getParent () );
 
         cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, "-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl}  -consoleLog -console" );
 
         return cfg.doSave ();
     }
 
-    private void addJvmOptions ( final ILaunchConfigurationWorkingCopy cfg, final Profile profile ) throws CoreException
+    private void addJvmOptions ( final ILaunchConfigurationWorkingCopy cfg, final Profile profile, final IContainer container ) throws CoreException
     {
         final List<String> args = new LinkedList<> ();
 
@@ -134,12 +139,18 @@ public class LaunchShortcut implements ILaunchShortcut2
 
         for ( final SystemProperty p : profile.getProperty () )
         {
-            addSystemProperty ( args, p.getKey (), p.getValue (), p.isEval () );
+            addSystemProperty ( profile, args, p.getKey (), p.getValue (), p.isEval () );
         }
 
         for ( final Map.Entry<String, String> entry : getInitialProperties ().entrySet () )
         {
-            addSystemProperty ( args, entry.getKey (), entry.getValue (), false );
+            addSystemProperty ( profile, args, entry.getKey (), entry.getValue (), false );
+        }
+
+        final IFile dataJson = container.getFile ( new Path ( "data.json" ) );
+        if ( dataJson.exists () )
+        {
+            addArg ( args, "org.eclipse.scada.ca.file.provisionJsonUrl", escapeArgValue ( dataJson.getLocation ().toFile ().toURI ().toString () ) );
         }
 
         cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, StringHelper.join ( args, "\n" ) );
@@ -154,31 +165,40 @@ public class LaunchShortcut implements ILaunchShortcut2
         return value;
     }
 
-    private void addSystemProperty ( final List<String> args, final String key, final String value, final boolean eval ) throws CoreException
+    private void addSystemProperty ( final Profile profile, final List<String> args, final String key, final String value, final boolean eval ) throws CoreException
+    {
+        final Pair<String, String> result = interceptProperty ( profile, new Pair<String, String> ( key, escapeArgValue ( value ) ) );
+
+        if ( result != null )
+        {
+            addArg ( args, result.first, eval ( result.second, eval ) );
+        }
+    }
+
+    private void addArg ( final List<String> args, final String key, final String value )
     {
         String wrap = "";
         if ( key.contains ( " " ) || value.contains ( " " ) )
         {
             wrap = "\"";
         }
+        args.add ( String.format ( "%1$s-D%2$s=%3$s%1$s", wrap, key, value ) );
+    }
 
-        final Pair<String, String> result = interceptProperty ( new Pair<String, String> ( key, value ) );
-
-        if ( result != null )
-        {
-            result.second = eval ( result.second, eval );
-            args.add ( String.format ( "%1$s-D%2$s=%3$s%1$s", wrap, replace ( result.first ), replace ( result.second ) ) );
-        }
+    protected String getConfigurationArea ( final Profile profile )
+    {
+        return String.format ( "${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/%s", profile.getName () );
     }
 
     /**
      * Allow intercepting properties
      * 
+     * @param profile
      * @param pair
      *            the property
      * @return the result, <code>null</code> suppresses the property
      */
-    protected Pair<String, String> interceptProperty ( final Pair<String, String> pair )
+    protected Pair<String, String> interceptProperty ( final Profile profile, final Pair<String, String> pair )
     {
         if ( pair == null || pair.first == null )
         {
@@ -190,10 +210,30 @@ public class LaunchShortcut implements ILaunchShortcut2
             return null;
         }
 
+        if ( "org.eclipse.scada.ds.storage.file.root".equals ( pair.first ) )
+        {
+            return new Pair<String, String> ( pair.first, String.format ( "%s/ds.root", getConfigurationArea ( profile ) ) );
+        }
+
+        if ( "org.eclipse.scada.ca.file.root".equals ( pair.first ) )
+        {
+            return new Pair<String, String> ( pair.first, String.format ( "%s/ca.root", getConfigurationArea ( profile ) ) );
+        }
+
+        if ( "org.eclipse.scada.ca.file.provisionJsonUrl".equals ( pair.first ) )
+        {
+            return null;
+        }
+
+        if ( "org.eclipse.scada.ca.file.provisionOscarUrl".equals ( pair.first ) )
+        {
+            return null;
+        }
+
         return pair;
     }
 
-    private String replace ( final String string )
+    private String escapeArgValue ( final String string )
     {
         final String s1 = Matcher.quoteReplacement ( "\\$\\{" );
         final String s2 = Matcher.quoteReplacement ( "\\}" );
