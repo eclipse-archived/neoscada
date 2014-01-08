@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,7 +22,7 @@ import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.DataComponent;
-import org.eclipse.scada.configuration.component.generator.util.Components;
+import org.eclipse.scada.configuration.component.lib.Components;
 import org.eclipse.scada.configuration.component.lib.create.AbstractComponentItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.ItemSource;
 import org.eclipse.scada.configuration.component.lib.create.ItemSources;

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.eclipse.scada.configuration.component.Component;
-import org.eclipse.scada.configuration.component.generator.util.Components;
+import org.eclipse.scada.configuration.component.lib.Components;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.Helper;
 import org.eclipse.scada.configuration.component.lib.create.MasterItemCreatorImpl;

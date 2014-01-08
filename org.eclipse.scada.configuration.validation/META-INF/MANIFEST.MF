@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.scada.configuration.infrastructure.lib;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.core.runtime;version="3.4.0",
+ org.eclipse.scada.configuration.component.lib.create;version="0.1.0",
  org.osgi.framework;version="1.7.0",
  org.slf4j;version="1.7.2"
 Bundle-ActivationPolicy: lazy

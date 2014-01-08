@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH Corporation and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.generator.global;
+package org.eclipse.scada.configuration.component.lib.create;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,18 +17,16 @@ import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.scada.configuration.component.Component;
-import org.eclipse.scada.configuration.component.generator.util.Components;
-import org.eclipse.scada.configuration.component.lib.create.AbstractComponentItemCreator;
-import org.eclipse.scada.configuration.component.lib.create.MasterListener;
+import org.eclipse.scada.configuration.component.lib.Components;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CaptureItemCreatorImpl extends AbstractComponentItemCreator
+public class CaptureItemCreator extends AbstractComponentItemCreator
 {
 
-    private final static Logger logger = LoggerFactory.getLogger ( CaptureItemCreatorImpl.class );
+    private final static Logger logger = LoggerFactory.getLogger ( CaptureItemCreator.class );
 
     public static class ItemCreation
     {
@@ -55,7 +53,7 @@ public class CaptureItemCreatorImpl extends AbstractComponentItemCreator
 
     private final Map<List<String>, ItemCreation> entries;
 
-    public CaptureItemCreatorImpl ( final Component component, final Map<List<String>, ItemCreation> entries )
+    public CaptureItemCreator ( final Component component, final Map<List<String>, ItemCreation> entries )
     {
         super ( component );
         this.entries = entries;

@@ -18,11 +18,12 @@ import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.generator.ComponentGenerator;
 import org.eclipse.scada.configuration.component.generator.ItemCreatorImpl;
-import org.eclipse.scada.configuration.component.generator.global.CaptureItemCreatorImpl.ItemCreation;
+import org.eclipse.scada.configuration.component.lib.create.CaptureItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 import org.eclipse.scada.configuration.component.lib.create.ItemSource;
 import org.eclipse.scada.configuration.component.lib.create.ItemSources;
+import org.eclipse.scada.configuration.component.lib.create.CaptureItemCreator.ItemCreation;
 import org.eclipse.scada.configuration.generator.GenerationContext;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
@@ -64,7 +65,7 @@ public class GlobalizeGenerator extends ComponentGenerator implements ItemSource
     {
         final Map<List<String>, ItemCreation> result = new HashMap<> ();
         final ItemSource source = ItemSources.createItemSource ( component );
-        final CaptureItemCreatorImpl creator = new CaptureItemCreatorImpl ( component, result );
+        final CaptureItemCreator creator = new CaptureItemCreator ( component, result );
         source.createItems ( creator );
         return result;
     }

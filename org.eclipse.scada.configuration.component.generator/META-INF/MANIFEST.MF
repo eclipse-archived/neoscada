@@ -12,8 +12,7 @@ Export-Package: org.eclipse.scada.configuration.component.generator;version="0.1
    org.eclipse.scada.configuration.infrastructure,
    org.eclipse.scada.configuration.component,
    org.eclipse.scada.configuration.item,
-   org.eclipse.scada.configuration.world",
- org.eclipse.scada.configuration.component.generator.util;version="0.1.0";uses:="org.eclipse.scada.configuration.world.osgi,org.eclipse.scada.configuration.component,org.eclipse.scada.configuration.item"
+   org.eclipse.scada.configuration.world"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.da.server.common;bundle-version="0.1.0",
  org.eclipse.scada.configuration.world;bundle-version="0.1.0",
