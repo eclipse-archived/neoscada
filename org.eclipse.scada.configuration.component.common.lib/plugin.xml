@@ -18,7 +18,7 @@
          </adapter>
          </factory>
           <factory
-            adaptableType="org.eclipse.scada.configuration.component.common.TimerActionr"
+            adaptableType="org.eclipse.scada.configuration.component.common.TimerAction"
             class="org.eclipse.scada.configuration.component.common.lib.AdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">
