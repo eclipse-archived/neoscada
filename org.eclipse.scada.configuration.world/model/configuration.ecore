@@ -914,7 +914,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="email" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RedhatDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism"/>
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentInformation">
@@ -926,11 +927,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="changes" lowerBound="1"
           upperBound="-1" eType="#//deployment/ChangeEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="maintainer" lowerBound="1"
-          eType="#//deployment/Author"/>
+          eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
-          eType="#//deployment/Author"/>
+          eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
