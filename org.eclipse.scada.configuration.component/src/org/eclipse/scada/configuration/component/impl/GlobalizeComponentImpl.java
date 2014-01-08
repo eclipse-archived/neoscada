@@ -426,9 +426,9 @@ public class GlobalizeComponentImpl extends MinimalEObjectImpl.Container impleme
     @Override
     public EList<MasterServer> getMasterOn ()
     {
-        if ( getSourceMaster () != null && getSourceMaster ().getImportedMaster () != null )
+        if ( getSourceMaster () != null && getSourceMaster ().getMaster () != null )
         {
-            return ECollections.singletonEList ( getSourceMaster ().getImportedMaster () );
+            return ECollections.singletonEList ( getSourceMaster ().getMaster () );
         }
         else
         {
