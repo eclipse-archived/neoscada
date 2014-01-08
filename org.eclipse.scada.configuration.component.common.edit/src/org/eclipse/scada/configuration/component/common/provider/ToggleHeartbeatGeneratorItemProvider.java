@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,14 +16,13 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
+import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 
 /**
@@ -119,6 +118,30 @@ public class ToggleHeartbeatGeneratorItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify =
+                childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM ||
+                        childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
+
+        if ( qualify )
+        {
+            return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+        }
+        return super.getCreateChildText ( owner, feature, child, selection );
     }
 
 }

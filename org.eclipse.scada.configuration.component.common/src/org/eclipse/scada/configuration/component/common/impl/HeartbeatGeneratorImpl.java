@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getTargetItem <em>Target Item</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.common.impl.HeartbeatGeneratorImpl#getActiveInput <em>Active Input</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +69,16 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
     protected InputDefinition targetItem;
 
     /**
+     * The cached value of the '{@link #getActiveInput() <em>Active Input</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getActiveInput()
+     * @generated
+     * @ordered
+     */
+    protected InputDefinition activeInput;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -93,6 +104,7 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public long getPeriod ()
     {
         return period;
@@ -103,6 +115,7 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPeriod ( long newPeriod )
     {
         long oldPeriod = period;
@@ -116,6 +129,7 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public InputDefinition getTargetItem ()
     {
         return targetItem;
@@ -146,6 +160,7 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setTargetItem ( InputDefinition newTargetItem )
     {
         if ( newTargetItem != targetItem )
@@ -169,12 +184,68 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
      * @generated
      */
     @Override
+    public InputDefinition getActiveInput ()
+    {
+        return activeInput;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetActiveInput ( InputDefinition newActiveInput, NotificationChain msgs )
+    {
+        InputDefinition oldActiveInput = activeInput;
+        activeInput = newActiveInput;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT, oldActiveInput, newActiveInput );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void setActiveInput ( InputDefinition newActiveInput )
+    {
+        if ( newActiveInput != activeInput )
+        {
+            NotificationChain msgs = null;
+            if ( activeInput != null )
+                msgs = ( (InternalEObject)activeInput ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT, null, msgs );
+            if ( newActiveInput != null )
+                msgs = ( (InternalEObject)newActiveInput ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT, null, msgs );
+            msgs = basicSetActiveInput ( newActiveInput, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT, newActiveInput, newActiveInput ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 return basicSetTargetItem ( null, msgs );
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
+                return basicSetActiveInput ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -193,6 +264,8 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
                 return getPeriod ();
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 return getTargetItem ();
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
+                return getActiveInput ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -212,6 +285,9 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
                 return;
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 setTargetItem ( (InputDefinition)newValue );
+                return;
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
+                setActiveInput ( (InputDefinition)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -233,6 +309,9 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 setTargetItem ( (InputDefinition)null );
                 return;
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
+                setActiveInput ( (InputDefinition)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -251,6 +330,8 @@ public abstract class HeartbeatGeneratorImpl extends MasterComponentImpl impleme
                 return period != PERIOD_EDEFAULT;
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
                 return targetItem != null;
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
+                return activeInput != null;
         }
         return super.eIsSet ( featureID );
     }

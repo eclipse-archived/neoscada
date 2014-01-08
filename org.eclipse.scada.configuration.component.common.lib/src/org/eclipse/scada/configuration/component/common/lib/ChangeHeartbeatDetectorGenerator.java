@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,9 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.common.lib;
 
-import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
+import static org.eclipse.scada.configuration.component.common.lib.Helper.loadResource;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -27,8 +25,6 @@ import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.ScriptItem;
 import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
-
-import com.google.common.io.Resources;
 
 public class ChangeHeartbeatDetectorGenerator extends AbstractDanglingGenerator
 {
@@ -46,19 +42,6 @@ public class ChangeHeartbeatDetectorGenerator extends AbstractDanglingGenerator
 
         this.updateCodeString = loadResource ( "detect.update.js" );
         this.timerCodeString = loadResource ( "detect.timer.js" );
-    }
-
-    private static String loadResource ( final String resourceName )
-    {
-        final URL updateUrl = Resources.getResource ( ChangeHeartbeatDetectorGenerator.class, resourceName );
-        try
-        {
-            return Resources.toString ( updateUrl, Charset.forName ( "UTF-8" ) );
-        }
-        catch ( final IOException e )
-        {
-            throw new RuntimeException ( String.format ( "Unable to load '%s'", resourceName ), e );
-        }
     }
 
     @Override

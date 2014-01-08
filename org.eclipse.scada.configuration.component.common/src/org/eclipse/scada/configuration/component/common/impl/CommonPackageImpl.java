@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -72,14 +72,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
-     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+     * package
      * package URI value.
-     * <p>Note: the correct way to create the package is via the static
-     * factory method {@link #init init()}, which also performs
-     * initialization of the package, or returns the registered package,
-     * if one already exists.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <p>
+     * Note: the correct way to create the package is via the static factory
+     * method {@link #init init()}, which also performs initialization of the
+     * package, or returns the registered package, if one already exists. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.eclipse.scada.configuration.component.common.CommonPackage#eNS_URI
      * @see #init()
@@ -98,12 +99,14 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+     * Creates, registers, and initializes the <b>Package</b> for this model,
+     * and for any others upon which it depends.
+     * <p>
+     * This method is used to initialize {@link CommonPackage#eINSTANCE} when
+     * that field is accessed. Clients should not invoke it directly. Instead,
+     * they should simply access that field to obtain the package. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * <p>This method is used to initialize {@link CommonPackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -142,6 +145,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHeartbeatGenerator ()
     {
         return heartbeatGeneratorEClass;
@@ -152,6 +156,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHeartbeatGenerator_Period ()
     {
         return (EAttribute)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 0 );
@@ -162,6 +167,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getHeartbeatGenerator_TargetItem ()
     {
         return (EReference)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 1 );
@@ -172,6 +178,18 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
+    public EReference getHeartbeatGenerator_ActiveInput ()
+    {
+        return (EReference)heartbeatGeneratorEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public EClass getToggleHeartbeatGenerator ()
     {
         return toggleHeartbeatGeneratorEClass;
@@ -182,6 +200,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHeartbeatDetector ()
     {
         return heartbeatDetectorEClass;
@@ -192,6 +211,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getChangeHeartbeatDetector ()
     {
         return changeHeartbeatDetectorEClass;
@@ -202,6 +222,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getChangeHeartbeatDetector_Timeout ()
     {
         return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 0 );
@@ -212,6 +233,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getChangeHeartbeatDetector_CheckPeriod ()
     {
         return (EAttribute)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 1 );
@@ -222,6 +244,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getChangeHeartbeatDetector_SourceItem ()
     {
         return (EReference)changeHeartbeatDetectorEClass.getEStructuralFeatures ().get ( 2 );
@@ -282,6 +305,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public CommonFactory getCommonFactory ()
     {
         return (CommonFactory)getEFactoryInstance ();
@@ -311,6 +335,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         heartbeatGeneratorEClass = createEClass ( HEARTBEAT_GENERATOR );
         createEAttribute ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__PERIOD );
         createEReference ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__TARGET_ITEM );
+        createEReference ( heartbeatGeneratorEClass, HEARTBEAT_GENERATOR__ACTIVE_INPUT );
 
         toggleHeartbeatGeneratorEClass = createEClass ( TOGGLE_HEARTBEAT_GENERATOR );
 
@@ -373,6 +398,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getHeartbeatGenerator_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getHeartbeatGenerator_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getHeartbeatGenerator_ActiveInput (), theComponentPackage.getInputDefinition (), null, "activeInput", null, 0, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( toggleHeartbeatGeneratorEClass, ToggleHeartbeatGenerator.class, "ToggleHeartbeatGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

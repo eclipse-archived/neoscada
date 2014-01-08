@@ -13,6 +13,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activeInput" eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="This is a input which activates or deactivates the heartbeat generator. If the input is set it must be &quot;true&quot; for the heartbeat generator to write its heartbeat."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ToggleHeartbeatGenerator" eSuperTypes="#//HeartbeatGenerator"/>
   <eClassifiers xsi:type="ecore:EClass" name="HeartbeatDetector" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent"/>

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -70,6 +71,8 @@ public class HeartbeatGeneratorItemProvider
             super.getPropertyDescriptors ( object );
 
             addPeriodPropertyDescriptor ( object );
+            addTargetItemPropertyDescriptor ( object );
+            addActiveInputPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -98,6 +101,52 @@ public class HeartbeatGeneratorItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Target Item feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTargetItemPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_HeartbeatGenerator_targetItem_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_targetItem_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM,
+                        false,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Active Input feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addActiveInputPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_HeartbeatGenerator_activeInput_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_HeartbeatGenerator_activeInput_feature", "_UI_HeartbeatGenerator_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
+                        false,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -112,6 +161,7 @@ public class HeartbeatGeneratorItemProvider
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM );
+            childrenFeatures.add ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT );
         }
         return childrenFeatures;
     }
@@ -173,6 +223,7 @@ public class HeartbeatGeneratorItemProvider
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case CommonPackage.HEARTBEAT_GENERATOR__TARGET_ITEM:
+            case CommonPackage.HEARTBEAT_GENERATOR__ACTIVE_INPUT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -200,6 +251,40 @@ public class HeartbeatGeneratorItemProvider
                 ( createChildParameter
                 ( CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM,
                         ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
+                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT,
+                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify =
+                childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM ||
+                        childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
+
+        if ( qualify )
+        {
+            return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+        }
+        return super.getCreateChildText ( owner, feature, child, selection );
     }
 
 }

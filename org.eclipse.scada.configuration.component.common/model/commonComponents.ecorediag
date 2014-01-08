@@ -189,4 +189,16 @@
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nYz8k2NGEeO9EKVyUKzxnQ" points="[-12, 29, -27, -140]$[-12, 136, -27, -33]"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_zqZhUHg_EeOnu99lvUIkKg" type="3002" source="_2GvXQGGeEeOT2rDq00KK6A" target="_TUzy8GGqEeOT2rDq00KK6A">
+    <children xmi:type="notation:Node" xmi:id="_zqbWgHg_EeOnu99lvUIkKg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zqbWgXg_EeOnu99lvUIkKg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_zqb9kHg_EeOnu99lvUIkKg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zqb9kXg_EeOnu99lvUIkKg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_zqZhUXg_EeOnu99lvUIkKg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_zqZhUng_EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="commonComponents.ecore#//HeartbeatGenerator/activeInput"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zqZhU3g_EeOnu99lvUIkKg" points="[-14, -24, 75, 115]$[-81, -168, 8, -29]"/>
+  </edges>
 </notation:Diagram>

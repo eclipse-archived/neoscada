@@ -226,7 +226,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//DataComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//DataComponent"/>
+        eType="#//DataComponent">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>
   </eClassifiers>
