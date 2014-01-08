@@ -23,6 +23,9 @@ import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
+import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
+import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
 import org.eclipse.scada.configuration.memory.TypeSystem;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerFactory;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerModule;
@@ -34,9 +37,6 @@ import org.eclipse.scada.configuration.modbus.ModbusMaster;
 import org.eclipse.scada.configuration.modbus.ModbusSlave;
 import org.eclipse.scada.configuration.modbus.ProtocolType;
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
-import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
-import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
 
 public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver>
 {
@@ -92,7 +92,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
         master.setId ( device.getName () );
         result.getMasters ().add ( master );
 
-        final Endpoint ep = Worlds.createEndpoint ( device.getPort () );
+        final Endpoint ep = Worlds.createEndpoint ( device.getPort (), "Modbus Device Endpoint" );
         master.setEndpoint ( ep );
         master.setProtocolType ( device.getProtocolType () );
         master.setInterFrameDelay ( device.getInterFrameDelay () );

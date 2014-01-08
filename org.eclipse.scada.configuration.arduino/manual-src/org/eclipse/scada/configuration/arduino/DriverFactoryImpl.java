@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,10 +12,6 @@ package org.eclipse.scada.configuration.arduino;
 
 import java.util.Map;
 
-import org.eclipse.scada.configuration.arduino.ArduinoConnection;
-import org.eclipse.scada.configuration.arduino.ArduinoDevice;
-import org.eclipse.scada.configuration.arduino.ArduinoDriver;
-import org.eclipse.scada.configuration.arduino.ArduinoFactory;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
@@ -58,7 +54,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ArduinoDrive
         con.setName ( device.getName () );
         con.setShortDescription ( device.getShortDescription () );
 
-        final Endpoint ep = Worlds.createEndpoint ( device.getPort () );
+        final Endpoint ep = Worlds.createEndpoint ( device.getPort (), "Arduino Endpoint" );
         con.setEndpoint ( ep );
 
         // lookup node

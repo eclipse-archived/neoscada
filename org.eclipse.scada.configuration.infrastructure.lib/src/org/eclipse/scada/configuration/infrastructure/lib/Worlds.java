@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -181,10 +181,11 @@ public final class Worlds
         return findInterconnectCredentials ( masterImport.getImportedMaster () );
     }
 
-    public static Endpoint createEndpoint ( final int port )
+    public static Endpoint createEndpoint ( final int port, final String name )
     {
         final Endpoint ep = WorldFactory.eINSTANCE.createEndpoint ();
         ep.setPortNumber ( (short)port );
+        ep.setName ( name );
         return ep;
     }
 
@@ -192,15 +193,15 @@ public final class Worlds
     {
         if ( driver instanceof CommonDriver )
         {
-            return createEndpoint ( ( (CommonDriver)driver ).getPortNumber () );
+            return createEndpoint ( ( (CommonDriver)driver ).getPortNumber (), "CommonDriver Endpoint: " + driver.getName () );
         }
         else if ( driver instanceof EquinoxDriver )
         {
-            return createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber () );
+            return createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
         }
         else if ( driver instanceof ExternalDriver )
         {
-            return createEndpoint ( ( (ExternalDriver)driver ).getPortNumber () );
+            return createEndpoint ( ( (ExternalDriver)driver ).getPortNumber (), "ExternalDriver Endpoint: " + driver.getName () );
         }
         throw new IllegalStateException ( String.format ( "Unable to create DA endpoint for driver type: %s", driver.getClass ().getName () ) );
     }

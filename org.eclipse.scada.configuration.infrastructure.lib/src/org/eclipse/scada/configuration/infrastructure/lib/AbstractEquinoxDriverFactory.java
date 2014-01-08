@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -81,7 +81,7 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
 
         final ConfigurationAdministratorExporter caExporter = OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter ();
         caExporter.setName ( "caExporter" ); //$NON-NLS-1$
-        caExporter.getEndpoints ().add ( Worlds.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber () ) );
+        caExporter.getEndpoints ().add ( Worlds.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), "CA Exporter" ) );
         result.getExporter ().add ( caExporter );
 
         Worlds.addUserService ( result, eDriver.getUserService (), world.getOptions () );

@@ -524,6 +524,25 @@
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ccjf0mNFEeO9EKVyUKzxnQ" x="830" y="744"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="__UddcHh7EeOnu99lvUIkKg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__V0vYHh7EeOnu99lvUIkKg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="__V0vYXh7EeOnu99lvUIkKg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="__VD6YHh7EeOnu99lvUIkKg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="__VEhcHh7EeOnu99lvUIkKg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__VEhcXh7EeOnu99lvUIkKg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__VEhcnh7EeOnu99lvUIkKg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__VEhc3h7EeOnu99lvUIkKg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__VEhdHh7EeOnu99lvUIkKg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__VEhdXh7EeOnu99lvUIkKg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__VEhdnh7EeOnu99lvUIkKg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__VEhd3h7EeOnu99lvUIkKg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__UddcXh7EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Uddcnh7EeOnu99lvUIkKg" x="516" y="840"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_oACEwe0-EeKGXeBKLQA3cw"/>
   <element xmi:type="ecore:EPackage" href="component.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_oAZRIO0-EeKGXeBKLQA3cw" type="3002" source="_oAG9QO0-EeKGXeBKLQA3cw" target="_oARVUO0-EeKGXeBKLQA3cw">
@@ -839,6 +858,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_tyBzUmNEEeO9EKVyUKzxnQ" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tyBzU2NEEeO9EKVyUKzxnQ" points="[51, 21, -260, -99]$[207, 118, -104, -2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NbDksHh8EeOnu99lvUIkKg" id="(0.8461538461538461,0.32558139534883723)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_cc43AGNFEeO9EKVyUKzxnQ" type="3002" source="_aiwFkGNFEeO9EKVyUKzxnQ" target="_ccjf0GNFEeO9EKVyUKzxnQ">
     <children xmi:type="notation:Node" xmi:id="_cc43BGNFEeO9EKVyUKzxnQ" type="4011">
@@ -881,5 +901,41 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_ijrPEmNFEeO9EKVyUKzxnQ" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ijrPE2NFEeO9EKVyUKzxnQ" points="[-18, -20, 169, 179]$[-181, -219, 6, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__Vh0cHh7EeOnu99lvUIkKg" type="3002" source="_oAYDC-0-EeKGXeBKLQA3cw" target="__UddcHh7EeOnu99lvUIkKg">
+    <children xmi:type="notation:Node" xmi:id="__VibgHh7EeOnu99lvUIkKg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__VibgXh7EeOnu99lvUIkKg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__Vibgnh7EeOnu99lvUIkKg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__Vibg3h7EeOnu99lvUIkKg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__Vh0cXh7EeOnu99lvUIkKg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__Vh0cnh7EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="component.ecore#//DriverConnectionAnalyzer/connection"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Vh0c3h7EeOnu99lvUIkKg" points="[-3, -20, 104, 745]$[-107, -764, 0, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__VjCkHh7EeOnu99lvUIkKg" type="3002" source="_uENiQA7_EeOR1p6S2BCQ0A" target="__UddcHh7EeOnu99lvUIkKg">
+    <children xmi:type="notation:Node" xmi:id="__VjClHh7EeOnu99lvUIkKg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__VjClXh7EeOnu99lvUIkKg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__VjpoHh7EeOnu99lvUIkKg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__VjpoXh7EeOnu99lvUIkKg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__VjCkXh7EeOnu99lvUIkKg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__VjCknh7EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="component.ecore#//ExternalValue/connection"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__VjCk3h7EeOnu99lvUIkKg" points="[-3, -24, 94, 853]$[-97, -876, 0, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__VkQsHh7EeOnu99lvUIkKg" type="3002" source="_ccjf0GNFEeO9EKVyUKzxnQ" target="__UddcHh7EeOnu99lvUIkKg">
+    <children xmi:type="notation:Node" xmi:id="__VkQtHh7EeOnu99lvUIkKg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__VkQtXh7EeOnu99lvUIkKg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__VkQtnh7EeOnu99lvUIkKg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__VkQt3h7EeOnu99lvUIkKg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__VkQsXh7EeOnu99lvUIkKg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__VkQsnh7EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer/driver"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__VkQs3h7EeOnu99lvUIkKg" points="[-34, -29, 863, 745]$[-896, -773, 1, 1]"/>
   </edges>
 </notation:Diagram>

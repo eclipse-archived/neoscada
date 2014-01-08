@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -358,7 +358,7 @@ public class WorldGenerator
                 if ( m instanceof HttpServiceModule )
                 {
                     final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
-                    final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort () );
+                    final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort (), "HTTP Endpoint" );
                     final Node node = Nodes.fromApp ( implMaster );
                     node.getEndpoints ().add ( ep );
                     s.setEndpoint ( ep );
@@ -414,7 +414,7 @@ public class WorldGenerator
     {
         final DataAccessConnection connection = OsgiFactory.eINSTANCE.createDataAccessConnection ();
         connection.setEndpoint ( ep );
-        connection.setName ( driver.getName () );
+        connection.setName ( String.format ( "driver.%s", driver.getName () ) );
         connection.setCredentials ( EcoreUtil.copy ( Worlds.findConnectionPassword ( driver ) ) );
 
         final org.eclipse.scada.configuration.world.osgi.MasterServer mappedMaster = this.ctxMap.get ( master ).getImplementation ();
@@ -528,9 +528,11 @@ public class WorldGenerator
 
     private Endpoint createExporter ( final EClass exporterClass, final Node node, final EquinoxApplication application, final int port )
     {
-        final Endpoint ep = Worlds.createEndpoint ( port );
-        node.getEndpoints ().add ( ep );
         final Exporter exporter = (Exporter)EcoreUtil.create ( exporterClass );
+
+        final Endpoint ep = Worlds.createEndpoint ( port, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
+        node.getEndpoints ().add ( ep );
+
         exporter.setName ( application.getName () + "/exporter" );
         exporter.getEndpoints ().add ( ep );
         application.getExporter ().add ( exporter );
