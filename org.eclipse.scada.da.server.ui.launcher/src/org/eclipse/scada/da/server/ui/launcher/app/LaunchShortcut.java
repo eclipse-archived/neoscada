@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH Corporation and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -267,6 +267,10 @@ public class LaunchShortcut implements ILaunchShortcut2
         for ( final StartBundle sb : profile.getStart () )
         {
             final Bundle b = all.get ( sb.getName () );
+            if ( b == null )
+            {
+                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, String.format ( "Start bundle '%s' is not in the list of installed bundles.", sb.getName () ) ) );
+            }
             b.autostart = true;
             all.put ( b.name, b );
         }
@@ -446,6 +450,11 @@ public class LaunchShortcut implements ILaunchShortcut2
 
     protected Collection<ILaunchConfiguration> findConfigurations ( final IResource resource ) throws CoreException, IOException
     {
+        if ( resource == null )
+        {
+            return Collections.emptyList ();
+        }
+
         final Collection<ILaunchConfiguration> result = new LinkedList<> ();
 
         final File sourceFile = resource.getLocation ().toFile ().getCanonicalFile ();
