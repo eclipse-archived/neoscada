@@ -69,6 +69,10 @@
                         property="org.eclipse.core.resources.extension"
                         value="xml">
                   </test>
+				  <test
+                        property="org.eclipse.core.resources.contentTypeId"
+                        value="org.eclipse.scada.da.server.exporter">
+                  </test>
                </adapt>
             </iterate>
          </with>
