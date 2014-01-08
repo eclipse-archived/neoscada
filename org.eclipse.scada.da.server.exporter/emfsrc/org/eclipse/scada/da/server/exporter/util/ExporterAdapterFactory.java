@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor updates
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.util;
 
@@ -14,12 +15,19 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.da.server.exporter.*;
+import org.eclipse.scada.da.server.exporter.AnnouncerType;
+import org.eclipse.scada.da.server.exporter.ConfigurationType;
+import org.eclipse.scada.da.server.exporter.DocumentRoot;
+import org.eclipse.scada.da.server.exporter.ExportType;
+import org.eclipse.scada.da.server.exporter.ExporterPackage;
+import org.eclipse.scada.da.server.exporter.HiveConfigurationType;
+import org.eclipse.scada.da.server.exporter.HiveType;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
- * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the
+ * model.
  * <!-- end-user-doc -->
  * @see org.eclipse.scada.da.server.exporter.ExporterPackage
  * @generated
@@ -53,7 +61,8 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Returns whether this factory is applicable for the type of the object.
      * <!-- begin-user-doc -->
-     * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+     * This implementation returns <code>true</code> if the object is either the
+     * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
      * @return whether this factory is applicable for the type of the object.
      * @generated
@@ -78,7 +87,8 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
      * <!-- end-user-doc -->
      * @generated
      */
-    protected ExporterSwitch<Adapter> modelSwitch = new ExporterSwitch<Adapter> () {
+    protected ExporterSwitch<Adapter> modelSwitch = new ExporterSwitch<Adapter> ()
+    {
         @Override
         public Adapter caseAnnouncerType ( AnnouncerType object )
         {
@@ -139,8 +149,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.AnnouncerType <em>Announcer Type</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.AnnouncerType
@@ -154,8 +166,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.ConfigurationType <em>Configuration Type</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.ConfigurationType
@@ -169,8 +183,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.DocumentRoot <em>Document Root</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.DocumentRoot
@@ -184,8 +200,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.ExportType <em>Export Type</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.ExportType
@@ -199,8 +217,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.HiveConfigurationType <em>Hive Configuration Type</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.HiveConfigurationType
@@ -214,8 +234,10 @@ public class ExporterAdapterFactory extends AdapterFactoryImpl
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.exporter.HiveType <em>Hive Type</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
      * @see org.eclipse.scada.da.server.exporter.HiveType

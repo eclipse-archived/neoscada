@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor updates
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.impl;
 
@@ -79,14 +80,15 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
-     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+     * package
      * package URI value.
-     * <p>Note: the correct way to create the package is via the static
-     * factory method {@link #init init()}, which also performs
-     * initialization of the package, or returns the registered package,
-     * if one already exists.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <p>
+     * Note: the correct way to create the package is via the static factory
+     * method {@link #init init()}, which also performs initialization of the
+     * package, or returns the registered package, if one already exists. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.eclipse.scada.da.server.exporter.ExporterPackage#eNS_URI
      * @see #init()
@@ -105,12 +107,14 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+     * Creates, registers, and initializes the <b>Package</b> for this model,
+     * and for any others upon which it depends.
+     * <p>
+     * This method is used to initialize {@link ExporterPackage#eINSTANCE} when
+     * that field is accessed. Clients should not invoke it directly. Instead,
+     * they should simply access that field to obtain the package. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * <p>This method is used to initialize {@link ExporterPackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -148,6 +152,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getAnnouncerType ()
     {
         return announcerTypeEClass;
@@ -158,6 +163,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getAnnouncerType_Class ()
     {
         return (EAttribute)announcerTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -168,6 +174,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getConfigurationType ()
     {
         return configurationTypeEClass;
@@ -178,6 +185,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getConfigurationType_Hive ()
     {
         return (EReference)configurationTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -188,6 +196,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getConfigurationType_Announcer ()
     {
         return (EReference)configurationTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -198,6 +207,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getDocumentRoot ()
     {
         return documentRootEClass;
@@ -208,6 +218,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getDocumentRoot_Mixed ()
     {
         return (EAttribute)documentRootEClass.getEStructuralFeatures ().get ( 0 );
@@ -218,6 +229,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_XMLNSPrefixMap ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 1 );
@@ -228,6 +240,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_XSISchemaLocation ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 2 );
@@ -238,6 +251,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getDocumentRoot_Configuration ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 3 );
@@ -248,6 +262,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getExportType ()
     {
         return exportTypeEClass;
@@ -258,6 +273,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getExportType_Uri ()
     {
         return (EAttribute)exportTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -268,6 +284,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHiveConfigurationType ()
     {
         return hiveConfigurationTypeEClass;
@@ -278,6 +295,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHiveConfigurationType_Mixed ()
     {
         return (EAttribute)hiveConfigurationTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -288,6 +306,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHiveConfigurationType_Any ()
     {
         return (EAttribute)hiveConfigurationTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -298,6 +317,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EClass getHiveType ()
     {
         return hiveTypeEClass;
@@ -308,6 +328,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getHiveType_Configuration ()
     {
         return (EReference)hiveTypeEClass.getEStructuralFeatures ().get ( 0 );
@@ -318,6 +339,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EReference getHiveType_Export ()
     {
         return (EReference)hiveTypeEClass.getEStructuralFeatures ().get ( 1 );
@@ -328,6 +350,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EAttribute getHiveType_Ref ()
     {
         return (EAttribute)hiveTypeEClass.getEStructuralFeatures ().get ( 2 );
@@ -338,6 +361,7 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ExporterFactory getExporterFactory ()
     {
         return (ExporterFactory)getEFactoryInstance ();
@@ -467,70 +491,127 @@ public class ExporterPackageImpl extends EPackageImpl implements ExporterPackage
     protected void createExtendedMetaDataAnnotations ()
     {
         String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$		
-        addAnnotation ( announcerTypeEClass, source, new String[] { "name", "AnnouncerType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getAnnouncerType_Class (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "class" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( configurationTypeEClass, source, new String[] { "name", "ConfigurationType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getConfigurationType_Hive (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "hive", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getConfigurationType_Announcer (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "announcer", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( documentRootEClass, source, new String[] { "name", "", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_Mixed (), source, new String[] { "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_XMLNSPrefixMap (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_XSISchemaLocation (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getDocumentRoot_Configuration (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "configuration", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( exportTypeEClass, source, new String[] { "name", "ExportType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getExportType_Uri (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "uri" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( hiveConfigurationTypeEClass, source, new String[] { "name", "HiveConfigurationType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getHiveConfigurationType_Mixed (), source, new String[] { "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getHiveConfigurationType_Any (), source, new String[] { "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
-        "wildcards", "##any", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", ":1", //$NON-NLS-1$ //$NON-NLS-2$
-        "processing", "lax" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( hiveTypeEClass, source, new String[] { "name", "HiveType", //$NON-NLS-1$ //$NON-NLS-2$
-        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getHiveType_Configuration (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "configuration", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getHiveType_Export (), source, new String[] { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "export", //$NON-NLS-1$ //$NON-NLS-2$
-        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
-        addAnnotation ( getHiveType_Ref (), source, new String[] { "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
-        "name", "ref" //$NON-NLS-1$ //$NON-NLS-2$
-        } );
+        addAnnotation ( announcerTypeEClass,
+                source,
+                new String[]
+                {       "name", "AnnouncerType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getAnnouncerType_Class (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "class" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( configurationTypeEClass,
+                source,
+                new String[]
+                {       "name", "ConfigurationType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getConfigurationType_Hive (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "hive", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getConfigurationType_Announcer (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "announcer", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( documentRootEClass,
+                source,
+                new String[]
+                {       "name", "", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_Mixed (),
+                source,
+                new String[]
+                {       "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_XMLNSPrefixMap (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_XSISchemaLocation (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDocumentRoot_Configuration (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "configuration", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( exportTypeEClass,
+                source,
+                new String[]
+                {       "name", "ExportType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getExportType_Uri (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "uri" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( hiveConfigurationTypeEClass,
+                source,
+                new String[]
+                {       "name", "HiveConfigurationType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getHiveConfigurationType_Mixed (),
+                source,
+                new String[]
+                {       "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getHiveConfigurationType_Any (),
+                source,
+                new String[]
+                {       "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+                        "wildcards", "##any", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", ":1", //$NON-NLS-1$ //$NON-NLS-2$
+                        "processing", "lax" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( hiveTypeEClass,
+                source,
+                new String[]
+                {       "name", "HiveType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getHiveType_Configuration (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "configuration", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getHiveType_Export (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "export", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getHiveType_Ref (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "ref" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
     }
 
 } //ExporterPackageImpl

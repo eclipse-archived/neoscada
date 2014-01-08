@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor updates
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter;
 
@@ -20,11 +21,11 @@ import org.eclipse.emf.ecore.EReference;
  * The <b>Package</b> for the model.
  * It contains accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each operation of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
  * @see org.eclipse.scada.da.server.exporter.ExporterFactory
@@ -48,7 +49,7 @@ public interface ExporterPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    String eNS_URI = "http://openscada.org/DA/Server/Exporter"; //$NON-NLS-1$
+    String eNS_URI = "http://eclipse.org/SCADA/DA/Server/Exporter"; //$NON-NLS-1$
 
     /**
      * The package namespace name.
@@ -57,6 +58,14 @@ public interface ExporterPackage extends EPackage
      * @generated
      */
     String eNS_PREFIX = "exporter"; //$NON-NLS-1$
+
+    /**
+     * The package content type ID.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    String eCONTENT_TYPE = "org.eclipse.scada.da.server.exporter"; //$NON-NLS-1$
 
     /**
      * The singleton instance of the package.
@@ -567,11 +576,11 @@ public interface ExporterPackage extends EPackage
      * <!-- begin-user-doc -->
      * Defines literals for the meta objects that represent
      * <ul>
-     *   <li>each class,</li>
-     *   <li>each feature of each class,</li>
-     *   <li>each operation of each class,</li>
-     *   <li>each enum,</li>
-     *   <li>and each data type</li>
+     * <li>each class,</li>
+     * <li>each feature of each class,</li>
+     * <li>each operation of each class,</li>
+     * <li>each enum,</li>
+     * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
      * @generated
