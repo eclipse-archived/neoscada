@@ -397,7 +397,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         // Initialize classes, features, and operations; add parameters
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getHeartbeatGenerator_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEReference ( getHeartbeatGenerator_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getHeartbeatGenerator_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 0, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getHeartbeatGenerator_ActiveInput (), theComponentPackage.getInputDefinition (), null, "activeInput", null, 0, 1, HeartbeatGenerator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( toggleHeartbeatGeneratorEClass, ToggleHeartbeatGenerator.class, "ToggleHeartbeatGenerator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

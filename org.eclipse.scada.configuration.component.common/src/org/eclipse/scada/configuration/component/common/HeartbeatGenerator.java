@@ -71,7 +71,7 @@ public interface HeartbeatGenerator extends MasterComponent
      * @return the value of the '<em>Target Item</em>' containment reference.
      * @see #setTargetItem(InputDefinition)
      * @see org.eclipse.scada.configuration.component.common.CommonPackage#getHeartbeatGenerator_TargetItem()
-     * @model containment="true" required="true"
+     * @model containment="true"
      * @generated
      */
     InputDefinition getTargetItem ();

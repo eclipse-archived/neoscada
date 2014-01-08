@@ -10,8 +10,7 @@
         <details key="documentation" value="The generator period in milliseconds"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetItem" eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="activeInput" eType="ecore:EClass ../../org.eclipse.scada.configuration.component/model/component.ecore#//InputDefinition"
         containment="true">

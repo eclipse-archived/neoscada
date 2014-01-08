@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.component.impl.MasterComponentImpl;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class HeartbeatDetectorImpl extends MasterComponentImpl implements HeartbeatDetector
@@ -30,6 +30,7 @@ public abstract class HeartbeatDetectorImpl extends MasterComponentImpl implemen
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected HeartbeatDetectorImpl ()
@@ -40,6 +41,7 @@ public abstract class HeartbeatDetectorImpl extends MasterComponentImpl implemen
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

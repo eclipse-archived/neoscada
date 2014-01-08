@@ -43,11 +43,15 @@ public class ToggleHeartbeatGeneratorGenerator extends AbstractDanglingGenerator
         final CodeFragment updateCode = makeUpdateCode ();
 
         // create the target reference
-        final ItemReference ref = OsgiFactory.eINSTANCE.createItemReference ();
-        ref.setName ( "A" );
-        ref.setItem ( this.generator.getTargetItem ().createReference () );
-        item.getCommands ().add ( ref );
+        if ( this.generator.getTargetItem () != null )
+        {
+            final ItemReference ref = OsgiFactory.eINSTANCE.createItemReference ();
+            ref.setName ( "A" );
+            ref.setItem ( this.generator.getTargetItem ().createReference () );
+            item.getCommands ().add ( ref );
+        }
 
+        // create the active indicator
         if ( this.generator.getActiveInput () != null )
         {
             final ItemReference activeRef = OsgiFactory.eINSTANCE.createItemReference ();
@@ -103,8 +107,7 @@ public class ToggleHeartbeatGeneratorGenerator extends AbstractDanglingGenerator
 
         if ( this.generator.getActiveInput () != null )
         {
-
-            sb.append ( "if ( active ) { state = !state; writer.write(\"A\", state ); }" );
+            sb.append ( "if ( active ) { state = !state; write(); }" );
 
             // if we are active the state is the internal state
             // otherwise it is "null"
@@ -112,7 +115,7 @@ public class ToggleHeartbeatGeneratorGenerator extends AbstractDanglingGenerator
         }
         else
         {
-            sb.append ( "state = !state; writer.write(\"A\", state ); state;" );
+            sb.append ( "state = !state; write(); state;" );
         }
 
         return makeCode ( sb );
@@ -121,6 +124,15 @@ public class ToggleHeartbeatGeneratorGenerator extends AbstractDanglingGenerator
     private CodeFragment makeInitCode ()
     {
         final StringBuilder sb = new StringBuilder ();
+
+        if ( this.generator.getTargetItem () != null )
+        {
+            sb.append ( "function write () { writer.write(\"A\", state ); }" );
+        }
+        else
+        {
+            sb.append ( "function write () {}" );
+        }
 
         if ( this.generator.getActiveInput () != null )
         {
