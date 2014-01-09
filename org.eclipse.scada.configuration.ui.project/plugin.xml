@@ -56,6 +56,7 @@
          point="org.eclipse.pde.ui.pluginContent">
       <wizard
             class="org.eclipse.scada.configuration.ui.project.template.PluginContentWizard"
+            icon="icons/new_client.gif"
             id="org.eclipse.scada.configuration.ui.project.wizard1"
             java="true"
             name="%wizard.clientConfiguration.name."
@@ -63,6 +64,9 @@
             rcp="false"
             requiresActivator="false"
             ui-content="true">
+         <description>
+            %pluginContent.client.description
+         </description>
       </wizard>
    </extension>
    <extension
