@@ -7,7 +7,7 @@
   <headerComponent
       xsi:type="detailView:TextComponent"
       format="Summary"
-      descriptor="$connection$#$sumItem$"/>
+      descriptor="$$connection$$#$$sumItem$$"/>
   <groups label="Overview">
     <component
         xsi:type="detailView:GroupGridComponent"
@@ -17,15 +17,15 @@
         <components
             xsi:type="detailView:TextComponent"
             format="Load Average 1 Minute"
-            descriptor="$connection$#$prefix$.LAVG1.V"/>
+            descriptor="$$connection$$#$$prefix$$.LAVG1.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Load Average 5 Minutes"
-            descriptor="$connection$#$prefix$.LAVG5.V"/>
+            descriptor="$$connection$$#$$prefix$$.LAVG5.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Load Average 15 Minutes"
-            descriptor="$connection$#$prefix$.LAVG15.V"/>
+            descriptor="$$connection$$#$$prefix$$.LAVG15.V"/>
       </groups>
     </component>
   </groups>
@@ -38,31 +38,31 @@
             xsi:type="detailView:TextComponent"
             format="User (%)"
             decimal="0"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.CPU.USER.V"
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.CPU.USER.V"
             hdQueryString=""
-            descriptor="$connection$#$prefix$.CPU.USER.V"/>
+            descriptor="$$connection$$#$$prefix$$.CPU.USER.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="System (%)"
             decimal="0"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.CPU.SYS.V"
-            descriptor="$connection$#$prefix$.CPU.SYS.V"/>
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.CPU.SYS.V"
+            descriptor="$$connection$$#$$prefix$$.CPU.SYS.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Wait (%)"
             decimal="0"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.CPU.WAIT.V"
-            descriptor="$connection$#$prefix$.CPU.WAIT.V"/>
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.CPU.WAIT.V"
+            descriptor="$$connection$$#$$prefix$$.CPU.WAIT.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Idle (%)"
             decimal="0"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.CPU.IDLE.V"
-            descriptor="$connection$#$prefix$.CPU.IDLE.V"/>
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.CPU.IDLE.V"
+            descriptor="$$connection$$#$$prefix$$.CPU.IDLE.V"/>
       </groups>
       <groups
           label="Memory">
@@ -70,38 +70,38 @@
             xsi:type="detailView:TextComponent"
             format="Buffers"
             decimal="0"
-            descriptor="$connection$#$prefix$.MEM.BUFFER.V"/>
+            descriptor="$$connection$$#$$prefix$$.MEM.BUFFER.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Cache"
             decimal="0"
-            descriptor="$connection$#$prefix$.MEM.CACHE.V"/>
+            descriptor="$$connection$$#$$prefix$$.MEM.CACHE.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Free"
             decimal="0"
-            descriptor="$connection$#$prefix$.MEM.FREE.V"/>
+            descriptor="$$connection$$#$$prefix$$.MEM.FREE.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Swapped"
             decimal="0"
-            descriptor="$connection$#$prefix$.MEM.SWAPPED.V"/>
+            descriptor="$$connection$$#$$prefix$$.MEM.SWAPPED.V"/>
       </groups>
       <groups
           label="System">
         <components
             xsi:type="detailView:TextComponent"
             format="Context Switches (/s)"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.SYS.CS.V"
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.SYS.CS.V"
             hdQueryString="2400000:600000:0:50000"
-            descriptor="$connection$#$prefix$.SYS.CS.V"/>
+            descriptor="$$connection$$#$$prefix$$.SYS.CS.V"/>
         <components
             xsi:type="detailView:TextComponent"
             format="Interrupts (/s)"
-            hdConnectionId="$hdConnection$"
-            hdItemId="$prefix$.SYS.INT.V"
-            descriptor="$connection$#$prefix$.SYS.INT.V"/>
+            hdConnectionId="$$hdConnection$$"
+            hdItemId="$$prefix$$.SYS.INT.V"
+            descriptor="$$connection$$#$$prefix$$.SYS.INT.V"/>
       </groups>
     </component>
   </groups>
