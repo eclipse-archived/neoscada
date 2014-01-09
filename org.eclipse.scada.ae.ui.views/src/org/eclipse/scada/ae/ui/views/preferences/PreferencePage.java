@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - clean up labels
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.preferences;
 
@@ -30,7 +31,7 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
     {
         super ( GRID );
         setPreferenceStore ( Activator.getDefault ().getPreferenceStore () );
-        setDescription ( Messages.PreferencePage_title );
+        setDescription ( Messages.PreferencePage_description );
     }
 
     /**
