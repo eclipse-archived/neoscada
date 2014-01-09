@@ -26,9 +26,12 @@ import org.eclipse.scada.configuration.component.common.CommonPackage;
 import org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.common.ToggleHeartbeatGenerator}
+ * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ToggleHeartbeatGeneratorItemProvider
@@ -44,9 +47,10 @@ public class ToggleHeartbeatGeneratorItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public ToggleHeartbeatGeneratorItemProvider ( AdapterFactory adapterFactory )
+    public ToggleHeartbeatGeneratorItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,84 +59,94 @@ public class ToggleHeartbeatGeneratorItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This returns ToggleHeartbeatGenerator.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ToggleHeartbeatGenerator" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ToggleHeartbeatGenerator.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        ToggleHeartbeatGenerator toggleHeartbeatGenerator = (ToggleHeartbeatGenerator)object;
+        final ToggleHeartbeatGenerator toggleHeartbeatGenerator = (ToggleHeartbeatGenerator)object;
         return getString ( "_UI_ToggleHeartbeatGenerator_type" ) + " " + toggleHeartbeatGenerator.getPeriod (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
 
     /**
-     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * This returns the label text for
+     * {@link org.eclipse.emf.edit.command.CreateChildCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    public String getCreateChildText ( final Object owner, final Object feature, final Object child, final Collection<?> selection )
     {
-        Object childFeature = feature;
-        Object childObject = child;
+        final Object childFeature = feature;
+        final Object childObject = child;
 
-        boolean qualify =
+        final boolean qualify =
                 childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__TARGET_ITEM ||
                         childFeature == CommonPackage.Literals.HEARTBEAT_GENERATOR__ACTIVE_INPUT;
 
