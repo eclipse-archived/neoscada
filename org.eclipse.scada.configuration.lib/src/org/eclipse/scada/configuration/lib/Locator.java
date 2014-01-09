@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -171,24 +171,19 @@ public final class Locator
             return null;
         }
 
-        final Map<Short, Endpoint> eps = new HashMap<> ();
         for ( final Endpoint ep : target )
         {
-            eps.put ( ep.getPortNumber (), ep );
-        }
-
-        for ( final Connection connection : source.getConnections () )
-        {
-            if ( connection.getEndpoint () == null )
+            for ( final Connection connection : source.getConnections () )
             {
-                continue;
+                if ( connection.getEndpoint () == null )
+                {
+                    continue;
+                }
+                if ( connection.getEndpoint ().equals ( ep ) )
+                {
+                    return connection;
+                }
             }
-            final Endpoint ep = eps.get ( connection.getEndpoint ().getPortNumber () );
-            if ( ep == null )
-            {
-                continue;
-            }
-            return connection;
         }
         return null;
     }
