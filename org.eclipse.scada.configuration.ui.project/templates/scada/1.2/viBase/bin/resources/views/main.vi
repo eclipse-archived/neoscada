@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface " backgroundColor="#FFFFFF">
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface" backgroundColor="#FFFFFF">
   <root xsi:type="visualInterface:XYContainer">
     <children>
       <element xsi:type="visualInterface:SymbolReference" uri="../symbols/node/node.vi">

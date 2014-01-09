@@ -3,7 +3,7 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface "
+    xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface"
     onInit="initTextValue();"
     onUpdate="updateValue ( &quot;A&quot;);">
   <root xsi:type="visualInterface:FigureContainer"
