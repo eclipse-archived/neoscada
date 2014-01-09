@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,7 +22,6 @@ public abstract class AbstractVITemplate extends BaseTemplate
     {
         final IPluginElement viewerExtension = addElement ( factory, ext, "viewerExtension", makeId ( localId ) ); //$NON-NLS-1$ 
         viewerExtension.setAttribute ( "align", align ); //$NON-NLS-1$ 
-        viewerExtension.setAttribute ( "class", "org.eclipse.scada.vi.ui.user.viewer.ext.ToolBarNavigatorExtension" ); //$NON-NLS-1$ //$NON-NLS-2$
         viewerExtension.setAttribute ( "location", location ); //$NON-NLS-1$ 
 
         final IPluginElement classElement = addElement ( factory, viewerExtension, "class", null ); //$NON-NLS-1$ 
