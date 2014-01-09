@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -45,7 +45,7 @@ public class ConnectionDefinitionsTemplate extends BaseTemplate
     protected void fillDependencies ( final Collection<IPluginReference> dependencies, final String schemaVersion )
     {
         dependencies.add ( new PluginReference ( "org.eclipse.core.expressions", null, 0 ) ); //$NON-NLS-1$ 
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.core.ui.connection.login", "1.1.0", 0 ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.core.ui.connection.login", "0.1.0", 0 ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
     }
 
     @Override
