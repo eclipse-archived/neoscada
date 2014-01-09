@@ -10,6 +10,6 @@
       <dimension width="200.0" height="-1.0"/>
     </children>
   </root>
-  <properties key="connection" value="connection.da.demo"/>
-  <properties key="hdConnection" value="connection.hd.demo"/>
+  <properties key="connection" value="connection.da.main"/>
+  <properties key="hdConnection" value="connection.hd.main"/>
 </visualInterface:Symbol>
