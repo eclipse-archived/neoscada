@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS - extend image alignment
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
@@ -62,6 +63,11 @@ public class ImageController extends FigureController
     public void setOpaque ( final Boolean flag )
     {
         setOpaque ( flag, true );
+    }
+
+    public void setImageAlignment ( final int align )
+    {
+        this.figure.setIconAlignment ( align );
     }
 
     public void setImage ( final String uri )
