@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  All rights reserved. This program and the accompanying materials
  are made available under the terms of the Eclipse Public License v1.0
  which accompanies this distribution, and is available at
@@ -10,20 +10,17 @@
  
  Contributors:
      TH4 SYSTEMS GmbH - initial API and implementation
+     IBH SYSTEMS GmbH - bug wizard generation
 -->
 
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated VisualInterface -->
-      <category
-            id="org.eclipse.scada.hmi"
-            name="%_UI_Wizard_category"/>
       <wizard
             id="org.eclipse.scada.vi.model.presentation.VisualInterfaceModelWizardID"
             name="%_UI_VisualInterfaceModelWizard_label"
             class="org.eclipse.scada.vi.model.presentation.VisualInterfaceModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.scada.hmi"
             icon="icons/full/obj16/VisualInterfaceModelFile.gif">
          <description>%_UI_VisualInterfaceModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
