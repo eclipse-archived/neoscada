@@ -687,6 +687,10 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Image/uri"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_ULHmQczDEeCZatunG8aJEQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_r_R0kHlDEeOQ08b-YZjmRg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Image/imageAlignment"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_r_R0kXlDEeOQ08b-YZjmRg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_RJ-JdczDEeCZatunG8aJEQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_RJ-JdszDEeCZatunG8aJEQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_RJ-Jd8zDEeCZatunG8aJEQ"/>

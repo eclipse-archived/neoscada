@@ -91,6 +91,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.vi.model.provider.VisualInterfaceItemProviderAdapterFactory;
+import org.eclipse.scada.vi.model.visualInterface.presentation.VisualInterfaceEditorPlugin;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;

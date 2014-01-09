@@ -1943,13 +1943,22 @@ public interface VisualInterfacePackage extends EPackage
     int IMAGE__URI = FIGURE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Image Alignment</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IMAGE__IMAGE_ALIGNMENT = FIGURE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Image</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int IMAGE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 1;
+    int IMAGE_FEATURE_COUNT = FIGURE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.impl.EllipseImpl <em>Ellipse</em>}' class.
@@ -3445,6 +3454,17 @@ public interface VisualInterfacePackage extends EPackage
     EAttribute getImage_Uri ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.model.Image#getImageAlignment <em>Image Alignment</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Image Alignment</em>'.
+     * @see org.eclipse.scada.vi.model.Image#getImageAlignment()
+     * @see #getImage()
+     * @generated
+     */
+    EAttribute getImage_ImageAlignment ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Ellipse <em>Ellipse</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4415,6 +4435,14 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EAttribute IMAGE__URI = eINSTANCE.getImage_Uri ();
+
+        /**
+         * The meta object literal for the '<em><b>Image Alignment</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute IMAGE__IMAGE_ALIGNMENT = eINSTANCE.getImage_ImageAlignment ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.impl.EllipseImpl <em>Ellipse</em>}' class.

@@ -18,6 +18,7 @@ import java.net.URL;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.vi.model.Image;
@@ -59,15 +60,17 @@ public class ImageController extends FigureController
         setImage ( element.getUri () );
     }
 
+    protected void applyCommon ( final Image image )
+    {
+        super.applyCommon ( image );
+
+        this.figure.setIconAlignment ( Helper.convertAlignment ( image.getImageAlignment (), PositionConstants.CENTER ) );
+    }
+
     @Override
     public void setOpaque ( final Boolean flag )
     {
         setOpaque ( flag, true );
-    }
-
-    public void setImageAlignment ( final int align )
-    {
-        this.figure.setIconAlignment ( align );
     }
 
     public void setImage ( final String uri )

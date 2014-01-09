@@ -1305,6 +1305,16 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getImage_ImageAlignment ()
+    {
+        return (EAttribute)imageEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getEllipse ()
     {
         return ellipseEClass;
@@ -1579,6 +1589,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         imageEClass = createEClass ( IMAGE );
         createEAttribute ( imageEClass, IMAGE__URI );
+        createEAttribute ( imageEClass, IMAGE__IMAGE_ALIGNMENT );
 
         ellipseEClass = createEClass ( ELLIPSE );
 
@@ -1769,6 +1780,7 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass ( imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getImage_Uri (), ecorePackage.getEString (), "uri", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getImage_ImageAlignment (), this.getAlignment (), "imageAlignment", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( ellipseEClass, Ellipse.class, "Ellipse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

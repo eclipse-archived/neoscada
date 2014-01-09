@@ -19,6 +19,7 @@ package org.eclipse.scada.vi.model;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.vi.model.Image#getUri <em>Uri</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.model.Image#getImageAlignment <em>Image Alignment</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +54,34 @@ public interface Image extends Figure
      * @generated
      */
     void setUri ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Image Alignment</b></em>' attribute.
+     * The literals are from the enumeration {@link org.eclipse.scada.vi.model.Alignment}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Image Alignment</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Image Alignment</em>' attribute.
+     * @see org.eclipse.scada.vi.model.Alignment
+     * @see #setImageAlignment(Alignment)
+     * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getImage_ImageAlignment()
+     * @model
+     * @generated
+     */
+    Alignment getImageAlignment ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.model.Image#getImageAlignment <em>Image Alignment</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Image Alignment</em>' attribute.
+     * @see org.eclipse.scada.vi.model.Alignment
+     * @see #getImageAlignment()
+     * @generated
+     */
+    void setImageAlignment ( Alignment value );
 
 } // Image

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - extend image layout options
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
@@ -16,7 +17,6 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.scada.vi.model.Alignment;
 import org.eclipse.scada.vi.model.Orientation;
 import org.eclipse.scada.vi.model.Text;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
@@ -64,9 +64,9 @@ public class TextController extends FigureController
     protected void applyCommon ( final Text element )
     {
         super.applyCommon ( element );
-        this.figure.setTextAlignment ( convertAlignment ( element.getTextAlignment (), PositionConstants.CENTER ) );
-        this.figure.setLabelAlignment ( convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
-        this.figure.setIconAlignment ( convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );
+        this.figure.setTextAlignment ( Helper.convertAlignment ( element.getTextAlignment (), PositionConstants.CENTER ) );
+        this.figure.setLabelAlignment ( Helper.convertAlignment ( element.getLabelAlignment (), PositionConstants.CENTER ) );
+        this.figure.setIconAlignment ( Helper.convertAlignment ( element.getIconAlignment (), PositionConstants.CENTER ) );
         this.figure.setTextPlacement ( convertOrientation ( element.getTextPlacement (), PositionConstants.EAST ) );
 
         setFontFull ( element.getFontName (), element.getFontSize (), element.isFontBold (), element.isFontItalic () );
@@ -180,62 +180,8 @@ public class TextController extends FigureController
         }
         else
         {
-            return convertPosition ( orientation.getName (), defaultValue );
+            return Helper.convertPosition ( orientation.getName (), defaultValue );
         }
-    }
-
-    private int convertAlignment ( final Alignment alignment, final int defaultValue )
-    {
-        if ( alignment == null )
-        {
-            return defaultValue;
-        }
-        else
-        {
-            return convertPosition ( alignment.getName (), defaultValue );
-        }
-    }
-
-    protected int convertPosition ( final String position, final int defaultValue )
-    {
-        if ( "CENTER".equals ( position ) )
-        {
-            return PositionConstants.CENTER;
-        }
-        else if ( "LEFT".equals ( position ) )
-        {
-            return PositionConstants.LEFT;
-        }
-        else if ( "RIGHT".equals ( position ) )
-        {
-            return PositionConstants.RIGHT;
-        }
-        else if ( "TOP".equals ( position ) )
-        {
-            return PositionConstants.TOP;
-        }
-        else if ( "BOTTOM".equals ( position ) )
-        {
-            return PositionConstants.BOTTOM;
-        }
-        else if ( "EAST".equals ( position ) )
-        {
-            return PositionConstants.EAST;
-        }
-        else if ( "WEST".equals ( position ) )
-        {
-            return PositionConstants.WEST;
-        }
-        else if ( "NORTH".equals ( position ) )
-        {
-            return PositionConstants.NORTH;
-        }
-        else if ( "SOUTH".equals ( position ) )
-        {
-            return PositionConstants.SOUTH;
-        }
-
-        return defaultValue;
     }
 
     @Override
