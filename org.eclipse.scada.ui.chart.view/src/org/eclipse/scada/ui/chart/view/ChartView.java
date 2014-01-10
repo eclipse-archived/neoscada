@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.Charts;
-import org.eclipse.scada.ui.utils.layout.GridLayoutFactory;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.codec.Base64;
 import org.eclipse.swt.widgets.Composite;
@@ -37,7 +36,7 @@ public class ChartView extends AbstractChartView
     @Override
     public void createPartControl ( final Composite parent )
     {
-        parent.setLayout ( GridLayoutFactory.slimStack () );
+        super.createPartControl ( parent );
 
         if ( this.configuration == null )
         {
@@ -45,7 +44,7 @@ public class ChartView extends AbstractChartView
             this.configuration.setMutable ( true );
         }
 
-        createView ( parent, this.configuration );
+        createView ( this.configuration );
     }
 
     @Override

@@ -34,6 +34,7 @@ import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.CompositeExtensionSpace;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
 import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.layout.GridData;
@@ -54,6 +55,8 @@ public abstract class AbstractChartView extends ViewPart
     private ChartArea chartArea;
 
     private Shell shell;
+
+    private Composite parent;
 
     public class CenterNowAction extends Action
     {
@@ -142,12 +145,23 @@ public abstract class AbstractChartView extends ViewPart
         return (Chart)EcoreUtil.getObjectByType ( resource.getContents (), ChartPackage.Literals.CHART );
     }
 
-    protected void createView ( final Composite parent, final Chart configuration )
+    @Override
+    public void createPartControl ( final Composite parent )
     {
-        final Composite extensionSpace = new Composite ( parent, SWT.NONE );
+        parent.setLayout ( GridLayoutFactory.slimStack () );
+
+        this.parent = parent;
+        this.shell = parent.getShell ();
+
+        fillToolbar ( getViewSite ().getActionBars ().getToolBarManager () );
+    }
+
+    protected void createView ( final Chart configuration )
+    {
+        final Composite extensionSpace = new Composite ( this.parent, SWT.NONE );
         extensionSpace.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
         extensionSpace.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
-        this.chartArea = new ChartArea ( parent, SWT.NONE );
+        this.chartArea = new ChartArea ( this.parent, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         this.viewer = new ChartViewer ( this.chartArea.getChartRenderer (), configuration, new CompositeExtensionSpace ( extensionSpace ), null );
 
@@ -170,8 +184,6 @@ public abstract class AbstractChartView extends ViewPart
                 // else: don't select anything which we do not care about
             }
         } );
-
-        fillToolbar ( getViewSite ().getActionBars ().getToolBarManager () );
     }
 
     private void fillToolbar ( final IToolBarManager toolBarManager )
@@ -212,7 +224,10 @@ public abstract class AbstractChartView extends ViewPart
     @Override
     public void setFocus ()
     {
-        this.viewer.setFocus ();
+        if ( this.viewer != null )
+        {
+            this.viewer.setFocus ();
+        }
     }
 
     public void print ()
