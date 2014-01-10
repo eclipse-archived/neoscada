@@ -12,6 +12,14 @@
             name="%view.chartView.name"
             restorable="true"/>
       <view
+            allowMultiple="true"
+            category="org.eclipse.scada.chart.ui"
+            class="org.eclipse.scada.ui.chart.view.TransientChartView"
+            icon="icons/chartView.gif"
+            id="org.eclipse.scada.ui.chart.TransientChartView"
+            name="%view.chartView.name"
+            restorable="false"/>
+      <view
             allowMultiple="false"
             category="org.eclipse.scada.chart.ui"
             class="org.eclipse.scada.ui.chart.view.ChartControllerView"

@@ -17,6 +17,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.connection.data.ItemSelectionHelper;
+import org.eclipse.scada.ui.chart.view.AbstractChartView;
 import org.eclipse.scada.ui.chart.view.Activator;
 import org.eclipse.scada.ui.chart.view.ChartView;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -71,7 +72,7 @@ public class OpenChartAction implements IViewActionDelegate, IObjectActionDelega
             {
                 if ( viewer instanceof ChartView )
                 {
-                    ( (ChartView)viewer ).addItem ( item );
+                    ( (AbstractChartView)viewer ).addItem ( item );
                 }
             }
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,11 +15,12 @@ import java.util.Collection;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.scada.da.ui.connection.commands.AbstractItemHandler;
 import org.eclipse.scada.da.ui.connection.data.Item;
-import org.eclipse.scada.ui.chart.view.ChartView;
+import org.eclipse.scada.ui.chart.model.Chart;
+import org.eclipse.scada.ui.chart.view.AbstractChartView;
+import org.eclipse.scada.ui.chart.view.TransientChartView;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.scada.ui.chart.model.Chart;
 
 public abstract class AbstractChartHandler extends AbstractItemHandler
 {
@@ -39,23 +40,23 @@ public abstract class AbstractChartHandler extends AbstractItemHandler
         IViewPart viewer;
         try
         {
-            viewer = getActivePage ().showView ( ChartView.VIEW_ID, sb.toString (), IWorkbenchPage.VIEW_ACTIVATE );
+            viewer = getActivePage ().showView ( TransientChartView.VIEW_ID, sb.toString (), IWorkbenchPage.VIEW_ACTIVATE );
         }
         catch ( final PartInitException e )
         {
             throw new ExecutionException ( "Failed to open view", e );
         }
 
-        if ( viewer instanceof ChartView )
+        if ( viewer instanceof TransientChartView )
         {
             if ( configuration != null )
             {
-                ( (ChartView)viewer ).applyConfiguration ( configuration );
+                ( (TransientChartView)viewer ).setConfiguration ( configuration );
             }
 
             for ( final Item item : items )
             {
-                ( (ChartView)viewer ).addItem ( item );
+                ( (AbstractChartView)viewer ).addItem ( item );
 
             }
         }
@@ -76,23 +77,24 @@ public abstract class AbstractChartHandler extends AbstractItemHandler
         IViewPart viewer;
         try
         {
-            viewer = getActivePage ().showView ( ChartView.VIEW_ID, sb.toString (), IWorkbenchPage.VIEW_ACTIVATE );
+            viewer = getActivePage ().showView ( TransientChartView.VIEW_ID, sb.toString (), IWorkbenchPage.VIEW_ACTIVATE );
         }
         catch ( final PartInitException e )
         {
             throw new ExecutionException ( "Failed to open view", e );
         }
 
-        if ( viewer instanceof ChartView )
+        if ( viewer instanceof TransientChartView )
         {
+
             if ( configuration != null )
             {
-                ( (ChartView)viewer ).applyConfiguration ( configuration );
+                ( (TransientChartView)viewer ).setConfiguration ( configuration );
             }
 
             for ( final org.eclipse.scada.hd.ui.connection.data.Item item : items )
             {
-                ( (ChartView)viewer ).addItem ( item );
+                ( (AbstractChartView)viewer ).addItem ( item );
             }
         }
 
