@@ -66,7 +66,7 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
 
     private Chart makeConfiguration ( final ExecutionEvent event )
     {
-        final String queryTimespec = event.getParameter ( "org.eclipse.scada.ui.chart.model.queryTimespec" ); //$NON-NLS-1$
+        final String queryTimespec = event.getParameter ( "org.eclipse.scada.ui.chart.queryTimespec" ); //$NON-NLS-1$
 
         final Chart configuration = Charts.makeDefaultConfiguration ();
 
