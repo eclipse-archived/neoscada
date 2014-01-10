@@ -27,10 +27,10 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
     @Override
     public Object execute ( final ExecutionEvent event ) throws ExecutionException
     {
-        final String connectionId = event.getParameter ( "org.eclipse.scada.ui.chart.model.connectionId" ); //$NON-NLS-1$
-        final String connectionString = event.getParameter ( "org.eclipse.scada.ui.chart.model.connectionString" ); //$NON-NLS-1$
-        final String itemId = event.getParameter ( "org.eclipse.scada.ui.chart.model.itemId" ); //$NON-NLS-1$
-        final String itemType = event.getParameter ( "org.eclipse.scada.ui.chart.model.itemType" ); //$NON-NLS-1$
+        final String connectionId = event.getParameter ( "org.eclipse.scada.ui.chart.connectionId" ); //$NON-NLS-1$
+        final String connectionString = event.getParameter ( "org.eclipse.scada.ui.chart.connectionString" ); //$NON-NLS-1$
+        final String itemId = event.getParameter ( "org.eclipse.scada.ui.chart.itemId" ); //$NON-NLS-1$
+        final String itemType = event.getParameter ( "org.eclipse.scada.ui.chart.itemType" ); //$NON-NLS-1$
 
         if ( connectionId == null && connectionString == null )
         {
