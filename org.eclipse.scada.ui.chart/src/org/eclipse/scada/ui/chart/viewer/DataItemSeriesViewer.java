@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,15 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
-/*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor cleanup
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -26,8 +18,6 @@ import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.da.ui.connection.data.Item.Type;
-import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
-import org.eclipse.scada.ui.chart.viewer.input.ItemObserver;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.DataItemSeries;
 import org.eclipse.scada.ui.chart.model.IdItem;
@@ -35,8 +25,10 @@ import org.eclipse.scada.ui.chart.model.Item;
 import org.eclipse.scada.ui.chart.model.UriItem;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
+import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
+import org.eclipse.scada.ui.chart.viewer.input.ItemObserver;
 
-public class DataItemSeriesViewer extends AbstractItemInputViewer implements InputViewer
+public class DataItemSeriesViewer extends AbstractItemInputViewer
 {
     public static final String PROP_INPUT = "input"; //$NON-NLS-1$
 
