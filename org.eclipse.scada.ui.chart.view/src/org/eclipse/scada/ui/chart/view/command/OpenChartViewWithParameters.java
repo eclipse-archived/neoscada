@@ -22,6 +22,11 @@ import org.eclipse.scada.ui.chart.model.ChartFactory;
 import org.eclipse.scada.ui.chart.model.Charts;
 import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
 
+/**
+ * Open a chart view with parameters <br/>
+ * The querySpec string format is: <code>startTimeOffset:endTimeOffset</code> or
+ * <code>startTimeOffset:endTimeOffset:minValue:maxValue</code>
+ */
 public class OpenChartViewWithParameters extends AbstractChartHandler
 {
     @Override
@@ -53,9 +58,9 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
         }
         else
         {
-        	throw new ExecutionException ( String.format ( "The item type '%s' is unsupported", itemType ) );
+            throw new ExecutionException ( String.format ( "The item type '%s' is unsupported", itemType ) );
         }
-        
+
         return null;
     }
 
