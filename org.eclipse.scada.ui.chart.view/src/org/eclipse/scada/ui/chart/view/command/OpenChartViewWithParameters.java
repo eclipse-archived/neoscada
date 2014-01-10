@@ -51,8 +51,12 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
         {
             openHdChartView ( Arrays.asList ( new org.eclipse.scada.hd.ui.connection.data.Item ( connectionId != null ? connectionId : connectionString, itemId, connectionId != null ? org.eclipse.scada.hd.ui.connection.data.Item.Type.ID : org.eclipse.scada.hd.ui.connection.data.Item.Type.URI ) ), configuration );
         }
-
-        throw new ExecutionException ( String.format ( "The item type '%s' is unsupported", itemType ) );
+        else
+        {
+        	throw new ExecutionException ( String.format ( "The item type '%s' is unsupported", itemType ) );
+        }
+        
+        return null;
     }
 
     private Chart makeConfiguration ( final ExecutionEvent event )
