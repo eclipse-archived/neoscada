@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - added logger
+ *     IBH SYSTEMS GmbH - added logger, fix command id
  *******************************************************************************/
 package org.eclipse.scada.vi.details.swt.widgets.control;
 
@@ -70,7 +70,7 @@ public class TrendControlImage extends Composite
             final ICommandService commandService = (ICommandService)PlatformUI.getWorkbench ().getService ( ICommandService.class );
             final IHandlerService handlerService = (IHandlerService)PlatformUI.getWorkbench ().getService ( IHandlerService.class );
 
-            final Command command = commandService.getCommand ( "org.eclipse.scada.ui.chart.commands.OpenParametersCharView" ); //$NON-NLS-1$
+            final Command command = commandService.getCommand ( "org.eclipse.scada.ui.chart.view.commands.OpenParametersChartView" ); //$NON-NLS-1$
 
             final Parameterization[] parameterizations = new Parameterization[4];
             parameterizations[0] = new Parameterization ( command.getParameter ( "org.eclipse.scada.ui.chart.connectionId" ), this.connectionId ); //$NON-NLS-1$
