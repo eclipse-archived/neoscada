@@ -94,7 +94,7 @@ public class ChartView extends ViewPart
         }
     }
 
-    public static final String VIEW_ID = "org.eclipse.scada.ui.chart.model.ChartView";
+    public static final String VIEW_ID = "org.eclipse.scada.ui.chart.ChartView";
 
     private ChartViewer viewer;
 
