@@ -68,7 +68,7 @@
       </command>
       <command
             categoryId="org.eclipse.scada.ui.chart"
-            id="org.eclipse.scada.ui.chart.view.commands.OpenParametersCharView"
+            id="org.eclipse.scada.ui.chart.view.commands.OpenParametersChartView"
             name="Open Chart">
          <commandParameter
                id="org.eclipse.scada.ui.chart.connectionId"
@@ -125,7 +125,7 @@
       </handler>
       <handler
             class="org.eclipse.scada.ui.chart.view.command.OpenChartViewWithParameters"
-            commandId="org.eclipse.scada.ui.chart.view.commands.OpenParametersCharView">
+            commandId="org.eclipse.scada.ui.chart.view.commands.OpenParametersChartView">
       </handler>
    </extension>
    <extension
