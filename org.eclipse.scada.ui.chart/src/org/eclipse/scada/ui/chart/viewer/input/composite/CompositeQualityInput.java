@@ -32,7 +32,6 @@ import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiff;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.scada.chart.DataEntry;
 import org.eclipse.scada.chart.Realm;
 import org.eclipse.scada.chart.XAxis;
@@ -43,6 +42,7 @@ import org.eclipse.scada.chart.swt.render.QualityRenderer;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.input.AbstractInput;
 import org.eclipse.scada.ui.chart.viewer.input.ArchiveInput;
+import org.eclipse.swt.graphics.Image;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
