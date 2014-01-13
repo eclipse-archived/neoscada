@@ -20,7 +20,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getConnection <em>Connection</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getDriver <em>Driver</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,29 +31,29 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 public interface DriverConnectionAnalyzer extends MasterComponent
 {
     /**
-     * Returns the value of the '<em><b>Connection</b></em>' reference.
+     * Returns the value of the '<em><b>Driver</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Connection</em>' reference isn't clear,
+     * If the meaning of the '<em>Driver</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Connection</em>' reference.
-     * @see #setConnection(Driver)
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getDriverConnectionAnalyzer_Connection()
+     * @return the value of the '<em>Driver</em>' reference.
+     * @see #setDriver(Driver)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getDriverConnectionAnalyzer_Driver()
      * @model required="true"
      * @generated
      */
-    Driver getConnection ();
+    Driver getDriver ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getConnection <em>Connection</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getDriver <em>Driver</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Connection</em>' reference.
-     * @see #getConnection()
+     * @param value the new value of the '<em>Driver</em>' reference.
+     * @see #getDriver()
      * @generated
      */
-    void setConnection ( Driver value );
+    void setDriver ( Driver value );
 
 } // DriverConnectionAnalyzer

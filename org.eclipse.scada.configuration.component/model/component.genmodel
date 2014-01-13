@@ -47,7 +47,7 @@
     <genClasses image="false" ecoreClass="component.ecore#//Service"/>
     <genClasses ecoreClass="component.ecore#//PersistentValue"/>
     <genClasses ecoreClass="component.ecore#//DriverConnectionAnalyzer">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DriverConnectionAnalyzer/connection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DriverConnectionAnalyzer/driver"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//MasterImportConnectionAnalyzer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterImportConnectionAnalyzer/connection"/>
@@ -67,6 +67,7 @@
     <genClasses ecoreClass="component.ecore#//MappedSourceValue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/mapper"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//MappedSourceValue/customizationTags"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//CalculationComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/implementation"/>
@@ -89,6 +90,7 @@
     <genClasses ecoreClass="component.ecore#//OutputDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/localTag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//OutputDefinition/customizationTags"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//ItemReferenceInputDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ItemReferenceInputDefinition/itemId"/>

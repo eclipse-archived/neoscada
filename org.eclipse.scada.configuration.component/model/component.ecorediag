@@ -911,7 +911,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="__Vh0cXh7EeOnu99lvUIkKg" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="__Vh0cnh7EeOnu99lvUIkKg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="component.ecore#//DriverConnectionAnalyzer/connection"/>
+    <element xmi:type="ecore:EReference" href="component.ecore#//DriverConnectionAnalyzer/driver"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__Vh0c3h7EeOnu99lvUIkKg" points="[-3, -20, 104, 745]$[-107, -764, 0, 1]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="__VjCkHh7EeOnu99lvUIkKg" type="3002" source="_uENiQA7_EeOR1p6S2BCQ0A" target="__UddcHh7EeOnu99lvUIkKg">

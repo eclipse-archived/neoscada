@@ -81,9 +81,9 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 	private ReferencesTableSettings masterOnSettings;
 	
 	/**
-	 * Settings for connection EObjectFlatComboViewer
+	 * Settings for driver EObjectFlatComboViewer
 	 */
-	private EObjectFlatComboSettings connectionSettings;
+	private EObjectFlatComboSettings driverSettings;
 	
 	
 	/**
@@ -139,8 +139,8 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 			}
 			if (isAccessible(ComponentViewsRepository.DriverConnectionAnalyzer.Properties.connection)) {
 				// init part
-				connectionSettings = new EObjectFlatComboSettings(driverConnectionAnalyzer, ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Connection());
-				basePart.initConnection(connectionSettings);
+				driverSettings = new EObjectFlatComboSettings(driverConnectionAnalyzer, ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Driver());
+				basePart.initConnection(driverSettings);
 				// set the button mode
 				basePart.setConnectionButtonMode(ButtonsModeEnum.BROWSE);
 			}
@@ -211,7 +211,7 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 					}
 					
 				});
-				// Start of user code for additional businessfilters for connection
+				// Start of user code for additional businessfilters for driver
 				// End of user code
 			}
 			// init values for referenced views
@@ -247,7 +247,7 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 			return ComponentPackage.eINSTANCE.getMasterComponent_MasterOn();
 		}
 		if (editorKey == ComponentViewsRepository.DriverConnectionAnalyzer.Properties.connection) {
-			return ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Connection();
+			return ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Driver();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -316,9 +316,9 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 		}
 		if (ComponentViewsRepository.DriverConnectionAnalyzer.Properties.connection == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
-				connectionSettings.setToReference((Driver)event.getNewValue());
+				driverSettings.setToReference((Driver)event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, connectionSettings, editingContext.getAdapterFactory());
+				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, driverSettings, editingContext.getAdapterFactory());
 				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
 				if (provider != null) {
 					PropertiesEditingPolicy policy = provider.getPolicy(context);
@@ -346,7 +346,7 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 				basePart.setArchiveSelector((EObject)msg.getNewValue());
 			if (ComponentPackage.eINSTANCE.getMasterComponent_MasterOn().equals(msg.getFeature())  && isAccessible(ComponentViewsRepository.DriverConnectionAnalyzer.Properties.masterOn))
 				basePart.updateMasterOn();
-			if (ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Connection().equals(msg.getFeature()) && basePart != null && isAccessible(ComponentViewsRepository.DriverConnectionAnalyzer.Properties.connection))
+			if (ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Driver().equals(msg.getFeature()) && basePart != null && isAccessible(ComponentViewsRepository.DriverConnectionAnalyzer.Properties.connection))
 				basePart.setConnection((EObject)msg.getNewValue());
 			
 		}
@@ -364,7 +364,7 @@ public class DriverConnectionAnalyzerPropertiesEditionComponent extends SinglePa
 			ComponentPackage.eINSTANCE.getComponent_CustomizationPipeline(),
 			ComponentPackage.eINSTANCE.getComponent_ArchiveSelector(),
 			ComponentPackage.eINSTANCE.getMasterComponent_MasterOn(),
-			ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Connection()		);
+			ComponentPackage.eINSTANCE.getDriverConnectionAnalyzer_Driver()		);
 		return new NotificationFilter[] {filter,};
 	}
 

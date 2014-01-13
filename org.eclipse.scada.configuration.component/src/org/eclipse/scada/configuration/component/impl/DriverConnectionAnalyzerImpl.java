@@ -25,7 +25,7 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.DriverConnectionAnalyzerImpl#getConnection <em>Connection</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.DriverConnectionAnalyzerImpl#getDriver <em>Driver</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,14 +34,14 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements DriverConnectionAnalyzer
 {
     /**
-     * The cached value of the '{@link #getConnection() <em>Connection</em>}' reference.
+     * The cached value of the '{@link #getDriver() <em>Driver</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getConnection()
+     * @see #getDriver()
      * @generated
      * @ordered
      */
-    protected Driver connection;
+    protected Driver driver;
 
     /**
      * <!-- begin-user-doc -->
@@ -69,19 +69,19 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public Driver getConnection ()
+    public Driver getDriver ()
     {
-        if ( connection != null && connection.eIsProxy () )
+        if ( driver != null && driver.eIsProxy () )
         {
-            InternalEObject oldConnection = (InternalEObject)connection;
-            connection = (Driver)eResolveProxy ( oldConnection );
-            if ( connection != oldConnection )
+            InternalEObject oldDriver = (InternalEObject)driver;
+            driver = (Driver)eResolveProxy ( oldDriver );
+            if ( driver != oldDriver )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION, oldConnection, connection ) );
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER, oldDriver, driver ) );
             }
         }
-        return connection;
+        return driver;
     }
 
     /**
@@ -89,9 +89,9 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public Driver basicGetConnection ()
+    public Driver basicGetDriver ()
     {
-        return connection;
+        return driver;
     }
 
     /**
@@ -99,12 +99,12 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setConnection ( Driver newConnection )
+    public void setDriver ( Driver newDriver )
     {
-        Driver oldConnection = connection;
-        connection = newConnection;
+        Driver oldDriver = driver;
+        driver = newDriver;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION, oldConnection, connection ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER, oldDriver, driver ) );
     }
 
     /**
@@ -117,10 +117,10 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION:
+            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER:
                 if ( resolve )
-                    return getConnection ();
-                return basicGetConnection ();
+                    return getDriver ();
+                return basicGetDriver ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -135,8 +135,8 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION:
-                setConnection ( (Driver)newValue );
+            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER:
+                setDriver ( (Driver)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -152,8 +152,8 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION:
-                setConnection ( (Driver)null );
+            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER:
+                setDriver ( (Driver)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -169,8 +169,8 @@ public class DriverConnectionAnalyzerImpl extends MasterComponentImpl implements
     {
         switch ( featureID )
         {
-            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__CONNECTION:
-                return connection != null;
+            case ComponentPackage.DRIVER_CONNECTION_ANALYZER__DRIVER:
+                return driver != null;
         }
         return super.eIsSet ( featureID );
     }

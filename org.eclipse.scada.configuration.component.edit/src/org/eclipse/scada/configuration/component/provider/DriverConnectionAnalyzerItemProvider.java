@@ -56,26 +56,26 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
         {
             super.getPropertyDescriptors ( object );
 
-            addConnectionPropertyDescriptor ( object );
+            addDriverPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Connection feature.
+     * This adds a property descriptor for the Driver feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addConnectionPropertyDescriptor ( Object object )
+    protected void addDriverPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_DriverConnectionAnalyzer_connection_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DriverConnectionAnalyzer_connection_feature", "_UI_DriverConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.DRIVER_CONNECTION_ANALYZER__CONNECTION,
+                        getString ( "_UI_DriverConnectionAnalyzer_driver_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DriverConnectionAnalyzer_driver_feature", "_UI_DriverConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.DRIVER_CONNECTION_ANALYZER__DRIVER,
                         true,
                         false,
                         true,

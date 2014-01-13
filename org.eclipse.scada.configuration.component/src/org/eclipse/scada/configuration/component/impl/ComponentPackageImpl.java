@@ -695,7 +695,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getDriverConnectionAnalyzer_Connection ()
+    public EReference getDriverConnectionAnalyzer_Driver ()
     {
         return (EReference)driverConnectionAnalyzerEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -1598,7 +1598,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         persistentValueEClass = createEClass ( PERSISTENT_VALUE );
 
         driverConnectionAnalyzerEClass = createEClass ( DRIVER_CONNECTION_ANALYZER );
-        createEReference ( driverConnectionAnalyzerEClass, DRIVER_CONNECTION_ANALYZER__CONNECTION );
+        createEReference ( driverConnectionAnalyzerEClass, DRIVER_CONNECTION_ANALYZER__DRIVER );
 
         masterImportConnectionAnalyzerEClass = createEClass ( MASTER_IMPORT_CONNECTION_ANALYZER );
         createEReference ( masterImportConnectionAnalyzerEClass, MASTER_IMPORT_CONNECTION_ANALYZER__CONNECTION );
@@ -1823,7 +1823,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( persistentValueEClass, PersistentValue.class, "PersistentValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( driverConnectionAnalyzerEClass, DriverConnectionAnalyzer.class, "DriverConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getDriverConnectionAnalyzer_Connection (), theInfrastructurePackage.getDriver (), null, "connection", null, 1, 1, DriverConnectionAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDriverConnectionAnalyzer_Driver (), theInfrastructurePackage.getDriver (), null, "driver", null, 1, 1, DriverConnectionAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( masterImportConnectionAnalyzerEClass, MasterImportConnectionAnalyzer.class, "MasterImportConnectionAnalyzer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMasterImportConnectionAnalyzer_Connection (), theInfrastructurePackage.getMasterImport (), null, "connection", null, 1, 1, MasterImportConnectionAnalyzer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

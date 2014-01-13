@@ -50,7 +50,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="PersistentValue" eSuperTypes="#//SingleValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="DriverConnectionAnalyzer" eSuperTypes="#//MasterComponent">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="driver" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Driver"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MasterImportConnectionAnalyzer" eSuperTypes="#//MasterComponent">

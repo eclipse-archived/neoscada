@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.component.providers;
 
 import org.eclipse.emf.common.notify.Adapter;
+
 import org.eclipse.scada.configuration.component.util.ComponentAdapterFactory;
 
 /**

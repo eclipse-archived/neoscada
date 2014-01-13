@@ -111,8 +111,8 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhxmPdEeO9EKVyUKzxnQ" name="masterOn" views="_4tBJBmPdEeO9EKVyUKzxnQ">
           <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent/masterOn"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhx2PdEeO9EKVyUKzxnQ" name="connection" views="_4tBJB2PdEeO9EKVyUKzxnQ">
-          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DriverConnectionAnalyzer/connection"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_4tAhx2PdEeO9EKVyUKzxnQ" name="driver" views="_4tBJB2PdEeO9EKVyUKzxnQ">
+          <model xsi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DriverConnectionAnalyzer/driver"/>
         </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//DriverConnectionAnalyzer"/>
       </bindings>

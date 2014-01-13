@@ -937,13 +937,13 @@ public interface ComponentPackage extends EPackage
     int DRIVER_CONNECTION_ANALYZER__MASTER_ON = MASTER_COMPONENT__MASTER_ON;
 
     /**
-     * The feature id for the '<em><b>Connection</b></em>' reference.
+     * The feature id for the '<em><b>Driver</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DRIVER_CONNECTION_ANALYZER__CONNECTION = MASTER_COMPONENT_FEATURE_COUNT + 0;
+    int DRIVER_CONNECTION_ANALYZER__DRIVER = MASTER_COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Driver Connection Analyzer</em>' class.
@@ -3033,15 +3033,15 @@ public interface ComponentPackage extends EPackage
     EClass getDriverConnectionAnalyzer ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getConnection <em>Connection</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getDriver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Connection</em>'.
-     * @see org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getConnection()
+     * @return the meta object for the reference '<em>Driver</em>'.
+     * @see org.eclipse.scada.configuration.component.DriverConnectionAnalyzer#getDriver()
      * @see #getDriverConnectionAnalyzer()
      * @generated
      */
-    EReference getDriverConnectionAnalyzer_Connection ();
+    EReference getDriverConnectionAnalyzer_Driver ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer <em>Master Import Connection Analyzer</em>}'.
@@ -4189,12 +4189,12 @@ public interface ComponentPackage extends EPackage
         EClass DRIVER_CONNECTION_ANALYZER = eINSTANCE.getDriverConnectionAnalyzer ();
 
         /**
-         * The meta object literal for the '<em><b>Connection</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Driver</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference DRIVER_CONNECTION_ANALYZER__CONNECTION = eINSTANCE.getDriverConnectionAnalyzer_Connection ();
+        EReference DRIVER_CONNECTION_ANALYZER__DRIVER = eINSTANCE.getDriverConnectionAnalyzer_Driver ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.MasterImportConnectionAnalyzerImpl <em>Master Import Connection Analyzer</em>}' class.

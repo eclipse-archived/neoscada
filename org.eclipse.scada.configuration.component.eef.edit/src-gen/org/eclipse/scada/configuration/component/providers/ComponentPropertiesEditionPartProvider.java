@@ -11,9 +11,13 @@
 package org.eclipse.scada.configuration.component.providers;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
+
 import org.eclipse.emf.eef.runtime.api.parts.IPropertiesEditionPart;
+
 import org.eclipse.emf.eef.runtime.api.providers.IPropertiesEditionPartProvider;
+
 import org.eclipse.scada.configuration.component.parts.ComponentViewsRepository;
+
 import org.eclipse.scada.configuration.component.parts.forms.AbsoluteDanglingReferencePropertiesEditionPartForm;
 import org.eclipse.scada.configuration.component.parts.forms.AverageModulePropertiesEditionPartForm;
 import org.eclipse.scada.configuration.component.parts.forms.CalculationComponentPropertiesEditionPartForm;
@@ -42,6 +46,7 @@ import org.eclipse.scada.configuration.component.parts.forms.ScriptModulePropert
 import org.eclipse.scada.configuration.component.parts.forms.ScriptPropertiesEditionPartForm;
 import org.eclipse.scada.configuration.component.parts.forms.SummariesConfigurationPropertiesEditionPartForm;
 import org.eclipse.scada.configuration.component.parts.forms.TransientValuePropertiesEditionPartForm;
+
 import org.eclipse.scada.configuration.component.parts.impl.AbsoluteDanglingReferencePropertiesEditionPartImpl;
 import org.eclipse.scada.configuration.component.parts.impl.AverageModulePropertiesEditionPartImpl;
 import org.eclipse.scada.configuration.component.parts.impl.CalculationComponentPropertiesEditionPartImpl;
