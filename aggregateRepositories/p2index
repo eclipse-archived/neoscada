@@ -163,6 +163,7 @@ def p2index(base_dir):
         target = l.replace(base_dir, '../../..')
         module = l.replace(base_dir, '')
         module = module.split(os.path.sep)[2]
+        print "MODULE = %s" % module
         b3aggr.replace("https://hudson.eclipse.org/scada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module, target)
     f = open('./aggregateRepositories/EclipseSCADA.build.b3aggr', 'wb')
     f.write(b3aggr)
