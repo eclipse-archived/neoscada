@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+	 Aggregate repositories
+     ====================================================================== -->
+<project name="aggregate" default="default">
+    <description>
+        Aggregate repositories
+    </description>
+    
+    <property name="buildTypeLong" value="integration"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="director,provision.b3,run.b3">
+    </target>
+    
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="temp"/>
+    </target>
+    
+    <!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="director">
+		<mkdir dir="temp/download"/>
+        
+        <get dest="temp/download" src="http://download.eclipse.org/tools/buckminster/products/director_latest.zip" usetimestamp="true"/>
+        
+        <mkdir dir="temp/director"/>
+        <unzip dest="temp/director" src="temp/download/director_latest.zip"/>
+    </target>
+    
+    <!-- ================================= 
+          target: provision.b3
+         ================================= -->
+    <target name="provision.b3">
+        <mkdir dir="temp/b3"/>
+        <java
+            classname="org.eclipse.equinox.launcher.Main"
+            fork="true"
+            dir="temp/director/director">
+            <classpath>
+                <fileset dir="temp/director/director/plugins/">
+                    <include name="org.eclipse.equinox.launcher_*.jar"/>
+                </fileset>
+        	</classpath>
+            <arg line="-r http://download.eclipse.org/modeling/emft/b3/headless-4.3"/>
+            <arg line="-p p3"/>
+            <arg line="-i org.eclipse.b3.cli.product"/>
+            <arg line="-i org.eclipse.b3.aggregator.engine.feature.feature.group"/>
+            <arg value="-d"/>
+            <arg file="temp/b3"/>
+    	</java>
+    </target>
+    
+    <!-- ================================= 
+          target: run.b3
+         ================================= -->
+    <target name="run.b3">
+        <delete dir="temp/build"/>
+        
+        <mkdir dir="temp/build"/>
+        <copy file="EclipseSCADA.b3aggr" todir="temp">
+            <filterset>
+                <filter token="buildTypeLong" value="${buildTypeLong}"/>
+        	</filterset>
+        </copy>
+            
+        <java
+            classname="org.eclipse.equinox.launcher.Main"
+            fork="true"
+            dir="temp/b3">
+            <classpath>
+                <fileset dir="temp/b3/plugins/">
+                    <include name="org.eclipse.equinox.launcher_*.jar"/>
+                </fileset>
+        	</classpath>
+            <arg value="aggregate"/>
+            <arg value="--buildModel"/>
+            <arg file="temp/EclipseSCADA.b3aggr"/>
+            <arg value="--buildRoot"/>
+            <arg file="temp/build"/>
+    	</java>
+    </target>
+    
+</project>
