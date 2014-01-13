@@ -160,7 +160,10 @@ def p2index(base_dir):
     b3aggr = f.read()
     f.close()
     for l in last_integration_build:
-        b3aggr += l.replace(base_dir, '../../..') + "\n"
+        target = l.replace(base_dir, '../../..')
+        module = l.replace(base_dir, '')
+        module = module.split(os.path.sep)[1]
+        b3aggr += "xxx %s xxx\n" % module
     f = open('./aggregateRepositories/EclipseSCADA.build.b3aggr', 'wb')
     f.write(b3aggr)
     f.close()
