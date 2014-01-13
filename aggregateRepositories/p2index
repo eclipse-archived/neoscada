@@ -155,8 +155,13 @@ def p2index(base_dir):
     f = open(os.path.join(repo_dir, 'index.html'), 'wb')
     f.write(index_html % params)
     f.close()
-
-
+    
+    f = open('EclipseSCADA.b3aggr', 'rb')
+    b3aggr = f.read()
+    f.close()
+    f = open('EclipseSCADA.build.b3aggr', 'wb')
+    f.write(b3aggr)
+    f.close()
 
 def main():
     """
