@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.component.generator.connection;
 
 import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
+import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
@@ -31,7 +32,7 @@ public class DriverConnectionAnalyzerGenerator extends ConnectionAnalyzerGenerat
     @Override
     public void createItems ( final ItemCreator itemCreator )
     {
-        final String name = this.analyzer.getDriver ().getName ();
+        final String name = Worlds.makeConnectionName ( this.analyzer.getDriver () );
 
         createForConnection ( itemCreator, new ConnectionProvider () {
             @Override

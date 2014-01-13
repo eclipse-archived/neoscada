@@ -414,7 +414,7 @@ public class WorldGenerator
     {
         final DataAccessConnection connection = OsgiFactory.eINSTANCE.createDataAccessConnection ();
         connection.setEndpoint ( ep );
-        connection.setName ( String.format ( "driver.%s", driver.getName () ) );
+        connection.setName ( Worlds.makeConnectionName ( driver ) );
         connection.setCredentials ( EcoreUtil.copy ( Worlds.findConnectionPassword ( driver ) ) );
 
         final org.eclipse.scada.configuration.world.osgi.MasterServer mappedMaster = this.ctxMap.get ( master ).getImplementation ();

@@ -268,4 +268,9 @@ public final class Worlds
         return result;
     }
 
+    public static String makeConnectionName ( final Driver driver )
+    {
+        return "driver." + driver.getName ();
+    }
+
 }
