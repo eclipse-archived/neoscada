@@ -156,6 +156,7 @@ def p2index(base_dir):
     f.write(index_html % params)
     f.close()
     
+    print "xxxx " + os.getcwd()
     f = open('EclipseSCADA.b3aggr', 'rb')
     b3aggr = f.read()
     f.close()
