@@ -247,6 +247,15 @@ public class DataFileAccessorImpl implements DataFileAccessor
         return true; // continue reading
     }
 
+    /**
+     * Read until the buffer full or no bytes could be read
+     * 
+     * @param buffer
+     *            the buffer to fill
+     * @return the number of bytes read
+     * @throws IOException
+     *             in case of an I/O error
+     */
     private int read ( final ByteBuffer buffer ) throws IOException
     {
         while ( this.channel.read ( buffer ) > 0 && buffer.hasRemaining () )
