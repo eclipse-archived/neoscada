@@ -9,22 +9,37 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated exporter -->
       <package
-            uri="http://openscada.org/DA/Server/Exporter"
+            uri="http://eclipse.org/SCADA/DA/Server/Exporter"
             class="org.eclipse.scada.da.server.exporter.ExporterPackage"
             genModel="model/exporter.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
+   <extension point="org.eclipse.emf.ecore.content_parser">
       <!-- @generated exporter -->
       <parser
-            type="xml"
+            contentTypeIdentifier="org.eclipse.scada.da.server.exporter"
             class="org.eclipse.scada.da.server.exporter.util.ExporterResourceFactoryImpl"/>
    </extension>
+
+   <extension point="org.eclipse.core.contenttype.contentTypes">
+      <!-- @generated exporter -->
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="xml"
+            id="org.eclipse.scada.da.server.exporter"
+            name="%_UI_Exporter_content_type"
+            priority="normal">
+         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
+            <parameter name="namespace" value="http://eclipse.org/SCADA/DA/Server/Exporter"/>
+         </describer>
+      </content-type>
+   </extension>
+
    <extension
          point="org.eclipse.wst.xml.core.catalogContributions">
       <catalogContribution>
          <uri
-               name="http://openscada.org/DA/Server/Exporter"
+               name="http://eclipse.org/SCADA/DA/Server/Exporter"
                uri="model/exporter.xsd">
          </uri>
       </catalogContribution>

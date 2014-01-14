@@ -10,8 +10,8 @@ Export-Package: org.eclipse.scada.da.server.exporter;version="0.1.0",
  org.eclipse.scada.da.server.exporter.impl;version="0.1.0",
  org.eclipse.scada.da.server.exporter.util;version="0.1.0"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;bundle-version="2.8.0";visibility:=reexport,
- org.eclipse.emf.ecore.xmi;bundle-version="2.8.0";visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport;bundle-version="2.8.0",
+ org.eclipse.emf.ecore.xmi;visibility:=reexport;bundle-version="2.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.scada.core;version="0.1.0",
@@ -22,4 +22,4 @@ Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.da.server.ngp;version="0.1.0",
  org.eclipse.scada.utils.init;version="0.1.0",
  org.eclipse.scada.utils.lifecycle;version="0.1.0",
- org.slf4j;version="1.5.8"
+ org.slf4j;version="1.6.0"

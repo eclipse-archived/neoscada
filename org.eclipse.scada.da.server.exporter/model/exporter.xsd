@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://openscada.org/DA/Server/Exporter" xmlns:exporter="http://openscada.org/DA/Server/Exporter" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://eclipse.org/SCADA/DA/Server/Exporter" xmlns:exporter="http://eclipse.org/SCADA/DA/Server/Exporter" elementFormDefault="qualified">
 
     <element name="configuration" type="exporter:ConfigurationType"></element>
     
