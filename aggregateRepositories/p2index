@@ -135,7 +135,12 @@ def main():
 
     print "base directory = %s" % base_dir
 
-    p2index(base_dir)
+    try:
+        p2index(base_dir)
+    except Exception, e:
+        import traceback
+        print traceback.format_exc()
+        sys.exit(1)
 
 
 if __name__ == '__main__':
