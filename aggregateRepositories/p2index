@@ -104,7 +104,7 @@ def p2index(base_dir):
     f.close()
     
     # 3.) write EclipseSCADA.build.b3aggr
-    f = open('./aggregateRepositories/EclipseSCADA.b3aggr', 'rb')
+    f = open('./EclipseSCADA.b3aggr', 'rb')
     b3aggr = f.read()
     f.close()
     for l in last_integration_build:
@@ -112,7 +112,7 @@ def p2index(base_dir):
         module = l.replace(base_dir, '')
         module = module.split(os.path.sep)[2]
         b3aggr = b3aggr.replace("https://hudson.eclipse.org/scada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module, target)
-    f = open('./aggregateRepositories/EclipseSCADA.build.b3aggr', 'wb')
+    f = open('./EclipseSCADA.build.b3aggr', 'wb')
     f.write(b3aggr)
     f.close()
 
