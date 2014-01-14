@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some bugs fixed
  *******************************************************************************/
 package org.eclipse.scada.ds;
 
@@ -17,13 +18,13 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
 
 import org.eclipse.scada.ds.internal.ClassLoaderObjectInputStream;
 import org.eclipse.scada.utils.lang.Immutable;
 import org.eclipse.scada.utils.osgi.BundleObjectInputStream;
 import org.osgi.framework.Bundle;
+
+import com.google.common.io.ByteStreams;
 
 /**
  * A data node used for storing data in a {@link DataStore}.
@@ -91,54 +92,7 @@ public class DataNode
         }
         else
         {
-            this.data = loadFromFile ( stream );
-        }
-    }
-
-    private byte[] loadFromFile ( final InputStream stream ) throws IOException
-    {
-        int bytes = 0;
-        final List<byte[]> buffers = new LinkedList<byte[]> ();
-
-        byte[] buffer = new byte[4096];
-        int i;
-        while ( ( i = stream.read ( buffer ) ) > 0 )
-        {
-            if ( buffer.length != i )
-            {
-                // we have to add a smaller buffer
-                final byte[] newBuffer = new byte[i];
-                System.arraycopy ( buffer, 0, newBuffer, 0, i );
-                buffers.add ( newBuffer );
-            }
-            else
-            {
-                // we can directly add the buffer
-                buffers.add ( buffer );
-                buffer = new byte[4096];
-            }
-
-            // record the number of bytes
-            bytes += i;
-        }
-
-        // if we only have one buffer
-        if ( buffers.size () == 1 )
-        {
-            // we can simply use it
-            return buffers.get ( 0 );
-        }
-        else
-        {
-            // we have to merge data 
-            final byte[] data = new byte[bytes];
-            int currentBytes = 0;
-            for ( final byte[] cb : buffers )
-            {
-                System.arraycopy ( cb, 0, this.data, currentBytes, cb.length );
-                currentBytes += cb.length;
-            }
-            return data;
+            this.data = ByteStreams.toByteArray ( stream );
         }
     }
 
