@@ -25,3 +25,4 @@ Import-Package: org.eclipse.scada.ca;version="0.1.0",
  org.slf4j;version="1.6.4"
 Bundle-Activator: org.eclipse.scada.da.buffer.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
+Export-Package: org.eclipse.scada.da.buffer;version="0.1.0"
