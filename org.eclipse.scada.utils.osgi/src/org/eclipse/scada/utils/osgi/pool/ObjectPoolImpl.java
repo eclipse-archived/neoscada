@@ -52,6 +52,11 @@ public class ObjectPoolImpl<S> implements ObjectPool<S>, ManageableObjectPool<S>
         this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( toString () ) );
     }
 
+    public ObjectPoolImpl ( String name )
+    {
+        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( name ) );
+    }
+
     @Override
     @SuppressWarnings ( "unchecked" )
     public synchronized void addService ( final String id, final S service, Dictionary<?, ?> properties )
