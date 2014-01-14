@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.eclipse.scada.core.Variant;
@@ -17,10 +18,13 @@ import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.da.client.DataItemValue;
 
 /**
- * a light weight alternative to DataItemValue, without attributes and exception info
+ * a light weight alternative to DataItemValue, without attributes and exception
+ * info
  */
-public class DataItemValueLight implements Comparable<DataItemValueLight>
+public class DataItemValueLight implements Comparable<DataItemValueLight>, Serializable
 {
+    private static final long serialVersionUID = -1693255411435666183L;
+
     public static final DataItemValueLight DISCONNECTED = new DataItemValueLight ( Variant.NULL, SubscriptionState.DISCONNECTED, Long.MIN_VALUE, false, false );
 
     private final Variant value;
