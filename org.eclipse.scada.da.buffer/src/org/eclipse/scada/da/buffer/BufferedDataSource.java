@@ -12,6 +12,8 @@ package org.eclipse.scada.da.buffer;
 
 public interface BufferedDataSource
 {
+    public final static String BUFFERED_DATA_SOURCE_ID = "buffered.datasource.id";
+
     public void addListener ( final BufferedDataSourceListener listener );
 
     public void removeListener ( final BufferedDataSourceListener listener );

@@ -47,8 +47,6 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
 {
     private final static Logger logger = LoggerFactory.getLogger ( BufferedDataSourceImpl.class );
 
-    private final static String BUFFERED_DATA_SOURCE_ID = "buffered.datasource.id";
-
     private BundleContext context;
 
     private ScheduledExecutorService scheduler;
@@ -147,7 +145,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             }
         } );
         this.dataSourceTracker.open ();
-        if ( persistence != Persistence.none )
+        if ( persistence != Persistence.required )
         {
             this.dataNodeTracker.addListener ( nodeId, this );
             addService ();
@@ -163,7 +161,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         } );
     }
 
-    protected synchronized void setDataSource ( final DataSource service )
+    private synchronized void setDataSource ( final DataSource service )
     {
         if ( service == null && BufferedDataSourceImpl.this.dataSource != null )
         {
