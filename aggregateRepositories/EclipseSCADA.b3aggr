@@ -2,11 +2,11 @@
 <aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/b3/2011/aggregator/1.1.0" buildmaster="//@contacts[email='jens.reimann@ibh-systems.com']" label="Eclipse SCADA @buildTypeLong@ (Incubation)" allowLegacySites="false">
   <validationSets label="Validation Set">
     <contributions label="Eclipse SCADA" contacts="//@contacts[email='jens.reimann@ibh-systems.com']">
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2/" mirrorArtifacts="false">
+      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.external.feature.group"/>
         <features name="org.eclipse.scada.external.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2/" mirrorArtifacts="false">
+      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.license.feature.group"/>
         <features name="org.eclipse.scada.utils.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
       </repositories>
