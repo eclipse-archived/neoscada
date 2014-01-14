@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License v1.0
 which accompanies this distribution, and is available at
@@ -18,85 +18,114 @@ Contributors:
     <description>
         Aggregate repositories
     </description>
-    
-    <property name="buildTypeLong" value="integration"/>
+
+    <property name="buildTypeLong" value="nightly"/>
+    <property name="buildType" value="N"/>
+    <property name="version" value="0.1.0"/>
+    <property name="downloadDir" file="/home/data/httpd/download.eclipse.org/eclipsescada"/>
 
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="director,provision.b3,run.b3">
+    <target name="default" depends="director,provision.b3,prepare.b3,run.b3">
     </target>
-    
+
     <!-- ================================= 
           target: clean
          ================================= -->
     <target name="clean">
-        <delete dir="temp"/>
+        <delete dir="temp" />
     </target>
-    
+
     <!-- ================================= 
           target: fetch
          ================================= -->
     <target name="director">
-		<mkdir dir="temp/download"/>
-        
-        <get dest="temp/download" src="http://download.eclipse.org/tools/buckminster/products/director_latest.zip" usetimestamp="true"/>
-        
-        <mkdir dir="temp/director"/>
-        <unzip dest="temp/director" src="temp/download/director_latest.zip"/>
+        <mkdir dir="temp/download" />
+
+        <get dest="temp/download" src="http://download.eclipse.org/tools/buckminster/products/director_latest.zip" usetimestamp="true" />
+
+        <mkdir dir="temp/director" />
+        <unzip dest="temp/director" src="temp/download/director_latest.zip" />
     </target>
-    
+
     <!-- ================================= 
           target: provision.b3
          ================================= -->
     <target name="provision.b3">
-        <mkdir dir="temp/b3"/>
-        <java
-            classname="org.eclipse.equinox.launcher.Main"
-            fork="true"
-            dir="temp/director/director">
+        <mkdir dir="temp/b3" />
+        <java classname="org.eclipse.equinox.launcher.Main" fork="true" dir="temp/director/director">
             <classpath>
                 <fileset dir="temp/director/director/plugins/">
-                    <include name="org.eclipse.equinox.launcher_*.jar"/>
+                    <include name="org.eclipse.equinox.launcher_*.jar" />
                 </fileset>
-        	</classpath>
-            <arg line="-r http://download.eclipse.org/modeling/emft/b3/headless-4.3"/>
-            <arg line="-p p3"/>
-            <arg line="-i org.eclipse.b3.cli.product"/>
-            <arg line="-i org.eclipse.b3.aggregator.engine.feature.feature.group"/>
-            <arg value="-d"/>
-            <arg file="temp/b3"/>
-    	</java>
+            </classpath>
+            <arg line="-r http://download.eclipse.org/modeling/emft/b3/headless-4.3" />
+            <arg line="-p p3" />
+            <arg line="-i org.eclipse.b3.cli.product" />
+            <arg line="-i org.eclipse.b3.aggregator.engine.feature.feature.group" />
+            <arg value="-d" />
+            <arg file="temp/b3" />
+        </java>
     </target>
+
+    <!-- ================================= 
+          target: prepare.b3
+         ================================= -->
+    <target name="prepare.b3">
+        <delete file="EclipseSCADA.build.b3aggr"/>
+        <delete file="temp/EclipseSCADA.b3aggr"/>
+
+        <!-- first gather p2 index information an replace in b3aggr file -->
+        <!-- this will create EclipseSCADA.build.b3aggr -->
+        
+        <exec command="p2index">
+            <arg value="-v"/>
+            <env key="BUILD_TYPE_LONG" value="${buildTypeLong}"/>
+            <env key="BUILD_TYPE" value="${buildType}"/>
+            <env key="VERSION" value="${version}"/>
+            <env key="BASE_DIR" value="${downloadDir}"/>
+    	</exec>
     
+		<!-- now copy the result and replace tokens -->
+        
+        <copy file="EclipseSCADA.build.b3aggr" todir="temp">
+            <filterset>
+                <filter token="buildTypeLong" value="${env.BUILD_TYPE_LONG}" />
+            </filterset>
+        </copy>
+    </target>
+
     <!-- ================================= 
           target: run.b3
          ================================= -->
     <target name="run.b3">
-        <delete dir="temp/build"/>
-        
-        <mkdir dir="temp/build"/>
-        <copy file="EclipseSCADA.b3aggr" todir="temp">
+        <delete dir="temp/build" />
+
+        <mkdir dir="temp/build" />
+        <copy file="EclipseSCADA.build.b3aggr" tofile="temp/EclipseSCADA.b3aggr">
             <filterset>
-                <filter token="buildTypeLong" value="${buildTypeLong}"/>
-        	</filterset>
+                <filter token="buildTypeLong" value="${buildTypeLong}" />
+                <filter token="buildType" value="${buildType}" />
+                <filter token="version" value="${version}" />
+            </filterset>
         </copy>
-            
-        <java
-            classname="org.eclipse.equinox.launcher.Main"
+
+        <java classname="org.eclipse.equinox.launcher.Main"
             fork="true"
-            dir="temp/b3">
+            dir="${downloadDir}/updates/${buildTypeLong}/${version}"
+            >
             <classpath>
                 <fileset dir="temp/b3/plugins/">
-                    <include name="org.eclipse.equinox.launcher_*.jar"/>
+                    <include name="org.eclipse.equinox.launcher_*.jar" />
                 </fileset>
-        	</classpath>
-            <arg value="aggregate"/>
-            <arg value="--buildModel"/>
-            <arg file="temp/EclipseSCADA.b3aggr"/>
-            <arg value="--buildRoot"/>
-            <arg file="temp/build"/>
-    	</java>
+            </classpath>
+            <arg value="aggregate" />
+            <arg value="--buildModel" />
+            <arg file="temp/EclipseSCADA.b3aggr" />
+            <arg value="--buildRoot" />
+            <arg file="temp/build" />
+        </java>
     </target>
-    
+
 </project>
