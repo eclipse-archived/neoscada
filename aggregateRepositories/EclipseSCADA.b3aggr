@@ -10,6 +10,7 @@
         <features name="org.eclipse.scada.license.feature.group"/>
         <features name="org.eclipse.scada.utils.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.utils.feature.group"/>
+        <features name="org.eclipse.scada.ui.utils.feature.group"/>
       </repositories>
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.base.feature.group"/>
@@ -20,6 +21,9 @@
         <features name="org.eclipse.scada.core.common.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
         <features name="org.eclipse.scada.core.client.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
         <features name="org.eclipse.scada.core.server.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
+        <features name="org.eclipse.scada.core.ui.editors.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.ide']"/>
+        <features name="org.eclipse.scada.core.protocols.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
+        <features name="org.eclipse.scada.core.feature.group"/>
       </repositories>
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.chart-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.chart.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
@@ -40,12 +44,14 @@
       </repositories>
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.protocols.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
+        <features name="org.eclipse.scada.protocols.editors.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.dev']"/>
+        <features name="org.eclipse.scada.protocols.feature.group"/>
       </repositories>
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.deploy.console.feature.group"/>
       </repositories>
     </contributions>
-    <validationRepositories location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
+    <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
     <validationRepositories location="http://download.eclipse.org/releases/kepler"/>
   </validationSets>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
@@ -54,8 +60,8 @@
   <configurations/>
   <configurations architecture="x86_64"/>
   <customCategories identifier="org.eclipse.scada.sdk" label="Eclipse SCADA SDK" description="All SDK Modules" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.0/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.1/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.2/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.0 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.4/@features.0 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.5/@features.0 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.0 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.7/@features.0"/>
-  <customCategories identifier="org.eclipse.scada.server.runtime" label="Eclipse SCADA Server Runtime" description="Components used in Eclipse SCADA Server applications" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.2 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.3"/>
-  <customCategories identifier="org.eclipse.scada.dev" label="Eclipse SCADA Development Tools" description="Tools for internal development of Eclipse SCADA" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.1"/>
-  <customCategories identifier="org.eclipse.scada.ide" label="Eclipse SCADA IDE" description="All components that are part of the Eclipse SCADA Configuration IDE" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.6 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.4 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.5 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.3"/>
+  <customCategories identifier="org.eclipse.scada.server.runtime" label="Eclipse SCADA Server Runtime" description="Components used in Eclipse SCADA Server applications" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.2 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.3 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.5"/>
+  <customCategories identifier="org.eclipse.scada.dev" label="Eclipse SCADA Development Tools" description="Tools for internal development of Eclipse SCADA" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.7/@features.1"/>
+  <customCategories identifier="org.eclipse.scada.ide" label="Eclipse SCADA IDE" description="All components that are part of the Eclipse SCADA Configuration IDE" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.6 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.4 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.5 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.6/@features.3 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.3/@features.4"/>
   <contacts name="Jens Reimann" email="jens.reimann@ibh-systems.com"/>
 </aggregator:Aggregation>
