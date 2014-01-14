@@ -29,6 +29,9 @@
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.ide-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.configuration.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
       </repositories>
+      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2/">
+        <features name="org.eclipse.scada.protocols.sdk.feature.group"/>
+      </repositories>
     </contributions>
     <validationRepositories location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
     <validationRepositories location="http://download.eclipse.org/releases/kepler"/>
