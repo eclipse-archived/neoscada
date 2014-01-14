@@ -21,6 +21,11 @@
             id="org.eclipse.scada.da.client.test.NewRealtimeList"
             name="%command.openNewRealtimeList.name">
       </command>
+      <command
+            categoryId="org.eclipse.scada.da.ui.category"
+            id="org.eclipse.scada.da.ui.client.test.itemTrace"
+            name="Trace Data Item Changes">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.viewActions">
@@ -124,12 +129,54 @@
                   tooltip="%command.openNewRealtimeList.description">
             </command>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <command
+               commandId="org.eclipse.scada.da.ui.client.test.itemTrace"
+               style="push">
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
+         </command>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="org.eclipse.scada.da.ui.perspective">
       </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.eclipse.scada.da.client.test.commands.StartItemTrace"
+            commandId="org.eclipse.scada.da.ui.client.test.itemTrace">
+         <enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="and">
+                  <or>
+                     <adapt
+                           type="org.eclipse.scada.da.ui.connection.data.Item">
+                     </adapt>
+                     <instanceof
+                           value="org.eclipse.scada.da.ui.connection.data.Item">
+                     </instanceof>
+                  </or>
+               </iterate>
+            </with>
+         </enabledWhen>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commandImages">
+      <image
+            commandId="org.eclipse.scada.da.ui.client.test.itemTrace"
+            icon="icons/16x16/item_trace.gif">
+      </image>
    </extension>
    
 </plugin>

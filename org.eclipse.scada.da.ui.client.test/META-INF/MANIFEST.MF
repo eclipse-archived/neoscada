@@ -20,10 +20,17 @@ Require-Bundle: org.eclipse.rcp,
  org.eclipse.scada.da.ui;bundle-version="0.1.0",
  org.eclipse.scada.utils;bundle-version="0.1.0",
  org.eclipse.scada.core;bundle-version="0.1.0",
- org.eclipse.scada.da.ui.widgets;bundle-version="0.1.0"
+ org.eclipse.scada.da.ui.widgets;bundle-version="0.1.0",
+ org.eclipse.ui.console;bundle-version="3.5.200"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.core.data;version="0.1.0",
+Import-Package: com.ibm.icu.lang;version="50.1.1",
+ com.ibm.icu.text;version="50.1.1",
+ com.ibm.icu.util;version="50.1.1",
+ org.eclipse.scada.core.connection.provider;version="0.1.0",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.da.connection.provider;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",
  org.eclipse.scada.sec.ui;version="0.1.0",
+ org.eclipse.scada.ui.databinding;version="0.1.0",
  org.slf4j;version="1.5.0"
