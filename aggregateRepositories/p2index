@@ -108,7 +108,7 @@ def p2index(base_dir):
     b3aggr = f.read()
     f.close()
     for l in last_integration_build:
-        target = l.replace(base_dir, '../../../..')
+        target = l.replace(base_dir, '../../..')
         module = l.replace(base_dir, '')
         module = module.split(os.path.sep)[2]
         b3aggr = b3aggr.replace("https://hudson.eclipse.org/scada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module, target)
