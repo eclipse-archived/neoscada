@@ -103,7 +103,7 @@ Contributors:
         <delete dir="temp/build" />
 
         <mkdir dir="temp/build" />
-        <copy file="EclipseSCADA.build.b3aggr" tofile="temp/EclipseSCADA.b3aggr">
+        <copy file="EclipseSCADA.build.b3aggr" tofile="${downloadDir}/updates/${buildTypeLong}/${version}/EclipseSCADA.b3aggr">
             <filterset>
                 <filter token="buildTypeLong" value="${buildTypeLong}" />
                 <filter token="buildType" value="${buildType}" />
@@ -122,7 +122,7 @@ Contributors:
             </classpath>
             <arg value="aggregate" />
             <arg value="--buildModel" />
-            <arg file="temp/EclipseSCADA.b3aggr" />
+            <arg file="${downloadDir}/updates/${buildTypeLong}/${version}/EclipseSCADA.b3aggr" />
             <arg value="--buildRoot" />
             <arg file="temp/build" />
         </java>
