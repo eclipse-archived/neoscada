@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.VariantEditor;
 import org.eclipse.scada.utils.str.StringHelper;
 
 public class ConfigurationDataHelper
@@ -458,6 +460,61 @@ public class ConfigurationDataHelper
             return defaultValue;
         }
         return result;
+    }
+
+    /**
+     * Get an variant from the data or <code>null</code> if the parameter is not
+     * set or not an variant
+     * 
+     * @param name
+     *            the name of the parameter
+     * @return the variant or <code>null</code>
+     */
+    public Variant getVariant ( final String name )
+    {
+        final String str = this.data.get ( name );
+        if ( str == null )
+        {
+            return null;
+        }
+        try
+        {
+            return VariantEditor.toVariant ( str );
+        }
+        catch ( final IllegalArgumentException e )
+        {
+            return null;
+        }
+    }
+
+    /**
+     * Get an variant from the data or the default value if the parameter is not
+     * set or not an variant
+     * 
+     * @param name
+     *            the name of the parameter
+     * @param defaultValue
+     *            the default value
+     * @return the variant or the default value
+     */
+    public Variant getVariant ( final String name, final Variant defaultValue )
+    {
+        final Variant result = getVariant ( name );
+        if ( result == null )
+        {
+            return defaultValue;
+        }
+        return result;
+    }
+
+    public Variant getVariantChecked ( final String name, final String errorMessage ) throws IllegalArgumentException
+    {
+        final String str = this.data.get ( name );
+        if ( str == null )
+        {
+            throw new IllegalArgumentException ( errorMessage );
+        }
+        return VariantEditor.toVariant ( str );
     }
 
     /**
