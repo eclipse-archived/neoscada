@@ -79,7 +79,7 @@ Contributors:
         <!-- first gather p2 index information an replace in b3aggr file -->
         <!-- this will create EclipseSCADA.build.b3aggr -->
         
-        <exec command="${basedir}/p2index">
+        <exec command="${basedir}/p2index" failifexecutionfails="true">
             <arg value="-v"/>
             <env key="BUILD_TYPE_LONG" value="${buildTypeLong}"/>
             <env key="BUILD_TYPE" value="${buildType}"/>
