@@ -14,9 +14,11 @@
     <validationRepositories location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
     <validationRepositories location="http://download.eclipse.org/releases/kepler"/>
   </validationSets>
-  <configurations/>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
+  <configurations operatingSystem="linux" windowSystem="gtk" architecture="x86_64"/>
   <configurations operatingSystem="macosx" windowSystem="cocoa" architecture="x86_64"/>
+  <configurations/>
+  <configurations architecture="x86_64"/>
   <customCategories identifier="org.eclipse.scada.sdk" label="Eclipse SCADA SDK" description="All SDK Modules" features="//@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.0/@features.1 //@validationSets[label='Validation%20Set']/@contributions[label='Eclipse%20SCADA']/@repositories.1/@features.1"/>
   <contacts name="Jens Reimann" email="jens.reimann@ibh-systems.com"/>
 </aggregator:Aggregation>
