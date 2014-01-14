@@ -12,8 +12,8 @@ package org.eclipse.scada.da.datasource.changecounter;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationFactory;
@@ -24,16 +24,16 @@ import org.osgi.framework.Constants;
 
 public class Activator implements BundleActivator
 {
-    private ExecutorService executor;
-
-    private ChangeCounterDataSourceFactory factory;
-
     private static BundleContext context;
 
     static BundleContext getContext ()
     {
         return context;
     }
+
+    private ScheduledExecutorService executor;
+
+    private ChangeCounterDataSourceFactory factory;
 
     /*
      * (non-Javadoc)
@@ -43,7 +43,8 @@ public class Activator implements BundleActivator
     public void start ( final BundleContext context ) throws Exception
     {
         Activator.context = context;
-        this.executor = Executors.newSingleThreadExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
+
+        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( context.getBundle ().getSymbolicName () ) );
         this.factory = new ChangeCounterDataSourceFactory ( context, this.executor );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ();

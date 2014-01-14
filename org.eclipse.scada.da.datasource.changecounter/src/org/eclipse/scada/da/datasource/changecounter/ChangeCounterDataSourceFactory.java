@@ -13,9 +13,10 @@ package org.eclipse.scada.da.datasource.changecounter;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
+import org.eclipse.scada.da.buffer.BufferedDataSource;
 import org.eclipse.scada.da.datasource.DataSource;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
@@ -31,15 +32,15 @@ public class ChangeCounterDataSourceFactory extends AbstractServiceConfiguration
 {
     private final static Logger logger = LoggerFactory.getLogger ( ChangeCounterDataSourceFactory.class );
 
-    private final ExecutorService executor;
+    private final ScheduledExecutorService executor;
 
-    private final ObjectPoolTracker<DataSource> poolTracker;
+    private final ObjectPoolTracker<BufferedDataSource> poolTracker;
 
     private final ObjectPoolImpl<DataSource> objectPool;
 
     private final ServiceRegistration<?> poolRegistration;
 
-    public ChangeCounterDataSourceFactory ( final BundleContext context, final ExecutorService executor ) throws InvalidSyntaxException
+    public ChangeCounterDataSourceFactory ( final BundleContext context, final ScheduledExecutorService executor ) throws InvalidSyntaxException
     {
         super ( context );
         this.executor = executor;
@@ -47,7 +48,7 @@ public class ChangeCounterDataSourceFactory extends AbstractServiceConfiguration
         this.objectPool = new ObjectPoolImpl<DataSource> ();
         this.poolRegistration = ObjectPoolHelper.registerObjectPool ( context, this.objectPool, DataSource.class );
 
-        this.poolTracker = new ObjectPoolTracker<DataSource> ( context, DataSource.class.getName () );
+        this.poolTracker = new ObjectPoolTracker<BufferedDataSource> ( context, BufferedDataSource.class.getName () );
         this.poolTracker.open ();
     }
 
@@ -65,7 +66,7 @@ public class ChangeCounterDataSourceFactory extends AbstractServiceConfiguration
     {
         logger.debug ( "Creating new change counter source: {}", configurationId );
 
-        final ChangeCounterDataSource source = new ChangeCounterDataSource ( this.executor );
+        final ChangeCounterDataSource source = new ChangeCounterDataSource ( this.executor, this.poolTracker );
         source.update ( parameters );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ();

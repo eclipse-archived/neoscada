@@ -10,67 +10,154 @@
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.changecounter;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledExecutorService;
 
+import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.core.server.OperationParameters;
+import org.eclipse.scada.core.VariantEditor;
+import org.eclipse.scada.core.data.SubscriptionState;
+import org.eclipse.scada.da.buffer.BufferedDataSource;
+import org.eclipse.scada.da.buffer.BufferedDataSourceListener;
 import org.eclipse.scada.da.client.DataItemValue;
-import org.eclipse.scada.da.core.WriteAttributeResults;
-import org.eclipse.scada.da.core.WriteResult;
-import org.eclipse.scada.da.datasource.DataSourceListener;
-import org.eclipse.scada.da.datasource.base.AbstractDataSource;
-import org.eclipse.scada.utils.concurrent.NotifyFuture;
+import org.eclipse.scada.da.datasource.base.AbstractInputDataSource;
+import org.eclipse.scada.da.datasource.data.DataItemValueRange;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
+import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker;
+import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker.ServiceListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ChangeCounterDataSource extends AbstractDataSource implements DataSourceListener
+public class ChangeCounterDataSource extends AbstractInputDataSource implements BufferedDataSourceListener, ServiceListener<BufferedDataSource>
 {
+
     private final static Logger logger = LoggerFactory.getLogger ( ChangeCounterDataSource.class );
 
-    public ChangeCounterDataSource ( final ExecutorService executor )
-    {
-        // TODO Auto-generated constructor stub
-    }
+    // initialized by constructor
 
-    @Override
-    public NotifyFuture<WriteResult> startWriteValue ( final Variant value, final OperationParameters operationParameters )
-    {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    private final ScheduledExecutorService scheduler;
 
-    @Override
-    public NotifyFuture<WriteAttributeResults> startWriteAttributes ( final Map<String, Variant> attributes, final OperationParameters operationParameters )
-    {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    private final ObjectPoolTracker<BufferedDataSource> poolTracker;
 
-    @Override
-    public void stateChanged ( final DataItemValue value )
-    {
-        // TODO Auto-generated method stub
+    // initialized by update
+    private String bufferedDataSourceId;
 
+    private ChangeType type;
+
+    private List<Variant> values;
+
+    private ErrorHandling errorHandling;
+
+    private SingleObjectPoolServiceTracker<BufferedDataSource> objectPoolTracker;
+
+    private BufferedDataSource bufferedDataSource;
+
+    public ChangeCounterDataSource ( final ScheduledExecutorService scheduler, ObjectPoolTracker<BufferedDataSource> poolTracker )
+    {
+        super ();
+        this.scheduler = scheduler;
+        this.poolTracker = poolTracker;
     }
 
     @Override
     protected Executor getExecutor ()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return this.scheduler;
     }
 
     public void update ( final Map<String, String> parameters )
     {
-        // TODO Auto-generated method stub
+        final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
+        this.bufferedDataSourceId = cfg.getStringChecked ( BufferedDataSource.BUFFERED_DATA_SOURCE_ID, String.format ( "'%s' must be set", BufferedDataSource.BUFFERED_DATA_SOURCE_ID ) ); //$NON-NLS-1$
+        this.type = cfg.getEnum ( "type", ChangeType.class );
+        this.errorHandling = cfg.getEnum ( "onError", ErrorHandling.class );
+        this.values = toVariants ( cfg, "value" );
 
+        this.objectPoolTracker = new SingleObjectPoolServiceTracker<BufferedDataSource> ( this.poolTracker, this.bufferedDataSourceId, this );
+        this.objectPoolTracker.open ();
+    }
+
+    private void sendUpdate ( DataItemValueRange valueRange )
+    {
+        // if no value is given, every value update is considered as change
+        if ( values.isEmpty () )
+        {
+            this.updateData ( new DataItemValue ( Variant.valueOf ( valueRange.getState ().getValues ().size () ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
+        }
+        try
+        {
+            int numOfChanges = 0;
+            switch ( type )
+            {
+                case delta:
+                    numOfChanges = ChangeCounterEvaluator.handleDelta ( values, valueRange, errorHandling );
+                    break;
+                case set:
+                    numOfChanges = ChangeCounterEvaluator.handleSet ( values, valueRange, errorHandling );
+                    break;
+                case direction:
+                    numOfChanges = ChangeCounterEvaluator.handleDirection ( values, valueRange, errorHandling );
+                    break;
+            }
+            this.updateData ( new DataItemValue ( Variant.valueOf ( numOfChanges ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
+        }
+        catch ( Exception e )
+        {
+            final Map<String, Variant> attr = new HashMap<String, Variant> ();
+            attr.put ( "org.eclipse.scada.da.datasource.changecounter.error", Variant.valueOf ( true ) );
+            this.updateData ( new DataItemValue ( Variant.NULL, attr, SubscriptionState.CONNECTED ) );
+        }
+    }
+
+    @Override
+    public void stateChanged ( final DataItemValueRange dataItemValueRange )
+    {
+        sendUpdate ( dataItemValueRange );
+    }
+
+    private List<Variant> toVariants ( ConfigurationDataHelper cfg, String name )
+    {
+        List<Variant> result = new ArrayList<Variant> ();
+        Map<String, String> prefixed = cfg.getPrefixed ( name );
+        for ( String v : prefixed.values () )
+        {
+            result.add ( VariantEditor.toVariant ( v ) );
+        }
+        return result;
     }
 
     public void dispose ()
     {
-        // TODO Auto-generated method stub
+        if ( this.objectPoolTracker != null )
+        {
+            this.objectPoolTracker.close ();
+            this.objectPoolTracker = null;
+        }
+        setBufferedDataSource ( null );
+    }
 
+    @Override
+    public void serviceChange ( BufferedDataSource service, Dictionary<?, ?> properties )
+    {
+        setBufferedDataSource ( service );
+    }
+
+    private synchronized void setBufferedDataSource ( BufferedDataSource service )
+    {
+        if ( service == null && this.bufferedDataSource != null )
+        {
+            this.bufferedDataSource.removeListener ( this );
+        }
+        else
+        {
+            this.bufferedDataSource = service;
+            this.bufferedDataSource.addListener ( this );
+        }
     }
 }
