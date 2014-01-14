@@ -24,39 +24,6 @@ buildType=os.getenv('BUILD_TYPE','N')
 buildTypeLong=os.getenv('BUILD_TYPE_LONG','nightly')
 buildTypeLabel=buildTypeLong.title()
 
-compositeArtifacts_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeArtifactRepository version="1.0.0"?>
-
-<repository name="Eclipse SCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository" version="1.0.0">
-  <properties size="3">
-    <property name="p2.timestamp" value="%(timestamp)s"/>
-    <property name="p2.compressed" value="false"/>
-    <property name="p2.mirrorsURL" value="http://www.eclipse.org/downloads/download.php?file=/eclipsescada/updates/%(buildTypeLong)s&amp;amp;protocol=http&amp;amp;format=xml"/>
-    <property name="p2.statsURL" value="http://download.eclipse.org/stats/"/>
-  </properties>
-  <children size="%(children_size)s">
-    %(children)s
-  </children>
-</repository>"""
-
-compositeContent_xml = """<?xml version="1.0" encoding="UTF-8"?><?compositeMetadataRepository version="1.0.0"?>
-
-<repository name="Eclipse SCADA %(version)s %(buildTypeLabel)s Builds" type="org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository" version="1.0.0">
-  <properties size="3">
-    <property name="p2.timestamp" value="%(timestamp)s"/>
-    <property name="p2.compressed" value="false"/>
-    <property name="p2.mirrorsURL" value="http://www.eclipse.org/downloads/download.php?file=/eclipsescada/updates/%(buildTypeLong)s&amp;amp;protocol=http&amp;amp;format=xml"/>
-  </properties>
-  <children size="%(children_size)s">
-    %(children)s
-  </children>
-</repository>"""
-
-composition_properties = """composite.name=Eclipse SCADA %(version)s %(buildTypeLabel)s Builds"""
-
-p2_index = """ version = 1
- metadata.repository.factory.order = compositeContent.xml,\!
- artifact.repository.factory.order = compositeArtifacts.xml,\!"""
-
 index_html = """<!DOCTYPE html>
 <html>
 <head>
@@ -116,20 +83,7 @@ def p2index(base_dir):
         if len(builds) > 0:
             last_integration_build.append(builds[-1])
 
-    # 1) write fix files
-    repo_dir = os.path.join(base_dir, 'updates', buildTypeLong, version)
-    if not os.path.isdir(repo_dir):
-        os.makedirs(repo_dir)
-    # 1.1) composition.properties
-    f = open(os.path.join(repo_dir, 'composition.properties'), 'wb')
-    f.write(composition_properties)
-    f.close()
-    # 1.2) p2.index
-    f = open(os.path.join(repo_dir, 'p2.index'), 'wb')
-    f.write(p2_index)
-    f.close()
-
-    # 2.) write dynamic content
+    # 1.) write dynamic content
     params = {}
     params['buildTypeLong'] = buildTypeLong;
     params['buildTypeLabel'] = buildTypeLabel;
@@ -143,19 +97,12 @@ def p2index(base_dir):
             % l.replace(base_dir, '../../..')
         params['drop_links'] += """    <li><a href="%s">%s</a>\n""" \
             % (l.replace(base_dir, '../../..'), l.replace(base_dir, ''))
-    # 2.1) write compositeArtifacts.xml
-    f = open(os.path.join(repo_dir, 'compositeArtifacts.xml'), 'wb')
-    f.write(compositeArtifacts_xml % params)
-    f.close()
-    # 2.2) write compositeContent.xml
-    f = open(os.path.join(repo_dir, 'compositeContent.xml'), 'wb')
-    f.write(compositeContent_xml % params)
-    f.close()
-    # 2.3) write index.html
+    # 2.) write index.html
     f = open(os.path.join(repo_dir, 'index.html'), 'wb')
     f.write(index_html % params)
     f.close()
     
+    # 3.) write EclipseSCADA.build.b3aggr
     f = open('./aggregateRepositories/EclipseSCADA.b3aggr', 'rb')
     b3aggr = f.read()
     f.close()
