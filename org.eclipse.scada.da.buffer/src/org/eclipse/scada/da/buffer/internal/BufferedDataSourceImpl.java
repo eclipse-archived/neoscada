@@ -184,7 +184,10 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         {
             dataNodeTracker.removeListener ( BufferedDataSourceImpl.this.nodeId, BufferedDataSourceImpl.this );
         }
-        BufferedDataSourceImpl.this.listeners.clear ();
+        synchronized ( listenersLock )
+        {
+            BufferedDataSourceImpl.this.listeners.clear ();
+        }
     }
 
     @SuppressWarnings ( "unchecked" )
@@ -213,7 +216,6 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             }
             if ( persistence == Persistence.required )
             {
-                this.dataSourceTracker.open ();
                 addService ();
             }
         }

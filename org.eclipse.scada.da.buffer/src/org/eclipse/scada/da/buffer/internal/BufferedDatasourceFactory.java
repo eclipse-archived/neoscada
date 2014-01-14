@@ -50,7 +50,6 @@ public class BufferedDatasourceFactory extends AbstractServiceConfigurationFacto
         this.executor = executor;
 
         this.objectPool = new ObjectPoolImpl<BufferedDataSource> ();
-        System.out.println ( this.objectPool.toString () );
         this.poolRegistration = ObjectPoolHelper.registerObjectPool ( context, this.objectPool, BufferedDataSource.class );
 
         this.poolTracker = new ObjectPoolTracker<DataSource> ( context, DataSource.class.getName () );
