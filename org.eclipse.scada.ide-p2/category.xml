@@ -15,6 +15,9 @@
    <feature url="features/org.eclipse.scada.configuration.doc_0.1.0.qualifier.jar" id="org.eclipse.scada.configuration.doc" version="0.1.0.qualifier">
       <category name="org.eclipse.scada.configuration.category"/>
    </feature>
+   <feature url="features/org.eclipse.scada.ide_0.1.0.qualifier.jar" id="org.eclipse.scada.ide" version="0.1.0.qualifier">
+      <category name="org.eclipse.scada.configuration.category"/>
+   </feature>
    <category-def name="org.eclipse.scada.configuration.category" label="Eclipse SCADA Configuration (Incubation)">
       <description>
          The Eclipse SCADA IDE Configuration System Components.

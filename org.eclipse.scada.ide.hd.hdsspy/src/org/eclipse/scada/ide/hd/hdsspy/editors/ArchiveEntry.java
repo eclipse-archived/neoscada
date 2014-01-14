@@ -1,0 +1,60 @@
+/*******************************************************************************
+ * Copyright (c) 2014 IBH SYSTEMS GmbH Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
+package org.eclipse.scada.ide.hd.hdsspy.editors;
+
+import java.util.Date;
+
+public class ArchiveEntry
+{
+    public static final String PROP_TIMESTAMP = "timestamp";
+
+    public static final String PROP_VALUE = "value";
+
+    public static final String PROP_MANUAL = "manual";
+
+    public static final String PROP_ERROR = "error";
+
+    private final Date timestamp;
+
+    private final double value;
+
+    private final boolean error;
+
+    private final boolean manual;
+
+    public ArchiveEntry ( final Date timestamp, final double value, final boolean error, final boolean manual )
+    {
+        this.timestamp = timestamp;
+        this.value = value;
+        this.error = error;
+        this.manual = manual;
+    }
+
+    public boolean isError ()
+    {
+        return this.error;
+    }
+
+    public boolean isManual ()
+    {
+        return this.manual;
+    }
+
+    public Date getTimestamp ()
+    {
+        return this.timestamp;
+    }
+
+    public double getValue ()
+    {
+        return this.value;
+    }
+}
