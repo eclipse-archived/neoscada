@@ -22,7 +22,7 @@ Contributors:
     <property name="buildTypeLong" value="nightly"/>
     <property name="buildType" value="N"/>
     <property name="version" value="0.1.0"/>
-    <property name="downloadDir" file="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    <property name="downloadDir" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
 
     <!-- ================================= 
           target: default
