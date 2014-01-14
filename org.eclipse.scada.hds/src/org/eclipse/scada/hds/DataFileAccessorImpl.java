@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - extend access methods
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -200,14 +201,13 @@ public class DataFileAccessorImpl implements DataFileAccessor
         return false;
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.scada.hds.DataFileAccessor#visit(org.eclipse.scada.hds.ValueVisitor)
-     */
-    @Override
-    public boolean visit ( final ValueVisitor visitor ) throws IOException
+    protected static interface EntryVisitor
     {
-        logger.debug ( "Welcome visitor: {}", visitor );
+        boolean visitEntry ( long timestamp, double value, byte flags );
+    }
 
+    protected boolean forwardVisitAll ( final EntryVisitor visitor ) throws IOException
+    {
         final long position = this.channel.position ();
 
         try
@@ -226,15 +226,13 @@ public class DataFileAccessorImpl implements DataFileAccessor
 
                 logger.debug ( "Visit value - flag: {}", flags );
 
-                if ( ( flags & FLAG_HEARTBEAT ) == 0 && ( flags & FLAG_DELETED ) == 0 )
+                final boolean cont = visitor.visitEntry ( timestamp, value, flags );
+                if ( !cont )
                 {
-                    final boolean cont = visitor.value ( value, new Date ( timestamp ), ( flags & FLAG_ERROR ) > 0, ( flags & FLAG_MANUAL ) > 0 );
-                    if ( !cont )
-                    {
-                        logger.debug ( "Stopping visit by request on visitor" );
-                        return false; // stop reading
-                    }
+                    logger.debug ( "Stopping visit by request on visitor" );
+                    return false;
                 }
+
                 buffer.clear ();
             }
         }
@@ -247,6 +245,40 @@ public class DataFileAccessorImpl implements DataFileAccessor
         return true; // continue reading
     }
 
+    /* (non-Javadoc)
+     * @see org.eclipse.scada.hds.DataFileAccessor#visit(org.eclipse.scada.hds.ValueVisitor)
+     */
+    @Override
+    public boolean visit ( final ValueVisitor visitor ) throws IOException
+    {
+        return forwardVisitAll ( new EntryVisitor () {
+
+            @Override
+            public boolean visitEntry ( final long timestamp, final double value, final byte flags )
+            {
+                if ( ( flags & FLAG_HEARTBEAT ) == 0 && ( flags & FLAG_DELETED ) == 0 )
+                {
+                    // forward request
+                    return visitor.value ( value, new Date ( timestamp ), ( flags & FLAG_ERROR ) > 0, ( flags & FLAG_MANUAL ) > 0 );
+                }
+                else
+                {
+                    // we skip and continue
+                    return true;
+                }
+            }
+        } );
+    }
+
+    /**
+     * Read until the buffer full or no bytes could be read
+     * 
+     * @param buffer
+     *            the buffer to fill
+     * @return the number of bytes read
+     * @throws IOException
+     *             in case of an I/O error
+     */
     private int read ( final ByteBuffer buffer ) throws IOException
     {
         while ( this.channel.read ( buffer ) > 0 && buffer.hasRemaining () )
