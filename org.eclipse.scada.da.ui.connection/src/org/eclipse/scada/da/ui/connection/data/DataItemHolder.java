@@ -35,7 +35,7 @@ public class DataItemHolder extends AbstractItemHolder
 
     public DataItemHolder ( final BundleContext context, final Item item, final DataSourceListener listener )
     {
-        super ( context, item );
+        super ( context, item, null );
         this.listener = listener;
 
         this.observer = new Observer () {

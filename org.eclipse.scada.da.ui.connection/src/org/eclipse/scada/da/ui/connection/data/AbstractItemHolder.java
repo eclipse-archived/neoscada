@@ -16,6 +16,9 @@ import java.util.Map;
 
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.client.Connection;
+import org.eclipse.scada.core.client.ConnectionState;
+import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.connection.provider.ConnectionIdTracker;
 import org.eclipse.scada.core.connection.provider.ConnectionRequest;
 import org.eclipse.scada.core.connection.provider.ConnectionRequestTracker;
@@ -24,10 +27,13 @@ import org.eclipse.scada.core.data.OperationParameters;
 import org.eclipse.scada.da.connection.provider.ConnectionService;
 import org.eclipse.scada.da.core.WriteAttributeResults;
 import org.eclipse.scada.da.core.WriteResult;
+import org.eclipse.scada.da.ui.connection.data.ItemListenerHolder.HolderListener;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.osgi.framework.BundleContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An abstract base class for implementing item holders <br/>
@@ -38,6 +44,8 @@ import org.osgi.framework.BundleContext;
  */
 public abstract class AbstractItemHolder
 {
+    private final static Logger logger = LoggerFactory.getLogger ( AbstractItemHolder.class );
+
     protected final Item item;
 
     private final BundleContext context;
@@ -46,10 +54,23 @@ public abstract class AbstractItemHolder
 
     private ConnectionService connection;
 
-    public AbstractItemHolder ( final BundleContext context, final Item item )
+    private final HolderListener holderListener;
+
+    private final ConnectionStateListener connectionStateListener = new ConnectionStateListener () {
+
+        @Override
+        public void stateChange ( final Connection connection, final ConnectionState state, final Throwable error )
+        {
+            fireConnectionStateChange ( connection, state, error );
+        }
+    };
+
+    public AbstractItemHolder ( final BundleContext context, final Item item, final HolderListener holderListener )
     {
         this.context = context;
         this.item = item;
+
+        this.holderListener = holderListener;
 
         switch ( item.getType () )
         {
@@ -86,17 +107,70 @@ public abstract class AbstractItemHolder
 
     protected synchronized void setConnection ( final ConnectionService connectionService )
     {
-        unbindConnection ();
-        bindConnection ( connectionService );
+        fireConnectionChange ( connectionService );
+
+        try
+        {
+            if ( this.connection != null )
+            {
+                unbindConnection ();
+            }
+            if ( connectionService != null )
+            {
+                bindConnection ( connectionService );
+            }
+        }
+        catch ( final Exception e )
+        {
+            logger.warn ( "Failed to set connection", e );
+        }
+    }
+
+    protected void fireConnectionChange ( final ConnectionService connection )
+    {
+        if ( this.holderListener != null )
+        {
+            try
+            {
+                this.holderListener.connectionChange ( connection );
+            }
+            catch ( final Exception e )
+            {
+                logger.warn ( "Listener threw exception", e );
+            }
+        }
+    }
+
+    protected void fireConnectionStateChange ( final Connection connection, final ConnectionState state, final Throwable error )
+    {
+        if ( this.holderListener != null )
+        {
+            try
+            {
+                this.holderListener.connectionStateChange ( connection, state, error );
+            }
+            catch ( final Exception e )
+            {
+                logger.warn ( "Listener threw exception", e );
+            }
+        }
     }
 
     protected void bindConnection ( final ConnectionService connectionService )
     {
         this.connection = connectionService;
+        if ( this.holderListener != null )
+        {
+            this.connection.getConnection ().addConnectionStateListener ( this.connectionStateListener );
+        }
     }
 
     protected void unbindConnection ()
     {
+        if ( this.holderListener != null )
+        {
+            this.connection.getConnection ().removeConnectionStateListener ( this.connectionStateListener );
+        }
         this.connection = null;
     }
 
