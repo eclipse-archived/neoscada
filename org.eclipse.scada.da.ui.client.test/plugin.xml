@@ -178,5 +178,16 @@
             icon="icons/16x16/item_trace.gif">
       </image>
    </extension>
+   <extension
+         point="org.eclipse.ui.console.consolePageParticipants">
+      <consolePageParticipant
+            class="org.eclipse.scada.da.ui.client.test.console.ItemTraceConsolePageParticipant"
+            id="org.eclipse.scada.da.ui.client.test.itemTraceParticipant">
+         <enablement>
+            <instanceof
+                  value="org.eclipse.scada.da.ui.client.test.console.ItemTraceIOConsole">
+            </instanceof></enablement>
+      </consolePageParticipant>
+   </extension>
    
 </plugin>

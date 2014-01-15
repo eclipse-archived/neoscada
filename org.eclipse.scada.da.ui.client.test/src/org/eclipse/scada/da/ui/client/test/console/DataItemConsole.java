@@ -28,8 +28,8 @@ import org.eclipse.scada.da.ui.connection.data.ItemListenerHolder.HolderListener
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleListener;
+import org.eclipse.ui.console.IOConsole;
 import org.eclipse.ui.console.IOConsoleOutputStream;
-import org.eclipse.ui.console.MessageConsole;
 import org.osgi.framework.FrameworkUtil;
 
 import com.ibm.icu.text.DateFormat;
@@ -39,7 +39,7 @@ public class DataItemConsole
 {
     private final Item item;
 
-    private final MessageConsole console;
+    private final IOConsole console;
 
     private final IConsoleListener consoleListener = new IConsoleListener () {
 
@@ -110,10 +110,21 @@ public class DataItemConsole
 
     private PrintStream dataPrintStream;
 
+    private CommandProcessorImpl processor;
+
+    private final ItemTrace trace = new ItemTrace () {
+
+        @Override
+        public void stop ()
+        {
+            DataItemConsole.this.stop ();
+        }
+    };
+
     public DataItemConsole ( final Item item )
     {
         this.item = item;
-        this.console = new MessageConsole ( item.toLabel (), "org.eclipse.scada.da.item.trace", Activator.getImageDescriptor ( "icons/16x16/item_trace.gif" ), "UTF-8", true );
+        this.console = new ItemTraceIOConsole ( this.trace, item.toLabel (), "org.eclipse.scada.da.item.trace", Activator.getImageDescriptor ( "icons/16x16/item_trace.gif" ), "UTF-8", true );
         ConsolePlugin.getDefault ().getConsoleManager ().addConsoleListener ( this.consoleListener );
         this.running = true;
     }
@@ -132,6 +143,11 @@ public class DataItemConsole
 
     protected void message ( final Date date, final PrintStream stream, final String format, final Object... args )
     {
+        if ( stream == null )
+        {
+            return;
+        }
+
         stream.print ( DF.format ( date ) + ": " );
         stream.printf ( format, args );
         stream.println ();
@@ -183,11 +199,51 @@ public class DataItemConsole
         this.dataStream = this.console.newOutputStream ();
         this.dataPrintStream = new PrintStream ( this.dataStream );
 
+        this.processor = new CommandProcessorImpl ( this.item.toLabel (), this.console.getInputStream (), this.console.newOutputStream (), this.console.newOutputStream () );
+
         this.holder = new ItemListenerHolder ( FrameworkUtil.getBundle ( DataItemConsole.class ).getBundleContext (), this.item, this.itemListener, this.holderListener );
+
+        createCommands ();
+    }
+
+    private void createCommands ()
+    {
+        final CommandHandler closeCommand = new CommandHandler () {
+
+            @Override
+            public void runCommand ( final CommandContext context ) throws Exception
+            {
+                removeConsole ();
+            }
+        };
+        this.processor.addCommand ( "close", closeCommand );
+        this.processor.addCommand ( "exit", closeCommand );
+
+        this.processor.addCommand ( "stop", new CommandHandler () {
+
+            @Override
+            public void runCommand ( final CommandContext context ) throws Exception
+            {
+                stop ();
+            }
+        } );
+    }
+
+    protected void removeConsole ()
+    {
+        ConsolePlugin.getDefault ().getConsoleManager ().removeConsoles ( new IConsole[] { this.console } );
     }
 
     protected void dispose ()
     {
+        stop ();
+
+        if ( this.processor != null )
+        {
+            this.processor.dispose ();
+            this.processor = null;
+        }
+
         if ( this.connectionPrintStream != null )
         {
             this.connectionPrintStream.close ();
@@ -206,11 +262,14 @@ public class DataItemConsole
             this.running = false;
             ConsolePlugin.getDefault ().getConsoleManager ().removeConsoleListener ( this.consoleListener );
         }
+    }
+
+    protected synchronized void stop ()
+    {
         if ( this.holder != null )
         {
             this.holder.dispose ();
             this.holder = null;
         }
     }
-
 }
