@@ -34,7 +34,12 @@ public class StreamCompressionHandshake extends AbstractHandshake
 
     public StreamCompressionHandshake ( final Integer maxStreamCompressionLevel )
     {
-        if ( maxStreamCompressionLevel != null || Boolean.getBoolean ( PROP_DISABLE_COMPRESSION ) )
+        if ( Boolean.getBoolean ( PROP_DISABLE_COMPRESSION ) )
+        {
+            logger.info ( "Stream compression disabled by system property (%s)", PROP_DISABLE_COMPRESSION );
+            this.maxStreamCompressionLevel = null;
+        }
+        else if ( maxStreamCompressionLevel != null )
         {
             this.maxStreamCompressionLevel = Math.min ( maxStreamCompressionLevel, CompressionFilter.COMPRESSION_MAX );
         }
