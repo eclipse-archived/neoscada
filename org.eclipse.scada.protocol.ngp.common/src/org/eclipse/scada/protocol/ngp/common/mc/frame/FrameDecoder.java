@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
- *     IBH SYSTEMS GmbH - minor cleanups
+ *     IBH SYSTEMS GmbH - minor cleanups and fixes
  *******************************************************************************/
 
 package org.eclipse.scada.protocol.ngp.common.mc.frame;
@@ -42,6 +42,15 @@ public class FrameDecoder extends CumulativeProtocolDecoder
             return false;
         }
 
+        final byte version = data.get ( 0 ); // peek at version
+        if ( version != 0x01 )
+        {
+            throw new IllegalStateException ( String.format ( "Version 0x%02x is not supported.", version ) );
+        }
+
+        final int frameTypeOrdinal = data.get ( 1 ); // peek at frame type
+        final FrameType frameType = FrameType.values ()[frameTypeOrdinal]; // may case an exception, that is ok then
+
         final int dataLength = data.getInt ( data.position () + 2 ); // we need to look at "here" + 2
 
         logger.trace ( "Data length: {}, remainingData: {}", dataLength, data.remaining () - 6 );
@@ -51,19 +60,15 @@ public class FrameDecoder extends CumulativeProtocolDecoder
             return false;
         }
 
-        final byte version = data.get (); // version - #0
-        if ( version != 0x01 )
-        {
-            throw new IllegalStateException ( String.format ( "Version 0x%02x is not supported.", version ) );
-        }
+        data.get (); // version - #0
 
-        final int frameTypeOrdinal = data.get (); // frame type - #1
+        data.get (); // frame type - #1
         data.getInt (); // dataLength - #2
 
         // data - #6
         final IoBuffer frameData = data.getSlice ( dataLength ); // this also consumes the buffer 'data'
 
-        final Frame frame = new Frame ( FrameType.values ()[frameTypeOrdinal], frameData );
+        final Frame frame = new Frame ( frameType, frameData );
 
         logger.trace ( "Decoded frame: {} ... {} bytes remaining", frame, data.remaining () );
         output.write ( frame );
