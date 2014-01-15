@@ -1,0 +1,3 @@
+01 # version
+01 # frame type - MESSAGE
+00 00 00 00 # data length
