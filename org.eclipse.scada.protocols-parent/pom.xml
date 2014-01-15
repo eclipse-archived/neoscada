@@ -78,7 +78,6 @@
 		
 		<!-- test units -->
 		
-		<module>../org.eclipse.scada.ngp.test</module>
 		<module>../org.eclipse.scada.protocol.ngp.common.test</module>
 	</modules>
 
