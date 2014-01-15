@@ -61,7 +61,7 @@ public class FrameDecoder extends CumulativeProtocolDecoder
         data.getInt (); // dataLength - #2
 
         // data - #6
-        final IoBuffer frameData = data.getSlice ( dataLength );
+        final IoBuffer frameData = data.getSlice ( dataLength ); // this also consumes the buffer 'data'
 
         final Frame frame = new Frame ( FrameType.values ()[frameTypeOrdinal], frameData );
 
