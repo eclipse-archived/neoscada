@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,8 +8,9 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
+ *     IBH SYSTEMS GmbH - fix a possible NPE when the stream compression
+ *                        was disabled in the constructor
  *******************************************************************************/
-
 
 package org.eclipse.scada.protocol.ngp.common.mc.handshake;
 
@@ -31,7 +32,14 @@ public class StreamCompressionHandshake extends AbstractHandshake
 
     public StreamCompressionHandshake ( final Integer maxStreamCompressionLevel )
     {
-        this.maxStreamCompressionLevel = Math.min ( maxStreamCompressionLevel, CompressionFilter.COMPRESSION_MAX );
+        if ( maxStreamCompressionLevel != null )
+        {
+            this.maxStreamCompressionLevel = Math.min ( maxStreamCompressionLevel, CompressionFilter.COMPRESSION_MAX );
+        }
+        else
+        {
+            this.maxStreamCompressionLevel = null;
+        }
     }
 
     @Override
