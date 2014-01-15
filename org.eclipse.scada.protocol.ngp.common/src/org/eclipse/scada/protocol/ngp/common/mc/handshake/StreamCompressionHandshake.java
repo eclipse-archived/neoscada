@@ -26,13 +26,15 @@ import org.slf4j.LoggerFactory;
 public class StreamCompressionHandshake extends AbstractHandshake
 {
 
+    private static final String PROP_DISABLE_COMPRESSION = "org.eclipse.scada.protocol.ngp.common.mc.handshake.disableCompression";
+
     private final static Logger logger = LoggerFactory.getLogger ( StreamCompressionHandshake.class );
 
     private final Integer maxStreamCompressionLevel;
 
     public StreamCompressionHandshake ( final Integer maxStreamCompressionLevel )
     {
-        if ( maxStreamCompressionLevel != null )
+        if ( maxStreamCompressionLevel != null || Boolean.getBoolean ( PROP_DISABLE_COMPRESSION ) )
         {
             this.maxStreamCompressionLevel = Math.min ( maxStreamCompressionLevel, CompressionFilter.COMPRESSION_MAX );
         }
@@ -45,9 +47,9 @@ public class StreamCompressionHandshake extends AbstractHandshake
     @Override
     public void request ( final HandshakeContext handshakeContext, final Map<String, String> helloProperties )
     {
-        if ( Boolean.getBoolean ( "org.eclipse.scada.protocol.ngp.common.mc.handshake.disableCompression" ) )
+        if ( Boolean.getBoolean ( PROP_DISABLE_COMPRESSION ) )
         {
-            logger.info ( "Stream compression disabled by system property (org.eclipse.scada.protocol.ngp.common.mc.handshake.disableCompression)" );
+            logger.info ( "Stream compression disabled by system property (%s)", PROP_DISABLE_COMPRESSION );
             return;
         }
 
