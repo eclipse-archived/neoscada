@@ -42,16 +42,18 @@ public class FrameDecoder extends CumulativeProtocolDecoder
             return false;
         }
 
-        final byte version = data.get ( 0 ); // peek at version
+        final int position = data.position ();
+
+        final byte version = data.get ( position ); // peek at version
         if ( version != 0x01 )
         {
             throw new IllegalStateException ( String.format ( "Version 0x%02x is not supported.", version ) );
         }
 
-        final int frameTypeOrdinal = data.get ( 1 ); // peek at frame type
+        final int frameTypeOrdinal = data.get ( position + 1 ); // peek at frame type
         final FrameType frameType = FrameType.values ()[frameTypeOrdinal]; // may case an exception, that is ok then
 
-        final int dataLength = data.getInt ( data.position () + 2 ); // we need to look at "here" + 2
+        final int dataLength = data.getInt ( position + 2 ); // we need to look at "here" + 2
 
         logger.trace ( "Data length: {}, remainingData: {}", dataLength, data.remaining () - 6 );
 
@@ -60,8 +62,8 @@ public class FrameDecoder extends CumulativeProtocolDecoder
             return false;
         }
 
+        // consume fields
         data.get (); // version - #0
-
         data.get (); // frame type - #1
         data.getInt (); // dataLength - #2
 
