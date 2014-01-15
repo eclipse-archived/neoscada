@@ -71,6 +71,14 @@ public class FrameDecoderTest
                 new Frame ( FrameType.MESSAGE, makeSimpleData ( 2 ) ) );
     }
 
+    @Test
+    public void testMultiDummySplit1Message () throws Exception
+    {
+        testFrames ( "data/dummyMessageMulti.split1.txt",
+                new Frame ( FrameType.MESSAGE, makeSimpleData ( 1 ) ),
+                new Frame ( FrameType.MESSAGE, makeSimpleData ( 2 ) ) );
+    }
+
     private IoBuffer makeSimpleData ( final int value )
     {
         final IoBuffer d = IoBuffer.allocate ( 4 );
