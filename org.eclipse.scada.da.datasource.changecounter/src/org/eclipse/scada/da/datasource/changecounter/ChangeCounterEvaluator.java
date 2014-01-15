@@ -4,18 +4,17 @@ import java.util.List;
 
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.datasource.data.DataItemValueLight;
-import org.eclipse.scada.da.datasource.data.DataItemValueRange;
+import org.eclipse.scada.da.datasource.data.DataItemValueRange.DataItemValueRangeState;
 
 class ChangeCounterEvaluator
 {
-    static int handleDelta ( List<Variant> values, DataItemValueRange valueRange, ErrorHandling errorHandling )
+    static int handleDelta ( List<Variant> values, DataItemValueRangeState valueRangeState, ErrorHandling errorHandling )
     {
         Double delta = values.get ( 0 ).asDouble ( null );
         int numOfChanges = 0;
         // we **have** to consider the value before, since if it is a change within this hour, it is a change respective to the initial state
-        Double lastValue = ( valueRange.getState ().getFirstValue ().isError () || !valueRange.getState ().getFirstValue ().hasValue () ) ? null : valueRange.getState ().getFirstValue ().getValue ().asDouble ( null );
-        String error = null;
-        for ( DataItemValueLight v : valueRange.getState ().getValues () )
+        Double lastValue = ( valueRangeState.getFirstValue ().isError () || !valueRangeState.getFirstValue ().hasValue () ) ? null : valueRangeState.getFirstValue ().getValue ().asDouble ( null );
+        for ( DataItemValueLight v : valueRangeState.getValues () )
         {
             // first handle an error
             if ( v.isError () || !v.hasValue () )
@@ -56,14 +55,13 @@ class ChangeCounterEvaluator
         return numOfChanges;
     }
 
-    static int handleDirection ( List<Variant> values, DataItemValueRange valueRange, ErrorHandling errorHandling )
+    static int handleDirection ( List<Variant> values, DataItemValueRangeState valueRangeState, ErrorHandling errorHandling )
     {
         int numOfChanges = 0;
         // we **have** to consider the value before, since if it is a change within this hour, it is a change respective to the initial state
-        Double lastValue = ( valueRange.getState ().getFirstValue ().isError () || !valueRange.getState ().getFirstValue ().hasValue () ) ? null : valueRange.getState ().getFirstValue ().getValue ().asDouble ( null );
-        String error = null;
+        Double lastValue = ( valueRangeState.getFirstValue ().isError () || !valueRangeState.getFirstValue ().hasValue () ) ? null : valueRangeState.getFirstValue ().getValue ().asDouble ( null );
         int direction = 0;
-        for ( DataItemValueLight v : valueRange.getState ().getValues () )
+        for ( DataItemValueLight v : valueRangeState.getValues () )
         {
             // first handle an error
             if ( v.isError () || !v.hasValue () )
@@ -111,13 +109,12 @@ class ChangeCounterEvaluator
         return numOfChanges;
     }
 
-    static int handleSet ( List<Variant> values, DataItemValueRange valueRange, ErrorHandling errorHandling )
+    static int handleSet ( List<Variant> values, DataItemValueRangeState valueRangeState, ErrorHandling errorHandling )
     {
         int numOfChanges = 0;
         // we **have** to consider the value before, since if it is a change within this hour, it is a change respective to the initial state
-        Variant lastValue = ( valueRange.getState ().getFirstValue ().isError () ) ? Variant.NULL : valueRange.getState ().getFirstValue ().getValue ();
-        String error = null;
-        for ( DataItemValueLight v : valueRange.getState ().getValues () )
+        Variant lastValue = ( valueRangeState.getFirstValue ().isError () ) ? Variant.NULL : valueRangeState.getFirstValue ().getValue ();
+        for ( DataItemValueLight v : valueRangeState.getValues () )
         {
             if ( v.isError () )
             {

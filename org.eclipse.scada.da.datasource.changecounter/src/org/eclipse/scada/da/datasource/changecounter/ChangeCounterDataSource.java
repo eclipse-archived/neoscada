@@ -28,6 +28,7 @@ import org.eclipse.scada.da.buffer.BufferedDataSourceListener;
 import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.datasource.base.AbstractInputDataSource;
 import org.eclipse.scada.da.datasource.data.DataItemValueRange;
+import org.eclipse.scada.da.datasource.data.DataItemValueRange.DataItemValueRangeState;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker.ServiceListener;
@@ -75,20 +76,20 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
         this.bufferedDataSourceId = cfg.getStringChecked ( BufferedDataSource.BUFFERED_DATA_SOURCE_ID, String.format ( "'%s' must be set", BufferedDataSource.BUFFERED_DATA_SOURCE_ID ) ); //$NON-NLS-1$
-        this.type = cfg.getEnum ( "type", ChangeType.class );
-        this.errorHandling = cfg.getEnum ( "onError", ErrorHandling.class );
+        this.type = cfg.getEnumChecked ( "type", ChangeType.class, "'type' must be set" );
+        this.errorHandling = cfg.getEnum ( "onError", ErrorHandling.class, ErrorHandling.error );
         this.values = toVariants ( cfg, "value" );
 
         this.objectPoolTracker = new SingleObjectPoolServiceTracker<BufferedDataSource> ( this.poolTracker, this.bufferedDataSourceId, this );
         this.objectPoolTracker.open ();
     }
 
-    private void sendUpdate ( DataItemValueRange valueRange )
+    private void sendUpdate ( DataItemValueRangeState dataItemValueRangeState )
     {
         // if no value is given, every value update is considered as change
         if ( values.isEmpty () )
         {
-            this.updateData ( new DataItemValue ( Variant.valueOf ( valueRange.getState ().getValues ().size () ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
+            this.updateData ( new DataItemValue ( Variant.valueOf ( dataItemValueRangeState.getValues ().size () ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
         }
         try
         {
@@ -96,13 +97,13 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
             switch ( type )
             {
                 case delta:
-                    numOfChanges = ChangeCounterEvaluator.handleDelta ( values, valueRange, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleDelta ( values, dataItemValueRangeState, errorHandling );
                     break;
                 case set:
-                    numOfChanges = ChangeCounterEvaluator.handleSet ( values, valueRange, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleSet ( values, dataItemValueRangeState, errorHandling );
                     break;
                 case direction:
-                    numOfChanges = ChangeCounterEvaluator.handleDirection ( values, valueRange, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleDirection ( values, dataItemValueRangeState, errorHandling );
                     break;
             }
             this.updateData ( new DataItemValue ( Variant.valueOf ( numOfChanges ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
@@ -118,7 +119,7 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
     @Override
     public void stateChanged ( final DataItemValueRange dataItemValueRange )
     {
-        sendUpdate ( dataItemValueRange );
+        sendUpdate ( dataItemValueRange.getState () );
     }
 
     private List<Variant> toVariants ( ConfigurationDataHelper cfg, String name )

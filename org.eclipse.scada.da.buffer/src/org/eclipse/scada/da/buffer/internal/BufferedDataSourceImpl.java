@@ -114,7 +114,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         this.triggerOnly = cfg.getBoolean ( "triggerOnly", false );
         this.persistence = cfg.getEnum ( "persistence", Persistence.class, Persistence.none );
 
-        this.valueRange = new DataItemValueRange ( scheduler, range );
+        this.valueRange = new DataItemValueRange ( range );
         this.valueRange.add ( new DataItemValueLight ( this.initialValue, SubscriptionState.CONNECTED, 0, false, false ) );
 
         this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.buffer/" + this.dataSourceId + "/" + range );

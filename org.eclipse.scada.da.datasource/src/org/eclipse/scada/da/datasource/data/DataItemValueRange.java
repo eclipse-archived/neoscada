@@ -13,10 +13,9 @@ package org.eclipse.scada.da.datasource.data;
 import java.io.Serializable;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class DataItemValueRange
 {
@@ -24,33 +23,23 @@ public class DataItemValueRange
 
     private final SortedSet<DataItemValueLight> values = new TreeSet<DataItemValueLight> (); // 
 
-    private final ExecutorService executor; // used to serialize access to internal state
-
     private final long rangeOrAlignment; // timespan to hold values since oldestPossibleTimestamp
 
     private final TimeUnit absolute; // align trimestamp to last TimeUnit (everything above nanoseconds)
 
     private long oldestPossibleTimestamp; // timestamp in milliseconds
 
-    public DataItemValueRange ( final ExecutorService executor, final long range )
+    private ReadWriteLock lock = new ReentrantReadWriteLock ();
+
+    public DataItemValueRange ( final long range )
     {
-        if ( executor == null )
-        {
-            throw new IllegalArgumentException ( "'executor' must not be null" );
-        }
-        this.executor = executor;
         this.rangeOrAlignment = range;
         this.absolute = null;
         this.oldestPossibleTimestamp = calculateOldestTimestamp ( System.currentTimeMillis () );
     }
 
-    public DataItemValueRange ( final ExecutorService executor, final TimeUnit absolute, final long alignment )
+    public DataItemValueRange ( final TimeUnit absolute, final long alignment )
     {
-        if ( executor == null )
-        {
-            throw new IllegalArgumentException ( "'executor' must not be null" );
-        }
-        this.executor = executor;
         this.rangeOrAlignment = alignment;
         if ( absolute == TimeUnit.NANOSECONDS )
         {
@@ -74,84 +63,59 @@ public class DataItemValueRange
 
     public int add ( final DataItemValueLight dataItemValue )
     {
-        final Future<Integer> future = this.executor.submit ( new Callable<Integer> () {
-            @Override
-            public Integer call () throws Exception
-            {
-                if ( DataItemValueRange.this.firstValue == DataItemValueLight.DISCONNECTED )
-                {
-                    DataItemValueRange.this.firstValue = dataItemValue;
-                }
-                DataItemValueRange.this.values.add ( dataItemValue );
-                checkRangeInternal ( calculateOldestTimestamp ( System.currentTimeMillis () ) );
-                return DataItemValueRange.this.values.size ();
-            }
-        } );
+        lock.writeLock ().lock ();
         try
         {
-            return future.get ( 30, TimeUnit.SECONDS );
+            if ( DataItemValueRange.this.firstValue == DataItemValueLight.DISCONNECTED )
+            {
+                DataItemValueRange.this.firstValue = dataItemValue;
+            }
+            DataItemValueRange.this.values.add ( dataItemValue );
+            checkRangeInternal ( calculateOldestTimestamp ( System.currentTimeMillis () ) );
+            return DataItemValueRange.this.values.size ();
         }
-        catch ( final Exception e )
+        finally
         {
-            throw new RuntimeException ( e );
+            lock.writeLock ().unlock ();
         }
     }
 
     public int checkRange ()
     {
-        final Future<Integer> future = this.executor.submit ( new Callable<Integer> () {
-            @Override
-            public Integer call () throws Exception
-            {
-                checkRangeInternal ( calculateOldestTimestamp ( System.currentTimeMillis () ) );
-                return DataItemValueRange.this.values.size ();
-            }
-        } );
+        lock.writeLock ().lock ();
         try
         {
-            return future.get ( 30, TimeUnit.SECONDS );
+            return checkRangeInternal ( calculateOldestTimestamp ( System.currentTimeMillis () ) );
         }
-        catch ( final Exception e )
+        finally
         {
-            throw new RuntimeException ( e );
+            lock.writeLock ().unlock ();
         }
     }
 
     public DataItemValueRangeInfo getInfo ()
     {
-        final Future<DataItemValueRangeInfo> future = this.executor.submit ( new Callable<DataItemValueRangeInfo> () {
-            @Override
-            public DataItemValueRangeInfo call () throws Exception
-            {
-                return new DataItemValueRangeInfo ( DataItemValueRange.this.oldestPossibleTimestamp, DataItemValueRange.this.values.size (), DataItemValueRange.this.firstValue );
-            }
-        } );
+        lock.readLock ().lock ();
         try
         {
-            return future.get ( 30, TimeUnit.SECONDS );
+            return new DataItemValueRangeInfo ( DataItemValueRange.this.oldestPossibleTimestamp, DataItemValueRange.this.values.size (), DataItemValueRange.this.firstValue );
         }
-        catch ( final Exception e )
+        finally
         {
-            throw new RuntimeException ( e );
+            lock.readLock ().unlock ();
         }
     }
 
     public DataItemValueRangeState getState ()
     {
-        final Future<DataItemValueRangeState> future = this.executor.submit ( new Callable<DataItemValueRangeState> () {
-            @Override
-            public DataItemValueRangeState call () throws Exception
-            {
-                return new DataItemValueRangeState ( DataItemValueRange.this.oldestPossibleTimestamp, DataItemValueRange.this.values.size (), DataItemValueRange.this.firstValue, new TreeSet<DataItemValueLight> ( DataItemValueRange.this.values ) );
-            }
-        } );
+        lock.readLock ().lock ();
         try
         {
-            return future.get ( 30, TimeUnit.SECONDS );
+            return new DataItemValueRangeState ( DataItemValueRange.this.oldestPossibleTimestamp, DataItemValueRange.this.values.size (), DataItemValueRange.this.firstValue, new TreeSet<DataItemValueLight> ( DataItemValueRange.this.values ) );
         }
-        catch ( final Exception e )
+        finally
         {
-            throw new RuntimeException ( e );
+            lock.readLock ().unlock ();
         }
     }
 
@@ -165,7 +129,7 @@ public class DataItemValueRange
         return this.absolute;
     }
 
-    private void checkRangeInternal ( final long oldestPossibleTimestamp )
+    private int checkRangeInternal ( final long oldestPossibleTimestamp )
     {
         final TreeSet<DataItemValueLight> toRemove = new TreeSet<DataItemValueLight> ();
         for ( final DataItemValueLight dataItemValueLight : this.values )
@@ -181,6 +145,7 @@ public class DataItemValueRange
             this.values.removeAll ( toRemove );
         }
         this.oldestPossibleTimestamp = oldestPossibleTimestamp;
+        return this.values.size ();
     }
 
     public class DataItemValueRangeInfo implements Serializable
