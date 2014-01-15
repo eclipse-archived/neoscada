@@ -10,7 +10,6 @@
  *     Jens Reimann - implement security callback system
  *******************************************************************************/
 
-
 package org.eclipse.scada.protocol.ngp.common.mc.handshake;
 
 import java.util.Map;
@@ -23,7 +22,6 @@ import org.slf4j.LoggerFactory;
 
 public class TimeoutHandshake extends AbstractHandshake
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( TimeoutHandshake.class );
 
     @Override
@@ -62,7 +60,7 @@ public class TimeoutHandshake extends AbstractHandshake
 
         if ( timeout != null )
         {
-            final int pingFrequency = 3;
+            final int pingFrequency = Integer.getInteger ( "org.eclipse.scada.protocol.ngp.common.mc.pingFrequency", 3 );
             new ChainConfigurator ( handshakeContext.getSession () ).startKeepAlive ( pingFrequency, (int)Math.ceil ( timeout / 1000.0 ) );
             return;
         }
