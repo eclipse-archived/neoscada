@@ -8,14 +8,14 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.commands;
+package org.eclipse.scada.da.ui.client.test.commands;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.scada.da.client.test.console.DataItemConsole;
+import org.eclipse.scada.da.ui.client.test.console.DataItemConsole;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.databinding.SelectionHelper;

@@ -9,7 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.wizards;
+package org.eclipse.scada.da.ui.client.test.wizards;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -25,9 +25,9 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.da.client.test.Activator;
 import org.eclipse.scada.da.core.WriteAttributeResult;
 import org.eclipse.scada.da.core.WriteAttributeResults;
+import org.eclipse.scada.da.ui.client.test.Activator;
 import org.eclipse.scada.da.ui.connection.data.DataItemHolder;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;

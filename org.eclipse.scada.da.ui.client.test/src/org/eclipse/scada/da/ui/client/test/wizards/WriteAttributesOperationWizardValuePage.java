@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.wizards;
+package org.eclipse.scada.da.ui.client.test.wizards;
 
 import java.util.ArrayList;
 import java.util.HashMap;

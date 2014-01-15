@@ -8,14 +8,14 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.commands;
+package org.eclipse.scada.da.ui.client.test.commands;
 
 import java.util.UUID;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.scada.da.client.test.views.realtime.RealTimeList;
+import org.eclipse.scada.da.ui.client.test.views.realtime.RealTimeList;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;

@@ -8,13 +8,13 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.actions;
+package org.eclipse.scada.da.ui.client.test.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.scada.da.client.test.wizards.WriteOperationWizard;
+import org.eclipse.scada.da.ui.client.test.wizards.WriteOperationWizard;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;

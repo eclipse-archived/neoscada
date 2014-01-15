@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test;
+package org.eclipse.scada.da.ui.client.test;
 
 import org.eclipse.core.commands.operations.OperationStatus;
 import org.eclipse.core.runtime.IStatus;
@@ -30,7 +30,7 @@ public class Activator extends AbstractUIPlugin
 
     private final static Logger logger = LoggerFactory.getLogger ( Activator.class );
 
-    public static final String PLUGIN_ID = "org.eclipse.scada.da.client.test";
+    public static final String PLUGIN_ID = "org.eclipse.scada.da.ui.client.test";
 
     //The shared instance.
     private static Activator plugin = null;
@@ -79,7 +79,7 @@ public class Activator extends AbstractUIPlugin
      */
     public static ImageDescriptor getImageDescriptor ( final String path )
     {
-        return AbstractUIPlugin.imageDescriptorFromPlugin ( "org.eclipse.scada.da.client.test", path );
+        return AbstractUIPlugin.imageDescriptorFromPlugin ( "org.eclipse.scada.da.ui.client.test", path );
     }
 
     public static String getId ()

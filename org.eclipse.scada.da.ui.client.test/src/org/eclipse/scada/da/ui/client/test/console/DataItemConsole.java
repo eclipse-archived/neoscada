@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.console;
+package org.eclipse.scada.da.ui.client.test.console;
 
 import java.io.PrintStream;
 import java.util.Date;
@@ -19,8 +19,8 @@ import org.eclipse.scada.core.client.Connection;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.da.client.ItemUpdateListener;
-import org.eclipse.scada.da.client.test.Activator;
 import org.eclipse.scada.da.connection.provider.ConnectionService;
+import org.eclipse.scada.da.ui.client.test.Activator;
 import org.eclipse.scada.da.ui.connection.data.AbstractItemHolder;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.connection.data.ItemListenerHolder;

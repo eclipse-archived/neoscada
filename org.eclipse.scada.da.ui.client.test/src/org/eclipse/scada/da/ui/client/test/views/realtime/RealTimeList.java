@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.client.test.views.realtime;
+package org.eclipse.scada.da.ui.client.test.views.realtime;
 
 import org.eclipse.scada.da.ui.widgets.realtime.DoubleClickShowDetailsHandler;
 import org.eclipse.scada.da.ui.widgets.realtime.RealTimeListViewer;
