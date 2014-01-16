@@ -338,7 +338,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
         logger.debug ( "Closing {}", this.fileInfo );
         if ( this.file == null )
         {
-            // alread disposed
+            // already disposed
             return;
         }
 
