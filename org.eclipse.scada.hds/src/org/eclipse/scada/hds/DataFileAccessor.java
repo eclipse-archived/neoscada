@@ -31,15 +31,15 @@ public interface DataFileAccessor
      * 
      * @param value
      *            the value
-     * @param date
-     *            the starting point
+     * @param afterDate
+     *            the starting point, correct everything after
      * @param error
      *            the error flag
      * @param manual
      *            the manual flag
      * @throws Exception
      */
-    public abstract void forwardCorrect ( double value, Date date, boolean error, boolean manual ) throws Exception;
+    public abstract void forwardCorrect ( double value, Date afterDate, boolean error, boolean manual ) throws Exception;
 
     /**
      * Delete the accessors file. This is implicitly a dispose operation.
