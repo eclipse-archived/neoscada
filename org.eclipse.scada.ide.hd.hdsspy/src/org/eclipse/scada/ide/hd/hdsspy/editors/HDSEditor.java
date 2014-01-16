@@ -10,11 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.ide.hd.hdsspy.editors;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -24,9 +19,7 @@ import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.scada.ui.databinding.AdapterHelper;
-import org.eclipse.scada.ui.databinding.ObservableMapStyledCellLabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IEditorInput;
@@ -46,6 +39,8 @@ public class HDSEditor extends EditorPart
     private FileLoader loader;
 
     private ObservableListContentProvider contentProvider;
+
+    private EntryLabelProvider labelProvider;
 
     @Override
     public void doSave ( final IProgressMonitor monitor )
@@ -94,13 +89,13 @@ public class HDSEditor extends EditorPart
     {
         super.dispose ();
 
+        this.labelProvider.dispose ();
+        this.contentProvider.dispose ();
         if ( this.entries != null )
         {
             this.entries.dispose ();
         }
     }
-
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss.SSS" );
 
     @Override
     public void createPartControl ( final Composite parent )
@@ -116,48 +111,29 @@ public class HDSEditor extends EditorPart
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Timestamp" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_TIMESTAMP ).observeDetail ( this.contentProvider.getKnownElements () ) ) {
-                @Override
-                public void update ( final ViewerCell cell )
-                {
-                    final Object element = cell.getElement ();
-                    final Object value = this.attributeMaps[0].get ( element );
-                    if ( value instanceof Date )
-                    {
-                        cell.setText ( DATE_FORMAT.format ( value ) );
-                    }
-                    else
-                    {
-                        super.update ( cell );
-                    }
-                }
-            } );
         }
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Value" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_VALUE ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Error" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_ERROR ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Manual" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_MANUAL ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Deleted" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_DELETED ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
         {
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Heartbeat" );
-            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_HEARTBEAT ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
+
+        this.viewer.setLabelProvider ( this.labelProvider = new EntryLabelProvider () );
 
         this.viewer.setInput ( this.entries );
 
