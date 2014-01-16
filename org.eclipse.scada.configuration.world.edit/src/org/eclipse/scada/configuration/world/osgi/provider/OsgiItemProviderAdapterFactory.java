@@ -1949,6 +1949,56 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ChangeCounterItemItemProvider changeCounterItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createChangeCounterItemAdapter ()
+    {
+        if ( changeCounterItemItemProvider == null )
+        {
+            changeCounterItemItemProvider = new ChangeCounterItemItemProvider ( this );
+        }
+
+        return changeCounterItemItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.BufferedValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BufferedValueItemProvider bufferedValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.BufferedValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBufferedValueAdapter ()
+    {
+        if ( bufferedValueItemProvider == null )
+        {
+            bufferedValueItemProvider = new BufferedValueItemProvider ( this );
+        }
+
+        return bufferedValueItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2239,6 +2289,10 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             transientItemItemProvider.dispose ();
         if ( defaultEquinoxApplicationItemProvider != null )
             defaultEquinoxApplicationItemProvider.dispose ();
+        if ( changeCounterItemItemProvider != null )
+            changeCounterItemItemProvider.dispose ();
+        if ( bufferedValueItemProvider != null )
+            bufferedValueItemProvider.dispose ();
     }
 
 }

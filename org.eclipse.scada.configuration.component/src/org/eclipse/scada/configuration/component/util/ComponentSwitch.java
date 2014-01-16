@@ -548,6 +548,36 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ComponentPackage.BUFFERED_VALUE:
+            {
+                BufferedValue bufferedValue = (BufferedValue)theEObject;
+                T result = caseBufferedValue ( bufferedValue );
+                if ( result == null )
+                    result = caseMasterComponent ( bufferedValue );
+                if ( result == null )
+                    result = caseDataComponent ( bufferedValue );
+                if ( result == null )
+                    result = caseComponent ( bufferedValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.CHANGE_COUNTER:
+            {
+                ChangeCounter changeCounter = (ChangeCounter)theEObject;
+                T result = caseChangeCounter ( changeCounter );
+                if ( result == null )
+                    result = caseSingleValue ( changeCounter );
+                if ( result == null )
+                    result = caseMasterComponent ( changeCounter );
+                if ( result == null )
+                    result = caseDataComponent ( changeCounter );
+                if ( result == null )
+                    result = caseComponent ( changeCounter );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -1157,6 +1187,38 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseMasterComponent ( MasterComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Buffered Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Buffered Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBufferedValue ( BufferedValue object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Change Counter</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Change Counter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseChangeCounter ( ChangeCounter object )
     {
         return null;
     }

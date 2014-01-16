@@ -16,16 +16,15 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Author</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.world.deployment.Author#getName
- * <em>Name</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.world.deployment.Author#getEmail
- * <em>Email</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.Author#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.Author#getEmail <em>Email</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor()
  * @model
  * @generated
@@ -40,7 +39,6 @@ public interface Author extends EObject
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Name()
@@ -50,14 +48,10 @@ public interface Author extends EObject
     String getName ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.world.deployment.Author#getName
-     * <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Name</em>' attribute.
+     * @param value the new value of the '<em>Name</em>' attribute.
      * @see #getName()
      * @generated
      */
@@ -71,7 +65,6 @@ public interface Author extends EObject
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Email</em>' attribute.
      * @see #setEmail(String)
      * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getAuthor_Email()
@@ -81,14 +74,10 @@ public interface Author extends EObject
     String getEmail ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.world.deployment.Author#getEmail
-     * <em>Email</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.Author#getEmail <em>Email</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Email</em>' attribute.
+     * @param value the new value of the '<em>Email</em>' attribute.
      * @see #getEmail()
      * @generated
      */

@@ -11,6 +11,8 @@
 package org.eclipse.scada.configuration.component.generator.internal;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.scada.configuration.component.BufferedValue;
+import org.eclipse.scada.configuration.component.ChangeCounter;
 import org.eclipse.scada.configuration.component.ConstantValue;
 import org.eclipse.scada.configuration.component.DataMapperAnalyzer;
 import org.eclipse.scada.configuration.component.DataMapperService;
@@ -20,6 +22,8 @@ import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.PersistentValue;
 import org.eclipse.scada.configuration.component.TransientValue;
+import org.eclipse.scada.configuration.component.generator.calc.BufferedValueGenerator;
+import org.eclipse.scada.configuration.component.generator.calc.ChangeCounterGenerator;
 import org.eclipse.scada.configuration.component.generator.connection.DriverConnectionAnalyzerGenerator;
 import org.eclipse.scada.configuration.component.generator.global.GlobalizeGenerator;
 import org.eclipse.scada.configuration.component.generator.mapper.DataMapperAnalyzerGenerator;
@@ -73,6 +77,14 @@ public class GeneratorAdapterFactory implements IAdapterFactory
         else if ( adaptableObject instanceof MappedSourceValue )
         {
             return new MappedSourceValueGenerator ( (MappedSourceValue)adaptableObject );
+        }
+        else if ( adaptableObject instanceof BufferedValue )
+        {
+            return new BufferedValueGenerator ( (BufferedValue)adaptableObject );
+        }
+        else if ( adaptableObject instanceof ChangeCounter )
+        {
+            return new ChangeCounterGenerator ( (ChangeCounter)adaptableObject );
         }
         else if ( adaptableObject instanceof GlobalizeComponent )
         {

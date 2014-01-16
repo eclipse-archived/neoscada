@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -2726,6 +2727,243 @@ public interface ComponentPackage extends EPackage
     int TRANSIENT_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl <em>Buffered Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.BufferedValueImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getBufferedValue()
+     * @generated
+     */
+    int BUFFERED_VALUE = 38;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__LEVEL = MASTER_COMPONENT__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__CUSTOMIZATION_PIPELINE = MASTER_COMPONENT__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__MASTER_ON = MASTER_COMPONENT__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__NAME = MASTER_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Range</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__RANGE = MASTER_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Initial Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__INITIAL_VALUE = MASTER_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Persistence</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__PERSISTENCE = MASTER_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Trigger Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__TRIGGER_ONLY = MASTER_COMPONENT_FEATURE_COUNT + 4;
+
+    /**
+     * The number of structural features of the '<em>Buffered Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 5;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE___GET_MASTER_ON = MASTER_COMPONENT___GET_MASTER_ON;
+
+    /**
+     * The number of operations of the '<em>Buffered Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE_OPERATION_COUNT = MASTER_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl <em>Change Counter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.ChangeCounterImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getChangeCounter()
+     * @generated
+     */
+    int CHANGE_COUNTER = 39;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__LEVEL = SINGLE_VALUE__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__MASTER_ON = SINGLE_VALUE__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__NAME = SINGLE_VALUE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Buffer</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__BUFFER = SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Change Counter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
+
+    /**
+     * The number of operations of the '<em>Change Counter</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.Persistence
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getPersistence()
+     * @generated
+     */
+    int PERSISTENCE = 40;
+
+    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2733,7 +2971,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 38;
+    int NOTIFICATION = 41;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -3910,6 +4148,102 @@ public interface ComponentPackage extends EPackage
     EReference getMasterComponent_MasterOn ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.BufferedValue <em>Buffered Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Buffered Value</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue
+     * @generated
+     */
+    EClass getBufferedValue ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getName()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_Name ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getRange <em>Range</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Range</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getRange()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_Range ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getInitialValue <em>Initial Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Initial Value</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getInitialValue()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_InitialValue ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getPersistence <em>Persistence</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Persistence</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getPersistence()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_Persistence ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#isTriggerOnly <em>Trigger Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger Only</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#isTriggerOnly()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_TriggerOnly ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ChangeCounter <em>Change Counter</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Change Counter</em>'.
+     * @see org.eclipse.scada.configuration.component.ChangeCounter
+     * @generated
+     */
+    EClass getChangeCounter ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Buffer</em>'.
+     * @see org.eclipse.scada.configuration.component.ChangeCounter#getBuffer()
+     * @see #getChangeCounter()
+     * @generated
+     */
+    EReference getChangeCounter_Buffer ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Persistence</em>'.
+     * @see org.eclipse.scada.configuration.component.Persistence
+     * @generated
+     */
+    EEnum getPersistence ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4907,6 +5241,84 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference MASTER_COMPONENT__MASTER_ON = eINSTANCE.getMasterComponent_MasterOn ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl <em>Buffered Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.BufferedValueImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getBufferedValue()
+         * @generated
+         */
+        EClass BUFFERED_VALUE = eINSTANCE.getBufferedValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__NAME = eINSTANCE.getBufferedValue_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Range</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__RANGE = eINSTANCE.getBufferedValue_Range ();
+
+        /**
+         * The meta object literal for the '<em><b>Initial Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__INITIAL_VALUE = eINSTANCE.getBufferedValue_InitialValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Persistence</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__PERSISTENCE = eINSTANCE.getBufferedValue_Persistence ();
+
+        /**
+         * The meta object literal for the '<em><b>Trigger Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__TRIGGER_ONLY = eINSTANCE.getBufferedValue_TriggerOnly ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl <em>Change Counter</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.ChangeCounterImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getChangeCounter()
+         * @generated
+         */
+        EClass CHANGE_COUNTER = eINSTANCE.getChangeCounter ();
+
+        /**
+         * The meta object literal for the '<em><b>Buffer</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CHANGE_COUNTER__BUFFER = eINSTANCE.getChangeCounter_Buffer ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.Persistence
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getPersistence()
+         * @generated
+         */
+        EEnum PERSISTENCE = eINSTANCE.getPersistence ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

@@ -283,6 +283,24 @@ public interface ComponentFactory extends EFactory
     MasterComponent createMasterComponent ();
 
     /**
+     * Returns a new object of class '<em>Buffered Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Buffered Value</em>'.
+     * @generated
+     */
+    BufferedValue createBufferedValue ();
+
+    /**
+     * Returns a new object of class '<em>Change Counter</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Change Counter</em>'.
+     * @generated
+     */
+    ChangeCounter createChangeCounter ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

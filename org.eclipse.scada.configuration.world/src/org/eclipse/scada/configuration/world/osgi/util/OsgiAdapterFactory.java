@@ -611,6 +611,18 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseChangeCounterItem ( ChangeCounterItem object )
+        {
+            return createChangeCounterItemAdapter ();
+        }
+
+        @Override
+        public Adapter caseBufferedValue ( BufferedValue object )
+        {
+            return createBufferedValueAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -1993,6 +2005,36 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDefaultEquinoxApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem <em>Change Counter Item</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeCounterItem
+     * @generated
+     */
+    public Adapter createChangeCounterItemAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue <em>Buffered Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.BufferedValue
+     * @generated
+     */
+    public Adapter createBufferedValueAdapter ()
     {
         return null;
     }

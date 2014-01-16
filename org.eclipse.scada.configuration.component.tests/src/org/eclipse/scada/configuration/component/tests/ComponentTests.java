@@ -59,6 +59,8 @@ public class ComponentTests extends TestSuite
         suite.addTestSuite ( GlobalizeComponentTest.class );
         suite.addTestSuite ( TransientValueTest.class );
         suite.addTestSuite ( MasterComponentTest.class );
+        suite.addTestSuite ( BufferedValueTest.class );
+        suite.addTestSuite ( ChangeCounterTest.class );
         return suite;
     }
 

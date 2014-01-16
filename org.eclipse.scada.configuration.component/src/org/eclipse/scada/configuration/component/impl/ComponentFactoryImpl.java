@@ -153,6 +153,10 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createTransientValue ();
             case ComponentPackage.MASTER_COMPONENT:
                 return createMasterComponent ();
+            case ComponentPackage.BUFFERED_VALUE:
+                return createBufferedValue ();
+            case ComponentPackage.CHANGE_COUNTER:
+                return createChangeCounter ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -168,6 +172,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         switch ( eDataType.getClassifierID () )
         {
+            case ComponentPackage.PERSISTENCE:
+                return createPersistenceFromString ( eDataType, initialValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -183,6 +189,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         switch ( eDataType.getClassifierID () )
         {
+            case ComponentPackage.PERSISTENCE:
+                return convertPersistenceToString ( eDataType, instanceValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -494,6 +502,51 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         MasterComponentImpl masterComponent = new MasterComponentImpl ();
         return masterComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BufferedValue createBufferedValue ()
+    {
+        BufferedValueImpl bufferedValue = new BufferedValueImpl ();
+        return bufferedValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ChangeCounter createChangeCounter ()
+    {
+        ChangeCounterImpl changeCounter = new ChangeCounterImpl ();
+        return changeCounter;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Persistence createPersistenceFromString ( EDataType eDataType, String initialValue )
+    {
+        Persistence result = Persistence.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertPersistenceToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
     }
 
     /**

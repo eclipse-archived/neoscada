@@ -221,6 +221,10 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createTransientItem ();
             case OsgiPackage.DEFAULT_EQUINOX_APPLICATION:
                 return createDefaultEquinoxApplication ();
+            case OsgiPackage.CHANGE_COUNTER_ITEM:
+                return createChangeCounterItem ();
+            case OsgiPackage.BUFFERED_VALUE:
+                return createBufferedValue ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -246,6 +250,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createDataTypeFromString ( eDataType, initialValue );
             case OsgiPackage.PASSWORD_TYPE:
                 return createPasswordTypeFromString ( eDataType, initialValue );
+            case OsgiPackage.PERSISTENCE:
+                return createPersistenceFromString ( eDataType, initialValue );
             case OsgiPackage.SEVERITY:
                 return createSeverityFromString ( eDataType, initialValue );
             case OsgiPackage.VARIANT:
@@ -275,6 +281,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return convertDataTypeToString ( eDataType, instanceValue );
             case OsgiPackage.PASSWORD_TYPE:
                 return convertPasswordTypeToString ( eDataType, instanceValue );
+            case OsgiPackage.PERSISTENCE:
+                return convertPersistenceToString ( eDataType, instanceValue );
             case OsgiPackage.SEVERITY:
                 return convertSeverityToString ( eDataType, instanceValue );
             case OsgiPackage.VARIANT:
@@ -1103,6 +1111,28 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    public ChangeCounterItem createChangeCounterItem ()
+    {
+        ChangeCounterItemImpl changeCounterItem = new ChangeCounterItemImpl ();
+        return changeCounterItem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public BufferedValue createBufferedValue ()
+    {
+        BufferedValueImpl bufferedValue = new BufferedValueImpl ();
+        return bufferedValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public AverageReferenceType createAverageReferenceTypeFromString (
             EDataType eDataType, String initialValue )
     {
@@ -1228,6 +1258,29 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * <!-- end-user-doc -->
      * @generated
      */
+    public Persistence createPersistenceFromString ( EDataType eDataType, String initialValue )
+    {
+        Persistence result = Persistence.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertPersistenceToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Severity createSeverityFromString ( EDataType eDataType,
             String initialValue )
     {
@@ -1264,7 +1317,7 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     public String convertVariantToString ( EDataType eDataType,
             Object instanceValue )
     {
-        return instanceValue == null ? null : ((Variant) instanceValue).toString ();
+        return instanceValue == null ? null : ( (Variant)instanceValue ).toString ();
     }
 
     /**

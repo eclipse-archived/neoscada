@@ -802,6 +802,56 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.BufferedValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected BufferedValueItemProvider bufferedValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.BufferedValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createBufferedValueAdapter ()
+    {
+        if ( bufferedValueItemProvider == null )
+        {
+            bufferedValueItemProvider = new BufferedValueItemProvider ( this );
+        }
+
+        return bufferedValueItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.ChangeCounter} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ChangeCounterItemProvider changeCounterItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.ChangeCounter}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createChangeCounterAdapter ()
+    {
+        if ( changeCounterItemProvider == null )
+        {
+            changeCounterItemProvider = new ChangeCounterItemProvider ( this );
+        }
+
+        return changeCounterItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -998,6 +1048,10 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             transientValueItemProvider.dispose ();
         if ( masterComponentItemProvider != null )
             masterComponentItemProvider.dispose ();
+        if ( bufferedValueItemProvider != null )
+            bufferedValueItemProvider.dispose ();
+        if ( changeCounterItemProvider != null )
+            changeCounterItemProvider.dispose ();
     }
 
     /**

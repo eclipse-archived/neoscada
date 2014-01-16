@@ -18,15 +18,14 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  * A representation of the model object '
  * <em><b>Default Equinox Application</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication#getProfile
- * <em>Profile</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication#getProfile <em>Profile</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getDefaultEquinoxApplication()
  * @model
  * @generated
@@ -41,7 +40,6 @@ public interface DefaultEquinoxApplication extends EquinoxApplication
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Profile</em>' reference.
      * @see #setProfile(Profile)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getDefaultEquinoxApplication_Profile()
@@ -52,14 +50,10 @@ public interface DefaultEquinoxApplication extends EquinoxApplication
     Profile getProfile ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication#getProfile
-     * <em>Profile</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication#getProfile <em>Profile</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Profile</em>' reference.
+     * @param value the new value of the '<em>Profile</em>' reference.
      * @see #getProfile()
      * @generated
      */
