@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
  *     Jürgen Rose - changes, fixes and modifications for timeout handling
+ *     IBH SYSTEMS GmbH - add some logging
  *******************************************************************************/
 package org.eclipse.scada.protocol.ngp.common.mc;
 
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.mina.core.filterchain.IoFilterAdapter;
+import org.apache.mina.core.filterchain.IoFilterChain.Entry;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.core.write.DefaultWriteRequest;
 import org.apache.mina.core.write.WriteRequest;
@@ -184,6 +186,16 @@ public class MessageChannelFilter extends IoFilterAdapter
         }
 
         nextFilter.sessionOpened ( session );
+
+        if ( logger.isInfoEnabled () )
+        {
+            logger.info ( "Filter chain:" );
+
+            for ( final Entry entry : session.getFilterChain ().getAll () )
+            {
+                logger.info ( "\t{} -> {}", entry.getName (), entry.getFilter () );
+            }
+        }
     }
 
     private Object createHelloMessage ( final IoSession session, final NextFilter nextFilter )
