@@ -26,17 +26,29 @@ public class DataFileAccessorImpl implements DataFileAccessor
 {
     private final static Logger logger = LoggerFactory.getLogger ( DataFileAccessorImpl.class );
 
-    protected static final byte FLAG_DELETED = 0x08;
+    /**
+     * Entry is deleted
+     */
+    public static final byte FLAG_DELETED = 0x08;
 
-    protected static final byte FLAG_HEARTBEAT = 0x04;
+    /**
+     * Entry is a heartbeat entry
+     */
+    public static final byte FLAG_HEARTBEAT = 0x04;
 
-    protected static final byte FLAG_MANUAL = 0x02;
+    /**
+     * Marks a value as manually overridden
+     */
+    public static final byte FLAG_MANUAL = 0x02;
 
-    protected static final byte FLAG_ERROR = 0x01;
+    /**
+     * Marks a value as erroneous
+     */
+    public static final byte FLAG_ERROR = 0x01;
 
     protected static final int HEADER_SIZE = 4 + 4 + 8 + 8;
 
-    private static final int ENTRY_SIZE = 8 + 8 + 1;
+    protected static final int ENTRY_SIZE = 8 + 8 + 1;
 
     protected RandomAccessFile file;
 
