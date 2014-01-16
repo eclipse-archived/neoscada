@@ -26,6 +26,11 @@ public class DataFileAccessorImpl implements DataFileAccessor
 {
     private final static Logger logger = LoggerFactory.getLogger ( DataFileAccessorImpl.class );
 
+    public static interface EntryVisitor
+    {
+        boolean visitEntry ( long timestamp, double value, byte flags );
+    }
+
     /**
      * Entry is deleted
      */
@@ -211,11 +216,6 @@ public class DataFileAccessorImpl implements DataFileAccessor
             logger.debug ( "Returned to position: {}", startPosition );
         }
         return false;
-    }
-
-    protected static interface EntryVisitor
-    {
-        boolean visitEntry ( long timestamp, double value, byte flags );
     }
 
     public boolean forwardVisitAll ( final EntryVisitor visitor ) throws IOException
