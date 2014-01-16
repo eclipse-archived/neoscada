@@ -5518,7 +5518,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      */
     protected void createExclusiveGroupAnnotations ()
     {
-        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$	
+        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																				
         addAnnotation ( eventStorageEClass,
                 source,
                 new String[]
