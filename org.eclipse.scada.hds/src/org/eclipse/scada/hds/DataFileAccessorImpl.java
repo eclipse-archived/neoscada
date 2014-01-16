@@ -206,7 +206,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
         boolean visitEntry ( long timestamp, double value, byte flags );
     }
 
-    protected boolean forwardVisitAll ( final EntryVisitor visitor ) throws IOException
+    public boolean forwardVisitAll ( final EntryVisitor visitor ) throws IOException
     {
         final long position = this.channel.position ();
 
