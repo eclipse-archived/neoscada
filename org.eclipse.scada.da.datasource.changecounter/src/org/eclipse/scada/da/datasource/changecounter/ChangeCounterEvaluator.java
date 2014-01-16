@@ -19,11 +19,11 @@ class ChangeCounterEvaluator
             // first handle an error
             if ( v.isError () || !v.hasValue () )
             {
-                if ( errorHandling == ErrorHandling.error )
+                if ( errorHandling == ErrorHandling.ERROR )
                 {
                     throw new IllegalArgumentException ( "value is invalid" );
                 }
-                else if ( errorHandling == ErrorHandling.count )
+                else if ( errorHandling == ErrorHandling.COUNT )
                 {
                     if ( lastValue != null )
                     {
@@ -32,7 +32,7 @@ class ChangeCounterEvaluator
                     lastValue = null;
                     continue;
                 }
-                else if ( errorHandling == ErrorHandling.ignore )
+                else if ( errorHandling == ErrorHandling.IGNORE )
                 {
                     continue;
                 }
@@ -66,11 +66,11 @@ class ChangeCounterEvaluator
             // first handle an error
             if ( v.isError () || !v.hasValue () )
             {
-                if ( errorHandling == ErrorHandling.error )
+                if ( errorHandling == ErrorHandling.ERROR )
                 {
                     throw new IllegalArgumentException ( "value is invalid" );
                 }
-                else if ( errorHandling == ErrorHandling.count )
+                else if ( errorHandling == ErrorHandling.COUNT )
                 {
                     if ( lastValue != null )
                     {
@@ -80,7 +80,7 @@ class ChangeCounterEvaluator
                     direction = 0;
                     continue;
                 }
-                else if ( errorHandling == ErrorHandling.ignore )
+                else if ( errorHandling == ErrorHandling.IGNORE )
                 {
                     continue;
                 }
@@ -118,11 +118,11 @@ class ChangeCounterEvaluator
         {
             if ( v.isError () )
             {
-                if ( errorHandling == ErrorHandling.error )
+                if ( errorHandling == ErrorHandling.ERROR )
                 {
                     throw new IllegalArgumentException ( "value is invalid" );
                 }
-                else if ( errorHandling == ErrorHandling.count )
+                else if ( errorHandling == ErrorHandling.COUNT )
                 {
                     if ( lastValue != Variant.NULL )
                     {
@@ -131,7 +131,7 @@ class ChangeCounterEvaluator
                     lastValue = Variant.NULL;
                     continue;
                 }
-                else if ( errorHandling == ErrorHandling.ignore )
+                else if ( errorHandling == ErrorHandling.IGNORE )
                 {
                     continue;
                 }

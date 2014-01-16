@@ -77,7 +77,7 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
         this.bufferedDataSourceId = cfg.getStringChecked ( BufferedDataSource.BUFFERED_DATA_SOURCE_ID, String.format ( "'%s' must be set", BufferedDataSource.BUFFERED_DATA_SOURCE_ID ) ); //$NON-NLS-1$
         this.type = cfg.getEnumChecked ( "type", ChangeType.class, "'type' must be set" );
-        this.errorHandling = cfg.getEnum ( "onError", ErrorHandling.class, ErrorHandling.error );
+        this.errorHandling = cfg.getEnum ( "onError", ErrorHandling.class, ErrorHandling.ERROR );
         this.values = toVariants ( cfg, "value" );
 
         this.objectPoolTracker = new SingleObjectPoolServiceTracker<BufferedDataSource> ( this.poolTracker, this.bufferedDataSourceId, this );
@@ -96,13 +96,13 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
             int numOfChanges = 0;
             switch ( type )
             {
-                case delta:
+                case DELTA:
                     numOfChanges = ChangeCounterEvaluator.handleDelta ( values, dataItemValueRangeState, errorHandling );
                     break;
-                case set:
+                case SET:
                     numOfChanges = ChangeCounterEvaluator.handleSet ( values, dataItemValueRangeState, errorHandling );
                     break;
-                case direction:
+                case DIRECTION:
                     numOfChanges = ChangeCounterEvaluator.handleDirection ( values, dataItemValueRangeState, errorHandling );
                     break;
             }
