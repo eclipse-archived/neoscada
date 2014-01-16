@@ -16,12 +16,10 @@ package org.eclipse.scada.protocol.ngp.common;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.mina.core.filterchain.IoFilter;
 import org.apache.mina.core.filterchain.IoFilterChain;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
-import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.filter.util.NoopFilter;
 import org.eclipse.scada.protocol.common.IoLoggerFilterChainBuilder;
@@ -30,7 +28,6 @@ import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelCodecFilter;
 import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelFilter;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.FrameDecoder;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.FrameEncoder;
-import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 
 public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 {
@@ -147,7 +144,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
         this.filters.add ( new Entry ( "logger", new LoggerFactory () ) );
 
-        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync" ) ) ) );
+        // this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync" ) ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
 
         this.filters.add ( new Entry ( "keepalive.marker" ) );
