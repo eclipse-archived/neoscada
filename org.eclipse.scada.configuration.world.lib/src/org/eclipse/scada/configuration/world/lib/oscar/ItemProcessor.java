@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.world.lib.oscar;
 
 import org.eclipse.scada.configuration.world.lib.oscar.item.AverageItemGenerator;
+import org.eclipse.scada.configuration.world.lib.oscar.item.ChangeCounterItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.ConstantItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.FormulaItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.GlobalSummaryItemGenerator;
@@ -24,6 +25,7 @@ import org.eclipse.scada.configuration.world.lib.oscar.item.SummaryItemGenerator
 import org.eclipse.scada.configuration.world.lib.oscar.item.TransientItemGenerator;
 import org.eclipse.scada.configuration.world.lib.oscar.item.WeakReferenceDataSourceItemGenerator;
 import org.eclipse.scada.configuration.world.osgi.AverageItem;
+import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
 import org.eclipse.scada.configuration.world.osgi.FormulaItem;
 import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
@@ -98,6 +100,10 @@ public class ItemProcessor extends BasicOscarProcessor
         else if ( item instanceof MovingAverageItem )
         {
             new MovingAverageItemGenerator ( (MovingAverageItem)item, this.ctx, this.priorities ).generate ();
+        }
+        else if ( item instanceof ChangeCounterItem )
+        {
+            new ChangeCounterItemGenerator ( (ChangeCounterItem)item, this.ctx, this.priorities ).generate ();
         }
         else if ( item instanceof AverageItem )
         {

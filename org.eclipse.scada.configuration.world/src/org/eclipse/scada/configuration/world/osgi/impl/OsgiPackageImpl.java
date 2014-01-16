@@ -42,6 +42,7 @@ import org.eclipse.scada.configuration.world.osgi.Blockings;
 import org.eclipse.scada.configuration.world.osgi.BooleanMonitor;
 import org.eclipse.scada.configuration.world.osgi.BufferedValue;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
+import org.eclipse.scada.configuration.world.osgi.ChangeType;
 import org.eclipse.scada.configuration.world.osgi.CodeFragment;
 import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter;
 import org.eclipse.scada.configuration.world.osgi.Connection;
@@ -56,6 +57,7 @@ import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
 import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
+import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
 import org.eclipse.scada.configuration.world.osgi.EventLogger;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.EventPoolProxy;
@@ -806,6 +808,20 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     private EEnum persistenceEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum errorHandlingEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum changeTypeEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1945,6 +1961,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EReference getMasterServer_MovingAverages ()
     {
         return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMasterServer_BufferedValues ()
+    {
+        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 11 );
     }
 
     /**
@@ -4216,6 +4242,36 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getChangeCounterItem_Type ()
+    {
+        return (EAttribute)changeCounterItemEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeCounterItem_OnError ()
+    {
+        return (EAttribute)changeCounterItemEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeCounterItem_Values ()
+    {
+        return (EAttribute)changeCounterItemEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getBufferedValue ()
     {
         return bufferedValueEClass;
@@ -4344,6 +4400,26 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EEnum getPersistence ()
     {
         return persistenceEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getErrorHandling ()
+    {
+        return errorHandlingEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getChangeType ()
+    {
+        return changeTypeEEnum;
     }
 
     /**
@@ -4527,6 +4603,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEReference ( masterServerEClass, MASTER_SERVER__EXTERNAL_EVENT_FILTERS );
         createEReference ( masterServerEClass, MASTER_SERVER__AVERAGES );
         createEReference ( masterServerEClass, MASTER_SERVER__MOVING_AVERAGES );
+        createEReference ( masterServerEClass, MASTER_SERVER__BUFFERED_VALUES );
 
         valueArchiveServerEClass = createEClass ( VALUE_ARCHIVE_SERVER );
         createEReference ( valueArchiveServerEClass, VALUE_ARCHIVE_SERVER__ARCHIVES );
@@ -4801,6 +4878,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         changeCounterItemEClass = createEClass ( CHANGE_COUNTER_ITEM );
         createEReference ( changeCounterItemEClass, CHANGE_COUNTER_ITEM__BUFFER );
+        createEAttribute ( changeCounterItemEClass, CHANGE_COUNTER_ITEM__TYPE );
+        createEAttribute ( changeCounterItemEClass, CHANGE_COUNTER_ITEM__ON_ERROR );
+        createEAttribute ( changeCounterItemEClass, CHANGE_COUNTER_ITEM__VALUES );
 
         bufferedValueEClass = createEClass ( BUFFERED_VALUE );
         createEReference ( bufferedValueEClass, BUFFERED_VALUE__ITEM );
@@ -4817,6 +4897,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         dataTypeEEnum = createEEnum ( DATA_TYPE );
         passwordTypeEEnum = createEEnum ( PASSWORD_TYPE );
         persistenceEEnum = createEEnum ( PERSISTENCE );
+        errorHandlingEEnum = createEEnum ( ERROR_HANDLING );
+        changeTypeEEnum = createEEnum ( CHANGE_TYPE );
 
         // Create data types
         severityEDataType = createEDataType ( SEVERITY );
@@ -5068,6 +5150,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEReference ( getMasterServer_ExternalEventFilters (), this.getExternalEventFilter (), null, "externalEventFilters", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterServer_Averages (), this.getAverage (), null, "averages", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterServer_MovingAverages (), this.getMovingAverage (), null, "movingAverages", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMasterServer_BufferedValues (), this.getBufferedValue (), null, "bufferedValues", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( valueArchiveServerEClass, ValueArchiveServer.class, "ValueArchiveServer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getValueArchiveServer_Archives (), this.getValueArchive (), null, "archives", null, 0, -1, ValueArchiveServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5351,7 +5434,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEReference ( getDefaultEquinoxApplication_Profile (), theProfilePackage.getProfile (), null, "profile", null, 1, 1, DefaultEquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( changeCounterItemEClass, ChangeCounterItem.class, "ChangeCounterItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getChangeCounterItem_Buffer (), this.getBufferedValue (), null, "buffer", null, 1, 1, ChangeCounterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getChangeCounterItem_Buffer (), this.getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChangeCounterItem_Type (), this.getChangeType (), "type", "DELTA", 0, 1, ChangeCounterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getChangeCounterItem_OnError (), this.getErrorHandling (), "onError", "ERROR", 0, 1, ChangeCounterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getChangeCounterItem_Values (), this.getVariant (), "values", null, 1, -1, ChangeCounterItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( bufferedValueEClass, BufferedValue.class, "BufferedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getBufferedValue_Item (), this.getItem (), null, "item", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5405,6 +5491,16 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         addEEnumLiteral ( persistenceEEnum, Persistence.LAZY );
         addEEnumLiteral ( persistenceEEnum, Persistence.REQUIRED );
 
+        initEEnum ( errorHandlingEEnum, ErrorHandling.class, "ErrorHandling" ); //$NON-NLS-1$
+        addEEnumLiteral ( errorHandlingEEnum, ErrorHandling.IGNORE );
+        addEEnumLiteral ( errorHandlingEEnum, ErrorHandling.COUNT );
+        addEEnumLiteral ( errorHandlingEEnum, ErrorHandling.ERROR );
+
+        initEEnum ( changeTypeEEnum, ChangeType.class, "ChangeType" ); //$NON-NLS-1$
+        addEEnumLiteral ( changeTypeEEnum, ChangeType.DELTA );
+        addEEnumLiteral ( changeTypeEEnum, ChangeType.SET );
+        addEEnumLiteral ( changeTypeEEnum, ChangeType.DIRECTION );
+
         // Initialize data types
         initEDataType ( severityEDataType, Severity.class, "Severity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( variantEDataType, Variant.class, "Variant", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5422,7 +5518,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      */
     protected void createExclusiveGroupAnnotations ()
     {
-        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																				
+        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$	
         addAnnotation ( eventStorageEClass,
                 source,
                 new String[]

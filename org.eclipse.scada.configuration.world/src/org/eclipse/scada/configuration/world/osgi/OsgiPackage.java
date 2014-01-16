@@ -1702,13 +1702,22 @@ public interface OsgiPackage extends EPackage
     int MASTER_SERVER__MOVING_AVERAGES = EQUINOX_APPLICATION_FEATURE_COUNT + 10;
 
     /**
+     * The feature id for the '<em><b>Buffered Values</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SERVER__BUFFERED_VALUES = EQUINOX_APPLICATION_FEATURE_COUNT + 11;
+
+    /**
      * The number of structural features of the '<em>Master Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MASTER_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 11;
+    int MASTER_SERVER_FEATURE_COUNT = EQUINOX_APPLICATION_FEATURE_COUNT + 12;
 
     /**
      * The operation id for the '<em>Get Profile</em>' operation.
@@ -2010,6 +2019,15 @@ public interface OsgiPackage extends EPackage
     int DEFAULT_MASTER_SERVER__MOVING_AVERAGES = MASTER_SERVER__MOVING_AVERAGES;
 
     /**
+     * The feature id for the '<em><b>Buffered Values</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFAULT_MASTER_SERVER__BUFFERED_VALUES = MASTER_SERVER__BUFFERED_VALUES;
+
+    /**
      * The number of structural features of the '<em>Default Master Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2207,6 +2225,15 @@ public interface OsgiPackage extends EPackage
      * @ordered
      */
     int CUSTOM_MASTER_SERVER__MOVING_AVERAGES = MASTER_SERVER__MOVING_AVERAGES;
+
+    /**
+     * The feature id for the '<em><b>Buffered Values</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CUSTOM_MASTER_SERVER__BUFFERED_VALUES = MASTER_SERVER__BUFFERED_VALUES;
 
     /**
      * The feature id for the '<em><b>Profile</b></em>' reference.
@@ -6495,13 +6522,40 @@ public interface OsgiPackage extends EPackage
     int CHANGE_COUNTER_ITEM__BUFFER = ITEM_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER_ITEM__TYPE = ITEM_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>On Error</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER_ITEM__ON_ERROR = ITEM_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Values</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER_ITEM__VALUES = ITEM_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Change Counter Item</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 1;
+    int CHANGE_COUNTER_ITEM_FEATURE_COUNT = ITEM_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Change Counter Item</em>' class.
@@ -6673,6 +6727,26 @@ public interface OsgiPackage extends EPackage
     int PERSISTENCE = 95;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.ErrorHandling
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
+     * @generated
+     */
+    int ERROR_HANDLING = 96;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeType
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
+     * @generated
+     */
+    int CHANGE_TYPE = 97;
+
+    /**
      * The meta object id for the '<em>Severity</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6680,7 +6754,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 96;
+    int SEVERITY = 98;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6690,7 +6764,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 97;
+    int VARIANT = 99;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -7706,6 +7780,17 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EReference getMasterServer_MovingAverages ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getBufferedValues <em>Buffered Values</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Buffered Values</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.MasterServer#getBufferedValues()
+     * @see #getMasterServer()
+     * @generated
+     */
+    EReference getMasterServer_BufferedValues ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer <em>Value Archive Server</em>}'.
@@ -9897,6 +9982,39 @@ public interface OsgiPackage extends EPackage
     EReference getChangeCounterItem_Buffer ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getType()
+     * @see #getChangeCounterItem()
+     * @generated
+     */
+    EAttribute getChangeCounterItem_Type ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getOnError <em>On Error</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Error</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getOnError()
+     * @see #getChangeCounterItem()
+     * @generated
+     */
+    EAttribute getChangeCounterItem_OnError ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getValues <em>Values</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Values</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeCounterItem#getValues()
+     * @see #getChangeCounterItem()
+     * @generated
+     */
+    EAttribute getChangeCounterItem_Values ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue <em>Buffered Value</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -10031,6 +10149,26 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EEnum getPersistence ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Error Handling</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ErrorHandling
+     * @generated
+     */
+    EEnum getErrorHandling ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Change Type</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.ChangeType
+     * @generated
+     */
+    EEnum getChangeType ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.scada.ae.data.Severity <em>Severity</em>}'.
@@ -10890,6 +11028,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference MASTER_SERVER__MOVING_AVERAGES = eINSTANCE.getMasterServer_MovingAverages ();
+
+        /**
+         * The meta object literal for the '<em><b>Buffered Values</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MASTER_SERVER__BUFFERED_VALUES = eINSTANCE.getMasterServer_BufferedValues ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ValueArchiveServerImpl <em>Value Archive Server</em>}' class.
@@ -12676,6 +12822,30 @@ public interface OsgiPackage extends EPackage
         EReference CHANGE_COUNTER_ITEM__BUFFER = eINSTANCE.getChangeCounterItem_Buffer ();
 
         /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_COUNTER_ITEM__TYPE = eINSTANCE.getChangeCounterItem_Type ();
+
+        /**
+         * The meta object literal for the '<em><b>On Error</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_COUNTER_ITEM__ON_ERROR = eINSTANCE.getChangeCounterItem_OnError ();
+
+        /**
+         * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_COUNTER_ITEM__VALUES = eINSTANCE.getChangeCounterItem_Values ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.BufferedValueImpl <em>Buffered Value</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12792,6 +12962,26 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EEnum PERSISTENCE = eINSTANCE.getPersistence ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.ErrorHandling
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
+         * @generated
+         */
+        EEnum ERROR_HANDLING = eINSTANCE.getErrorHandling ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.ChangeType
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
+         * @generated
+         */
+        EEnum CHANGE_TYPE = eINSTANCE.getChangeType ();
 
         /**
          * The meta object literal for the '<em>Severity</em>' data type.

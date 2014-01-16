@@ -82,7 +82,7 @@
             icon="icons/full/obj16/ProfileModelFile.gif"
             class="org.eclipse.scada.configuration.world.osgi.profile.presentation.ProfileEditor"
             contributorClass="org.eclipse.scada.configuration.world.osgi.profile.presentation.ProfileActionBarContributor">
-         <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.osgi.profile"/>
+         <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.world.osgi.profile"/>
       </editor>
    </extension>
 

@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class DefaultMasterServerImpl extends MasterServerImpl implements
@@ -40,7 +40,6 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected DefaultMasterServerImpl ()
@@ -51,7 +50,6 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

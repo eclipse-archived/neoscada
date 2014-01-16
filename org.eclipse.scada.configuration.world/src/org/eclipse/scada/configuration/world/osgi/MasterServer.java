@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getExternalEventFilters <em>External Event Filters</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getAverages <em>Averages</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getMovingAverages <em>Moving Averages</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.MasterServer#getBufferedValues <em>Buffered Values</em>}</li>
  * </ul>
  * </p>
  *
@@ -236,5 +237,21 @@ public interface MasterServer extends EquinoxApplication
      * @generated
      */
     EList<MovingAverage> getMovingAverages ();
+
+    /**
+     * Returns the value of the '<em><b>Buffered Values</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.BufferedValue}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Buffered Values</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Buffered Values</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMasterServer_BufferedValues()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<BufferedValue> getBufferedValues ();
 
 } // MasterServer

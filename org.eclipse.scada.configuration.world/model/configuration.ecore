@@ -293,6 +293,8 @@
           eType="#//osgi/Average" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="movingAverages" upperBound="-1"
           eType="#//osgi/MovingAverage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bufferedValues" upperBound="-1"
+          eType="#//osgi/BufferedValue" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueArchiveServer" abstract="true"
         eSuperTypes="#//osgi/EquinoxApplication">
@@ -792,8 +794,13 @@
           eType="#//osgi/profile/Profile"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeCounterItem" eSuperTypes="#//osgi/Item">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" lowerBound="1"
-          eType="#//osgi/BufferedValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//osgi/BufferedValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//osgi/ChangeType"
+          defaultValueLiteral="DELTA"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="onError" eType="#//osgi/ErrorHandling"
+          defaultValueLiteral="ERROR"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+          upperBound="-1" eType="#//osgi/Variant"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//Documentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
@@ -825,6 +832,16 @@
       <eLiterals name="NONE" literal="NONE"/>
       <eLiterals name="LAZY" value="1" literal="LAZY"/>
       <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ErrorHandling">
+      <eLiterals name="IGNORE" literal="IGNORE"/>
+      <eLiterals name="COUNT" value="1" literal="COUNT"/>
+      <eLiterals name="ERROR" value="2" literal="ERROR"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ChangeType">
+      <eLiterals name="DELTA" literal="DELTA"/>
+      <eLiterals name="SET" value="1" literal="SET"/>
+      <eLiterals name="DIRECTION" value="2" literal="DIRECTION"/>
     </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">

@@ -252,6 +252,10 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createPasswordTypeFromString ( eDataType, initialValue );
             case OsgiPackage.PERSISTENCE:
                 return createPersistenceFromString ( eDataType, initialValue );
+            case OsgiPackage.ERROR_HANDLING:
+                return createErrorHandlingFromString ( eDataType, initialValue );
+            case OsgiPackage.CHANGE_TYPE:
+                return createChangeTypeFromString ( eDataType, initialValue );
             case OsgiPackage.SEVERITY:
                 return createSeverityFromString ( eDataType, initialValue );
             case OsgiPackage.VARIANT:
@@ -283,6 +287,10 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return convertPasswordTypeToString ( eDataType, instanceValue );
             case OsgiPackage.PERSISTENCE:
                 return convertPersistenceToString ( eDataType, instanceValue );
+            case OsgiPackage.ERROR_HANDLING:
+                return convertErrorHandlingToString ( eDataType, instanceValue );
+            case OsgiPackage.CHANGE_TYPE:
+                return convertChangeTypeToString ( eDataType, instanceValue );
             case OsgiPackage.SEVERITY:
                 return convertSeverityToString ( eDataType, instanceValue );
             case OsgiPackage.VARIANT:
@@ -1272,6 +1280,52 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
      * @generated
      */
     public String convertPersistenceToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ErrorHandling createErrorHandlingFromString ( EDataType eDataType, String initialValue )
+    {
+        ErrorHandling result = ErrorHandling.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertErrorHandlingToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ChangeType createChangeTypeFromString ( EDataType eDataType, String initialValue )
+    {
+        ChangeType result = ChangeType.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertChangeTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

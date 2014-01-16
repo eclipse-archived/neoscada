@@ -80,14 +80,14 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
         return addItem ( item );
     }
 
-
     @Override
-    public CreationRequest<ChangeCounterItem> createChangeCounterItem (BufferedValue bufferedValue)
+    public CreationRequest<ChangeCounterItem> createChangeCounterItem ( BufferedValue bufferedValue )
     {
         final ChangeCounterItem item = OsgiFactory.eINSTANCE.createChangeCounterItem ();
-        item.setBuffer ( bufferedValue );
+        // item.setBuffer ( bufferedValue );
         return addItem ( item );
     }
+
     protected abstract void customizeItem ( final Item item, final CustomizationRequest customizationRequest );
 
     @Override

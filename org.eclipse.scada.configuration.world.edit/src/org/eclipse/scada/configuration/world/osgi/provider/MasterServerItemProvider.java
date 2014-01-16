@@ -223,6 +223,7 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
             childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EXTERNAL_EVENT_FILTERS );
             childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__AVERAGES );
             childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MOVING_AVERAGES );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__BUFFERED_VALUES );
         }
         return childrenFeatures;
     }
@@ -289,6 +290,7 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
             case OsgiPackage.MASTER_SERVER__EXTERNAL_EVENT_FILTERS:
             case OsgiPackage.MASTER_SERVER__AVERAGES:
             case OsgiPackage.MASTER_SERVER__MOVING_AVERAGES:
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -507,6 +509,11 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
                 ( createChildParameter
                 ( OsgiPackage.Literals.MASTER_SERVER__MOVING_AVERAGES,
                         OsgiFactory.eINSTANCE.createMovingAverage () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.MASTER_SERVER__BUFFERED_VALUES,
+                        OsgiFactory.eINSTANCE.createBufferedValue () ) );
     }
 
     /**

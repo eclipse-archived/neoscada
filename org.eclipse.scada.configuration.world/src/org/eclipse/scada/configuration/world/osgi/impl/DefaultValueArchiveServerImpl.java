@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
@@ -39,7 +39,6 @@ public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected DefaultValueArchiveServerImpl ()
@@ -50,7 +49,6 @@ public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

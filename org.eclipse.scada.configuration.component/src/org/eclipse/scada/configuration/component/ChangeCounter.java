@@ -40,7 +40,7 @@ public interface ChangeCounter extends SingleValue
      * @return the value of the '<em>Buffer</em>' reference.
      * @see #setBuffer(BufferedValue)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getChangeCounter_Buffer()
-     * @model required="true"
+     * @model
      * @generated
      */
     BufferedValue getBuffer ();

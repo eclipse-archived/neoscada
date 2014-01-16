@@ -15,7 +15,7 @@ import org.eclipse.scada.configuration.component.generator.simple.AbstractSingle
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
 import org.eclipse.scada.configuration.component.lib.create.ItemCreator;
 
-public class ChangeCounterGenerator  extends AbstractSingleValueGenerator
+public class ChangeCounterGenerator extends AbstractSingleValueGenerator
 {
     private ChangeCounter changeCounter;
 
@@ -28,6 +28,6 @@ public class ChangeCounterGenerator  extends AbstractSingleValueGenerator
     @Override
     protected CreationRequest<?> createRequest ( ItemCreator itemCreator )
     {
-        return null;
+        return itemCreator.createChangeCounterItem ( null );
     }
 }

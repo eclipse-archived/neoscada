@@ -80,6 +80,13 @@
                  type="org.eclipse.scada.configuration.generator.Generator">
            </adapter>
         </factory>
+        <factory
+              adaptableType="org.eclipse.scada.configuration.component.ChangeCounter"
+              class="org.eclipse.scada.configuration.component.generator.internal.GeneratorAdapterFactory">
+           <adapter
+                 type="org.eclipse.scada.configuration.generator.Generator">
+           </adapter>
+        </factory>
    	<factory
              adaptableType="org.eclipse.scada.configuration.component.RestInterceptor"
              class="org.eclipse.scada.configuration.component.generator.internal.InterceptorAdapterFactory">

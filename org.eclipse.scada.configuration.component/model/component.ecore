@@ -252,7 +252,6 @@
     <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeCounter" eSuperTypes="#//SingleValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" lowerBound="1"
-        eType="#//BufferedValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//BufferedValue"/>
   </eClassifiers>
 </ecore:EPackage>

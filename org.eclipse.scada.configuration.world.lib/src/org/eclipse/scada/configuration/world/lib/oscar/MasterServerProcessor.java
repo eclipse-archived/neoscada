@@ -41,6 +41,7 @@ public class MasterServerProcessor extends EquinoxApplicationProcessor
         new AlarmsAndEventsProcessor ( this.app, ctx ).process ();
         new DataMapperProcessor ( this.app, ctx ).process ();
         new AverageProcessor ( this.app, ctx ).process ();
+        new BufferProcessor ( this.app, ctx ).process ();
         new BlockingProcessor ( this.app, ctx ).process (); // this could actually run on different applications
     }
 

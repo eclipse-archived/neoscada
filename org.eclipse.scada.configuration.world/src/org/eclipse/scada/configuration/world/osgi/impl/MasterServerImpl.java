@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.Average;
+import org.eclipse.scada.configuration.world.osgi.BufferedValue;
 import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.DataMapper;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
@@ -65,6 +66,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.Profile;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getExternalEventFilters <em>External Event Filters</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getAverages <em>Averages</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getMovingAverages <em>Moving Averages</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.MasterServerImpl#getBufferedValues <em>Buffered Values</em>}</li>
  * </ul>
  * </p>
  *
@@ -282,6 +284,16 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * @ordered
      */
     protected EList<MovingAverage> movingAverages;
+
+    /**
+     * The cached value of the '{@link #getBufferedValues() <em>Buffered Values</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBufferedValues()
+     * @generated
+     * @ordered
+     */
+    protected EList<BufferedValue> bufferedValues;
 
     /**
      * <!-- begin-user-doc -->
@@ -751,6 +763,20 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<BufferedValue> getBufferedValues ()
+    {
+        if ( bufferedValues == null )
+        {
+            bufferedValues = new EObjectContainmentEList.Resolving<BufferedValue> ( BufferedValue.class, this, OsgiPackage.MASTER_SERVER__BUFFERED_VALUES );
+        }
+        return bufferedValues;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public Profile getProfile ()
     {
         // TODO: implement this method
@@ -797,6 +823,8 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
                 return ( (InternalEList<?>)getAverages () ).basicRemove ( otherEnd, msgs );
             case OsgiPackage.MASTER_SERVER__MOVING_AVERAGES:
                 return ( (InternalEList<?>)getMovingAverages () ).basicRemove ( otherEnd, msgs );
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
+                return ( (InternalEList<?>)getBufferedValues () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -853,6 +881,8 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
                 return getAverages ();
             case OsgiPackage.MASTER_SERVER__MOVING_AVERAGES:
                 return getMovingAverages ();
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
+                return getBufferedValues ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -934,6 +964,10 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
                 getMovingAverages ().clear ();
                 getMovingAverages ().addAll ( (Collection<? extends MovingAverage>)newValue );
                 return;
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
+                getBufferedValues ().clear ();
+                getBufferedValues ().addAll ( (Collection<? extends BufferedValue>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -1002,6 +1036,9 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
             case OsgiPackage.MASTER_SERVER__MOVING_AVERAGES:
                 getMovingAverages ().clear ();
                 return;
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
+                getBufferedValues ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -1052,6 +1089,8 @@ public abstract class MasterServerImpl extends MinimalEObjectImpl.Container
                 return averages != null && !averages.isEmpty ();
             case OsgiPackage.MASTER_SERVER__MOVING_AVERAGES:
                 return movingAverages != null && !movingAverages.isEmpty ();
+            case OsgiPackage.MASTER_SERVER__BUFFERED_VALUES:
+                return bufferedValues != null && !bufferedValues.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
