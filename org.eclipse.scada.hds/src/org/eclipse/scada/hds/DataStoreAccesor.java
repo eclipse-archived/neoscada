@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,8 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - fix archive visitor bug
+ *     IBH SYSTEMS GmbH - fix archive visitor bug, change interface
+ *                        for forward correction
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -81,9 +82,9 @@ public class DataStoreAccesor extends AbstractValueSource
         }
 
         @Override
-        public void forwardCorrect ( final double value, final Date date, final boolean error, final boolean manual ) throws Exception
+        public void forwardCorrect ( final double value, final Date date ) throws Exception
         {
-            this.accessor.forwardCorrect ( value, date, error, manual );
+            this.accessor.forwardCorrect ( value, date );
         }
 
         @Override
@@ -188,13 +189,23 @@ public class DataStoreAccesor extends AbstractValueSource
 
     protected void insertValue ( final double value, final Date date, final boolean error, final boolean manual, final boolean heartbeat ) throws Exception
     {
+        /*
+         *  first we simply insert the value at the end of the file
+         */
+
         {
             logger.debug ( "Inserting value - value: {}, timestamp: {}, error: {}, manual: {}", new Object[] { value, date, error, manual } );
             final DataFileAccessor file = createOrGetFile ( date, true );
             if ( file != null )
             {
-                file.insertValue ( value, date, error, manual, heartbeat );
-                file.dispose ();
+                try
+                {
+                    file.insertValue ( value, date, error, manual, heartbeat );
+                }
+                finally
+                {
+                    file.dispose ();
+                }
             }
             else
             {
@@ -209,29 +220,30 @@ public class DataStoreAccesor extends AbstractValueSource
 
         if ( !heartbeat && !Double.isNaN ( value ) )
         {
+            // TODO: what about errors? do we forward "correct" them as well
             logger.debug ( "Starting forward correction" );
 
             final Date now = new Date ();
+
+            // get the valid starting point inside the whole archive
             Date current = this.quantizer.getValidStart ( date );
             while ( current != null && current.before ( now ) )
             {
-                final Date next = this.quantizer.getNext ( current );
-
-                logger.debug ( "Forward correcting - {} -> {}", current, next );
-                final DataFileAccessor file = createOrGetFile ( date, true );
+                logger.debug ( "Forward correcting - starting: {}", current );
+                final DataFileAccessor file = createOrGetFile ( current, true );
 
                 if ( file != null )
                 {
                     try
                     {
-                        file.forwardCorrect ( value, date, error, manual );
+                        file.forwardCorrect ( value, date );
                     }
                     finally
                     {
                         file.dispose ();
                     }
                 }
-                current = next;
+                current = this.quantizer.getNext ( current );
             }
 
             logger.debug ( "Finished forward correcting" );

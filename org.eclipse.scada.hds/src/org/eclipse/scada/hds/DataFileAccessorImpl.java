@@ -288,7 +288,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
     }
 
     @Override
-    public void forwardCorrect ( final double value, final Date afterDate, final boolean error, final boolean manual ) throws Exception
+    public void forwardCorrect ( final double value, final Date afterDate ) throws Exception
     {
         final long startTimestamp = afterDate.getTime ();
 

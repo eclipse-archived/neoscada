@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - change interface for forward correction
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -71,10 +72,10 @@ public class DataFilePool
         }
 
         @Override
-        public void forwardCorrect ( final double value, final Date date, final boolean error, final boolean manual ) throws Exception
+        public void forwardCorrect ( final double value, final Date date ) throws Exception
         {
             check ();
-            this.accessor.forwardCorrect ( value, date, error, manual );
+            this.accessor.forwardCorrect ( value, date );
         }
 
         @Override
