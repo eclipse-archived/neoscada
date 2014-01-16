@@ -22,6 +22,10 @@ public class ArchiveEntry
 
     public static final String PROP_ERROR = "error";
 
+    public static final String PROP_DELETED = "deleted";
+
+    public static final String PROP_HEARTBEAT = "heartbeat";
+
     private final Date timestamp;
 
     private final double value;
@@ -30,12 +34,28 @@ public class ArchiveEntry
 
     private final boolean manual;
 
-    public ArchiveEntry ( final Date timestamp, final double value, final boolean error, final boolean manual )
+    private final boolean deleted;
+
+    private final boolean heartbeat;
+
+    public ArchiveEntry ( final Date timestamp, final double value, final boolean error, final boolean manual, final boolean deleted, final boolean heartbeat )
     {
         this.timestamp = timestamp;
         this.value = value;
         this.error = error;
         this.manual = manual;
+        this.deleted = deleted;
+        this.heartbeat = heartbeat;
+    }
+
+    public boolean isDeleted ()
+    {
+        return this.deleted;
+    }
+
+    public boolean isHeartbeat ()
+    {
+        return this.heartbeat;
     }
 
     public boolean isError ()

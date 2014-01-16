@@ -17,7 +17,7 @@ import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.scada.hds.DataFileAccessorImpl;
-import org.eclipse.scada.hds.ValueVisitor;
+import org.eclipse.scada.hds.DataFileAccessorImpl.EntryVisitor;
 import org.eclipse.scada.ide.hd.hdsspy.Activator;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.ui.IFileEditorInput;
@@ -54,12 +54,16 @@ public class FileLoader implements ArchiveLoader
 
         try
         {
-            accessor.visit ( new ValueVisitor () {
+            accessor.forwardVisitAll ( new EntryVisitor () {
 
                 @Override
-                public boolean value ( final double value, final Date date, final boolean error, final boolean manual )
+                public boolean visitEntry ( final long timestamp, final double value, final byte flags )
                 {
-                    list.add ( new ArchiveEntry ( date, value, error, manual ) );
+                    list.add ( new ArchiveEntry ( new Date ( timestamp ), value,
+                            ( flags & DataFileAccessorImpl.FLAG_ERROR ) > 0,
+                            ( flags & DataFileAccessorImpl.FLAG_MANUAL ) > 0,
+                            ( flags & DataFileAccessorImpl.FLAG_DELETED ) > 0,
+                            ( flags & DataFileAccessorImpl.FLAG_HEARTBEAT ) > 0 ) );
                     return true;
                 }
             } );

@@ -148,12 +148,24 @@ public class HDSEditor extends EditorPart
             col.getColumn ().setText ( "Manual" );
             col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_MANUAL ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
         }
+        {
+            final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
+            col.getColumn ().setText ( "Deleted" );
+            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_DELETED ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
+        }
+        {
+            final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
+            col.getColumn ().setText ( "Heartbeat" );
+            col.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( PojoProperties.value ( ArchiveEntry.PROP_HEARTBEAT ).observeDetail ( this.contentProvider.getKnownElements () ) ) );
+        }
 
         this.viewer.setInput ( this.entries );
 
         final TableLayout tableLayout = new TableLayout ();
         tableLayout.addColumnData ( new ColumnWeightData ( 200 ) );
         tableLayout.addColumnData ( new ColumnWeightData ( 100 ) );
+        tableLayout.addColumnData ( new ColumnWeightData ( 25 ) );
+        tableLayout.addColumnData ( new ColumnWeightData ( 25 ) );
         tableLayout.addColumnData ( new ColumnWeightData ( 25 ) );
         tableLayout.addColumnData ( new ColumnWeightData ( 25 ) );
         this.viewer.getTable ().setLayout ( tableLayout );
