@@ -288,6 +288,11 @@ public class MarkerGroupItemProvider extends ItemProviderAdapter implements
                 ( createChildParameter
                 ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
                         OsgiFactory.eINSTANCE.createTransientItem () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.MARKER_GROUP__ITEMS,
+                        OsgiFactory.eINSTANCE.createChangeCounterItem () ) );
     }
 
     /**

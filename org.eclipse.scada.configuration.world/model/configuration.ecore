@@ -791,6 +791,41 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="profile" lowerBound="1"
           eType="#//osgi/profile/Profile"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ChangeCounterItem" eSuperTypes="#//osgi/Item">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" lowerBound="1"
+          eType="#//osgi/BufferedValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//Documentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
+          eType="#//osgi/Item"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="#//osgi/Variant"
+          defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The number of seconds the average will be calculated for."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A period time in seconds when the average will be updated although no value has changed."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A flag which decides if the average is only updated by time (true) or also by value change (false)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistence" eType="#//osgi/Persistence"
+          defaultValueLiteral="NONE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Persistence">
+      <eLiterals name="NONE" literal="NONE"/>
+      <eLiterals name="LAZY" value="1" literal="LAZY"/>
+      <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
+    </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

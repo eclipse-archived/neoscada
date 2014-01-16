@@ -1008,6 +1008,26 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.CHANGE_COUNTER_ITEM:
+            {
+                ChangeCounterItem changeCounterItem = (ChangeCounterItem)theEObject;
+                T result = caseChangeCounterItem ( changeCounterItem );
+                if ( result == null )
+                    result = caseItem ( changeCounterItem );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.BUFFERED_VALUE:
+            {
+                BufferedValue bufferedValue = (BufferedValue)theEObject;
+                T result = caseBufferedValue ( bufferedValue );
+                if ( result == null )
+                    result = caseDocumentable ( bufferedValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2418,6 +2438,38 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDefaultEquinoxApplication ( DefaultEquinoxApplication object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Change Counter Item</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Change Counter Item</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseChangeCounterItem ( ChangeCounterItem object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Buffered Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Buffered Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseBufferedValue ( BufferedValue object )
     {
         return null;
     }

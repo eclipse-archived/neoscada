@@ -697,6 +697,24 @@ public interface OsgiFactory extends EFactory
     DefaultEquinoxApplication createDefaultEquinoxApplication ();
 
     /**
+     * Returns a new object of class '<em>Change Counter Item</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Change Counter Item</em>'.
+     * @generated
+     */
+    ChangeCounterItem createChangeCounterItem ();
+
+    /**
+     * Returns a new object of class '<em>Buffered Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Buffered Value</em>'.
+     * @generated
+     */
+    BufferedValue createBufferedValue ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

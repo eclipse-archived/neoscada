@@ -237,4 +237,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistence" lowerBound="1"
+        eType="#//Persistence" defaultValueLiteral="NONE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Persistence">
+    <eLiterals name="NONE" literal="NONE"/>
+    <eLiterals name="LAZY" value="1" literal="LAZY"/>
+    <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChangeCounter" eSuperTypes="#//SingleValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" lowerBound="1"
+        eType="#//BufferedValue"/>
+  </eClassifiers>
 </ecore:EPackage>
