@@ -133,6 +133,7 @@ public class MessageChannelFilter extends IoFilterAdapter
                 // close
                 session.close ( false );
             }
+            dumpFilterChain ( session );
             logger.debug ( "Done handling HelloMessage" );
         }
         else if ( message instanceof AcceptMessage && !opened && this.clientMode )
@@ -141,6 +142,7 @@ public class MessageChannelFilter extends IoFilterAdapter
             configureSession ( session, nextFilter, this.acceptedProperties );
             markOpened ( session );
             startSession ( session, nextFilter );
+            dumpFilterChain ( session );
         }
         else if ( message instanceof CloseMessage )
         {
@@ -158,6 +160,7 @@ public class MessageChannelFilter extends IoFilterAdapter
             logger.debug ( "Starting session" );
             markOpened ( session );
             startSession ( session, nextFilter );
+            dumpFilterChain ( session );
         }
         else
         {
@@ -186,7 +189,10 @@ public class MessageChannelFilter extends IoFilterAdapter
         }
 
         nextFilter.sessionOpened ( session );
+    }
 
+    private void dumpFilterChain ( final IoSession session )
+    {
         if ( logger.isInfoEnabled () )
         {
             logger.info ( "Filter chain:" );
