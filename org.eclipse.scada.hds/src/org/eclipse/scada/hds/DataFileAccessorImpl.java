@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - extend access methods
+ *     IBH SYSTEMS GmbH - extend access methods, cleanup
  *******************************************************************************/
 package org.eclipse.scada.hds;
 
@@ -170,7 +170,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
                 logger.debug ( "At position: {}", this.channel.position () );
 
                 this.channel.position ( this.channel.position () - ENTRY_SIZE );
-                if ( read ( buffer ) != ENTRY_SIZE )
+                if ( safeRead ( buffer ) != ENTRY_SIZE )
                 {
                     break;
                 }
@@ -216,7 +216,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
 
             final ByteBuffer buffer = ByteBuffer.allocate ( ENTRY_SIZE );
 
-            while ( read ( buffer ) == ENTRY_SIZE )
+            while ( safeRead ( buffer ) == ENTRY_SIZE )
             {
                 buffer.flip ();
 
@@ -279,7 +279,7 @@ public class DataFileAccessorImpl implements DataFileAccessor
      * @throws IOException
      *             in case of an I/O error
      */
-    private int read ( final ByteBuffer buffer ) throws IOException
+    private int safeRead ( final ByteBuffer buffer ) throws IOException
     {
         while ( this.channel.read ( buffer ) > 0 && buffer.hasRemaining () )
         {
@@ -288,8 +288,10 @@ public class DataFileAccessorImpl implements DataFileAccessor
     }
 
     @Override
-    public void forwardCorrect ( final double value, final Date timestamp, final boolean error, final boolean manual ) throws Exception
+    public void forwardCorrect ( final double value, final Date afterDate, final boolean error, final boolean manual ) throws Exception
     {
+        final long startTimestamp = afterDate.getTime ();
+
         final long position = this.channel.position ();
         try
         {
@@ -297,19 +299,19 @@ public class DataFileAccessorImpl implements DataFileAccessor
 
             final ByteBuffer buffer = ByteBuffer.allocate ( ENTRY_SIZE );
 
-            while ( read ( buffer ) == ENTRY_SIZE )
+            while ( safeRead ( buffer ) == ENTRY_SIZE )
             {
                 buffer.flip ();
 
                 final double entryValue = buffer.getDouble ();
-                final Date entryTimestamp = new Date ( buffer.getLong () );
+                final long entryTimestamp = buffer.getLong ();
                 final byte flags = buffer.get ();
 
                 logger.debug ( "Checking value - flag: {}", flags );
 
                 if ( ( flags & FLAG_HEARTBEAT ) == 0 && ( flags & FLAG_DELETED ) == 0 )
                 {
-                    if ( entryTimestamp.after ( timestamp ) )
+                    if ( entryTimestamp > startTimestamp )
                     {
                         logger.info ( "Rewriting history - delete - timestamp: {}, value: {}", entryTimestamp, entryValue );
                         // replace the flag value, mark as deleted
