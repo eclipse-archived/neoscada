@@ -71,7 +71,7 @@
    <extension point="org.eclipse.emf.ecore.content_parser">
       <!-- @generated world -->
       <parser
-            contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"
+            contentTypeIdentifier="org.eclipse.scada.configuration.world.osgi.profile"
             class="org.eclipse.scada.configuration.world.osgi.profile.util.ProfileResourceFactoryImpl"/>
    </extension>
 
@@ -80,7 +80,7 @@
       <content-type
             base-type="org.eclipse.core.runtime.xml"
             file-extensions="xml"
-            id="org.eclipse.scada.configuration.osgi.profile"
+            id="org.eclipse.scada.configuration.world.osgi.profile"
             name="%_UI_Profile_content_type"
             priority="normal">
          <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">

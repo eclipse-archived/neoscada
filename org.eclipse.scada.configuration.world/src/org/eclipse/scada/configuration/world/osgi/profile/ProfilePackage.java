@@ -63,7 +63,7 @@ public interface ProfilePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    String eCONTENT_TYPE = "org.eclipse.scada.configuration.osgi.profile"; //$NON-NLS-1$
+    String eCONTENT_TYPE = "org.eclipse.scada.configuration.world.osgi.profile"; //$NON-NLS-1$
 
     /**
      * The singleton instance of the package.

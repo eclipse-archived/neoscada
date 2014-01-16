@@ -26,10 +26,10 @@ public class ModelLoader<T>
         this.clazz = clazz;
     }
 
-    public T load ( final URI uri ) throws IOException
+    public T load ( final URI uri, final String contentTypeId ) throws IOException
     {
         final ResourceSet rs = new ResourceSetImpl ();
-        final Resource r = rs.createResource ( uri );
+        final Resource r = rs.createResource ( uri, contentTypeId );
         r.load ( null );
 
         for ( final Object o : r.getContents () )
@@ -41,5 +41,11 @@ public class ModelLoader<T>
         }
 
         throw new IllegalStateException ( String.format ( "Model %s does not contain an object of type %s", uri, this.clazz ) );
+    }
+
+    public T load ( final URI uri ) throws IOException
+    {
+
+        return load ( uri, null );
     }
 }

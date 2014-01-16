@@ -550,7 +550,7 @@
       </genClasses>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"
-          extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.osgi.profile"
+          extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.world.osgi.profile"
           fileExtensions="xml" ecorePackage="configuration.ecore#//osgi/profile">
         <genClasses ecoreClass="configuration.ecore#//osgi/profile/Profile">
           <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/installationUnits"/>

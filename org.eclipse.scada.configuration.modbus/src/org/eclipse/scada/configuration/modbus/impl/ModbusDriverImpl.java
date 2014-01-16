@@ -49,25 +49,43 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getShortDescription <em>Short Description</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getConnections <em>Connections</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getExporter <em>Exporter</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getCustomizationProfile <em>Customization Profile</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getModules <em>Modules</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getMasters <em>Masters</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getShortDescription
+ * <em>Short Description</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getName
+ * <em>Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getConnections
+ * <em>Connections</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getExporter
+ * <em>Exporter</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getCustomizationProfile
+ * <em>Customization Profile</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getSecurityConfiguration
+ * <em>Security Configuration</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getModules
+ * <em>Modules</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.modbus.impl.ModbusDriverImpl#getMasters
+ * <em>Masters</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements ModbusDriver
 {
     /**
-     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * The default value of the '{@link #getShortDescription()
+     * <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -75,9 +93,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
+     * The cached value of the '{@link #getShortDescription()
+     * <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -88,6 +108,7 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -98,6 +119,7 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -105,9 +127,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference list.
+     * The cached value of the '{@link #getConnections() <em>Connections</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getConnections()
      * @generated
      * @ordered
@@ -115,9 +139,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected EList<Connection> connections;
 
     /**
-     * The cached value of the '{@link #getExporter() <em>Exporter</em>}' containment reference list.
+     * The cached value of the '{@link #getExporter() <em>Exporter</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getExporter()
      * @generated
      * @ordered
@@ -125,9 +151,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected EList<Exporter> exporter;
 
     /**
-     * The cached value of the '{@link #getCustomizationProfile() <em>Customization Profile</em>}' containment reference.
+     * The cached value of the '{@link #getCustomizationProfile()
+     * <em>Customization Profile</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getCustomizationProfile()
      * @generated
      * @ordered
@@ -135,9 +163,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected Profile customizationProfile;
 
     /**
-     * The cached value of the '{@link #getSecurityConfiguration() <em>Security Configuration</em>}' reference.
+     * The cached value of the '{@link #getSecurityConfiguration()
+     * <em>Security Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getSecurityConfiguration()
      * @generated
      * @ordered
@@ -145,9 +175,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected Configuration securityConfiguration;
 
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
+     * The cached value of the '{@link #getModules() <em>Modules</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getModules()
      * @generated
      * @ordered
@@ -155,9 +187,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     protected EList<ApplicationModule> modules;
 
     /**
-     * The cached value of the '{@link #getMasters() <em>Masters</em>}' containment reference list.
+     * The cached value of the '{@link #getMasters() <em>Masters</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getMasters()
      * @generated
      * @ordered
@@ -167,6 +201,7 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ModbusDriverImpl ()
@@ -177,6 +212,7 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -188,138 +224,159 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getShortDescription ()
     {
-        return shortDescription;
+        return this.shortDescription;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setShortDescription ( String newShortDescription )
+    public void setShortDescription ( final String newShortDescription )
     {
-        String oldShortDescription = shortDescription;
-        shortDescription = newShortDescription;
+        final String oldShortDescription = this.shortDescription;
+        this.shortDescription = newShortDescription;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return name;
+        return this.name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setName ( String newName )
+    public void setName ( final String newName )
     {
-        String oldName = name;
-        name = newName;
+        final String oldName = this.name;
+        this.name = newName;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__NAME, oldName, name ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__NAME, oldName, this.name ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<Connection> getConnections ()
     {
-        if ( connections == null )
+        if ( this.connections == null )
         {
-            connections = new EObjectContainmentEList.Resolving<Connection> ( Connection.class, this, ModbusPackage.MODBUS_DRIVER__CONNECTIONS );
+            this.connections = new EObjectContainmentEList.Resolving<Connection> ( Connection.class, this, ModbusPackage.MODBUS_DRIVER__CONNECTIONS );
         }
-        return connections;
+        return this.connections;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<Exporter> getExporter ()
     {
-        if ( exporter == null )
+        if ( this.exporter == null )
         {
-            exporter = new EObjectContainmentEList.Resolving<Exporter> ( Exporter.class, this, ModbusPackage.MODBUS_DRIVER__EXPORTER );
+            this.exporter = new EObjectContainmentEList.Resolving<Exporter> ( Exporter.class, this, ModbusPackage.MODBUS_DRIVER__EXPORTER );
         }
-        return exporter;
+        return this.exporter;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Profile getCustomizationProfile ()
     {
-        if ( customizationProfile != null && customizationProfile.eIsProxy () )
+        if ( this.customizationProfile != null && this.customizationProfile.eIsProxy () )
         {
-            InternalEObject oldCustomizationProfile = (InternalEObject)customizationProfile;
-            customizationProfile = (Profile)eResolveProxy ( oldCustomizationProfile );
-            if ( customizationProfile != oldCustomizationProfile )
+            final InternalEObject oldCustomizationProfile = (InternalEObject)this.customizationProfile;
+            this.customizationProfile = (Profile)eResolveProxy ( oldCustomizationProfile );
+            if ( this.customizationProfile != oldCustomizationProfile )
             {
-                InternalEObject newCustomizationProfile = (InternalEObject)customizationProfile;
+                final InternalEObject newCustomizationProfile = (InternalEObject)this.customizationProfile;
                 NotificationChain msgs = oldCustomizationProfile.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, null, null );
                 if ( newCustomizationProfile.eInternalContainer () == null )
                 {
                     msgs = newCustomizationProfile.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
                 }
                 if ( msgs != null )
+                {
                     msgs.dispatch ();
+                }
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, customizationProfile ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, this.customizationProfile ) );
+                }
             }
         }
-        return customizationProfile;
+        return this.customizationProfile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Profile basicGetCustomizationProfile ()
     {
-        return customizationProfile;
+        return this.customizationProfile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public NotificationChain basicSetCustomizationProfile ( Profile newCustomizationProfile, NotificationChain msgs )
+    public NotificationChain basicSetCustomizationProfile ( final Profile newCustomizationProfile, NotificationChain msgs )
     {
-        Profile oldCustomizationProfile = customizationProfile;
-        customizationProfile = newCustomizationProfile;
+        final Profile oldCustomizationProfile = this.customizationProfile;
+        this.customizationProfile = newCustomizationProfile;
         if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, newCustomizationProfile );
+            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, newCustomizationProfile );
             if ( msgs == null )
+            {
                 msgs = notification;
+            }
             else
+            {
                 msgs.add ( notification );
+            }
         }
         return msgs;
     }
@@ -327,99 +384,117 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setCustomizationProfile ( Profile newCustomizationProfile )
+    public void setCustomizationProfile ( final Profile newCustomizationProfile )
     {
-        if ( newCustomizationProfile != customizationProfile )
+        if ( newCustomizationProfile != this.customizationProfile )
         {
             NotificationChain msgs = null;
-            if ( customizationProfile != null )
-                msgs = ( (InternalEObject)customizationProfile ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+            if ( this.customizationProfile != null )
+            {
+                msgs = ( (InternalEObject)this.customizationProfile ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+            }
             if ( newCustomizationProfile != null )
+            {
                 msgs = ( (InternalEObject)newCustomizationProfile ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+            }
             msgs = basicSetCustomizationProfile ( newCustomizationProfile, msgs );
             if ( msgs != null )
+            {
                 msgs.dispatch ();
+            }
         }
         else if ( eNotificationRequired () )
+        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE, newCustomizationProfile, newCustomizationProfile ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Configuration getSecurityConfiguration ()
     {
-        if ( securityConfiguration != null && securityConfiguration.eIsProxy () )
+        if ( this.securityConfiguration != null && this.securityConfiguration.eIsProxy () )
         {
-            InternalEObject oldSecurityConfiguration = (InternalEObject)securityConfiguration;
-            securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
-            if ( securityConfiguration != oldSecurityConfiguration )
+            final InternalEObject oldSecurityConfiguration = (InternalEObject)this.securityConfiguration;
+            this.securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
+            if ( this.securityConfiguration != oldSecurityConfiguration )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+                }
             }
         }
-        return securityConfiguration;
+        return this.securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Configuration basicGetSecurityConfiguration ()
     {
-        return securityConfiguration;
+        return this.securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setSecurityConfiguration ( Configuration newSecurityConfiguration )
+    public void setSecurityConfiguration ( final Configuration newSecurityConfiguration )
     {
-        Configuration oldSecurityConfiguration = securityConfiguration;
-        securityConfiguration = newSecurityConfiguration;
+        final Configuration oldSecurityConfiguration = this.securityConfiguration;
+        this.securityConfiguration = newSecurityConfiguration;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<ApplicationModule> getModules ()
     {
-        if ( modules == null )
+        if ( this.modules == null )
         {
-            modules = new EObjectContainmentEList.Resolving<ApplicationModule> ( ApplicationModule.class, this, ModbusPackage.MODBUS_DRIVER__MODULES );
+            this.modules = new EObjectContainmentEList.Resolving<ApplicationModule> ( ApplicationModule.class, this, ModbusPackage.MODBUS_DRIVER__MODULES );
         }
-        return modules;
+        return this.modules;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EList<ModbusMaster> getMasters ()
     {
-        if ( masters == null )
+        if ( this.masters == null )
         {
-            masters = new EObjectContainmentEList<ModbusMaster> ( ModbusMaster.class, this, ModbusPackage.MODBUS_DRIVER__MASTERS );
+            this.masters = new EObjectContainmentEList<ModbusMaster> ( ModbusMaster.class, this, ModbusPackage.MODBUS_DRIVER__MASTERS );
         }
-        return masters;
+        return this.masters;
     }
 
     private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.modbus/model/default.modbus.xml#/";
@@ -432,7 +507,7 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
         if ( this.profile == null )
         {
             final ResourceSet rs = new ResourceSetImpl ();
-            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ) );
+            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ), "org.eclipse.scada.configuration.world.osgi.profile" );
             try
             {
                 r.load ( null );
@@ -471,10 +546,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -495,10 +571,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -512,11 +589,15 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
                 return getExporter ();
             case ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE:
                 if ( resolve )
+                {
                     return getCustomizationProfile ();
+                }
                 return basicGetCustomizationProfile ();
             case ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION:
                 if ( resolve )
+                {
                     return getSecurityConfiguration ();
+                }
                 return basicGetSecurityConfiguration ();
             case ModbusPackage.MODBUS_DRIVER__MODULES:
                 return getModules ();
@@ -529,11 +610,12 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -572,10 +654,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -610,29 +693,30 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case ModbusPackage.MODBUS_DRIVER__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
+                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
             case ModbusPackage.MODBUS_DRIVER__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
             case ModbusPackage.MODBUS_DRIVER__CONNECTIONS:
-                return connections != null && !connections.isEmpty ();
+                return this.connections != null && !this.connections.isEmpty ();
             case ModbusPackage.MODBUS_DRIVER__EXPORTER:
-                return exporter != null && !exporter.isEmpty ();
+                return this.exporter != null && !this.exporter.isEmpty ();
             case ModbusPackage.MODBUS_DRIVER__CUSTOMIZATION_PROFILE:
-                return customizationProfile != null;
+                return this.customizationProfile != null;
             case ModbusPackage.MODBUS_DRIVER__SECURITY_CONFIGURATION:
-                return securityConfiguration != null;
+                return this.securityConfiguration != null;
             case ModbusPackage.MODBUS_DRIVER__MODULES:
-                return modules != null && !modules.isEmpty ();
+                return this.modules != null && !this.modules.isEmpty ();
             case ModbusPackage.MODBUS_DRIVER__MASTERS:
-                return masters != null && !masters.isEmpty ();
+                return this.masters != null && !this.masters.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -640,10 +724,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -669,10 +754,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -698,10 +784,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public int eDerivedOperationID ( int baseOperationID, Class<?> baseClass )
+    public int eDerivedOperationID ( final int baseOperationID, final Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -719,10 +806,11 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -737,19 +825,22 @@ public class ModbusDriverImpl extends MinimalEObjectImpl.Container implements Mo
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( shortDescription );
+        result.append ( this.shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( name );
+        result.append ( this.name );
         result.append ( ')' );
         return result.toString ();
     }

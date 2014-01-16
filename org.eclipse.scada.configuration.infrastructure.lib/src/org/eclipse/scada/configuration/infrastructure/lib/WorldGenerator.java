@@ -275,7 +275,7 @@ public class WorldGenerator
 
                 final DefaultEquinoxApplication app = OsgiFactory.eINSTANCE.createDefaultEquinoxApplication ();
                 app.setName ( slave.getName () );
-                app.setProfile ( new ModelLoader<> ( Profile.class ).load ( URI.createURI ( "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultValueArchiveSlaveProfile.xml" ) ) );
+                app.setProfile ( new ModelLoader<> ( Profile.class ).load ( URI.createURI ( "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultValueArchiveSlaveProfile.xml" ), "org.eclipse.scada.configuration.world.osgi.profile" ) );
                 node.getApplications ().add ( app );
 
                 // add security configuration

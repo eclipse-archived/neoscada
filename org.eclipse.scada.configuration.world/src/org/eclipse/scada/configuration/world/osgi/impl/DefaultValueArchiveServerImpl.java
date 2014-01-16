@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
@@ -39,6 +39,7 @@ public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected DefaultValueArchiveServerImpl ()
@@ -49,6 +50,7 @@ public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -67,7 +69,7 @@ public class DefaultValueArchiveServerImpl extends ValueArchiveServerImpl
         if ( this.profile == null )
         {
             final ResourceSet rs = new ResourceSetImpl ();
-            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ) );
+            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ), "org.eclipse.scada.configuration.world.osgi.profile" );
             try
             {
                 r.load ( null );

@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class DefaultMasterServerImpl extends MasterServerImpl implements
@@ -40,6 +40,7 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected DefaultMasterServerImpl ()
@@ -50,6 +51,7 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -58,7 +60,7 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
         return OsgiPackage.Literals.DEFAULT_MASTER_SERVER;
     }
 
-    private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultMasterServerProfile.xml#/";
+    private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultMasterServerProfile.xml";
 
     private Profile profile;
 
@@ -68,7 +70,7 @@ public class DefaultMasterServerImpl extends MasterServerImpl implements
         if ( this.profile == null )
         {
             final ResourceSet rs = new ResourceSetImpl ();
-            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ) );
+            final Resource r = rs.createResource ( URI.createURI ( DEFAULT_URI ), "org.eclipse.scada.configuration.world.osgi.profile" );
             try
             {
                 r.load ( null );
