@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add a way to use a shared counter
  *******************************************************************************/
 package org.eclipse.scada.utils.concurrent;
 
@@ -42,8 +43,13 @@ public class NamedThreadFactory implements ThreadFactory
 
     public NamedThreadFactory ( final String name, final boolean daemon, final boolean logExceptions )
     {
+        this ( name, daemon, true, new AtomicLong () );
+    }
+
+    public NamedThreadFactory ( final String name, final boolean daemon, final boolean logExceptions, final AtomicLong counter )
+    {
         this.logExceptions = logExceptions;
-        this.counter = new AtomicLong ();
+        this.counter = counter;
         this.name = name;
         this.daemon = daemon;
         if ( name == null )
