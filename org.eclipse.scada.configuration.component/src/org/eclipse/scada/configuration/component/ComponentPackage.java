@@ -2773,13 +2773,13 @@ public interface ComponentPackage extends EPackage
     int BUFFERED_VALUE__MASTER_ON = MASTER_COMPONENT__MASTER_ON;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * The feature id for the '<em><b>Input</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__NAME = MASTER_COMPONENT_FEATURE_COUNT + 0;
+    int BUFFERED_VALUE__INPUT = MASTER_COMPONENT_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -4158,15 +4158,15 @@ public interface ComponentPackage extends EPackage
     EClass getBufferedValue ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.eclipse.scada.configuration.component.BufferedValue#getName()
+     * @return the meta object for the reference '<em>Input</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getInput()
      * @see #getBufferedValue()
      * @generated
      */
-    EAttribute getBufferedValue_Name ();
+    EReference getBufferedValue_Input ();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getRange <em>Range</em>}'.
@@ -5253,12 +5253,12 @@ public interface ComponentPackage extends EPackage
         EClass BUFFERED_VALUE = eINSTANCE.getBufferedValue ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Input</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute BUFFERED_VALUE__NAME = eINSTANCE.getBufferedValue_Name ();
+        EReference BUFFERED_VALUE__INPUT = eINSTANCE.getBufferedValue_Input ();
 
         /**
          * The meta object literal for the '<em><b>Range</b></em>' attribute feature.

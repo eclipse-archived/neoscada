@@ -47,6 +47,8 @@ public interface Factories
 
     public static final String FACTORY_DA_SOURCE = "da.datasource.dataitem"; //$NON-NLS-1$
 
+    public static final String FACTORY_DA_BUFFER = "org.eclipse.scada.da.buffer"; //$NON-NLS-1$
+
     public static final String FACTORY_DA_SUM_SOURCE = "org.eclipse.scada.da.datasource.sum"; //$NON-NLS-1$
 
     public static final String FACTORY_DA_CONST_SOURCE = "org.eclipse.scada.da.datasource.constant"; //$NON-NLS-1$

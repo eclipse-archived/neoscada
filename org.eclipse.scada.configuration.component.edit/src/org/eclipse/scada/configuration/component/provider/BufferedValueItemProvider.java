@@ -69,7 +69,7 @@ public class BufferedValueItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addNamePropertyDescriptor ( object );
+            addInputPropertyDescriptor ( object );
             addRangePropertyDescriptor ( object );
             addInitialValuePropertyDescriptor ( object );
             addPersistencePropertyDescriptor ( object );
@@ -79,24 +79,24 @@ public class BufferedValueItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Input feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addInputPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_BufferedValue_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_name_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ComponentPackage.Literals.BUFFERED_VALUE__NAME,
+                        getString ( "_UI_BufferedValue_input_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_BufferedValue_input_feature", "_UI_BufferedValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.BUFFERED_VALUE__INPUT,
                         true,
                         false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        true,
+                        null,
                         null,
                         null ) );
     }
@@ -214,10 +214,8 @@ public class BufferedValueItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (BufferedValue)object ).getName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_BufferedValue_type" ) : //$NON-NLS-1$
-                getString ( "_UI_BufferedValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        BufferedValue bufferedValue = (BufferedValue)object;
+        return getString ( "_UI_BufferedValue_type" ) + " " + bufferedValue.getRange (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -234,7 +232,6 @@ public class BufferedValueItemProvider
 
         switch ( notification.getFeatureID ( BufferedValue.class ) )
         {
-            case ComponentPackage.BUFFERED_VALUE__NAME:
             case ComponentPackage.BUFFERED_VALUE__RANGE:
             case ComponentPackage.BUFFERED_VALUE__INITIAL_VALUE:
             case ComponentPackage.BUFFERED_VALUE__PERSISTENCE:

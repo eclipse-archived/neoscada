@@ -21,7 +21,7 @@ import org.eclipse.scada.core.Variant;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getPersistence <em>Persistence</em>}</li>
@@ -36,30 +36,30 @@ import org.eclipse.scada.core.Variant;
 public interface BufferedValue extends MasterComponent
 {
     /**
-     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * Returns the value of the '<em><b>Input</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Input</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Name</em>' attribute.
-     * @see #setName(String)
-     * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Name()
-     * @model required="true"
+     * @return the value of the '<em>Input</em>' reference.
+     * @see #setInput(ItemReferenceInputDefinition)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Input()
+     * @model
      * @generated
      */
-    String getName ();
+    ItemReferenceInputDefinition getInput ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Name</em>' attribute.
-     * @see #getName()
+     * @param value the new value of the '<em>Input</em>' reference.
+     * @see #getInput()
      * @generated
      */
-    void setName ( String value );
+    void setInput ( ItemReferenceInputDefinition value );
 
     /**
      * Returns the value of the '<em><b>Range</b></em>' attribute.

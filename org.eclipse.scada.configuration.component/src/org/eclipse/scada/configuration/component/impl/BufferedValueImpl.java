@@ -13,9 +13,11 @@ package org.eclipse.scada.configuration.component.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.scada.configuration.component.BufferedValue;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
 import org.eclipse.scada.configuration.component.Persistence;
 import org.eclipse.scada.core.Variant;
 
@@ -26,7 +28,7 @@ import org.eclipse.scada.core.Variant;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getPersistence <em>Persistence</em>}</li>
@@ -39,24 +41,14 @@ import org.eclipse.scada.core.Variant;
 public class BufferedValueImpl extends MasterComponentImpl implements BufferedValue
 {
     /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getName()
+     * @see #getInput()
      * @generated
      * @ordered
      */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
+    protected ItemReferenceInputDefinition input;
 
     /**
      * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
@@ -164,9 +156,19 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
-    public String getName ()
+    public ItemReferenceInputDefinition getInput ()
     {
-        return name;
+        if ( input != null && input.eIsProxy () )
+        {
+            InternalEObject oldInput = (InternalEObject)input;
+            input = (ItemReferenceInputDefinition)eResolveProxy ( oldInput );
+            if ( input != oldInput )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.BUFFERED_VALUE__INPUT, oldInput, input ) );
+            }
+        }
+        return input;
     }
 
     /**
@@ -174,12 +176,22 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setName ( String newName )
+    public ItemReferenceInputDefinition basicGetInput ()
     {
-        String oldName = name;
-        name = newName;
+        return input;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInput ( ItemReferenceInputDefinition newInput )
+    {
+        ItemReferenceInputDefinition oldInput = input;
+        input = newInput;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__NAME, oldName, name ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__INPUT, oldInput, input ) );
     }
 
     /**
@@ -284,8 +296,10 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
-            case ComponentPackage.BUFFERED_VALUE__NAME:
-                return getName ();
+            case ComponentPackage.BUFFERED_VALUE__INPUT:
+                if ( resolve )
+                    return getInput ();
+                return basicGetInput ();
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 return getRange ();
             case ComponentPackage.BUFFERED_VALUE__INITIAL_VALUE:
@@ -308,8 +322,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
-            case ComponentPackage.BUFFERED_VALUE__NAME:
-                setName ( (String)newValue );
+            case ComponentPackage.BUFFERED_VALUE__INPUT:
+                setInput ( (ItemReferenceInputDefinition)newValue );
                 return;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 setRange ( (Long)newValue );
@@ -337,8 +351,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
-            case ComponentPackage.BUFFERED_VALUE__NAME:
-                setName ( NAME_EDEFAULT );
+            case ComponentPackage.BUFFERED_VALUE__INPUT:
+                setInput ( (ItemReferenceInputDefinition)null );
                 return;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 setRange ( RANGE_EDEFAULT );
@@ -366,8 +380,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
-            case ComponentPackage.BUFFERED_VALUE__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
+            case ComponentPackage.BUFFERED_VALUE__INPUT:
+                return input != null;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 return range != RANGE_EDEFAULT;
             case ComponentPackage.BUFFERED_VALUE__INITIAL_VALUE:
@@ -392,9 +406,7 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ", range: " ); //$NON-NLS-1$
+        result.append ( " (range: " ); //$NON-NLS-1$
         result.append ( range );
         result.append ( ", initialValue: " ); //$NON-NLS-1$
         result.append ( initialValue );

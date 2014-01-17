@@ -1560,9 +1560,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBufferedValue_Name ()
+    public EReference getBufferedValue_Input ()
     {
-        return (EAttribute)bufferedValueEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)bufferedValueEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -1826,7 +1826,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( masterComponentEClass, MASTER_COMPONENT__MASTER_ON );
 
         bufferedValueEClass = createEClass ( BUFFERED_VALUE );
-        createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__NAME );
+        createEReference ( bufferedValueEClass, BUFFERED_VALUE__INPUT );
         createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__RANGE );
         createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__INITIAL_VALUE );
         createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__PERSISTENCE );
@@ -2076,7 +2076,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getMasterComponent_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, MasterComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( bufferedValueEClass, BufferedValue.class, "BufferedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getBufferedValue_Name (), ecorePackage.getEString (), "name", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getBufferedValue_Input (), this.getItemReferenceInputDefinition (), null, "input", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_Range (), ecorePackage.getELong (), "range", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_InitialValue (), theOsgiPackage.getVariant (), "initialValue", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_Persistence (), this.getPersistence (), "persistence", "NONE", 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
