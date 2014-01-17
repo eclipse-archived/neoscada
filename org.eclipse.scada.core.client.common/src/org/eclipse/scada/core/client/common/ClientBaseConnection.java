@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTESM GmbH - add dispose to filter chain
  *******************************************************************************/
 package org.eclipse.scada.core.client.common;
 
@@ -470,6 +471,8 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
         this.connector.dispose ();
         super.dispose ();
+
+        this.chainBuilder.dispose ();
     }
 
     protected synchronized void setState ( final ConnectionState connectionState, final Throwable error )

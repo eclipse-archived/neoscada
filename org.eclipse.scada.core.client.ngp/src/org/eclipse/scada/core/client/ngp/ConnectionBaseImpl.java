@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add filter chain lifecycle
  *******************************************************************************/
 package org.eclipse.scada.core.client.ngp;
 
@@ -157,9 +158,6 @@ public class ConnectionBaseImpl extends ClientBaseConnection
         this.responseManager.handleResponse ( message );
     }
 
-    /**
-     * @since 1.1
-     */
     private void handleRequestCallbacks ( final RequestCallbacks message )
     {
         final CallbackHandler callbackHandler = this.callbackHandlerManager.getHandler ( message.getCallbackHandlerId () );
@@ -194,9 +192,6 @@ public class ConnectionBaseImpl extends ClientBaseConnection
         } );
     }
 
-    /**
-     * @since 1.1
-     */
     protected void processCallbackFuture ( final Request request, final Future<Callback[]> future, final Callback[] callbacks )
     {
         logger.debug ( "Processing callback result - request: {}, future: {}", request, future );
@@ -252,9 +247,6 @@ public class ConnectionBaseImpl extends ClientBaseConnection
 
     // callbacks
 
-    /**
-     * @since 1.1
-     */
     protected synchronized Long registerCallbackHandler ( final Request request, final CallbackHandler callbackHandler )
     {
         if ( callbackHandler == null )
