@@ -110,7 +110,7 @@ public class Advertiser
         final String interfaceName = service.getConnectionInformation ().getInterface ();
         final String protocolName = service.getConnectionInformation ().getDriver ();
         // final String osType = String.format ( "%s%s", interfaceName, protocolName );
-        final IServiceTypeID typeId = ServiceIDFactory.getDefault ().createServiceTypeID ( this.advertiser.getServicesNamespace (), new String[] { interfaceName, protocolName } );
+        final IServiceTypeID typeId = ServiceIDFactory.getDefault ().createServiceTypeID ( this.advertiser.getServicesNamespace (), new String[] { interfaceName, protocolName, "scada" } );
 
         logger.debug ( "Service Type ID: {}", typeId );
 
