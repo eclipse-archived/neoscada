@@ -4,13 +4,13 @@
    <extension
          point="org.eclipse.core.contenttype.contentTypes">
       <file-association
-            content-type="org.eclipse.scada.ide.hd.hdsspy.hds"
+            content-type="org.eclipse.scada.hds.archive"
             file-extensions="hds">
       </file-association>
       <content-type
             file-extensions="hds"
-            id="org.eclipse.scada.ide.hd.hdsspy.hds"
-            name="Eclipse SCADA Value Archive File"
+            id="org.eclipse.scada.hds.archive"
+            name="Eclipse SCADA HDS Value Archive File"
             priority="normal">
       </content-type>
    </extension>
@@ -24,9 +24,25 @@
             id="org.eclipse.scada.ide.hd.hdsspy.editors.HDSEditor"
             name="Eclipse SCADA Value Archive Editor">
          <contentTypeBinding
-               contentTypeId="org.eclipse.scada.ide.hd.hdsspy.hds">
+               contentTypeId="org.eclipse.scada.hds.archive">
          </contentTypeBinding>
       </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="org.eclipse.scada.ide.hd.hdsspy.decorators.TimeRangeDecorator"
+            id="org.eclipse.scada.ide.hd.hdsspy.decorators.TimeRangeDecorator"
+            label="HDS Time Frame"
+            lightweight="true"
+            state="true">
+         <enablement>
+             <objectClass
+                     name="org.eclipse.core.resources.IFile">
+			</objectClass>
+         </enablement>
+      </decorator>
    </extension>
 
 </plugin>
