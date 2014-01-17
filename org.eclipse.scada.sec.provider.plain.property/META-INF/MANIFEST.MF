@@ -10,5 +10,5 @@ Import-Package: org.eclipse.scada.sec;version="0.1.0",org.eclipse.scad
  a.sec.authn;version="0.1.0",org.eclipse.scada.utils.statuscodes;versi
  on="0.1.0",org.osgi.framework;version="1.6.0"
 Bundle-SymbolicName: org.eclipse.scada.sec.provider.plain.property
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 
