@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - clean up and document
  *******************************************************************************/
 package org.eclipse.scada.da.master.common.manual;
 
@@ -22,7 +23,6 @@ import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ca.ConfigurationAdministrator;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.core.VariantEditor;
 import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.da.client.DataItemValue;
@@ -37,6 +37,42 @@ import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Provide a handler for manual override values<br/>
+ * <p>
+ * This processor allows manually overriding a value. All processors further in
+ * the chain will received the overridden information if this handler is active.
+ * </p>
+ * <h1>Behavior</h1>
+ * <p>
+ * If a manual override is active the following things will happen in the value
+ * chain:
+ * <ul>
+ * <li>The manual value will override the current value</li>
+ * <li>The subscription state will be {@link SubscriptionState#CONNECTED} and
+ * there will be no subscription error</li>
+ * <li>The error attributes will be reset to
+ * <q>ok</q> and the original attributs will be renamed</li>
+ * <li>The timestamp of the manual value request will be used as timestamp</li>
+ * </ul>
+ * </p>
+ * <p>
+ * When the manul override is removed the following things will happen in the
+ * value chain:
+ * <ul>
+ * <li>The value, subscription state and error reported from the source will be
+ * used, the manual override not be applied anymore</li>
+ * <li>The timestamp will be the time of the removal of the manual override if
+ * it is after the timestamp of the source value</li>
+ * </ul>
+ * </p>
+ * <h1>Timestamp</h1>
+ * <p>
+ * The idea of the timestamp handling is that manual overrides advance the
+ * timestamp as well and indicate a newer value, but also do go back in history
+ * once the value is cleared.
+ * </p>
+ */
 public class ManualHandlerImpl extends AbstractCommonHandlerImpl
 {
 
@@ -253,36 +289,33 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
             {
                 injectTimestamp ( builder, state );
             }
+
+            // manual value is inactive
             return;
         }
 
-        // apply manual value : manual value is active
+        // == apply manual value : manual value is active
 
-        final Variant originalError = builder.getAttributes ().remove ( "error" ); //$NON-NLS-1$
-        builder.setAttribute ( this.attrErrorOriginal, originalError );
-        builder.setAttribute ( "error", Variant.FALSE ); //$NON-NLS-1$
+        // manual override is always connected
+
         builder.setSubscriptionState ( SubscriptionState.CONNECTED );
         builder.setSubscriptionError ( null );
 
-        final Variant originalErrorCount = builder.getAttributes ().remove ( "error.count" ); //$NON-NLS-1$
-        if ( originalErrorCount != null )
-        {
-            builder.setAttribute ( "error.count", Variant.valueOf ( 0 ) ); //$NON-NLS-1$
-            builder.setAttribute ( this.attrErrorCountOriginal, originalErrorCount );
-        }
+        // reset error state
 
-        final Variant originalErrorItems = builder.getAttributes ().remove ( "error.items" ); //$NON-NLS-1$
-        if ( originalErrorItems != null )
-        {
-            builder.setAttribute ( "error.items", Variant.valueOf ( "" ) ); //$NON-NLS-1$ //$NON-NLS-2$
-            builder.setAttribute ( this.attrErrorItemsOriginal, originalErrorItems );
-        }
+        replaceAttribute ( builder, "error", this.attrErrorOriginal, Variant.FALSE ); //$NON-NLS-1$
+        replaceAttribute ( builder, "error.count", this.attrErrorCountOriginal, Variant.valueOf ( 0 ) ); //$NON-NLS-1$
+        replaceAttribute ( builder, "error.items", this.attrErrorItemsOriginal, Variant.valueOf ( "" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        // set manual override
 
         builder.setAttribute ( this.attrValueOriginal, originalValue );
         builder.setAttribute ( this.attrActive, Variant.TRUE );
         builder.setAttribute ( getPrefixed ( null, null ), Variant.TRUE );
 
         builder.setValue ( this.state.getValue () );
+
+        // user and reason
 
         if ( state.getUser () != null )
         {
@@ -292,9 +325,30 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
         {
             builder.setAttribute ( this.attrReason, Variant.valueOf ( state.getReason () ) );
         }
+
+        // inject the timestamp
+
         injectTimestamp ( builder, state );
     }
 
+    private void replaceAttribute ( final Builder builder, final String attribute, final String renamedAttribute, final Variant replacement )
+    {
+        final Variant value = builder.getAttributes ().remove ( attribute );
+        if ( value != null )
+        {
+            builder.setAttribute ( attribute, replacement );
+            builder.setAttribute ( renamedAttribute, value );
+        }
+    }
+
+    /**
+     * Get the timestamp from the builder as {@link Date}
+     * 
+     * @param value
+     *            the builder
+     * @return the timestamp as {@link Date} or <code>null</code> if no
+     *         timestamp was found
+     */
     private Date makeTimestamp ( final DataItemValue.Builder value )
     {
         if ( value == null )
@@ -313,6 +367,7 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
     {
         if ( state.getTimestmap () != null )
         {
+            // we always inject a new timestamp
             final Variant originalTimestamp = builder.getAttributes ().get ( "timestamp" ); //$NON-NLS-1$
             builder.setAttribute ( "timestamp", Variant.valueOf ( state.getTimestmap ().getTime () ) ); //$NON-NLS-1$
             if ( originalTimestamp != null )
@@ -327,22 +382,10 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
     {
         super.update ( userInformation, parameters );
 
-        final VariantEditor ve = new VariantEditor ();
-
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
 
-        final String str = cfg.getString ( "value" ); //$NON-NLS-1$
-        logger.debug ( "Request to set manual value '{}'", str ); //$NON-NLS-1$
-        final Variant newValue;
-        if ( str != null )
-        {
-            ve.setAsText ( str );
-            newValue = Variant.valueOf ( ve.getValue () );
-        }
-        else
-        {
-            newValue = Variant.NULL;
-        }
+        final Variant newValue = cfg.getVariant ( "value", Variant.NULL ); //$NON-NLS-1$
+        logger.debug ( "Request to set manual value '{}'", newValue ); //$NON-NLS-1$
 
         final String newUser = cfg.getString ( "user" );//$NON-NLS-1$
         final String newReason = cfg.getString ( "reason" ); //$NON-NLS-1$;
@@ -367,7 +410,7 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
      * The new timestamp
      * <ol>
      * <li>The provided timestamp</li>
-     * <li>The previous timestamp of the value did not change</li>
+     * <li>The previous timestamp if the value did not change</li>
      * <li>The
      * <q>now</q> timestamp</li>
      * </ol>
@@ -383,7 +426,7 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
      */
     private Date makeNewTimestamp ( final ConfigurationDataHelper cfg, final Date ts, final Variant newValue )
     {
-        final Long newTimestamp = cfg.getLong ( "timestamp" );
+        final Long newTimestamp = cfg.getLong ( "timestamp" ); //$NON-NLS-1$
         if ( newTimestamp != null )
         {
             return new Date ( newTimestamp );
@@ -423,7 +466,7 @@ public class ManualHandlerImpl extends AbstractCommonHandlerImpl
         if ( newState.getUser () != null && !newState.getUser ().isEmpty () )
         {
             builder.attribute ( Fields.ACTOR_NAME, newState.getUser () );
-            builder.attribute ( Fields.ACTOR_TYPE, "USER" );
+            builder.attribute ( Fields.ACTOR_TYPE, "USER" ); //$NON-NLS-1$
         }
 
         if ( newState.getReason () != null && !newState.getReason ().isEmpty () )
