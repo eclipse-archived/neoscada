@@ -12,7 +12,7 @@ package org.eclipse.scada.da.buffer.internal;
 
 public enum Persistence
 {
-    none,
-    lazy,
-    required;
+    NONE,
+    LAZY,
+    REQUIRED;
 }

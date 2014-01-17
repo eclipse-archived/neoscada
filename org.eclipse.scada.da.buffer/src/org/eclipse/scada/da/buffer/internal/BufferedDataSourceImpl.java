@@ -112,7 +112,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         this.trigger = cfg.getLongChecked ( "trigger", "'trigger' must be set" ); //$NON-NLS-1$
         this.range = cfg.getLongChecked ( "range", "'range' must be set" ); //$NON-NLS-1$
         this.triggerOnly = cfg.getBoolean ( "triggerOnly", false );
-        this.persistence = cfg.getEnum ( "persistence", Persistence.class, Persistence.none );
+        this.persistence = cfg.getEnum ( "persistence", Persistence.class, Persistence.NONE );
 
         this.valueRange = new DataItemValueRange ( range );
         this.valueRange.add ( new DataItemValueLight ( this.initialValue, SubscriptionState.CONNECTED, 0, false, false ) );
@@ -145,7 +145,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
             }
         } );
         this.dataSourceTracker.open ();
-        if ( persistence != Persistence.required )
+        if ( persistence != Persistence.REQUIRED )
         {
             this.dataNodeTracker.addListener ( nodeId, this );
             addService ();
@@ -212,7 +212,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
                     valueRange.add ( dataItemValue );
                 }
             }
-            if ( persistence == Persistence.required )
+            if ( persistence == Persistence.REQUIRED )
             {
                 addService ();
             }
@@ -234,7 +234,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
     public void stateChanged ( DataItemValue value )
     {
         valueRange.add ( DataItemValueLight.valueOf ( value ) );
-        if ( persistence != Persistence.none )
+        if ( persistence != Persistence.NONE )
         {
             DataItemValueRangeState state = valueRange.getState ();
             TreeSet<DataItemValueLight> valuesToPersist = new TreeSet<DataItemValueLight> ();
@@ -257,7 +257,7 @@ public class BufferedDataSourceImpl implements BufferedDataSource, DataListener,
         {
             return;
         }
-        if ( persistence == Persistence.required && !initialPersistentValuesLoaded )
+        if ( persistence == Persistence.REQUIRED && !initialPersistentValuesLoaded )
         {
             return;
         }
