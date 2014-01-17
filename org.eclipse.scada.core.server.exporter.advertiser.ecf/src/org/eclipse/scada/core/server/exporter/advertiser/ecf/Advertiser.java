@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - more testing, still does not work
  *******************************************************************************/
 package org.eclipse.scada.core.server.exporter.advertiser.ecf;
 
@@ -108,8 +109,10 @@ public class Advertiser
 
         final String interfaceName = service.getConnectionInformation ().getInterface ();
         final String protocolName = service.getConnectionInformation ().getDriver ();
-        final String osType = String.format ( "eclipse_scada_%s_%s", interfaceName, protocolName );
-        final IServiceTypeID typeId = ServiceIDFactory.getDefault ().createServiceTypeID ( this.advertiser.getServicesNamespace (), new String[] { osType } );
+        // final String osType = String.format ( "%s%s", interfaceName, protocolName );
+        final IServiceTypeID typeId = ServiceIDFactory.getDefault ().createServiceTypeID ( this.advertiser.getServicesNamespace (), new String[] { interfaceName, protocolName } );
+
+        logger.debug ( "Service Type ID: {}", typeId );
 
         final ConnectionInformation ci = service.getConnectionInformation ();
 
@@ -120,12 +123,15 @@ public class Advertiser
         }
         else
         {
-            description = ci.toString ();
+            description = String.format ( "Eclipse SCADA %s", interfaceName.toUpperCase () );
         }
 
-        final URI uri = new URI ( "eclipse_scada", null, ci.getTarget (), ci.getSecondaryTarget (), null, null, null );
+        logger.debug ( "Description: {}", description );
+
+        final URI uri = new URI ( String.format ( "%s%s", interfaceName, protocolName ), null, makeHostname ( ci.getTarget () ), ci.getSecondaryTarget (), null, null, null );
 
         final IServiceInfo serviceInfo = new ServiceInfo ( uri, description, typeId );
+        logger.debug ( "Register Service: {}", serviceInfo );
         this.advertiser.registerService ( serviceInfo );
 
         final IServiceInfo oldServiceInfo = this.infoMap.put ( service, serviceInfo );
@@ -134,6 +140,11 @@ public class Advertiser
             logger.warn ( "Removing duplicate entry: {}", service );
             this.advertiser.unregisterService ( oldServiceInfo );
         }
+    }
+
+    private String makeHostname ( final String target )
+    {
+        return target.replace ( "%", "%25" );
     }
 
     protected void removedService ( final ExporterInformation service )
