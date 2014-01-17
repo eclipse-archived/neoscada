@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,8 +8,8 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
+ *     IBH SYSTEMS GmbH - add logging
  *******************************************************************************/
-
 
 package org.eclipse.scada.protocol.ngp.common.mc.frame;
 
@@ -17,9 +17,12 @@ import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolEncoder;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FrameEncoder implements ProtocolEncoder
 {
+    private final static Logger logger = LoggerFactory.getLogger ( FrameEncoder.class );
 
     public FrameEncoder ()
     {
@@ -39,6 +42,11 @@ public class FrameEncoder implements ProtocolEncoder
         }
 
         final Frame frame = (Frame)message;
+
+        if ( logger.isTraceEnabled () )
+        {
+            logger.trace ( "Encode frame - type: {}, data: {}", frame.getType (), frame.getData () );
+        }
 
         final IoBuffer buffer = IoBuffer.allocate ( 1 + 1 + 4 + frame.getData ().remaining () );
         buffer.put ( (byte)0x01 ); // version - #0

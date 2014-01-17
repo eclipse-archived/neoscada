@@ -17,6 +17,7 @@ package org.eclipse.scada.protocol.ngp.common;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.mina.core.filterchain.IoFilter;
 import org.apache.mina.core.filterchain.IoFilterChain;
@@ -34,6 +35,8 @@ import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 
 public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 {
+    private static AtomicLong THREAD_COUNTER = new AtomicLong ();
+
     private String loggerName;
 
     private static interface IoFilterFactory
@@ -147,7 +150,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
         this.filters.add ( new Entry ( "logger", new LoggerFactory () ) );
 
-        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync" ) ) ) );
+        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ) ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
 
         this.filters.add ( new Entry ( "keepalive.marker" ) );

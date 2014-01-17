@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,8 +8,8 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
+ *     IBH SYSTEMS GmbH - add documentation
  *******************************************************************************/
-
 
 package org.eclipse.scada.protocol.ngp.common.mc.handshake;
 
@@ -66,6 +66,12 @@ public interface Handshake
      * In this phase all handshake modules should apply the changes needed. They
      * may also change the sessions filter chain to change the way it
      * communicates.
+     * </p>
+     * <p>
+     * This method will be called before the ACCEPT/START packet is sent. This
+     * means that on the server side filters that change the encoding must be
+     * deactivated for the first packet. On the client side the first packet
+     * must already be encoded.
      * </p>
      * 
      * @param context

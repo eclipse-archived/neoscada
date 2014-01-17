@@ -9,7 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - implement security callback system
  *     IBH SYSTEMS GmbH - fix a possible NPE when the stream compression
- *                        was disabled in the constructor
+ *                        was disabled in the constructor, fix regression
  *******************************************************************************/
 
 package org.eclipse.scada.protocol.ngp.common.mc.handshake;
@@ -120,7 +120,9 @@ public class StreamCompressionHandshake extends AbstractHandshake
         final Integer streamCompressionLevel = getInteger ( acceptedProperties, Constants.PROP_STREAM_COMPRESSION_LEVEL, null );
         if ( streamCompressionLevel != null )
         {
-            new ChainConfigurator ( handshakeContext.getSession () ).startStreamCompression ( streamCompressionLevel, false );
+            /* if we are in client mode the first packet (START) must already be compressed.
+             * on the server side the first packet (ACCECPT) must must be unfiltered */
+            new ChainConfigurator ( handshakeContext.getSession () ).startStreamCompression ( streamCompressionLevel, !handshakeContext.isClientMode () );
         }
     }
 

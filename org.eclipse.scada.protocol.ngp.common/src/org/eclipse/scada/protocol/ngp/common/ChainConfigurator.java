@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
 
 public class ChainConfigurator
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( ChainConfigurator.class );
 
     private final IoSession session;
