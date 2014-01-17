@@ -42,7 +42,10 @@ public class BufferProcessor extends BasicOscarProcessor
         final String id = Names.makeName ( bufferedValue );
 
         final Map<String, String> data = new HashMap<String, String> ();
-        data.put ( "datasource.id", Items.makeMasterId ( bufferedValue.getItem () ) );
+        if ( bufferedValue.getItem () != null )
+        {
+            data.put ( "datasource.id", Items.makeMasterId ( bufferedValue.getItem ().getItem () ) );
+        }
         if ( bufferedValue.getInitialValue () != null )
         {
             data.put ( "initialValue", bufferedValue.getInitialValue ().toString () );
@@ -52,23 +55,5 @@ public class BufferProcessor extends BasicOscarProcessor
         data.put ( "triggerOnly", "" + bufferedValue.getTriggerOnly () );
         data.put ( "persistence", bufferedValue.getPersistence ().getLiteral () );
         addData ( Factories.FACTORY_DA_BUFFER, id, data );
-
-        //        final String id = Names.makeName ( average );
-        //
-        //        final Map<String, String> data = new HashMap<String, String> ();
-        //
-        //        data.put ( "datasource.id", Items.makeMasterId ( average.getItem () ) ); //$NON-NLS-1$
-        //        data.put ( "trigger", "" + average.getTrigger () ); //$NON-NLS-1$ //$NON-NLS-2$
-        //
-        //        if ( average.getTriggerOnly () != null )
-        //        {
-        //            data.put ( "triggerOnly", "" + average.getTriggerOnly () ); //$NON-NLS-1$ //$NON-NLS-2$
-        //        }
-        //
-        //        data.put ( "nullRange", "" + average.getNullRange () ); //$NON-NLS-1$ //$NON-NLS-2$
-        //        data.put ( "range", "" + average.getRange () ); //$NON-NLS-1$ //$NON-NLS-2$
-        //
-        //        addData ( Factories.FACTORY_DA_MOVING_AVERAGE, id, data );
-
     }
 }

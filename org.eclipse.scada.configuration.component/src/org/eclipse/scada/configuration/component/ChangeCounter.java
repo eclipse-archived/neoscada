@@ -30,26 +30,26 @@ package org.eclipse.scada.configuration.component;
 public interface ChangeCounter extends SingleValue
 {
     /**
-     * Returns the value of the '<em><b>Buffer</b></em>' reference.
+     * Returns the value of the '<em><b>Buffer</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Buffer</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Buffer</em>' reference.
+     * @return the value of the '<em>Buffer</em>' containment reference.
      * @see #setBuffer(BufferedValue)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getChangeCounter_Buffer()
-     * @model
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
     BufferedValue getBuffer ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Buffer</em>' reference.
+     * @param value the new value of the '<em>Buffer</em>' containment reference.
      * @see #getBuffer()
      * @generated
      */

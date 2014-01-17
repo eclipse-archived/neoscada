@@ -39,30 +39,30 @@ import org.eclipse.scada.core.Variant;
 public interface BufferedValue extends Documentable
 {
     /**
-     * Returns the value of the '<em><b>Item</b></em>' reference.
+     * Returns the value of the '<em><b>Item</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Item</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Item</em>' reference.
-     * @see #setItem(Item)
+     * @return the value of the '<em>Item</em>' containment reference.
+     * @see #setItem(ItemReference)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBufferedValue_Item()
-     * @model required="true"
+     * @model containment="true" resolveProxies="true" required="true"
      * @generated
      */
-    Item getItem ();
+    ItemReference getItem ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem <em>Item</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem <em>Item</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Item</em>' reference.
+     * @param value the new value of the '<em>Item</em>' containment reference.
      * @see #getItem()
      * @generated
      */
-    void setItem ( Item value );
+    void setItem ( ItemReference value );
 
     /**
      * Returns the value of the '<em><b>Initial Value</b></em>' attribute.

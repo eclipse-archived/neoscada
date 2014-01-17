@@ -12,12 +12,13 @@
 package org.eclipse.scada.configuration.world.osgi.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.scada.configuration.world.osgi.BufferedValue;
-import org.eclipse.scada.configuration.world.osgi.Item;
+import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.Persistence;
@@ -86,14 +87,14 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getItem() <em>Item</em>}' reference.
+     * The cached value of the '{@link #getItem() <em>Item</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getItem()
      * @generated
      * @ordered
      */
-    protected Item item;
+    protected ItemReference item;
 
     /**
      * The default value of the '{@link #getInitialValue() <em>Initial Value</em>}' attribute.
@@ -267,14 +268,22 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
      * <!-- end-user-doc -->
      * @generated
      */
-    public Item getItem ()
+    public ItemReference getItem ()
     {
         if ( item != null && item.eIsProxy () )
         {
             InternalEObject oldItem = (InternalEObject)item;
-            item = (Item)eResolveProxy ( oldItem );
+            item = (ItemReference)eResolveProxy ( oldItem );
             if ( item != oldItem )
             {
+                InternalEObject newItem = (InternalEObject)item;
+                NotificationChain msgs = oldItem.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.BUFFERED_VALUE__ITEM, null, null );
+                if ( newItem.eInternalContainer () == null )
+                {
+                    msgs = newItem.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.BUFFERED_VALUE__ITEM, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
                 if ( eNotificationRequired () )
                     eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.BUFFERED_VALUE__ITEM, oldItem, item ) );
             }
@@ -287,7 +296,7 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
      * <!-- end-user-doc -->
      * @generated
      */
-    public Item basicGetItem ()
+    public ItemReference basicGetItem ()
     {
         return item;
     }
@@ -297,12 +306,41 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setItem ( Item newItem )
+    public NotificationChain basicSetItem ( ItemReference newItem, NotificationChain msgs )
     {
-        Item oldItem = item;
+        ItemReference oldItem = item;
         item = newItem;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.BUFFERED_VALUE__ITEM, oldItem, item ) );
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, OsgiPackage.BUFFERED_VALUE__ITEM, oldItem, newItem );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setItem ( ItemReference newItem )
+    {
+        if ( newItem != item )
+        {
+            NotificationChain msgs = null;
+            if ( item != null )
+                msgs = ( (InternalEObject)item ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.BUFFERED_VALUE__ITEM, null, msgs );
+            if ( newItem != null )
+                msgs = ( (InternalEObject)newItem ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.BUFFERED_VALUE__ITEM, null, msgs );
+            msgs = basicSetItem ( newItem, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.BUFFERED_VALUE__ITEM, newItem, newItem ) );
     }
 
     /**
@@ -426,6 +464,22 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
      * @generated
      */
     @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case OsgiPackage.BUFFERED_VALUE__ITEM:
+                return basicSetItem ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
@@ -469,7 +523,7 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
                 setName ( (String)newValue );
                 return;
             case OsgiPackage.BUFFERED_VALUE__ITEM:
-                setItem ( (Item)newValue );
+                setItem ( (ItemReference)newValue );
                 return;
             case OsgiPackage.BUFFERED_VALUE__INITIAL_VALUE:
                 setInitialValue ( (Variant)newValue );
@@ -507,7 +561,7 @@ public class BufferedValueImpl extends MinimalEObjectImpl.Container implements B
                 setName ( NAME_EDEFAULT );
                 return;
             case OsgiPackage.BUFFERED_VALUE__ITEM:
-                setItem ( (Item)null );
+                setItem ( (ItemReference)null );
                 return;
             case OsgiPackage.BUFFERED_VALUE__INITIAL_VALUE:
                 setInitialValue ( INITIAL_VALUE_EDEFAULT );

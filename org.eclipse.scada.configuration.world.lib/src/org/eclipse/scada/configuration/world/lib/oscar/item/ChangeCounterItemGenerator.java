@@ -45,7 +45,14 @@ public class ChangeCounterItemGenerator extends ItemGenerator
     private void addChangeCounterSource ( final String id )
     {
         final Map<String, String> data = new HashMap<String, String> ();
-        data.put ( "buffered.datasource.id", "" );
+        if ( item.getBuffer () != null )
+        {
+            data.put ( "buffered.datasource.id", item.getBuffer ().getName () );
+        }
+        else
+        {
+            throw new IllegalArgumentException ( "item attribute 'buffer' is not set!" );
+        }
         data.put ( "type", item.getType ().getLiteral () );
         data.put ( "onError", item.getOnError ().getLiteral () );
         int i = 0;

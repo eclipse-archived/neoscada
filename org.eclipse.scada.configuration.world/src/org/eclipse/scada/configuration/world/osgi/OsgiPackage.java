@@ -6595,7 +6595,7 @@ public interface OsgiPackage extends EPackage
     int BUFFERED_VALUE__NAME = WorldPackage.DOCUMENTABLE__NAME;
 
     /**
-     * The feature id for the '<em><b>Item</b></em>' reference.
+     * The feature id for the '<em><b>Item</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -10025,10 +10025,10 @@ public interface OsgiPackage extends EPackage
     EClass getBufferedValue ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem <em>Item</em>}'.
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem <em>Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Item</em>'.
+     * @return the meta object for the containment reference '<em>Item</em>'.
      * @see org.eclipse.scada.configuration.world.osgi.BufferedValue#getItem()
      * @see #getBufferedValue()
      * @generated
@@ -12856,7 +12856,7 @@ public interface OsgiPackage extends EPackage
         EClass BUFFERED_VALUE = eINSTANCE.getBufferedValue ();
 
         /**
-         * The meta object literal for the '<em><b>Item</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Item</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

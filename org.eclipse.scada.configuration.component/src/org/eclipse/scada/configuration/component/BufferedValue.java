@@ -21,10 +21,12 @@ import org.eclipse.scada.core.Variant;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getPersistence <em>Persistence</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.BufferedValue#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
  * </p>
@@ -36,30 +38,56 @@ import org.eclipse.scada.core.Variant;
 public interface BufferedValue extends MasterComponent
 {
     /**
-     * Returns the value of the '<em><b>Input</b></em>' reference.
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Name()
+     * @model required="true"
+     * @generated
+     */
+    String getName ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
+     * @generated
+     */
+    void setName ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Input</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Input</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Input</em>' reference.
-     * @see #setInput(ItemReferenceInputDefinition)
+     * @return the value of the '<em>Input</em>' containment reference.
+     * @see #setInput(InputDefinition)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Input()
-     * @model
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
-    ItemReferenceInputDefinition getInput ();
+    InputDefinition getInput ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Input</em>' reference.
+     * @param value the new value of the '<em>Input</em>' containment reference.
      * @see #getInput()
      * @generated
      */
-    void setInput ( ItemReferenceInputDefinition value );
+    void setInput ( InputDefinition value );
 
     /**
      * Returns the value of the '<em><b>Range</b></em>' attribute.
@@ -142,6 +170,32 @@ public interface BufferedValue extends MasterComponent
      * @generated
      */
     void setPersistence ( Persistence value );
+
+    /**
+     * Returns the value of the '<em><b>Trigger</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Trigger</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Trigger</em>' attribute.
+     * @see #setTrigger(long)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Trigger()
+     * @model required="true"
+     * @generated
+     */
+    long getTrigger ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.BufferedValue#getTrigger <em>Trigger</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Trigger</em>' attribute.
+     * @see #getTrigger()
+     * @generated
+     */
+    void setTrigger ( long value );
 
     /**
      * Returns the value of the '<em><b>Trigger Only</b></em>' attribute.

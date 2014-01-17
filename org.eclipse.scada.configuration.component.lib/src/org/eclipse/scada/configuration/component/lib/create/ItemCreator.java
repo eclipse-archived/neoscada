@@ -15,7 +15,6 @@ import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
-import org.eclipse.scada.configuration.world.osgi.BufferedValue;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -34,7 +33,7 @@ public interface ItemCreator
 
     public abstract CreationRequest<ConstantItem> createConstantItem ( String value );
 
-    public abstract CreationRequest<ChangeCounterItem> createChangeCounterItem ( BufferedValue bufferedValue );
+    public abstract CreationRequest<ChangeCounterItem> createChangeCounterItem ();
 
     public abstract CreationRequest<ReferenceItem> createReferenceItem ( Item item );
 

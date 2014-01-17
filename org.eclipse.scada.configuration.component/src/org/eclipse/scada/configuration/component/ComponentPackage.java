@@ -2773,13 +2773,22 @@ public interface ComponentPackage extends EPackage
     int BUFFERED_VALUE__MASTER_ON = MASTER_COMPONENT__MASTER_ON;
 
     /**
-     * The feature id for the '<em><b>Input</b></em>' reference.
+     * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__INPUT = MASTER_COMPONENT_FEATURE_COUNT + 0;
+    int BUFFERED_VALUE__NAME = MASTER_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Input</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__INPUT = MASTER_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -2788,7 +2797,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__RANGE = MASTER_COMPONENT_FEATURE_COUNT + 1;
+    int BUFFERED_VALUE__RANGE = MASTER_COMPONENT_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Initial Value</b></em>' attribute.
@@ -2797,7 +2806,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__INITIAL_VALUE = MASTER_COMPONENT_FEATURE_COUNT + 2;
+    int BUFFERED_VALUE__INITIAL_VALUE = MASTER_COMPONENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Persistence</b></em>' attribute.
@@ -2806,7 +2815,16 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__PERSISTENCE = MASTER_COMPONENT_FEATURE_COUNT + 3;
+    int BUFFERED_VALUE__PERSISTENCE = MASTER_COMPONENT_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Trigger</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__TRIGGER = MASTER_COMPONENT_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Trigger Only</b></em>' attribute.
@@ -2815,7 +2833,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE__TRIGGER_ONLY = MASTER_COMPONENT_FEATURE_COUNT + 4;
+    int BUFFERED_VALUE__TRIGGER_ONLY = MASTER_COMPONENT_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Buffered Value</em>' class.
@@ -2824,7 +2842,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int BUFFERED_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 5;
+    int BUFFERED_VALUE_FEATURE_COUNT = MASTER_COMPONENT_FEATURE_COUNT + 7;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -2918,7 +2936,7 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Buffer</b></em>' reference.
+     * The feature id for the '<em><b>Buffer</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -4158,10 +4176,21 @@ public interface ComponentPackage extends EPackage
     EClass getBufferedValue ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Input</em>'.
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getName()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_Name ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.BufferedValue#getInput <em>Input</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Input</em>'.
      * @see org.eclipse.scada.configuration.component.BufferedValue#getInput()
      * @see #getBufferedValue()
      * @generated
@@ -4202,6 +4231,17 @@ public interface ComponentPackage extends EPackage
     EAttribute getBufferedValue_Persistence ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#getTrigger <em>Trigger</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trigger</em>'.
+     * @see org.eclipse.scada.configuration.component.BufferedValue#getTrigger()
+     * @see #getBufferedValue()
+     * @generated
+     */
+    EAttribute getBufferedValue_Trigger ();
+
+    /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.BufferedValue#isTriggerOnly <em>Trigger Only</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4223,10 +4263,10 @@ public interface ComponentPackage extends EPackage
     EClass getChangeCounter ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}'.
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Buffer</em>'.
+     * @return the meta object for the containment reference '<em>Buffer</em>'.
      * @see org.eclipse.scada.configuration.component.ChangeCounter#getBuffer()
      * @see #getChangeCounter()
      * @generated
@@ -5253,7 +5293,15 @@ public interface ComponentPackage extends EPackage
         EClass BUFFERED_VALUE = eINSTANCE.getBufferedValue ();
 
         /**
-         * The meta object literal for the '<em><b>Input</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__NAME = eINSTANCE.getBufferedValue_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Input</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -5285,6 +5333,14 @@ public interface ComponentPackage extends EPackage
         EAttribute BUFFERED_VALUE__PERSISTENCE = eINSTANCE.getBufferedValue_Persistence ();
 
         /**
+         * The meta object literal for the '<em><b>Trigger</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute BUFFERED_VALUE__TRIGGER = eINSTANCE.getBufferedValue_Trigger ();
+
+        /**
          * The meta object literal for the '<em><b>Trigger Only</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5303,7 +5359,7 @@ public interface ComponentPackage extends EPackage
         EClass CHANGE_COUNTER = eINSTANCE.getChangeCounter ();
 
         /**
-         * The meta object literal for the '<em><b>Buffer</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Buffer</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated

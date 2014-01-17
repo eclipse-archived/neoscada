@@ -27,7 +27,6 @@ import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.configuration.world.osgi.BufferedValue;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -81,10 +80,11 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
     }
 
     @Override
-    public CreationRequest<ChangeCounterItem> createChangeCounterItem ( BufferedValue bufferedValue )
+    public CreationRequest<ChangeCounterItem> createChangeCounterItem ()
     {
         final ChangeCounterItem item = OsgiFactory.eINSTANCE.createChangeCounterItem ();
-        // item.setBuffer ( bufferedValue );
+        // item.setOnError ( ErrorHandling. );
+        // FIXME: implement parameters
         return addItem ( item );
     }
 

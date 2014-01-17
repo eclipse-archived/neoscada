@@ -12,12 +12,13 @@
 package org.eclipse.scada.configuration.component.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.scada.configuration.component.BufferedValue;
 import org.eclipse.scada.configuration.component.ComponentPackage;
-import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.Persistence;
 import org.eclipse.scada.core.Variant;
 
@@ -28,10 +29,12 @@ import org.eclipse.scada.core.Variant;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getInput <em>Input</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getRange <em>Range</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getInitialValue <em>Initial Value</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getPersistence <em>Persistence</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.BufferedValueImpl#isTriggerOnly <em>Trigger Only</em>}</li>
  * </ul>
  * </p>
@@ -41,14 +44,34 @@ import org.eclipse.scada.core.Variant;
 public class BufferedValueImpl extends MasterComponentImpl implements BufferedValue
 {
     /**
-     * The cached value of the '{@link #getInput() <em>Input</em>}' reference.
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getInput()
      * @generated
      * @ordered
      */
-    protected ItemReferenceInputDefinition input;
+    protected InputDefinition input;
 
     /**
      * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
@@ -111,6 +134,26 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     protected Persistence persistence = PERSISTENCE_EDEFAULT;
 
     /**
+     * The default value of the '{@link #getTrigger() <em>Trigger</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTrigger()
+     * @generated
+     * @ordered
+     */
+    protected static final long TRIGGER_EDEFAULT = 0L;
+
+    /**
+     * The cached value of the '{@link #getTrigger() <em>Trigger</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTrigger()
+     * @generated
+     * @ordered
+     */
+    protected long trigger = TRIGGER_EDEFAULT;
+
+    /**
      * The default value of the '{@link #isTriggerOnly() <em>Trigger Only</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -156,14 +199,45 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
-    public ItemReferenceInputDefinition getInput ()
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__NAME, oldName, name ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public InputDefinition getInput ()
     {
         if ( input != null && input.eIsProxy () )
         {
             InternalEObject oldInput = (InternalEObject)input;
-            input = (ItemReferenceInputDefinition)eResolveProxy ( oldInput );
+            input = (InputDefinition)eResolveProxy ( oldInput );
             if ( input != oldInput )
             {
+                InternalEObject newInput = (InternalEObject)input;
+                NotificationChain msgs = oldInput.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.BUFFERED_VALUE__INPUT, null, null );
+                if ( newInput.eInternalContainer () == null )
+                {
+                    msgs = newInput.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.BUFFERED_VALUE__INPUT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
                 if ( eNotificationRequired () )
                     eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.BUFFERED_VALUE__INPUT, oldInput, input ) );
             }
@@ -176,7 +250,7 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
-    public ItemReferenceInputDefinition basicGetInput ()
+    public InputDefinition basicGetInput ()
     {
         return input;
     }
@@ -186,12 +260,41 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setInput ( ItemReferenceInputDefinition newInput )
+    public NotificationChain basicSetInput ( InputDefinition newInput, NotificationChain msgs )
     {
-        ItemReferenceInputDefinition oldInput = input;
+        InputDefinition oldInput = input;
         input = newInput;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__INPUT, oldInput, input ) );
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__INPUT, oldInput, newInput );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInput ( InputDefinition newInput )
+    {
+        if ( newInput != input )
+        {
+            NotificationChain msgs = null;
+            if ( input != null )
+                msgs = ( (InternalEObject)input ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.BUFFERED_VALUE__INPUT, null, msgs );
+            if ( newInput != null )
+                msgs = ( (InternalEObject)newInput ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.BUFFERED_VALUE__INPUT, null, msgs );
+            msgs = basicSetInput ( newInput, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__INPUT, newInput, newInput ) );
     }
 
     /**
@@ -268,6 +371,29 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * <!-- end-user-doc -->
      * @generated
      */
+    public long getTrigger ()
+    {
+        return trigger;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTrigger ( long newTrigger )
+    {
+        long oldTrigger = trigger;
+        trigger = newTrigger;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.BUFFERED_VALUE__TRIGGER, oldTrigger, trigger ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public boolean isTriggerOnly ()
     {
         return triggerOnly;
@@ -292,10 +418,28 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
      * @generated
      */
     @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ComponentPackage.BUFFERED_VALUE__INPUT:
+                return basicSetInput ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
+            case ComponentPackage.BUFFERED_VALUE__NAME:
+                return getName ();
             case ComponentPackage.BUFFERED_VALUE__INPUT:
                 if ( resolve )
                     return getInput ();
@@ -306,6 +450,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
                 return getInitialValue ();
             case ComponentPackage.BUFFERED_VALUE__PERSISTENCE:
                 return getPersistence ();
+            case ComponentPackage.BUFFERED_VALUE__TRIGGER:
+                return getTrigger ();
             case ComponentPackage.BUFFERED_VALUE__TRIGGER_ONLY:
                 return isTriggerOnly ();
         }
@@ -322,8 +468,11 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
+            case ComponentPackage.BUFFERED_VALUE__NAME:
+                setName ( (String)newValue );
+                return;
             case ComponentPackage.BUFFERED_VALUE__INPUT:
-                setInput ( (ItemReferenceInputDefinition)newValue );
+                setInput ( (InputDefinition)newValue );
                 return;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 setRange ( (Long)newValue );
@@ -333,6 +482,9 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
                 return;
             case ComponentPackage.BUFFERED_VALUE__PERSISTENCE:
                 setPersistence ( (Persistence)newValue );
+                return;
+            case ComponentPackage.BUFFERED_VALUE__TRIGGER:
+                setTrigger ( (Long)newValue );
                 return;
             case ComponentPackage.BUFFERED_VALUE__TRIGGER_ONLY:
                 setTriggerOnly ( (Boolean)newValue );
@@ -351,8 +503,11 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
+            case ComponentPackage.BUFFERED_VALUE__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
             case ComponentPackage.BUFFERED_VALUE__INPUT:
-                setInput ( (ItemReferenceInputDefinition)null );
+                setInput ( (InputDefinition)null );
                 return;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
                 setRange ( RANGE_EDEFAULT );
@@ -362,6 +517,9 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
                 return;
             case ComponentPackage.BUFFERED_VALUE__PERSISTENCE:
                 setPersistence ( PERSISTENCE_EDEFAULT );
+                return;
+            case ComponentPackage.BUFFERED_VALUE__TRIGGER:
+                setTrigger ( TRIGGER_EDEFAULT );
                 return;
             case ComponentPackage.BUFFERED_VALUE__TRIGGER_ONLY:
                 setTriggerOnly ( TRIGGER_ONLY_EDEFAULT );
@@ -380,6 +538,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
     {
         switch ( featureID )
         {
+            case ComponentPackage.BUFFERED_VALUE__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.BUFFERED_VALUE__INPUT:
                 return input != null;
             case ComponentPackage.BUFFERED_VALUE__RANGE:
@@ -388,6 +548,8 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
                 return INITIAL_VALUE_EDEFAULT == null ? initialValue != null : !INITIAL_VALUE_EDEFAULT.equals ( initialValue );
             case ComponentPackage.BUFFERED_VALUE__PERSISTENCE:
                 return persistence != PERSISTENCE_EDEFAULT;
+            case ComponentPackage.BUFFERED_VALUE__TRIGGER:
+                return trigger != TRIGGER_EDEFAULT;
             case ComponentPackage.BUFFERED_VALUE__TRIGGER_ONLY:
                 return triggerOnly != TRIGGER_ONLY_EDEFAULT;
         }
@@ -406,12 +568,16 @@ public class BufferedValueImpl extends MasterComponentImpl implements BufferedVa
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (range: " ); //$NON-NLS-1$
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ", range: " ); //$NON-NLS-1$
         result.append ( range );
         result.append ( ", initialValue: " ); //$NON-NLS-1$
         result.append ( initialValue );
         result.append ( ", persistence: " ); //$NON-NLS-1$
         result.append ( persistence );
+        result.append ( ", trigger: " ); //$NON-NLS-1$
+        result.append ( trigger );
         result.append ( ", triggerOnly: " ); //$NON-NLS-1$
         result.append ( triggerOnly );
         result.append ( ')' );

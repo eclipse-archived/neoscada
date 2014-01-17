@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -38,7 +39,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
 {
     /**
-     * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' reference.
+     * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getBuffer()
@@ -81,6 +82,14 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
             buffer = (BufferedValue)eResolveProxy ( oldBuffer );
             if ( buffer != oldBuffer )
             {
+                InternalEObject newBuffer = (InternalEObject)buffer;
+                NotificationChain msgs = oldBuffer.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, null );
+                if ( newBuffer.eInternalContainer () == null )
+                {
+                    msgs = newBuffer.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
                 if ( eNotificationRequired () )
                     eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, buffer ) );
             }
@@ -103,12 +112,57 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBuffer ( BufferedValue newBuffer )
+    public NotificationChain basicSetBuffer ( BufferedValue newBuffer, NotificationChain msgs )
     {
         BufferedValue oldBuffer = buffer;
         buffer = newBuffer;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, buffer ) );
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, newBuffer );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBuffer ( BufferedValue newBuffer )
+    {
+        if ( newBuffer != buffer )
+        {
+            NotificationChain msgs = null;
+            if ( buffer != null )
+                msgs = ( (InternalEObject)buffer ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
+            if ( newBuffer != null )
+                msgs = ( (InternalEObject)newBuffer ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
+            msgs = basicSetBuffer ( newBuffer, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, newBuffer, newBuffer ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ComponentPackage.CHANGE_COUNTER__BUFFER:
+                return basicSetBuffer ( null, msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
 
     /**
