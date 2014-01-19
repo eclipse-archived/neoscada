@@ -39,7 +39,7 @@ public class ChangeCounterGenerator extends DataComponentGenerator
     @Override
     public void createItems ( ItemCreator itemCreator )
     {
-        final CreationRequest<ChangeCounterItem> request = itemCreator.createChangeCounterItem (); // FIXME: implement parameters
+        final CreationRequest<ChangeCounterItem> request = itemCreator.createChangeCounterItem (this.changeCounter.getType (), this.changeCounter.getOnError (), this.changeCounter.getValues ()); // FIXME: implement parameters
         request.localTags ( this.changeCounter.getName () );
         request.customizationTags ( this.changeCounter.getCustomizationTags () );
         request.dataType ( DataType.INT64 );

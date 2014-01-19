@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.component;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -2936,7 +2935,7 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
 
     /**
-     * The feature id for the '<em><b>Buffer</b></em>' containment reference.
+     * The feature id for the '<em><b>Buffer</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -2945,13 +2944,40 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER__BUFFER = SINGLE_VALUE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__TYPE = SINGLE_VALUE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Values</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__VALUES = SINGLE_VALUE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>On Error</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__ON_ERROR = SINGLE_VALUE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Change Counter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHANGE_COUNTER_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 1;
+    int CHANGE_COUNTER_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 4;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -2972,16 +2998,6 @@ public interface ComponentPackage extends EPackage
     int CHANGE_COUNTER_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.component.Persistence
-     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getPersistence()
-     * @generated
-     */
-    int PERSISTENCE = 40;
-
-    /**
      * The meta object id for the '<em>Notification</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2989,7 +3005,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 41;
+    int NOTIFICATION = 40;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4263,10 +4279,10 @@ public interface ComponentPackage extends EPackage
     EClass getChangeCounter ();
 
     /**
-     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}'.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.component.ChangeCounter#getBuffer <em>Buffer</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference '<em>Buffer</em>'.
+     * @return the meta object for the reference '<em>Buffer</em>'.
      * @see org.eclipse.scada.configuration.component.ChangeCounter#getBuffer()
      * @see #getChangeCounter()
      * @generated
@@ -4274,14 +4290,37 @@ public interface ComponentPackage extends EPackage
     EReference getChangeCounter_Buffer ();
 
     /**
-     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}'.
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.ChangeCounter#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Persistence</em>'.
-     * @see org.eclipse.scada.configuration.component.Persistence
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.eclipse.scada.configuration.component.ChangeCounter#getType()
+     * @see #getChangeCounter()
      * @generated
      */
-    EEnum getPersistence ();
+    EAttribute getChangeCounter_Type ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.component.ChangeCounter#getValues <em>Values</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Values</em>'.
+     * @see org.eclipse.scada.configuration.component.ChangeCounter#getValues()
+     * @see #getChangeCounter()
+     * @generated
+     */
+    EAttribute getChangeCounter_Values ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.ChangeCounter#getOnError <em>On Error</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>On Error</em>'.
+     * @see org.eclipse.scada.configuration.component.ChangeCounter#getOnError()
+     * @see #getChangeCounter()
+     * @generated
+     */
+    EAttribute getChangeCounter_OnError ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
@@ -5359,7 +5398,7 @@ public interface ComponentPackage extends EPackage
         EClass CHANGE_COUNTER = eINSTANCE.getChangeCounter ();
 
         /**
-         * The meta object literal for the '<em><b>Buffer</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Buffer</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -5367,14 +5406,28 @@ public interface ComponentPackage extends EPackage
         EReference CHANGE_COUNTER__BUFFER = eINSTANCE.getChangeCounter_Buffer ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.Persistence <em>Persistence</em>}' enum.
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.component.Persistence
-         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getPersistence()
          * @generated
          */
-        EEnum PERSISTENCE = eINSTANCE.getPersistence ();
+        EAttribute CHANGE_COUNTER__TYPE = eINSTANCE.getChangeCounter_Type ();
+
+        /**
+         * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_COUNTER__VALUES = eINSTANCE.getChangeCounter_Values ();
+
+        /**
+         * The meta object literal for the '<em><b>On Error</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CHANGE_COUNTER__ON_ERROR = eINSTANCE.getChangeCounter_OnError ();
 
         /**
          * The meta object literal for the '<em>Notification</em>' data type.

@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -52,7 +51,6 @@ import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.MasterImportConnectionAnalyzer;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
-import org.eclipse.scada.configuration.component.Persistence;
 import org.eclipse.scada.configuration.component.PersistentValue;
 import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.Script;
@@ -353,13 +351,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass changeCounterEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EEnum persistenceEEnum = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1650,9 +1641,29 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getPersistence ()
+    public EAttribute getChangeCounter_Type ()
     {
-        return persistenceEEnum;
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeCounter_Values ()
+    {
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getChangeCounter_OnError ()
+    {
+        return (EAttribute)changeCounterEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -1856,9 +1867,9 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         changeCounterEClass = createEClass ( CHANGE_COUNTER );
         createEReference ( changeCounterEClass, CHANGE_COUNTER__BUFFER );
-
-        // Create enums
-        persistenceEEnum = createEEnum ( PERSISTENCE );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__TYPE );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__VALUES );
+        createEAttribute ( changeCounterEClass, CHANGE_COUNTER__ON_ERROR );
 
         // Create data types
         notificationEDataType = createEDataType ( NOTIFICATION );
@@ -2102,18 +2113,15 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getBufferedValue_Input (), this.getInputDefinition (), null, "input", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_Range (), ecorePackage.getELong (), "range", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_InitialValue (), theOsgiPackage.getVariant (), "initialValue", null, 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getBufferedValue_Persistence (), this.getPersistence (), "persistence", "NONE", 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getBufferedValue_Persistence (), theOsgiPackage.getPersistence (), "persistence", "NONE", 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getBufferedValue_Trigger (), ecorePackage.getELong (), "trigger", null, 1, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getBufferedValue_TriggerOnly (), ecorePackage.getEBoolean (), "triggerOnly", "false", 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( changeCounterEClass, ChangeCounter.class, "ChangeCounter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getChangeCounter_Buffer (), this.getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-
-        // Initialize enums and add enum literals
-        initEEnum ( persistenceEEnum, Persistence.class, "Persistence" ); //$NON-NLS-1$
-        addEEnumLiteral ( persistenceEEnum, Persistence.NONE );
-        addEEnumLiteral ( persistenceEEnum, Persistence.LAZY );
-        addEEnumLiteral ( persistenceEEnum, Persistence.REQUIRED );
+        initEReference ( getChangeCounter_Buffer (), this.getBufferedValue (), null, "buffer", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChangeCounter_Type (), theOsgiPackage.getChangeType (), "type", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChangeCounter_Values (), theOsgiPackage.getVariant (), "values", null, 1, -1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChangeCounter_OnError (), theOsgiPackage.getErrorHandling (), "onError", null, 0, 1, ChangeCounter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( notificationEDataType, Notification.class, "Notification", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

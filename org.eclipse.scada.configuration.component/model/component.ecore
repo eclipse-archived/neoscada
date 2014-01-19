@@ -244,19 +244,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="persistence" lowerBound="1"
-        eType="#//Persistence" defaultValueLiteral="NONE"/>
+        eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Persistence"
+        defaultValueLiteral="NONE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="trigger" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Persistence">
-    <eLiterals name="NONE" literal="NONE"/>
-    <eLiterals name="LAZY" value="1" literal="LAZY"/>
-    <eLiterals name="REQUIRED" value="2" literal="REQUIRED"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ChangeCounter" eSuperTypes="#//SingleValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//BufferedValue"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buffer" eType="#//BufferedValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ChangeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Variant"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onError" eType="ecore:EEnum ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/ErrorHandling"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -11,6 +11,7 @@
  */
 package org.eclipse.scada.configuration.component;
 
+import org.eclipse.scada.configuration.world.osgi.Persistence;
 import org.eclipse.scada.core.Variant;
 
 /**
@@ -144,7 +145,7 @@ public interface BufferedValue extends MasterComponent
     /**
      * Returns the value of the '<em><b>Persistence</b></em>' attribute.
      * The default value is <code>"NONE"</code>.
-     * The literals are from the enumeration {@link org.eclipse.scada.configuration.component.Persistence}.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.osgi.Persistence}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Persistence</em>' attribute isn't clear,
@@ -152,7 +153,7 @@ public interface BufferedValue extends MasterComponent
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Persistence</em>' attribute.
-     * @see org.eclipse.scada.configuration.component.Persistence
+     * @see org.eclipse.scada.configuration.world.osgi.Persistence
      * @see #setPersistence(Persistence)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getBufferedValue_Persistence()
      * @model default="NONE" required="true"
@@ -165,7 +166,7 @@ public interface BufferedValue extends MasterComponent
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Persistence</em>' attribute.
-     * @see org.eclipse.scada.configuration.component.Persistence
+     * @see org.eclipse.scada.configuration.world.osgi.Persistence
      * @see #getPersistence()
      * @generated
      */

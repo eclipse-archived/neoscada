@@ -11,17 +11,19 @@
  */
 package org.eclipse.scada.configuration.component.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.scada.configuration.component.BufferedValue;
 import org.eclipse.scada.configuration.component.ChangeCounter;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.world.osgi.ChangeType;
+import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
+import org.eclipse.scada.core.Variant;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +33,9 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getBuffer <em>Buffer</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ChangeCounterImpl#getOnError <em>On Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,7 +44,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
 {
     /**
-     * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' containment reference.
+     * The cached value of the '{@link #getBuffer() <em>Buffer</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getBuffer()
@@ -47,6 +52,56 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * @ordered
      */
     protected BufferedValue buffer;
+
+    /**
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected static final ChangeType TYPE_EDEFAULT = ChangeType.DELTA;
+
+    /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected ChangeType type = TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getValues()
+     * @generated
+     * @ordered
+     */
+    protected EList<Variant> values;
+
+    /**
+     * The default value of the '{@link #getOnError() <em>On Error</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnError()
+     * @generated
+     * @ordered
+     */
+    protected static final ErrorHandling ON_ERROR_EDEFAULT = ErrorHandling.IGNORE;
+
+    /**
+     * The cached value of the '{@link #getOnError() <em>On Error</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getOnError()
+     * @generated
+     * @ordered
+     */
+    protected ErrorHandling onError = ON_ERROR_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -82,14 +137,6 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
             buffer = (BufferedValue)eResolveProxy ( oldBuffer );
             if ( buffer != oldBuffer )
             {
-                InternalEObject newBuffer = (InternalEObject)buffer;
-                NotificationChain msgs = oldBuffer.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, null );
-                if ( newBuffer.eInternalContainer () == null )
-                {
-                    msgs = newBuffer.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
-                }
-                if ( msgs != null )
-                    msgs.dispatch ();
                 if ( eNotificationRequired () )
                     eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, buffer ) );
             }
@@ -112,19 +159,12 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetBuffer ( BufferedValue newBuffer, NotificationChain msgs )
+    public void setBuffer ( BufferedValue newBuffer )
     {
         BufferedValue oldBuffer = buffer;
         buffer = newBuffer;
         if ( eNotificationRequired () )
-        {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, newBuffer );
-            if ( msgs == null )
-                msgs = notification;
-            else
-                msgs.add ( notification );
-        }
-        return msgs;
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, oldBuffer, buffer ) );
     }
 
     /**
@@ -132,21 +172,9 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBuffer ( BufferedValue newBuffer )
+    public ChangeType getType ()
     {
-        if ( newBuffer != buffer )
-        {
-            NotificationChain msgs = null;
-            if ( buffer != null )
-                msgs = ( (InternalEObject)buffer ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
-            if ( newBuffer != null )
-                msgs = ( (InternalEObject)newBuffer ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.CHANGE_COUNTER__BUFFER, null, msgs );
-            msgs = basicSetBuffer ( newBuffer, msgs );
-            if ( msgs != null )
-                msgs.dispatch ();
-        }
-        else if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__BUFFER, newBuffer, newBuffer ) );
+        return type;
     }
 
     /**
@@ -154,15 +182,49 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public void setType ( ChangeType newType )
     {
-        switch ( featureID )
+        ChangeType oldType = type;
+        type = newType == null ? TYPE_EDEFAULT : newType;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__TYPE, oldType, type ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Variant> getValues ()
+    {
+        if ( values == null )
         {
-            case ComponentPackage.CHANGE_COUNTER__BUFFER:
-                return basicSetBuffer ( null, msgs );
+            values = new EDataTypeUniqueEList<Variant> ( Variant.class, this, ComponentPackage.CHANGE_COUNTER__VALUES );
         }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
+        return values;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ErrorHandling getOnError ()
+    {
+        return onError;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setOnError ( ErrorHandling newOnError )
+    {
+        ErrorHandling oldOnError = onError;
+        onError = newOnError == null ? ON_ERROR_EDEFAULT : newOnError;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.CHANGE_COUNTER__ON_ERROR, oldOnError, onError ) );
     }
 
     /**
@@ -179,6 +241,12 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
                 if ( resolve )
                     return getBuffer ();
                 return basicGetBuffer ();
+            case ComponentPackage.CHANGE_COUNTER__TYPE:
+                return getType ();
+            case ComponentPackage.CHANGE_COUNTER__VALUES:
+                return getValues ();
+            case ComponentPackage.CHANGE_COUNTER__ON_ERROR:
+                return getOnError ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -188,6 +256,7 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -195,6 +264,16 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
         {
             case ComponentPackage.CHANGE_COUNTER__BUFFER:
                 setBuffer ( (BufferedValue)newValue );
+                return;
+            case ComponentPackage.CHANGE_COUNTER__TYPE:
+                setType ( (ChangeType)newValue );
+                return;
+            case ComponentPackage.CHANGE_COUNTER__VALUES:
+                getValues ().clear ();
+                getValues ().addAll ( (Collection<? extends Variant>)newValue );
+                return;
+            case ComponentPackage.CHANGE_COUNTER__ON_ERROR:
+                setOnError ( (ErrorHandling)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -213,6 +292,15 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
             case ComponentPackage.CHANGE_COUNTER__BUFFER:
                 setBuffer ( (BufferedValue)null );
                 return;
+            case ComponentPackage.CHANGE_COUNTER__TYPE:
+                setType ( TYPE_EDEFAULT );
+                return;
+            case ComponentPackage.CHANGE_COUNTER__VALUES:
+                getValues ().clear ();
+                return;
+            case ComponentPackage.CHANGE_COUNTER__ON_ERROR:
+                setOnError ( ON_ERROR_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -229,8 +317,36 @@ public class ChangeCounterImpl extends SingleValueImpl implements ChangeCounter
         {
             case ComponentPackage.CHANGE_COUNTER__BUFFER:
                 return buffer != null;
+            case ComponentPackage.CHANGE_COUNTER__TYPE:
+                return type != TYPE_EDEFAULT;
+            case ComponentPackage.CHANGE_COUNTER__VALUES:
+                return values != null && !values.isEmpty ();
+            case ComponentPackage.CHANGE_COUNTER__ON_ERROR:
+                return onError != ON_ERROR_EDEFAULT;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (type: " ); //$NON-NLS-1$
+        result.append ( type );
+        result.append ( ", values: " ); //$NON-NLS-1$
+        result.append ( values );
+        result.append ( ", onError: " ); //$NON-NLS-1$
+        result.append ( onError );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ChangeCounterImpl

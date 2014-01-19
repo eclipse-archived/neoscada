@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.scada.configuration.component.BufferedValue;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.InputDefinition;
-import org.eclipse.scada.configuration.component.Persistence;
+import org.eclipse.scada.configuration.world.osgi.Persistence;
 import org.eclipse.scada.core.Variant;
 
 /**

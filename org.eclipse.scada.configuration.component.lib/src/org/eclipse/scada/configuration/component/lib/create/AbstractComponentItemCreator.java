@@ -28,13 +28,16 @@ import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
+import org.eclipse.scada.configuration.world.osgi.ChangeType;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
+import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 import org.eclipse.scada.configuration.world.osgi.TransientItem;
+import org.eclipse.scada.core.Variant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,11 +83,12 @@ public abstract class AbstractComponentItemCreator extends AbstractItemCreator
     }
 
     @Override
-    public CreationRequest<ChangeCounterItem> createChangeCounterItem ()
+    public CreationRequest<ChangeCounterItem> createChangeCounterItem (ChangeType changeType, ErrorHandling errorHandling, List<Variant> values)
     {
         final ChangeCounterItem item = OsgiFactory.eINSTANCE.createChangeCounterItem ();
-        // item.setOnError ( ErrorHandling. );
-        // FIXME: implement parameters
+        item.setOnError ( errorHandling );
+        item.setType ( changeType );
+        item.getValues ().addAll ( values );
         return addItem ( item );
     }
 

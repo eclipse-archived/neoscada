@@ -10,18 +10,24 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.lib.create;
 
+import java.util.List;
+
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.item.CustomizationRequest;
 import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
+import org.eclipse.scada.configuration.world.osgi.ChangeType;
 import org.eclipse.scada.configuration.world.osgi.ConstantItem;
+import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.PersistentItem;
 import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
 import org.eclipse.scada.configuration.world.osgi.TransientItem;
+import org.eclipse.scada.core.Variant;
 
 public interface ItemCreator
 {
@@ -33,7 +39,7 @@ public interface ItemCreator
 
     public abstract CreationRequest<ConstantItem> createConstantItem ( String value );
 
-    public abstract CreationRequest<ChangeCounterItem> createChangeCounterItem ();
+    public abstract CreationRequest<ChangeCounterItem> createChangeCounterItem (ChangeType changeType, ErrorHandling errorHandling, List<Variant> values);
 
     public abstract CreationRequest<ReferenceItem> createReferenceItem ( Item item );
 
