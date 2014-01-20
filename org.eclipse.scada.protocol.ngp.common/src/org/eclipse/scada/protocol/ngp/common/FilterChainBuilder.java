@@ -109,7 +109,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
         public Entry ( final String name )
         {
-            this ( name, new MarkerFactory () );
+            this ( name + ".marker", new MarkerFactory () );
         }
 
         public Entry ( final String name, final IoFilterFactory factory )
@@ -145,15 +145,15 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
         this.filters.add ( new Entry ( "logger.raw", new LoggerFactory () ) );
 
-        this.filters.add ( new Entry ( "ssl.marker" ) );
-        this.filters.add ( new Entry ( "streamCompression.marker" ) );
+        this.filters.add ( new Entry ( "ssl" ) );
+        this.filters.add ( new Entry ( "streamCompression" ) );
 
         this.filters.add ( new Entry ( "logger", new LoggerFactory () ) );
 
         this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ) ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
 
-        this.filters.add ( new Entry ( "keepalive.marker" ) );
+        this.filters.add ( new Entry ( "keepalive" ) );
 
         this.filters.add ( new Entry ( "messageChannelCodec", new MessageChannelCodecFilter () ) );
         this.filters.add ( new Entry ( "messageChannel", new IoFilterFactoryAdapter () {
