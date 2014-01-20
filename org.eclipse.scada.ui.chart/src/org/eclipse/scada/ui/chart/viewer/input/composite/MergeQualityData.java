@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,15 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
-/*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix alignment issue 
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input.composite;
 
@@ -134,17 +126,20 @@ public class MergeQualityData
                 continue;
             }
 
-            for ( final DataEntry entry : viewData.getEntries () )
+            for ( final DataEntry entry : entries )
             {
                 if ( entry.getTimestamp () < this.startTimestamp || entry.getTimestamp () >= this.endTimestamp )
                 {
                     continue;
                 }
 
-                final int idx = (int) ( ( entry.getTimestamp () - this.startTimestamp ) / step );
+                final int idx = (int)Math.ceil ( ( entry.getTimestamp () - this.startTimestamp ) / step );
+                logger.trace ( "ts: {}, start: {}, step: {} => {}", entry.getTimestamp (), this.startTimestamp, step, ( entry.getTimestamp () - this.startTimestamp ) / step );
 
                 // if we have no quality value, it is zero
                 final double q = entry.getValue () == null ? 0.0 : entry.getValue ();
+
+                logger.trace ( "merged quality [{}]: {}", idx, q );
 
                 if ( data[idx].value == null )
                 {
