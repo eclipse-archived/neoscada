@@ -87,12 +87,24 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
     private final class LoggerFactory extends IoFilterFactoryAdapter
     {
+        private final String suffix;
+
+        public LoggerFactory ()
+        {
+            this ( null );
+        }
+
+        public LoggerFactory ( final String suffix )
+        {
+            this.suffix = suffix;
+        }
+
         @Override
         public IoFilter create ()
         {
             if ( FilterChainBuilder.this.loggerName != null && Boolean.getBoolean ( "org.eclipse.scada.protocol.ngp.common.logger" ) )
             {
-                return new LoggingFilter ( FilterChainBuilder.this.loggerName );
+                return new LoggingFilter ( this.suffix != null ? FilterChainBuilder.this.loggerName + "." + this.suffix : FilterChainBuilder.this.loggerName );
             }
             else
             {
@@ -143,7 +155,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
             this.filters.add ( new Entry ( StatisticsFilter.DEFAULT_NAME, new StatisticsFilter () ) );
         }
 
-        this.filters.add ( new Entry ( "logger.raw", new LoggerFactory () ) );
+        this.filters.add ( new Entry ( "logger.raw", new LoggerFactory ( "raw" ) ) );
 
         this.filters.add ( new Entry ( "ssl" ) );
         this.filters.add ( new Entry ( "streamCompression" ) );
