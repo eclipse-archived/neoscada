@@ -21,6 +21,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.apache.mina.core.filterchain.IoFilter;
 import org.apache.mina.core.filterchain.IoFilterChain;
+import org.apache.mina.core.session.IoEventType;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.executor.ExecutorFilter;
 import org.apache.mina.filter.logging.LoggingFilter;
@@ -162,7 +163,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 
         this.filters.add ( new Entry ( "logger", new LoggerFactory () ) );
 
-        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ) ) ) );
+        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ), IoEventType.WRITE ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
 
         this.filters.add ( new Entry ( "keepalive" ) );
