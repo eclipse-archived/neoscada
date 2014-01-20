@@ -22,8 +22,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.apache.mina.core.filterchain.IoFilter;
 import org.apache.mina.core.filterchain.IoFilterChain;
 import org.apache.mina.core.session.IoEventType;
+import org.apache.mina.core.session.IoSession;
+import org.apache.mina.core.write.WriteRequest;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.executor.ExecutorFilter;
+import org.apache.mina.filter.logging.LogLevel;
 import org.apache.mina.filter.logging.LoggingFilter;
 import org.apache.mina.filter.util.NoopFilter;
 import org.eclipse.scada.protocol.common.IoLoggerFilterChainBuilder;
@@ -33,9 +36,12 @@ import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelFilter;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.FrameDecoder;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.FrameEncoder;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FilterChainBuilder implements IoLoggerFilterChainBuilder
 {
+
     private static AtomicLong THREAD_COUNTER = new AtomicLong ();
 
     private String loggerName;
@@ -86,11 +92,65 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
         }
     }
 
-    private final class LoggerFactory extends IoFilterFactoryAdapter
+    private static class LoggingFilterExtension extends LoggingFilter
     {
+        private final Logger logger;
+
+        private final LogLevel filterWriteLevel = LogLevel.INFO;
+
+        private final LogLevel filterCloseLevel = LogLevel.INFO;
+
+        private LoggingFilterExtension ( final String name )
+        {
+            super ( name );
+            this.logger = LoggerFactory.getLogger ( name );
+        }
+
+        protected void log ( final LogLevel level, final String message, final Object... args )
+        {
+            switch ( level )
+            {
+                case DEBUG:
+                    this.logger.debug ( message, args );
+                    break;
+                case INFO:
+                    this.logger.info ( message, args );
+                    break;
+                case WARN:
+                    this.logger.warn ( message, args );
+                    break;
+                case ERROR:
+                    this.logger.error ( message, args );
+                    break;
+                case TRACE:
+                    this.logger.trace ( message, args );
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        @Override
+        public void filterWrite ( final NextFilter nextFilter, final IoSession session, final WriteRequest writeRequest ) throws Exception
+        {
+            log ( this.filterWriteLevel, "WRITE: {}", writeRequest.getMessage () );
+            nextFilter.filterWrite ( session, writeRequest );
+        }
+
+        @Override
+        public void filterClose ( final NextFilter nextFilter, final IoSession session ) throws Exception
+        {
+            log ( this.filterCloseLevel, "CLOSE" );
+            nextFilter.filterClose ( session );
+        }
+    }
+
+    private final class LoggerFilterFactory extends IoFilterFactoryAdapter
+    {
+
         private final String suffix;
 
-        public LoggerFactory ( final String suffix )
+        public LoggerFilterFactory ( final String suffix )
         {
             this.suffix = suffix;
         }
@@ -100,7 +160,7 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
         {
             if ( FilterChainBuilder.this.loggerName != null && Boolean.getBoolean ( "org.eclipse.scada.protocol.ngp.common.logger" ) )
             {
-                return new LoggingFilter ( this.suffix != null ? FilterChainBuilder.this.loggerName + "." + this.suffix : FilterChainBuilder.this.loggerName );
+                return new LoggingFilterExtension ( this.suffix != null ? FilterChainBuilder.this.loggerName + "." + this.suffix : FilterChainBuilder.this.loggerName );
             }
             else
             {
@@ -151,12 +211,12 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
             this.filters.add ( new Entry ( StatisticsFilter.DEFAULT_NAME, new StatisticsFilter () ) );
         }
 
-        this.filters.add ( new Entry ( "logger.raw", new LoggerFactory ( "raw" ) ) );
+        this.filters.add ( new Entry ( "logger.raw", new LoggerFilterFactory ( "raw" ) ) );
 
         this.filters.add ( new Entry ( "ssl" ) );
         this.filters.add ( new Entry ( "streamCompression" ) );
 
-        this.filters.add ( new Entry ( "logger", new LoggerFactory ( "pre" ) ) );
+        this.filters.add ( new Entry ( "logger", new LoggerFilterFactory ( "pre" ) ) );
 
         this.filters.add ( new Entry ( "sync", new ExecutorFilter ( Integer.getInteger ( "org.eclipse.scada.protocol.ngp.common.coreSessionThreads", 0 ), Integer.getInteger ( "org.eclipse.scada.protocol.ngp.common.maxSessionThreads", 1 ), 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ), IoEventType.WRITE ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
