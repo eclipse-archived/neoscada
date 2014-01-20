@@ -15,7 +15,7 @@ import org.apache.mina.filter.keepalive.KeepAliveMessageFactory;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.Frame;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.Frame.FrameType;
 
-public class MessageChannelKeepAliceFactory implements KeepAliveMessageFactory
+public class MessageChannelKeepAliveFactory implements KeepAliveMessageFactory
 {
     @Override
     public boolean isResponse ( final IoSession session, final Object message )
