@@ -90,11 +90,6 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
     {
         private final String suffix;
 
-        public LoggerFactory ()
-        {
-            this ( null );
-        }
-
         public LoggerFactory ( final String suffix )
         {
             this.suffix = suffix;
@@ -161,9 +156,9 @@ public class FilterChainBuilder implements IoLoggerFilterChainBuilder
         this.filters.add ( new Entry ( "ssl" ) );
         this.filters.add ( new Entry ( "streamCompression" ) );
 
-        this.filters.add ( new Entry ( "logger", new LoggerFactory () ) );
+        this.filters.add ( new Entry ( "logger", new LoggerFactory ( "pre" ) ) );
 
-        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( 0, 1, 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ), IoEventType.WRITE ) ) );
+        this.filters.add ( new Entry ( "sync", new ExecutorFilter ( Integer.getInteger ( "org.eclipse.scada.protocol.ngp.common.coreSessionThreads", 0 ), Integer.getInteger ( "org.eclipse.scada.protocol.ngp.common.maxSessionThreads", 1 ), 1, TimeUnit.MINUTES, new NamedThreadFactory ( "org.eclipse.scada.protocol.ngp.common.FilterChainSync", false, true, THREAD_COUNTER ), IoEventType.WRITE ) ) );
         this.filters.add ( new Entry ( "frameCodec", new ProtocolCodecFilter ( new FrameEncoder (), new FrameDecoder () ) ) );
 
         this.filters.add ( new Entry ( "keepalive" ) );
