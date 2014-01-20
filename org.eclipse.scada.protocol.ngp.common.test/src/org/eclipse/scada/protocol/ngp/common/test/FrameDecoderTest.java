@@ -10,12 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.ngp.common.test;
 
-import java.io.IOException;
 import java.net.SocketAddress;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.LinkedList;
-import java.util.List;
 
 import org.apache.mina.core.buffer.IoBuffer;
 import org.apache.mina.core.service.DefaultTransportMetadata;
@@ -24,10 +19,8 @@ import org.apache.mina.core.session.IoSessionConfig;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.Frame;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.Frame.FrameType;
 import org.eclipse.scada.protocol.ngp.common.mc.frame.FrameDecoder;
+import org.eclipse.scada.protocol.utils.BufferLoader;
 import org.junit.Test;
-
-import com.google.common.io.LineProcessor;
-import com.google.common.io.Resources;
 
 public class FrameDecoderTest
 {
@@ -95,79 +88,12 @@ public class FrameDecoderTest
 
         session.setTransportMetadata ( new DefaultTransportMetadata ( "eclipse.scada", "test", false, true, SocketAddress.class, IoSessionConfig.class, Object.class ) );
 
-        for ( final IoBuffer data : loadBuffer ( resourceName ) )
+        for ( final IoBuffer data : BufferLoader.loadBuffersFromResource ( FrameDecoderTest.class, resourceName ) )
         {
             System.out.println ( "Pushing data packet - " + data.getHexDump () );
             decoder.decode ( session, data, out );
         }
 
         out.assertMessages ( expectedFrames );
-    }
-
-    private static List<IoBuffer> loadBuffer ( final String string ) throws IOException
-    {
-        System.out.println ( "Loading buffer - " + string );
-
-        final URL url = Resources.getResource ( FrameDecoderTest.class, string );
-
-        return Resources.readLines ( url, Charset.forName ( "UTF-8" ), new LineProcessor<List<IoBuffer>> () {
-
-            private final List<IoBuffer> result = new LinkedList<> ();
-
-            private IoBuffer buffer = null;
-
-            protected void pushBuffer ()
-            {
-                if ( this.buffer == null )
-                {
-                    return;
-                }
-
-                this.buffer.flip ();
-                this.result.add ( this.buffer );
-
-                this.buffer = null;
-            }
-
-            @Override
-            public boolean processLine ( String line ) throws IOException
-            {
-                line = line.replaceAll ( "#.*", "" ); // clear comments
-
-                if ( line.isEmpty () )
-                {
-                    pushBuffer ();
-                    return true;
-                }
-
-                final String[] toks = line.split ( "\\s+" );
-
-                if ( toks.length <= 0 )
-                {
-                    pushBuffer ();
-                    return true;
-                }
-
-                if ( this.buffer == null )
-                {
-                    // start a new buffer
-                    this.buffer = IoBuffer.allocate ( 0 );
-                    this.buffer.setAutoExpand ( true );
-                }
-
-                for ( final String tok : toks )
-                {
-                    this.buffer.put ( Byte.parseByte ( tok, 16 ) );
-                }
-                return true;
-            }
-
-            @Override
-            public List<IoBuffer> getResult ()
-            {
-                pushBuffer (); // last chance to add something
-                return this.result;
-            }
-        } );
     }
 }

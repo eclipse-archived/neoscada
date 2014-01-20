@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Protocol Utilities
+Bundle-SymbolicName: org.eclipse.scada.protocol.utils
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: com.google.common.io;version="12.0.0",
+ org.apache.mina.core.buffer;version="2.0.2",
+ org.slf4j;version="1.6.0"
+Export-Package: org.eclipse.scada.protocol.utils;version="0.1.0"
