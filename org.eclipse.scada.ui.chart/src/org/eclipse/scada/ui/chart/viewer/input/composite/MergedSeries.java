@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,15 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
-/*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix initialization issue
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input.composite;
 
@@ -42,6 +34,8 @@ public class MergedSeries extends WritableSeries
     {
         super ( realm, xAxis, yAxis );
         this.sources = sources;
+        this.startTimestamp = xAxis.getMin ();
+        this.endTimestamp = xAxis.getMax ();
     }
 
     @Override

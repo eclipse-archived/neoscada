@@ -57,6 +57,7 @@ public class MergeQualityData
 
         if ( this.width <= 0 || this.startTimestamp >= this.endTimestamp )
         {
+            logger.debug ( "Skip merge - width: {}, start: {}, end: {}", this.width, this.startTimestamp, this.endTimestamp );
             return;
         }
 
