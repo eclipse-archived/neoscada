@@ -25,7 +25,7 @@ import org.apache.mina.filter.keepalive.KeepAliveRequestTimeoutHandler;
 import org.apache.mina.filter.ssl.SslContextFactory;
 import org.apache.mina.filter.ssl.SslFilter;
 import org.apache.mina.filter.util.NoopFilter;
-import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelKeepAliceFactory;
+import org.eclipse.scada.protocol.ngp.common.mc.MessageChannelKeepAliveFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -75,7 +75,7 @@ public class ChainConfigurator
     {
         final int pingInterval = (int)Math.ceil ( (double)timeout / (double)pingFrequency );
         logger.info ( "Starting keep alive - frequency: {}, timeout: {} seconds, ping interval: {} seconds", new Object[] { pingFrequency, timeout, pingInterval } );
-        replaceMarker ( "keepalive", new KeepAliveFilter ( new MessageChannelKeepAliceFactory (), IdleStatus.READER_IDLE, KeepAliveRequestTimeoutHandler.CLOSE, pingInterval, timeout ) );
+        replaceMarker ( "keepalive", new KeepAliveFilter ( new MessageChannelKeepAliveFactory (), IdleStatus.READER_IDLE, KeepAliveRequestTimeoutHandler.CLOSE, pingInterval, timeout ) );
     }
 
     public void startSsl ( final boolean startInactive, final boolean clientMode ) throws Exception
