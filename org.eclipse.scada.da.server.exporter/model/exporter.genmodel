@@ -9,8 +9,7 @@
     importOrganizing="true">
   <foreignModel>exporter.xsd</foreignModel>
   <genPackages prefix="Exporter" basePackage="org.eclipse.scada.da.server" resource="XML"
-      disposableProviderFactory="true" contentTypeIdentifier="org.eclipse.scada.da.server.exporter"
-      fileExtensions="xml" ecorePackage="exporter.ecore#/">
+      disposableProviderFactory="true" fileExtensions="xml" ecorePackage="exporter.ecore#/">
     <genClasses ecoreClass="exporter.ecore#//AnnouncerType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute exporter.ecore#//AnnouncerType/class"/>
     </genClasses>

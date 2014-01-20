@@ -14,25 +14,11 @@
             genModel="model/exporter.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.content_parser">
+   <extension point="org.eclipse.emf.ecore.extension_parser">
       <!-- @generated exporter -->
       <parser
-            contentTypeIdentifier="org.eclipse.scada.da.server.exporter"
+            type="xml"
             class="org.eclipse.scada.da.server.exporter.util.ExporterResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.core.contenttype.contentTypes">
-      <!-- @generated exporter -->
-      <content-type
-            base-type="org.eclipse.core.runtime.xml"
-            file-extensions="xml"
-            id="org.eclipse.scada.da.server.exporter"
-            name="%_UI_Exporter_content_type"
-            priority="normal">
-         <describer class="org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl$Describer">
-            <parameter name="namespace" value="http://eclipse.org/SCADA/DA/Server/Exporter"/>
-         </describer>
-      </content-type>
    </extension>
 
    <extension
