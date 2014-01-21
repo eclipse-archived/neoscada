@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -12,29 +12,34 @@ package org.eclipse.scada.configuration.world.osgi;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.Credentials;
-import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Connection</b></em>'.
  * <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpoint <em>Endpoint</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpointLabel <em>Endpoint Label</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getCredentials <em>Credentials</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getTimeout <em>Timeout</em>}</li>
+ * <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpoint
+ * <em>Endpoint</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpointLabel
+ * <em>Endpoint Label</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.osgi.Connection#getCredentials
+ * <em>Credentials</em>}</li>
+ * <li>{@link org.eclipse.scada.configuration.world.osgi.Connection#getTimeout
+ * <em>Timeout</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection()
  * @model abstract="true"
  * @generated
  */
-public interface Connection extends Documentable
+public interface Connection extends NamedDocumentable
 {
     /**
      * Returns the value of the '<em><b>Endpoint</b></em>' reference.
@@ -44,6 +49,7 @@ public interface Connection extends Documentable
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Endpoint</em>' reference.
      * @see #setEndpoint(Endpoint)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection_Endpoint()
@@ -53,10 +59,14 @@ public interface Connection extends Documentable
     Endpoint getEndpoint ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpoint <em>Endpoint</em>}' reference.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.configuration.world.osgi.Connection#getEndpoint
+     * <em>Endpoint</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Endpoint</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Endpoint</em>' reference.
      * @see #getEndpoint()
      * @generated
      */
@@ -70,6 +80,7 @@ public interface Connection extends Documentable
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Endpoint Label</em>' attribute.
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection_EndpointLabel()
      * @model transient="true" changeable="false" volatile="true" derived="true"
@@ -78,13 +89,15 @@ public interface Connection extends Documentable
     String getEndpointLabel ();
 
     /**
-     * Returns the value of the '<em><b>Credentials</b></em>' containment reference.
+     * Returns the value of the '<em><b>Credentials</b></em>' containment
+     * reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Credentials</em>' reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Credentials</em>' containment reference.
      * @see #setCredentials(Credentials)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection_Credentials()
@@ -94,10 +107,15 @@ public interface Connection extends Documentable
     Credentials getCredentials ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getCredentials <em>Credentials</em>}' containment reference.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.configuration.world.osgi.Connection#getCredentials
+     * <em>Credentials</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Credentials</em>' containment reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Credentials</em>' containment
+     *            reference.
      * @see #getCredentials()
      * @generated
      */
@@ -111,6 +129,7 @@ public interface Connection extends Documentable
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Timeout</em>' attribute.
      * @see #setTimeout(Integer)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getConnection_Timeout()
@@ -120,10 +139,14 @@ public interface Connection extends Documentable
     Integer getTimeout ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.Connection#getTimeout <em>Timeout</em>}' attribute.
+     * Sets the value of the '
+     * {@link org.eclipse.scada.configuration.world.osgi.Connection#getTimeout
+     * <em>Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Timeout</em>' attribute.
+     * 
+     * @param value
+     *            the new value of the '<em>Timeout</em>' attribute.
      * @see #getTimeout()
      * @generated
      */
@@ -132,6 +155,7 @@ public interface Connection extends Documentable
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @model kind="operation" required="true"
      * @generated
      */
@@ -140,6 +164,7 @@ public interface Connection extends Documentable
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @model
      * @generated
      */
@@ -148,6 +173,7 @@ public interface Connection extends Documentable
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @model required="true"
      * @generated
      */
@@ -156,6 +182,7 @@ public interface Connection extends Documentable
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @model
      * @generated
      */

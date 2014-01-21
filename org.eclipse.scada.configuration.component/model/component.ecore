@@ -28,7 +28,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="level" eType="#//Level"
         eOpposite="#//Level/components"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customizationPipeline"
@@ -74,7 +74,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//MasterComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" lowerBound="1"
         eType="#//DataMapperService"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
@@ -82,7 +82,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//MasterComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
         eType="#//CalculationModule"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
@@ -138,7 +138,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="localTag" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FormulaModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//CalculationModule">
+  <eClassifiers xsi:type="ecore:EClass" name="FormulaModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//CalculationModule">
     <eOperations name="getKnownInputs" upperBound="-1" eType="#//InputSpecification">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="return getInputs ();"/>
@@ -167,7 +167,7 @@
       eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/Item"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ScriptModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//CalculationModule">
+  <eClassifiers xsi:type="ecore:EClass" name="ScriptModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//CalculationModule">
     <eOperations name="getKnownInputs" upperBound="-1" eType="#//InputSpecification">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="body" value="return getInputs ();"/>
@@ -224,7 +224,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable #//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//DataComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//DataComponent">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>

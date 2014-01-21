@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -56,6 +56,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class InfrastructurePackageImpl extends EPackageImpl implements InfrastructurePackage
@@ -63,6 +64,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass worldEClass = null;
@@ -70,6 +72,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass nodeEClass = null;
@@ -77,6 +80,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass masterServerEClass = null;
@@ -84,6 +88,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass masterImportEClass = null;
@@ -91,6 +96,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass optionsEClass = null;
@@ -98,6 +104,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass equinoxApplicationEClass = null;
@@ -105,6 +112,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass commonDriverEClass = null;
@@ -112,6 +120,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass externalNodeEClass = null;
@@ -119,6 +128,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass systemNodeEClass = null;
@@ -126,6 +136,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass systemPropertyUserServiceEClass = null;
@@ -133,6 +144,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass userEntryEClass = null;
@@ -140,6 +152,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass userServiceEClass = null;
@@ -147,6 +160,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass jdbcUserServiceEClass = null;
@@ -154,6 +168,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass valueArchiveServerEClass = null;
@@ -161,6 +176,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass abstractFactoryDriverEClass = null;
@@ -168,6 +184,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass deviceEClass = null;
@@ -175,6 +192,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass equinoxDriverEClass = null;
@@ -182,6 +200,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass externalDriverEClass = null;
@@ -189,6 +208,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass driverEClass = null;
@@ -196,6 +216,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass externalDriverPlaceholderEClass = null;
@@ -203,6 +224,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass applicationConfigurationEClass = null;
@@ -210,6 +232,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass configurationsEClass = null;
@@ -217,6 +240,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass moduleEClass = null;
@@ -224,6 +248,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass httpServiceModuleEClass = null;
@@ -231,6 +256,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass restExporterModuleEClass = null;
@@ -238,6 +264,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass valueArchiveSlaveEClass = null;
@@ -245,6 +272,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EEnum slaveStorageLayoutEEnum = null;
@@ -273,6 +301,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -294,10 +323,12 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     public static InfrastructurePackage init ()
     {
         if ( isInited )
+        {
             return (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
+        }
 
         // Obtain or create and register package
-        InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new InfrastructurePackageImpl () );
+        final InfrastructurePackageImpl theInfrastructurePackage = (InfrastructurePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof InfrastructurePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new InfrastructurePackageImpl () );
 
         isInited = true;
 
@@ -321,1000 +352,1111 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getWorld ()
     {
-        return worldEClass;
+        return this.worldEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_Nodes ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_Options ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultSecurityConfiguration ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultMasterHandlerPriorities ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultCredentials ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultMasterCustomizationProfile ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultValueArchiveCustomizationProfile ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultDriverPassword ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 7 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_ApplicationConfigurations ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 8 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getWorld_DefaultDriverAccessCredentials ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 9 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 9 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getWorld_Configurations ()
     {
-        return (EReference)worldEClass.getEStructuralFeatures ().get ( 10 );
+        return (EReference)this.worldEClass.getEStructuralFeatures ().get ( 10 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getNode ()
     {
-        return nodeEClass;
+        return this.nodeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getNode_HostName ()
     {
-        return (EAttribute)nodeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.nodeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getNode_Devices ()
     {
-        return (EReference)nodeEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.nodeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getMasterServer ()
     {
-        return masterServerEClass;
+        return this.masterServerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterServer_Authoratives ()
     {
-        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.masterServerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterServer_ImportMaster ()
     {
-        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.masterServerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterServer_Driver ()
     {
-        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.masterServerEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterServer_ArchiveTo ()
     {
-        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.masterServerEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterServer_LocalCredentials ()
     {
-        return (EReference)masterServerEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)this.masterServerEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getMasterImport ()
     {
-        return masterImportEClass;
+        return this.masterImportEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterImport_ImportedMaster ()
     {
-        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.masterImportEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getMasterImport_Id ()
     {
-        return (EAttribute)masterImportEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.masterImportEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getMasterImport_Credentials ()
     {
-        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.masterImportEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getMasterImport_Master ()
     {
-        return (EReference)masterImportEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.masterImportEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getOptions ()
     {
-        return optionsEClass;
+        return this.optionsEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getOptions_BaseDaNgpPort ()
     {
-        return (EAttribute)optionsEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.optionsEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getOptions_BaseAeNgpPort ()
     {
-        return (EAttribute)optionsEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.optionsEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getOptions_BaseCaNgpPort ()
     {
-        return (EAttribute)optionsEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.optionsEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getOptions_BaseHdNgpPort ()
     {
-        return (EAttribute)optionsEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.optionsEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getOptions_MonitorPools ()
     {
-        return (EReference)optionsEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)this.optionsEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getOptions_EventPools ()
     {
-        return (EReference)optionsEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)this.optionsEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getOptions_DefaultUserService ()
     {
-        return (EReference)optionsEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)this.optionsEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getEquinoxApplication ()
     {
-        return equinoxApplicationEClass;
+        return this.equinoxApplicationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getEquinoxApplication_Name ()
     {
-        return (EAttribute)equinoxApplicationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.equinoxApplicationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getEquinoxApplication_InstanceNumber ()
     {
-        return (EAttribute)equinoxApplicationEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.equinoxApplicationEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getEquinoxApplication_Configurations ()
     {
-        return (EReference)equinoxApplicationEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.equinoxApplicationEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getEquinoxApplication_Configuration ()
     {
-        return (EReference)equinoxApplicationEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.equinoxApplicationEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getCommonDriver ()
     {
-        return commonDriverEClass;
+        return this.commonDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getCommonDriver_Password ()
     {
-        return (EReference)commonDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.commonDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getCommonDriver_PortNumber ()
     {
-        return (EAttribute)commonDriverEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.commonDriverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getExternalNode ()
     {
-        return externalNodeEClass;
+        return this.externalNodeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getSystemNode ()
     {
-        return systemNodeEClass;
+        return this.systemNodeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSystemNode_Deployment ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSystemNode_Drivers ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSystemNode_Masters ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSystemNode_ValueArchives ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getSystemNode_Applications ()
     {
-        return (EAttribute)systemNodeEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)this.systemNodeEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getSystemNode_Services ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getSystemNode_ValueSlaves ()
     {
-        return (EReference)systemNodeEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)this.systemNodeEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getSystemPropertyUserService ()
     {
-        return systemPropertyUserServiceEClass;
+        return this.systemPropertyUserServiceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getSystemPropertyUserService_Users ()
     {
-        return (EReference)systemPropertyUserServiceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.systemPropertyUserServiceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getUserEntry ()
     {
-        return userEntryEClass;
+        return this.userEntryEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getUserEntry_Name ()
     {
-        return (EAttribute)userEntryEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.userEntryEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getUserEntry_Password ()
     {
-        return (EAttribute)userEntryEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.userEntryEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getUserEntry_Roles ()
     {
-        return (EAttribute)userEntryEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.userEntryEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getUserService ()
     {
-        return userServiceEClass;
+        return this.userServiceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getJdbcUserService ()
     {
-        return jdbcUserServiceEClass;
+        return this.jdbcUserServiceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getJdbcUserService_Implementation ()
     {
-        return (EReference)jdbcUserServiceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.jdbcUserServiceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getValueArchiveServer ()
     {
-        return valueArchiveServerEClass;
+        return this.valueArchiveServerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getAbstractFactoryDriver ()
     {
-        return abstractFactoryDriverEClass;
+        return this.abstractFactoryDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getAbstractFactoryDriver_DriverTypeId ()
     {
-        return (EAttribute)abstractFactoryDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.abstractFactoryDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getAbstractFactoryDriver_Devices ()
     {
-        return (EReference)abstractFactoryDriverEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.abstractFactoryDriverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getDevice ()
     {
-        return deviceEClass;
+        return this.deviceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getDevice_Node ()
     {
-        return (EReference)deviceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.deviceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getEquinoxDriver ()
     {
-        return equinoxDriverEClass;
+        return this.equinoxDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getEquinoxDriver_UserService ()
     {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.equinoxDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getEquinoxDriver_InstanceNumber ()
     {
-        return (EAttribute)equinoxDriverEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.equinoxDriverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getEquinoxDriver_AccessCredentials ()
     {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.equinoxDriverEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getEquinoxDriver_SecurityConfiguration ()
     {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.equinoxDriverEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getExternalDriver ()
     {
-        return externalDriverEClass;
+        return this.externalDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getExternalDriver_PortNumber ()
     {
-        return (EAttribute)externalDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.externalDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getExternalDriver_AccessCredentials ()
     {
-        return (EReference)externalDriverEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.externalDriverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getDriver ()
     {
-        return driverEClass;
+        return this.driverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EAttribute getDriver_Name ()
     {
-        return (EAttribute)driverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.driverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getDriver_Node ()
     {
-        return (EReference)driverEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.driverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EClass getExternalDriverPlaceholder ()
     {
-        return externalDriverPlaceholderEClass;
+        return this.externalDriverPlaceholderEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EReference getExternalDriverPlaceholder_Endpoints ()
     {
-        return (EReference)externalDriverPlaceholderEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.externalDriverPlaceholderEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getApplicationConfiguration ()
     {
-        return applicationConfigurationEClass;
+        return this.applicationConfigurationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getApplicationConfiguration_Modules ()
     {
-        return (EReference)applicationConfigurationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.applicationConfigurationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getConfigurations ()
     {
-        return configurationsEClass;
+        return this.configurationsEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getConfigurations_Configurations ()
     {
-        return (EReference)configurationsEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.configurationsEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getModule ()
     {
-        return moduleEClass;
+        return this.moduleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getHttpServiceModule ()
     {
-        return httpServiceModuleEClass;
+        return this.httpServiceModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getHttpServiceModule_Port ()
     {
-        return (EAttribute)httpServiceModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.httpServiceModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getRestExporterModule ()
     {
-        return restExporterModuleEClass;
+        return this.restExporterModuleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getRestExporterModule_ContextId ()
     {
-        return (EAttribute)restExporterModuleEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.restExporterModuleEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getValueArchiveSlave ()
     {
-        return valueArchiveSlaveEClass;
+        return this.valueArchiveSlaveEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getValueArchiveSlave_StoragePath ()
     {
-        return (EAttribute)valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getValueArchiveSlave_StorageLayout ()
     {
-        return (EAttribute)valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EEnum getSlaveStorageLayout ()
     {
-        return slaveStorageLayoutEEnum;
+        return this.slaveStorageLayoutEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -1326,164 +1468,172 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package.  This method is
+     * Creates the meta-model objects for the package. This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( isCreated )
+        if ( this.isCreated )
+        {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        worldEClass = createEClass ( WORLD );
-        createEReference ( worldEClass, WORLD__NODES );
-        createEReference ( worldEClass, WORLD__OPTIONS );
-        createEReference ( worldEClass, WORLD__DEFAULT_SECURITY_CONFIGURATION );
-        createEReference ( worldEClass, WORLD__DEFAULT_MASTER_HANDLER_PRIORITIES );
-        createEReference ( worldEClass, WORLD__DEFAULT_CREDENTIALS );
-        createEReference ( worldEClass, WORLD__DEFAULT_MASTER_CUSTOMIZATION_PROFILE );
-        createEReference ( worldEClass, WORLD__DEFAULT_VALUE_ARCHIVE_CUSTOMIZATION_PROFILE );
-        createEReference ( worldEClass, WORLD__DEFAULT_DRIVER_PASSWORD );
-        createEReference ( worldEClass, WORLD__APPLICATION_CONFIGURATIONS );
-        createEReference ( worldEClass, WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS );
-        createEReference ( worldEClass, WORLD__CONFIGURATIONS );
+        this.worldEClass = createEClass ( WORLD );
+        createEReference ( this.worldEClass, WORLD__NODES );
+        createEReference ( this.worldEClass, WORLD__OPTIONS );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_SECURITY_CONFIGURATION );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_MASTER_HANDLER_PRIORITIES );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_CREDENTIALS );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_MASTER_CUSTOMIZATION_PROFILE );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_VALUE_ARCHIVE_CUSTOMIZATION_PROFILE );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_DRIVER_PASSWORD );
+        createEReference ( this.worldEClass, WORLD__APPLICATION_CONFIGURATIONS );
+        createEReference ( this.worldEClass, WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS );
+        createEReference ( this.worldEClass, WORLD__CONFIGURATIONS );
 
-        nodeEClass = createEClass ( NODE );
-        createEAttribute ( nodeEClass, NODE__HOST_NAME );
-        createEReference ( nodeEClass, NODE__DEVICES );
+        this.nodeEClass = createEClass ( NODE );
+        createEAttribute ( this.nodeEClass, NODE__HOST_NAME );
+        createEReference ( this.nodeEClass, NODE__DEVICES );
 
-        masterServerEClass = createEClass ( MASTER_SERVER );
-        createEReference ( masterServerEClass, MASTER_SERVER__AUTHORATIVES );
-        createEReference ( masterServerEClass, MASTER_SERVER__IMPORT_MASTER );
-        createEReference ( masterServerEClass, MASTER_SERVER__DRIVER );
-        createEReference ( masterServerEClass, MASTER_SERVER__ARCHIVE_TO );
-        createEReference ( masterServerEClass, MASTER_SERVER__LOCAL_CREDENTIALS );
+        this.masterServerEClass = createEClass ( MASTER_SERVER );
+        createEReference ( this.masterServerEClass, MASTER_SERVER__AUTHORATIVES );
+        createEReference ( this.masterServerEClass, MASTER_SERVER__IMPORT_MASTER );
+        createEReference ( this.masterServerEClass, MASTER_SERVER__DRIVER );
+        createEReference ( this.masterServerEClass, MASTER_SERVER__ARCHIVE_TO );
+        createEReference ( this.masterServerEClass, MASTER_SERVER__LOCAL_CREDENTIALS );
 
-        masterImportEClass = createEClass ( MASTER_IMPORT );
-        createEReference ( masterImportEClass, MASTER_IMPORT__IMPORTED_MASTER );
-        createEAttribute ( masterImportEClass, MASTER_IMPORT__ID );
-        createEReference ( masterImportEClass, MASTER_IMPORT__CREDENTIALS );
-        createEReference ( masterImportEClass, MASTER_IMPORT__MASTER );
+        this.masterImportEClass = createEClass ( MASTER_IMPORT );
+        createEReference ( this.masterImportEClass, MASTER_IMPORT__IMPORTED_MASTER );
+        createEAttribute ( this.masterImportEClass, MASTER_IMPORT__ID );
+        createEReference ( this.masterImportEClass, MASTER_IMPORT__CREDENTIALS );
+        createEReference ( this.masterImportEClass, MASTER_IMPORT__MASTER );
 
-        optionsEClass = createEClass ( OPTIONS );
-        createEAttribute ( optionsEClass, OPTIONS__BASE_DA_NGP_PORT );
-        createEAttribute ( optionsEClass, OPTIONS__BASE_AE_NGP_PORT );
-        createEAttribute ( optionsEClass, OPTIONS__BASE_CA_NGP_PORT );
-        createEAttribute ( optionsEClass, OPTIONS__BASE_HD_NGP_PORT );
-        createEReference ( optionsEClass, OPTIONS__MONITOR_POOLS );
-        createEReference ( optionsEClass, OPTIONS__EVENT_POOLS );
-        createEReference ( optionsEClass, OPTIONS__DEFAULT_USER_SERVICE );
+        this.optionsEClass = createEClass ( OPTIONS );
+        createEAttribute ( this.optionsEClass, OPTIONS__BASE_DA_NGP_PORT );
+        createEAttribute ( this.optionsEClass, OPTIONS__BASE_AE_NGP_PORT );
+        createEAttribute ( this.optionsEClass, OPTIONS__BASE_CA_NGP_PORT );
+        createEAttribute ( this.optionsEClass, OPTIONS__BASE_HD_NGP_PORT );
+        createEReference ( this.optionsEClass, OPTIONS__MONITOR_POOLS );
+        createEReference ( this.optionsEClass, OPTIONS__EVENT_POOLS );
+        createEReference ( this.optionsEClass, OPTIONS__DEFAULT_USER_SERVICE );
 
-        equinoxApplicationEClass = createEClass ( EQUINOX_APPLICATION );
-        createEAttribute ( equinoxApplicationEClass, EQUINOX_APPLICATION__NAME );
-        createEAttribute ( equinoxApplicationEClass, EQUINOX_APPLICATION__INSTANCE_NUMBER );
-        createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__CONFIGURATIONS );
-        createEReference ( equinoxApplicationEClass, EQUINOX_APPLICATION__CONFIGURATION );
+        this.equinoxApplicationEClass = createEClass ( EQUINOX_APPLICATION );
+        createEAttribute ( this.equinoxApplicationEClass, EQUINOX_APPLICATION__NAME );
+        createEAttribute ( this.equinoxApplicationEClass, EQUINOX_APPLICATION__INSTANCE_NUMBER );
+        createEReference ( this.equinoxApplicationEClass, EQUINOX_APPLICATION__CONFIGURATIONS );
+        createEReference ( this.equinoxApplicationEClass, EQUINOX_APPLICATION__CONFIGURATION );
 
-        commonDriverEClass = createEClass ( COMMON_DRIVER );
-        createEReference ( commonDriverEClass, COMMON_DRIVER__PASSWORD );
-        createEAttribute ( commonDriverEClass, COMMON_DRIVER__PORT_NUMBER );
+        this.commonDriverEClass = createEClass ( COMMON_DRIVER );
+        createEReference ( this.commonDriverEClass, COMMON_DRIVER__PASSWORD );
+        createEAttribute ( this.commonDriverEClass, COMMON_DRIVER__PORT_NUMBER );
 
-        externalNodeEClass = createEClass ( EXTERNAL_NODE );
+        this.externalNodeEClass = createEClass ( EXTERNAL_NODE );
 
-        systemNodeEClass = createEClass ( SYSTEM_NODE );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__DEPLOYMENT );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__DRIVERS );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__MASTERS );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__VALUE_ARCHIVES );
-        createEAttribute ( systemNodeEClass, SYSTEM_NODE__APPLICATIONS );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__SERVICES );
-        createEReference ( systemNodeEClass, SYSTEM_NODE__VALUE_SLAVES );
+        this.systemNodeEClass = createEClass ( SYSTEM_NODE );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__DEPLOYMENT );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__DRIVERS );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__MASTERS );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__VALUE_ARCHIVES );
+        createEAttribute ( this.systemNodeEClass, SYSTEM_NODE__APPLICATIONS );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__SERVICES );
+        createEReference ( this.systemNodeEClass, SYSTEM_NODE__VALUE_SLAVES );
 
-        systemPropertyUserServiceEClass = createEClass ( SYSTEM_PROPERTY_USER_SERVICE );
-        createEReference ( systemPropertyUserServiceEClass, SYSTEM_PROPERTY_USER_SERVICE__USERS );
+        this.systemPropertyUserServiceEClass = createEClass ( SYSTEM_PROPERTY_USER_SERVICE );
+        createEReference ( this.systemPropertyUserServiceEClass, SYSTEM_PROPERTY_USER_SERVICE__USERS );
 
-        userEntryEClass = createEClass ( USER_ENTRY );
-        createEAttribute ( userEntryEClass, USER_ENTRY__NAME );
-        createEAttribute ( userEntryEClass, USER_ENTRY__PASSWORD );
-        createEAttribute ( userEntryEClass, USER_ENTRY__ROLES );
+        this.userEntryEClass = createEClass ( USER_ENTRY );
+        createEAttribute ( this.userEntryEClass, USER_ENTRY__NAME );
+        createEAttribute ( this.userEntryEClass, USER_ENTRY__PASSWORD );
+        createEAttribute ( this.userEntryEClass, USER_ENTRY__ROLES );
 
-        userServiceEClass = createEClass ( USER_SERVICE );
+        this.userServiceEClass = createEClass ( USER_SERVICE );
 
-        jdbcUserServiceEClass = createEClass ( JDBC_USER_SERVICE );
-        createEReference ( jdbcUserServiceEClass, JDBC_USER_SERVICE__IMPLEMENTATION );
+        this.jdbcUserServiceEClass = createEClass ( JDBC_USER_SERVICE );
+        createEReference ( this.jdbcUserServiceEClass, JDBC_USER_SERVICE__IMPLEMENTATION );
 
-        valueArchiveServerEClass = createEClass ( VALUE_ARCHIVE_SERVER );
+        this.valueArchiveServerEClass = createEClass ( VALUE_ARCHIVE_SERVER );
 
-        abstractFactoryDriverEClass = createEClass ( ABSTRACT_FACTORY_DRIVER );
-        createEAttribute ( abstractFactoryDriverEClass, ABSTRACT_FACTORY_DRIVER__DRIVER_TYPE_ID );
-        createEReference ( abstractFactoryDriverEClass, ABSTRACT_FACTORY_DRIVER__DEVICES );
+        this.abstractFactoryDriverEClass = createEClass ( ABSTRACT_FACTORY_DRIVER );
+        createEAttribute ( this.abstractFactoryDriverEClass, ABSTRACT_FACTORY_DRIVER__DRIVER_TYPE_ID );
+        createEReference ( this.abstractFactoryDriverEClass, ABSTRACT_FACTORY_DRIVER__DEVICES );
 
-        deviceEClass = createEClass ( DEVICE );
-        createEReference ( deviceEClass, DEVICE__NODE );
+        this.deviceEClass = createEClass ( DEVICE );
+        createEReference ( this.deviceEClass, DEVICE__NODE );
 
-        equinoxDriverEClass = createEClass ( EQUINOX_DRIVER );
-        createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__USER_SERVICE );
-        createEAttribute ( equinoxDriverEClass, EQUINOX_DRIVER__INSTANCE_NUMBER );
-        createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__ACCESS_CREDENTIALS );
-        createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__SECURITY_CONFIGURATION );
+        this.equinoxDriverEClass = createEClass ( EQUINOX_DRIVER );
+        createEReference ( this.equinoxDriverEClass, EQUINOX_DRIVER__USER_SERVICE );
+        createEAttribute ( this.equinoxDriverEClass, EQUINOX_DRIVER__INSTANCE_NUMBER );
+        createEReference ( this.equinoxDriverEClass, EQUINOX_DRIVER__ACCESS_CREDENTIALS );
+        createEReference ( this.equinoxDriverEClass, EQUINOX_DRIVER__SECURITY_CONFIGURATION );
 
-        externalDriverEClass = createEClass ( EXTERNAL_DRIVER );
-        createEAttribute ( externalDriverEClass, EXTERNAL_DRIVER__PORT_NUMBER );
-        createEReference ( externalDriverEClass, EXTERNAL_DRIVER__ACCESS_CREDENTIALS );
+        this.externalDriverEClass = createEClass ( EXTERNAL_DRIVER );
+        createEAttribute ( this.externalDriverEClass, EXTERNAL_DRIVER__PORT_NUMBER );
+        createEReference ( this.externalDriverEClass, EXTERNAL_DRIVER__ACCESS_CREDENTIALS );
 
-        driverEClass = createEClass ( DRIVER );
-        createEAttribute ( driverEClass, DRIVER__NAME );
-        createEReference ( driverEClass, DRIVER__NODE );
+        this.driverEClass = createEClass ( DRIVER );
+        createEAttribute ( this.driverEClass, DRIVER__NAME );
+        createEReference ( this.driverEClass, DRIVER__NODE );
 
-        externalDriverPlaceholderEClass = createEClass ( EXTERNAL_DRIVER_PLACEHOLDER );
-        createEReference ( externalDriverPlaceholderEClass, EXTERNAL_DRIVER_PLACEHOLDER__ENDPOINTS );
+        this.externalDriverPlaceholderEClass = createEClass ( EXTERNAL_DRIVER_PLACEHOLDER );
+        createEReference ( this.externalDriverPlaceholderEClass, EXTERNAL_DRIVER_PLACEHOLDER__ENDPOINTS );
 
-        applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
-        createEReference ( applicationConfigurationEClass, APPLICATION_CONFIGURATION__MODULES );
+        this.applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
+        createEReference ( this.applicationConfigurationEClass, APPLICATION_CONFIGURATION__MODULES );
 
-        configurationsEClass = createEClass ( CONFIGURATIONS );
-        createEReference ( configurationsEClass, CONFIGURATIONS__CONFIGURATIONS );
+        this.configurationsEClass = createEClass ( CONFIGURATIONS );
+        createEReference ( this.configurationsEClass, CONFIGURATIONS__CONFIGURATIONS );
 
-        moduleEClass = createEClass ( MODULE );
+        this.moduleEClass = createEClass ( MODULE );
 
-        httpServiceModuleEClass = createEClass ( HTTP_SERVICE_MODULE );
-        createEAttribute ( httpServiceModuleEClass, HTTP_SERVICE_MODULE__PORT );
+        this.httpServiceModuleEClass = createEClass ( HTTP_SERVICE_MODULE );
+        createEAttribute ( this.httpServiceModuleEClass, HTTP_SERVICE_MODULE__PORT );
 
-        restExporterModuleEClass = createEClass ( REST_EXPORTER_MODULE );
-        createEAttribute ( restExporterModuleEClass, REST_EXPORTER_MODULE__CONTEXT_ID );
+        this.restExporterModuleEClass = createEClass ( REST_EXPORTER_MODULE );
+        createEAttribute ( this.restExporterModuleEClass, REST_EXPORTER_MODULE__CONTEXT_ID );
 
-        valueArchiveSlaveEClass = createEClass ( VALUE_ARCHIVE_SLAVE );
-        createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_PATH );
-        createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT );
+        this.valueArchiveSlaveEClass = createEClass ( VALUE_ARCHIVE_SLAVE );
+        createEAttribute ( this.valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_PATH );
+        createEAttribute ( this.valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT );
 
         // Create enums
-        slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
+        this.slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model.  This
+     * Complete the initialization of the package and its meta-model. This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( isInitialized )
+        if ( this.isInitialized )
+        {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -1491,40 +1641,40 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage ( SecurityPackage.eNS_URI );
-        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
-        ProfilePackage theProfilePackage = (ProfilePackage)EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI );
-        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
-        GlobalizePackage theGlobalizePackage = (GlobalizePackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalizePackage.eNS_URI );
-        DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
+        final SecurityPackage theSecurityPackage = (SecurityPackage)EPackage.Registry.INSTANCE.getEPackage ( SecurityPackage.eNS_URI );
+        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        final ProfilePackage theProfilePackage = (ProfilePackage)EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI );
+        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        final GlobalizePackage theGlobalizePackage = (GlobalizePackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalizePackage.eNS_URI );
+        final DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        nodeEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        masterServerEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
-        commonDriverEClass.getESuperTypes ().add ( this.getAbstractFactoryDriver () );
-        externalNodeEClass.getESuperTypes ().add ( this.getNode () );
-        systemNodeEClass.getESuperTypes ().add ( this.getNode () );
-        systemPropertyUserServiceEClass.getESuperTypes ().add ( this.getUserService () );
-        jdbcUserServiceEClass.getESuperTypes ().add ( this.getUserService () );
-        valueArchiveServerEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
-        abstractFactoryDriverEClass.getESuperTypes ().add ( this.getDriver () );
-        deviceEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        equinoxDriverEClass.getESuperTypes ().add ( this.getAbstractFactoryDriver () );
-        externalDriverEClass.getESuperTypes ().add ( this.getDriver () );
-        externalDriverPlaceholderEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
-        applicationConfigurationEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        httpServiceModuleEClass.getESuperTypes ().add ( this.getModule () );
-        restExporterModuleEClass.getESuperTypes ().add ( this.getModule () );
-        valueArchiveSlaveEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
+        this.nodeEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        this.masterServerEClass.getESuperTypes ().add ( getEquinoxApplication () );
+        this.commonDriverEClass.getESuperTypes ().add ( getAbstractFactoryDriver () );
+        this.externalNodeEClass.getESuperTypes ().add ( getNode () );
+        this.systemNodeEClass.getESuperTypes ().add ( getNode () );
+        this.systemPropertyUserServiceEClass.getESuperTypes ().add ( getUserService () );
+        this.jdbcUserServiceEClass.getESuperTypes ().add ( getUserService () );
+        this.valueArchiveServerEClass.getESuperTypes ().add ( getEquinoxApplication () );
+        this.abstractFactoryDriverEClass.getESuperTypes ().add ( getDriver () );
+        this.deviceEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        this.equinoxDriverEClass.getESuperTypes ().add ( getAbstractFactoryDriver () );
+        this.externalDriverEClass.getESuperTypes ().add ( getDriver () );
+        this.externalDriverPlaceholderEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
+        this.applicationConfigurationEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        this.httpServiceModuleEClass.getESuperTypes ().add ( getModule () );
+        this.restExporterModuleEClass.getESuperTypes ().add ( getModule () );
+        this.valueArchiveSlaveEClass.getESuperTypes ().add ( getEquinoxApplication () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getWorld_Nodes (), this.getNode (), null, "nodes", null, 0, -1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getWorld_Options (), this.getOptions (), null, "options", null, 1, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getWorld_Nodes (), getNode (), null, "nodes", null, 0, -1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getWorld_Options (), getOptions (), null, "options", null, 1, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getWorld_DefaultSecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "defaultSecurityConfiguration", null, 1, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getWorld_DefaultMasterHandlerPriorities (), theWorldPackage.getMasterHandlerPriorities (), null, "defaultMasterHandlerPriorities", null, 1, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getWorld_DefaultCredentials (), theWorldPackage.getCredentials (), null, "defaultCredentials", null, 0, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -1533,116 +1683,116 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getWorld_DefaultDriverPassword (), theWorldPackage.getPasswordCredentials (), null, "defaultDriverPassword", null, 0, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getWorld_ApplicationConfigurations (), theOsgiPackage.getIndependentConfiguration (), null, "applicationConfigurations", null, 0, -1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getWorld_DefaultDriverAccessCredentials (), theWorldPackage.getCredentials (), null, "defaultDriverAccessCredentials", null, 0, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getWorld_Configurations (), this.getConfigurations (), null, "configurations", null, 0, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getWorld_Configurations (), getConfigurations (), null, "configurations", null, 0, 1, World.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getNode_HostName (), ecorePackage.getEString (), "hostName", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getNode_Devices (), this.getDevice (), this.getDevice_Node (), "devices", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getNode_HostName (), this.ecorePackage.getEString (), "hostName", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getNode_Devices (), getDevice (), getDevice_Node (), "devices", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( masterServerEClass, MasterServer.class, "MasterServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.masterServerEClass, MasterServer.class, "MasterServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMasterServer_Authoratives (), theGlobalizePackage.getAuthorative (), null, "authoratives", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMasterServer_ImportMaster (), this.getMasterImport (), this.getMasterImport_Master (), "importMaster", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMasterServer_Driver (), this.getDriver (), null, "driver", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMasterServer_ArchiveTo (), this.getValueArchiveServer (), null, "archiveTo", null, 0, 1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMasterServer_ImportMaster (), getMasterImport (), getMasterImport_Master (), "importMaster", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMasterServer_Driver (), getDriver (), null, "driver", null, 0, -1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMasterServer_ArchiveTo (), getValueArchiveServer (), null, "archiveTo", null, 0, 1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterServer_LocalCredentials (), theWorldPackage.getCredentials (), null, "localCredentials", null, 0, 1, MasterServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( masterImportEClass, MasterImport.class, "MasterImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getMasterImport_ImportedMaster (), this.getMasterServer (), null, "importedMaster", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getMasterImport_Id (), ecorePackage.getEString (), "id", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.masterImportEClass, MasterImport.class, "MasterImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getMasterImport_ImportedMaster (), getMasterServer (), null, "importedMaster", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMasterImport_Id (), this.ecorePackage.getEString (), "id", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMasterImport_Credentials (), theWorldPackage.getCredentials (), null, "credentials", null, 0, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getMasterImport_Master (), this.getMasterServer (), this.getMasterServer_ImportMaster (), "master", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMasterImport_Master (), getMasterServer (), getMasterServer_ImportMaster (), "master", null, 1, 1, MasterImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( optionsEClass, Options.class, "Options", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getOptions_BaseDaNgpPort (), ecorePackage.getEShort (), "baseDaNgpPort", "2100", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getOptions_BaseAeNgpPort (), ecorePackage.getEShort (), "baseAeNgpPort", "2200", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getOptions_BaseCaNgpPort (), ecorePackage.getEShort (), "baseCaNgpPort", "2400", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getOptions_BaseHdNgpPort (), ecorePackage.getEShort (), "baseHdNgpPort", "2300", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.optionsEClass, Options.class, "Options", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOptions_BaseDaNgpPort (), this.ecorePackage.getEShort (), "baseDaNgpPort", "2100", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getOptions_BaseAeNgpPort (), this.ecorePackage.getEShort (), "baseAeNgpPort", "2200", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getOptions_BaseCaNgpPort (), this.ecorePackage.getEShort (), "baseCaNgpPort", "2400", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getOptions_BaseHdNgpPort (), this.ecorePackage.getEShort (), "baseHdNgpPort", "2300", 1, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getOptions_MonitorPools (), theOsgiPackage.getMonitorPool (), null, "monitorPools", null, 0, -1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getOptions_EventPools (), theOsgiPackage.getEventPool (), null, "eventPools", null, 0, -1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getOptions_DefaultUserService (), this.getUserService (), null, "defaultUserService", null, 0, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getOptions_DefaultUserService (), getUserService (), null, "defaultUserService", null, 0, 1, Options.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getEquinoxApplication_Name (), ecorePackage.getEString (), "name", null, 1, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEquinoxApplication_InstanceNumber (), ecorePackage.getEInt (), "instanceNumber", "1", 1, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getEquinoxApplication_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEquinoxApplication_InstanceNumber (), this.ecorePackage.getEInt (), "instanceNumber", "1", 1, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEReference ( getEquinoxApplication_Configurations (), theOsgiPackage.getIndependentConfiguration (), null, "configurations", null, 0, -1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getEquinoxApplication_Configuration (), this.getApplicationConfiguration (), null, "configuration", null, 0, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEquinoxApplication_Configuration (), getApplicationConfiguration (), null, "configuration", null, 0, 1, EquinoxApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( commonDriverEClass, CommonDriver.class, "CommonDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.commonDriverEClass, CommonDriver.class, "CommonDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCommonDriver_Password (), theWorldPackage.getPasswordCredentials (), null, "password", null, 0, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getCommonDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getCommonDriver_PortNumber (), this.ecorePackage.getEShort (), "portNumber", null, 1, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( externalNodeEClass, ExternalNode.class, "ExternalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.externalNodeEClass, ExternalNode.class, "ExternalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( systemNodeEClass, SystemNode.class, "SystemNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.systemNodeEClass, SystemNode.class, "SystemNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getSystemNode_Deployment (), theDeploymentPackage.getDeploymentMechanism (), null, "deployment", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystemNode_Drivers (), this.getDriver (), this.getDriver_Node (), "drivers", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystemNode_Masters (), this.getMasterServer (), null, "masters", null, 0, -1, SystemNode.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystemNode_ValueArchives (), this.getValueArchiveServer (), null, "valueArchives", null, 0, -1, SystemNode.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSystemNode_Applications (), ecorePackage.getEFeatureMapEntry (), "applications", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSystemNode_Drivers (), getDriver (), getDriver_Node (), "drivers", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSystemNode_Masters (), getMasterServer (), null, "masters", null, 0, -1, SystemNode.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSystemNode_ValueArchives (), getValueArchiveServer (), null, "valueArchives", null, 0, -1, SystemNode.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSystemNode_Applications (), this.ecorePackage.getEFeatureMapEntry (), "applications", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getSystemNode_Services (), theWorldPackage.getService (), null, "services", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSystemNode_ValueSlaves (), this.getValueArchiveSlave (), null, "valueSlaves", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSystemNode_ValueSlaves (), getValueArchiveSlave (), null, "valueSlaves", null, 0, -1, SystemNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( systemPropertyUserServiceEClass, SystemPropertyUserService.class, "SystemPropertyUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getSystemPropertyUserService_Users (), this.getUserEntry (), null, "users", null, 0, -1, SystemPropertyUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.systemPropertyUserServiceEClass, SystemPropertyUserService.class, "SystemPropertyUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getSystemPropertyUserService_Users (), getUserEntry (), null, "users", null, 0, -1, SystemPropertyUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( userEntryEClass, UserEntry.class, "UserEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getUserEntry_Name (), ecorePackage.getEString (), "name", null, 1, 1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getUserEntry_Password (), ecorePackage.getEString (), "password", null, 1, 1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getUserEntry_Roles (), ecorePackage.getEString (), "roles", null, 0, -1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.userEntryEClass, UserEntry.class, "UserEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getUserEntry_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getUserEntry_Password (), this.ecorePackage.getEString (), "password", null, 1, 1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getUserEntry_Roles (), this.ecorePackage.getEString (), "roles", null, 0, -1, UserEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( userServiceEClass, UserService.class, "UserService", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.userServiceEClass, UserService.class, "UserService", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( jdbcUserServiceEClass, JdbcUserService.class, "JdbcUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.jdbcUserServiceEClass, JdbcUserService.class, "JdbcUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getJdbcUserService_Implementation (), theOsgiPackage.getJdbcUserService (), null, "implementation", null, 1, 1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( valueArchiveServerEClass, ValueArchiveServer.class, "ValueArchiveServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.valueArchiveServerEClass, ValueArchiveServer.class, "ValueArchiveServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( abstractFactoryDriverEClass, AbstractFactoryDriver.class, "AbstractFactoryDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getAbstractFactoryDriver_DriverTypeId (), ecorePackage.getEString (), "driverTypeId", null, 1, 1, AbstractFactoryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getAbstractFactoryDriver_Devices (), this.getDevice (), null, "devices", null, 0, -1, AbstractFactoryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.abstractFactoryDriverEClass, AbstractFactoryDriver.class, "AbstractFactoryDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAbstractFactoryDriver_DriverTypeId (), this.ecorePackage.getEString (), "driverTypeId", null, 1, 1, AbstractFactoryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAbstractFactoryDriver_Devices (), getDevice (), null, "devices", null, 0, -1, AbstractFactoryDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( deviceEClass, Device.class, "Device", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getDevice_Node (), this.getNode (), this.getNode_Devices (), "node", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.deviceEClass, Device.class, "Device", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDevice_Node (), getNode (), getNode_Devices (), "node", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( equinoxDriverEClass, EquinoxDriver.class, "EquinoxDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getEquinoxDriver_UserService (), this.getUserService (), null, "userService", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEquinoxDriver_InstanceNumber (), ecorePackage.getEInt (), "instanceNumber", null, 1, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.equinoxDriverEClass, EquinoxDriver.class, "EquinoxDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getEquinoxDriver_UserService (), getUserService (), null, "userService", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEquinoxDriver_InstanceNumber (), this.ecorePackage.getEInt (), "instanceNumber", null, 1, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxDriver_SecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "securityConfiguration", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( externalDriverEClass, ExternalDriver.class, "ExternalDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getExternalDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.externalDriverEClass, ExternalDriver.class, "ExternalDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getExternalDriver_PortNumber (), this.ecorePackage.getEShort (), "portNumber", null, 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getExternalDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( driverEClass, Driver.class, "Driver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getDriver_Name (), ecorePackage.getEString (), "name", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getDriver_Node (), this.getSystemNode (), this.getSystemNode_Drivers (), "node", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.driverEClass, Driver.class, "Driver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDriver_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDriver_Node (), getSystemNode (), getSystemNode_Drivers (), "node", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( externalDriverPlaceholderEClass, ExternalDriverPlaceholder.class, "ExternalDriverPlaceholder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.externalDriverPlaceholderEClass, ExternalDriverPlaceholder.class, "ExternalDriverPlaceholder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExternalDriverPlaceholder_Endpoints (), theWorldPackage.getEndpoint (), null, "endpoints", null, 0, -1, ExternalDriverPlaceholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getApplicationConfiguration_Modules (), this.getModule (), null, "modules", null, 0, -1, ApplicationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getApplicationConfiguration_Modules (), getModule (), null, "modules", null, 0, -1, ApplicationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( configurationsEClass, Configurations.class, "Configurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getConfigurations_Configurations (), this.getApplicationConfiguration (), null, "configurations", null, 0, -1, Configurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.configurationsEClass, Configurations.class, "Configurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getConfigurations_Configurations (), getApplicationConfiguration (), null, "configurations", null, 0, -1, Configurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( httpServiceModuleEClass, HttpServiceModule.class, "HttpServiceModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getHttpServiceModule_Port (), ecorePackage.getEShort (), "port", "8080", 1, 1, HttpServiceModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.httpServiceModuleEClass, HttpServiceModule.class, "HttpServiceModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getHttpServiceModule_Port (), this.ecorePackage.getEShort (), "port", "8080", 1, 1, HttpServiceModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( restExporterModuleEClass, RestExporterModule.class, "RestExporterModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getRestExporterModule_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.restExporterModuleEClass, RestExporterModule.class, "RestExporterModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getRestExporterModule_ContextId (), this.ecorePackage.getEString (), "contextId", null, 1, 1, RestExporterModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getValueArchiveSlave_StoragePath (), ecorePackage.getEString (), "storagePath", "/var/lib/eclipsescada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getValueArchiveSlave_StorageLayout (), this.getSlaveStorageLayout (), "storageLayout", "MULTI", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( this.valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getValueArchiveSlave_StoragePath (), this.ecorePackage.getEString (), "storagePath", "/var/lib/eclipsescada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getValueArchiveSlave_StorageLayout (), getSlaveStorageLayout (), "storageLayout", "MULTI", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
-        initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
-        addEEnumLiteral ( slaveStorageLayoutEEnum, SlaveStorageLayout.SINGLE );
-        addEEnumLiteral ( slaveStorageLayoutEEnum, SlaveStorageLayout.MULTI );
+        initEEnum ( this.slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
+        addEEnumLiteral ( this.slaveStorageLayoutEEnum, SlaveStorageLayout.SINGLE );
+        addEEnumLiteral ( this.slaveStorageLayoutEEnum, SlaveStorageLayout.MULTI );
 
         // Create resource
         createResource ( eNS_URI );
@@ -1653,28 +1803,30 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     }
 
     /**
-     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+     * Initializes the annotations for
+     * <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$					
+        final String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$					
         addAnnotation ( getSystemNode_Masters (),
                 source,
                 new String[]
-                {       "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
+                { "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( getSystemNode_ValueArchives (),
                 source,
                 new String[]
-                {       "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
+                { "group", "#applications" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( getSystemNode_Applications (),
                 source,
                 new String[]
-                {       "kind", "group" //$NON-NLS-1$ //$NON-NLS-2$
+                { "kind", "group" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 

@@ -1,13 +1,14 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.world.provider;
 
 import java.util.Collection;
@@ -15,7 +16,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -28,6 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
@@ -37,9 +41,14 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndpointItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+public class EndpointItemProvider
+        extends ItemProviderAdapter
+        implements
+        IEditingDomainItemProvider,
+        IStructuredItemContentProvider,
+        ITreeItemContentProvider,
+        IItemLabelProvider,
+        IItemPropertySource,
         ITableItemLabelProvider
 {
     /**
@@ -108,9 +117,9 @@ public class EndpointItemProvider extends ItemProviderAdapter implements
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Documentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_name_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__NAME,
+                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
                         true,
                         false,
                         false,
@@ -158,22 +167,15 @@ public class EndpointItemProvider extends ItemProviderAdapter implements
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated NOT
+     * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final Endpoint endpoint = (Endpoint)object;
-        if ( endpoint.getName () != null )
-        {
-            return String.format ( "%s %s - %s", getString ( "_UI_Endpoint_type" ),
-                    endpoint.getName (), endpoint.getPortNumber () );
-        }
-        else
-        {
-            return getString ( "_UI_Endpoint_type" ) + " " + endpoint.getPortNumber (); //$NON-NLS-1$ //$NON-NLS-2$    
-        }
+        String label = ( (Endpoint)object ).getName ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_Endpoint_type" ) : //$NON-NLS-1$
+                getString ( "_UI_Endpoint_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -207,8 +209,7 @@ public class EndpointItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

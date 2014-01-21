@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,9 +32,11 @@ import org.eclipse.scada.configuration.globalization.GlobalizePackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.globalization.EventPoolImport} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.globalization.EventPoolImport} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class EventPoolImportItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -43,9 +45,10 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public EventPoolImportItemProvider ( AdapterFactory adapterFactory )
+    public EventPoolImportItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -54,12 +57,13 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -69,20 +73,21 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
             addIncludeLocalPropertyDescriptor ( object );
             addPoolSizePropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Short Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( Object object )
+    protected void addShortDescriptionPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -99,17 +104,18 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Documentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_name_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__NAME,
+                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
                         true,
                         false,
                         false,
@@ -122,13 +128,14 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This adds a property descriptor for the Local Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addLocalNamePropertyDescriptor ( Object object )
+    protected void addLocalNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_EventPoolImport_localName_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EventPoolImport_localName_feature", "_UI_EventPoolImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -145,13 +152,14 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This adds a property descriptor for the Include Local feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addIncludeLocalPropertyDescriptor ( Object object )
+    protected void addIncludeLocalPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_EventPoolImport_includeLocal_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EventPoolImport_includeLocal_feature", "_UI_EventPoolImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -168,13 +176,14 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This adds a property descriptor for the Pool Size feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addPoolSizePropertyDescriptor ( Object object )
+    protected void addPoolSizePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_EventPoolImport_poolSize_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EventPoolImport_poolSize_feature", "_UI_EventPoolImport_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -191,10 +200,11 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This returns EventPoolImport.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/EventPoolImport" ) ); //$NON-NLS-1$
     }
@@ -203,26 +213,30 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (EventPoolImport)object ).getName ();
+        final String label = ( (EventPoolImport)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_EventPoolImport_type" ) : //$NON-NLS-1$
                 getString ( "_UI_EventPoolImport_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -240,14 +254,16 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -256,12 +272,13 @@ public class EventPoolImportItemProvider extends ItemProviderAdapter implements 
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }

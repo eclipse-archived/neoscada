@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" eType="#//Options"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
@@ -24,15 +24,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Documentable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application" abstract="true" interface="true"
-      eSuperTypes="#//Documentable"/>
+      eSuperTypes="#//NamedDocumentable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Driver" abstract="true" interface="true"
       eSuperTypes="#//Application">
     <eOperations name="getEndpoints" upperBound="-1" eType="#//Endpoint"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" eSuperTypes="#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" eSuperTypes="#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" lowerBound="1" eType="#//Node"
         eOpposite="#//Node/endpoints" eKeys="#//Node/hostName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
@@ -57,7 +56,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MasterHandlerPriorities" eSuperTypes="#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="MasterHandlerPriorities" eSuperTypes="#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//HandlerPriorityRule" containment="true"/>
   </eClassifiers>
@@ -78,7 +77,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Credentials" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"
-      eSuperTypes="#//Documentable"/>
+      eSuperTypes="#//NamedDocumentable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedDocumentable" abstract="true" interface="true"
+      eSuperTypes="#//Documentable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
       nsPrefix="osgi">
     <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">
@@ -112,7 +115,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
           eType="#//osgi/ApplicationModule" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" abstract="true" eSuperTypes="#//NamedDocumentable">
       <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getPossibleEndpoints" upperBound="-1" eType="#//Endpoint">
         <eParameters name="exporter" eType="#//osgi/Exporter"/>
@@ -131,7 +134,7 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Exporter" abstract="true" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="Exporter" abstract="true" eSuperTypes="#//NamedDocumentable">
       <eOperations name="getTypeTag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" upperBound="-1"
           eType="#//Endpoint" eKeys="#//Endpoint/portNumber"/>
@@ -332,17 +335,17 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MonitorPool" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="MonitorPool" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventPool" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="EventPool" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataMapper" abstract="true" eSuperTypes="#//Documentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataMapper" abstract="true" eSuperTypes="#//NamedDocumentable"/>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleDataMapper" eSuperTypes="#//osgi/DataMapper">
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
           eType="#//osgi/DataMapperEntry" containment="true"/>
@@ -395,7 +398,7 @@
       <eLiterals name="CEIL" value="2"/>
       <eLiterals name="FLOOR" value="3"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExternalEventMonitor" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalEventMonitor" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
@@ -407,7 +410,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalEventFilter" abstract="true"
-        eSuperTypes="#//Documentable"/>
+        eSuperTypes="#//NamedDocumentable"/>
     <eClassifiers xsi:type="ecore:EClass" name="StaticExternalEventFilter" eSuperTypes="#//osgi/ExternalEventFilter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -501,12 +504,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="severity" eType="#//osgi/Severity"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="Variant" instanceClassName="org.eclipse.scada.core.Variant"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Average" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="Average" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
           eType="#//osgi/Item"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourcesRequired" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MovingAverage" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="MovingAverage" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
           eType="#//osgi/Item"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1"
@@ -546,11 +549,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1"
           eType="#//osgi/MovingAverageReferenceType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Blockings" eSuperTypes="#//Documentable #//osgi/ApplicationModule">
+    <eClassifiers xsi:type="ecore:EClass" name="Blockings" eSuperTypes="#//NamedDocumentable #//osgi/ApplicationModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
           eType="#//osgi/BlockGroup" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BlockGroup" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="BlockGroup" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
           eType="#//osgi/BlockHandler" eOpposite="#//osgi/BlockHandler/group"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="hierarchy" upperBound="-1"
@@ -589,13 +592,13 @@
         <eParameters name="localhost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MonitorPoolProxy" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="MonitorPoolProxy" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="local" upperBound="-1"
           eType="#//osgi/MonitorPool"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="remote" upperBound="-1"
           eType="#//osgi/MonitorPool"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EventPoolProxy" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="EventPoolProxy" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="local" upperBound="-1"
           eType="#//osgi/EventPool"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="remote" upperBound="-1"
@@ -624,7 +627,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PullEvents" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="PullEvents" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriverName" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcProperties" upperBound="-1"
@@ -643,7 +646,7 @@
       <eLiterals name="MD5_HEX" value="2"/>
       <eLiterals name="SHA1_HEX" value="3"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="JdbcUserService" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="JdbcUserService" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcPropeties" upperBound="-1"
           eType="#//osgi/PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriver" lowerBound="1"
@@ -691,7 +694,7 @@
         </eAnnotations>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ValueArchive" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="ValueArchive" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
           eType="#//osgi/Item"/>
     </eClassifiers>
@@ -802,7 +805,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" lowerBound="1"
           upperBound="-1" eType="#//osgi/Variant"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//Documentable">
+    <eClassifiers xsi:type="ecore:EClass" name="BufferedValue" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1"
           eType="#//osgi/ItemReference" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="#//osgi/Variant"

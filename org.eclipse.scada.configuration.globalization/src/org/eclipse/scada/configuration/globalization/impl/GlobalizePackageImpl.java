@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePackage
@@ -42,6 +43,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass globalizationEClass = null;
@@ -49,6 +51,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass localEClass = null;
@@ -56,6 +59,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass includeEClass = null;
@@ -63,6 +67,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass excludeEClass = null;
@@ -70,6 +75,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass filterEClass = null;
@@ -77,6 +83,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass patternFilterEClass = null;
@@ -84,6 +91,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass globalEClass = null;
@@ -91,6 +99,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass eventPoolImportEClass = null;
@@ -98,6 +107,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass monitorPoolImportEClass = null;
@@ -105,6 +115,7 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass authorativeEClass = null;
@@ -112,20 +123,22 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private EClass itemNameFilterEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
-     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the
+     * package
      * package URI value.
-     * <p>Note: the correct way to create the package is via the static
-     * factory method {@link #init init()}, which also performs
-     * initialization of the package, or returns the registered package,
-     * if one already exists.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <p>
+     * Note: the correct way to create the package is via the static factory
+     * method {@link #init init()}, which also performs initialization of the
+     * package, or returns the registered package, if one already exists. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.eclipse.scada.configuration.globalization.GlobalizePackage#eNS_URI
      * @see #init()
@@ -139,17 +152,20 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+     * Creates, registers, and initializes the <b>Package</b> for this model,
+     * and for any others upon which it depends.
+     * <p>
+     * This method is used to initialize {@link GlobalizePackage#eINSTANCE} when
+     * that field is accessed. Clients should not invoke it directly. Instead,
+     * they should simply access that field to obtain the package. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * <p>This method is used to initialize {@link GlobalizePackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -158,10 +174,12 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     public static GlobalizePackage init ()
     {
         if ( isInited )
+        {
             return (GlobalizePackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalizePackage.eNS_URI );
+        }
 
         // Obtain or create and register package
-        GlobalizePackageImpl theGlobalizePackage = (GlobalizePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof GlobalizePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new GlobalizePackageImpl () );
+        final GlobalizePackageImpl theGlobalizePackage = (GlobalizePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof GlobalizePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new GlobalizePackageImpl () );
 
         isInited = true;
 
@@ -185,378 +203,454 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getGlobalization ()
     {
-        return globalizationEClass;
+        return this.globalizationEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobalization_World ()
     {
-        return (EReference)globalizationEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.globalizationEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobalization_DefaultLogonCredentials ()
     {
-        return (EReference)globalizationEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.globalizationEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobalization_Globals ()
     {
-        return (EReference)globalizationEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.globalizationEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getLocal ()
     {
-        return localEClass;
+        return this.localEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getLocal_Local ()
     {
-        return (EReference)localEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.localEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getLocal_LogonCredentials ()
     {
-        return (EReference)localEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.localEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getLocal_Filters ()
     {
-        return (EReference)localEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.localEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getLocal_DefaultInclude ()
     {
-        return (EAttribute)localEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)this.localEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getLocal_Global ()
     {
-        return (EReference)localEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)this.localEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getLocal_Authoratives ()
     {
-        return (EReference)localEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)this.localEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getLocal_Id ()
     {
-        return (EAttribute)localEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)this.localEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getInclude ()
     {
-        return includeEClass;
+        return this.includeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getExclude ()
     {
-        return excludeEClass;
+        return this.excludeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getFilter ()
     {
-        return filterEClass;
+        return this.filterEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getPatternFilter ()
     {
-        return patternFilterEClass;
+        return this.patternFilterEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getPatternFilter_Pattern ()
     {
-        return (EAttribute)patternFilterEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.patternFilterEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getGlobal ()
     {
-        return globalEClass;
+        return this.globalEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_Global ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_DefaultLogonCredentials ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_Locals ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_EventPoolImports ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_MonitorPoolImports ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 4 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_LocalPull ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EReference getGlobal_Filters ()
     {
-        return (EReference)globalEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)this.globalEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getEventPoolImport ()
     {
-        return eventPoolImportEClass;
+        return this.eventPoolImportEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getEventPoolImport_LocalName ()
     {
-        return (EAttribute)eventPoolImportEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.eventPoolImportEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getEventPoolImport_IncludeLocal ()
     {
-        return (EAttribute)eventPoolImportEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.eventPoolImportEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getEventPoolImport_PoolSize ()
     {
-        return (EAttribute)eventPoolImportEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)this.eventPoolImportEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getMonitorPoolImport ()
     {
-        return monitorPoolImportEClass;
+        return this.monitorPoolImportEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getMonitorPoolImport_LocalName ()
     {
-        return (EAttribute)monitorPoolImportEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.monitorPoolImportEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getMonitorPoolImport_IncludeLocal ()
     {
-        return (EAttribute)monitorPoolImportEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.monitorPoolImportEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getAuthorative ()
     {
-        return authorativeEClass;
+        return this.authorativeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getAuthorative_Hierarchy ()
     {
-        return (EAttribute)authorativeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.authorativeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EClass getItemNameFilter ()
     {
-        return itemNameFilterEClass;
+        return this.itemNameFilterEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getItemNameFilter_Include ()
     {
-        return (EAttribute)itemNameFilterEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)this.itemNameFilterEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public EAttribute getItemNameFilter_ItemName ()
     {
-        return (EAttribute)itemNameFilterEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)this.itemNameFilterEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public GlobalizeFactory getGlobalizeFactory ()
     {
         return (GlobalizeFactory)getEFactoryInstance ();
@@ -565,92 +659,100 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package.  This method is
+     * Creates the meta-model objects for the package. This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( isCreated )
+        if ( this.isCreated )
+        {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        globalizationEClass = createEClass ( GLOBALIZATION );
-        createEReference ( globalizationEClass, GLOBALIZATION__WORLD );
-        createEReference ( globalizationEClass, GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS );
-        createEReference ( globalizationEClass, GLOBALIZATION__GLOBALS );
+        this.globalizationEClass = createEClass ( GLOBALIZATION );
+        createEReference ( this.globalizationEClass, GLOBALIZATION__WORLD );
+        createEReference ( this.globalizationEClass, GLOBALIZATION__DEFAULT_LOGON_CREDENTIALS );
+        createEReference ( this.globalizationEClass, GLOBALIZATION__GLOBALS );
 
-        localEClass = createEClass ( LOCAL );
-        createEReference ( localEClass, LOCAL__LOCAL );
-        createEReference ( localEClass, LOCAL__LOGON_CREDENTIALS );
-        createEReference ( localEClass, LOCAL__FILTERS );
-        createEAttribute ( localEClass, LOCAL__DEFAULT_INCLUDE );
-        createEReference ( localEClass, LOCAL__GLOBAL );
-        createEReference ( localEClass, LOCAL__AUTHORATIVES );
-        createEAttribute ( localEClass, LOCAL__ID );
+        this.localEClass = createEClass ( LOCAL );
+        createEReference ( this.localEClass, LOCAL__LOCAL );
+        createEReference ( this.localEClass, LOCAL__LOGON_CREDENTIALS );
+        createEReference ( this.localEClass, LOCAL__FILTERS );
+        createEAttribute ( this.localEClass, LOCAL__DEFAULT_INCLUDE );
+        createEReference ( this.localEClass, LOCAL__GLOBAL );
+        createEReference ( this.localEClass, LOCAL__AUTHORATIVES );
+        createEAttribute ( this.localEClass, LOCAL__ID );
 
-        includeEClass = createEClass ( INCLUDE );
+        this.includeEClass = createEClass ( INCLUDE );
 
-        excludeEClass = createEClass ( EXCLUDE );
+        this.excludeEClass = createEClass ( EXCLUDE );
 
-        filterEClass = createEClass ( FILTER );
+        this.filterEClass = createEClass ( FILTER );
 
-        patternFilterEClass = createEClass ( PATTERN_FILTER );
-        createEAttribute ( patternFilterEClass, PATTERN_FILTER__PATTERN );
+        this.patternFilterEClass = createEClass ( PATTERN_FILTER );
+        createEAttribute ( this.patternFilterEClass, PATTERN_FILTER__PATTERN );
 
-        globalEClass = createEClass ( GLOBAL );
-        createEReference ( globalEClass, GLOBAL__GLOBAL );
-        createEReference ( globalEClass, GLOBAL__DEFAULT_LOGON_CREDENTIALS );
-        createEReference ( globalEClass, GLOBAL__LOCALS );
-        createEReference ( globalEClass, GLOBAL__EVENT_POOL_IMPORTS );
-        createEReference ( globalEClass, GLOBAL__MONITOR_POOL_IMPORTS );
-        createEReference ( globalEClass, GLOBAL__LOCAL_PULL );
-        createEReference ( globalEClass, GLOBAL__FILTERS );
+        this.globalEClass = createEClass ( GLOBAL );
+        createEReference ( this.globalEClass, GLOBAL__GLOBAL );
+        createEReference ( this.globalEClass, GLOBAL__DEFAULT_LOGON_CREDENTIALS );
+        createEReference ( this.globalEClass, GLOBAL__LOCALS );
+        createEReference ( this.globalEClass, GLOBAL__EVENT_POOL_IMPORTS );
+        createEReference ( this.globalEClass, GLOBAL__MONITOR_POOL_IMPORTS );
+        createEReference ( this.globalEClass, GLOBAL__LOCAL_PULL );
+        createEReference ( this.globalEClass, GLOBAL__FILTERS );
 
-        eventPoolImportEClass = createEClass ( EVENT_POOL_IMPORT );
-        createEAttribute ( eventPoolImportEClass, EVENT_POOL_IMPORT__LOCAL_NAME );
-        createEAttribute ( eventPoolImportEClass, EVENT_POOL_IMPORT__INCLUDE_LOCAL );
-        createEAttribute ( eventPoolImportEClass, EVENT_POOL_IMPORT__POOL_SIZE );
+        this.eventPoolImportEClass = createEClass ( EVENT_POOL_IMPORT );
+        createEAttribute ( this.eventPoolImportEClass, EVENT_POOL_IMPORT__LOCAL_NAME );
+        createEAttribute ( this.eventPoolImportEClass, EVENT_POOL_IMPORT__INCLUDE_LOCAL );
+        createEAttribute ( this.eventPoolImportEClass, EVENT_POOL_IMPORT__POOL_SIZE );
 
-        monitorPoolImportEClass = createEClass ( MONITOR_POOL_IMPORT );
-        createEAttribute ( monitorPoolImportEClass, MONITOR_POOL_IMPORT__LOCAL_NAME );
-        createEAttribute ( monitorPoolImportEClass, MONITOR_POOL_IMPORT__INCLUDE_LOCAL );
+        this.monitorPoolImportEClass = createEClass ( MONITOR_POOL_IMPORT );
+        createEAttribute ( this.monitorPoolImportEClass, MONITOR_POOL_IMPORT__LOCAL_NAME );
+        createEAttribute ( this.monitorPoolImportEClass, MONITOR_POOL_IMPORT__INCLUDE_LOCAL );
 
-        authorativeEClass = createEClass ( AUTHORATIVE );
-        createEAttribute ( authorativeEClass, AUTHORATIVE__HIERARCHY );
+        this.authorativeEClass = createEClass ( AUTHORATIVE );
+        createEAttribute ( this.authorativeEClass, AUTHORATIVE__HIERARCHY );
 
-        itemNameFilterEClass = createEClass ( ITEM_NAME_FILTER );
-        createEAttribute ( itemNameFilterEClass, ITEM_NAME_FILTER__INCLUDE );
-        createEAttribute ( itemNameFilterEClass, ITEM_NAME_FILTER__ITEM_NAME );
+        this.itemNameFilterEClass = createEClass ( ITEM_NAME_FILTER );
+        createEAttribute ( this.itemNameFilterEClass, ITEM_NAME_FILTER__INCLUDE );
+        createEAttribute ( this.itemNameFilterEClass, ITEM_NAME_FILTER__ITEM_NAME );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model.  This
+     * Complete the initialization of the package and its meta-model. This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( isInitialized )
+        if ( this.isInitialized )
+        {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -658,69 +760,69 @@ public class GlobalizePackageImpl extends EPackageImpl implements GlobalizePacka
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
-        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        includeEClass.getESuperTypes ().add ( this.getPatternFilter () );
-        excludeEClass.getESuperTypes ().add ( this.getPatternFilter () );
-        patternFilterEClass.getESuperTypes ().add ( this.getFilter () );
-        eventPoolImportEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        monitorPoolImportEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        itemNameFilterEClass.getESuperTypes ().add ( this.getFilter () );
+        this.includeEClass.getESuperTypes ().add ( getPatternFilter () );
+        this.excludeEClass.getESuperTypes ().add ( getPatternFilter () );
+        this.patternFilterEClass.getESuperTypes ().add ( getFilter () );
+        this.eventPoolImportEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        this.monitorPoolImportEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        this.itemNameFilterEClass.getESuperTypes ().add ( getFilter () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( globalizationEClass, Globalization.class, "Globalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.globalizationEClass, Globalization.class, "Globalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getGlobalization_World (), theWorldPackage.getWorld (), null, "world", null, 1, 1, Globalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobalization_DefaultLogonCredentials (), theWorldPackage.getCredentials (), null, "defaultLogonCredentials", null, 0, 1, Globalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getGlobalization_Globals (), this.getGlobal (), null, "globals", null, 0, -1, Globalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobalization_Globals (), getGlobal (), null, "globals", null, 0, -1, Globalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( localEClass, Local.class, "Local", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.localEClass, Local.class, "Local", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getLocal_Local (), theOsgiPackage.getMasterServer (), null, "local", null, 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getLocal_LogonCredentials (), theWorldPackage.getCredentials (), null, "logonCredentials", null, 0, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getLocal_Filters (), this.getFilter (), null, "filters", null, 0, -1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getLocal_DefaultInclude (), ecorePackage.getEBoolean (), "defaultInclude", "false", 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEReference ( getLocal_Global (), this.getGlobal (), this.getGlobal_Locals (), "global", null, 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getLocal_Authoratives (), this.getAuthorative (), null, "authoratives", null, 0, -1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getLocal_Id (), ecorePackage.getEString (), "id", null, 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getLocal_Filters (), getFilter (), null, "filters", null, 0, -1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getLocal_DefaultInclude (), this.ecorePackage.getEBoolean (), "defaultInclude", "false", 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getLocal_Global (), getGlobal (), getGlobal_Locals (), "global", null, 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getLocal_Authoratives (), getAuthorative (), null, "authoratives", null, 0, -1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getLocal_Id (), this.ecorePackage.getEString (), "id", null, 1, 1, Local.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( excludeEClass, Exclude.class, "Exclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.excludeEClass, Exclude.class, "Exclude", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( filterEClass, Filter.class, "Filter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.filterEClass, Filter.class, "Filter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( patternFilterEClass, PatternFilter.class, "PatternFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.patternFilterEClass, PatternFilter.class, "PatternFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPatternFilter_Pattern (), theWorldPackage.getPattern (), "pattern", null, 1, 1, PatternFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( globalEClass, Global.class, "Global", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( this.globalEClass, Global.class, "Global", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getGlobal_Global (), theOsgiPackage.getMasterServer (), null, "global", null, 1, 1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobal_DefaultLogonCredentials (), theWorldPackage.getCredentials (), null, "defaultLogonCredentials", null, 0, 1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getGlobal_Locals (), this.getLocal (), this.getLocal_Global (), "locals", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getGlobal_EventPoolImports (), this.getEventPoolImport (), null, "eventPoolImports", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getGlobal_MonitorPoolImports (), this.getMonitorPoolImport (), null, "monitorPoolImports", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobal_Locals (), getLocal (), getLocal_Global (), "locals", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobal_EventPoolImports (), getEventPoolImport (), null, "eventPoolImports", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobal_MonitorPoolImports (), getMonitorPoolImport (), null, "monitorPoolImports", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getGlobal_LocalPull (), theOsgiPackage.getPullEvents (), null, "localPull", null, 0, 1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getGlobal_Filters (), this.getFilter (), null, "filters", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getGlobal_Filters (), getFilter (), null, "filters", null, 0, -1, Global.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( eventPoolImportEClass, EventPoolImport.class, "EventPoolImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getEventPoolImport_LocalName (), ecorePackage.getEString (), "localName", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEventPoolImport_IncludeLocal (), ecorePackage.getEBoolean (), "includeLocal", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEventPoolImport_PoolSize (), ecorePackage.getEInt (), "poolSize", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.eventPoolImportEClass, EventPoolImport.class, "EventPoolImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getEventPoolImport_LocalName (), this.ecorePackage.getEString (), "localName", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventPoolImport_IncludeLocal (), this.ecorePackage.getEBoolean (), "includeLocal", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEventPoolImport_PoolSize (), this.ecorePackage.getEInt (), "poolSize", null, 1, 1, EventPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( monitorPoolImportEClass, MonitorPoolImport.class, "MonitorPoolImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getMonitorPoolImport_LocalName (), ecorePackage.getEString (), "localName", null, 1, 1, MonitorPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getMonitorPoolImport_IncludeLocal (), ecorePackage.getEBoolean (), "includeLocal", null, 1, 1, MonitorPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.monitorPoolImportEClass, MonitorPoolImport.class, "MonitorPoolImport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMonitorPoolImport_LocalName (), this.ecorePackage.getEString (), "localName", null, 1, 1, MonitorPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMonitorPoolImport_IncludeLocal (), this.ecorePackage.getEBoolean (), "includeLocal", null, 1, 1, MonitorPoolImport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( authorativeEClass, Authorative.class, "Authorative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getAuthorative_Hierarchy (), ecorePackage.getEString (), "hierarchy", null, 1, -1, Authorative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.authorativeEClass, Authorative.class, "Authorative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAuthorative_Hierarchy (), this.ecorePackage.getEString (), "hierarchy", null, 1, -1, Authorative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( itemNameFilterEClass, ItemNameFilter.class, "ItemNameFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getItemNameFilter_Include (), ecorePackage.getEBoolean (), "include", "true", 1, 1, ItemNameFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getItemNameFilter_ItemName (), ecorePackage.getEString (), "itemName", null, 1, 1, ItemNameFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( this.itemNameFilterEClass, ItemNameFilter.class, "ItemNameFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getItemNameFilter_Include (), this.ecorePackage.getEBoolean (), "include", "true", 1, 1, ItemNameFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getItemNameFilter_ItemName (), this.ecorePackage.getEString (), "itemName", null, 1, 1, ItemNameFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

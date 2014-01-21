@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.ItemInformation;
 import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
@@ -29,7 +29,7 @@ public final class Names
 
     public static final String delimiter = ".";
 
-    public static String makeName ( final Documentable documentable )
+    public static String makeName ( final NamedDocumentable documentable )
     {
         if ( documentable.getName () != null )
         {

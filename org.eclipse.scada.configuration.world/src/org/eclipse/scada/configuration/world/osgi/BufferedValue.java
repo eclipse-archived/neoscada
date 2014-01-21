@@ -11,8 +11,7 @@
  */
 package org.eclipse.scada.configuration.world.osgi;
 
-import org.eclipse.scada.configuration.world.Documentable;
-
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.core.Variant;
 
 /**
@@ -36,7 +35,7 @@ import org.eclipse.scada.core.Variant;
  * @model
  * @generated
  */
-public interface BufferedValue extends Documentable
+public interface BufferedValue extends NamedDocumentable
 {
     /**
      * Returns the value of the '<em><b>Item</b></em>' containment reference.

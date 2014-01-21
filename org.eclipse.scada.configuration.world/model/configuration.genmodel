@@ -28,7 +28,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//Documentable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/shortDescription"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//Application"/>
     <genClasses ecoreClass="configuration.ecore#//Driver">
@@ -69,6 +68,9 @@
     <genClasses provider="Stateful" image="false" ecoreClass="configuration.ecore#//Credentials"/>
     <genClasses ecoreClass="configuration.ecore#//ExternalNode"/>
     <genClasses image="false" ecoreClass="configuration.ecore#//Service"/>
+    <genClasses image="false" ecoreClass="configuration.ecore#//NamedDocumentable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NamedDocumentable/name"/>
+    </genClasses>
     <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
         extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="configuration.ecore#//osgi">
@@ -114,6 +116,16 @@
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/Persistence/NONE"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/Persistence/LAZY"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/Persistence/REQUIRED"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/ErrorHandling">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ErrorHandling/IGNORE"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ErrorHandling/COUNT"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ErrorHandling/ERROR"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//osgi/ChangeType">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ChangeType/DELTA"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ChangeType/SET"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//osgi/ChangeType/DIRECTION"/>
       </genEnums>
       <genDataTypes ecoreDataType="configuration.ecore#//osgi/Severity"/>
       <genDataTypes ecoreDataType="configuration.ecore#//osgi/Variant"/>
@@ -251,6 +263,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/externalEventFilters"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/averages"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/movingAverages"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/MasterServer/bufferedValues"/>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ValueArchiveServer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ValueArchiveServer/archives"/>
@@ -538,6 +551,9 @@
       <genClasses ecoreClass="configuration.ecore#//osgi/ChangeCounterItem">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//osgi/ChangeCounterItem/buffer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ChangeCounterItem/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ChangeCounterItem/onError"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ChangeCounterItem/values"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/BufferedValue">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

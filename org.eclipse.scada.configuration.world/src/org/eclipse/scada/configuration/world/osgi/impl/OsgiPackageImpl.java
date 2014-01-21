@@ -4944,8 +4944,8 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         // Add supertypes to classes
         equinoxApplicationEClass.getESuperTypes ().add ( theWorldPackage.getApplication () );
-        connectionEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        exporterEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        connectionEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        exporterEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         dataAccessConnectionEClass.getESuperTypes ().add ( this.getConnection () );
         dataAccessExporterEClass.getESuperTypes ().add ( this.getExporter () );
         sourceItemEClass.getESuperTypes ().add ( this.getItem () );
@@ -4961,9 +4961,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         customMasterServerEClass.getESuperTypes ().add ( this.getMasterServer () );
         attributesSummaryEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         eventLoggerEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
-        monitorPoolEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        eventPoolEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        dataMapperEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        monitorPoolEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        eventPoolEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        dataMapperEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         simpleDataMapperEClass.getESuperTypes ().add ( this.getDataMapper () );
         jdbcDataMapperEClass.getESuperTypes ().add ( this.getDataMapper () );
         valueMapperEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
@@ -4972,36 +4972,36 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         scaleEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         negateEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         roundingEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
-        externalEventMonitorEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        externalEventFilterEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        externalEventMonitorEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        externalEventFilterEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         staticExternalEventFilterEClass.getESuperTypes ().add ( this.getExternalEventFilter () );
         simpleExternalEventFilterEClass.getESuperTypes ().add ( this.getExternalEventFilter () );
         typedItemReferenceEClass.getESuperTypes ().add ( this.getItemReference () );
         formulaItemEClass.getESuperTypes ().add ( this.getItem () );
         booleanMonitorEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         listMonitorEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
-        averageEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        movingAverageEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        averageEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        movingAverageEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         averageItemEClass.getESuperTypes ().add ( this.getItem () );
         movingAverageItemEClass.getESuperTypes ().add ( this.getItem () );
-        blockingsEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        blockingsEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         blockingsEClass.getESuperTypes ().add ( this.getApplicationModule () );
-        blockGroupEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        blockGroupEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         blockHandlerEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         blockEClass.getESuperTypes ().add ( this.getItemFeatureEntry () );
         globalSummaryItemEClass.getESuperTypes ().add ( this.getItem () );
         weakReferenceDataSourceItemEClass.getESuperTypes ().add ( this.getItem () );
         alarmsEventsExporterEClass.getESuperTypes ().add ( this.getExporter () );
         alarmsEventsConnectionEClass.getESuperTypes ().add ( this.getConnection () );
-        monitorPoolProxyEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
-        eventPoolProxyEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        monitorPoolProxyEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        eventPoolProxyEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         alarmsEventsModuleEClass.getESuperTypes ().add ( this.getApplicationModule () );
-        pullEventsEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        pullEventsEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         jdbcUserServiceModuleEClass.getESuperTypes ().add ( this.getApplicationModule () );
-        jdbcUserServiceEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        jdbcUserServiceEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         defaultValueArchiveServerEClass.getESuperTypes ().add ( this.getValueArchiveServer () );
         historicalDataExporterEClass.getESuperTypes ().add ( this.getExporter () );
-        valueArchiveEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        valueArchiveEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         configurationAdministratorExporterEClass.getESuperTypes ().add ( this.getExporter () );
         referenceItemEClass.getESuperTypes ().add ( this.getItem () );
         eventStorageEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
@@ -5015,7 +5015,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         transientItemEClass.getESuperTypes ().add ( this.getItem () );
         defaultEquinoxApplicationEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
         changeCounterItemEClass.getESuperTypes ().add ( this.getItem () );
-        bufferedValueEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        bufferedValueEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

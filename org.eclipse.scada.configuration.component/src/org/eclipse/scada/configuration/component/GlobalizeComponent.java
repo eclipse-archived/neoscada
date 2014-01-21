@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.component;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
-import org.eclipse.scada.configuration.world.Documentable;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +31,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  * @model
  * @generated
  */
-public interface GlobalizeComponent extends Documentable, DataComponent
+public interface GlobalizeComponent extends DataComponent
 {
     /**
      * Returns the value of the '<em><b>Components</b></em>' reference list.

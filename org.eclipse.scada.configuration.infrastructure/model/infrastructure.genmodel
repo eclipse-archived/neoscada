@@ -12,6 +12,10 @@
       resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
       extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.infrastructure"
       fileExtensions="esim" ecorePackage="infrastructure.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="infrastructure.ecore#//SlaveStorageLayout">
+      <genEnumLiterals ecoreEnumLiteral="infrastructure.ecore#//SlaveStorageLayout/SINGLE"/>
+      <genEnumLiterals ecoreEnumLiteral="infrastructure.ecore#//SlaveStorageLayout/MULTI"/>
+    </genEnums>
     <genClasses provider="Stateful" ecoreClass="infrastructure.ecore#//World">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/nodes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//World/options"/>
@@ -69,6 +73,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/valueArchives"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//SystemNode/applications"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/services"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemNode/valueSlaves"/>
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//SystemPropertyUserService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference infrastructure.ecore#//SystemPropertyUserService/users"/>
@@ -120,6 +125,10 @@
     </genClasses>
     <genClasses ecoreClass="infrastructure.ecore#//RestExporterModule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//RestExporterModule/contextId"/>
+    </genClasses>
+    <genClasses ecoreClass="infrastructure.ecore#//ValueArchiveSlave">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ValueArchiveSlave/storagePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infrastructure.ecore#//ValueArchiveSlave/storageLayout"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

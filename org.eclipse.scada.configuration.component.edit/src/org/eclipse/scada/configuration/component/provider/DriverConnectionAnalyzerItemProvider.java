@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,11 +23,15 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.DriverConnectionAnalyzer;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.component.DriverConnectionAnalyzer}
+ * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -36,9 +40,10 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public DriverConnectionAnalyzerItemProvider ( AdapterFactory adapterFactory )
+    public DriverConnectionAnalyzerItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -47,31 +52,33 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addDriverPropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Driver feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addDriverPropertyDescriptor ( Object object )
+    protected void addDriverPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_DriverConnectionAnalyzer_driver_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_DriverConnectionAnalyzer_driver_feature", "_UI_DriverConnectionAnalyzer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -88,10 +95,11 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
      * This returns DriverConnectionAnalyzer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object getImage ( Object object )
+    public Object getImage ( final Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/DriverConnectionAnalyzer" ) ); //$NON-NLS-1$
     }
@@ -100,37 +108,46 @@ public class DriverConnectionAnalyzerItemProvider extends MasterComponentItemPro
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        return getString ( "_UI_DriverConnectionAnalyzer_type" ); //$NON-NLS-1$
+        final String label = ( (DriverConnectionAnalyzer)object ).getShortDescription ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_DriverConnectionAnalyzer_type" ) : //$NON-NLS-1$
+                getString ( "_UI_DriverConnectionAnalyzer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
         super.notifyChanged ( notification );
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

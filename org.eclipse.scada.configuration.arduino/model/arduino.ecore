@@ -6,7 +6,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="arduinoConnections" upperBound="-1"
         eType="#//ArduinoConnection" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArduinoConnection" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Documentable">
+  <eClassifiers xsi:type="ecore:EClass" name="ArduinoConnection" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
   </eClassifiers>

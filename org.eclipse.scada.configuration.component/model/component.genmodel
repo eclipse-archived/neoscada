@@ -162,5 +162,20 @@
     <genClasses ecoreClass="component.ecore#//MasterComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterComponent/masterOn"/>
     </genClasses>
+    <genClasses ecoreClass="component.ecore#//BufferedValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//BufferedValue/input"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/range"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/initialValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/persistence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/trigger"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/triggerOnly"/>
+    </genClasses>
+    <genClasses ecoreClass="component.ecore#//ChangeCounter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//ChangeCounter/buffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//ChangeCounter/onError"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

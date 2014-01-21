@@ -1903,8 +1903,8 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         // Obtain other dependent packages
         InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
         ItemPackage theItemPackage = (ItemPackage)EPackage.Registry.INSTANCE.getEPackage ( ItemPackage.eNS_URI );
-        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
         WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
 
         // Create type parameters
 
@@ -1913,6 +1913,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         // Add supertypes to classes
         componentWorldEClass.getESuperTypes ().add ( this.getContainer () );
         levelEClass.getESuperTypes ().add ( this.getContainer () );
+        componentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         dataComponentEClass.getESuperTypes ().add ( this.getComponent () );
         constantValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         markerConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
@@ -1922,25 +1923,24 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         singleValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
         dataMapperAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
         dataMapperServiceEClass.getESuperTypes ().add ( this.getService () );
-        mappedSourceValueEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        mappedSourceValueEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         mappedSourceValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
-        calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         calculationComponentEClass.getESuperTypes ().add ( this.getMasterComponent () );
         calculationModuleEClass.getESuperTypes ().add ( this.getService () );
         itemReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
         componentReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
-        formulaModuleEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        formulaModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         formulaModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
         averageModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
         danglingItemReferenceEClass.getESuperTypes ().add ( theOsgiPackage.getItem () );
-        scriptModuleEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
+        scriptModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         scriptModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
         absoluteDanglingReferenceEClass.getESuperTypes ().add ( this.getDanglingItemReference () );
         componentDanglingReferenceEClass.getESuperTypes ().add ( this.getDanglingItemReference () );
         externalValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
-        globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getDocumentable () );
         globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
         transientValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,14 +14,28 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.globalization.*;
+import org.eclipse.scada.configuration.globalization.Authorative;
+import org.eclipse.scada.configuration.globalization.EventPoolImport;
+import org.eclipse.scada.configuration.globalization.Exclude;
+import org.eclipse.scada.configuration.globalization.Filter;
+import org.eclipse.scada.configuration.globalization.Global;
+import org.eclipse.scada.configuration.globalization.Globalization;
+import org.eclipse.scada.configuration.globalization.GlobalizePackage;
+import org.eclipse.scada.configuration.globalization.Include;
+import org.eclipse.scada.configuration.globalization.ItemNameFilter;
+import org.eclipse.scada.configuration.globalization.Local;
+import org.eclipse.scada.configuration.globalization.MonitorPoolImport;
+import org.eclipse.scada.configuration.globalization.PatternFilter;
 import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
- * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the
+ * model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.scada.configuration.globalization.GlobalizePackage
  * @generated
  */
@@ -31,6 +45,7 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected static GlobalizePackage modelPackage;
@@ -39,6 +54,7 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public GlobalizeAdapterFactory ()
@@ -52,13 +68,15 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     /**
      * Returns whether this factory is applicable for the type of the object.
      * <!-- begin-user-doc -->
-     * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+     * This implementation returns <code>true</code> if the object is either the
+     * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( Object object )
+    public boolean isFactoryForType ( final Object object )
     {
         if ( object == modelPackage )
         {
@@ -75,84 +93,91 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected GlobalizeSwitch<Adapter> modelSwitch = new GlobalizeSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseGlobalization ( Globalization object )
+        public Adapter caseGlobalization ( final Globalization object )
         {
             return createGlobalizationAdapter ();
         }
 
         @Override
-        public Adapter caseLocal ( Local object )
+        public Adapter caseLocal ( final Local object )
         {
             return createLocalAdapter ();
         }
 
         @Override
-        public Adapter caseInclude ( Include object )
+        public Adapter caseInclude ( final Include object )
         {
             return createIncludeAdapter ();
         }
 
         @Override
-        public Adapter caseExclude ( Exclude object )
+        public Adapter caseExclude ( final Exclude object )
         {
             return createExcludeAdapter ();
         }
 
         @Override
-        public Adapter caseFilter ( Filter object )
+        public Adapter caseFilter ( final Filter object )
         {
             return createFilterAdapter ();
         }
 
         @Override
-        public Adapter casePatternFilter ( PatternFilter object )
+        public Adapter casePatternFilter ( final PatternFilter object )
         {
             return createPatternFilterAdapter ();
         }
 
         @Override
-        public Adapter caseGlobal ( Global object )
+        public Adapter caseGlobal ( final Global object )
         {
             return createGlobalAdapter ();
         }
 
         @Override
-        public Adapter caseEventPoolImport ( EventPoolImport object )
+        public Adapter caseEventPoolImport ( final EventPoolImport object )
         {
             return createEventPoolImportAdapter ();
         }
 
         @Override
-        public Adapter caseMonitorPoolImport ( MonitorPoolImport object )
+        public Adapter caseMonitorPoolImport ( final MonitorPoolImport object )
         {
             return createMonitorPoolImportAdapter ();
         }
 
         @Override
-        public Adapter caseAuthorative ( Authorative object )
+        public Adapter caseAuthorative ( final Authorative object )
         {
             return createAuthorativeAdapter ();
         }
 
         @Override
-        public Adapter caseItemNameFilter ( ItemNameFilter object )
+        public Adapter caseItemNameFilter ( final ItemNameFilter object )
         {
             return createItemNameFilterAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentable ( Documentable object )
+        public Adapter caseDocumentable ( final Documentable object )
         {
             return createDocumentableAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( EObject object )
+        public Adapter caseNamedDocumentable ( final NamedDocumentable object )
+        {
+            return createNamedDocumentableAdapter ();
+        }
+
+        @Override
+        public Adapter defaultCase ( final EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -162,22 +187,29 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param target the object to adapt.
+     * 
+     * @param target
+     *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( Notifier target )
+    public Adapter createAdapter ( final Notifier target )
     {
-        return modelSwitch.doSwitch ( (EObject)target );
+        return this.modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Globalization <em>Globalization</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Globalization
+     * <em>Globalization</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Globalization
      * @generated
@@ -188,11 +220,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Local <em>Local</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Local
+     * <em>Local</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Local
      * @generated
@@ -203,11 +240,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Include <em>Include</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Include
+     * <em>Include</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Include
      * @generated
@@ -218,11 +260,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Exclude <em>Exclude</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Exclude
+     * <em>Exclude</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Exclude
      * @generated
@@ -233,11 +280,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Filter <em>Filter</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Filter
+     * <em>Filter</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Filter
      * @generated
@@ -248,11 +300,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.PatternFilter <em>Pattern Filter</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.PatternFilter
+     * <em>Pattern Filter</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.PatternFilter
      * @generated
@@ -263,11 +320,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Global <em>Global</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Global
+     * <em>Global</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Global
      * @generated
@@ -278,11 +340,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.EventPoolImport <em>Event Pool Import</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.EventPoolImport
+     * <em>Event Pool Import</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.EventPoolImport
      * @generated
@@ -293,11 +360,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.MonitorPoolImport <em>Monitor Pool Import</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.MonitorPoolImport
+     * <em>Monitor Pool Import</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.MonitorPoolImport
      * @generated
@@ -308,11 +380,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.Authorative <em>Authorative</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.Authorative
+     * <em>Authorative</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.Authorative
      * @generated
@@ -323,11 +400,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.globalization.ItemNameFilter <em>Item Name Filter</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.globalization.ItemNameFilter
+     * <em>Item Name Filter</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.globalization.ItemNameFilter
      * @generated
@@ -338,11 +420,16 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.Documentable
+     * <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Documentable
      * @generated
@@ -353,10 +440,31 @@ public class GlobalizeAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.NamedDocumentable
+     * <em>Named Documentable</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
+     * <!-- end-user-doc -->
+     * 
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.NamedDocumentable
+     * @generated
+     */
+    public Adapter createNamedDocumentableAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for the default case.
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @generated
      */

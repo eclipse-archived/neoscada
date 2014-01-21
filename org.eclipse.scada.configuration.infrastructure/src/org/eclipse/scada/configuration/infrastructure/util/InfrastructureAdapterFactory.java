@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,15 +14,44 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.infrastructure.*;
+import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
+import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
+import org.eclipse.scada.configuration.infrastructure.CommonDriver;
+import org.eclipse.scada.configuration.infrastructure.Configurations;
+import org.eclipse.scada.configuration.infrastructure.Device;
+import org.eclipse.scada.configuration.infrastructure.Driver;
+import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
+import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
+import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
+import org.eclipse.scada.configuration.infrastructure.ExternalNode;
+import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.JdbcUserService;
+import org.eclipse.scada.configuration.infrastructure.MasterImport;
+import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.configuration.infrastructure.Module;
+import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
+import org.eclipse.scada.configuration.infrastructure.SystemNode;
+import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
+import org.eclipse.scada.configuration.infrastructure.UserEntry;
+import org.eclipse.scada.configuration.infrastructure.UserService;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
+import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
+import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
- * It provides an adapter <code>createXXX</code> method for each class of the model.
+ * It provides an adapter <code>createXXX</code> method for each class of the
+ * model.
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage
  * @generated
  */
@@ -32,6 +61,7 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected static InfrastructurePackage modelPackage;
@@ -40,6 +70,7 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InfrastructureAdapterFactory ()
@@ -53,13 +84,15 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     /**
      * Returns whether this factory is applicable for the type of the object.
      * <!-- begin-user-doc -->
-     * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+     * This implementation returns <code>true</code> if the object is either the
+     * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( Object object )
+    public boolean isFactoryForType ( final Object object )
     {
         if ( object == modelPackage )
         {
@@ -76,186 +109,193 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected InfrastructureSwitch<Adapter> modelSwitch = new InfrastructureSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseWorld ( World object )
+        public Adapter caseWorld ( final World object )
         {
             return createWorldAdapter ();
         }
 
         @Override
-        public Adapter caseNode ( Node object )
+        public Adapter caseNode ( final Node object )
         {
             return createNodeAdapter ();
         }
 
         @Override
-        public Adapter caseMasterServer ( MasterServer object )
+        public Adapter caseMasterServer ( final MasterServer object )
         {
             return createMasterServerAdapter ();
         }
 
         @Override
-        public Adapter caseMasterImport ( MasterImport object )
+        public Adapter caseMasterImport ( final MasterImport object )
         {
             return createMasterImportAdapter ();
         }
 
         @Override
-        public Adapter caseOptions ( Options object )
+        public Adapter caseOptions ( final Options object )
         {
             return createOptionsAdapter ();
         }
 
         @Override
-        public Adapter caseEquinoxApplication ( EquinoxApplication object )
+        public Adapter caseEquinoxApplication ( final EquinoxApplication object )
         {
             return createEquinoxApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseCommonDriver ( CommonDriver object )
+        public Adapter caseCommonDriver ( final CommonDriver object )
         {
             return createCommonDriverAdapter ();
         }
 
         @Override
-        public Adapter caseExternalNode ( ExternalNode object )
+        public Adapter caseExternalNode ( final ExternalNode object )
         {
             return createExternalNodeAdapter ();
         }
 
         @Override
-        public Adapter caseSystemNode ( SystemNode object )
+        public Adapter caseSystemNode ( final SystemNode object )
         {
             return createSystemNodeAdapter ();
         }
 
         @Override
-        public Adapter caseSystemPropertyUserService ( SystemPropertyUserService object )
+        public Adapter caseSystemPropertyUserService ( final SystemPropertyUserService object )
         {
             return createSystemPropertyUserServiceAdapter ();
         }
 
         @Override
-        public Adapter caseUserEntry ( UserEntry object )
+        public Adapter caseUserEntry ( final UserEntry object )
         {
             return createUserEntryAdapter ();
         }
 
         @Override
-        public Adapter caseUserService ( UserService object )
+        public Adapter caseUserService ( final UserService object )
         {
             return createUserServiceAdapter ();
         }
 
         @Override
-        public Adapter caseJdbcUserService ( JdbcUserService object )
+        public Adapter caseJdbcUserService ( final JdbcUserService object )
         {
             return createJdbcUserServiceAdapter ();
         }
 
         @Override
-        public Adapter caseValueArchiveServer ( ValueArchiveServer object )
+        public Adapter caseValueArchiveServer ( final ValueArchiveServer object )
         {
             return createValueArchiveServerAdapter ();
         }
 
         @Override
-        public Adapter caseAbstractFactoryDriver ( AbstractFactoryDriver object )
+        public Adapter caseAbstractFactoryDriver ( final AbstractFactoryDriver object )
         {
             return createAbstractFactoryDriverAdapter ();
         }
 
         @Override
-        public Adapter caseDevice ( Device object )
+        public Adapter caseDevice ( final Device object )
         {
             return createDeviceAdapter ();
         }
 
         @Override
-        public Adapter caseEquinoxDriver ( EquinoxDriver object )
+        public Adapter caseEquinoxDriver ( final EquinoxDriver object )
         {
             return createEquinoxDriverAdapter ();
         }
 
         @Override
-        public Adapter caseExternalDriver ( ExternalDriver object )
+        public Adapter caseExternalDriver ( final ExternalDriver object )
         {
             return createExternalDriverAdapter ();
         }
 
         @Override
-        public Adapter caseDriver ( Driver object )
+        public Adapter caseDriver ( final Driver object )
         {
             return createDriverAdapter ();
         }
 
         @Override
-        public Adapter caseExternalDriverPlaceholder ( ExternalDriverPlaceholder object )
+        public Adapter caseExternalDriverPlaceholder ( final ExternalDriverPlaceholder object )
         {
             return createExternalDriverPlaceholderAdapter ();
         }
 
         @Override
-        public Adapter caseApplicationConfiguration ( ApplicationConfiguration object )
+        public Adapter caseApplicationConfiguration ( final ApplicationConfiguration object )
         {
             return createApplicationConfigurationAdapter ();
         }
 
         @Override
-        public Adapter caseConfigurations ( Configurations object )
+        public Adapter caseConfigurations ( final Configurations object )
         {
             return createConfigurationsAdapter ();
         }
 
         @Override
-        public Adapter caseModule ( Module object )
+        public Adapter caseModule ( final Module object )
         {
             return createModuleAdapter ();
         }
 
         @Override
-        public Adapter caseHttpServiceModule ( HttpServiceModule object )
+        public Adapter caseHttpServiceModule ( final HttpServiceModule object )
         {
             return createHttpServiceModuleAdapter ();
         }
 
         @Override
-        public Adapter caseRestExporterModule ( RestExporterModule object )
+        public Adapter caseRestExporterModule ( final RestExporterModule object )
         {
             return createRestExporterModuleAdapter ();
         }
 
         @Override
-        public Adapter caseValueArchiveSlave ( ValueArchiveSlave object )
+        public Adapter caseValueArchiveSlave ( final ValueArchiveSlave object )
         {
             return createValueArchiveSlaveAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentable ( Documentable object )
+        public Adapter caseDocumentable ( final Documentable object )
         {
             return createDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseApplication ( Application object )
+        public Adapter caseNamedDocumentable ( final NamedDocumentable object )
+        {
+            return createNamedDocumentableAdapter ();
+        }
+
+        @Override
+        public Adapter caseApplication ( final Application object )
         {
             return createApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseWorld_Driver ( org.eclipse.scada.configuration.world.Driver object )
+        public Adapter caseWorld_Driver ( final org.eclipse.scada.configuration.world.Driver object )
         {
             return createWorld_DriverAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( EObject object )
+        public Adapter defaultCase ( final EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -265,22 +305,29 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param target the object to adapt.
+     * 
+     * @param target
+     *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( Notifier target )
+    public Adapter createAdapter ( final Notifier target )
     {
-        return modelSwitch.doSwitch ( (EObject)target );
+        return this.modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.World
+     * <em>World</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.World
      * @generated
@@ -291,11 +338,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Node <em>Node</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Node <em>Node</em>}
+     * '.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Node
      * @generated
@@ -306,11 +358,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.MasterServer <em>Master Server</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.MasterServer
+     * <em>Master Server</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.MasterServer
      * @generated
@@ -321,11 +378,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.MasterImport <em>Master Import</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.MasterImport
+     * <em>Master Import</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.MasterImport
      * @generated
@@ -336,11 +398,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Options <em>Options</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Options
+     * <em>Options</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Options
      * @generated
@@ -351,11 +418,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication <em>Equinox Application</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication
+     * <em>Equinox Application</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.EquinoxApplication
      * @generated
@@ -366,11 +438,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.CommonDriver <em>Common Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.CommonDriver
+     * <em>Common Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.CommonDriver
      * @generated
@@ -381,11 +458,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ExternalNode <em>External Node</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ExternalNode
+     * <em>External Node</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ExternalNode
      * @generated
@@ -396,11 +478,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.SystemNode <em>System Node</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.SystemNode
+     * <em>System Node</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.SystemNode
      * @generated
@@ -411,11 +498,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService <em>System Property User Service</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService
+     * <em>System Property User Service</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService
      * @generated
@@ -426,11 +518,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.UserEntry <em>User Entry</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.UserEntry
+     * <em>User Entry</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.UserEntry
      * @generated
@@ -441,11 +538,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.UserService <em>User Service</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.UserService
+     * <em>User Service</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.UserService
      * @generated
@@ -456,11 +558,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.JdbcUserService <em>Jdbc User Service</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.JdbcUserService
+     * <em>Jdbc User Service</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.JdbcUserService
      * @generated
@@ -471,11 +578,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer <em>Value Archive Server</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer
+     * <em>Value Archive Server</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveServer
      * @generated
@@ -486,11 +598,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver <em>Abstract Factory Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver
+     * <em>Abstract Factory Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver
      * @generated
@@ -501,11 +618,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Device <em>Device</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Device
+     * <em>Device</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Device
      * @generated
@@ -516,11 +638,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver <em>Equinox Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver
+     * <em>Equinox Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.EquinoxDriver
      * @generated
@@ -531,11 +658,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver <em>External Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ExternalDriver
+     * <em>External Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ExternalDriver
      * @generated
@@ -546,11 +678,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Driver <em>Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Driver
+     * <em>Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Driver
      * @generated
@@ -561,11 +698,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder <em>External Driver Placeholder</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder
+     * <em>External Driver Placeholder</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder
      * @generated
@@ -576,11 +718,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration <em>Application Configuration</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration
+     * <em>Application Configuration</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration
      * @generated
@@ -591,11 +738,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Configurations <em>Configurations</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Configurations
+     * <em>Configurations</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Configurations
      * @generated
@@ -606,11 +758,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.Module
+     * <em>Module</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.Module
      * @generated
@@ -621,11 +778,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule <em>Http Service Module</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.HttpServiceModule
+     * <em>Http Service Module</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.HttpServiceModule
      * @generated
@@ -636,11 +798,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.RestExporterModule <em>Rest Exporter Module</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.RestExporterModule
+     * <em>Rest Exporter Module</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.RestExporterModule
      * @generated
@@ -651,11 +818,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave <em>Value Archive Slave</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave
+     * <em>Value Archive Slave</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave
      * @generated
@@ -666,11 +838,16 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.Documentable
+     * <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Documentable
      * @generated
@@ -681,11 +858,36 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.NamedDocumentable
+     * <em>Named Documentable</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.NamedDocumentable
+     * @generated
+     */
+    public Adapter createNamedDocumentableAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.Application
+     * <em>Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
+     * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Application
      * @generated
@@ -696,11 +898,15 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
+     * Creates a new adapter for an object of class '
+     * {@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * This default implementation returns null so that we can easily ignore
+     * cases;
+     * it's useful to ignore a case when inheritance will catch all the cases
+     * anyway.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Driver
      * @generated
@@ -715,6 +921,7 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
+     * 
      * @return the new adapter.
      * @generated
      */

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,9 +35,11 @@ import org.eclipse.scada.configuration.world.osgi.Connection;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.Connection} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.world.osgi.Connection} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ConnectionItemProvider extends ItemProviderAdapter implements
@@ -49,9 +51,10 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public ConnectionItemProvider ( AdapterFactory adapterFactory )
+    public ConnectionItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -60,12 +63,13 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -74,20 +78,21 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
             addEndpointPropertyDescriptor ( object );
             addTimeoutPropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Short Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( Object object )
+    protected void addShortDescriptionPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -104,17 +109,18 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Documentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_name_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__NAME,
+                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
                         true,
                         false,
                         false,
@@ -127,13 +133,14 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Endpoint feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addEndpointPropertyDescriptor ( Object object )
+    protected void addEndpointPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Connection_endpoint_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_endpoint_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -150,13 +157,14 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Timeout feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addTimeoutPropertyDescriptor ( Object object )
+    protected void addTimeoutPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Connection_timeout_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Connection_timeout_feature", "_UI_Connection_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -170,32 +178,37 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to
+     * deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in
+     * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            Object object )
+            final Object object )
     {
-        if ( childrenFeatures == null )
+        if ( this.childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( OsgiPackage.Literals.CONNECTION__CREDENTIALS );
+            this.childrenFeatures.add ( OsgiPackage.Literals.CONNECTION__CREDENTIALS );
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -207,26 +220,30 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (Connection)object ).getName ();
+        final String label = ( (Connection)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_Connection_type" ) : //$NON-NLS-1$
                 getString ( "_UI_Connection_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -246,15 +263,17 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+            final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
@@ -273,12 +292,13 @@ public class ConnectionItemProvider extends ItemProviderAdapter implements
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
     }
 
 }

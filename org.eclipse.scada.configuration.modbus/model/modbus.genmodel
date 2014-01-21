@@ -4,19 +4,25 @@
     modelDirectory="/org.eclipse.scada.configuration.modbus/src" modelPluginID="org.eclipse.scada.configuration.modbus"
     modelName="Modbus" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.memory/model/memory.genmodel#//memory ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization"
+    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.memory/model/memory.genmodel#//memory ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization"
     operationReflection="true" importOrganizing="true">
   <foreignModel>modbus.ecore</foreignModel>
   <genPackages prefix="Modbus" basePackage="org.eclipse.scada.configuration" resource="XMI"
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
       childCreationExtenders="true" fileExtensions="modbusConfiguration" ecorePackage="modbus.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="modbus.ecore#//ProtocolType">
+      <genEnumLiterals ecoreEnumLiteral="modbus.ecore#//ProtocolType/TCP"/>
       <genEnumLiterals ecoreEnumLiteral="modbus.ecore#//ProtocolType/RTU"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="modbus.ecore#//ByteOrder">
+      <genEnumLiterals ecoreEnumLiteral="modbus.ecore#//ByteOrder/BIG_ENDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="modbus.ecore#//ByteOrder/LITTLE_ENDIAN"/>
     </genEnums>
     <genDataTypes ecoreDataType="modbus.ecore#//RequestType"/>
     <genClasses ecoreClass="modbus.ecore#//ModbusDevice">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusDevice/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusDevice/protocolType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusDevice/interFrameDelay"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusDevice/slaves"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusDevice/typeSystem"/>
     </genClasses>
@@ -27,11 +33,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusSlave/blocks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusSlave/unitAddress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusSlave/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusSlave/dataOrder"/>
     </genClasses>
     <genClasses ecoreClass="modbus.ecore#//ModbusMaster">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusMaster/slaves"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusMaster/endpoint"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusMaster/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusMaster/protocolType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusMaster/interFrameDelay"/>
     </genClasses>
     <genClasses ecoreClass="modbus.ecore#//ModbusBlock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/id"/>
@@ -42,5 +51,29 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusBlock/timeout"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusBlock/type"/>
     </genClasses>
+    <genClasses ecoreClass="modbus.ecore#//ModbusExporter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporter/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="modbus.ecore#//ModbusExporterDevice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporterDevice/items"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporterDevice/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusExporterDevice/slaveId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporterDevice/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusExporterDevice/dataOrder"/>
+    </genClasses>
+    <genClasses ecoreClass="modbus.ecore#//ModbusExporterItem">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporterItem/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusExporterItem/offset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modbus.ecore#//ModbusExporterItem/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="modbus.ecore#//ModbusDataType">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusDataType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modbus.ecore#//ModbusDataType/scale"/>
+    </genClasses>
+    <genClasses ecoreClass="modbus.ecore#//ModbusDouble"/>
+    <genClasses ecoreClass="modbus.ecore#//ModbusSInt16"/>
+    <genClasses ecoreClass="modbus.ecore#//ModbusSInt32"/>
+    <genClasses ecoreClass="modbus.ecore#//ModbusUInt16"/>
+    <genClasses ecoreClass="modbus.ecore#//ModbusUInt32"/>
   </genPackages>
 </genmodel:GenModel>
