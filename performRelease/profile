@@ -35,10 +35,3 @@ function section {
 	echo "    $@"
 	echo "==========================================================================="
 }
-<<<<<<< HEAD
-=======
-
-if [ -z "$ECLIPSE_COMMITTER" ]; then
-	die "You must set ECLIPSE_COMMITTER to your Eclipse SCADA committer name (e.g. adent)"
-fi
->>>>>>> prepare for the 0.1.0.M2 build
