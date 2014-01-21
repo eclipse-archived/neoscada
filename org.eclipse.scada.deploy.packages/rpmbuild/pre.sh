@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -e
-
 uname -a
-cat /etc/motd || true
+cat /etc/lsb-release || true
+
+set -e
 
 which rpmbuild || true
 which debuild || true
