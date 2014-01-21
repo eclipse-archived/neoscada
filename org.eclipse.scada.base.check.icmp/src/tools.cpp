@@ -69,18 +69,12 @@ u_short in_cksum(u_short *addr, int len)
         return (answer);
 }
 
-/*
- *                      T V S U B
- *
- * Subtract 2 timeval structs:  out = out - in.
- *
- * Out is assumed to be >= in.
- */
-uint64_t tvsub( struct timeval *out, struct timeval *in )
+uint64_t time_diff( struct timeval *in, struct timeval *out )
 {
-        if( (out->tv_usec -= in->tv_usec) < 0 )   {
-                out->tv_sec--;
-                out->tv_usec += 1000000;
-        }
-        return out->tv_sec -= in->tv_sec;
+	uint64_t dsec = out->tv_sec - in->tv_sec;
+	uint64_t dusec = out->tv_usec - in->tv_usec;
+
+	printf ( "%ld - %ld\n", dsec, dusec );
+
+	return ( dsec * 1000L * 1000L ) + dusec;
 }

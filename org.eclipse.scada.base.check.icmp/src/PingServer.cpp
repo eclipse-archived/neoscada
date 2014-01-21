@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2008, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2008, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - prepare for Eclipse SCADA contribution
+ *                        re-implement time diff
  *******************************************************************************/
 #include "headers.h"
 
@@ -138,7 +139,9 @@ void PingServer::processPacket ( sockaddr_in * from, int rc, u_char * packet )
 
   // now we got icmp
   struct timeval *tp = (struct timeval *) ( packet + hlen + 8 );
-  uint64_t rtt = tvsub ( tp, &tv );
+  printf ( "packet - sec: %ld, usec: %ld\n", tp->tv_sec, tp->tv_usec );
+  printf ( "local  - sec: %ld, usec: %ld\n", tv.tv_sec, tv.tv_usec );
+  uint64_t rtt = time_diff ( tp, &tv );
 
   switch ( icp->icmp_type )
     {
@@ -161,10 +164,10 @@ void PingServer::processPacket ( sockaddr_in * from, int rc, u_char * packet )
   std::map < std::string, std::list < PingTarget* > >::iterator i = targets.find ( std::string ( buffer ) );
   if ( i != targets.end () )
     {
-      /*
+
 	printf ( "reply from %s (bytes of data: %d) (seq: %d) (ident: %d) (rtt: %.2f ms)\n", buffer, rc, icp->icmp_seq, icp->icmp_id,
         ( (double)rtt ) / 1000.0 );
-      */
+
       //    i->second->received ( rtt );
 
       for ( std::list<PingTarget*>::iterator i2 = i->second.begin (); i2 != i->second.end (); i2++ )
