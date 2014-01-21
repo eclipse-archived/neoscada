@@ -1006,4 +1006,10 @@
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_r_buY4J_EeOQC-jE1OzfjA" points="[50, -13, -285, 70]$[339, -116, 4, -33]"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_XNdz8IKCEeOQC-jE1OzfjA" type="3003" source="_9wWpMGI8EeO0k-m0GB1KNg" target="_oxJNcIJ_EeOQC-jE1OzfjA">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XNdz8YKCEeOQC-jE1OzfjA" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XNdz8oKCEeOQC-jE1OzfjA" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XNdz84KCEeOQC-jE1OzfjA" points="[-2, -20, 29, 231]$[-21, -284, 10, -33]"/>
+  </edges>
 </notation:Diagram>

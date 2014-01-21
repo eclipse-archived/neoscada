@@ -18,19 +18,16 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Script Module</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getInputs
- * <em>Inputs</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getOutputs
- * <em>Outputs</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.ScriptModule#getScriptEngine
- * <em>Script Engine</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getInputs <em>Inputs</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getOutputs <em>Outputs</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getScriptEngine <em>Script Engine</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule()
  * @model
  * @generated
@@ -38,17 +35,14 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
 public interface ScriptModule extends NamedDocumentable, CalculationModule
 {
     /**
-     * Returns the value of the '<em><b>Inputs</b></em>' containment reference
-     * list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.component.InputSpecification}.
+     * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.component.InputSpecification}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Inputs</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Inputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_Inputs()
      * @model containment="true" resolveProxies="true"
@@ -57,17 +51,14 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
     EList<InputSpecification> getInputs ();
 
     /**
-     * Returns the value of the '<em><b>Outputs</b></em>' containment reference
-     * list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.component.OutputSpecification}.
+     * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.component.OutputSpecification}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Outputs</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Outputs</em>' containment reference list.
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_Outputs()
      * @model containment="true" resolveProxies="true"
@@ -84,7 +75,6 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Script Engine</em>' attribute.
      * @see #setScriptEngine(String)
      * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_ScriptEngine()
@@ -94,14 +84,10 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
     String getScriptEngine ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.component.ScriptModule#getScriptEngine
-     * <em>Script Engine</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ScriptModule#getScriptEngine <em>Script Engine</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Script Engine</em>' attribute.
+     * @param value the new value of the '<em>Script Engine</em>' attribute.
      * @see #getScriptEngine()
      * @generated
      */
@@ -110,10 +96,8 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @model kind="operation"
-     *        annotation=
-     *        "http://www.eclipse.org/emf/2002/GenModel body='return getInputs ();'"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getInputs ();'"
      * @generated
      */
     @Override
@@ -122,11 +106,8 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @model notificationDataType=
-     *        "org.eclipse.scada.configuration.component.Notification"
-     *        annotation=
-     *        "http://www.eclipse.org/emf/2002/GenModel body='\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__INPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_INPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__OUTPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_OUTPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n        super.eNotify ( notification );'"
+     * @model notificationDataType="org.eclipse.scada.configuration.component.Notification"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__INPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_INPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n\tif ( notification.getFeature ().equals ( ComponentPackage.Literals.SCRIPT_MODULE__OUTPUTS ) )\n        {\n            super.eNotify ( new org.eclipse.emf.ecore.impl.ENotificationImpl ( this, notification.getEventType (), ComponentPackage.CALCULATION_MODULE__KNOWN_OUTPUTS, notification.getOldValue (), notification.getNewValue () ) );\n        }\n        super.eNotify ( notification );'"
      * @generated
      */
     void customENotify ( Notification notification );
@@ -134,10 +115,8 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @model kind="operation"
-     *        annotation=
-     *        "http://www.eclipse.org/emf/2002/GenModel body='return getOutputs();'"
+     *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return getOutputs();'"
      * @generated
      */
     @Override

@@ -224,10 +224,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="definition" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//RestExporterModule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//DataComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="GlobalizeComponent" eSuperTypes="#//DataComponent ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//DataComponent">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourceMaster" lowerBound="1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterImport"/>

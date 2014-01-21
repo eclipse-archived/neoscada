@@ -24,6 +24,8 @@ import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +34,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.GlobalizeComponentImpl#getSourceMaster <em>Source Master</em>}</li>
  * </ul>
@@ -41,6 +44,26 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  */
 public class GlobalizeComponentImpl extends DataComponentImpl implements GlobalizeComponent
 {
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
+
     /**
      * The cached value of the '{@link #getComponents() <em>Components</em>}' reference list.
      * <!-- begin-user-doc -->
@@ -80,6 +103,29 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     protected EClass eStaticClass ()
     {
         return ComponentPackage.Literals.GLOBALIZE_COMPONENT;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.GLOBALIZE_COMPONENT__NAME, oldName, name ) );
     }
 
     /**
@@ -171,6 +217,8 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                return getName ();
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return getComponents ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
@@ -192,6 +240,9 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                setName ( (String)newValue );
+                return;
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 getComponents ().clear ();
                 getComponents ().addAll ( (Collection<? extends DataComponent>)newValue );
@@ -213,6 +264,9 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 getComponents ().clear ();
                 return;
@@ -233,12 +287,74 @@ public class GlobalizeComponentImpl extends DataComponentImpl implements Globali
     {
         switch ( featureID )
         {
+            case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ComponentPackage.GLOBALIZE_COMPONENT__COMPONENTS:
                 return components != null && !components.isEmpty ();
             case ComponentPackage.GLOBALIZE_COMPONENT__SOURCE_MASTER:
                 return sourceMaster != null;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == NamedDocumentable.class )
+        {
+            switch ( derivedFeatureID )
+            {
+                case ComponentPackage.GLOBALIZE_COMPONENT__NAME:
+                    return WorldPackage.NAMED_DOCUMENTABLE__NAME;
+                default:
+                    return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == NamedDocumentable.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case WorldPackage.NAMED_DOCUMENTABLE__NAME:
+                    return ComponentPackage.GLOBALIZE_COMPONENT__NAME;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (name: " ); //$NON-NLS-1$
+        result.append ( name );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //GlobalizeComponentImpl

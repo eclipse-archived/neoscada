@@ -11,10 +11,7 @@
  */
 package org.eclipse.scada.configuration.component.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.GlobalizeComponent;
 
@@ -22,24 +19,10 @@ import org.eclipse.scada.configuration.component.GlobalizeComponent;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Globalize Component</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link org.eclipse.scada.configuration.component.DataComponent#getMasterOn() <em>Get Master On</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
-public class GlobalizeComponentTest extends TestCase
+public class GlobalizeComponentTest extends DataComponentTest
 {
-
-    /**
-     * The fixture for this Globalize Component test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected GlobalizeComponent fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -63,25 +46,15 @@ public class GlobalizeComponentTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Globalize Component test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( GlobalizeComponent fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Globalize Component test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected GlobalizeComponent getFixture ()
     {
-        return fixture;
+        return (GlobalizeComponent)fixture;
     }
 
     /**
@@ -106,20 +79,6 @@ public class GlobalizeComponentTest extends TestCase
     protected void tearDown () throws Exception
     {
         setFixture ( null );
-    }
-
-    /**
-     * Tests the '{@link org.eclipse.scada.configuration.component.DataComponent#getMasterOn() <em>Get Master On</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.component.DataComponent#getMasterOn()
-     * @generated
-     */
-    public void testGetMasterOn ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
     }
 
 } //GlobalizeComponentTest

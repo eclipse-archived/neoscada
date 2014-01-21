@@ -30,31 +30,21 @@ import org.eclipse.scada.configuration.item.Selector;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getShortDescription
- * <em>Short Description</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getLevel
- * <em>Level</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getCustomizationPipeline
- * <em>Customization Pipeline</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getArchiveSelector
- * <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getArchiveSelector <em>Archive Selector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class ComponentImpl extends MinimalEObjectImpl.Container implements Component
 {
     /**
-     * The default value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -62,11 +52,9 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -74,11 +62,9 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     protected String shortDescription = SHORT_DESCRIPTION_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getCustomizationPipeline()
-     * <em>Customization Pipeline</em>}' reference.
+     * The cached value of the '{@link #getCustomizationPipeline() <em>Customization Pipeline</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCustomizationPipeline()
      * @generated
      * @ordered
@@ -86,11 +72,9 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     protected CustomizationPipeline customizationPipeline;
 
     /**
-     * The cached value of the '{@link #getArchiveSelector()
-     * <em>Archive Selector</em>}' reference.
+     * The cached value of the '{@link #getArchiveSelector() <em>Archive Selector</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getArchiveSelector()
      * @generated
      * @ordered
@@ -100,7 +84,6 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ComponentImpl ()
@@ -111,7 +94,6 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -123,70 +105,59 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getShortDescription ()
     {
-        return this.shortDescription;
+        return shortDescription;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setShortDescription ( final String newShortDescription )
+    public void setShortDescription ( String newShortDescription )
     {
-        final String oldShortDescription = this.shortDescription;
-        this.shortDescription = newShortDescription;
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Level getLevel ()
     {
         if ( eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL )
-        {
             return null;
-        }
         return (Level)eContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Level basicGetLevel ()
     {
         if ( eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL )
-        {
             return null;
-        }
         return (Level)eInternalContainer ();
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetLevel ( final Level newLevel, NotificationChain msgs )
+    public NotificationChain basicSetLevel ( Level newLevel, NotificationChain msgs )
     {
         msgs = eBasicSetContainer ( (InternalEObject)newLevel, ComponentPackage.COMPONENT__LEVEL, msgs );
         return msgs;
@@ -195,159 +166,131 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setLevel ( final Level newLevel )
+    public void setLevel ( Level newLevel )
     {
-        if ( newLevel != eInternalContainer () || eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL && newLevel != null )
+        if ( newLevel != eInternalContainer () || ( eContainerFeatureID () != ComponentPackage.COMPONENT__LEVEL && newLevel != null ) )
         {
             if ( EcoreUtil.isAncestor ( this, newLevel ) )
-            {
                 throw new IllegalArgumentException ( "Recursive containment not allowed for " + toString () ); //$NON-NLS-1$
-            }
             NotificationChain msgs = null;
             if ( eInternalContainer () != null )
-            {
                 msgs = eBasicRemoveFromContainer ( msgs );
-            }
             if ( newLevel != null )
-            {
                 msgs = ( (InternalEObject)newLevel ).eInverseAdd ( this, ComponentPackage.LEVEL__COMPONENTS, Level.class, msgs );
-            }
             msgs = basicSetLevel ( newLevel, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__LEVEL, newLevel, newLevel ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public CustomizationPipeline getCustomizationPipeline ()
     {
-        if ( this.customizationPipeline != null && this.customizationPipeline.eIsProxy () )
+        if ( customizationPipeline != null && customizationPipeline.eIsProxy () )
         {
-            final InternalEObject oldCustomizationPipeline = (InternalEObject)this.customizationPipeline;
-            this.customizationPipeline = (CustomizationPipeline)eResolveProxy ( oldCustomizationPipeline );
-            if ( this.customizationPipeline != oldCustomizationPipeline )
+            InternalEObject oldCustomizationPipeline = (InternalEObject)customizationPipeline;
+            customizationPipeline = (CustomizationPipeline)eResolveProxy ( oldCustomizationPipeline );
+            if ( customizationPipeline != oldCustomizationPipeline )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, this.customizationPipeline ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, customizationPipeline ) );
             }
         }
-        return this.customizationPipeline;
+        return customizationPipeline;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public CustomizationPipeline basicGetCustomizationPipeline ()
     {
-        return this.customizationPipeline;
+        return customizationPipeline;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCustomizationPipeline ( final CustomizationPipeline newCustomizationPipeline )
+    public void setCustomizationPipeline ( CustomizationPipeline newCustomizationPipeline )
     {
-        final CustomizationPipeline oldCustomizationPipeline = this.customizationPipeline;
-        this.customizationPipeline = newCustomizationPipeline;
+        CustomizationPipeline oldCustomizationPipeline = customizationPipeline;
+        customizationPipeline = newCustomizationPipeline;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, this.customizationPipeline ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE, oldCustomizationPipeline, customizationPipeline ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Selector getArchiveSelector ()
     {
-        if ( this.archiveSelector != null && this.archiveSelector.eIsProxy () )
+        if ( archiveSelector != null && archiveSelector.eIsProxy () )
         {
-            final InternalEObject oldArchiveSelector = (InternalEObject)this.archiveSelector;
-            this.archiveSelector = (Selector)eResolveProxy ( oldArchiveSelector );
-            if ( this.archiveSelector != oldArchiveSelector )
+            InternalEObject oldArchiveSelector = (InternalEObject)archiveSelector;
+            archiveSelector = (Selector)eResolveProxy ( oldArchiveSelector );
+            if ( archiveSelector != oldArchiveSelector )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, this.archiveSelector ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, archiveSelector ) );
             }
         }
-        return this.archiveSelector;
+        return archiveSelector;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Selector basicGetArchiveSelector ()
     {
-        return this.archiveSelector;
+        return archiveSelector;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setArchiveSelector ( final Selector newArchiveSelector )
+    public void setArchiveSelector ( Selector newArchiveSelector )
     {
-        final Selector oldArchiveSelector = this.archiveSelector;
-        this.archiveSelector = newArchiveSelector;
+        Selector oldArchiveSelector = archiveSelector;
+        archiveSelector = newArchiveSelector;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, this.archiveSelector ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.COMPONENT__ARCHIVE_SELECTOR, oldArchiveSelector, archiveSelector ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd ( final InternalEObject otherEnd, final int featureID, NotificationChain msgs )
+    public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
             case ComponentPackage.COMPONENT__LEVEL:
                 if ( eInternalContainer () != null )
-                {
                     msgs = eBasicRemoveFromContainer ( msgs );
-                }
                 return basicSetLevel ( (Level)otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
@@ -356,11 +299,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -373,11 +315,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature ( final NotificationChain msgs )
+    public NotificationChain eBasicRemoveFromContainerFeature ( NotificationChain msgs )
     {
         switch ( eContainerFeatureID () )
         {
@@ -390,11 +331,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -402,21 +342,15 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
                 return getShortDescription ();
             case ComponentPackage.COMPONENT__LEVEL:
                 if ( resolve )
-                {
                     return getLevel ();
-                }
                 return basicGetLevel ();
             case ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE:
                 if ( resolve )
-                {
                     return getCustomizationPipeline ();
-                }
                 return basicGetCustomizationPipeline ();
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                 if ( resolve )
-                {
                     return getArchiveSelector ();
-                }
                 return basicGetArchiveSelector ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -425,11 +359,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -452,11 +385,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -479,22 +411,21 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ComponentPackage.COMPONENT__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
             case ComponentPackage.COMPONENT__LEVEL:
                 return basicGetLevel () != null;
             case ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE:
-                return this.customizationPipeline != null;
+                return customizationPipeline != null;
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
-                return this.archiveSelector != null;
+                return archiveSelector != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -502,20 +433,17 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( this.shortDescription );
+        result.append ( shortDescription );
         result.append ( ')' );
         return result.toString ();
     }

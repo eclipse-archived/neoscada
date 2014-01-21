@@ -1942,6 +1942,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         summariesConfigurationEClass.getESuperTypes ().add ( this.getConfiguration () );
         restInterceptorEClass.getESuperTypes ().add ( this.getItemInterceptor () );
         globalizeComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
+        globalizeComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         transientValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         masterComponentEClass.getESuperTypes ().add ( this.getDataComponent () );
         bufferedValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
@@ -2146,7 +2147,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         addAnnotation ( getGlobalizeComponent_Components (),
                 source,
                 new String[]
-                {
+                {       "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 
