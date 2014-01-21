@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some bug fixes
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.data;
 
@@ -21,7 +22,7 @@ public class DataItemValueRange
 {
     private DataItemValueLight firstValue = DataItemValueLight.DISCONNECTED;
 
-    private final SortedSet<DataItemValueLight> values = new TreeSet<DataItemValueLight> (); // 
+    private final SortedSet<DataItemValueLight> values = new TreeSet<DataItemValueLight> ( DataItemValueLight.timestampComparator ); // 
 
     private final long rangeOrAlignment; // timespan to hold values since oldestPossibleTimestamp
 

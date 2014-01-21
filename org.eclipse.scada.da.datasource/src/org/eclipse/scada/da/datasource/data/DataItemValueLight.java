@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some bug fixes
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.data;
 
 import java.io.Serializable;
+import java.util.Comparator;
 import java.util.Date;
 
 import org.eclipse.scada.core.Variant;
@@ -27,6 +29,8 @@ public class DataItemValueLight implements Comparable<DataItemValueLight>, Seria
 
     public static final DataItemValueLight DISCONNECTED = new DataItemValueLight ( Variant.NULL, SubscriptionState.DISCONNECTED, Long.MIN_VALUE, false, false );
 
+    public static final Comparator<DataItemValueLight> timestampComparator = new TimestampComparator();
+
     private final Variant value;
 
     private final SubscriptionState subscriptionState;
@@ -36,7 +40,26 @@ public class DataItemValueLight implements Comparable<DataItemValueLight>, Seria
     private final boolean isManual;
 
     private final boolean isError;
-
+    
+    public static class TimestampComparator implements Comparator<DataItemValueLight> {
+        @Override
+        public int compare ( DataItemValueLight a, DataItemValueLight b )
+        {
+            int c = 0;
+            c = Long.compare ( a.timestamp, b.timestamp );
+            if ( c != 0 )
+            {
+                return c;
+            }
+            c = a.subscriptionState.compareTo ( b.subscriptionState );
+            if ( c != 0 )
+            {
+                return c;
+            }
+            return a.value.compareTo ( b.value );
+        }
+    }
+    
     public DataItemValueLight ( final Variant value, final SubscriptionState subscriptionState, final long timestamp, final boolean isManual, final boolean isError )
     {
         if ( subscriptionState == null )
@@ -161,7 +184,7 @@ public class DataItemValueLight implements Comparable<DataItemValueLight>, Seria
         {
             return c;
         }
-        return Long.valueOf ( this.timestamp ).compareTo ( o.timestamp );
+        return Long.compare ( this.timestamp, o.timestamp );
     }
 
     @Override
