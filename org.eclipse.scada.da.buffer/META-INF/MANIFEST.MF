@@ -1,3 +1,4 @@
+Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Buffer (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.buffer
