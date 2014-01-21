@@ -64,7 +64,7 @@ public class ImageImpl extends FigureImpl implements Image
      * @generated
      * @ordered
      */
-    protected static final Alignment IMAGE_ALIGNMENT_EDEFAULT = Alignment.LEFT;
+    protected static final Alignment IMAGE_ALIGNMENT_EDEFAULT = Alignment.CENTER;
 
     /**
      * The cached value of the '{@link #getImageAlignment() <em>Image Alignment</em>}' attribute.

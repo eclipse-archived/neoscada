@@ -49,7 +49,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Symbol/connections"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Primitive">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
+      <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Primitive/name"/>
     </genClasses>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Container"/>
     <genClasses image="false" ecoreClass="VisualInterface.ecore#//Shape">
@@ -73,7 +73,7 @@
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Child">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//Child/element"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
+      <genFeatures createChild="false" propertyCategory="common" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Child/name"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//XYChild">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//XYChild/position"/>
@@ -106,10 +106,12 @@
       <genFeatures createChild="false" propertyCategory="figure" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Figure/toolTip"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//SymbolReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/zoom"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//SymbolReference/properties"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/onCreateProperties"/>
+      <genFeatures createChild="false" propertyCategory="reference" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/uri"/>
+      <genFeatures createChild="false" propertyCategory="reference" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/zoom"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="reference"
+          ecoreFeature="ecore:EReference VisualInterface.ecore#//SymbolReference/properties"/>
+      <genFeatures createChild="false" propertyCategory="reference" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute VisualInterface.ecore#//SymbolReference/onCreateProperties"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//StringToStringMap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//StringToStringMap/key"/>
@@ -154,7 +156,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Image">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
+      <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
+      <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/imageAlignment"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Ellipse"/>
     <genClasses ecoreClass="VisualInterface.ecore#//Arc">

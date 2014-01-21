@@ -91,7 +91,7 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -114,7 +114,7 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -137,7 +137,7 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -160,7 +160,7 @@ public class SymbolReferenceItemProvider extends ItemProviderAdapter implements 
                         true,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_referencePropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

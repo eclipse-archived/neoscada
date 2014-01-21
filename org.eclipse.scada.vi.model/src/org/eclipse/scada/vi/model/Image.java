@@ -57,6 +57,7 @@ public interface Image extends Figure
 
     /**
      * Returns the value of the '<em><b>Image Alignment</b></em>' attribute.
+     * The default value is <code>"CENTER"</code>.
      * The literals are from the enumeration {@link org.eclipse.scada.vi.model.Alignment}.
      * <!-- begin-user-doc -->
      * <p>
@@ -68,7 +69,7 @@ public interface Image extends Figure
      * @see org.eclipse.scada.vi.model.Alignment
      * @see #setImageAlignment(Alignment)
      * @see org.eclipse.scada.vi.model.VisualInterfacePackage#getImage_ImageAlignment()
-     * @model
+     * @model default="CENTER"
      * @generated
      */
     Alignment getImageAlignment ();

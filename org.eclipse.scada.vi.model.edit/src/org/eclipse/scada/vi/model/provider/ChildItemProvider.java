@@ -88,7 +88,7 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

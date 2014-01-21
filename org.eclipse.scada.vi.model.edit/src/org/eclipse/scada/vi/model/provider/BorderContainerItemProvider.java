@@ -90,7 +90,7 @@ public class BorderContainerItemProvider extends ItemProviderAdapter implements 
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

@@ -97,7 +97,7 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_commonPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
