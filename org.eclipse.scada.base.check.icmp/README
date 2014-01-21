@@ -1,0 +1,7 @@
+This application has to be run as root.
+
+Start by passing the ping targets and alias as parameters:
+
+ eclipse_scada_ping IP1=ALIAS1 IP2=ALIAS2
+
+At the moment there is no support for IPv6.

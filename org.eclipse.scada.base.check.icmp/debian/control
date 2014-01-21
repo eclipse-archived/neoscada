@@ -1,0 +1,12 @@
+Source: eclipse-scada-ping
+Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>=8), cdbs, dh-autoreconf
+
+Package: eclipse-scada-ping
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Eclipse SCADA ping tool
+ The eclipse_scada_ping tool measures reachability using ICMP echo/echo reply.

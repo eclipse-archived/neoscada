@@ -1,0 +1,54 @@
+%define name eclipse-scada-ping
+%define version @VERSION@
+%define release 1
+
+Summary:	Eclipse SCADA ICMP Ping Helper
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Source:		eclipse_scada_ping-%{version}.tar.gz
+Vendor:		Eclipse SCADA Project
+URL:		https://projects.eclipse.org/projects/technology.eclipsescada
+License:	EPL
+Group:		System Environment/Daemons
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+Prefix:		%{_prefix}
+
+%description
+This application is a helper tool for the Eclipse SCADA DA Exec Server which
+provides realtime data gathered from calling processes like shell scripts.
+
+This tool provides data for the Exec server by sending out ICMP packets
+and generating statistic information like round trip time and reachability.
+
+%prep
+%setup -q
+
+%build
+if [ -x ./configure ]; then
+  CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=%{_prefix}
+else
+  CFLAGS="$RPM_OPT_FLAGS" ./autogen.sh --prefix=%{_prefix}
+fi
+make
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make DESTDIR=$RPM_BUILD_ROOT install
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-,root,root)
+%doc AUTHORS ChangeLog COPYING INSTALL NEWS README
+%attr(4744,root,root) %{_prefix}/bin/eclipse_scada_ping
+
+%changelog
+* Fri Oct 18 2013 Jens Reimann <jens.reimann@ibh-systems.com>
+- Initial release as eclipse-scada-ping
+
