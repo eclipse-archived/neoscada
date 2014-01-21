@@ -17,4 +17,4 @@ eclipse_scada_ping_SOURCES = \
 	headers.h
 
 install-exec-hook:
-	chmod u+s $(DESTDIR)$(bindir)/eclipse_scada
+	chmod u+s $(DESTDIR)$(bindir)/eclipse_scada_ping
