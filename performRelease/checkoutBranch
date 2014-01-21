@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Checkout branch $branch
+
+[ -d workspace ] && die "Workspace still exists"
+
+mkdir workspace
+pushd workspace
+
+mkdir logs
+
+# clone the repository
+section Clone repositories
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+  cloneRepository "$repo"
+  echo
+done
+
+popd
+
+echo
+echo
+echo Now you can tag the branch using "createTag" or "createTag -m"
