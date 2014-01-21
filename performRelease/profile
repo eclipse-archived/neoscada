@@ -1,7 +1,7 @@
 branch=0.1.x-release
 buildType=S
 version=0.1.0
-qualifier=M1
+qualifier=M3
 buildHelperVersion=0.0.14
 
 repos="external utils chart protocols base core hmi ide deploy releng"
@@ -11,14 +11,14 @@ release="$version"
 
 tag="$buildType$release"
 
+function die {
+        echo "$@" 1>&2 # echo to stderr
+        exit 1
+}
+
 if [ -z "$ECLIPSE_COMMITTER" ]; then
 	die "You must set ECLIPSE_COMMITTER to your Eclipse SCADA committer name (e.g. adent)"
 fi
-
-function die {
-	echo "$@" 1>&2 # echo to stderr
-	exit 1
-}
 
 function cloneRepository {
     local r="$1"
