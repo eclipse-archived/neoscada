@@ -3,7 +3,7 @@
 set -e
 
 uname -a
-cat /etc/motd
+cat /etc/motd || true
 
 which rpmbuild || true
 which debuild || true
