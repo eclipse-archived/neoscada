@@ -14,7 +14,7 @@
 
 #include "headers.h"
 
-u_short in_cksum ( void * data, int len );
+u_short in_cksum ( u_short * data, int len );
 uint64_t tvsub ( struct timeval * out, struct timeval * in );
 
 #endif /* TOOLS_H_ */

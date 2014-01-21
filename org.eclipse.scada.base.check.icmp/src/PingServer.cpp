@@ -246,7 +246,7 @@ void PingServer::ping ( const sockaddr * addr, socklen_t addrLen, int sequenceNr
 
   gettimeofday ( tp, &tz );
 
-  icp->icmp_cksum = in_cksum ( icp, cc );
+  icp->icmp_cksum = in_cksum ( (u_short*)outpack, cc );
 
   i = sendto ( sock_icmp, outpack, cc, 0, addr, addrLen );
 
