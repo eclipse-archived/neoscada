@@ -13,8 +13,9 @@
     
     <property file="default.properties"/>
     
+    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${version}"/>
     <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${version}"/>
-    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/repos"/>
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}"/>
     
     <!-- ================================= 
           target: default              
@@ -27,6 +28,7 @@
          ================================= -->
     <target name="clean">
         <delete dir="${repo.base}"/>
+		<delete dir="${update.base}"/>
     </target>
 
 	<!-- ================================= 
@@ -45,9 +47,15 @@
         <!-- symlinks won't work on download.eclipse.org -->
         <mkdir dir="${repo.base}"/>
         <copy todir="${repo.base}">
-            <fileset dir="${download.base.dir}">
+            <fileset dir="${download.base.dir}/repos">
         	</fileset>
         </copy>
+
+		<mkdir dir="${update.base}"/>
+		<copy todir="${update.base}">
+			<fileset dir="${download.base.dir}/p2">
+			</fileset>
+		</copy>
     </target>
     
 </project>

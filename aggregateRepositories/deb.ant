@@ -10,9 +10,9 @@
     <property file="default.properties"/>
     
     <!-- the target -->
-    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/repos"/>
-    <property name="download.deb.dir" location="${download.base.dir}/deb"/>
-    <property name="download.apt.dir" location="${download.base.dir}/apt"/>
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}"/>
+    <property name="download.deb.dir" location="${download.base.dir}/repos/deb"/>
+    <property name="download.apt.dir" location="${download.base.dir}/repos/apt"/>
     
     <!-- ================================= 
           target: default
