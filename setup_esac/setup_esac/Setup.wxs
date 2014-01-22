@@ -8,7 +8,7 @@
 		Manufacturer="Eclipse SCADA Project">
 		<Package Description="#Description"
 			Comments="Comments"
-			InstallerVersion="200"
+			InstallerVersion="300"
 			Compressed="yes"/>
 		<!--
 			Source media for the installation. 
@@ -16,24 +16,20 @@
 		-->
 		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
 		
+		<MajorUpgrade
+			AllowDowngrades="yes"/>
+		
 		<!-- Installation directory and files are defined in Files.wxs -->
-		<Directory Id="TARGETDIR" Name="SourceDir"/>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+		</Directory>
 		
 		<Feature Id="Complete"
-		         Title="Eclipse SCADA Admin Client"
-		         Description="The Eclipse SCADA Admin Client"
+		         Title="[ProductName]"
+		         Description="The [ProductName]"
 		         Level="1">
-		         <ComponentRef Id="MyComponent"/>
+		         <ComponentRef Id="MainComponent"/>
+				 <ComponentRef Id="ApplicationShortcut"/>
+				 <ComponentGroupRef Id="ScanComponent"/>
 		</Feature>
-		
-		<!-- 
-			Using the Wix UI library
- 
-			WixUI_InstallDir does not allow the user to choose 
-			features but adds a dialog to let the user choose a 
-			directory where the product will be installed
-		-->
-		<Property Id="WIXUI_INSTALLDIR">INSTALLDIR</Property>
-		<UIRef Id="WixUI_InstallDir"/>
 	</Product>
 </Wix>

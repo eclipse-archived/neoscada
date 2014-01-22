@@ -28,10 +28,8 @@
     <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <WixExtension Include="WixUIExtension.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Files.wxs" />
+    <Compile Include="scan.wxs" />
     <Compile Include="Setup.wxs" />
   </ItemGroup>
   <ItemGroup>
