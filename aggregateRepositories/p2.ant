@@ -140,6 +140,18 @@ Contributors:
             <fileset dir="temp/build/final">
         	</fileset>
     	</copy>
+        
+        <!-- add index.html -->
+        <copy todir="${download.dir}">
+   		    <fileset dir="p2">
+   		    </fileset>
+   			<filterset>
+   					<filter token="buildTypeLong" value="${buildTypeLong}" />
+   					<filter token="buildType" value="${buildType}" />
+   					<filter token="buildTimestamp" value="${buildTimestamp}" />
+   					<filter token="version" value="${version}" />
+			</filterset>
+   		</copy>
     </target>
 
 </project>
