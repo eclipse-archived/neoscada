@@ -28,8 +28,7 @@ Contributors:
     <property name="version" value="0.1.0"/>
     
     <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
-    
-    <property name="download.dir" location="${download.root}/downloads/drops/org.eclipse.scada/${version}/${buildType}${buildTimestamp}/p2"/>
+    <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <!-- ================================= 
           target: default
