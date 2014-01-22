@@ -14,7 +14,7 @@
     <property file="default.properties"/>
     
     <!-- the target -->
-    <property name="download.yum.dir" location="${download.root}/download/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/repos/yum"/>
+    <property name="download.yum.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/repos/yum"/>
     
     <!-- ================================= 
          target: default
