@@ -28,6 +28,7 @@
     <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="32.wxs" />
     <Compile Include="Files.wxs" />
     <Compile Include="scan.wxs" />
     <Compile Include="Setup.wxs" />
