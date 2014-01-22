@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+	 Build all repositories
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        Build all repositories
+    </description>
+
+    <tstamp>
+        <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+    
+    <property file="default.properties"/>
+    
+    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${version}"/>
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${buildType}${version}/${buildTimestamp}/repos"/>
+    
+    <!-- ================================= 
+          target: default              
+         ================================= -->
+    <target name="default" depends="clean,build,link">
+    </target>
+        
+	<!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete file="${repo.base}"/>
+    </target>
+
+	<!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+        <ant antfile="deb.ant" inheritall="true"/>
+        <ant antfile="yum.ant" inheritall="true"/>
+    </target>
+
+    <!-- ================================= 
+          target: link
+         ================================= -->
+    <target name="link">
+        <symlink link="${repo.base}" resource="${download.base.dir}"/>
+    </target>
+    
+</project>

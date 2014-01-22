@@ -7,10 +7,6 @@
             Build deb repository
     </description>
     
-    <tstamp>
-        <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
-    </tstamp>
-    
     <property file="default.properties"/>
     
     <!-- the target -->
@@ -51,7 +47,6 @@
     <target name="build">
         <!-- TODO: build the apt repository -->
     </target>
-
 
     <target name="echo">
         <echo message="download.deb.dir = ${download.deb.dir}"/>
