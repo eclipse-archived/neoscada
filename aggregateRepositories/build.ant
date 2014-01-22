@@ -35,6 +35,7 @@
     <target name="build">
         <ant antfile="deb.ant" inheritall="true"/>
         <ant antfile="yum.ant" inheritall="true"/>
+        <ant antfile="p2.ant" inheritall="true"/>
     </target>
 
     <!-- ================================= 

@@ -23,11 +23,8 @@ Contributors:
         <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
     </tstamp>
     
-    <property name="buildTypeLong" value="nightly"/>
-    <property name="buildType" value="N"/>
-    <property name="version" value="0.1.0"/>
-    
-    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    <property file="default.properties"/>
+
     <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <!-- ================================= 
