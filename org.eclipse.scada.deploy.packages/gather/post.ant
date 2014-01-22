@@ -24,7 +24,11 @@ is active.
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,build,copy">
+    <target name="default" depends="build,copy">
+        <!--
+        we get called by an outside script that already cleared "output"
+        and filled it, so we don't clean by default.
+        -->
     </target>
 
     <!-- ================================= 
