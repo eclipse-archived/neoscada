@@ -77,7 +77,7 @@
 								<ant antfile="../gatherRepositories/yum.ant">
 									<property name="version" value="${unqualifiedVersion}"/>
 								</ant>
-								<ant antfile="../aggregateRepositories/aggregate.ant">
+								<ant antfile="../aggregateRepositories/aggregate.ant" dir="../aggregateRepositories">
 									<property name="version" value="${unqualifiedVersion}"/>
 									<property name="downloadBase" value="${download.root}"/>
 								</ant>
