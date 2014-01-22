@@ -10,7 +10,7 @@
     <property file="default.properties"/>
     
     <!-- the target -->
-    <property name="download.yum.dir" location="${download.root}/repos/${buildTypeLong}/${version}/yum" />
+    <property name="download.yum.dir" location="${download.root}/download/org.eclipse.scada/drops/${version}/${version}/repos/yum"/>
     
     <!-- ================================= 
          target: default
