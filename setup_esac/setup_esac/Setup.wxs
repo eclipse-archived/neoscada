@@ -1,35 +1,37 @@
 ﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\Include.wxi?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Product Id="*"
-		Name="Eclipse SCADA Admin Client"
+		Name="$(var.ProductName)"
 		Language="1033"
 		Version="0.1.0.0"
 		UpgradeCode="162FFF07-FB32-467C-8D74-7DF670609E3C"
 		Manufacturer="Eclipse SCADA Project">
-		<Package Description="#Description"
-			Comments="Comments"
+		<Package Description="The Eclipse SCADA Admin Client"
 			InstallerVersion="300"
+			InstallScope="perMachine"
+		    InstallPrivileges="elevated"
 			Compressed="yes"/>
-		<!--
-			Source media for the installation. 
- 			Specifies a single cab file to be embedded in the installer's .msi. 
-		-->
-		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
 		
 		<MajorUpgrade
 			AllowDowngrades="yes"/>
-		
+	
 		<!-- Installation directory and files are defined in Files.wxs -->
 		<Directory Id="TARGETDIR" Name="SourceDir">
 		</Directory>
 		
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="high"/>
+		
 		<Feature Id="Complete"
-		         Title="[ProductName]"
-		         Description="The [ProductName]"
+		         Title="$(var.ProductName)"
+		         Description="The $(var.ProductName)"
 		         Level="1">
 		         <ComponentRef Id="MainComponent"/>
 				 <ComponentRef Id="ApplicationShortcut"/>
 				 <ComponentGroupRef Id="ScanComponent"/>
 		</Feature>
+	
 	</Product>
 </Wix>

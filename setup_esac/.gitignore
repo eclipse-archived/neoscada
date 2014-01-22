@@ -5,3 +5,4 @@
 fetch
 *.msi
 *.wixpdb
+unpack

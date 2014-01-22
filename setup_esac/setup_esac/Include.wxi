@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<Include>
+
+<?define ProductName = "Eclipse SCADA Admin Client" ?>
+
+<?if $(var.Platform) = x64 ?>
+	<?define Win64 = "yes" ?>
+	<?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+	<?define ProductUpgradeCode = "4D7779C5-7ED7-4BE7-AD4D-532887B169BC" ?>
+<?else ?>
+	<?define Win64 = "no" ?>
+	<?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+	<?define ProductUpgradeCode = "162FFF07-FB32-467C-8D74-7DF670609E3C" ?>
+<?endif ?>
+
+</Include>

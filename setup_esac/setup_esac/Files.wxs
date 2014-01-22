@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\Include.wxi?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Fragment>
 		<DirectoryRef Id="TARGETDIR">
-			<Directory Id="ProgramFilesFolder" Name="PFiles">
-				<Directory Id="INSTALLDIR" Name="[ProductName]">
-					<Component Id="MainComponent" Guid="166EA7A0-B288-49BB-A1CF-7DDF7018C6E4" DiskId="1">
+			<Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles">
+				<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
+					<Component Id="MainComponent" Guid="AE618338-8C86-4718-89F5-0CE60452282E" DiskId="1">
 						<File Id="LicenseFile" Name="license.rtf" Source="license.rtf"/>
 					</Component>
 				</Directory>
 			</Directory>
 			
 			<Directory Id="ProgramMenuFolder">
-				<Directory Id="ApplicationProgramsFolder" Name="Eclipse SCADA Admin Client">
+				<Directory Id="ApplicationProgramsFolder" Name="$(var.ProductName)">
 					<Component Id="ApplicationShortcut" Guid="1C3FB379-49BA-4C08-905F-FB1F554B2A8B">
 						<Shortcut Id="ApplicationStartMenuShortcut"
-						          Name="[ProductName]"
-						          Description="The [ProductName]"
+						          Name="$(var.ProductName)"
+						          Description="The Eclipse SCADA Admin Client"
 						          Target="[#esac.exe]"
 						          WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
 						<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
-        				<RegistryValue Root="HKCU" Key="Software\Microsoft\[ProductName]" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        				<RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
 					</Component>
 				</Directory>
 			</Directory>

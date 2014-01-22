@@ -28,13 +28,17 @@
     <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="32.wxs" />
+    <Compile Include="x86.wxs" />
+    <Compile Include="x64.wxs" />
     <Compile Include="Files.wxs" />
     <Compile Include="scan.wxs" />
     <Compile Include="Setup.wxs" />
+    <Compile Include="Include.wxi" />
   </ItemGroup>
   <ItemGroup>
     <None Include="license.rtf" />
+    <None Include="Scan.x64.xsl" />
+    <None Include="Scan.x86.xsl" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
 </Project>
