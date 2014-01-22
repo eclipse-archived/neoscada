@@ -7,6 +7,10 @@
             Build YUM repository
     </description>
 
+    <tstamp>
+        <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+    
     <property file="default.properties"/>
     
     <!-- the target -->
