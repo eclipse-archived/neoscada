@@ -71,13 +71,7 @@
 						</goals>
 						<configuration>
 							<target>
-								<ant antfile="../gatherRepositories/deb.ant">
-									<property name="version" value="${unqualifiedVersion}"/>
-								</ant>
-								<ant antfile="../gatherRepositories/yum.ant">
-									<property name="version" value="${unqualifiedVersion}"/>
-								</ant>
-								<ant antfile="../aggregateRepositories/aggregate.ant" dir="../aggregateRepositories">
+								<ant antfile="../aggregateRepositories/build.ant" dir="../aggregateRepositories">
 									<property name="version" value="${unqualifiedVersion}"/>
 								</ant>
 							</target>
