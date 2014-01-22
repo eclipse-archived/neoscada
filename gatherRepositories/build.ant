@@ -41,7 +41,12 @@
           target: link
          ================================= -->
     <target name="link">
-        <symlink link="${repo.base}" resource="${download.base.dir}"/>
+        <!-- symlinks won't work on download.eclipse.org -->
+        <mkdir dir="${repo.base}"/>
+        <copy todir="${repo.base}">
+            <fileset dir="${download.base.dir}">
+        	</fileset>
+        </copy>
     </target>
     
 </project>
