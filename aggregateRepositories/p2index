@@ -99,16 +99,17 @@ def p2index(base_dir):
         params['drop_links'] += """    <li><a href="%s">%s</a>\n""" \
             % (l.replace(base_dir, '../../..'), l.replace(base_dir, ''))
     # 2.) write index.html
-    f = open(os.path.join(repo_dir, 'index.html'), 'wb')
-    f.write(index_html % params)
-    f.close()
+    # -- disable for the moment
+    # f = open(os.path.join(repo_dir, 'index.html'), 'wb')
+    # f.write(index_html % params)
+    # f.close()
     
     # 3.) write EclipseSCADA.build.b3aggr
     f = open('./EclipseSCADA.b3aggr', 'rb')
     b3aggr = f.read()
     f.close()
     for l in last_integration_build:
-        target = l.replace(base_dir, '../../..')
+        target = l
         
         module = l.replace(base_dir, '')
         module = module.split(os.path.sep)[2]

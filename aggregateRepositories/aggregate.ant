@@ -16,15 +16,21 @@ Contributors:
      ====================================================================== -->
 <project name="aggregate" default="default">
     <description>
-        Aggregate repositories
+        Aggregate P2 repositories
     </description>
 
+    <tstamp>
+        <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+    
     <property name="buildTypeLong" value="nightly"/>
     <property name="buildType" value="N"/>
     <property name="version" value="0.1.0"/>
-    <property name="downloadBase" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
-    <property name="downloadDir" location="${downloadBase}/updates/${buildTypeLong}/${version}"/>
-
+    
+    <property name="download.root" location="/home/data/httpd/download.eclipse.org/eclipsescada"/>
+    
+    <property name="download.dir" location="${download.root}/downloads/drops/org.eclipse.scada/${version}/${buildType}${buildTimestamp}/p2"/>
+    
     <!-- ================================= 
           target: default
          ================================= -->
@@ -54,7 +60,7 @@ Contributors:
           target: clean.publish
          ================================= -->
     <target name="clean.publish">
-        <delete dir="${downloadDir}"/>
+        <delete dir="${download.dir}"/>
     </target>
     
     <!-- ================================= 
@@ -84,8 +90,6 @@ Contributors:
         <delete file="EclipseSCADA.build.b3aggr"/>
         <delete file="temp/EclipseSCADA.b3aggr"/>
 
-        <mkdir dir="${downloadDir}"/>
-        
         <!-- first gather p2 index information an replace in b3aggr file -->
         <!-- this will create EclipseSCADA.build.b3aggr -->
         
@@ -94,16 +98,10 @@ Contributors:
             <env key="BUILD_TYPE_LONG" value="${buildTypeLong}"/>
             <env key="BUILD_TYPE" value="${buildType}"/>
             <env key="VERSION" value="${version}"/>
-            <env key="BASE_DIR" value="${downloadBase}"/>
+            <env key="BASE_DIR" value="${download.root}"/>
     	</exec>
     
-		<!-- now copy the result and replace tokens -->
-        
-        <copy file="EclipseSCADA.build.b3aggr" todir="temp">
-            <filterset>
-                <filter token="buildTypeLong" value="${env.BUILD_TYPE_LONG}" />
-            </filterset>
-        </copy>
+        <copy file="EclipseSCADA.build.b3aggr" todir="temp"/>
     </target>
 
     <!-- ================================= 
@@ -120,10 +118,9 @@ Contributors:
                 <filter token="version" value="${version}" />
             </filterset>
         </copy>
-
+        
         <java classname="org.eclipse.equinox.launcher.Main"
             fork="true"
-            dir="${downloadDir}"
             >
             <classpath>
                 <fileset dir="temp/b3/plugins/">
@@ -142,8 +139,8 @@ Contributors:
           target: publish.b3
          ================================= -->
     <target name="publish.b3">
-        <mkdir dir="${downloadDir}"/>
-        <copy todir="${downloadDir}">
+        <mkdir dir="${download.dir}"/>
+        <copy todir="${download.dir}">
             <fileset dir="temp/build/final">
         	</fileset>
     	</copy>
