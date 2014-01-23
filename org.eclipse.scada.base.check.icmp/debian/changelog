@@ -1,0 +1,6 @@
+eclipse-scada-ping (0.1.0) stable; urgency=low
+
+  * Initial release as Eclipse SCADA Ping Tool
+
+ -- Jens Reimann <jens.reimann@ibh-systems.com>  Fri, 18 Oct 2013 14:58:09 +0100
+
