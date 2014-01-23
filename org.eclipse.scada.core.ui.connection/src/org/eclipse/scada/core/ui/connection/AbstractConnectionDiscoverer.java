@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - mark add/removeConnection methods as protected
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection;
 
@@ -60,17 +61,19 @@ public abstract class AbstractConnectionDiscoverer implements ConnectionDiscover
     /**
      * Add and announce a new connection
      * <p>
-     * The connection can also be <code>null</code> in which the method will return <code>false</code>
+     * The connection can also be <code>null</code> in which the method will
+     * return <code>false</code>
      * </p>
      * <p>
-     * If the connection was already known, <code>false</code> will be returned and no event will be emitted
+     * If the connection was already known, <code>false</code> will be returned
+     * and no event will be emitted
      * </p>
      * 
      * @param connectionInformation
      *            a new connection
      * @return <code>true</code> if the new connection was added
      */
-    public synchronized boolean addConnection ( final ConnectionDescriptor connectionInformation )
+    protected synchronized boolean addConnection ( final ConnectionDescriptor connectionInformation )
     {
         if ( connectionInformation == null )
         {
@@ -88,17 +91,19 @@ public abstract class AbstractConnectionDiscoverer implements ConnectionDiscover
     /**
      * Remove a connection
      * <p>
-     * The connection can also be <code>null</code> in which the method will return <code>false</code>
+     * The connection can also be <code>null</code> in which the method will
+     * return <code>false</code>
      * </p>
      * <p>
-     * If the connection was not known, <code>false</code> will be returned and no event will be emitted
+     * If the connection was not known, <code>false</code> will be returned and
+     * no event will be emitted
      * </p>
      * 
      * @param connectionInformation
      *            the connection to remove
      * @return <code>true</code> if the connection was removed
      */
-    public synchronized boolean removeConnection ( final ConnectionDescriptor connectionInformation )
+    protected synchronized boolean removeConnection ( final ConnectionDescriptor connectionInformation )
     {
         if ( connectionInformation == null )
         {
