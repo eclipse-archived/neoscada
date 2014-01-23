@@ -76,7 +76,7 @@
 				<arg value="-platform"/>
 				<arg value="@{platform}"/>
 				<arg value="-out"/>
-				<arg file="setup_esac/Scan.@{platform}.pre.wxs"/>
+				<arg file="setup_esac/Scan.@{platform}.wxs"/>
 			</exec>
 		</sequential>
 	</macrodef>
