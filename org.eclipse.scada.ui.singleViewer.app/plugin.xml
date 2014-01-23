@@ -97,15 +97,7 @@
             sequence="ALT+Q">
       </key>
    </extension>
-   <extension
-      point="org.eclipse.ui.menus">
-	   <menuContribution
-	         allPopups="false"
-	         locationURI="menu:file">
-	   </menuContribution>
-   </extension>
-   
-   
+
        <extension
          point="org.eclipse.ui.activities">
       <activity
