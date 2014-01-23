@@ -21,7 +21,7 @@ public class Perspective implements IPerspectiveFactory
     public void createInitialLayout ( final IPageLayout layout )
     {
         layout.setEditorAreaVisible ( false );
-        final IFolderLayout folder = layout.createFolder ( "org.eclipse.scada.hmi.app.adminclient", IPageLayout.RIGHT, 0.4f, "org.eclipse.ui.editorss" ); //$NON-NLS-1$ //$NON-NLS-2$
+        final IFolderLayout folder = layout.createFolder ( "org.eclipse.scada.hmi.app.adminclient", IPageLayout.RIGHT, 0.4f, IPageLayout.ID_EDITOR_AREA ); //$NON-NLS-1$ 
         folder.addPlaceholder ( "*" ); //$NON-NLS-1$
     }
 }
