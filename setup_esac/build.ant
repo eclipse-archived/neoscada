@@ -20,7 +20,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="fetch,unpack,build">
+    <target name="default" depends="fetch,unpack,heat,build">
     </target>
 
 	<!-- ================================= 
