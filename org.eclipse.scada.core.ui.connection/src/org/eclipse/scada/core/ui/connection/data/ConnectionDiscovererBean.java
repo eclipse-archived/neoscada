@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.data;
 
@@ -18,11 +19,11 @@ import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.ui.IActionFilter;
 import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 import org.eclipse.scada.core.ui.connection.ConnectionDiscoverer;
 import org.eclipse.scada.core.ui.connection.ConnectionDiscoveryListener;
 import org.eclipse.scada.core.ui.connection.ConnectionStore;
+import org.eclipse.ui.IActionFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -132,7 +133,7 @@ public class ConnectionDiscovererBean implements IAdaptable, ConnectionDiscovery
         {
             for ( final ConnectionDescriptor info : removed )
             {
-                final ConnectionHolder holder = this.connections.get ( info );
+                final ConnectionHolder holder = this.connections.remove ( info );
                 if ( holder != null )
                 {
                     this.knownConnections.remove ( holder );
