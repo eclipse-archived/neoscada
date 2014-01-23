@@ -64,7 +64,7 @@ public class ImageController extends FigureController
     {
         super.applyCommon ( image );
 
-        this.figure.setIconAlignment ( Helper.convertAlignment ( image.getImageAlignment (), PositionConstants.CENTER ) );
+        this.figure.setLabelAlignment ( Helper.convertAlignment ( image.getImageAlignment (), PositionConstants.CENTER ) );
     }
 
     @Override
