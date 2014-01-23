@@ -7,7 +7,7 @@ Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.da.datasource;version="0.1.0",
  org.eclipse.scada.da.datasource.base;version="0.1.0",
  org.eclipse.scada.da.datasource.data;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.server;version="0.1.0",
