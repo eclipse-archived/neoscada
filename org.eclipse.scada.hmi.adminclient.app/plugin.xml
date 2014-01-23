@@ -75,14 +75,6 @@
    </extension>
    
 	<extension
-		point="org.eclipse.ui.menus">
-		<menuContribution
-			allPopups="false"
-			locationURI="menu:file">
-		</menuContribution>
-	</extension>
-
-	<extension
 		point="org.eclipse.ui.intro">
   <introProductBinding
         introId="org.eclipse.ui.intro.universal"
