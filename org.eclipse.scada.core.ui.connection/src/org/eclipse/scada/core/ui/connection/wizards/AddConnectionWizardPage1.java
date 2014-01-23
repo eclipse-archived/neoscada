@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix serviceId edit issue
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.wizards;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.core.ConnectionInformation;
+import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -20,7 +22,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 
 public class AddConnectionWizardPage1 extends WizardPage
 {
@@ -30,6 +31,15 @@ public class AddConnectionWizardPage1 extends WizardPage
     private ConnectionDescriptor connectionInformation;
 
     private Text idText;
+
+    private final ModifyListener updateListener = new ModifyListener () {
+
+        @Override
+        public void modifyText ( final ModifyEvent e )
+        {
+            update ();
+        }
+    };
 
     protected AddConnectionWizardPage1 ( final ConnectionDescriptor preset )
     {
@@ -61,14 +71,6 @@ public class AddConnectionWizardPage1 extends WizardPage
         this.uriText = new Text ( comp, SWT.BORDER );
         this.uriText.setMessage ( Messages.AddConnectionWizardPage1_ConnectionUriMessage );
         this.uriText.setLayoutData ( new GridData ( SWT.FILL, SWT.CENTER, true, false ) );
-        this.uriText.addModifyListener ( new ModifyListener () {
-
-            @Override
-            public void modifyText ( final ModifyEvent e )
-            {
-                update ();
-            }
-        } );
 
         // ID
 
@@ -79,14 +81,6 @@ public class AddConnectionWizardPage1 extends WizardPage
         this.idText = new Text ( comp, SWT.BORDER );
         this.idText.setMessage ( Messages.AddConnectionWizardPage1_ConnectionIdMessage );
         this.idText.setLayoutData ( new GridData ( SWT.FILL, SWT.CENTER, true, false ) );
-        this.idText.addModifyListener ( new ModifyListener () {
-
-            @Override
-            public void modifyText ( final ModifyEvent e )
-            {
-                update ();
-            }
-        } );
 
         if ( this.connectionInformation != null && this.connectionInformation.getConnectionInformation () != null )
         {
@@ -101,6 +95,11 @@ public class AddConnectionWizardPage1 extends WizardPage
             this.uriText.setText ( "da:ngp://localhost:2101" ); //$NON-NLS-1$
         }
 
+        // now add the listeners
+
+        this.uriText.addModifyListener ( this.updateListener );
+        this.idText.addModifyListener ( this.updateListener );
+
         setControl ( comp );
         update ();
     }
@@ -112,7 +111,7 @@ public class AddConnectionWizardPage1 extends WizardPage
         try
         {
             String id = this.idText.getText ();
-            if ( "".equals ( id ) ) //$NON-NLS-1$
+            if ( id.isEmpty () )
             {
                 id = null;
             }
