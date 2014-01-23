@@ -45,15 +45,4 @@
          </actionProvider>
       </navigatorContent>
    </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-   </extension>
-
-
 </plugin>
