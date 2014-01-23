@@ -19,8 +19,8 @@
 						<Shortcut Id="ApplicationStartMenuShortcut"
 						          Name="$(var.ProductName)"
 						          Description="The Eclipse SCADA Admin Client"
-						          Target="[#esac.exe]"
-						          WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+						          Arguments='-data "%LOCALAPPDATA%\esac"'
+						          Target="[#esac.exe]"/>
 						<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
         				<RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
 					</Component>
