@@ -12,6 +12,8 @@
 	
 	<property name="version" value="0.1.0"/>
 	<property name="buildId" value="S201401220726"/>
+    <property name="versionSuffix" value="-M3"/>
+    <property name="visibleVersion" value="${version}${versionSuffix}"/>
     
     <property environment="env"/>
     
@@ -121,7 +123,7 @@
 				<arg value="Scan.@{platform}.wixobj"/>
 				
 				<arg value="-out"/>
-				<arg value="esac_${version}_@{platform}.msi"/>
+				<arg value="esac_${visibleVersion}_@{platform}.msi"/>
 			</exec>
 		</sequential>
 	</macrodef>
