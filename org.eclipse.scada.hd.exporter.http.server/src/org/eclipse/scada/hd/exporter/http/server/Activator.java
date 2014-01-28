@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some bugfixes and modifications
  *******************************************************************************/
 package org.eclipse.scada.hd.exporter.http.server;
 
@@ -80,7 +81,8 @@ public class Activator implements BundleActivator
                 props.put ( Constants.SERVICE_RANKING, 20 );
                 try
                 {
-                    Activator.this.localHdServerServiceRegistration = context.registerService ( HttpExporter.class, new LocalHttpExporter ( service ), props );
+                    Activator.this.localHttpExporter = new LocalHttpExporter ( service );
+                    Activator.this.localHdServerServiceRegistration = context.registerService ( HttpExporter.class, Activator.this.localHttpExporter, props );
                 }
                 catch ( final Exception e )
                 {
@@ -95,6 +97,8 @@ public class Activator implements BundleActivator
     private static BundleContext context;
 
     private HttpService httpService = null;
+
+    private LocalHttpExporter localHttpExporter = null;
 
     private SingleServiceTracker<HttpService> httpServiceTracker;
 
@@ -149,6 +153,9 @@ public class Activator implements BundleActivator
         if ( this.localHdServerServiceRegistration != null )
         {
             this.localHdServerServiceRegistration.unregister ();
+        }
+        if (localHttpExporter != null) {
+            localHttpExporter.dispose ();
         }
 
         Activator.context = null;

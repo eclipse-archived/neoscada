@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2013, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some bugfixes and modifications
  *******************************************************************************/
 package org.eclipse.scada.hd.exporter.http.server.internal;
 
@@ -81,7 +82,7 @@ public class LocalHttpExporter implements HttpExporter
     public LocalHttpExporter ( final Service hdService ) throws Exception
     {
         this.hdService = hdService;
-        this.session = this.hdService.createSession ( new Properties (), null ).get ();
+        this.session = this.hdService.createSession ( makeProperties (), null ).get ();
     }
 
     @Override
@@ -121,5 +122,24 @@ public class LocalHttpExporter implements HttpExporter
     public List<String> getSeries ( final String itemId )
     {
         return new ArrayList<String> ();
+    }
+
+    @Override
+    public void dispose () throws Exception
+    {
+        if ( this.session != null && this.hdService != null )
+        {
+            this.hdService.closeSession ( session );
+        }
+    }
+
+    private Properties makeProperties ()
+    {
+        String user = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.user", "" );
+        String password = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.password", "" );
+        Properties props = new Properties ();
+        props.setProperty ( "user", user );
+        props.setProperty ( "password", password );
+        return props;
     }
 }
