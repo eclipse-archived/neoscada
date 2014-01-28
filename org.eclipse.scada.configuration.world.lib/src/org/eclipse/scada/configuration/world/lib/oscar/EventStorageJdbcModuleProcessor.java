@@ -28,7 +28,7 @@ public class EventStorageJdbcModuleProcessor extends AbstractEventStorageJdbcMod
     @Override
     protected void process ( final EventStorageJdbc module )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( this.app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
 
         processCommon ( module );
 

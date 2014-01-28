@@ -36,7 +36,7 @@ public class SystemPropertiesUserServiceProcessor
     {
         // get profile
 
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( app );
 
         // add system property
 

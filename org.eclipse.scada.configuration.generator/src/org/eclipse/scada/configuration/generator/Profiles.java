@@ -29,7 +29,7 @@ public final class Profiles
     {
     }
 
-    public static Profile createOfGetCustomizationProfile ( final EquinoxApplication app )
+    public static Profile createOrGetCustomizationProfile ( final EquinoxApplication app )
     {
         Profile profile = app.getCustomizationProfile ();
         if ( profile == null )

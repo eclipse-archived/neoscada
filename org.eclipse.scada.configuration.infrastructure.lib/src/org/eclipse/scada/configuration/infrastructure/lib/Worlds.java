@@ -144,19 +144,19 @@ public final class Worlds
     /**
      * Find the access credentials for the target master server
      * 
-     * @param master
+     * @param app
      *            the master server
      * @return the access credentials, or <code>null</code> if there were none
      */
-    public static Credentials findInterconnectCredentials ( final MasterServer master )
+    public static Credentials findInterconnectCredentials ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app )
     {
-        if ( master.getLocalCredentials () != null )
+        if ( app.getLocalCredentials () != null )
         {
-            return master.getLocalCredentials ();
+            return app.getLocalCredentials ();
         }
         else
         {
-            final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( master, org.eclipse.scada.configuration.infrastructure.World.class );
+            final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( app, org.eclipse.scada.configuration.infrastructure.World.class );
             if ( world == null )
             {
                 return null;

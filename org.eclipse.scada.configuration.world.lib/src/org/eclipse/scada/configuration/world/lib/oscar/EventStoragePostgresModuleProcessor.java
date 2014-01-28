@@ -28,7 +28,7 @@ public class EventStoragePostgresModuleProcessor extends AbstractEventStorageJdb
     @Override
     protected void process ( final EventStoragePostgres module )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( this.app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
 
         processCommon ( module );
 

@@ -56,7 +56,7 @@ public class ModbusExporterProcessor implements OscarProcessor
 
     private void processExporter ( final OscarContext ctx, final EquinoxApplication application, final ModbusExporter exporter, final IProgressMonitor monitor )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( application );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( application );
         Profiles.addStartBundle ( profile, BUNDLE_MODBUS_EXPORTER );
         profile.getInstallationUnits ().add ( BUNDLE_MODBUS_EXPORTER );
 

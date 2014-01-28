@@ -27,7 +27,7 @@ public class HttpServiceProcessor extends TypedOscarProcessor<HttpService>
     @Override
     protected void process ( final HttpService item, final EquinoxApplication app, final OscarContext ctx, final IProgressMonitor monitor )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( app );
         Profiles.addStartBundle ( profile, "org.eclipse.jetty.http" );
         Profiles.addStartBundle ( profile, "org.eclipse.equinox.http.registry" );
         Profiles.addStartBundle ( profile, "org.eclipse.equinox.http.jetty" );

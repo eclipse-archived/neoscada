@@ -253,6 +253,8 @@ public class WorldGenerator
                 createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, archive, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
                 createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, archive, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
 
+                archive.getModules ().addAll ( makeModules ( infraArchive, archive ) );
+
                 for ( final Map.Entry<org.eclipse.scada.configuration.infrastructure.MasterServer, DataAccessConnection> entry : conMap.entrySet () )
                 {
                     if ( entry.getKey ().getArchiveTo () != infraArchive )
@@ -287,7 +289,7 @@ public class WorldGenerator
                 createExporter ( OsgiPackage.Literals.HISTORICAL_DATA_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseHdNgpPort () + in );
                 createExporter ( OsgiPackage.Literals.CONFIGURATION_ADMINISTRATOR_EXPORTER, node, app, this.infrastructure.getOptions ().getBaseCaNgpPort () + in );
 
-                final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+                final Profile profile = Profiles.createOrGetCustomizationProfile ( app );
                 switch ( slave.getStorageLayout () )
                 {
                     case MULTI:
@@ -298,6 +300,7 @@ public class WorldGenerator
                         break;
                 }
 
+                app.getModules ().addAll ( makeModules ( slave, app ) );
             }
 
         }
@@ -336,19 +339,19 @@ public class WorldGenerator
         }
     }
 
-    private Collection<ApplicationModule> makeModules ( final MasterServer master, final DefaultMasterServer implMaster )
+    private Collection<ApplicationModule> makeModules ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app, final EquinoxApplication implApp )
     {
         final Collection<ApplicationModule> result = new LinkedList<> ();
 
         // process application configurations
 
         result.addAll ( this.infrastructure.getApplicationConfigurations () );
-        ExclusiveGroups.removeGroups ( result, master.getConfigurations () );
-        result.addAll ( master.getConfigurations () );
+        ExclusiveGroups.removeGroups ( result, app.getConfigurations () );
+        result.addAll ( app.getConfigurations () );
 
         // process infrastructure configuration
 
-        final org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration cfg = master.getConfiguration ();
+        final org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration cfg = app.getConfiguration ();
         // TODO: add a default configuration
         if ( cfg != null )
         {
@@ -359,7 +362,7 @@ public class WorldGenerator
                 {
                     final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
                     final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort (), "HTTP Endpoint" );
-                    final Node node = Nodes.fromApp ( implMaster );
+                    final Node node = Nodes.fromApp ( implApp );
                     node.getEndpoints ().add ( ep );
                     s.setEndpoint ( ep );
                     result.add ( s );
@@ -368,7 +371,7 @@ public class WorldGenerator
                 {
                     final RestExporter s = OsgiFactory.eINSTANCE.createRestExporter ();
                     s.setContextId ( ( (RestExporterModule)m ).getContextId () );
-                    s.getHiveProperties ().addAll ( Worlds.convertToProperties ( Worlds.findInterconnectCredentials ( master ) ) );
+                    s.getHiveProperties ().addAll ( Worlds.convertToProperties ( Worlds.findInterconnectCredentials ( app ) ) );
                     result.add ( s );
                 }
             }

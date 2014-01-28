@@ -28,7 +28,7 @@ public abstract class AbstractEventStorageJdbcModuleProcessor<T> extends BasicTy
 
     protected void processCommon ( final AbstractEventStorageJdbc module )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( this.app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
 
         for ( final String bundle : module.getDriverBundles () )
         {

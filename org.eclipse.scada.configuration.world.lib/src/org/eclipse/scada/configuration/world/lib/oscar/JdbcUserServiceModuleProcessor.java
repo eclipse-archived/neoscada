@@ -34,7 +34,7 @@ public class JdbcUserServiceModuleProcessor extends BasicTypedOscarProcessor<Jdb
     @Override
     protected void process ( final JdbcUserServiceModule module )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( this.app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
         Profiles.addStartBundle ( profile, "org.eclipse.scada.sec.provider.jdbc" ); //$NON-NLS-1$
 
         for ( final JdbcUserService service : module.getUserServices () )

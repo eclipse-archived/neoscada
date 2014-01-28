@@ -32,7 +32,7 @@ public class RestExporterProcessor extends TypedOscarProcessor<RestExporter>
     @Override
     protected void process ( final RestExporter exporter, final EquinoxApplication app, final OscarContext ctx, final IProgressMonitor monitor )
     {
-        final Profile profile = Profiles.createOfGetCustomizationProfile ( app );
+        final Profile profile = Profiles.createOrGetCustomizationProfile ( app );
         Profiles.addStartBundle ( profile, "org.eclipse.scada.da.server.exporter.rest" );
 
         final Map<String, String> data = new HashMap<String, String> ( exporter.getItems ().size () + exporter.getHiveProperties ().size () );
