@@ -8,7 +8,7 @@
 			<Directory Id="$(var.PlatformProgramFilesFolder)" Name="PFiles">
 				<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
 					<Component Id="MainComponent" Guid="AE618338-8C86-4718-89F5-0CE60452282E" DiskId="1">
-						<File Id="LicenseFile" Name="license.rtf" Source="license.rtf"/>
+						<File Id="LicenseFile" Name="license.rtf" Source="resources\license.rtf"/>
 					</Component>
 				</Directory>
 			</Directory>

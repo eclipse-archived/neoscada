@@ -17,6 +17,10 @@
 		    InstallPrivileges="elevated"
 			Compressed="yes"/>
 		
+		<!-- the setup icon -->
+		<Icon Id="setup.ico" SourceFile="resources\setup.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="setup.ico" />
+		
 		<MajorUpgrade
 			AllowDowngrades="yes"/>
 	
