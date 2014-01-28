@@ -6,11 +6,13 @@
 	<Product Id="*"
 		Name="$(var.ProductName)"
 		Language="1033"
-		Version="0.1.0.0"
+		Version="0.1.0.1"
 		UpgradeCode="162FFF07-FB32-467C-8D74-7DF670609E3C"
 		Manufacturer="Eclipse SCADA Project">
+		
 		<Package Description="The Eclipse SCADA Admin Client"
 			InstallerVersion="300"
+	        Manufacturer="Eclipse SCADA Project"        
 			InstallScope="perMachine"
 		    InstallPrivileges="elevated"
 			Compressed="yes"/>
