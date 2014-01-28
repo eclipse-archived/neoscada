@@ -12,7 +12,6 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.globalization.Authorative;
-import org.eclipse.scada.configuration.world.Credentials;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +25,6 @@ import org.eclipse.scada.configuration.world.Credentials;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getImportMaster <em>Import Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getDriver <em>Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getArchiveTo <em>Archive To</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,8 +76,8 @@ public interface MasterServer extends EquinoxApplication
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.Driver}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Driver</em>' reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Driver</em>' reference list isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Driver</em>' reference list.
@@ -93,8 +91,8 @@ public interface MasterServer extends EquinoxApplication
      * Returns the value of the '<em><b>Archive To</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Archive To</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Archive To</em>' reference isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Archive To</em>' reference.
@@ -114,31 +112,5 @@ public interface MasterServer extends EquinoxApplication
      * @generated
      */
     void setArchiveTo ( ValueArchiveServer value );
-
-    /**
-     * Returns the value of the '<em><b>Local Credentials</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Local Credentials</em>' reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Local Credentials</em>' reference.
-     * @see #setLocalCredentials(Credentials)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getMasterServer_LocalCredentials()
-     * @model
-     * @generated
-     */
-    Credentials getLocalCredentials ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.MasterServer#getLocalCredentials <em>Local Credentials</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Local Credentials</em>' reference.
-     * @see #getLocalCredentials()
-     * @generated
-     */
-    void setLocalCredentials ( Credentials value );
 
 } // MasterServer

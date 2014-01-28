@@ -25,7 +25,8 @@ import org.eclipse.scada.configuration.infrastructure.UserEntry;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>System Property User Service</b></em>'.
+ * An implementation of the model object '
+ * <em><b>System Property User Service</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

@@ -33,7 +33,8 @@ import org.eclipse.scada.configuration.infrastructure.Module;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Application Configuration</b></em>'.
+ * An implementation of the model object '
+ * <em><b>Application Configuration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

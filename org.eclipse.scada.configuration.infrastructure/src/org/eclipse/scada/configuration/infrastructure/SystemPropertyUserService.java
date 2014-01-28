@@ -14,7 +14,8 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>System Property User Service</b></em>'.
+ * A representation of the model object '
+ * <em><b>System Property User Service</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
@@ -39,8 +40,8 @@ public interface SystemPropertyUserService extends UserService
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.UserEntry}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Users</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Users</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Users</em>' containment reference list.

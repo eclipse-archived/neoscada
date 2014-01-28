@@ -52,8 +52,8 @@ public interface World extends EObject
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.Node}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Nodes</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Nodes</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Nodes</em>' containment reference list.
@@ -67,8 +67,8 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Options</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Options</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Options</em>' containment reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Options</em>' containment reference.
@@ -93,8 +93,8 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Security Configuration</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Security Configuration</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Security Configuration</em>' reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Security Configuration</em>' reference.
@@ -119,8 +119,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Master Handler Priorities</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Master Handler Priorities</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Master Handler Priorities</em>'
+     * reference isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Master Handler Priorities</em>' reference.
@@ -145,8 +146,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Credentials</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Credentials</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Credentials</em>' containment
+     * reference isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Credentials</em>' containment reference.
@@ -171,8 +173,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Master Customization Profile</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Master Customization Profile</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Master Customization Profile</em>'
+     * reference isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Master Customization Profile</em>' reference.
@@ -197,8 +200,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Value Archive Customization Profile</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Value Archive Customization Profile</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '
+     * <em>Default Value Archive Customization Profile</em>' reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Value Archive Customization Profile</em>' reference.
@@ -223,8 +227,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Driver Password</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Driver Password</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Driver Password</em>' containment
+     * reference isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Driver Password</em>' containment reference.
@@ -250,8 +255,9 @@ public interface World extends EObject
      * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Application Configurations</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Application Configurations</em>' containment
+     * reference list isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Application Configurations</em>' containment reference list.
@@ -265,8 +271,9 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Default Driver Access Credentials</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default Driver Access Credentials</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default Driver Access Credentials</em>'
+     * containment reference isn't clear, there really should be more of a
+     * description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default Driver Access Credentials</em>' containment reference.
@@ -291,8 +298,8 @@ public interface World extends EObject
      * Returns the value of the '<em><b>Configurations</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Configurations</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Configurations</em>' containment reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Configurations</em>' containment reference.

@@ -152,8 +152,8 @@ public interface Options extends EObject
      * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Monitor Pools</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Monitor Pools</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Monitor Pools</em>' containment reference list.
@@ -168,8 +168,8 @@ public interface Options extends EObject
      * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.EventPool}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Event Pools</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Event Pools</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Event Pools</em>' containment reference list.
@@ -183,8 +183,9 @@ public interface Options extends EObject
      * Returns the value of the '<em><b>Default User Service</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Default User Service</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Default User Service</em>' containment
+     * reference isn't clear, there really should be more of a description
+     * here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Default User Service</em>' containment reference.

@@ -35,8 +35,8 @@ public interface Driver extends EObject
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
@@ -62,8 +62,8 @@ public interface Driver extends EObject
      * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.infrastructure.SystemNode#getDrivers <em>Drivers</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Node</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Node</em>' reference isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Node</em>' container reference.

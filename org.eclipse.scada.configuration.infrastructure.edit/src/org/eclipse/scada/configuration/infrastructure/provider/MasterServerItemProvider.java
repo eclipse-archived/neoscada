@@ -64,7 +64,6 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider imp
 
             addDriverPropertyDescriptor ( object );
             addArchiveToPropertyDescriptor ( object );
-            addLocalCredentialsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -107,29 +106,6 @@ public class MasterServerItemProvider extends EquinoxApplicationItemProvider imp
                         getString ( "_UI_MasterServer_archiveTo_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_archiveTo_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         InfrastructurePackage.Literals.MASTER_SERVER__ARCHIVE_TO,
-                        true,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Local Credentials feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addLocalCredentialsPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_MasterServer_localCredentials_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_localCredentials_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        InfrastructurePackage.Literals.MASTER_SERVER__LOCAL_CREDENTIALS,
                         true,
                         false,
                         true,

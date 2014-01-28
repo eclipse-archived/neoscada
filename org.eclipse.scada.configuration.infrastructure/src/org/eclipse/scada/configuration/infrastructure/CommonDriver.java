@@ -39,8 +39,8 @@ public interface CommonDriver extends AbstractFactoryDriver
      * Returns the value of the '<em><b>Password</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Password</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Password</em>' containment reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Password</em>' containment reference.
@@ -65,8 +65,8 @@ public interface CommonDriver extends AbstractFactoryDriver
      * Returns the value of the '<em><b>Port Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Port Number</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Port Number</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Port Number</em>' attribute.

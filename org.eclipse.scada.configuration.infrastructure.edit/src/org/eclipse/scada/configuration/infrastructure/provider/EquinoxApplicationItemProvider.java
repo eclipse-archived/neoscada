@@ -67,6 +67,7 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
             addNamePropertyDescriptor ( object );
             addInstanceNumberPropertyDescriptor ( object );
             addConfigurationPropertyDescriptor ( object );
+            addLocalCredentialsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -132,6 +133,29 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
                         getString ( "_UI_EquinoxApplication_configuration_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_configuration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATION,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Local Credentials feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLocalCredentialsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EquinoxApplication_localCredentials_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_localCredentials_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        InfrastructurePackage.Literals.EQUINOX_APPLICATION__LOCAL_CREDENTIALS,
                         true,
                         false,
                         true,

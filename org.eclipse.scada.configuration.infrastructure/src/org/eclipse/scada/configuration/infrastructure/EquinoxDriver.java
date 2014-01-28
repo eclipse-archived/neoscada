@@ -38,8 +38,8 @@ public interface EquinoxDriver extends AbstractFactoryDriver
      * Returns the value of the '<em><b>User Service</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>User Service</em>' containment reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>User Service</em>' containment reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>User Service</em>' containment reference.
@@ -90,8 +90,8 @@ public interface EquinoxDriver extends AbstractFactoryDriver
      * Returns the value of the '<em><b>Access Credentials</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Access Credentials</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Access Credentials</em>' reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Access Credentials</em>' containment reference.
@@ -116,8 +116,8 @@ public interface EquinoxDriver extends AbstractFactoryDriver
      * Returns the value of the '<em><b>Security Configuration</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Security Configuration</em>' reference isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Security Configuration</em>' reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Security Configuration</em>' reference.

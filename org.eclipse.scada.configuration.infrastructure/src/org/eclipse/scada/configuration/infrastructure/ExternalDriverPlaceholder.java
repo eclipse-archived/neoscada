@@ -16,7 +16,8 @@ import org.eclipse.scada.configuration.world.Endpoint;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>External Driver Placeholder</b></em>'.
+ * A representation of the model object '
+ * <em><b>External Driver Placeholder</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>

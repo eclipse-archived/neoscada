@@ -19,7 +19,8 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Slave Storage Layout</b></em>',
+ * A representation of the literals of the enumeration '
+ * <em><b>Slave Storage Layout</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getSlaveStorageLayout()

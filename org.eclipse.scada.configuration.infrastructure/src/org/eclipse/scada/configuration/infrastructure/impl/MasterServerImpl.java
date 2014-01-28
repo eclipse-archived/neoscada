@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.infrastructure.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +27,6 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
-import org.eclipse.scada.configuration.world.Credentials;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +39,6 @@ import org.eclipse.scada.configuration.world.Credentials;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getImportMaster <em>Import Master</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getDriver <em>Driver</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getArchiveTo <em>Archive To</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.MasterServerImpl#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,16 +85,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
      * @ordered
      */
     protected ValueArchiveServer archiveTo;
-
-    /**
-     * The cached value of the '{@link #getLocalCredentials() <em>Local Credentials</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getLocalCredentials()
-     * @generated
-     * @ordered
-     */
-    protected Credentials localCredentials;
 
     /**
      * <!-- begin-user-doc -->
@@ -210,49 +197,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
      * <!-- end-user-doc -->
      * @generated
      */
-    public Credentials getLocalCredentials ()
-    {
-        if ( localCredentials != null && localCredentials.eIsProxy () )
-        {
-            InternalEObject oldLocalCredentials = (InternalEObject)localCredentials;
-            localCredentials = (Credentials)eResolveProxy ( oldLocalCredentials );
-            if ( localCredentials != oldLocalCredentials )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
-            }
-        }
-        return localCredentials;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Credentials basicGetLocalCredentials ()
-    {
-        return localCredentials;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLocalCredentials ( Credentials newLocalCredentials )
-    {
-        Credentials oldLocalCredentials = localCredentials;
-        localCredentials = newLocalCredentials;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     @SuppressWarnings ( "unchecked" )
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
@@ -303,10 +247,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
                 if ( resolve )
                     return getArchiveTo ();
                 return basicGetArchiveTo ();
-            case InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS:
-                if ( resolve )
-                    return getLocalCredentials ();
-                return basicGetLocalCredentials ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -337,9 +277,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
             case InfrastructurePackage.MASTER_SERVER__ARCHIVE_TO:
                 setArchiveTo ( (ValueArchiveServer)newValue );
                 return;
-            case InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS:
-                setLocalCredentials ( (Credentials)newValue );
-                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -366,9 +303,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
             case InfrastructurePackage.MASTER_SERVER__ARCHIVE_TO:
                 setArchiveTo ( (ValueArchiveServer)null );
                 return;
-            case InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS:
-                setLocalCredentials ( (Credentials)null );
-                return;
         }
         super.eUnset ( featureID );
     }
@@ -391,8 +325,6 @@ public class MasterServerImpl extends EquinoxApplicationImpl implements MasterSe
                 return driver != null && !driver.isEmpty ();
             case InfrastructurePackage.MASTER_SERVER__ARCHIVE_TO:
                 return archiveTo != null;
-            case InfrastructurePackage.MASTER_SERVER__LOCAL_CREDENTIALS:
-                return localCredentials != null;
         }
         return super.eIsSet ( featureID );
     }

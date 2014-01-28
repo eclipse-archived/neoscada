@@ -37,8 +37,8 @@ public interface UserEntry extends EObject
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
@@ -63,8 +63,8 @@ public interface UserEntry extends EObject
      * Returns the value of the '<em><b>Password</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Password</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Password</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Password</em>' attribute.
@@ -90,8 +90,8 @@ public interface UserEntry extends EObject
      * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Roles</em>' attribute list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Roles</em>' attribute list isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Roles</em>' attribute list.

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
@@ -36,6 +37,7 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxApplicationImpl#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +104,16 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * @ordered
      */
     protected ApplicationConfiguration configuration;
+
+    /**
+     * The cached value of the '{@link #getLocalCredentials() <em>Local Credentials</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLocalCredentials()
+     * @generated
+     * @ordered
+     */
+    protected Credentials localCredentials;
 
     /**
      * <!-- begin-user-doc -->
@@ -232,6 +244,49 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
      * <!-- end-user-doc -->
      * @generated
      */
+    public Credentials getLocalCredentials ()
+    {
+        if ( localCredentials != null && localCredentials.eIsProxy () )
+        {
+            InternalEObject oldLocalCredentials = (InternalEObject)localCredentials;
+            localCredentials = (Credentials)eResolveProxy ( oldLocalCredentials );
+            if ( localCredentials != oldLocalCredentials )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
+            }
+        }
+        return localCredentials;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Credentials basicGetLocalCredentials ()
+    {
+        return localCredentials;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLocalCredentials ( Credentials newLocalCredentials )
+    {
+        Credentials oldLocalCredentials = localCredentials;
+        localCredentials = newLocalCredentials;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS, oldLocalCredentials, localCredentials ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -263,6 +318,10 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 if ( resolve )
                     return getConfiguration ();
                 return basicGetConfiguration ();
+            case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
+                if ( resolve )
+                    return getLocalCredentials ();
+                return basicGetLocalCredentials ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -291,6 +350,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
                 setConfiguration ( (ApplicationConfiguration)newValue );
                 return;
+            case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
+                setLocalCredentials ( (Credentials)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -317,6 +379,9 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
                 setConfiguration ( (ApplicationConfiguration)null );
                 return;
+            case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
+                setLocalCredentials ( (Credentials)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -339,6 +404,8 @@ public abstract class EquinoxApplicationImpl extends MinimalEObjectImpl.Containe
                 return configurations != null && !configurations.isEmpty ();
             case InfrastructurePackage.EQUINOX_APPLICATION__CONFIGURATION:
                 return configuration != null;
+            case InfrastructurePackage.EQUINOX_APPLICATION__LOCAL_CREDENTIALS:
+                return localCredentials != null;
         }
         return super.eIsSet ( featureID );
     }

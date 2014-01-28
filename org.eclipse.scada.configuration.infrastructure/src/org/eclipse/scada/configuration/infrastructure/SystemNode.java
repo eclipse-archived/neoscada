@@ -44,8 +44,8 @@ public interface SystemNode extends Node
      * The list contents are of type {@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Deployment</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Deployment</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Deployment</em>' containment reference list.
@@ -61,8 +61,8 @@ public interface SystemNode extends Node
      * It is bidirectional and its opposite is '{@link org.eclipse.scada.configuration.infrastructure.Driver#getNode <em>Node</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Drivers</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Drivers</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Drivers</em>' containment reference list.
@@ -78,8 +78,8 @@ public interface SystemNode extends Node
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.MasterServer}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Masters</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Masters</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Masters</em>' containment reference list.
@@ -95,8 +95,8 @@ public interface SystemNode extends Node
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveServer}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Value Archives</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Value Archives</em>' containment reference
+     * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Value Archives</em>' containment reference list.
@@ -129,8 +129,8 @@ public interface SystemNode extends Node
      * The list contents are of type {@link org.eclipse.scada.configuration.world.Service}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Services</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Services</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Services</em>' containment reference list.
@@ -145,8 +145,8 @@ public interface SystemNode extends Node
      * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Value Slaves</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Value Slaves</em>' containment reference list
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Value Slaves</em>' containment reference list.

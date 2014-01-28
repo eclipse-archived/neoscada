@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
@@ -26,6 +27,7 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfigurations <em>Configurations</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,8 +41,8 @@ public interface EquinoxApplication extends EObject
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Name</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
@@ -93,8 +95,8 @@ public interface EquinoxApplication extends EObject
      * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Configurations</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Configurations</em>' containment reference
+     * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Configurations</em>' containment reference list.
@@ -129,5 +131,31 @@ public interface EquinoxApplication extends EObject
      * @generated
      */
     void setConfiguration ( ApplicationConfiguration value );
+
+    /**
+     * Returns the value of the '<em><b>Local Credentials</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Local Credentials</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Local Credentials</em>' reference.
+     * @see #setLocalCredentials(Credentials)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_LocalCredentials()
+     * @model
+     * @generated
+     */
+    Credentials getLocalCredentials ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Local Credentials</em>' reference.
+     * @see #getLocalCredentials()
+     * @generated
+     */
+    void setLocalCredentials ( Credentials value );
 
 } // EquinoxApplication
