@@ -18,6 +18,7 @@
 	<start>org.eclipse.scada.hd.server.common.item</start>
 	<start>org.eclipse.scada.hd.server.exporter.net</start>
 	<start>org.eclipse.scada.hd.server.exporter.ngp</start>
+	<start>org.eclipse.scada.hd.server.exporter.http.server</start>
 	<start>org.eclipse.scada.hd.server.net</start>
 	<start>org.eclipse.scada.hd.server.proxy</start>
 	<start>org.eclipse.scada.hd.server.storage.hds</start>
