@@ -19,6 +19,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.eclipse.scada.hd.Query;
 import org.eclipse.scada.hd.QueryListener;
@@ -32,6 +34,14 @@ import org.eclipse.scada.hd.server.Session;
 import org.eclipse.scada.sec.callback.PropertiesCredentialsCallback;
 import org.eclipse.scada.utils.concurrent.AbstractFuture;
 
+/*
+ * create session only on first request
+ *
+ * since it is possible that the whole authentication mechanism is not
+ * completely running when service gets registered. That way even if
+ * the first request would fail, then it is possible to try it at a
+ * later time and then it could work correctly
+ */
 public class LocalHttpExporter implements HttpExporter
 {
     private class QueryFuture extends AbstractFuture<List<DataPoint>> implements QueryListener
@@ -78,31 +88,34 @@ public class LocalHttpExporter implements HttpExporter
 
     private final Service hdService;
 
-    private final Session session;
+    private Session session = null;
+
+    private final Lock lock;
 
     public LocalHttpExporter ( final Service hdService ) throws Exception
     {
         this.hdService = hdService;
-        final Properties props = makeProperties ();
-        this.session = this.hdService.createSession ( props, new PropertiesCredentialsCallback ( props ) ).get ();
+        this.lock = new ReentrantLock ( true );
     }
 
     @Override
     public List<DataPoint> getData ( final String item, final String type, final Date from, final Date to, final Integer number )
     {
+        tryCreateSession ();
+
         final QueryParameters parameters = new QueryParameters ( from.getTime (), to.getTime (), number );
         QueryFuture queryFuture = new QueryFuture ( type );
         Query q = null;
         try
         {
             q = this.hdService.createQuery ( this.session, item, parameters, queryFuture, false );
-            final List<DataPoint> result = queryFuture.get ( 30, TimeUnit.SECONDS );
-            q.close ();
-            queryFuture = null;
-            q = null;
-            return result;
+            return queryFuture.get ( 30, TimeUnit.SECONDS );
         }
         catch ( final Exception e )
+        {
+            throw new RuntimeException ( e );
+        }
+        finally
         {
             queryFuture = null;
             if ( q != null )
@@ -111,7 +124,33 @@ public class LocalHttpExporter implements HttpExporter
                 q = null;
             }
         }
-        return null;
+    }
+
+    private void tryCreateSession ()
+    {
+        // session already created, so do not put in the effort to lock and create a new session
+        if ( this.session != null )
+        {
+            return;
+        }
+        // ensure that session gets only created once
+        this.lock.lock ();
+        try
+        {
+            if ( this.session == null )
+            {
+                final Properties props = makeProperties ();
+                this.session = this.hdService.createSession ( props, new PropertiesCredentialsCallback ( props ) ).get ( 30, TimeUnit.SECONDS );
+            }
+        }
+        catch ( final Exception e )
+        {
+            throw new RuntimeException ( e );
+        }
+        finally
+        {
+            this.lock.unlock ();
+        }
     }
 
     @Override
