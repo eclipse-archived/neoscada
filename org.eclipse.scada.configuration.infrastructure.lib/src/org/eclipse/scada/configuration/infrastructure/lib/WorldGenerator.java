@@ -54,6 +54,8 @@ import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
+import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.lib.Nodes;
@@ -255,11 +257,24 @@ public class WorldGenerator
 
                 archive.getModules ().addAll ( makeModules ( infraArchive, archive ) );
 
+                final Profile profile = Profiles.createOrGetCustomizationProfile ( archive );
                 for ( final Map.Entry<org.eclipse.scada.configuration.infrastructure.MasterServer, DataAccessConnection> entry : conMap.entrySet () )
                 {
                     if ( entry.getKey ().getArchiveTo () != infraArchive )
                     {
                         continue;
+                    }
+
+                    final Credentials credentials = findLocalCredentials ( infraArchive );
+                    if ( credentials instanceof PasswordCredentials )
+                    {
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "", false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                    }
+                    else if ( credentials instanceof UsernamePasswordCredentials )
+                    {
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername (), false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword (), false );
                     }
 
                     final DataAccessConnection con = EcoreUtil.copy ( entry.getValue () );
@@ -298,6 +313,18 @@ public class WorldGenerator
                     case SINGLE:
                         Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", slave.getStoragePath (), false );
                         break;
+                }
+
+                final Credentials credentials = findLocalCredentials ( slave );
+                if ( credentials instanceof PasswordCredentials )
+                {
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "", false );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                }
+                else if ( credentials instanceof UsernamePasswordCredentials )
+                {
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername (), false );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword (), false );
                 }
 
                 app.getModules ().addAll ( makeModules ( slave, app ) );
@@ -382,14 +409,14 @@ public class WorldGenerator
         return EcoreUtil.copyAll ( result );
     }
 
-    public Credentials findLocalCredentials ( final MasterServer master )
+    public Credentials findLocalCredentials ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app )
     {
-        logger.debug ( "Looking for credentials: {}", master );
+        logger.debug ( "Looking for credentials: {}", app );
 
-        if ( master.getLocalCredentials () != null )
+        if ( app.getLocalCredentials () != null )
         {
-            logger.debug ( "Using local: {}", master.getLocalCredentials () );
-            return master.getLocalCredentials ();
+            logger.debug ( "Using local: {}", app.getLocalCredentials () );
+            return app.getLocalCredentials ();
         }
         else
         {
