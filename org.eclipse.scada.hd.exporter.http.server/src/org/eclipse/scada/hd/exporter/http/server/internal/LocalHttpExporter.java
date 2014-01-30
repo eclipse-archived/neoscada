@@ -29,6 +29,7 @@ import org.eclipse.scada.hd.exporter.http.DataPoint;
 import org.eclipse.scada.hd.exporter.http.HttpExporter;
 import org.eclipse.scada.hd.server.Service;
 import org.eclipse.scada.hd.server.Session;
+import org.eclipse.scada.sec.callback.PropertiesCredentialsCallback;
 import org.eclipse.scada.utils.concurrent.AbstractFuture;
 
 public class LocalHttpExporter implements HttpExporter
@@ -68,7 +69,7 @@ public class LocalHttpExporter implements HttpExporter
         @Override
         public void updateState ( final QueryState state )
         {
-            if ( state == QueryState.COMPLETE || state == QueryState.DISCONNECTED )
+            if ( ( state == QueryState.COMPLETE ) || ( state == QueryState.DISCONNECTED ) )
             {
                 setResult ( this.result );
             }
@@ -82,7 +83,8 @@ public class LocalHttpExporter implements HttpExporter
     public LocalHttpExporter ( final Service hdService ) throws Exception
     {
         this.hdService = hdService;
-        this.session = this.hdService.createSession ( makeProperties (), null ).get ();
+        final Properties props = makeProperties ();
+        this.session = this.hdService.createSession ( props, new PropertiesCredentialsCallback ( props ) ).get ();
     }
 
     @Override
@@ -127,17 +129,17 @@ public class LocalHttpExporter implements HttpExporter
     @Override
     public void dispose () throws Exception
     {
-        if ( this.session != null && this.hdService != null )
+        if ( ( this.session != null ) && ( this.hdService != null ) )
         {
-            this.hdService.closeSession ( session );
+            this.hdService.closeSession ( this.session );
         }
     }
 
     private Properties makeProperties ()
     {
-        String user = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.user", "" );
-        String password = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.password", "" );
-        Properties props = new Properties ();
+        final String user = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.user", "" );
+        final String password = System.getProperty ( "org.eclipse.scada.hd.exporter.http.server.password", "" );
+        final Properties props = new Properties ();
         props.setProperty ( "user", user );
         props.setProperty ( "password", password );
         return props;
