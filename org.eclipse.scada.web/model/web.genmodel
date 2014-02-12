@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.scada.web/src" modelPluginID="org.eclipse.scada.web"
+    modelName="Web" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>web.ecore</foreignModel>
+  <genPackages prefix="Web" basePackage="org.eclipse.scada" disposableProviderFactory="true"
+      ecorePackage="web.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="web.ecore#//ReleaseType">
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/nightly"/>
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/milestone"/>
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/release"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="web.ecore#//URL"/>
+    <genClasses ecoreClass="web.ecore#//Site">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Site/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/footer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/news"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/author"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/links"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/versions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Site/galleries"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute web.ecore#//Site/description"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Page/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Page/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference web.ecore#//Page/site"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="web.ecore#//Content"/>
+    <genClasses ecoreClass="web.ecore#//HtmlContent">
+      <genFeatures children="true" createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute web.ecore#//HtmlContent/data"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//FooterEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//FooterEntry/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//FooterEntry/link"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//NewsEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//NewsEntry/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//NewsEntry/date"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference web.ecore#//NewsEntry/author"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute web.ecore#//NewsEntry/description"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="web.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Container/content"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//NewsFeedPage"/>
+    <genClasses ecoreClass="web.ecore#//ContentPage"/>
+    <genClasses ecoreClass="web.ecore#//Author">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Author/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Author/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Author/plusLink"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Release">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/buildId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/releaseNotesLink"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference web.ecore#//Release/version"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//ReleaseSection">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference web.ecore#//ReleaseSection/release"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Link">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Link/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Link/label"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Version">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Version/releases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Version/name"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Gallery">
+      <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference web.ecore#//Gallery/images"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Gallery/label"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//Image">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Image/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Image/src"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//GalleryContent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference web.ecore#//GalleryContent/gallery"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//SocialBar"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module gallery('http://eclipse.org/eclipsescada')]
+
+
+[template public generateGallery(gallery : Gallery)]
+
+<h3>[gallery.label/]</h3>
+
+<div class="gallery">
+
+[for (image : Image | gallery.images)]
+
+<figure>
+	<a href="[image.src/]">
+		<img src="[image.src/]" title="[image.label/]" alt="[image.label/]"/>
+	</a>
+	<figcaption>[image.label/]</figcaption>
+</figure>
+
+[/for]
+
+</div>
+[/template]

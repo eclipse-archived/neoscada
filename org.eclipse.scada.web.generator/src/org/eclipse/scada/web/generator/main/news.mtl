@@ -1,0 +1,50 @@
+[comment encoding = UTF-8 /]
+[module news('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::eclipse::scada::web::generator::main::html /]
+[import org::eclipse::scada::web::generator::main::author /]
+[import org::eclipse::scada::web::generator::main::content /]
+[import org::eclipse::scada::web::generator::main::social /]
+[import org::eclipse::scada::web::generator::main::common /]
+
+[template public generateNews(site : Site)]
+[for (news : NewsEntry | site.news)]
+[file ( permaLink(news), false, 'UTF-8')]
+[generateEntry(site,news,permaLink(news))/]
+[/file]
+[/for]
+[/template]
+
+[template public generateEntry(site : Site, news : NewsEntry, fileName : String )]
+[header(site,news.title, news.description, fileName)/]
+[processNewsEntry(news, fileName)/]
+[footer(site, fileName)/]
+[/template]
+
+[template public processNewsEntry(entry : NewsEntry, fileName : String )]
+<article>
+<header class="news">
+<h1><a href="[relative(fileName, permaLink(entry))/]">[entry.title/]</a></h1>
+<p>
+<time itemprop="datePublished" datetime="[formatDate('yyyy-MM-dd\'T\'HH:mmZ', entry.date)/]">[entry.date/]</time>
+by <a href="[relative(fileName,authorFile(author))/]" rel="author">[entry.author.name/]</a></p>
+</header>
+[processContainer(entry)/]
+
+[socialBar(entry.absolutePermaLink(),entry.title)/]
+
+</article>
+[/template]
+
+[query public absolutePermaLink(news:NewsEntry) : String = 
+toAbsolute(permaLink(news))
+/]
+
+[query public permaLink(news : NewsEntry) : String =
+'news/' +
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { 'yyyy/MM/dd', news.date })
++ '/' +
+ invoke( 'org.eclipse.scada.web.generator.service.Helper', 'parmaEncode(java.lang.String)', Sequence { news.title })
++ '.html'
+/]
+

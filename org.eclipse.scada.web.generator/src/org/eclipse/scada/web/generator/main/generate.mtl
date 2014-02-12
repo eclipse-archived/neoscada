@@ -1,0 +1,47 @@
+[comment encoding = UTF-8 /]
+[module generate('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::html /]
+[import org::eclipse::scada::web::generator::main::release /]
+[import org::eclipse::scada::web::generator::main::gallery /]
+[import org::eclipse::scada::web::generator::main::rss /]
+[import org::eclipse::scada::web::generator::main::news /]
+[import org::eclipse::scada::web::generator::main::author /]
+[import org::eclipse::scada::web::generator::main::content /]
+
+[template public generateElement(site : Site)]
+[comment @main/]
+
+[generateAuthors(site)/]
+[generateNews(site)/]
+
+[file ('feed.rss', false, 'UTF-8')]
+[generateFeed(site)/]
+[/file]
+
+[for (page : Page | site.pages)]
+[file (page.id+'.html', false, 'UTF-8')]
+[generatePage(page)/]
+[/file]
+[/for]
+[/template]
+
+[template public generatePage(page : Page)]
+[/template]
+
+[template public generatePage(page : NewsFeedPage)]
+[header(page.site, null, page.name, '/')/]
+[for (entry : NewsEntry | page.site.news)]
+[processNewsEntry(entry, '/')/]
+[/for]
+[footer(page.site, '/')/]
+[/template]
+
+[template public generatePage(page : ContentPage)]
+[header(page.site, null, page.name, '/')/]
+<header>
+<h1 class="header">[page.name.encodeHtml()/]</h1>
+</header>
+[processContainer(page)/]
+[footer(page.site,'/')/]
+[/template]

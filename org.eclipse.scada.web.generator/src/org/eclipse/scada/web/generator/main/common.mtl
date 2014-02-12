@@ -1,0 +1,6 @@
+[comment encoding = UTF-8 /]
+[module common('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[query public formatDate( format : String, date : EDate ) : String =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { format, date }) 
+/]

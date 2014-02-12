@@ -1,0 +1,42 @@
+[comment encoding = UTF-8 /]
+[module social('http://eclipse.org/eclipsescada')]
+
+[import org::eclipse::scada::web::generator::main::html /]
+
+[template public socialBar(url:String, title:String)]
+<div class="social">
+
+<div
+	class="g-plusone"
+	data-size="medium"
+[if url<>null]
+	data-href="[url/]"
+[/if]
+	>
+</div>
+
+<a
+	href="https://twitter.com/share"
+	class="twitter-share-button"
+[if url<>null]
+	data-url="[url/]"
+[/if]
+[if title<>null]
+	data-text="[title.encodeHtml()/]"
+[/if]
+	data-related="eclipsescada"
+>Tweet</a>
+
+<div
+	class="fb-like"
+[if url<>null]
+	data-href="[url/]"
+[/if]
+	data-layout="button_count"
+	data-action="like"
+	data-show-faces="true">
+</div>
+
+</div>
+[/template]
+
