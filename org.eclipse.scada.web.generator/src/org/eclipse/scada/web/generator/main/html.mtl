@@ -115,7 +115,7 @@
 
 <script>
   (function() {
-    var cx = '009962854270831632871:bcnfeb6qdds';
+	var cx = '009962854270831632871:uvgagf5bwgw';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
     gcse.async = true;
@@ -137,12 +137,14 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<!- twitter -->
+<!-- twitter -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[ '[' /]0[ ']' /],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 </body>
 </html>
 [/template]
+
+[query public toUrl(page : Page) : String = page.id+'.html' /]
 
 [query public toAbsolute(url:String) : String =
 getProperty('site.base') + '/' + url

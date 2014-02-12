@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="org.eclipse.scada.web.generator">
-    <property name="ECLIPSE_HOME" value="../../../../Desktop/eclipse_web"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../Desktop/eclipse_web"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../.."/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="org.eclipse.scada.web.generator.libraryclasspath">

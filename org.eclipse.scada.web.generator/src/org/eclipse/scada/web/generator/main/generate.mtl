@@ -5,6 +5,7 @@
 [import org::eclipse::scada::web::generator::main::release /]
 [import org::eclipse::scada::web::generator::main::gallery /]
 [import org::eclipse::scada::web::generator::main::rss /]
+[import org::eclipse::scada::web::generator::main::sitemap /]
 [import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::author /]
 [import org::eclipse::scada::web::generator::main::content /]
@@ -19,8 +20,12 @@
 [generateFeed(site)/]
 [/file]
 
+[file ('sitemap.xml', false, 'UTF-8')]
+[generateSitemap(site)/]
+[/file]
+
 [for (page : Page | site.pages)]
-[file (page.id+'.html', false, 'UTF-8')]
+[file (page.toUrl(), false, 'UTF-8')]
 [generatePage(page)/]
 [/file]
 [/for]
