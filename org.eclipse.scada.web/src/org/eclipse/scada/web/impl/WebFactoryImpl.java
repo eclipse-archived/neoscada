@@ -73,6 +73,7 @@ public class WebFactoryImpl extends EFactoryImpl implements WebFactory {
 			case WebPackage.IMAGE: return createImage();
 			case WebPackage.GALLERY_CONTENT: return createGalleryContent();
 			case WebPackage.SOCIAL_BAR: return createSocialBar();
+			case WebPackage.SOCIAL_INFORMATION: return createSocialInformation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -260,6 +261,16 @@ public class WebFactoryImpl extends EFactoryImpl implements WebFactory {
 	public SocialBar createSocialBar() {
 		SocialBarImpl socialBar = new SocialBarImpl();
 		return socialBar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SocialInformation createSocialInformation() {
+		SocialInformationImpl socialInformation = new SocialInformationImpl();
+		return socialInformation;
 	}
 
 	/**

@@ -19,7 +19,7 @@
 [/template]
 
 [template public processContent(content : SocialBar)]
-[socialBar(null, null)/]
+[socialBar(content)/]
 [/template]
 
 [template public processContent(content : GalleryContent)]

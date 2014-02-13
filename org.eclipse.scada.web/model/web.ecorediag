@@ -410,6 +410,38 @@
     <element xmi:type="ecore:EClass" href="web.ecore#//SocialBar"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-8EicpPhEeO2EbN7_j-3dg" x="708" y="480"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_pmCzQJSVEeO_qttkRCNihw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_pmEBYJSVEeO_qttkRCNihw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_pmEocJSVEeO_qttkRCNihw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_rTjd8JSVEeO_qttkRCNihw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//SocialInformation/url"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_rTjd8ZSVEeO_qttkRCNihw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_t8qOMJSVEeO_qttkRCNihw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//SocialInformation/plusUrl"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_t8qOMZSVEeO_qttkRCNihw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_v119YJSVEeO_qttkRCNihw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//SocialInformation/twitterUrl"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_v119YZSVEeO_qttkRCNihw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_vB5X8JSVEeO_qttkRCNihw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//SocialInformation/facebookUrl"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vB5X8ZSVEeO_qttkRCNihw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_pmEocZSVEeO_qttkRCNihw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_pmEocpSVEeO_qttkRCNihw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_pmEoc5SVEeO_qttkRCNihw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_pmFPgJSVEeO_qttkRCNihw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_pmFPgZSVEeO_qttkRCNihw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_pmFPgpSVEeO_qttkRCNihw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_pmFPg5SVEeO_qttkRCNihw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_pmCzQZSVEeO_qttkRCNihw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="web.ecore#//SocialInformation"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pmCzQpSVEeO_qttkRCNihw" x="1008" y="444"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_kp2SEVOGEeODRINwZWGe5g"/>
   <element xmi:type="ecore:EPackage" href="web.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_oTkx0FOGEeODRINwZWGe5g" type="3002" source="_l6NGsFOGEeODRINwZWGe5g" target="_nMvsoFOGEeODRINwZWGe5g">
@@ -651,5 +683,17 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BkTI85PiEeO2EbN7_j-3dg" points="[-8, -7, 133, 130]$[-140, -144, 1, -7]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BkU-IJPiEeO2EbN7_j-3dg" id="(0.3627450980392157,0.18604651162790697)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BkU-IZPiEeO2EbN7_j-3dg" id="(0.4803921568627451,0.18604651162790697)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_2zJGsJSVEeO_qttkRCNihw" type="3002" source="_-8EicJPhEeO2EbN7_j-3dg" target="_pmCzQJSVEeO_qttkRCNihw">
+    <children xmi:type="notation:Node" xmi:id="_2zJtwJSVEeO_qttkRCNihw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2zJtwZSVEeO_qttkRCNihw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_2zJtwpSVEeO_qttkRCNihw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_2zJtw5SVEeO_qttkRCNihw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_2zJGsZSVEeO_qttkRCNihw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2zJGspSVEeO_qttkRCNihw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="web.ecore#//SocialBar/information"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2zJGs5SVEeO_qttkRCNihw" points="[50, -2, -267, 4]$[384, -2, 67, 4]"/>
   </edges>
 </notation:Diagram>

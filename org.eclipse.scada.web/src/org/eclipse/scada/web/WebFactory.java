@@ -157,6 +157,15 @@ public interface WebFactory extends EFactory {
 	SocialBar createSocialBar();
 
 	/**
+	 * Returns a new object of class '<em>Social Information</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Social Information</em>'.
+	 * @generated
+	 */
+	SocialInformation createSocialInformation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

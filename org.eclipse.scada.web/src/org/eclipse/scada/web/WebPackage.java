@@ -974,13 +974,22 @@ public interface WebPackage extends EPackage {
 	int SOCIAL_BAR = 17;
 
 	/**
+	 * The feature id for the '<em><b>Information</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_BAR__INFORMATION = CONTENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Social Bar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOCIAL_BAR_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 0;
+	int SOCIAL_BAR_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Social Bar</em>' class.
@@ -992,6 +1001,70 @@ public interface WebPackage extends EPackage {
 	int SOCIAL_BAR_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.scada.web.impl.SocialInformationImpl <em>Social Information</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.web.impl.SocialInformationImpl
+	 * @see org.eclipse.scada.web.impl.WebPackageImpl#getSocialInformation()
+	 * @generated
+	 */
+	int SOCIAL_INFORMATION = 18;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION__URL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Plus Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION__PLUS_URL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Facebook Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION__FACEBOOK_URL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Twitter Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION__TWITTER_URL = 3;
+
+	/**
+	 * The number of structural features of the '<em>Social Information</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Social Information</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOCIAL_INFORMATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.eclipse.scada.web.ReleaseType <em>Release Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -999,7 +1072,7 @@ public interface WebPackage extends EPackage {
 	 * @see org.eclipse.scada.web.impl.WebPackageImpl#getReleaseType()
 	 * @generated
 	 */
-	int RELEASE_TYPE = 18;
+	int RELEASE_TYPE = 19;
 
 
 	/**
@@ -1010,7 +1083,7 @@ public interface WebPackage extends EPackage {
 	 * @see org.eclipse.scada.web.impl.WebPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 19;
+	int URL = 20;
 
 
 	/**
@@ -1623,6 +1696,71 @@ public interface WebPackage extends EPackage {
 	EClass getSocialBar();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.eclipse.scada.web.SocialBar#getInformation <em>Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Information</em>'.
+	 * @see org.eclipse.scada.web.SocialBar#getInformation()
+	 * @see #getSocialBar()
+	 * @generated
+	 */
+	EReference getSocialBar_Information();
+
+	/**
+	 * Returns the meta object for class '{@link org.eclipse.scada.web.SocialInformation <em>Social Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Social Information</em>'.
+	 * @see org.eclipse.scada.web.SocialInformation
+	 * @generated
+	 */
+	EClass getSocialInformation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.SocialInformation#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.eclipse.scada.web.SocialInformation#getUrl()
+	 * @see #getSocialInformation()
+	 * @generated
+	 */
+	EAttribute getSocialInformation_Url();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.SocialInformation#getPlusUrl <em>Plus Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Plus Url</em>'.
+	 * @see org.eclipse.scada.web.SocialInformation#getPlusUrl()
+	 * @see #getSocialInformation()
+	 * @generated
+	 */
+	EAttribute getSocialInformation_PlusUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.SocialInformation#getFacebookUrl <em>Facebook Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Facebook Url</em>'.
+	 * @see org.eclipse.scada.web.SocialInformation#getFacebookUrl()
+	 * @see #getSocialInformation()
+	 * @generated
+	 */
+	EAttribute getSocialInformation_FacebookUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.SocialInformation#getTwitterUrl <em>Twitter Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Twitter Url</em>'.
+	 * @see org.eclipse.scada.web.SocialInformation#getTwitterUrl()
+	 * @see #getSocialInformation()
+	 * @generated
+	 */
+	EAttribute getSocialInformation_TwitterUrl();
+
+	/**
 	 * Returns the meta object for enum '{@link org.eclipse.scada.web.ReleaseType <em>Release Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2157,6 +2295,56 @@ public interface WebPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOCIAL_BAR = eINSTANCE.getSocialBar();
+
+		/**
+		 * The meta object literal for the '<em><b>Information</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOCIAL_BAR__INFORMATION = eINSTANCE.getSocialBar_Information();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.scada.web.impl.SocialInformationImpl <em>Social Information</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.scada.web.impl.SocialInformationImpl
+		 * @see org.eclipse.scada.web.impl.WebPackageImpl#getSocialInformation()
+		 * @generated
+		 */
+		EClass SOCIAL_INFORMATION = eINSTANCE.getSocialInformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOCIAL_INFORMATION__URL = eINSTANCE.getSocialInformation_Url();
+
+		/**
+		 * The meta object literal for the '<em><b>Plus Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOCIAL_INFORMATION__PLUS_URL = eINSTANCE.getSocialInformation_PlusUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Facebook Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOCIAL_INFORMATION__FACEBOOK_URL = eINSTANCE.getSocialInformation_FacebookUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Twitter Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOCIAL_INFORMATION__TWITTER_URL = eINSTANCE.getSocialInformation_TwitterUrl();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.scada.web.ReleaseType <em>Release Type</em>}' enum.

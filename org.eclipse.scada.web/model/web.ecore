@@ -102,5 +102,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="gallery" lowerBound="1"
         eType="#//Gallery"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SocialBar" eSuperTypes="#//Content"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SocialBar" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="information" eType="#//SocialInformation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SocialInformation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="plusUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="facebookUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="twitterUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

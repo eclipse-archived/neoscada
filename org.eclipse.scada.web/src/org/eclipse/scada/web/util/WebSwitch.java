@@ -182,6 +182,12 @@ public class WebSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case WebPackage.SOCIAL_INFORMATION: {
+				SocialInformation socialInformation = (SocialInformation)theEObject;
+				T result = caseSocialInformation(socialInformation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -453,6 +459,21 @@ public class WebSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSocialBar(SocialBar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Social Information</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Social Information</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSocialInformation(SocialInformation object) {
 		return null;
 	}
 

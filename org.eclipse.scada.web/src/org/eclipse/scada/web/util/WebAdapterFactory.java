@@ -140,6 +140,10 @@ public class WebAdapterFactory extends AdapterFactoryImpl {
 				return createSocialBarAdapter();
 			}
 			@Override
+			public Adapter caseSocialInformation(SocialInformation object) {
+				return createSocialInformationAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -408,6 +412,20 @@ public class WebAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSocialBarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.eclipse.scada.web.SocialInformation <em>Social Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.eclipse.scada.web.SocialInformation
+	 * @generated
+	 */
+	public Adapter createSocialInformationAdapter() {
 		return null;
 	}
 

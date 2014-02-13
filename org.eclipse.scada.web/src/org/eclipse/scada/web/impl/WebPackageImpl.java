@@ -28,6 +28,7 @@ import org.eclipse.scada.web.ReleaseSection;
 import org.eclipse.scada.web.ReleaseType;
 import org.eclipse.scada.web.Site;
 import org.eclipse.scada.web.SocialBar;
+import org.eclipse.scada.web.SocialInformation;
 import org.eclipse.scada.web.Version;
 import org.eclipse.scada.web.WebFactory;
 import org.eclipse.scada.web.WebPackage;
@@ -164,6 +165,13 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 	 * @generated
 	 */
 	private EClass socialBarEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass socialInformationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -758,6 +766,60 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSocialBar_Information() {
+		return (EReference)socialBarEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSocialInformation() {
+		return socialInformationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSocialInformation_Url() {
+		return (EAttribute)socialInformationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSocialInformation_PlusUrl() {
+		return (EAttribute)socialInformationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSocialInformation_FacebookUrl() {
+		return (EAttribute)socialInformationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSocialInformation_TwitterUrl() {
+		return (EAttribute)socialInformationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReleaseType() {
 		return releaseTypeEEnum;
 	}
@@ -873,6 +935,13 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 		createEReference(galleryContentEClass, GALLERY_CONTENT__GALLERY);
 
 		socialBarEClass = createEClass(SOCIAL_BAR);
+		createEReference(socialBarEClass, SOCIAL_BAR__INFORMATION);
+
+		socialInformationEClass = createEClass(SOCIAL_INFORMATION);
+		createEAttribute(socialInformationEClass, SOCIAL_INFORMATION__URL);
+		createEAttribute(socialInformationEClass, SOCIAL_INFORMATION__PLUS_URL);
+		createEAttribute(socialInformationEClass, SOCIAL_INFORMATION__FACEBOOK_URL);
+		createEAttribute(socialInformationEClass, SOCIAL_INFORMATION__TWITTER_URL);
 
 		// Create enums
 		releaseTypeEEnum = createEEnum(RELEASE_TYPE);
@@ -995,6 +1064,13 @@ public class WebPackageImpl extends EPackageImpl implements WebPackage {
 		initEReference(getGalleryContent_Gallery(), this.getGallery(), null, "gallery", null, 1, 1, GalleryContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(socialBarEClass, SocialBar.class, "SocialBar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSocialBar_Information(), this.getSocialInformation(), null, "information", null, 0, 1, SocialBar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(socialInformationEClass, SocialInformation.class, "SocialInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSocialInformation_Url(), ecorePackage.getEString(), "url", null, 0, 1, SocialInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSocialInformation_PlusUrl(), ecorePackage.getEString(), "plusUrl", null, 0, 1, SocialInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSocialInformation_FacebookUrl(), ecorePackage.getEString(), "facebookUrl", null, 0, 1, SocialInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSocialInformation_TwitterUrl(), ecorePackage.getEString(), "twitterUrl", null, 0, 1, SocialInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(releaseTypeEEnum, ReleaseType.class, "ReleaseType");

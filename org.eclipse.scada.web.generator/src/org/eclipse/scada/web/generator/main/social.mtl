@@ -3,9 +3,15 @@
 
 [import org::eclipse::scada::web::generator::main::html /]
 
-[template public socialBar(url:String, title:String)]
+[template public startSocialBar()]
 <div class="social">
+[/template]
 
+[template public endSocialBar()]
+</div>
+[/template]
+
+[template public socialPlus(url : String)]
 <div
 	class="g-plusone"
 	data-size="medium"
@@ -14,7 +20,9 @@
 [/if]
 	>
 </div>
+[/template]
 
+[template public socialTwitter (url : String, title:String)]
 <a
 	href="https://twitter.com/share"
 	class="twitter-share-button"
@@ -26,7 +34,9 @@
 [/if]
 	data-related="eclipsescada"
 >Tweet</a>
+[/template]
 
+[template public socialFacebook(url : String)]
 <div
 	class="fb-like"
 [if url<>null]
@@ -36,7 +46,28 @@
 	data-action="like"
 	data-show-faces="true">
 </div>
-
-</div>
 [/template]
+
+[template public socialBar(url:String, title:String)]
+[startSocialBar()/]
+[socialPlus(url)/]
+[socialTwitter(url, title)/]
+[socialFacebook(url)/]
+[endSocialBar()/]
+[/template]
+
+[template public socialBar(social : SocialBar)]
+[if social.information.oclIsUndefined()][socialBar(null, null)/][/if]
+[if not social.information.oclIsUndefined()]
+[startSocialBar()/]
+[socialPlus(optionalUrl(social.information.url, social.information.plusUrl))/]
+[socialTwitter(optionalUrl(social.information.url, social.information.twitterUrl), null)/]
+[socialFacebook(optionalUrl(social.information.url,social.information.facebookUrl))/]
+[endSocialBar()/]
+[/if]
+[/template]
+
+[query public optionalUrl(url1 : String, url2 : String) : String =
+if ( url2.oclIsUndefined() or url2.size()<=0) then url1 else url2 endif 
+ /]
 

@@ -2,6 +2,7 @@
 [module html('http://eclipse.org/eclipsescada')]
 
 [import org::eclipse::scada::web::generator::main::news /]
+[import org::eclipse::scada::web::generator::main::social /]
 
 [template public header(site : Site, title : String, description : String, fileName : String)]
 <!DOCTYPE html>
@@ -92,6 +93,12 @@
 <aside id="sidebar-right">
 	<div id="gsearch">
 		<gcse:search></gcse:search>
+	</div>
+	<div id="sidebar-social">
+[startSocialBar()/]
+[socialPlus('https://plus.google.com/115299777840108730794')/]
+[socialFacebook('https://www.facebook.com/eclipse.scada')/]
+[endSocialBar()/]
 	</div>
 	<div id="incubation">
 			<div class="header">Incubation</div>
