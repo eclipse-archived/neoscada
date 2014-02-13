@@ -72,6 +72,12 @@
 							<defineStatements>
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
 							</defineStatements>
+							<requires>
+								<require>org.eclipse.scada.external.p2-incubation</require>
+								<require>org.eclipse.scada.utils.p2-incubation</require>
+								<require>org.eclipse.scada.base.p2-incubation</require>
+								<require>org.eclipse.scada.protocols.p2-incubation</require>
+							</requires>
 							<mappings>
 								<mapping>
 									<directory>/usr/share/eclipsescada/p2/${project.groupId}</directory>
