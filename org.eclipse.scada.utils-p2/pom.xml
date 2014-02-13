@@ -76,7 +76,7 @@
 								<require>org.eclipse.scada</require>
 							</requires>
 							<requires>
-								<require>org.eclipse.scada.external</require>
+								<require>org.eclipse.scada.external.p2-incubation</require>
 							</requires>
 							<mappings>
 								<mapping>
