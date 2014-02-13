@@ -207,6 +207,8 @@ public class RedhatHandler extends CommonHandler
             result.add ( "Requires: org.eclipse.scada.p2" );
         }
 
+        result.add ( "Requires: org.eclipse.scada.deploy.p2-incubation" );
+
         return StringHelper.join ( result, "\n" );
     }
 
