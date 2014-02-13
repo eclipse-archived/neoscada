@@ -67,7 +67,7 @@
 									</requires>
 									
 									<defaultUsername>root</defaultUsername>
-									<dfaultGroupname>root</dfaultGroupname>
+									<defaultGroupname>root</defaultGroupname>
 									
 									<mappings>
 										<mapping>

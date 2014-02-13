@@ -44,7 +44,7 @@
 							<changelogFile>../rpm/changelog</changelogFile>
 
 							<defaultUsername>root</defaultUsername>
-							<dfaultGroupname>root</dfaultGroupname>
+							<defaultGroupname>root</defaultGroupname>
 						</configuration>
 
 						<executions>
