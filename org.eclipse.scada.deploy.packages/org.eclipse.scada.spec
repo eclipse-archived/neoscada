@@ -31,23 +31,16 @@ Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{buildroot}
 BuildArch:	noarch
 
-%package p2
-Summary:	P2 deployment system for Eclipse SCADA
-Group:		System Environment/Base
+# Global requires
 
-#BuildRequires: unzip
-#BuildRequires: wget
+Requires: org.eclipse.scada.distribution-base = %{version}
+Requires: rsync
 
-%if 0%{?suse_version}
-# for adding the user with "useradd"
-Requires: shadow
-# for the "getent" command
-Requires: glibc
-# for jsvc
-Requires: apache-commons-daemon-jsvc
-Requires: openssh
-Requires: perl-base
-%else
+%package centos6
+Summary: Base setup for CentOS6 based distributions
+Group:   System Environment/Base
+Provides: org.eclipse.scada.distribution-base
+
 # for adding the user with "adduser"
 Requires: shadow-utils
 # for the "getent" command
@@ -56,15 +49,41 @@ Requires: glibc-common
 Requires: jakarta-commons-daemon-jsvc
 Requires: openssh-clients
 Requires: perl
-%endif
+
+%package suse
+Summary: Base setup for Suse based distributions
+Group:   System Environment/Base
+Provides: org.eclipse.scada.distribution-base
+
+# for adding the user with "useradd"
+Requires: shadow
+# for the "getent" command
+Requires: glibc
+# for jsvc
+Requires: apache-commons-daemon-jsvc
+Requires: openssh
+Requires: perl-base
+
+%package p2
+Summary:	P2 deployment system for Eclipse SCADA
+Group:   System Environment/Base
+
 Requires: org.eclipse.scada.deploy.p2director-incubation
-Requires: rsync
+
+#BuildRequires: unzip
+#BuildRequires: wget
 
 %description
 The Eclipse SCADA system
 
 %description p2
 A deployment system for P2/Equinox based application of the Eclipse SCADA system
+
+%description centos6
+A distribution specific base package for CentOS 6 compatible distributions
+
+%description suse
+A distribution specific base package for Suse compatible distributions
 
 %prep
 %setup -q
@@ -112,16 +131,15 @@ fi
 %{_profiledir}/eclipsescada.sh
 %{_bindir}/es*
 %{_bindir}/hds-replicate-once
-# BEGIN - suse has a different perl installation
-%if 0%{?suse_version}
+%doc
+
+%files suse
 %dir %{_libdir}/perl5/site_perl/EclipseSCADA
 %{_libdir}/perl5/site_perl/EclipseSCADA/*
-%else
+
+%files centos6
 %dir %{_datadir}/perl5/EclipseSCADA
 %{_datadir}/perl5/EclipseSCADA/*
-%endif
-# END - suse has a different perl installation
-%doc
 
 %files p2
 %defattr(-,root,root,-)
@@ -130,5 +148,7 @@ fi
 %{_bindir}/p2.*
 
 %changelog
+* Thu Feb 13 2014 Jens Reimann <jens.reimann@ibh-systems.com> - 0.1.0-2
+- Split up distribution dependent packages
 * Fri Oct 18 2013 Jens Reimann <jens.reimann@ibh-systems.com> - 0.1.0-1
 - Initial version

@@ -19,7 +19,7 @@
 	</description>
 
 	<properties>
-		<srcBase>${baseDir}/../../src</srcBase>
+		<srcBase>${basedir}/../src</srcBase>
 	</properties>
 
 	<build>
@@ -27,7 +27,6 @@
 			<plugin>
 				<artifactId>jdeb</artifactId>
 				<groupId>org.vafer</groupId>
-				<version>1.0.1</version>
 
 				<executions>
 					<execution>
@@ -94,5 +93,8 @@
 
 		</plugins>
 	</build>
+
+	<profiles>
+	</profiles>
 
 </project>

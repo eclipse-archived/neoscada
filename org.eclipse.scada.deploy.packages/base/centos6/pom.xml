@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.scada.deploy</groupId>
+		<artifactId>org.eclipse.scada.deploy.packages.common</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../../common</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.scada.deploy</groupId>
+	<artifactId>org.eclipse.scada-centos6</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<description>
+		Eclipse SCADA base package
+	</description>
+
+	<properties>
+		<srcBase>${basedir}/../../src</srcBase>
+	</properties>
+
+	<profiles>
+
+		<profile>
+
+			<!--rpm must be a profile since it requires 'rpmbuild' on the target machine -->
+
+			<id>rpm</id>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
+							<group>System Environment/Base</group>
+							<changelogFile>../rpm/changelog</changelogFile>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<configuration>
+									<provides>
+										<provide>org.eclipse.scada-distribution</provide>
+									</provides>
+									<requires>
+										<require>org.eclipse.scada = %{version}</require>
+										<!-- for adding the user with "adduser" -->
+										<require>shadow-utils</require>
+										<!-- # for the "getent" command -->
+										<require>glibc-common</require>
+										<!-- for jsvc -->
+										<require>jakarta-commons-daemon-jsvc</require>
+										<require>openssh-clients</require>
+										<require>perl</require>
+									</requires>
+									<mappings>
+										<mapping>
+											<directory>/etc/profile.d</directory>
+											<configuration>true</configuration>
+											<directoryIncluded>false</directoryIncluded>
+											<sources>
+												<source>
+													<location>${srcBase}/default/eclipsescada.centos</location>
+													<destination>eclipsescada</destination>
+												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/perl5/EclipseSCADA</directory>
+											<sources>
+												<source>
+													<location>${srcBase}/perl/EclipseSCADA</location>
+												</source>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+		</profile> <!-- rpm -->
+
+	</profiles>
+
+</project>

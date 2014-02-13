@@ -16,6 +16,9 @@
 	<modules>
 		<module>cfg</module>
 		<module>base</module>
+		<module>base/common</module>
+		<module>base/centos6</module>
+		<module>base/suse</module>
 		<module>p2</module>
 		<module>gather</module>
 	</modules>
@@ -33,14 +36,4 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
-	<profiles>
-		<profile>
-			<id>rpm</id>
-			<modules>
-				<module>rpmbuild</module>
-			</modules>
-		</profile>
-	</profiles>
-
 </project>

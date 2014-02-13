@@ -15,11 +15,12 @@
 	<packaging>pom</packaging>
 
 	<description>
-		Eclipse SCADA base package
+		Eclipse SCADA P2 base package
 	</description>
 
 	<properties>
 		<srcBase>${baseDir}/../../src</srcBase>
+		<srcBase.rpm>${basedir}/../src</srcBase.rpm>
 	</properties>
 
 	<build>
@@ -27,7 +28,6 @@
 			<plugin>
 				<artifactId>jdeb</artifactId>
 				<groupId>org.vafer</groupId>
-				<version>1.0.1</version>
 
 				<executions>
 					<execution>
@@ -62,5 +62,60 @@
 
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<copyright>EPL</copyright>
+							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
+							<group>System Environment/Base</group>
+							<changelogFile>rpm/changelog</changelogFile>
+							<requires>
+								<require>org.eclipse.scada &gt;= %{version}</require>
+							</requires>
+						</configuration>
+
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+								<configuration>
+									<mappings>
+										<mapping>
+											<directory>/usr/share/eclipsescada/profiles</directory>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/eclipsescada/p2</directory>
+										</mapping>
+										<mapping>
+											<directory>/usr/bin</directory>
+											<directoryIncluded>false</directoryIncluded>
+											<sources>
+												<source>
+													<location>${srcBase.rpm}/bin</location>
+													<includes>
+														<include>p2.*</include>
+													</includes>
+												</source>
+											</sources>
+										</mapping>
+									</mappings>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
