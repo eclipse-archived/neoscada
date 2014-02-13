@@ -64,8 +64,12 @@
 									</conflicts>
 									<mappings>
 										<mapping>
-											<directory>/etc/default/eclipsescada</directory>
+											<directory>/etc/profile.d</directory>
+											<directoryIncluded>false</directoryIncluded>
 											<configuration>true</configuration>
+											<sources>
+												<source>${srcBase}/default/eclipsescada.sh</source>
+											</sources>
 										</mapping>
 										<mapping>
 											<directory>/usr/jar</directory>

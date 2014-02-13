@@ -71,7 +71,7 @@
 									
 									<mappings>
 										<mapping>
-											<directory>/etc/profile.d</directory>
+											<directory>/etc/default</directory>
 											<configuration>true</configuration>
 											<directoryIncluded>false</directoryIncluded>
 											<sources>
