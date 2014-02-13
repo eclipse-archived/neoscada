@@ -67,6 +67,9 @@
 											<directory>/etc/profile.d</directory>
 											<directoryIncluded>false</directoryIncluded>
 											<configuration>true</configuration>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
 											<sources>
 												<source>
 													<location>${srcBase}/default/eclipsescada.sh</location>
@@ -100,6 +103,9 @@
 										<mapping>
 											<directory>/usr/bin</directory>
 											<directoryIncluded>false</directoryIncluded>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
 											<sources>
 												<source>
 													<location>${srcBase}/bin</location>

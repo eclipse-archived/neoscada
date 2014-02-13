@@ -104,6 +104,9 @@
 										<mapping>
 											<directory>/usr/bin</directory>
 											<directoryIncluded>false</directoryIncluded>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
 											<sources>
 												<source>
 													<location>${srcBase.rpm}/bin</location>
