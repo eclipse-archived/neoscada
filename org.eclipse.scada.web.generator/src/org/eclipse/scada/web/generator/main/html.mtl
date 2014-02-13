@@ -90,7 +90,7 @@
 </aside>
 
 <aside id="sidebar-right">
-	<div id="gsearch" style="height: 50pt;">
+	<div id="gsearch">
 		<gcse:search></gcse:search>
 	</div>
 	<div id="incubation">
