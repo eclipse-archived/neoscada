@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -53,7 +53,7 @@ public class RedhatHandler extends CommonHandler
     @Override
     protected String getBaseFolderName ()
     {
-        return "rpm-packages";
+        return "rpm-packages"; //$NON-NLS-1$
     }
 
     @Override
@@ -64,9 +64,9 @@ public class RedhatHandler extends CommonHandler
         final String packageName = getPackageName ();
 
         final File buildRoot = packageFolder.getParentFile ();
-        final File specsDir = new File ( buildRoot, "SPECS" );
+        final File specsDir = new File ( buildRoot, "SPECS" ); //$NON-NLS-1$
         specsDir.mkdirs ();
-        final File sourcesDir = new File ( buildRoot, "SOURCES" );
+        final File sourcesDir = new File ( buildRoot, "SOURCES" ); //$NON-NLS-1$
         sourcesDir.mkdirs ();
 
         // create content
@@ -75,19 +75,19 @@ public class RedhatHandler extends CommonHandler
         final String qualifier = makeRelease ();
 
         final Map<String, String> replacements = new HashMap<> ();
-        replacements.put ( "packageName", packageName );
-        replacements.put ( "authorName", this.deploy.getMaintainer ().getName () );
-        replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () );
-        replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () );
-        replacements.put ( "version", version );
-        replacements.put ( "qualifier", qualifier );
-        replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) );
-        replacements.put ( "files", makeFiles () );
+        replacements.put ( "packageName", packageName ); //$NON-NLS-1$
+        replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
+        replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () ); //$NON-NLS-1$
+        replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
+        replacements.put ( "version", version ); //$NON-NLS-1$
+        replacements.put ( "qualifier", qualifier ); //$NON-NLS-1$
+        replacements.put ( "changeLog", makeChangeLog ( this.deploy.getChanges () ) ); //$NON-NLS-1$
+        replacements.put ( "files", makeFiles () ); //$NON-NLS-1$
         replacements.put ( "depends", makeDependencies () );
-        replacements.put ( "preun", makeStop () );
-        replacements.put ( "post", makePost () );
+        replacements.put ( "preun", makeStop () ); //$NON-NLS-1$
+        replacements.put ( "post", makePost () ); //$NON-NLS-1$
 
-        final File specFile = new File ( specsDir, packageName + ".spec" );
+        final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
         Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "Makefile" ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
 
@@ -96,7 +96,7 @@ public class RedhatHandler extends CommonHandler
 
         // make source file
 
-        monitor.setTaskName ( "Running tar" );
+        monitor.setTaskName ( "Running tar" ); //$NON-NLS-1$
 
         {
             final File sourceFile = new File ( sourcesDir, packageName + "_" + version + "." + qualifier + ".tar.gz" );
@@ -105,19 +105,19 @@ public class RedhatHandler extends CommonHandler
             try
             {
                 final int rc = new ProcessRunner ( processBuilder ).run ();
-                logger.info ( "rc = {}", rc );
+                logger.info ( "rc = {}", rc ); //$NON-NLS-1$
             }
             catch ( final Exception e )
             {
-                logger.warn ( "Failed to generate tar package", e );
+                logger.warn ( "Failed to generate tar package", e ); //$NON-NLS-1$
             }
         }
 
         // run rpmbuild
 
-        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) )
+        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) ) //$NON-NLS-1$
         {
-            monitor.setTaskName ( "Running rpmbuild" );
+            monitor.setTaskName ( "Running rpmbuild" ); //$NON-NLS-1$
 
             {
                 final ProcessBuilder processBuilder = new ProcessBuilder ( "rpmbuild", "--define", "_topdir " + buildRoot.toString (), "-bb", specFile.toString () );
@@ -125,11 +125,11 @@ public class RedhatHandler extends CommonHandler
                 try
                 {
                     final int rc = new ProcessRunner ( processBuilder ).run ();
-                    logger.info ( "rc = {}", rc );
+                    logger.info ( "rc = {}", rc ); //$NON-NLS-1$
                 }
                 catch ( final Exception e )
                 {
-                    logger.warn ( "Failed to generate rpm package", e );
+                    logger.warn ( "Failed to generate rpm package", e ); //$NON-NLS-1$
                 }
             }
 
@@ -143,12 +143,12 @@ public class RedhatHandler extends CommonHandler
         for ( final String driver : makeDriverList () )
         {
             sb.append ( "test \"$1\" -eq \"0\" && /etc/init.d/scada.driver." + driver + " stop || true" );
-            sb.append ( "\n" );
+            sb.append ( "\n" ); //$NON-NLS-1$
         }
         for ( final String driver : makeEquinoxList () )
         {
             sb.append ( "test \"$1\" -eq \"0\" && /etc/init.d/scada.app." + driver + " stop || true" );
-            sb.append ( "\n" );
+            sb.append ( "\n" ); //$NON-NLS-1$
         }
         return sb.toString ();
     }
@@ -159,24 +159,24 @@ public class RedhatHandler extends CommonHandler
         for ( final String driver : makeDriverList () )
         {
             sb.append ( "/etc/init.d/scada.driver." + driver + " condrestart || true" );
-            sb.append ( "\n" );
+            sb.append ( "\n" ); //$NON-NLS-1$
         }
         for ( final String driver : makeEquinoxList () )
         {
             sb.append ( "/etc/init.d/scada.app." + driver + " condrestart || true" );
-            sb.append ( "\n" );
+            sb.append ( "\n" ); //$NON-NLS-1$
         }
         return sb.toString ();
     }
 
-    private static Pattern ALT_PATTERN = Pattern.compile ( "\\@\\@(.*?)\\@\\@" );
+    private static Pattern ALT_PATTERN = Pattern.compile ( "\\@\\@(.*?)\\@\\@" ); //$NON-NLS-1$
 
     @Override
     protected void processDriver ( final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir, final File driverDir ) throws IOException, Exception
     {
         super.processDriver ( monitor, packageFolder, replacements, driverName, sourceDir, driverDir );
         File initFile;
-        Helper.createFile ( initFile = new File ( packageFolder, "src/etc/init.d/scada.driver." + driverName ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/driver.service.sh" ), replacements, monitor );
+        Helper.createFile ( initFile = new File ( packageFolder, "src/etc/init.d/scada.driver." + driverName ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/driver.service.sh" ), replacements, monitor ); //$NON-NLS-1$
         initFile.setExecutable ( true );
     }
 
@@ -185,13 +185,13 @@ public class RedhatHandler extends CommonHandler
     {
         super.processEquinox ( sourceBase, packageFolder, replacements, monitor, name );
         {
-            final File file = new File ( packageFolder, "src/etc/init.d/scada.app." + name );
-            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.service.sh" ), replacements, monitor );
+            final File file = new File ( packageFolder, "src/etc/init.d/scada.app." + name ); //$NON-NLS-1$
+            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.service.sh" ), replacements, monitor ); //$NON-NLS-1$
             file.setExecutable ( true );
         }
         {
-            final File file = new File ( packageFolder, "src/usr/bin/scada.app." + name + ".launcher" );
-            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.launcher.sh" ), replacements, monitor, ALT_PATTERN );
+            final File file = new File ( packageFolder, "src/usr/bin/scada.app." + name + ".launcher" ); //$NON-NLS-1$  //$NON-NLS-2$
+            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.launcher.sh" ), replacements, monitor, ALT_PATTERN ); //$NON-NLS-1$
             file.setExecutable ( true );
         }
     }
@@ -200,14 +200,14 @@ public class RedhatHandler extends CommonHandler
     {
         final Set<String> result = new HashSet<> ();
 
-        result.add ( "Requires: org.eclipse.scada" );
+        result.add ( "Requires: org.eclipse.scada" ); //$NON-NLS-1$
 
         if ( needP2 () )
         {
-            result.add ( "Requires: org.eclipse.scada.p2" );
+            result.add ( "Requires: org.eclipse.scada.p2" ); //$NON-NLS-1$
         }
 
-        result.add ( "Requires: org.eclipse.scada.deploy.p2-incubation" );
+        result.add ( "Requires: org.eclipse.scada.deploy.p2-incubation" ); //$NON-NLS-1$
 
         return StringHelper.join ( result, "\n" );
     }
@@ -218,29 +218,29 @@ public class RedhatHandler extends CommonHandler
 
         for ( final String driver : makeDriverList () )
         {
-            sb.append ( "%dir %_sysconfdir/eclipsescada/drivers/" + driver );
+            sb.append ( "%dir %_sysconfdir/eclipsescada/drivers/" + driver ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) %_sysconfdir/eclipsescada/drivers/" + driver + "/*" );
+            sb.append ( "%attr(640,root,eclipsescada) %_sysconfdir/eclipsescada/drivers/" + driver + "/*" ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(755,root,root) /etc/init.d/scada.driver." + driver );
+            sb.append ( "%attr(755,root,root) /etc/init.d/scada.driver." + driver ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
         for ( final String app : makeEquinoxList () )
         {
-            sb.append ( "%attr(755,root,root) /etc/init.d/scada.app." + app );
+            sb.append ( "%attr(755,root,root) /etc/init.d/scada.app." + app ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(755,root,root) %_bindir/scada.create." + app );
+            sb.append ( "%attr(755,root,root) %_bindir/scada.create." + app ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(755,root,root) %_bindir/scada.app." + app + ".launcher" );
+            sb.append ( "%attr(755,root,root) %_bindir/scada.app." + app + ".launcher" ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/ca.bootstrap/bootstrap." + app + ".json" );
+            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/ca.bootstrap/bootstrap." + app + ".json" ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + ".profile.xml" );
+            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + ".profile.xml" ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%dir /usr/share/eclipsescada/profiles/" + app );
+            sb.append ( "%dir /usr/share/eclipsescada/profiles/" + app ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + "/*" );
+            sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + "/*" ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -249,7 +249,7 @@ public class RedhatHandler extends CommonHandler
 
     private String makeRelease ()
     {
-        return String.format ( "%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", new Date () );
+        return String.format ( "%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", new Date () ); //$NON-NLS-1$
     }
 
     private String makeChangeLog ( final List<ChangeEntry> changes )
@@ -286,6 +286,6 @@ public class RedhatHandler extends CommonHandler
             }
         }
 
-        return version == null ? "0.0.0" : version;
+        return version == null ? "0.0.0" : version; //$NON-NLS-1$
     }
 }
