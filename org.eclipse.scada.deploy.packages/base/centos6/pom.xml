@@ -65,6 +65,10 @@
 										<require>openssh-clients</require>
 										<require>perl</require>
 									</requires>
+									
+									<defaultUsername>root</defaultUsername>
+									<dfaultGroupname>root</dfaultGroupname>
+									
 									<mappings>
 										<mapping>
 											<directory>/etc/profile.d</directory>

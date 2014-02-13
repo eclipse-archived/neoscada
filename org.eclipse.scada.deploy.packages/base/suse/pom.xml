@@ -47,6 +47,9 @@
 							<group>System Environment/Base</group>
 							<changelogFile>../../rpm/changelog</changelogFile>
 
+							<defaultUsername>root</defaultUsername>
+							<dfaultGroupname>root</dfaultGroupname>
+
 							<name>org.eclipse.scada-suse</name>
 
 							<provides>

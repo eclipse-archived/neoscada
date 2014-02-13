@@ -80,6 +80,10 @@
 							<requires>
 								<require>org.eclipse.scada &gt;= %{version}</require>
 							</requires>
+							
+							<defaultUsername>root</defaultUsername>
+							<dfaultGroupname>root</dfaultGroupname>
+							
 						</configuration>
 
 						<executions>

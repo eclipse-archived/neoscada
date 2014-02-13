@@ -42,6 +42,9 @@
 							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
 							<group>System Environment/Base</group>
 							<changelogFile>../rpm/changelog</changelogFile>
+
+							<defaultUsername>root</defaultUsername>
+							<dfaultGroupname>root</dfaultGroupname>
 						</configuration>
 
 						<executions>
@@ -78,11 +81,13 @@
 										</mapping>
 										<mapping>
 											<directory>/var/log/eclipsescada</directory>
+											<username>root</username>
 											<groupname>eclipsescada</groupname>
 											<filemode>0775</filemode>
 										</mapping>
 										<mapping>
 											<directory>/var/run/eclipsescada</directory>
+											<username>root</username>
 											<groupname>eclipsescada</groupname>
 											<filemode>0775</filemode>
 										</mapping>
