@@ -79,6 +79,7 @@
 							<changelogFile>rpm/changelog</changelogFile>
 							<requires>
 								<require>org.eclipse.scada &gt;= %{version}</require>
+								<require>org.eclipse.scada.deploy.p2director-incubation</require>
 							</requires>
 							
 							<defaultUsername>root</defaultUsername>
