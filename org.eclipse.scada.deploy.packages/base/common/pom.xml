@@ -50,6 +50,7 @@
 								<goals>
 									<goal>rpm</goal>
 								</goals>
+								<phase>compile</phase>
 								<configuration>
 									<requires>
 										<require>org.eclipse.scada-distribution</require>

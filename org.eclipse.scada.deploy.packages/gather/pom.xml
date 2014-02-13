@@ -16,18 +16,6 @@
 
 	<profiles>
 		<profile>
-			<id>rpm</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.eclipse.scada.deploy</groupId>
-					<artifactId>org.eclipse.scada.deploy.packages.rpmBuild</artifactId>
-					<version>${project.version}</version>
-					<type>pom</type>
-				</dependency>
-			</dependencies>
-		</profile>
-		
-		<profile>
 			<id>eclipse-hudson</id>
 			<build>
 				<plugins>
