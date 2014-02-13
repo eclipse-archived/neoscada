@@ -68,7 +68,9 @@
 											<directoryIncluded>false</directoryIncluded>
 											<configuration>true</configuration>
 											<sources>
-												<source>${srcBase}/default/eclipsescada.sh</source>
+												<source>
+													<location>${srcBase}/default/eclipsescada.sh</location>
+												</source>
 											</sources>
 										</mapping>
 										<mapping>
