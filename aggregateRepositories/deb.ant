@@ -40,7 +40,7 @@
             <mapper type="flatten" />
         </copy>
 
-        <fileset dir="${download.deb.dir}" id="deb.file.list">
+        <fileset dir="${download.deb.dir}" id="deb.files">
             <include name="*.deb" />
         </fileset>
 
