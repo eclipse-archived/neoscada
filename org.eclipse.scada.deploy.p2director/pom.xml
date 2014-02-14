@@ -206,6 +206,9 @@
 								<configuration>
 									<needarch>x86_64</needarch>
 									<workarea>target/rpm/x86_64</workarea>
+									<requires>
+										<require>jre &gt;= 1.7.0</require>
+									</requires>
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
@@ -239,6 +242,9 @@
 								<configuration>
 									<needarch>i386</needarch>
 									<workarea>target/rpm/x86</workarea>
+									<requires>
+										<require>jre &gt;= 1.7.0</require>
+									</requires>
 									<mappings>
 										<mapping>
 											<directory>/usr/share/${project.artifactId}/product</directory>
