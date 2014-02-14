@@ -115,7 +115,6 @@ import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage
  * @generated
  */
@@ -125,7 +124,6 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static OsgiPackage modelPackage;
@@ -134,7 +132,6 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public OsgiAdapterFactory ()
@@ -151,12 +148,11 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
-     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( final Object object )
+    public boolean isFactoryForType ( Object object )
     {
         if ( object == modelPackage )
         {
@@ -173,571 +169,570 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected OsgiSwitch<Adapter> modelSwitch = new OsgiSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseEquinoxApplication ( final EquinoxApplication object )
+        public Adapter caseEquinoxApplication ( EquinoxApplication object )
         {
             return createEquinoxApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseConnection ( final Connection object )
+        public Adapter caseConnection ( Connection object )
         {
             return createConnectionAdapter ();
         }
 
         @Override
-        public Adapter caseExporter ( final Exporter object )
+        public Adapter caseExporter ( Exporter object )
         {
             return createExporterAdapter ();
         }
 
         @Override
-        public Adapter caseDataAccessConnection ( final DataAccessConnection object )
+        public Adapter caseDataAccessConnection ( DataAccessConnection object )
         {
             return createDataAccessConnectionAdapter ();
         }
 
         @Override
-        public Adapter caseDataAccessExporter ( final DataAccessExporter object )
+        public Adapter caseDataAccessExporter ( DataAccessExporter object )
         {
             return createDataAccessExporterAdapter ();
         }
 
         @Override
-        public Adapter caseItem ( final Item object )
+        public Adapter caseItem ( Item object )
         {
             return createItemAdapter ();
         }
 
         @Override
-        public Adapter caseSourceItem ( final SourceItem object )
+        public Adapter caseSourceItem ( SourceItem object )
         {
             return createSourceItemAdapter ();
         }
 
         @Override
-        public Adapter caseItemExport ( final ItemExport object )
+        public Adapter caseItemExport ( ItemExport object )
         {
             return createItemExportAdapter ();
         }
 
         @Override
-        public Adapter caseItemInformation ( final ItemInformation object )
+        public Adapter caseItemInformation ( ItemInformation object )
         {
             return createItemInformationAdapter ();
         }
 
         @Override
-        public Adapter caseLevelMonitor ( final LevelMonitor object )
+        public Adapter caseLevelMonitor ( LevelMonitor object )
         {
             return createLevelMonitorAdapter ();
         }
 
         @Override
-        public Adapter caseItemFeatureEntry ( final ItemFeatureEntry object )
+        public Adapter caseItemFeatureEntry ( ItemFeatureEntry object )
         {
             return createItemFeatureEntryAdapter ();
         }
 
         @Override
-        public Adapter caseScriptItem ( final ScriptItem object )
+        public Adapter caseScriptItem ( ScriptItem object )
         {
             return createScriptItemAdapter ();
         }
 
         @Override
-        public Adapter caseImportItem ( final ImportItem object )
+        public Adapter caseImportItem ( ImportItem object )
         {
             return createImportItemAdapter ();
         }
 
         @Override
-        public Adapter caseSummaryGroup ( final SummaryGroup object )
+        public Adapter caseSummaryGroup ( SummaryGroup object )
         {
             return createSummaryGroupAdapter ();
         }
 
         @Override
-        public Adapter caseMarkerGroup ( final MarkerGroup object )
+        public Adapter caseMarkerGroup ( MarkerGroup object )
         {
             return createMarkerGroupAdapter ();
         }
 
         @Override
-        public Adapter caseMarkers ( final Markers object )
+        public Adapter caseMarkers ( Markers object )
         {
             return createMarkersAdapter ();
         }
 
         @Override
-        public Adapter caseConstantItem ( final ConstantItem object )
+        public Adapter caseConstantItem ( ConstantItem object )
         {
             return createConstantItemAdapter ();
         }
 
         @Override
-        public Adapter caseSummaryItem ( final SummaryItem object )
+        public Adapter caseSummaryItem ( SummaryItem object )
         {
             return createSummaryItemAdapter ();
         }
 
         @Override
-        public Adapter caseMarkerEntry ( final MarkerEntry object )
+        public Adapter caseMarkerEntry ( MarkerEntry object )
         {
             return createMarkerEntryAdapter ();
         }
 
         @Override
-        public Adapter caseManualOverride ( final ManualOverride object )
+        public Adapter caseManualOverride ( ManualOverride object )
         {
             return createManualOverrideAdapter ();
         }
 
         @Override
-        public Adapter caseMasterServer ( final MasterServer object )
+        public Adapter caseMasterServer ( MasterServer object )
         {
             return createMasterServerAdapter ();
         }
 
         @Override
-        public Adapter caseValueArchiveServer ( final ValueArchiveServer object )
+        public Adapter caseValueArchiveServer ( ValueArchiveServer object )
         {
             return createValueArchiveServerAdapter ();
         }
 
         @Override
-        public Adapter caseDefaultMasterServer ( final DefaultMasterServer object )
+        public Adapter caseDefaultMasterServer ( DefaultMasterServer object )
         {
             return createDefaultMasterServerAdapter ();
         }
 
         @Override
-        public Adapter caseCustomMasterServer ( final CustomMasterServer object )
+        public Adapter caseCustomMasterServer ( CustomMasterServer object )
         {
             return createCustomMasterServerAdapter ();
         }
 
         @Override
-        public Adapter caseApplicationModule ( final ApplicationModule object )
+        public Adapter caseApplicationModule ( ApplicationModule object )
         {
             return createApplicationModuleAdapter ();
         }
 
         @Override
-        public Adapter caseAttributesSummary ( final AttributesSummary object )
+        public Adapter caseAttributesSummary ( AttributesSummary object )
         {
             return createAttributesSummaryAdapter ();
         }
 
         @Override
-        public Adapter caseEventLogger ( final EventLogger object )
+        public Adapter caseEventLogger ( EventLogger object )
         {
             return createEventLoggerAdapter ();
         }
 
         @Override
-        public Adapter caseMonitorPool ( final MonitorPool object )
+        public Adapter caseMonitorPool ( MonitorPool object )
         {
             return createMonitorPoolAdapter ();
         }
 
         @Override
-        public Adapter caseEventPool ( final EventPool object )
+        public Adapter caseEventPool ( EventPool object )
         {
             return createEventPoolAdapter ();
         }
 
         @Override
-        public Adapter caseDataMapper ( final DataMapper object )
+        public Adapter caseDataMapper ( DataMapper object )
         {
             return createDataMapperAdapter ();
         }
 
         @Override
-        public Adapter caseSimpleDataMapper ( final SimpleDataMapper object )
+        public Adapter caseSimpleDataMapper ( SimpleDataMapper object )
         {
             return createSimpleDataMapperAdapter ();
         }
 
         @Override
-        public Adapter caseJdbcDataMapper ( final JdbcDataMapper object )
+        public Adapter caseJdbcDataMapper ( JdbcDataMapper object )
         {
             return createJdbcDataMapperAdapter ();
         }
 
         @Override
-        public Adapter caseDataMapperEntry ( final DataMapperEntry object )
+        public Adapter caseDataMapperEntry ( DataMapperEntry object )
         {
             return createDataMapperEntryAdapter ();
         }
 
         @Override
-        public Adapter caseValueMapper ( final ValueMapper object )
+        public Adapter caseValueMapper ( ValueMapper object )
         {
             return createValueMapperAdapter ();
         }
 
         @Override
-        public Adapter casePersistentItem ( final PersistentItem object )
+        public Adapter casePersistentItem ( PersistentItem object )
         {
             return createPersistentItemAdapter ();
         }
 
         @Override
-        public Adapter caseProxyItem ( final ProxyItem object )
+        public Adapter caseProxyItem ( ProxyItem object )
         {
             return createProxyItemAdapter ();
         }
 
         @Override
-        public Adapter caseScale ( final Scale object )
+        public Adapter caseScale ( Scale object )
         {
             return createScaleAdapter ();
         }
 
         @Override
-        public Adapter caseNegate ( final Negate object )
+        public Adapter caseNegate ( Negate object )
         {
             return createNegateAdapter ();
         }
 
         @Override
-        public Adapter caseRounding ( final Rounding object )
+        public Adapter caseRounding ( Rounding object )
         {
             return createRoundingAdapter ();
         }
 
         @Override
-        public Adapter caseExternalEventMonitor ( final ExternalEventMonitor object )
+        public Adapter caseExternalEventMonitor ( ExternalEventMonitor object )
         {
             return createExternalEventMonitorAdapter ();
         }
 
         @Override
-        public Adapter casePropertyEntry ( final PropertyEntry object )
+        public Adapter casePropertyEntry ( PropertyEntry object )
         {
             return createPropertyEntryAdapter ();
         }
 
         @Override
-        public Adapter caseExternalEventFilter ( final ExternalEventFilter object )
+        public Adapter caseExternalEventFilter ( ExternalEventFilter object )
         {
             return createExternalEventFilterAdapter ();
         }
 
         @Override
-        public Adapter caseStaticExternalEventFilter ( final StaticExternalEventFilter object )
+        public Adapter caseStaticExternalEventFilter ( StaticExternalEventFilter object )
         {
             return createStaticExternalEventFilterAdapter ();
         }
 
         @Override
-        public Adapter caseSimpleExternalEventFilter ( final SimpleExternalEventFilter object )
+        public Adapter caseSimpleExternalEventFilter ( SimpleExternalEventFilter object )
         {
             return createSimpleExternalEventFilterAdapter ();
         }
 
         @Override
-        public Adapter caseTypedItemReference ( final TypedItemReference object )
+        public Adapter caseTypedItemReference ( TypedItemReference object )
         {
             return createTypedItemReferenceAdapter ();
         }
 
         @Override
-        public Adapter caseCodeFragment ( final CodeFragment object )
+        public Adapter caseCodeFragment ( CodeFragment object )
         {
             return createCodeFragmentAdapter ();
         }
 
         @Override
-        public Adapter caseScriptTimer ( final ScriptTimer object )
+        public Adapter caseScriptTimer ( ScriptTimer object )
         {
             return createScriptTimerAdapter ();
         }
 
         @Override
-        public Adapter caseItemReference ( final ItemReference object )
+        public Adapter caseItemReference ( ItemReference object )
         {
             return createItemReferenceAdapter ();
         }
 
         @Override
-        public Adapter caseFormulaItem ( final FormulaItem object )
+        public Adapter caseFormulaItem ( FormulaItem object )
         {
             return createFormulaItemAdapter ();
         }
 
         @Override
-        public Adapter caseFormulaItemOutbound ( final FormulaItemOutbound object )
+        public Adapter caseFormulaItemOutbound ( FormulaItemOutbound object )
         {
             return createFormulaItemOutboundAdapter ();
         }
 
         @Override
-        public Adapter caseFormulaItemInbound ( final FormulaItemInbound object )
+        public Adapter caseFormulaItemInbound ( FormulaItemInbound object )
         {
             return createFormulaItemInboundAdapter ();
         }
 
         @Override
-        public Adapter caseBooleanMonitor ( final BooleanMonitor object )
+        public Adapter caseBooleanMonitor ( BooleanMonitor object )
         {
             return createBooleanMonitorAdapter ();
         }
 
         @Override
-        public Adapter caseListMonitor ( final ListMonitor object )
+        public Adapter caseListMonitor ( ListMonitor object )
         {
             return createListMonitorAdapter ();
         }
 
         @Override
-        public Adapter caseListMonitorEntry ( final ListMonitorEntry object )
+        public Adapter caseListMonitorEntry ( ListMonitorEntry object )
         {
             return createListMonitorEntryAdapter ();
         }
 
         @Override
-        public Adapter caseAverage ( final Average object )
+        public Adapter caseAverage ( Average object )
         {
             return createAverageAdapter ();
         }
 
         @Override
-        public Adapter caseMovingAverage ( final MovingAverage object )
+        public Adapter caseMovingAverage ( MovingAverage object )
         {
             return createMovingAverageAdapter ();
         }
 
         @Override
-        public Adapter caseAverageItem ( final AverageItem object )
+        public Adapter caseAverageItem ( AverageItem object )
         {
             return createAverageItemAdapter ();
         }
 
         @Override
-        public Adapter caseMovingAverageItem ( final MovingAverageItem object )
+        public Adapter caseMovingAverageItem ( MovingAverageItem object )
         {
             return createMovingAverageItemAdapter ();
         }
 
         @Override
-        public Adapter caseBlockings ( final Blockings object )
+        public Adapter caseBlockings ( Blockings object )
         {
             return createBlockingsAdapter ();
         }
 
         @Override
-        public Adapter caseBlockGroup ( final BlockGroup object )
+        public Adapter caseBlockGroup ( BlockGroup object )
         {
             return createBlockGroupAdapter ();
         }
 
         @Override
-        public Adapter caseBlockHandler ( final BlockHandler object )
+        public Adapter caseBlockHandler ( BlockHandler object )
         {
             return createBlockHandlerAdapter ();
         }
 
         @Override
-        public Adapter caseBlock ( final Block object )
+        public Adapter caseBlock ( Block object )
         {
             return createBlockAdapter ();
         }
 
         @Override
-        public Adapter caseGlobalSummaryItem ( final GlobalSummaryItem object )
+        public Adapter caseGlobalSummaryItem ( GlobalSummaryItem object )
         {
             return createGlobalSummaryItemAdapter ();
         }
 
         @Override
-        public Adapter caseWeakReferenceDataSourceItem ( final WeakReferenceDataSourceItem object )
+        public Adapter caseWeakReferenceDataSourceItem ( WeakReferenceDataSourceItem object )
         {
             return createWeakReferenceDataSourceItemAdapter ();
         }
 
         @Override
-        public Adapter caseAlarmsEventsExporter ( final AlarmsEventsExporter object )
+        public Adapter caseAlarmsEventsExporter ( AlarmsEventsExporter object )
         {
             return createAlarmsEventsExporterAdapter ();
         }
 
         @Override
-        public Adapter caseAlarmsEventsConnection ( final AlarmsEventsConnection object )
+        public Adapter caseAlarmsEventsConnection ( AlarmsEventsConnection object )
         {
             return createAlarmsEventsConnectionAdapter ();
         }
 
         @Override
-        public Adapter caseMonitorPoolProxy ( final MonitorPoolProxy object )
+        public Adapter caseMonitorPoolProxy ( MonitorPoolProxy object )
         {
             return createMonitorPoolProxyAdapter ();
         }
 
         @Override
-        public Adapter caseEventPoolProxy ( final EventPoolProxy object )
+        public Adapter caseEventPoolProxy ( EventPoolProxy object )
         {
             return createEventPoolProxyAdapter ();
         }
 
         @Override
-        public Adapter caseAlarmsEventsModule ( final AlarmsEventsModule object )
+        public Adapter caseAlarmsEventsModule ( AlarmsEventsModule object )
         {
             return createAlarmsEventsModuleAdapter ();
         }
 
         @Override
-        public Adapter caseAknProxy ( final AknProxy object )
+        public Adapter caseAknProxy ( AknProxy object )
         {
             return createAknProxyAdapter ();
         }
 
         @Override
-        public Adapter casePullEvents ( final PullEvents object )
+        public Adapter casePullEvents ( PullEvents object )
         {
             return createPullEventsAdapter ();
         }
 
         @Override
-        public Adapter caseJdbcUserServiceModule ( final JdbcUserServiceModule object )
+        public Adapter caseJdbcUserServiceModule ( JdbcUserServiceModule object )
         {
             return createJdbcUserServiceModuleAdapter ();
         }
 
         @Override
-        public Adapter caseJdbcUserService ( final JdbcUserService object )
+        public Adapter caseJdbcUserService ( JdbcUserService object )
         {
             return createJdbcUserServiceAdapter ();
         }
 
         @Override
-        public Adapter caseDefaultValueArchiveServer ( final DefaultValueArchiveServer object )
+        public Adapter caseDefaultValueArchiveServer ( DefaultValueArchiveServer object )
         {
             return createDefaultValueArchiveServerAdapter ();
         }
 
         @Override
-        public Adapter caseHistoricalDataExporter ( final HistoricalDataExporter object )
+        public Adapter caseHistoricalDataExporter ( HistoricalDataExporter object )
         {
             return createHistoricalDataExporterAdapter ();
         }
 
         @Override
-        public Adapter caseValueArchive ( final ValueArchive object )
+        public Adapter caseValueArchive ( ValueArchive object )
         {
             return createValueArchiveAdapter ();
         }
 
         @Override
-        public Adapter caseConfigurationAdministratorExporter ( final ConfigurationAdministratorExporter object )
+        public Adapter caseConfigurationAdministratorExporter ( ConfigurationAdministratorExporter object )
         {
             return createConfigurationAdministratorExporterAdapter ();
         }
 
         @Override
-        public Adapter caseReferenceItem ( final ReferenceItem object )
+        public Adapter caseReferenceItem ( ReferenceItem object )
         {
             return createReferenceItemAdapter ();
         }
 
         @Override
-        public Adapter caseEventStorage ( final EventStorage object )
+        public Adapter caseEventStorage ( EventStorage object )
         {
             return createEventStorageAdapter ();
         }
 
         @Override
-        public Adapter caseEventStorageJdbc ( final EventStorageJdbc object )
+        public Adapter caseEventStorageJdbc ( EventStorageJdbc object )
         {
             return createEventStorageJdbcAdapter ();
         }
 
         @Override
-        public Adapter caseEventStoragePostgres ( final EventStoragePostgres object )
+        public Adapter caseEventStoragePostgres ( EventStoragePostgres object )
         {
             return createEventStoragePostgresAdapter ();
         }
 
         @Override
-        public Adapter caseAbstractEventStorageJdbc ( final AbstractEventStorageJdbc object )
+        public Adapter caseAbstractEventStorageJdbc ( AbstractEventStorageJdbc object )
         {
             return createAbstractEventStorageJdbcAdapter ();
         }
 
         @Override
-        public Adapter caseApplicationConfiguration ( final ApplicationConfiguration object )
+        public Adapter caseApplicationConfiguration ( ApplicationConfiguration object )
         {
             return createApplicationConfigurationAdapter ();
         }
 
         @Override
-        public Adapter caseRestExporter ( final RestExporter object )
+        public Adapter caseRestExporter ( RestExporter object )
         {
             return createRestExporterAdapter ();
         }
 
         @Override
-        public Adapter caseHttpService ( final HttpService object )
+        public Adapter caseHttpService ( HttpService object )
         {
             return createHttpServiceAdapter ();
         }
 
         @Override
-        public Adapter caseIndependentConfiguration ( final IndependentConfiguration object )
+        public Adapter caseIndependentConfiguration ( IndependentConfiguration object )
         {
             return createIndependentConfigurationAdapter ();
         }
 
         @Override
-        public Adapter caseTransientItem ( final TransientItem object )
+        public Adapter caseTransientItem ( TransientItem object )
         {
             return createTransientItemAdapter ();
         }
 
         @Override
-        public Adapter caseDefaultEquinoxApplication ( final DefaultEquinoxApplication object )
+        public Adapter caseDefaultEquinoxApplication ( DefaultEquinoxApplication object )
         {
             return createDefaultEquinoxApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseChangeCounterItem ( final ChangeCounterItem object )
+        public Adapter caseChangeCounterItem ( ChangeCounterItem object )
         {
             return createChangeCounterItemAdapter ();
         }
 
         @Override
-        public Adapter caseBufferedValue ( final BufferedValue object )
+        public Adapter caseBufferedValue ( BufferedValue object )
         {
             return createBufferedValueAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentable ( final Documentable object )
+        public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseNamedDocumentable ( final NamedDocumentable object )
+        public Adapter caseNamedDocumentable ( NamedDocumentable object )
         {
             return createNamedDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseApplication ( final Application object )
+        public Adapter caseApplication ( Application object )
         {
             return createApplicationAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( final EObject object )
+        public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -747,29 +742,24 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param target
-     *            the object to adapt.
+     * @param target the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( final Notifier target )
+    public Adapter createAdapter ( Notifier target )
     {
-        return this.modelSwitch.doSwitch ( (EObject)target );
+        return modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication
-     * <em>Equinox Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication
      * @generated
@@ -780,16 +770,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Connection
-     * <em>Connection</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Connection <em>Connection</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Connection
      * @generated
@@ -800,16 +787,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Exporter
-     * <em>Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Exporter <em>Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Exporter
      * @generated
@@ -820,16 +804,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DataAccessConnection
-     * <em>Data Access Connection</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DataAccessConnection <em>Data Access Connection</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DataAccessConnection
      * @generated
@@ -840,16 +821,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DataAccessExporter
-     * <em>Data Access Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DataAccessExporter <em>Data Access Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DataAccessExporter
      * @generated
@@ -860,15 +838,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Item <em>Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Item <em>Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Item
      * @generated
@@ -879,16 +855,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.SourceItem
-     * <em>Source Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.SourceItem <em>Source Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.SourceItem
      * @generated
@@ -899,16 +872,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ItemExport
-     * <em>Item Export</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ItemExport <em>Item Export</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ItemExport
      * @generated
@@ -919,16 +889,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ItemInformation
-     * <em>Item Information</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ItemInformation <em>Item Information</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ItemInformation
      * @generated
@@ -939,16 +906,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.LevelMonitor
-     * <em>Level Monitor</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.LevelMonitor <em>Level Monitor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.LevelMonitor
      * @generated
@@ -959,16 +923,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry
-     * <em>Item Feature Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry <em>Item Feature Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ItemFeatureEntry
      * @generated
@@ -979,16 +940,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ScriptItem
-     * <em>Script Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ScriptItem <em>Script Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ScriptItem
      * @generated
@@ -999,16 +957,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ImportItem
-     * <em>Import Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ImportItem <em>Import Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ImportItem
      * @generated
@@ -1019,16 +974,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.SummaryGroup
-     * <em>Summary Group</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.SummaryGroup <em>Summary Group</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.SummaryGroup
      * @generated
@@ -1039,16 +991,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MarkerGroup
-     * <em>Marker Group</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MarkerGroup <em>Marker Group</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MarkerGroup
      * @generated
@@ -1059,16 +1008,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Markers
-     * <em>Markers</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Markers <em>Markers</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Markers
      * @generated
@@ -1079,16 +1025,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ConstantItem
-     * <em>Constant Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ConstantItem <em>Constant Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ConstantItem
      * @generated
@@ -1099,16 +1042,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.SummaryItem
-     * <em>Summary Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.SummaryItem <em>Summary Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.SummaryItem
      * @generated
@@ -1119,16 +1059,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MarkerEntry
-     * <em>Marker Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MarkerEntry <em>Marker Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MarkerEntry
      * @generated
@@ -1139,16 +1076,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ManualOverride
-     * <em>Manual Override</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ManualOverride <em>Manual Override</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ManualOverride
      * @generated
@@ -1159,16 +1093,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MasterServer
-     * <em>Master Server</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MasterServer <em>Master Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MasterServer
      * @generated
@@ -1179,16 +1110,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer
-     * <em>Value Archive Server</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ValueArchiveServer <em>Value Archive Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ValueArchiveServer
      * @generated
@@ -1199,16 +1127,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DefaultMasterServer
-     * <em>Default Master Server</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DefaultMasterServer <em>Default Master Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DefaultMasterServer
      * @generated
@@ -1219,16 +1144,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.CustomMasterServer
-     * <em>Custom Master Server</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.CustomMasterServer <em>Custom Master Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.CustomMasterServer
      * @generated
@@ -1239,16 +1161,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ApplicationModule
-     * <em>Application Module</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationModule <em>Application Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ApplicationModule
      * @generated
@@ -1259,16 +1178,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AttributesSummary
-     * <em>Attributes Summary</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AttributesSummary <em>Attributes Summary</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AttributesSummary
      * @generated
@@ -1279,16 +1195,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventLogger
-     * <em>Event Logger</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventLogger <em>Event Logger</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventLogger
      * @generated
@@ -1299,16 +1212,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MonitorPool
-     * <em>Monitor Pool</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MonitorPool <em>Monitor Pool</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MonitorPool
      * @generated
@@ -1319,16 +1229,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventPool
-     * <em>Event Pool</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventPool <em>Event Pool</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventPool
      * @generated
@@ -1339,16 +1246,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DataMapper
-     * <em>Data Mapper</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DataMapper <em>Data Mapper</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DataMapper
      * @generated
@@ -1359,16 +1263,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.SimpleDataMapper
-     * <em>Simple Data Mapper</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.SimpleDataMapper <em>Simple Data Mapper</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.SimpleDataMapper
      * @generated
@@ -1379,16 +1280,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.JdbcDataMapper
-     * <em>Jdbc Data Mapper</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.JdbcDataMapper <em>Jdbc Data Mapper</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.JdbcDataMapper
      * @generated
@@ -1399,16 +1297,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DataMapperEntry
-     * <em>Data Mapper Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DataMapperEntry <em>Data Mapper Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DataMapperEntry
      * @generated
@@ -1419,16 +1314,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ValueMapper
-     * <em>Value Mapper</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ValueMapper <em>Value Mapper</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ValueMapper
      * @generated
@@ -1439,16 +1331,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.PersistentItem
-     * <em>Persistent Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.PersistentItem <em>Persistent Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.PersistentItem
      * @generated
@@ -1459,16 +1348,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ProxyItem
-     * <em>Proxy Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ProxyItem <em>Proxy Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ProxyItem
      * @generated
@@ -1479,15 +1365,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Scale <em>Scale</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Scale <em>Scale</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Scale
      * @generated
@@ -1498,16 +1382,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Negate <em>Negate</em>}
-     * '.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Negate <em>Negate</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Negate
      * @generated
@@ -1518,16 +1399,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Rounding
-     * <em>Rounding</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Rounding <em>Rounding</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Rounding
      * @generated
@@ -1538,16 +1416,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor
-     * <em>External Event Monitor</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor <em>External Event Monitor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor
      * @generated
@@ -1558,16 +1433,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry
-     * <em>Property Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry <em>Property Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.PropertyEntry
      * @generated
@@ -1578,16 +1450,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ExternalEventFilter
-     * <em>External Event Filter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ExternalEventFilter <em>External Event Filter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ExternalEventFilter
      * @generated
@@ -1598,16 +1467,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter
-     * <em>Static External Event Filter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter <em>Static External Event Filter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter
      * @generated
@@ -1618,16 +1484,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter
-     * <em>Simple External Event Filter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter <em>Simple External Event Filter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter
      * @generated
@@ -1638,16 +1501,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.TypedItemReference
-     * <em>Typed Item Reference</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.TypedItemReference <em>Typed Item Reference</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.TypedItemReference
      * @generated
@@ -1658,16 +1518,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.CodeFragment
-     * <em>Code Fragment</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.CodeFragment <em>Code Fragment</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.CodeFragment
      * @generated
@@ -1678,16 +1535,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ScriptTimer
-     * <em>Script Timer</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ScriptTimer <em>Script Timer</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ScriptTimer
      * @generated
@@ -1698,16 +1552,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ItemReference
-     * <em>Item Reference</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ItemReference <em>Item Reference</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ItemReference
      * @generated
@@ -1718,16 +1569,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.FormulaItem
-     * <em>Formula Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.FormulaItem <em>Formula Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.FormulaItem
      * @generated
@@ -1738,16 +1586,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound
-     * <em>Formula Item Outbound</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound <em>Formula Item Outbound</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound
      * @generated
@@ -1758,16 +1603,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.FormulaItemInbound
-     * <em>Formula Item Inbound</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.FormulaItemInbound <em>Formula Item Inbound</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.FormulaItemInbound
      * @generated
@@ -1778,16 +1620,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.BooleanMonitor
-     * <em>Boolean Monitor</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.BooleanMonitor <em>Boolean Monitor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.BooleanMonitor
      * @generated
@@ -1798,16 +1637,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ListMonitor
-     * <em>List Monitor</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ListMonitor <em>List Monitor</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ListMonitor
      * @generated
@@ -1818,16 +1654,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry
-     * <em>List Monitor Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ListMonitorEntry <em>List Monitor Entry</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ListMonitorEntry
      * @generated
@@ -1838,16 +1671,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Average
-     * <em>Average</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Average <em>Average</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Average
      * @generated
@@ -1858,16 +1688,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MovingAverage
-     * <em>Moving Average</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MovingAverage <em>Moving Average</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MovingAverage
      * @generated
@@ -1878,16 +1705,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AverageItem
-     * <em>Average Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AverageItem <em>Average Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AverageItem
      * @generated
@@ -1898,16 +1722,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem
-     * <em>Moving Average Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageItem <em>Moving Average Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MovingAverageItem
      * @generated
@@ -1918,16 +1739,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Blockings
-     * <em>Blockings</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Blockings <em>Blockings</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Blockings
      * @generated
@@ -1938,16 +1756,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.BlockGroup
-     * <em>Block Group</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.BlockGroup <em>Block Group</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.BlockGroup
      * @generated
@@ -1958,16 +1773,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.BlockHandler
-     * <em>Block Handler</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.BlockHandler <em>Block Handler</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.BlockHandler
      * @generated
@@ -1978,15 +1790,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.Block <em>Block</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.Block <em>Block</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.Block
      * @generated
@@ -1997,16 +1807,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem
-     * <em>Global Summary Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem <em>Global Summary Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem
      * @generated
@@ -2017,16 +1824,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem
-     * <em>Weak Reference Data Source Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem <em>Weak Reference Data Source Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem
      * @generated
@@ -2037,16 +1841,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter
-     * <em>Alarms Events Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter <em>Alarms Events Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter
      * @generated
@@ -2057,16 +1858,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection
-     * <em>Alarms Events Connection</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection <em>Alarms Events Connection</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection
      * @generated
@@ -2077,16 +1875,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy
-     * <em>Monitor Pool Proxy</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy <em>Monitor Pool Proxy</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy
      * @generated
@@ -2097,16 +1892,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventPoolProxy
-     * <em>Event Pool Proxy</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventPoolProxy <em>Event Pool Proxy</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventPoolProxy
      * @generated
@@ -2117,16 +1909,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule
-     * <em>Alarms Events Module</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule <em>Alarms Events Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule
      * @generated
@@ -2137,16 +1926,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AknProxy
-     * <em>Akn Proxy</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AknProxy <em>Akn Proxy</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AknProxy
      * @generated
@@ -2157,16 +1943,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.PullEvents
-     * <em>Pull Events</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.PullEvents <em>Pull Events</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.PullEvents
      * @generated
@@ -2177,16 +1960,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule
-     * <em>Jdbc User Service Module</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule <em>Jdbc User Service Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule
      * @generated
@@ -2197,16 +1977,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.JdbcUserService
-     * <em>Jdbc User Service</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.JdbcUserService <em>Jdbc User Service</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.JdbcUserService
      * @generated
@@ -2217,16 +1994,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer
-     * <em>Default Value Archive Server</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer <em>Default Value Archive Server</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer
      * @generated
@@ -2237,16 +2011,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter
-     * <em>Historical Data Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter <em>Historical Data Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter
      * @generated
@@ -2257,16 +2028,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ValueArchive
-     * <em>Value Archive</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ValueArchive <em>Value Archive</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ValueArchive
      * @generated
@@ -2277,16 +2045,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter
-     * <em>Configuration Administrator Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter <em>Configuration Administrator Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter
      * @generated
@@ -2297,16 +2062,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ReferenceItem
-     * <em>Reference Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ReferenceItem <em>Reference Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ReferenceItem
      * @generated
@@ -2317,16 +2079,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventStorage
-     * <em>Event Storage</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventStorage <em>Event Storage</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventStorage
      * @generated
@@ -2337,16 +2096,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc
-     * <em>Event Storage Jdbc</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc <em>Event Storage Jdbc</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventStorageJdbc
      * @generated
@@ -2357,16 +2113,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres
-     * <em>Event Storage Postgres</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres <em>Event Storage Postgres</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres
      * @generated
@@ -2377,16 +2130,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc
-     * <em>Abstract Event Storage Jdbc</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc <em>Abstract Event Storage Jdbc</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc
      * @generated
@@ -2397,16 +2147,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration
-     * <em>Application Configuration</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration <em>Application Configuration</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration
      * @generated
@@ -2417,16 +2164,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.RestExporter
-     * <em>Rest Exporter</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.RestExporter <em>Rest Exporter</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.RestExporter
      * @generated
@@ -2437,16 +2181,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.HttpService
-     * <em>Http Service</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.HttpService <em>Http Service</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.HttpService
      * @generated
@@ -2457,16 +2198,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration
-     * <em>Independent Configuration</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration <em>Independent Configuration</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.IndependentConfiguration
      * @generated
@@ -2477,16 +2215,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.TransientItem
-     * <em>Transient Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.TransientItem <em>Transient Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.TransientItem
      * @generated
@@ -2497,16 +2232,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication
-     * <em>Default Equinox Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication <em>Default Equinox Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication
      * @generated
@@ -2517,16 +2249,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem
-     * <em>Change Counter Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ChangeCounterItem <em>Change Counter Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.ChangeCounterItem
      * @generated
@@ -2537,16 +2266,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.osgi.BufferedValue
-     * <em>Buffered Value</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.BufferedValue <em>Buffered Value</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.osgi.BufferedValue
      * @generated
@@ -2557,16 +2283,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Documentable
-     * <em>Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Documentable
      * @generated
@@ -2577,16 +2300,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.NamedDocumentable
-     * <em>Named Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.NamedDocumentable <em>Named Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.NamedDocumentable
      * @generated
@@ -2597,16 +2317,13 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Application
-     * <em>Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Application
      * @generated
@@ -2621,7 +2338,6 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @generated
      */

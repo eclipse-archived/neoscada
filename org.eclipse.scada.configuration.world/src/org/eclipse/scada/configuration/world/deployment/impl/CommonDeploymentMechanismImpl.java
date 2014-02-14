@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.world.deployment.Author;
@@ -35,6 +36,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getMaintainer <em>Maintainer</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +64,16 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected Author maintainer;
+
+    /**
+     * The cached value of the '{@link #getAdditionalDependencies() <em>Additional Dependencies</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAdditionalDependencies()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> additionalDependencies;
 
     /**
      * <!-- begin-user-doc -->
@@ -146,6 +158,20 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getAdditionalDependencies ()
+    {
+        if ( additionalDependencies == null )
+        {
+            additionalDependencies = new EDataTypeUniqueEList<String> ( String.class, this, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES );
+        }
+        return additionalDependencies;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -174,6 +200,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 if ( resolve )
                     return getMaintainer ();
                 return basicGetMaintainer ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+                return getAdditionalDependencies ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -196,6 +224,10 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MAINTAINER:
                 setMaintainer ( (Author)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+                getAdditionalDependencies ().clear ();
+                getAdditionalDependencies ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -216,6 +248,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MAINTAINER:
                 setMaintainer ( (Author)null );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+                getAdditionalDependencies ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -234,8 +269,28 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return changes != null && !changes.isEmpty ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__MAINTAINER:
                 return maintainer != null;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+                return additionalDependencies != null && !additionalDependencies.isEmpty ();
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (additionalDependencies: " ); //$NON-NLS-1$
+        result.append ( additionalDependencies );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //CommonDeploymentMechanismImpl

@@ -15,7 +15,8 @@ package org.eclipse.scada.configuration.world;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Service</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getService()
  * @model interface="true" abstract="true"
  * @generated

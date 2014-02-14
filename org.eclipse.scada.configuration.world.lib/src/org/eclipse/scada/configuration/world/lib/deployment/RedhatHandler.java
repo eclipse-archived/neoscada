@@ -209,6 +209,11 @@ public class RedhatHandler extends CommonHandler
 
         result.add ( "Requires: org.eclipse.scada.deploy.p2-incubation" ); //$NON-NLS-1$
 
+        for ( final String dep : this.deploy.getAdditionalDependencies () )
+        {
+            result.add ( "Requires: " + dep );
+        }
+
         return StringHelper.join ( result, "\n" );
     }
 

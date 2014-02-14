@@ -14,7 +14,18 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.world.deployment.*;
+import org.eclipse.scada.configuration.world.deployment.Author;
+import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
+import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
+import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
 
 /**
  * <!-- begin-user-doc -->

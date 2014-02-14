@@ -961,10 +961,7 @@
       nsPrefix="deployment">
     <eClassifiers xsi:type="ecore:EClass" name="DeploymentMechanism" abstract="true"
         interface="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalDependencies"
-          ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DebianDeploymentMechanism" eSuperTypes="#//deployment/CommonDeploymentMechanism"/>
     <eClassifiers xsi:type="ecore:EClass" name="Author">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -983,6 +980,8 @@
           upperBound="-1" eType="#//deployment/ChangeEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="maintainer" lowerBound="1"
           eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalDependencies"
+          ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"

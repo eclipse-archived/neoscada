@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.world.osgi.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.TransientItem;
 

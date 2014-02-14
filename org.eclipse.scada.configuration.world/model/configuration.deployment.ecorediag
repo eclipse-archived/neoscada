@@ -19,10 +19,6 @@
   <children xmi:type="notation:Node" xmi:id="_sz8hYN_lEeKXb4ASfdnSUg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_sz9IcN_lEeKXb4ASfdnSUg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_sz9Icd_lEeKXb4ASfdnSUg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_SBR-cO7_EeKbjax2RXj0dA" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/DebianDeploymentMechanism/additionalDependencies"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_SBR-ce7_EeKbjax2RXj0dA"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_sz9Ict_lEeKXb4ASfdnSUg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_sz9Ic9_lEeKXb4ASfdnSUg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_sz9IdN_lEeKXb4ASfdnSUg"/>
@@ -95,6 +91,10 @@
   <children xmi:type="notation:Node" xmi:id="_AWVewAluEeOZ0OsoPMo03g" type="1001">
     <children xmi:type="notation:Node" xmi:id="_AWWF0AluEeOZ0OsoPMo03g" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_AWWF0QluEeOZ0OsoPMo03g" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_SBR-cO7_EeKbjax2RXj0dA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SBR-ce7_EeKbjax2RXj0dA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_AWWF0gluEeOZ0OsoPMo03g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_AWWF0wluEeOZ0OsoPMo03g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_AWWF1AluEeOZ0OsoPMo03g"/>

@@ -18,14 +18,14 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Exporter</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.world.osgi.Exporter#getEndpoints
- * <em>Endpoints</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.Exporter#getEndpoints <em>Endpoints</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExporter()
  * @model abstract="true"
  * @generated
@@ -34,15 +34,13 @@ public interface Exporter extends NamedDocumentable
 {
     /**
      * Returns the value of the '<em><b>Endpoints</b></em>' reference list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.world.Endpoint}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Endpoint}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Endpoints</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Endpoints</em>' reference list.
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExporter_Endpoints()
      * @model keys="portNumber"
@@ -53,7 +51,6 @@ public interface Exporter extends NamedDocumentable
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @model kind="operation" required="true"
      * @generated
      */

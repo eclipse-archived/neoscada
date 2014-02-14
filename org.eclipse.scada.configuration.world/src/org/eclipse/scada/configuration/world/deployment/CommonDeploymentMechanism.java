@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getMaintainer <em>Maintainer</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,5 +74,21 @@ public interface CommonDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     void setMaintainer ( Author value );
+
+    /**
+     * Returns the value of the '<em><b>Additional Dependencies</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Additional Dependencies</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Additional Dependencies</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getCommonDeploymentMechanism_AdditionalDependencies()
+     * @model ordered="false"
+     * @generated
+     */
+    EList<String> getAdditionalDependencies ();
 
 } // CommonDeploymentMechanism

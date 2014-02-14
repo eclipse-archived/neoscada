@@ -16,14 +16,14 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Monitor Pool</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.world.osgi.MonitorPool#getFilter
- * <em>Filter</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.MonitorPool#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPool()
  * @model
  * @generated
@@ -38,7 +38,6 @@ public interface MonitorPool extends NamedDocumentable
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Filter</em>' attribute.
      * @see #setFilter(String)
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getMonitorPool_Filter()
@@ -48,14 +47,10 @@ public interface MonitorPool extends NamedDocumentable
     String getFilter ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.world.osgi.MonitorPool#getFilter
-     * <em>Filter</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.MonitorPool#getFilter <em>Filter</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Filter</em>' attribute.
+     * @param value the new value of the '<em>Filter</em>' attribute.
      * @see #getFilter()
      * @generated
      */
