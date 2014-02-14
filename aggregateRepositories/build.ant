@@ -8,54 +8,66 @@
     </description>
 
     <tstamp>
-        <format property="buildTimestamp" pattern="yyyyMMddHHmm"/>
+        <format property="buildTimestamp" pattern="yyyyMMddHHmm" />
     </tstamp>
-    
-    <property file="default.properties"/>
-    
-    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${version}"/>
-    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${version}"/>
-    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}"/>
-    
+
+    <property file="default.properties" />
+
+    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${version}" />
+    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${version}" />
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
+
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean,build,link">
-    </target>
-        
-	<!-- ================================= 
-          target: clean
-         ================================= -->
-    <target name="clean">
-        <delete dir="${repo.base}"/>
-		<delete dir="${update.base}"/>
+    <target name="default" depends="clean.repo,build.repo,clean.update,build.update,link">
     </target>
 
-	<!-- ================================= 
-          target: build
+    <!-- ================================= 
+          target: clean.repo
          ================================= -->
-    <target name="build">
-        <ant antfile="deb.ant" inheritall="true"/>
-        <ant antfile="yum.ant" inheritall="true"/>
-        <ant antfile="p2.ant" inheritall="true"/>
+    <target name="clean.repo">
+        <delete dir="${repo.base}" />
     </target>
-           
+
+    <!-- ================================= 
+		  target: clean.repo
+	     ================================= -->
+    <target name="clean.update">
+        <delete dir="${update.base}" />
+    </target>
+
+    <!-- ================================= 
+          target: build.repo
+         ================================= -->
+    <target name="build.repo">
+        <ant antfile="deb.ant" inheritall="true" />
+        <ant antfile="yum.ant" inheritall="true" />
+    </target>
+
+    <!-- ================================= 
+          target: build.update
+         ================================= -->
+    <target name="build.update">
+        <ant antfile="p2.ant" inheritall="true" />
+    </target>
+
     <!-- ================================= 
           target: link
          ================================= -->
     <target name="link">
         <!-- symlinks won't work on download.eclipse.org -->
-        <mkdir dir="${repo.base}"/>
+        <mkdir dir="${repo.base}" />
         <copy todir="${repo.base}">
             <fileset dir="${download.base.dir}/repos">
-        	</fileset>
+            </fileset>
         </copy>
 
-		<mkdir dir="${update.base}"/>
-		<copy todir="${update.base}">
-			<fileset dir="${download.base.dir}/p2">
-			</fileset>
-		</copy>
+        <mkdir dir="${update.base}" />
+        <copy todir="${update.base}">
+            <fileset dir="${download.base.dir}/p2">
+            </fileset>
+        </copy>
     </target>
-    
+
 </project>
