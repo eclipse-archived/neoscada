@@ -44,7 +44,9 @@
             <include name="*.deb" />
         </fileset>
 
-        <pathconvert pathsep="${line.separator}" property="deb.file.list" refid="deb.files" />
+        <pathconvert pathsep="${line.separator}" property="deb.file.list" refid="deb.files" >
+            <map from="${download.root}" to="eclipsescada"/>
+        </pathconvert>
         <echo file="${download.deb.dir}/files.list">${deb.file.list}</echo>
     </target>
 
