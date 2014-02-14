@@ -78,15 +78,19 @@
 										</mapping>
 										<mapping>
 											<directory>/usr/jar</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/etc/eclipsescada</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/etc/eclipsescada/schema</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/usr/share/eclipsescada</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/var/log/eclipsescada</directory>
