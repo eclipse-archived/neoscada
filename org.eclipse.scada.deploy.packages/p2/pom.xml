@@ -98,9 +98,11 @@
 									<mappings>
 										<mapping>
 											<directory>/usr/share/eclipsescada/profiles</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/usr/share/eclipsescada/p2</directory>
+											<filemode>0755</filemode>
 										</mapping>
 										<mapping>
 											<directory>/usr/bin</directory>
