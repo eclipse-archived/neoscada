@@ -45,7 +45,7 @@
         </fileset>
 
         <pathconvert pathsep="${line.separator}" property="deb.file.list" refid="deb.files" />
-        <echo file="files.list">${deb.file.list}</echo>
+        <echo file="${download.deb.dir}/files.list">${deb.file.list}</echo>
     </target>
 
     <!-- ================================= 
