@@ -48,16 +48,6 @@
 	<profiles>
 
 		<profile>
-			<id>eclipse-hudson</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<properties>
-				<eclipse.download.root>file:///home/data/httpd/download.eclipse.org</eclipse.download.root>
-			</properties>
-		</profile>
-
-		<profile>
 			<id>deb</id>
 			<build>
 				<plugins>
@@ -119,13 +109,11 @@
 
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
+							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
-
-							<defineStatements>
-								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
-							</defineStatements>
+							<mappings>
+							</mappings>
 						</configuration>
 
 						<executions>
@@ -134,21 +122,6 @@
 								<goals>
 									<goal>rpm</goal>
 								</goals>
-								<configuration>
-									<mappings>
-										<mapping>
-											<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
-											<filemode>0755</filemode>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<source>
-													<location>${project.build.directory}/unpack/${project.artifactId}</location>
-												</source>
-											</sources>
-										</mapping>
-									</mappings>
-								</configuration>
 							</execution>
 						</executions>
 					</plugin>
@@ -156,6 +129,90 @@
 				</plugins>
 			</build>
 		</profile> <!-- rpm -->
+
+		<profile>
+			<id>rpm.jarcfg</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<file>
+					<exists>${basedir}/jar.exclude</exists>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-3</version>
+
+						<configuration>
+							<mappings>
+								<mapping>
+									<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
+									<directoryIncluded>false</directoryIncluded>
+									<filemode>0755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>${project.build.directory}/unpack/${project.artifactId}</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/etc/eclipsescada/jarcfg</directory>
+									<directoryIncluded>false</directoryIncluded>
+									<filemode>0644</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>${basedir}/jar.exclude</location>
+											<destination>${project.artifactId}.exclude</destination>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>rpm.nojarcfg</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<file>
+					<missing>${basedir}/jar.exclude</missing>
+				</file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-3</version>
+
+						<configuration>
+							<mappings>
+								<mapping>
+									<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
+									<filemode>0755</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>${project.build.directory}/unpack/${project.artifactId}</location>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 
 	</profiles>
 

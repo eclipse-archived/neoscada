@@ -44,16 +44,6 @@
 	<profiles>
 
 		<profile>
-			<id>eclipse-hudson</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<properties>
-				<eclipse.download.root>file:///home/data/httpd/download.eclipse.org</eclipse.download.root>
-			</properties>
-		</profile>
-
-		<profile>
 			<id>deb</id>
 			<build>
 				<plugins>
@@ -105,7 +95,7 @@
 
 						<configuration>
 							<copyright>EPL</copyright>
-							<distribution>Eclipse SCADA 0.1.0 (Incubation)</distribution>
+							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
 
