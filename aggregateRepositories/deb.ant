@@ -6,39 +6,46 @@
     <description>
             Build deb repository
     </description>
-    
-    <property file="default.properties"/>
-    
+
+    <property file="default.properties" />
+
     <!-- the target -->
-    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}"/>
-    <property name="download.deb.dir" location="${download.base.dir}/repos/deb"/>
-    <property name="download.apt.dir" location="${download.base.dir}/repos/apt"/>
-    
+    <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
+    <property name="download.deb.dir" location="${download.base.dir}/repos/deb" />
+    <property name="download.apt.dir" location="${download.base.dir}/repos/apt" />
+
     <!-- ================================= 
           target: default
          ================================= -->
     <target name="default" depends="echo,clean,copy,build">
     </target>
-    
+
     <!-- ================================= 
           target: clean
          ================================= -->
     <target name="clean" unless="skip.clean">
-        <delete dir="${download.deb.dir}"/>
-        <delete dir="${download.apt.dir}"/>
+        <delete dir="${download.deb.dir}" />
+        <delete dir="${download.apt.dir}" />
     </target>
-    
+
     <!-- ================================= 
           target: copy
          ================================= -->
     <target name="copy">
         <copy todir="${download.deb.dir}" preservelastmodified="true">
-        	<fileset dir="${download.root}/downloads">
-        	    <include name="*/drops/${version}/${buildType}*/packages/*.deb"/>
-        	    <include name="*/drops/${version}/${buildType}*/packages/*.changes"/>
-        	</fileset>
-            <mapper type="flatten"/>
+            <fileset dir="${download.root}/downloads">
+                <include name="*/drops/${version}/${buildType}*/packages/*.deb" />
+                <include name="*/drops/${version}/${buildType}*/packages/*.changes" />
+            </fileset>
+            <mapper type="flatten" />
         </copy>
+
+        <fileset dir="${download.deb.dir}" id="deb.file.list">
+            <include name="*.deb" />
+        </fileset>
+
+        <pathconvert pathsep="${line.separator}" property="deb.file.list" refid="deb.files" />
+        <echo file="files.list">${deb.file.list}</echo>
     </target>
 
     <!-- ================================= 
@@ -49,8 +56,8 @@
     </target>
 
     <target name="echo">
-        <echo message="download.deb.dir = ${download.deb.dir}"/>
-        <echo message="download.apt.dir = ${download.apt.dir}"/>
+        <echo message="download.deb.dir = ${download.deb.dir}" />
+        <echo message="download.apt.dir = ${download.apt.dir}" />
     </target>
-    
+
 </project>
