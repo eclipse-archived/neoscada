@@ -199,6 +199,12 @@
 
 						<executions>
 							<execution>
+								<id>rpm-release-version</id>
+								<goals>
+									<goal>version</goal>
+								</goals>
+							</execution>
+							<execution>
 								<id>generate-rpm-amd64</id>
 								<goals>
 									<goal>rpm</goal>
