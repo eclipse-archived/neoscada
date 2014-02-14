@@ -27,7 +27,7 @@
 <title>[site.name.encodeHtml()/] – [title.encodeHtml()/]</title>
 
 <link rel="stylesheet" type="text/css" href="[relative(fileName, 'style/default.css' )/]" />
-<link rel="alternate" type="application/rss+xml" title="[site.name.encodeHtml()/] Feed" href="[getProperty('site.base')/]/feed.rss" />
+<link rel="alternate" type="application/rss+xml" title="[site.name.encodeHtml()/] Feed" href="[getProperty('site.base')/]/feed.xml" />
 
 <script>
   (function(i,s,o,g,r,a,m){i[ '[' /]'GoogleAnalyticsObject'[ ']' /]=r;i[ '[' /]r[ ']' /]=i[ '[' /]r[ ']' /]||function(){

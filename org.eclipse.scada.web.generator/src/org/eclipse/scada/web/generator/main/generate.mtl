@@ -19,6 +19,9 @@
 [file ('feed.rss', false, 'UTF-8')]
 [generateFeed(site)/]
 [/file]
+[file ('feed.xml', false, 'UTF-8')]
+[generateFeed(site)/]
+[/file]
 
 [file ('sitemap.xml', false, 'UTF-8')]
 [generateSitemap(site)/]
@@ -35,7 +38,7 @@
 [/template]
 
 [template public generatePage(page : NewsFeedPage)]
-[header(page.site, null, page.name, '/')/]
+[header(page.site, page.name, null, '/')/]
 [for (entry : NewsEntry | page.site.news)]
 [processNewsEntry(entry, '/')/]
 [/for]
@@ -43,7 +46,7 @@
 [/template]
 
 [template public generatePage(page : ContentPage)]
-[header(page.site, null, page.name, '/')/]
+[header(page.site, page.name, null, '/')/]
 <header>
 <h1 class="header">[page.name.encodeHtml()/]</h1>
 </header>
