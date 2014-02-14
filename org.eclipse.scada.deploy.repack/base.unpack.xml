@@ -138,7 +138,7 @@
 									<mappings>
 										<mapping>
 											<directory>/usr/share/eclipsescada/p2/${project.artifactId}</directory>
-											<filemode>0644</filemode>
+											<filemode>0755</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
 											<sources>
