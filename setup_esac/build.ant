@@ -14,7 +14,7 @@
     <property name="buildId" value="S201401220726" />
     <property name="versionSuffix" value="-M3" />
     <property name="visibleVersion" value="${version}${versionSuffix}" />
-
+    
     <property environment="env" />
 
     <property name="wix.root" value="${env.WIX_ROOT}" />
@@ -22,7 +22,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
+    <target name="default" depends="clean,fetch,unpack,heat,build,sign,deploy">
     </target>
 
     <!-- ================================= 
@@ -108,7 +108,7 @@
                 <arg value="Scan.@{platform}.wixobj" />
 
                 <arg value="-out" />
-                <arg value="esac_${visibleVersion}_@{platform}.msi" />
+                <arg value="esac_${visibleVersion}_@{platform}_unsigned.msi" />
             </exec>
         </sequential>
     </macrodef>
@@ -124,7 +124,7 @@
     <!-- ================================= 
           target: sign
          ================================= -->
-    <target name="sign" if="doSign">
+    <target name="sign" unless="skipSign">
         <sign platform="x86" />
         <sign platform="x64" />
     </target>
@@ -134,14 +134,18 @@
         <sequential>
             <exec executable="wget" failifexecutionfails="true" failonerror="true" dir="setup_esac">
                 <arg value="--post-file"/>
-                <arg value="esac_${visibleVersion}_@{platform}.msi"/>
+                <arg value="esac_${visibleVersion}_@{platform}_unsigned.msi"/>
                 <arg value="-O" />
-                <arg value="esac_${visibleVersion}_@{platform}_signed.msi" />
+                <arg value="esac_${visibleVersion}_@{platform}.msi" />
                 <arg value="http://build.eclipse.org:31338/winsign.php" />
             </exec>
-            <delete file="setup_esac/esac_${visibleVersion}_@{platform}.msi"/>
-            <move tofile="setup_esac/esac_${visibleVersion}_@{platform}.msi" file="setup_esac/esac_${visibleVersion}_@{platform}_signed.msi"/>
         </sequential>
     </macrodef>
 
+	<!-- ================================= 
+          target: deploy
+         ================================= -->
+    <target name="deploy" description="Deploy to downloads directory" unless="skipDeploy">
+    </target>
+    
 </project>
