@@ -132,11 +132,11 @@
     <macrodef name="sign">
         <attribute name="platform" />
         <sequential>
-            <exec executable="/usr/bin/curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
-                <arg value="-o" />
+            <exec executable="wget" failifexecutionfails="true" failonerror="true" dir="setup_esac">
+                <arg value="--post-file"/>
+                <arg value="esac_${visibleVersion}_@{platform}.msi"/>
+                <arg value="-O" />
                 <arg value="esac_${visibleVersion}_@{platform}_signed.msi" />
-                <arg value="-F" />
-                <arg value="filedata=@esac_${visibleVersion}_@{platform}.msi" />
                 <arg value="http://build.eclipse.org:31338/winsign.php" />
             </exec>
             <delete file="setup_esac/esac_${visibleVersion}_@{platform}.msi"/>
