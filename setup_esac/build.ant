@@ -140,7 +140,7 @@
                 <arg value="http://build.eclipse.org:31338/winsign.php" />
             </exec>
             <delete file="setup_esac/esac_${visibleVersion}_@{platform}.msi"/>
-            <rename dest="setup_esac/esac_${visibleVersion}_@{platform}.msi" src="setup_esac/esac_${visibleVersion}_@{platform}_signed.msi"/>
+            <move tofile="setup_esac/esac_${visibleVersion}_@{platform}.msi" file="setup_esac/esac_${visibleVersion}_@{platform}_signed.msi"/>
         </sequential>
     </macrodef>
 
