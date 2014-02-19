@@ -26,6 +26,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.eclipse.scada.ae.Event;
+import org.eclipse.scada.ae.Event.Fields;
 import org.eclipse.scada.ae.server.storage.postgres.internal.SqlConverter;
 import org.eclipse.scada.utils.filter.Filter;
 import org.eclipse.scada.utils.osgi.jdbc.CommonConnectionAccessor;
@@ -79,6 +80,9 @@ public class JdbcDao
 
     private static final String cleanupArchiveSql = "DELETE FROM %sES_AE_EVENTS_HSTORE " //
             + "WHERE instance_id = ? AND SOURCE_TIMESTAMP < ?";
+
+    private static final String cleanupReplicationSql = "DELETE FROM %sES_AE_REP " //
+            + "WHERE ENTRY_TIMESTAMP < ?";
 
     private static final String loadEventSql = "SELECT hstore_to_array(data) FROM %sES_AE_EVENTS_HSTORE " //
             + "WHERE instance_id = ? AND ID = ?::UUID";
@@ -197,6 +201,13 @@ public class JdbcDao
             {
                 connectionContext.setAutoCommit ( false );
                 final int i = connectionContext.update ( String.format ( cleanupArchiveSql, JdbcDao.this.schema ), JdbcDao.this.instance, new Timestamp ( date.getTime () ) );
+                final int j = connectionContext.update ( String.format ( cleanupReplicationSql, JdbcDao.this.schema ), new Timestamp ( date.getTime () ) );
+                if ( j > 0 )
+                {
+                    final Date ts = new Date ( System.currentTimeMillis () );
+                    final Event event = Event.create ().id ( UUID.randomUUID () ).sourceTimestamp ( ts ).entryTimestamp ( ts ).attribute ( Fields.MESSAGE, "deleted events from replication table due to call to cleanUp" ).attribute ( Fields.VALUE, j ).build ();
+                    storeReplication ( connectionContext, event );
+                }
                 connectionContext.commit ();
                 return i;
             }
