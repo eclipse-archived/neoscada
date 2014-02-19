@@ -132,7 +132,7 @@
     <macrodef name="sign">
            <attribute name="platform" />
            <sequential>
-               <exec executable="curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
+               <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
                    <arg value="-o" />
                    <arg value="esac_${visibleVersion}_@{platform}.msi" />
                    <arg value="-F" />
