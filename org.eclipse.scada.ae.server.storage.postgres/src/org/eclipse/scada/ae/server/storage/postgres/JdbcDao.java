@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jürgen Rose and others.
+ * Copyright (c) 2013, 2014 Jürgen Rose and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jürgen Rose - initial API and implementation
+ *     IBH SYSTEMS GmbH - some enhancements
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.postgres;
 
@@ -20,6 +21,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -28,6 +30,7 @@ import org.eclipse.scada.ae.server.storage.postgres.internal.SqlConverter;
 import org.eclipse.scada.utils.filter.Filter;
 import org.eclipse.scada.utils.osgi.jdbc.CommonConnectionAccessor;
 import org.eclipse.scada.utils.osgi.jdbc.data.RowMapperAdapter;
+import org.eclipse.scada.utils.osgi.jdbc.data.RowMapperException;
 import org.eclipse.scada.utils.osgi.jdbc.data.RowMapperMappingException;
 import org.eclipse.scada.utils.osgi.jdbc.task.CommonConnectionTask;
 import org.eclipse.scada.utils.osgi.jdbc.task.ConnectionContext;
@@ -40,7 +43,8 @@ public class JdbcDao
     {
         BLOB,
         BYTES,
-        JSON;
+        JSON,
+        ARRAY;
     }
 
     private static class EventRowMapper extends RowMapperAdapter<Event>
@@ -52,8 +56,14 @@ public class JdbcDao
         @Override
         public Event mapRow ( final ResultSet resultSet ) throws SQLException, RowMapperMappingException
         {
-            final String json = resultSet.getString ( 1 );
-            return EventConverter.INSTANCE.toEvent ( json );
+            try
+            {
+                return EventConverter.INSTANCE.fromSqlArray ( resultSet.getArray ( 1 ) );
+            }
+            catch ( final ParseException e )
+            {
+                throw new RowMapperException ( e );
+            }
         }
 
         @Override
@@ -67,26 +77,26 @@ public class JdbcDao
 
     private static final Logger logger = LoggerFactory.getLogger ( JdbcDao.class );
 
-    private static final String cleanupArchiveSql = "DELETE FROM %sES_AE_EVENTS_JSON " //
+    private static final String cleanupArchiveSql = "DELETE FROM %sES_AE_EVENTS_HSTORE " //
             + "WHERE instance_id = ? AND SOURCE_TIMESTAMP < ?";
 
-    private static final String loadEventSql = "SELECT data FROM %sES_AE_EVENTS_JSON " //
+    private static final String loadEventSql = "SELECT hstore_to_array(data) FROM %sES_AE_EVENTS_HSTORE " //
             + "WHERE instance_id = ? AND ID = ?::UUID";
 
-    private static final String storeEventSql = "INSERT INTO %sES_AE_EVENTS_JSON " //
+    private static final String storeEventSql = "INSERT INTO %sES_AE_EVENTS_HSTORE " //
             + "(id, instance_id, source_timestamp, entry_timestamp, data) " //
             + "VALUES " //
-            + "(?::UUID, ?, ?, ?, ?);"; //
+            + "(?::UUID, ?, ?, ?, hstore(?));"; //
 
     private static final String replicateEventSql = "INSERT INTO %sES_AE_REP " //
             + "(id, entry_timestamp, node_id, data) " //
             + "VALUES " //
             + "(?::VARCHAR, ?, ?, ?);"; //
 
-    private static final String updateEventSql = "UPDATE %sES_AE_EVENTS_JSON " //
-            + "SET data = ? WHERE id = ?::UUID;"; //
+    private static final String updateEventSql = "UPDATE %sES_AE_EVENTS_HSTORE " //
+            + "SET data = hstore(?) WHERE id = ?::UUID;"; //
 
-    private static final String selectEventsSql = "SELECT data FROM %sES_AE_EVENTS_JSON " //
+    private static final String selectEventsSql = "SELECT hstore_to_array(data) FROM %sES_AE_EVENTS_HSTORE " //
             + "WHERE instance_id = ? "; //
 
     private static final String defaultOrderSql = " ORDER BY source_timestamp DESC, entry_timestamp DESC, id DESC;";
@@ -131,7 +141,7 @@ public class JdbcDao
         parameters[1] = JdbcDao.this.instance;
         parameters[2] = new Timestamp ( event.getSourceTimestamp ().getTime () );
         parameters[3] = new Timestamp ( event.getEntryTimestamp ().getTime () );
-        parameters[4] = EventConverter.INSTANCE.toJson ( event );
+        parameters[4] = EventConverter.INSTANCE.toSqlArray ( connectionContext.getConnection (), event );
         connectionContext.update ( String.format ( storeEventSql, JdbcDao.this.schema ), parameters );
     }
 
@@ -146,6 +156,8 @@ public class JdbcDao
         ObjectOutputStream oos;
         switch ( JdbcDao.this.dataFormat )
         {
+            case ARRAY:
+                parameters[3] = EventConverter.INSTANCE.toSqlArray ( connectionContext.getConnection (), event );
             case JSON:
                 parameters[3] = EventConverter.INSTANCE.toJson ( event );
                 break;
@@ -172,7 +184,8 @@ public class JdbcDao
     public void update ( final ConnectionContext connectionContext, final Event event ) throws SQLException
     {
         logger.trace ( "try to update event {}", event );
-        connectionContext.update ( String.format ( updateEventSql, JdbcDao.this.schema ), EventConverter.INSTANCE.toJson ( event ), event.getId () );
+        connectionContext.update ( String.format ( updateEventSql, JdbcDao.this.schema ), EventConverter.INSTANCE.toSqlArray ( connectionContext.getConnection (), event ), event.getId () );
+        connectionContext.update ( String.format ( updateEventSql, JdbcDao.this.schema ), null, event.getId () );
     }
 
     public int cleanUp ( final Date date )
@@ -220,7 +233,7 @@ public class JdbcDao
         {
             return null;
         }
-        if ( i < 1 || string.length () <= i )
+        if ( ( i < 1 ) || ( string.length () <= i ) )
         {
             return string;
         }
@@ -231,11 +244,11 @@ public class JdbcDao
     {
         try
         {
-            return ReplicationDataFormat.valueOf ( System.getProperty ( "org.eclipse.scada.ae.server.storage.jdbc.replicationDataFormat", ReplicationDataFormat.BYTES.name () ) ); //$NON-NLS-1$
+            return ReplicationDataFormat.valueOf ( System.getProperty ( "org.eclipse.scada.ae.server.storage.jdbc.replicationDataFormat", ReplicationDataFormat.ARRAY.name () ) ); //$NON-NLS-1$
         }
         catch ( final Exception e )
         {
-            return ReplicationDataFormat.BYTES;
+            return ReplicationDataFormat.ARRAY;
         }
     }
 }

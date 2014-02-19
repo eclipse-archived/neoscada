@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jürgen Rose and others.
+ * Copyright (c) 2013, 2014 Jürgen Rose and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jürgen Rose - initial API and implementation
+ *     IBH SYSTEMS GmbH - some enhancements
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.postgres.internal;
 
@@ -165,7 +166,7 @@ public class SqlConverter
             {
                 throw new NotSupportedException ( String.format ( "approximate query for %s doesn't make any sense", attribute ) );
             }
-            else if ( "like".equals ( op ) && param instanceof String )
+            else if ( "like".equals ( op ) && ( param instanceof String ) )
             {
                 condition.condition = String.format ( " lower(%s::TEXT) ilike lower(?::TEXT)", column );
                 condition.parameters.add ( v.asString ( "" ) );
@@ -209,7 +210,7 @@ public class SqlConverter
             // now build sql expression
             if ( "approximate".equals ( op ) )
             {
-                condition.condition = String.format ( " dmetaphone(es_variant_to_string(es_ae_extract_field(DATA, ?))) = dmetaphone(?) OR dmetaphone_alt(es_variant_to_string(es_ae_extract_field(DATA, ?))) = dmetaphone_alt(?)", attribute );
+                condition.condition = String.format ( " dmetaphone(es_variant_to_string(DATA -> ?)) = dmetaphone(?) OR dmetaphone_alt(es_variant_to_string(DATA -> ?)) = dmetaphone_alt(?)", attribute );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asString ( "" ) );
                 condition.parameters.add ( attribute );
@@ -217,41 +218,41 @@ public class SqlConverter
             }
             else if ( "like".equals ( op ) )
             {
-                condition.condition = String.format ( " lower(es_variant_to_string(es_ae_extract_field(DATA, ?))) ilike lower(?)" );
+                condition.condition = String.format ( " lower(es_variant_to_string(DATA -> ?)) ilike lower(?)" );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asString ( "" ) );
             }
             else if ( "presence".equals ( op ) )
             {
-                condition.condition = String.format ( " es_ae_extract_field(DATA, ?) IS NOT NULL" );
+                condition.condition = String.format ( " DATA -> ? IS NOT NULL" );
                 condition.parameters.add ( attribute );
             }
             else if ( v.isInteger () || v.isLong () )
             {
-                condition.condition = String.format ( "  es_variant_to_long(es_ae_extract_field(DATA, ?)) %s ?", op );
+                condition.condition = String.format ( "  es_variant_to_long(DATA -> ?) %s ?", op );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asLong ( 0L ) );
             }
             else if ( v.isDouble () )
             {
-                condition.condition = String.format ( "  es_variant_to_double(es_ae_extract_field(DATA, ?)) %s ?", op );
+                condition.condition = String.format ( "  es_variant_to_double(DATA -> ?) %s ?", op );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asDouble ( 0.0 ) );
             }
             else if ( v.isBoolean () )
             {
-                condition.condition = String.format ( "  es_variant_to_boolean(es_ae_extract_field(DATA, ?)) %s ?", op );
+                condition.condition = String.format ( "  es_variant_to_boolean(DATA -> ?) %s ?", op );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asBoolean ( false ) );
             }
             else if ( v.isNull () )
             {
-                condition.condition = String.format ( " es_ae_extract_field(DATA, ?) IS NULL" );
+                condition.condition = String.format ( " DATA -> ? IS NULL" );
                 condition.parameters.add ( attribute );
             }
             else
             {
-                condition.condition = String.format ( "  lower(es_variant_to_string(es_ae_extract_field(DATA, ?))) %s ?", op );
+                condition.condition = String.format ( "  lower(es_variant_to_string(DATA -> ?)) %s ?", op );
                 condition.parameters.add ( attribute );
                 condition.parameters.add ( v.asString ( "" ) );
             }
@@ -267,7 +268,7 @@ public class SqlConverter
         {
             value = StringHelper.join ( (List<String>)value, "%" ).replaceAll ( "\\?", "_" );
         }
-        if ( value instanceof String && ( (String)value ).contains ( "#" ) )
+        if ( ( value instanceof String ) && ( (String)value ).contains ( "#" ) )
         {
             try
             {

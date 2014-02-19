@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jürgen Rose and others.
+ * Copyright (c) 2013, 2014 Jürgen Rose and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,12 @@
  *
  * Contributors:
  *     Jürgen Rose - initial API and implementation
+ *     IBH SYSTEMS GmbH - some enhancements
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.postgres.internal;
 
 import java.lang.ref.WeakReference;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,8 +82,8 @@ public class JdbcQuery implements Query
             {
                 throw new RuntimeException ( "ResultSet is closed (probably due to a timeout), please create a new query" );
             }
-            final String json = this.resultSet.getString ( 1 );
-            final Event event = EventConverter.INSTANCE.toEvent ( json );
+            final Array array = this.resultSet.getArray ( 1 );
+            final Event event = EventConverter.INSTANCE.fromSqlArray ( array );
             result.add ( event );
             this.hasMore = this.resultSet.next ();
             i += 1;

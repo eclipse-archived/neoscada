@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------
--- Copyright (c) 2013 Jürgen Rose and others.
+-- Copyright (c) 2013, 2014 Jürgen Rose and others.
 -- All rights reserved. This program and the accompanying materials
 -- are made available under the terms of the Eclipse Public License v1.0
 -- which accompanies this distribution, and is available at
@@ -7,20 +7,28 @@
 --
 -- Contributors:
 --     Jürgen Rose - initial API and implementation
+--     IBH SYSTEMS GmbH - some enhancements
 ----------------------------------------------------------------------------------
 
--- as database owner
+-- as database owner/super user
+-- DROP EXTENSION plpgsql
 CREATE LANGUAGE plpgsql;
+-- DROP EXTENSION hstore
+CREATE EXTENSION hstore;
+-- DROP EXTENSION pg_trgm
+CREATE EXTENSION pg_trgm;
+-- DROP EXTENSION fuzzystrmatch
+CREATE EXTENSION fuzzystrmatch;
 
--- DROP TABLE es_ae_events;
-CREATE TABLE es_ae_events_json
+-- DROP TABLE es_ae_events_hstore;
+CREATE TABLE es_ae_events_hstore
 (
   id                           UUID NOT NULL,
   instance_id                  VARCHAR(32),
   source_timestamp             TIMESTAMP,
   entry_timestamp              TIMESTAMP,
-  data                         TEXT,
-  CONSTRAINT pk_es_ae_events_json PRIMARY KEY (id)
+  data                         hstore,
+  CONSTRAINT pk_es_ae_events_hstore PRIMARY KEY (id)
 );
 
 -- DROP TABLE es_ae_rep;
@@ -29,42 +37,10 @@ CREATE TABLE es_ae_rep
   ID                           CHAR(36) NOT NULL,
   ENTRY_TIMESTAMP              TIMESTAMP,
   NODE_ID                      VARCHAR(32),
-  DATA                         BYTEA,
+  DATA                         STRING[],
   CONSTRAINT pk_es_ae_rep PRIMARY KEY (id)
 );
 
--- DROP EXTENSION json_accessors
-CREATE EXTENSION json_accessors;
--- DROP EXTENSION pg_trgm
-CREATE EXTENSION pg_trgm;
--- DROP EXTENSION fuzzystrmatch
-CREATE EXTENSION fuzzystrmatch;
-
--- DROP FUNCTION es_ae_extract_field(text, text);
-CREATE OR REPLACE FUNCTION es_ae_extract_field(data text, attr text)
-  RETURNS text AS
-$BODY$
-DECLARE
-    o TEXT;
-BEGIN
-    IF data IS NULL THEN 
-        RETURN NULL; 
-    END IF;
-    IF attr IS NULL THEN 
-        RETURN NULL; 
-    END IF;
-    IF attr IN ('id', 'sourceTimestamp', 'entryTimestamp') THEN 
-        RETURN json_get_text(data, attr); 
-    ELSE
-        SELECT json_get_object(data, 'attributes') INTO o;
-        IF O IS NOT NULL THEN
-            RETURN json_get_text(o, attr);
-        END IF;
-    END IF;
-    RETURN NULL;
-END;
-$BODY$
-  LANGUAGE plpgsql IMMUTABLE;
 
 -- DROP FUNCTION es_ae_create_index(text, text);
 CREATE OR REPLACE FUNCTION es_ae_create_index(property text, rettype text)
@@ -84,13 +60,13 @@ BEGIN
 
     -- for boolean/numbers this is straight forward
     IF rettype IN ('boolean', 'long', 'double') THEN
-        SELECT 'es_ae_events_json_' || property || '_' || rettype || '_idx' INTO idx_name;
+        SELECT 'es_ae_events_hstore_' || property || '_' || rettype || '_idx' INTO idx_name;
         RAISE NOTICE 'try to create index %', idx_name;
         SELECT count(*) > 0 FROM pg_class WHERE relname = idx_name INTO indexexists;
         IF indexexists THEN
             RAISE NOTICE 'index % already exists', idx_name;
         ELSE
-            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_json USING btree (es_variant_to_' || rettype || '(es_ae_extract_field(data, ''' || property || ''')));' INTO sql_idx;
+            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_hstore USING btree (es_variant_to_' || rettype || '(data -> ''' || property || '''));' INTO sql_idx;
             RAISE NOTICE 'executing %', sql_idx;
             EXECUTE sql_idx;
             SELECT true INTO result;
@@ -100,25 +76,25 @@ BEGIN
     -- for strings we have to create two indexes, a normal btree and a gist index
     IF rettype = 'string' THEN
         -- btree
-        SELECT 'es_ae_events_json_' || property || '_' || rettype || '_idx' INTO idx_name;
+        SELECT 'es_ae_events_hstore_' || property || '_' || rettype || '_idx' INTO idx_name;
         RAISE NOTICE 'try to create index %', idx_name;
         SELECT count(*) > 0 FROM pg_class WHERE relname = idx_name INTO indexexists;
         IF indexexists THEN
             RAISE NOTICE 'index % already exists', idx_name;
         ELSE
-            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_json USING btree (lower(substring(es_variant_to_string(es_ae_extract_field(data, ''' || property || ''')), 1, 512)));' INTO sql_idx;
+            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_hstore USING btree (lower(substring(es_variant_to_string(data -> ''' || property || '''), 1, 512)));' INTO sql_idx;
             RAISE NOTICE 'executing %', sql_idx;
             EXECUTE sql_idx;
             SELECT true INTO result;
         END IF;
         -- gist
-        SELECT 'es_ae_events_json_' || property || '_' || rettype || '_g_idx' INTO idx_name;
+        SELECT 'es_ae_events_hstore_' || property || '_' || rettype || '_g_idx' INTO idx_name;
         RAISE NOTICE 'try to create index %', idx_name;
         SELECT count(*) > 0 FROM pg_class WHERE relname = idx_name INTO indexexists;
         IF indexexists THEN
             RAISE NOTICE 'index % already exists', idx_name;
         ELSE
-            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_json USING gist ((lower(substring(es_variant_to_string(es_ae_extract_field(data, ''' || property || ''')), 1, 512))) gist_trgm_ops);' INTO sql_idx;
+            SELECT 'CREATE INDEX ' || idx_name || ' ON es_ae_events_hstore USING gist ((lower(substring(es_variant_to_string(data -> ''' || property || '''), 1, 512))) gist_trgm_ops);' INTO sql_idx;
             RAISE NOTICE 'executing %', sql_idx;
             EXECUTE sql_idx;
             SELECT true INTO result;
@@ -160,6 +136,8 @@ BEGIN
     END IF;
     IF substring(attr from 1 for 6) = 'INT32#' or substring(attr from 1 for 6) = 'INT64#' or substring(attr from 1 for 6) = 'FLOAT#' THEN
         RETURN substring(attr from 7)::NUMERIC;
+    ELSIF substring(attr from 1 for 7) = 'DOUBLE#' THEN
+        RETURN substring(attr from 8)::NUMERIC;
     ELSE
         RETURN NULL;
     END IF;
@@ -182,6 +160,8 @@ BEGIN
         RETURN substring(attr from 7)::BIGINT;
     ELSIF substring(attr from 1 for 6) = 'FLOAT#' THEN
         RETURN trunc(substring(attr from 7)::NUMERIC)::BIGINT;
+    ELSIF substring(attr from 1 for 7) = 'DOUBLE#' THEN
+        RETURN trunc(substring(attr from 8)::NUMERIC)::BIGINT;
     ELSE
         RETURN NULL;
     END IF;
@@ -205,7 +185,7 @@ BEGIN
     END IF;
     SELECT position('#' in attr) INTO p;
     SELECT substring(attr from 1 for p) INTO t;
-    IF t = 'BOOL#' or t = 'INT32#' or t = 'INT64#' or t = 'FLOAT#' or t = 'STRING#' THEN
+    IF t = 'BOOL#' or t = 'INT32#' or t = 'INT64#' or t = 'FLOAT#' or t = 'DOUBLE#' or t = 'STRING#' THEN
         RETURN substring(attr from p + 1);
     ELSIF t = 'NULL#' THEN
         RETURN NULL;
@@ -217,11 +197,12 @@ $BODY$
   LANGUAGE plpgsql IMMUTABLE;
 
 
-CREATE INDEX es_ae_events_json_instance_id_idx ON es_ae_events_json (instance_id);
-CREATE INDEX es_ae_events_json_source_timestamp_idx ON es_ae_events_json (source_timestamp);
-CREATE INDEX es_ae_events_json_source_timestamp_d_idx ON es_ae_events_json (source_timestamp DESC);
-CREATE INDEX es_ae_events_json_entry_timestamp_idx ON es_ae_events_json (entry_timestamp);
-CREATE INDEX es_ae_events_json_entry_timestamp_d_idx ON es_ae_events_json (entry_timestamp DESC);
+CREATE INDEX es_ae_events_hstore_instance_id_idx ON es_ae_events_hstore (instance_id);
+CREATE INDEX es_ae_events_hstore_source_timestamp_idx ON es_ae_events_hstore (source_timestamp);
+CREATE INDEX es_ae_events_hstore_source_timestamp_d_idx ON es_ae_events_hstore (source_timestamp DESC);
+CREATE INDEX es_ae_events_hstore_entry_timestamp_idx ON es_ae_events_hstore (entry_timestamp);
+CREATE INDEX es_ae_events_hstore_entry_timestamp_d_idx ON es_ae_events_hstore (entry_timestamp DESC);
+CREATE INDEX es_ae_events_hstore_data_idx ON es_ae_events_hstore USING GIST (data);
 
 SELECT es_ae_create_index('monitorType', 'string');
 SELECT es_ae_create_index('eventType', 'string');
