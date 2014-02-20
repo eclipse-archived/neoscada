@@ -14,7 +14,7 @@
     <property name="buildId" value="S201401220726" />
     <property name="versionSuffix" value="-M3" />
     <property name="visibleVersion" value="${version}${versionSuffix}" />
-    
+
     <property environment="env" />
 
     <property name="wix.root" value="${env.WIX_ROOT}" />
@@ -30,11 +30,11 @@
          ================================= -->
     <target name="clean">
         <delete dir="fetch" />
-        
+
         <delete dir="setup_esac">
-            <include name="*.msi"/>
-            <include name="*.wixobj"/>
-            <include name="Scan.*.wxs"/>
+            <include name="*.msi" />
+            <include name="*.wixobj" />
+            <include name="Scan.*.wxs" />
         </delete>
     </target>
 
@@ -136,22 +136,25 @@
     </target>
 
     <macrodef name="sign">
-           <attribute name="platform" />
-           <sequential>
-               <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
-                   <arg value="-o" />
-                   <arg value="esac_${visibleVersion}_@{platform}.msi" />
-                   <arg value="-F" />
-                   <arg value="filedata=@esac_${visibleVersion}_@{platform}_unsigned.msi" />
-                   <arg value="http://build.eclipse.org:31338/winsign.php" />
-               </exec>
-           </sequential>
-       </macrodef>
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true" dir="setup_esac">
+                <arg value="-o" />
+                <arg value="esac_${visibleVersion}_@{platform}.msi" />
+                <arg value="-F" />
+                <arg value="filedata=@esac_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="http://build.eclipse.org:31338/winsign.php" />
+            </exec>
+            <delete dir="setup_esac">
+                <include name="*_unsigned.msi" />
+            </delete>
+        </sequential>
+    </macrodef>
 
-	<!-- ================================= 
+    <!-- ================================= 
           target: deploy
          ================================= -->
     <target name="deploy" description="Deploy to downloads directory" unless="skipDeploy">
     </target>
-    
+
 </project>
