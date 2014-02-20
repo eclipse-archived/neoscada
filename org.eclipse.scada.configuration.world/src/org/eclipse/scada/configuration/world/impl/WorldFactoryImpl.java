@@ -18,7 +18,18 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.scada.configuration.world.*;
+import org.eclipse.scada.configuration.world.ApplicationNode;
+import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.ExecDriver;
+import org.eclipse.scada.configuration.world.ExternalNode;
+import org.eclipse.scada.configuration.world.HandlerPriorityRule;
+import org.eclipse.scada.configuration.world.MasterHandlerPriorities;
+import org.eclipse.scada.configuration.world.Options;
+import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
+import org.eclipse.scada.configuration.world.World;
+import org.eclipse.scada.configuration.world.WorldFactory;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
  * <!-- begin-user-doc -->

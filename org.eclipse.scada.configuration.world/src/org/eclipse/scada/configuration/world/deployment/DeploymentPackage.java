@@ -132,13 +132,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__MAINTAINER = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Additional Dependencies</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 2;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 3;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -184,7 +193,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
+    int DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES;
 
     /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
@@ -193,7 +202,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 1;
+    int DEBIAN_DEPLOYMENT_MECHANISM_FEATURE_COUNT = COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Debian Deployment Mechanism</em>' class.
@@ -277,6 +286,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__MAINTAINER = COMMON_DEPLOYMENT_MECHANISM__MAINTAINER;
+
+    /**
+     * The feature id for the '<em><b>Additional Dependencies</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES;
 
     /**
      * The number of structural features of the '<em>Redhat Deployment Mechanism</em>' class.
@@ -621,17 +639,6 @@ public interface DeploymentPackage extends EPackage
     EClass getDebianDeploymentMechanism ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getAdditionalDependencies <em>Additional Dependencies</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Additional Dependencies</em>'.
-     * @see org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism#getAdditionalDependencies()
-     * @see #getDebianDeploymentMechanism()
-     * @generated
-     */
-    EAttribute getDebianDeploymentMechanism_AdditionalDependencies ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.Author <em>Author</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -725,6 +732,17 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EReference getCommonDeploymentMechanism_Maintainer ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalDependencies <em>Additional Dependencies</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Additional Dependencies</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalDependencies()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getCommonDeploymentMechanism_AdditionalDependencies ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
@@ -951,14 +969,6 @@ public interface DeploymentPackage extends EPackage
         EClass DEBIAN_DEPLOYMENT_MECHANISM = eINSTANCE.getDebianDeploymentMechanism ();
 
         /**
-         * The meta object literal for the '<em><b>Additional Dependencies</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = eINSTANCE.getDebianDeploymentMechanism_AdditionalDependencies ();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.AuthorImpl <em>Author</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1037,6 +1047,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EReference COMMON_DEPLOYMENT_MECHANISM__MAINTAINER = eINSTANCE.getCommonDeploymentMechanism_Maintainer ();
+
+        /**
+         * The meta object literal for the '<em><b>Additional Dependencies</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = eINSTANCE.getCommonDeploymentMechanism_AdditionalDependencies ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.

@@ -39,38 +39,24 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getShortDescription
- * <em>Short Description</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getEndpoint
- * <em>Endpoint</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getEndpointLabel
- * <em>Endpoint Label</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getCredentials
- * <em>Credentials</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getTimeout
- * <em>Timeout</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getEndpointLabel <em>Endpoint Label</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getCredentials <em>Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.ConnectionImpl#getTimeout <em>Timeout</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
         implements Connection
 {
     /**
-     * The default value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -78,11 +64,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -93,7 +77,6 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -104,7 +87,6 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -112,11 +94,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}'
-     * reference.
+     * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getEndpoint()
      * @generated
      * @ordered
@@ -124,11 +104,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected Endpoint endpoint;
 
     /**
-     * The default value of the '{@link #getEndpointLabel()
-     * <em>Endpoint Label</em>}' attribute.
+     * The default value of the '{@link #getEndpointLabel() <em>Endpoint Label</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getEndpointLabel()
      * @generated
      * @ordered
@@ -136,11 +114,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected static final String ENDPOINT_LABEL_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCredentials() <em>Credentials</em>}'
-     * containment reference.
+     * The cached value of the '{@link #getCredentials() <em>Credentials</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCredentials()
      * @generated
      * @ordered
@@ -148,11 +124,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected Credentials credentials;
 
     /**
-     * The default value of the '{@link #getTimeout() <em>Timeout</em>}'
-     * attribute.
+     * The default value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getTimeout()
      * @generated
      * @ordered
@@ -160,11 +134,9 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     protected static final Integer TIMEOUT_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getTimeout() <em>Timeout</em>}'
-     * attribute.
+     * The cached value of the '{@link #getTimeout() <em>Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getTimeout()
      * @generated
      * @ordered
@@ -191,7 +163,6 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -203,111 +174,96 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getShortDescription ()
     {
-        return this.shortDescription;
+        return shortDescription;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setShortDescription ( final String newShortDescription )
+    public void setShortDescription ( String newShortDescription )
     {
-        final String oldShortDescription = this.shortDescription;
-        this.shortDescription = newShortDescription;
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Endpoint getEndpoint ()
     {
-        if ( this.endpoint != null && this.endpoint.eIsProxy () )
+        if ( endpoint != null && endpoint.eIsProxy () )
         {
-            final InternalEObject oldEndpoint = (InternalEObject)this.endpoint;
-            this.endpoint = (Endpoint)eResolveProxy ( oldEndpoint );
-            if ( this.endpoint != oldEndpoint )
+            InternalEObject oldEndpoint = (InternalEObject)endpoint;
+            endpoint = (Endpoint)eResolveProxy ( oldEndpoint );
+            if ( endpoint != oldEndpoint )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.CONNECTION__ENDPOINT, oldEndpoint, this.endpoint ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.CONNECTION__ENDPOINT, oldEndpoint, endpoint ) );
             }
         }
-        return this.endpoint;
+        return endpoint;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Endpoint basicGetEndpoint ()
     {
-        return this.endpoint;
+        return endpoint;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setEndpoint ( final Endpoint newEndpoint )
+    public void setEndpoint ( Endpoint newEndpoint )
     {
-        final Endpoint oldEndpoint = this.endpoint;
-        this.endpoint = newEndpoint;
+        Endpoint oldEndpoint = endpoint;
+        endpoint = newEndpoint;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__ENDPOINT, oldEndpoint, this.endpoint ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__ENDPOINT, oldEndpoint, endpoint ) );
     }
 
     /**
@@ -334,69 +290,58 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Credentials getCredentials ()
     {
-        if ( this.credentials != null && this.credentials.eIsProxy () )
+        if ( credentials != null && credentials.eIsProxy () )
         {
-            final InternalEObject oldCredentials = (InternalEObject)this.credentials;
-            this.credentials = (Credentials)eResolveProxy ( oldCredentials );
-            if ( this.credentials != oldCredentials )
+            InternalEObject oldCredentials = (InternalEObject)credentials;
+            credentials = (Credentials)eResolveProxy ( oldCredentials );
+            if ( credentials != oldCredentials )
             {
-                final InternalEObject newCredentials = (InternalEObject)this.credentials;
+                InternalEObject newCredentials = (InternalEObject)credentials;
                 NotificationChain msgs = oldCredentials.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.CONNECTION__CREDENTIALS, null, null );
                 if ( newCredentials.eInternalContainer () == null )
                 {
                     msgs = newCredentials.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.CONNECTION__CREDENTIALS, null, msgs );
                 }
                 if ( msgs != null )
-                {
                     msgs.dispatch ();
-                }
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.CONNECTION__CREDENTIALS, oldCredentials, this.credentials ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, OsgiPackage.CONNECTION__CREDENTIALS, oldCredentials, credentials ) );
             }
         }
-        return this.credentials;
+        return credentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Credentials basicGetCredentials ()
     {
-        return this.credentials;
+        return credentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetCredentials ( final Credentials newCredentials, NotificationChain msgs )
+    public NotificationChain basicSetCredentials ( Credentials newCredentials, NotificationChain msgs )
     {
-        final Credentials oldCredentials = this.credentials;
-        this.credentials = newCredentials;
+        Credentials oldCredentials = credentials;
+        credentials = newCredentials;
         if ( eNotificationRequired () )
         {
-            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__CREDENTIALS, oldCredentials, newCredentials );
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__CREDENTIALS, oldCredentials, newCredentials );
             if ( msgs == null )
-            {
                 msgs = notification;
-            }
             else
-            {
                 msgs.add ( notification );
-            }
         }
         return msgs;
     }
@@ -404,68 +349,54 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCredentials ( final Credentials newCredentials )
+    public void setCredentials ( Credentials newCredentials )
     {
-        if ( newCredentials != this.credentials )
+        if ( newCredentials != credentials )
         {
             NotificationChain msgs = null;
-            if ( this.credentials != null )
-            {
-                msgs = ( (InternalEObject)this.credentials ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.CONNECTION__CREDENTIALS, null, msgs );
-            }
+            if ( credentials != null )
+                msgs = ( (InternalEObject)credentials ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.CONNECTION__CREDENTIALS, null, msgs );
             if ( newCredentials != null )
-            {
                 msgs = ( (InternalEObject)newCredentials ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - OsgiPackage.CONNECTION__CREDENTIALS, null, msgs );
-            }
             msgs = basicSetCredentials ( newCredentials, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__CREDENTIALS, newCredentials, newCredentials ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Integer getTimeout ()
     {
-        return this.timeout;
+        return timeout;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setTimeout ( final Integer newTimeout )
+    public void setTimeout ( Integer newTimeout )
     {
-        final Integer oldTimeout = this.timeout;
-        this.timeout = newTimeout;
+        Integer oldTimeout = timeout;
+        timeout = newTimeout;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__TIMEOUT, oldTimeout, this.timeout ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.CONNECTION__TIMEOUT, oldTimeout, timeout ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -479,11 +410,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EList<Endpoint> getPossibleEndpoints ( final Exporter exporter )
+    public EList<Endpoint> getPossibleEndpoints ( Exporter exporter )
     {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT
@@ -493,11 +423,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String makeUri ( final boolean localhost )
+    public String makeUri ( boolean localhost )
     {
         // TODO: implement this method
         // Ensure that you remove @generated or mark it @generated NOT
@@ -507,11 +436,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -524,11 +452,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -538,17 +465,13 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
                 return getName ();
             case OsgiPackage.CONNECTION__ENDPOINT:
                 if ( resolve )
-                {
                     return getEndpoint ();
-                }
                 return basicGetEndpoint ();
             case OsgiPackage.CONNECTION__ENDPOINT_LABEL:
                 return getEndpointLabel ();
             case OsgiPackage.CONNECTION__CREDENTIALS:
                 if ( resolve )
-                {
                     return getCredentials ();
-                }
                 return basicGetCredentials ();
             case OsgiPackage.CONNECTION__TIMEOUT:
                 return getTimeout ();
@@ -559,11 +482,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -589,11 +511,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -619,26 +540,25 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case OsgiPackage.CONNECTION__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
             case OsgiPackage.CONNECTION__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case OsgiPackage.CONNECTION__ENDPOINT:
-                return this.endpoint != null;
+                return endpoint != null;
             case OsgiPackage.CONNECTION__ENDPOINT_LABEL:
                 return ENDPOINT_LABEL_EDEFAULT == null ? getEndpointLabel () != null : !ENDPOINT_LABEL_EDEFAULT.equals ( getEndpointLabel () );
             case OsgiPackage.CONNECTION__CREDENTIALS:
-                return this.credentials != null;
+                return credentials != null;
             case OsgiPackage.CONNECTION__TIMEOUT:
-                return TIMEOUT_EDEFAULT == null ? this.timeout != null : !TIMEOUT_EDEFAULT.equals ( this.timeout );
+                return TIMEOUT_EDEFAULT == null ? timeout != null : !TIMEOUT_EDEFAULT.equals ( timeout );
         }
         return super.eIsSet ( featureID );
     }
@@ -646,11 +566,10 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments )
+    public Object eInvoke ( int operationID, EList<?> arguments )
             throws InvocationTargetException
     {
         switch ( operationID )
@@ -684,24 +603,21 @@ public abstract class ConnectionImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( this.shortDescription );
+        result.append ( shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( this.name );
+        result.append ( name );
         result.append ( ", timeout: " ); //$NON-NLS-1$
-        result.append ( this.timeout );
+        result.append ( timeout );
         result.append ( ')' );
         return result.toString ();
     }

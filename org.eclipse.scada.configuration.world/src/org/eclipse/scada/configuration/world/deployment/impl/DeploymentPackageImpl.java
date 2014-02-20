@@ -242,17 +242,6 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * @generated
      */
     @Override
-    public EAttribute getDebianDeploymentMechanism_AdditionalDependencies ()
-    {
-        return (EAttribute)debianDeploymentMechanismEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EClass getAuthor ()
     {
         return authorEClass;
@@ -344,6 +333,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
     public EReference getCommonDeploymentMechanism_Maintainer ()
     {
         return (EReference)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCommonDeploymentMechanism_AdditionalDependencies ()
+    {
+        return (EAttribute)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -568,7 +567,6 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         deploymentMechanismEClass = createEClass ( DEPLOYMENT_MECHANISM );
 
         debianDeploymentMechanismEClass = createEClass ( DEBIAN_DEPLOYMENT_MECHANISM );
-        createEAttribute ( debianDeploymentMechanismEClass, DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES );
 
         authorEClass = createEClass ( AUTHOR );
         createEAttribute ( authorEClass, AUTHOR__NAME );
@@ -582,6 +580,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         commonDeploymentMechanismEClass = createEClass ( COMMON_DEPLOYMENT_MECHANISM );
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__CHANGES );
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__MAINTAINER );
+        createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES );
 
         changeEntryEClass = createEClass ( CHANGE_ENTRY );
         createEReference ( changeEntryEClass, CHANGE_ENTRY__AUTHOR );
@@ -651,7 +650,6 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEClass ( deploymentMechanismEClass, DeploymentMechanism.class, "DeploymentMechanism", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( debianDeploymentMechanismEClass, DebianDeploymentMechanism.class, "DebianDeploymentMechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getDebianDeploymentMechanism_AdditionalDependencies (), ecorePackage.getEString (), "additionalDependencies", null, 0, -1, DebianDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( authorEClass, Author.class, "Author", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getAuthor_Name (), ecorePackage.getEString (), "name", null, 1, 1, Author.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -666,6 +664,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEReference ( getCommonDeploymentMechanism_Changes (), this.getChangeEntry (), null, "changes", null, 1, -1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getCommonDeploymentMechanism_Maintainer (), this.getAuthor (), null, "maintainer", null, 1, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getCommonDeploymentMechanism_Maintainer ().getEKeys ().add ( this.getAuthor_Email () );
+        initEAttribute ( getCommonDeploymentMechanism_AdditionalDependencies (), ecorePackage.getEString (), "additionalDependencies", null, 0, -1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( changeEntryEClass, ChangeEntry.class, "ChangeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getChangeEntry_Author (), this.getAuthor (), null, "author", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

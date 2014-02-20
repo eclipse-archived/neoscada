@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
@@ -68,6 +69,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
             super.getPropertyDescriptors ( object );
 
             addMaintainerPropertyDescriptor ( object );
+            addAdditionalDependenciesPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -91,6 +93,29 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         false,
                         true,
                         null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Additional Dependencies feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addAdditionalDependenciesPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_additionalDependencies_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_additionalDependencies_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -167,6 +192,9 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
 
         switch ( notification.getFeatureID ( CommonDeploymentMechanism.class ) )
         {
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;

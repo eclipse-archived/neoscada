@@ -17,14 +17,14 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Blockings</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link org.eclipse.scada.configuration.world.osgi.Blockings#getGroups
- * <em>Groups</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.Blockings#getGroups <em>Groups</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBlockings()
  * @model
  * @generated
@@ -32,17 +32,14 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
 public interface Blockings extends NamedDocumentable, ApplicationModule
 {
     /**
-     * Returns the value of the '<em><b>Groups</b></em>' containment reference
-     * list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.world.osgi.BlockGroup}.
+     * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.BlockGroup}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Groups</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Groups</em>' containment reference list.
      * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getBlockings_Groups()
      * @model containment="true" resolveProxies="true"

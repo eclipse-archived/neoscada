@@ -16,7 +16,8 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>External Event Filter</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getExternalEventFilter()
  * @model abstract="true"
  * @generated

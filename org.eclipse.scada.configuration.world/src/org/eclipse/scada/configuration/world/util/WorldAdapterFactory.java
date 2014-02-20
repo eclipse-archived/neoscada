@@ -40,7 +40,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.world.WorldPackage
  * @generated
  */
@@ -50,7 +49,6 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static WorldPackage modelPackage;
@@ -59,7 +57,6 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public WorldAdapterFactory ()
@@ -76,12 +73,11 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
-     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( final Object object )
+    public boolean isFactoryForType ( Object object )
     {
         if ( object == modelPackage )
         {
@@ -98,121 +94,120 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected WorldSwitch<Adapter> modelSwitch = new WorldSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseWorld ( final World object )
+        public Adapter caseWorld ( World object )
         {
             return createWorldAdapter ();
         }
 
         @Override
-        public Adapter caseNode ( final Node object )
+        public Adapter caseNode ( Node object )
         {
             return createNodeAdapter ();
         }
 
         @Override
-        public Adapter caseApplicationNode ( final ApplicationNode object )
+        public Adapter caseApplicationNode ( ApplicationNode object )
         {
             return createApplicationNodeAdapter ();
         }
 
         @Override
-        public Adapter caseDocumentable ( final Documentable object )
+        public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
         }
 
         @Override
-        public Adapter caseApplication ( final Application object )
+        public Adapter caseApplication ( Application object )
         {
             return createApplicationAdapter ();
         }
 
         @Override
-        public Adapter caseDriver ( final Driver object )
+        public Adapter caseDriver ( Driver object )
         {
             return createDriverAdapter ();
         }
 
         @Override
-        public Adapter caseEndpoint ( final Endpoint object )
+        public Adapter caseEndpoint ( Endpoint object )
         {
             return createEndpointAdapter ();
         }
 
         @Override
-        public Adapter caseExecDriver ( final ExecDriver object )
+        public Adapter caseExecDriver ( ExecDriver object )
         {
             return createExecDriverAdapter ();
         }
 
         @Override
-        public Adapter caseCommonDriver ( final CommonDriver object )
+        public Adapter caseCommonDriver ( CommonDriver object )
         {
             return createCommonDriverAdapter ();
         }
 
         @Override
-        public Adapter caseHandlerPriorityRule ( final HandlerPriorityRule object )
+        public Adapter caseHandlerPriorityRule ( HandlerPriorityRule object )
         {
             return createHandlerPriorityRuleAdapter ();
         }
 
         @Override
-        public Adapter caseMasterHandlerPriorities ( final MasterHandlerPriorities object )
+        public Adapter caseMasterHandlerPriorities ( MasterHandlerPriorities object )
         {
             return createMasterHandlerPrioritiesAdapter ();
         }
 
         @Override
-        public Adapter caseOptions ( final Options object )
+        public Adapter caseOptions ( Options object )
         {
             return createOptionsAdapter ();
         }
 
         @Override
-        public Adapter caseUsernamePasswordCredentials ( final UsernamePasswordCredentials object )
+        public Adapter caseUsernamePasswordCredentials ( UsernamePasswordCredentials object )
         {
             return createUsernamePasswordCredentialsAdapter ();
         }
 
         @Override
-        public Adapter casePasswordCredentials ( final PasswordCredentials object )
+        public Adapter casePasswordCredentials ( PasswordCredentials object )
         {
             return createPasswordCredentialsAdapter ();
         }
 
         @Override
-        public Adapter caseCredentials ( final Credentials object )
+        public Adapter caseCredentials ( Credentials object )
         {
             return createCredentialsAdapter ();
         }
 
         @Override
-        public Adapter caseExternalNode ( final ExternalNode object )
+        public Adapter caseExternalNode ( ExternalNode object )
         {
             return createExternalNodeAdapter ();
         }
 
         @Override
-        public Adapter caseService ( final Service object )
+        public Adapter caseService ( Service object )
         {
             return createServiceAdapter ();
         }
 
         @Override
-        public Adapter caseNamedDocumentable ( final NamedDocumentable object )
+        public Adapter caseNamedDocumentable ( NamedDocumentable object )
         {
             return createNamedDocumentableAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( final EObject object )
+        public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -222,28 +217,24 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param target
-     *            the object to adapt.
+     * @param target the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( final Notifier target )
+    public Adapter createAdapter ( Notifier target )
     {
-        return this.modelSwitch.doSwitch ( (EObject)target );
+        return modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.World
      * @generated
@@ -254,15 +245,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Node <em>Node</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Node <em>Node</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Node
      * @generated
@@ -273,16 +262,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.ApplicationNode
-     * <em>Application Node</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ApplicationNode <em>Application Node</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.ApplicationNode
      * @generated
@@ -293,16 +279,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Documentable
-     * <em>Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Documentable
      * @generated
@@ -313,16 +296,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Application
-     * <em>Application</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Application
      * @generated
@@ -333,15 +313,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Driver
      * @generated
@@ -352,16 +330,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Endpoint <em>Endpoint</em>}
-     * '.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Endpoint <em>Endpoint</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Endpoint
      * @generated
@@ -372,16 +347,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.ExecDriver
-     * <em>Exec Driver</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ExecDriver <em>Exec Driver</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.ExecDriver
      * @generated
@@ -392,16 +364,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.CommonDriver
-     * <em>Common Driver</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.CommonDriver <em>Common Driver</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.CommonDriver
      * @generated
@@ -412,16 +381,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.HandlerPriorityRule
-     * <em>Handler Priority Rule</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.HandlerPriorityRule <em>Handler Priority Rule</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.HandlerPriorityRule
      * @generated
@@ -432,16 +398,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.MasterHandlerPriorities
-     * <em>Master Handler Priorities</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.MasterHandlerPriorities <em>Master Handler Priorities</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.MasterHandlerPriorities
      * @generated
@@ -452,15 +415,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Options <em>Options</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Options <em>Options</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Options
      * @generated
@@ -471,16 +432,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.UsernamePasswordCredentials
-     * <em>Username Password Credentials</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.UsernamePasswordCredentials <em>Username Password Credentials</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.UsernamePasswordCredentials
      * @generated
@@ -491,16 +449,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.PasswordCredentials
-     * <em>Password Credentials</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.PasswordCredentials <em>Password Credentials</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.PasswordCredentials
      * @generated
@@ -511,16 +466,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Credentials
-     * <em>Credentials</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Credentials <em>Credentials</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Credentials
      * @generated
@@ -531,16 +483,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.ExternalNode
-     * <em>External Node</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ExternalNode <em>External Node</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.ExternalNode
      * @generated
@@ -551,15 +500,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.Service <em>Service</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Service <em>Service</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.Service
      * @generated
@@ -570,16 +517,13 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.configuration.world.NamedDocumentable
-     * <em>Named Documentable</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.NamedDocumentable <em>Named Documentable</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.configuration.world.NamedDocumentable
      * @generated
@@ -594,7 +538,6 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @generated
      */

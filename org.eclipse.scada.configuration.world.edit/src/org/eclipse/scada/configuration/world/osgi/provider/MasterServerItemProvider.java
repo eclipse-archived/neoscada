@@ -36,11 +36,9 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.world.osgi.MasterServer} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.MasterServer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class MasterServerItemProvider extends ItemProviderAdapter implements
@@ -52,10 +50,9 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public MasterServerItemProvider ( final AdapterFactory adapterFactory )
+    public MasterServerItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -64,13 +61,12 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -80,21 +76,20 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
             addSecurityConfigurationPropertyDescriptor ( object );
             addAeServerInformationPrefixPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Short Description feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( final Object object )
+    protected void addShortDescriptionPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -111,14 +106,13 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addNamePropertyDescriptor ( final Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -135,14 +129,13 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Customization Profile feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addCustomizationProfilePropertyDescriptor ( final Object object )
+    protected void addCustomizationProfilePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_EquinoxApplication_customizationProfile_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_customizationProfile_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -159,14 +152,13 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This adds a property descriptor for the Security Configuration feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addSecurityConfigurationPropertyDescriptor ( final Object object )
+    protected void addSecurityConfigurationPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_EquinoxApplication_securityConfiguration_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_EquinoxApplication_securityConfiguration_feature", "_UI_EquinoxApplication_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -180,18 +172,16 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This adds a property descriptor for the Ae Server Information Prefix
-     * feature.
+     * This adds a property descriptor for the Ae Server Information Prefix feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addAeServerInformationPrefixPropertyDescriptor ( final Object object )
+    protected void addAeServerInformationPrefixPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_MasterServer_aeServerInformationPrefix_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_MasterServer_aeServerInformationPrefix_feature", "_UI_MasterServer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -205,51 +195,46 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to
-     * deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand},
-     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in
-     * {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures (
-            final Object object )
+            Object object )
     {
-        if ( this.childrenFeatures == null )
+        if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            this.childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER );
-            this.childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE );
-            this.childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__SUMMARY_GROUPS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__ITEMS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MARKERS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MONITOR_POOLS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EVENT_POOLS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__DATA_MAPPER );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EXTERNAL_EVENT_MONITORS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EXTERNAL_EVENT_FILTERS );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__AVERAGES );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MOVING_AVERAGES );
-            this.childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__BUFFERED_VALUES );
+            childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__CONNECTIONS );
+            childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__EXPORTER );
+            childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE );
+            childrenFeatures.add ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__SUMMARY_GROUPS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__ITEMS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MARKERS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MONITOR_POOLS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EVENT_POOLS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__DATA_MAPPER );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EXTERNAL_EVENT_MONITORS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__EXTERNAL_EVENT_FILTERS );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__AVERAGES );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__MOVING_AVERAGES );
+            childrenFeatures.add ( OsgiPackage.Literals.MASTER_SERVER__BUFFERED_VALUES );
         }
-        return this.childrenFeatures;
+        return childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -261,30 +246,26 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final String label = ( (MasterServer)object ).getName ();
+        String label = ( (MasterServer)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_MasterServer_type" ) : //$NON-NLS-1$
                 getString ( "_UI_MasterServer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -317,17 +298,15 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors (
-            final Collection<Object> newChildDescriptors, final Object object )
+            Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
@@ -541,13 +520,12 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }
