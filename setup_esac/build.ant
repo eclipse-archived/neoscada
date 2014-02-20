@@ -133,6 +133,9 @@
     <target name="sign" unless="skipSign">
         <sign platform="x86" />
         <sign platform="x64" />
+        <delete dir="setup_esac">
+            <include name="*_unsigned.msi" />
+        </delete>
     </target>
 
     <macrodef name="sign">
@@ -145,9 +148,6 @@
                 <arg value="filedata=@esac_${visibleVersion}_@{platform}_unsigned.msi" />
                 <arg value="http://build.eclipse.org:31338/winsign.php" />
             </exec>
-            <delete dir="setup_esac">
-                <include name="*_unsigned.msi" />
-            </delete>
         </sequential>
     </macrodef>
 
