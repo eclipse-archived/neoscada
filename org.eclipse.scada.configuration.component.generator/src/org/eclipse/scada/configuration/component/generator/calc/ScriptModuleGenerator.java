@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,6 +17,7 @@ import org.eclipse.scada.configuration.component.CalculationComponent;
 import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.component.OutputSpecification;
+import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.lib.Items;
 import org.eclipse.scada.configuration.component.lib.create.CreationRequest;
@@ -25,6 +26,7 @@ import org.eclipse.scada.configuration.component.lib.create.MasterListener;
 import org.eclipse.scada.configuration.generator.FinishContext;
 import org.eclipse.scada.configuration.generator.GenerationContext;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
+import org.eclipse.scada.configuration.world.osgi.CodeFragment;
 import org.eclipse.scada.configuration.world.osgi.ItemReference;
 import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
@@ -59,7 +61,7 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
         // create the item
         final CreationRequest<ScriptItem> c = createScriptItem ( creator );
         c.localTags ( output.getLocalTag () );
-        c.customizationTags ( output.getCustomizationTags () ); //$NON-NLS-1$ // the output of a calculation module is an input for the system
+        c.customizationTags ( output.getCustomizationTags () ); // the output of a calculation module is an input for the system
         c.dataType ( outputSpec.getDataType () );
 
         c.addMasterListener ( new MasterListener<ScriptItem> () {
@@ -75,7 +77,17 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
 
         item.setScriptEngine ( implementation.getScriptEngine () );
 
-        // FIXME: add stuff
+        // set actual scripts
+        item.setInitScript ( toCodeFragment ( implementation.getInitScript () ) );
+        item.setUpdateScript ( toCodeFragment ( implementation.getUpdateScript () ) );
+        item.setWriteCommandScript ( toCodeFragment ( implementation.getWriteCommandScript () ) );
+        if ( implementation.getTimerScript () != null )
+        {
+            item.setTimer ( OsgiFactory.eINSTANCE.createScriptTimer () );
+            item.getTimer ().setScript ( OsgiFactory.eINSTANCE.createCodeFragment () );
+            item.getTimer ().getScript ().setCode ( implementation.getTimerScript ().getCode () );
+            item.getTimer ().setPeriod ( implementation.getTimerScript ().getPeriod () );
+        }
 
         for ( final InputDefinition input : this.calculationComponent.getInputs () )
         {
@@ -85,6 +97,17 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
 
             item.getInputs ().add ( itemRef );
         }
+    }
+
+    private CodeFragment toCodeFragment ( final Script initScript )
+    {
+        if ( initScript == null )
+        {
+            return null;
+        }
+        final CodeFragment codeFragment = OsgiFactory.eINSTANCE.createCodeFragment ();
+        codeFragment.setCode ( initScript.getCode () );
+        return codeFragment;
     }
 
     @Override

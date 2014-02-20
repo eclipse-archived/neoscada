@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.BufferedValue;
@@ -455,6 +456,14 @@ public class ComponentSwitch<T> extends Switch<T>
             {
                 Script script = (Script)theEObject;
                 T result = caseScript ( script );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ComponentPackage.TIMER_SCRIPT:
+            {
+                TimerScript timerScript = (TimerScript)theEObject;
+                T result = caseTimerScript ( timerScript );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -1068,6 +1077,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseScript ( Script object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Timer Script</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Timer Script</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTimerScript ( TimerScript object )
     {
         return null;
     }

@@ -85,7 +85,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getContainer()
      * @generated
      */
-    int CONTAINER = 33;
+    int CONTAINER = 34;
 
     /**
      * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
@@ -469,7 +469,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMasterComponent()
      * @generated
      */
-    int MASTER_COMPONENT = 37;
+    int MASTER_COMPONENT = 38;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2150,13 +2150,49 @@ public interface ComponentPackage extends EPackage
     int SCRIPT_MODULE__SCRIPT_ENGINE = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Init Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__INIT_SCRIPT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Update Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__UPDATE_SCRIPT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Write Command Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__WRITE_COMMAND_SCRIPT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
+
+    /**
+     * The feature id for the '<em><b>Timer Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SCRIPT_MODULE__TIMER_SCRIPT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Script Module</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SCRIPT_MODULE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+    int SCRIPT_MODULE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 9;
 
     /**
      * The operation id for the '<em>Get Known Inputs</em>' operation.
@@ -2232,6 +2268,52 @@ public interface ComponentPackage extends EPackage
     int SCRIPT_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.TimerScriptImpl <em>Timer Script</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.TimerScriptImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTimerScript()
+     * @generated
+     */
+    int TIMER_SCRIPT = 28;
+
+    /**
+     * The feature id for the '<em><b>Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_SCRIPT__PERIOD = 0;
+
+    /**
+     * The feature id for the '<em><b>Code</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_SCRIPT__CODE = 1;
+
+    /**
+     * The number of structural features of the '<em>Timer Script</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_SCRIPT_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Timer Script</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_SCRIPT_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.AbsoluteDanglingReferenceImpl <em>Absolute Dangling Reference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2239,7 +2321,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getAbsoluteDanglingReference()
      * @generated
      */
-    int ABSOLUTE_DANGLING_REFERENCE = 28;
+    int ABSOLUTE_DANGLING_REFERENCE = 29;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2294,7 +2376,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentDanglingReference()
      * @generated
      */
-    int COMPONENT_DANGLING_REFERENCE = 29;
+    int COMPONENT_DANGLING_REFERENCE = 30;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2367,7 +2449,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getExternalValue()
      * @generated
      */
-    int EXTERNAL_VALUE = 30;
+    int EXTERNAL_VALUE = 31;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2494,7 +2576,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getSummariesConfiguration()
      * @generated
      */
-    int SUMMARIES_CONFIGURATION = 31;
+    int SUMMARIES_CONFIGURATION = 32;
 
     /**
      * The feature id for the '<em><b>Item Threshold</b></em>' attribute.
@@ -2531,7 +2613,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemInterceptor()
      * @generated
      */
-    int ITEM_INTERCEPTOR = 32;
+    int ITEM_INTERCEPTOR = 33;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -2568,7 +2650,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getRestInterceptor()
      * @generated
      */
-    int REST_INTERCEPTOR = 34;
+    int REST_INTERCEPTOR = 35;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -2623,7 +2705,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getGlobalizeComponent()
      * @generated
      */
-    int GLOBALIZE_COMPONENT = 35;
+    int GLOBALIZE_COMPONENT = 36;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2723,7 +2805,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTransientValue()
      * @generated
      */
-    int TRANSIENT_VALUE = 36;
+    int TRANSIENT_VALUE = 37;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2832,7 +2914,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getBufferedValue()
      * @generated
      */
-    int BUFFERED_VALUE = 38;
+    int BUFFERED_VALUE = 39;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2977,7 +3059,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getChangeCounter()
      * @generated
      */
-    int CHANGE_COUNTER = 39;
+    int CHANGE_COUNTER = 40;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3122,7 +3204,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 40;
+    int NOTIFICATION = 41;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4016,6 +4098,50 @@ public interface ComponentPackage extends EPackage
     EAttribute getScriptModule_ScriptEngine ();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ScriptModule#getInitScript <em>Init Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Init Script</em>'.
+     * @see org.eclipse.scada.configuration.component.ScriptModule#getInitScript()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EReference getScriptModule_InitScript ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ScriptModule#getUpdateScript <em>Update Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Update Script</em>'.
+     * @see org.eclipse.scada.configuration.component.ScriptModule#getUpdateScript()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EReference getScriptModule_UpdateScript ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ScriptModule#getWriteCommandScript <em>Write Command Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Write Command Script</em>'.
+     * @see org.eclipse.scada.configuration.component.ScriptModule#getWriteCommandScript()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EReference getScriptModule_WriteCommandScript ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.component.ScriptModule#getTimerScript <em>Timer Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Timer Script</em>'.
+     * @see org.eclipse.scada.configuration.component.ScriptModule#getTimerScript()
+     * @see #getScriptModule()
+     * @generated
+     */
+    EReference getScriptModule_TimerScript ();
+
+    /**
      * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ScriptModule#getKnownInputs() <em>Get Known Inputs</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4065,6 +4191,38 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EAttribute getScript_Code ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.TimerScript <em>Timer Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Timer Script</em>'.
+     * @see org.eclipse.scada.configuration.component.TimerScript
+     * @generated
+     */
+    EClass getTimerScript ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.TimerScript#getPeriod <em>Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Period</em>'.
+     * @see org.eclipse.scada.configuration.component.TimerScript#getPeriod()
+     * @see #getTimerScript()
+     * @generated
+     */
+    EAttribute getTimerScript_Period ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.TimerScript#getCode <em>Code</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Code</em>'.
+     * @see org.eclipse.scada.configuration.component.TimerScript#getCode()
+     * @see #getTimerScript()
+     * @generated
+     */
+    EAttribute getTimerScript_Code ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.AbsoluteDanglingReference <em>Absolute Dangling Reference</em>}'.
@@ -5201,6 +5359,38 @@ public interface ComponentPackage extends EPackage
         EAttribute SCRIPT_MODULE__SCRIPT_ENGINE = eINSTANCE.getScriptModule_ScriptEngine ();
 
         /**
+         * The meta object literal for the '<em><b>Init Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_MODULE__INIT_SCRIPT = eINSTANCE.getScriptModule_InitScript ();
+
+        /**
+         * The meta object literal for the '<em><b>Update Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_MODULE__UPDATE_SCRIPT = eINSTANCE.getScriptModule_UpdateScript ();
+
+        /**
+         * The meta object literal for the '<em><b>Write Command Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_MODULE__WRITE_COMMAND_SCRIPT = eINSTANCE.getScriptModule_WriteCommandScript ();
+
+        /**
+         * The meta object literal for the '<em><b>Timer Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SCRIPT_MODULE__TIMER_SCRIPT = eINSTANCE.getScriptModule_TimerScript ();
+
+        /**
          * The meta object literal for the '<em><b>Get Known Inputs</b></em>' operation.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5241,6 +5431,32 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute SCRIPT__CODE = eINSTANCE.getScript_Code ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.TimerScriptImpl <em>Timer Script</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.TimerScriptImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTimerScript()
+         * @generated
+         */
+        EClass TIMER_SCRIPT = eINSTANCE.getTimerScript ();
+
+        /**
+         * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TIMER_SCRIPT__PERIOD = eINSTANCE.getTimerScript_Period ();
+
+        /**
+         * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TIMER_SCRIPT__CODE = eINSTANCE.getTimerScript_Code ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.AbsoluteDanglingReferenceImpl <em>Absolute Dangling Reference</em>}' class.

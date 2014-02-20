@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.component.*;
 import org.eclipse.scada.configuration.component.AbsoluteDanglingReference;
 import org.eclipse.scada.configuration.component.AverageModule;
 import org.eclipse.scada.configuration.component.BufferedValue;
@@ -289,6 +290,12 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
         public Adapter caseScript ( Script object )
         {
             return createScriptAdapter ();
+        }
+
+        @Override
+        public Adapter caseTimerScript ( TimerScript object )
+        {
+            return createTimerScriptAdapter ();
         }
 
         @Override
@@ -874,6 +881,21 @@ public class ComponentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createScriptAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.TimerScript <em>Timer Script</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.TimerScript
+     * @generated
+     */
+    public Adapter createTimerScriptAdapter ()
     {
         return null;
     }

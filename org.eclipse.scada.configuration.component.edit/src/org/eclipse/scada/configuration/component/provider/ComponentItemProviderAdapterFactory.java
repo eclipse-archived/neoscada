@@ -602,6 +602,31 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.TimerScript} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TimerScriptItemProvider timerScriptItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.TimerScript}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTimerScriptAdapter ()
+    {
+        if ( timerScriptItemProvider == null )
+        {
+            timerScriptItemProvider = new TimerScriptItemProvider ( this );
+        }
+
+        return timerScriptItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.AbsoluteDanglingReference} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1032,6 +1057,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             scriptModuleItemProvider.dispose ();
         if ( scriptItemProvider != null )
             scriptItemProvider.dispose ();
+        if ( timerScriptItemProvider != null )
+            timerScriptItemProvider.dispose ();
         if ( absoluteDanglingReferenceItemProvider != null )
             absoluteDanglingReferenceItemProvider.dispose ();
         if ( componentDanglingReferenceItemProvider != null )

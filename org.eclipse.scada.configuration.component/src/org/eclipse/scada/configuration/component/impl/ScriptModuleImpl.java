@@ -26,8 +26,10 @@ import org.eclipse.scada.configuration.component.CalculationModule;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.OutputSpecification;
+import org.eclipse.scada.configuration.component.Script;
 import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
+import org.eclipse.scada.configuration.component.TimerScript;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,6 +45,10 @@ import org.eclipse.scada.configuration.component.Service;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getScriptEngine <em>Script Engine</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getInitScript <em>Init Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getUpdateScript <em>Update Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getWriteCommandScript <em>Write Command Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ScriptModuleImpl#getTimerScript <em>Timer Script</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,6 +135,46 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
      * @ordered
      */
     protected String scriptEngine = SCRIPT_ENGINE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getInitScript() <em>Init Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getInitScript()
+     * @generated
+     * @ordered
+     */
+    protected Script initScript;
+
+    /**
+     * The cached value of the '{@link #getUpdateScript() <em>Update Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getUpdateScript()
+     * @generated
+     * @ordered
+     */
+    protected Script updateScript;
+
+    /**
+     * The cached value of the '{@link #getWriteCommandScript() <em>Write Command Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getWriteCommandScript()
+     * @generated
+     * @ordered
+     */
+    protected Script writeCommandScript;
+
+    /**
+     * The cached value of the '{@link #getTimerScript() <em>Timer Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTimerScript()
+     * @generated
+     * @ordered
+     */
+    protected TimerScript timerScript;
 
     /**
      * <!-- begin-user-doc -->
@@ -255,6 +301,326 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
      * <!-- end-user-doc -->
      * @generated
      */
+    public Script getInitScript ()
+    {
+        if ( initScript != null && initScript.eIsProxy () )
+        {
+            InternalEObject oldInitScript = (InternalEObject)initScript;
+            initScript = (Script)eResolveProxy ( oldInitScript );
+            if ( initScript != oldInitScript )
+            {
+                InternalEObject newInitScript = (InternalEObject)initScript;
+                NotificationChain msgs = oldInitScript.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, null, null );
+                if ( newInitScript.eInternalContainer () == null )
+                {
+                    msgs = newInitScript.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, oldInitScript, initScript ) );
+            }
+        }
+        return initScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script basicGetInitScript ()
+    {
+        return initScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetInitScript ( Script newInitScript, NotificationChain msgs )
+    {
+        Script oldInitScript = initScript;
+        initScript = newInitScript;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, oldInitScript, newInitScript );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setInitScript ( Script newInitScript )
+    {
+        if ( newInitScript != initScript )
+        {
+            NotificationChain msgs = null;
+            if ( initScript != null )
+                msgs = ( (InternalEObject)initScript ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, null, msgs );
+            if ( newInitScript != null )
+                msgs = ( (InternalEObject)newInitScript ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, null, msgs );
+            msgs = basicSetInitScript ( newInitScript, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT, newInitScript, newInitScript ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script getUpdateScript ()
+    {
+        if ( updateScript != null && updateScript.eIsProxy () )
+        {
+            InternalEObject oldUpdateScript = (InternalEObject)updateScript;
+            updateScript = (Script)eResolveProxy ( oldUpdateScript );
+            if ( updateScript != oldUpdateScript )
+            {
+                InternalEObject newUpdateScript = (InternalEObject)updateScript;
+                NotificationChain msgs = oldUpdateScript.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, null, null );
+                if ( newUpdateScript.eInternalContainer () == null )
+                {
+                    msgs = newUpdateScript.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, oldUpdateScript, updateScript ) );
+            }
+        }
+        return updateScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script basicGetUpdateScript ()
+    {
+        return updateScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetUpdateScript ( Script newUpdateScript, NotificationChain msgs )
+    {
+        Script oldUpdateScript = updateScript;
+        updateScript = newUpdateScript;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, oldUpdateScript, newUpdateScript );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setUpdateScript ( Script newUpdateScript )
+    {
+        if ( newUpdateScript != updateScript )
+        {
+            NotificationChain msgs = null;
+            if ( updateScript != null )
+                msgs = ( (InternalEObject)updateScript ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, null, msgs );
+            if ( newUpdateScript != null )
+                msgs = ( (InternalEObject)newUpdateScript ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, null, msgs );
+            msgs = basicSetUpdateScript ( newUpdateScript, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT, newUpdateScript, newUpdateScript ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script getWriteCommandScript ()
+    {
+        if ( writeCommandScript != null && writeCommandScript.eIsProxy () )
+        {
+            InternalEObject oldWriteCommandScript = (InternalEObject)writeCommandScript;
+            writeCommandScript = (Script)eResolveProxy ( oldWriteCommandScript );
+            if ( writeCommandScript != oldWriteCommandScript )
+            {
+                InternalEObject newWriteCommandScript = (InternalEObject)writeCommandScript;
+                NotificationChain msgs = oldWriteCommandScript.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, null, null );
+                if ( newWriteCommandScript.eInternalContainer () == null )
+                {
+                    msgs = newWriteCommandScript.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, oldWriteCommandScript, writeCommandScript ) );
+            }
+        }
+        return writeCommandScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Script basicGetWriteCommandScript ()
+    {
+        return writeCommandScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetWriteCommandScript ( Script newWriteCommandScript, NotificationChain msgs )
+    {
+        Script oldWriteCommandScript = writeCommandScript;
+        writeCommandScript = newWriteCommandScript;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, oldWriteCommandScript, newWriteCommandScript );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setWriteCommandScript ( Script newWriteCommandScript )
+    {
+        if ( newWriteCommandScript != writeCommandScript )
+        {
+            NotificationChain msgs = null;
+            if ( writeCommandScript != null )
+                msgs = ( (InternalEObject)writeCommandScript ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, null, msgs );
+            if ( newWriteCommandScript != null )
+                msgs = ( (InternalEObject)newWriteCommandScript ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, null, msgs );
+            msgs = basicSetWriteCommandScript ( newWriteCommandScript, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT, newWriteCommandScript, newWriteCommandScript ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimerScript getTimerScript ()
+    {
+        if ( timerScript != null && timerScript.eIsProxy () )
+        {
+            InternalEObject oldTimerScript = (InternalEObject)timerScript;
+            timerScript = (TimerScript)eResolveProxy ( oldTimerScript );
+            if ( timerScript != oldTimerScript )
+            {
+                InternalEObject newTimerScript = (InternalEObject)timerScript;
+                NotificationChain msgs = oldTimerScript.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, null, null );
+                if ( newTimerScript.eInternalContainer () == null )
+                {
+                    msgs = newTimerScript.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, oldTimerScript, timerScript ) );
+            }
+        }
+        return timerScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimerScript basicGetTimerScript ()
+    {
+        return timerScript;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetTimerScript ( TimerScript newTimerScript, NotificationChain msgs )
+    {
+        TimerScript oldTimerScript = timerScript;
+        timerScript = newTimerScript;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, oldTimerScript, newTimerScript );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTimerScript ( TimerScript newTimerScript )
+    {
+        if ( newTimerScript != timerScript )
+        {
+            NotificationChain msgs = null;
+            if ( timerScript != null )
+                msgs = ( (InternalEObject)timerScript ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, null, msgs );
+            if ( newTimerScript != null )
+                msgs = ( (InternalEObject)newTimerScript ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, null, msgs );
+            msgs = basicSetTimerScript ( newTimerScript, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT, newTimerScript, newTimerScript ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EList<InputSpecification> getKnownInputs ()
     {
@@ -314,6 +680,14 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
                 return ( (InternalEList<?>)getInputs () ).basicRemove ( otherEnd, msgs );
             case ComponentPackage.SCRIPT_MODULE__OUTPUTS:
                 return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
+            case ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT:
+                return basicSetInitScript ( null, msgs );
+            case ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT:
+                return basicSetUpdateScript ( null, msgs );
+            case ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT:
+                return basicSetWriteCommandScript ( null, msgs );
+            case ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT:
+                return basicSetTimerScript ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -342,6 +716,22 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
                 return getOutputs ();
             case ComponentPackage.SCRIPT_MODULE__SCRIPT_ENGINE:
                 return getScriptEngine ();
+            case ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT:
+                if ( resolve )
+                    return getInitScript ();
+                return basicGetInitScript ();
+            case ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT:
+                if ( resolve )
+                    return getUpdateScript ();
+                return basicGetUpdateScript ();
+            case ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT:
+                if ( resolve )
+                    return getWriteCommandScript ();
+                return basicGetWriteCommandScript ();
+            case ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT:
+                if ( resolve )
+                    return getTimerScript ();
+                return basicGetTimerScript ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -374,6 +764,18 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
             case ComponentPackage.SCRIPT_MODULE__SCRIPT_ENGINE:
                 setScriptEngine ( (String)newValue );
                 return;
+            case ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT:
+                setInitScript ( (Script)newValue );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT:
+                setUpdateScript ( (Script)newValue );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT:
+                setWriteCommandScript ( (Script)newValue );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT:
+                setTimerScript ( (TimerScript)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -403,6 +805,18 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
             case ComponentPackage.SCRIPT_MODULE__SCRIPT_ENGINE:
                 setScriptEngine ( SCRIPT_ENGINE_EDEFAULT );
                 return;
+            case ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT:
+                setInitScript ( (Script)null );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT:
+                setUpdateScript ( (Script)null );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT:
+                setWriteCommandScript ( (Script)null );
+                return;
+            case ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT:
+                setTimerScript ( (TimerScript)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -431,6 +845,14 @@ public class ScriptModuleImpl extends MinimalEObjectImpl.Container implements Sc
                 return outputs != null && !outputs.isEmpty ();
             case ComponentPackage.SCRIPT_MODULE__SCRIPT_ENGINE:
                 return SCRIPT_ENGINE_EDEFAULT == null ? scriptEngine != null : !SCRIPT_ENGINE_EDEFAULT.equals ( scriptEngine );
+            case ComponentPackage.SCRIPT_MODULE__INIT_SCRIPT:
+                return initScript != null;
+            case ComponentPackage.SCRIPT_MODULE__UPDATE_SCRIPT:
+                return updateScript != null;
+            case ComponentPackage.SCRIPT_MODULE__WRITE_COMMAND_SCRIPT:
+                return writeCommandScript != null;
+            case ComponentPackage.SCRIPT_MODULE__TIMER_SCRIPT:
+                return timerScript != null;
         }
         return super.eIsSet ( featureID );
     }

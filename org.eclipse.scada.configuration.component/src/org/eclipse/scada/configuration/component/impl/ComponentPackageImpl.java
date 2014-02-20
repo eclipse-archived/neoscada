@@ -58,6 +58,7 @@ import org.eclipse.scada.configuration.component.ScriptModule;
 import org.eclipse.scada.configuration.component.Service;
 import org.eclipse.scada.configuration.component.SingleValue;
 import org.eclipse.scada.configuration.component.SummariesConfiguration;
+import org.eclipse.scada.configuration.component.TimerScript;
 import org.eclipse.scada.configuration.component.TransientValue;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.item.ItemPackage;
@@ -267,6 +268,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass scriptEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass timerScriptEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1271,6 +1279,46 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getScriptModule_InitScript ()
+    {
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getScriptModule_UpdateScript ()
+    {
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getScriptModule_WriteCommandScript ()
+    {
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getScriptModule_TimerScript ()
+    {
+        return (EReference)scriptModuleEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EOperation getScriptModule__GetKnownInputs ()
     {
         return scriptModuleEClass.getEOperations ().get ( 0 );
@@ -1314,6 +1362,36 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     public EAttribute getScript_Code ()
     {
         return (EAttribute)scriptEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getTimerScript ()
+    {
+        return timerScriptEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimerScript_Period ()
+    {
+        return (EAttribute)timerScriptEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTimerScript_Code ()
+    {
+        return (EAttribute)timerScriptEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -1817,12 +1895,20 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( scriptModuleEClass, SCRIPT_MODULE__INPUTS );
         createEReference ( scriptModuleEClass, SCRIPT_MODULE__OUTPUTS );
         createEAttribute ( scriptModuleEClass, SCRIPT_MODULE__SCRIPT_ENGINE );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__INIT_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__UPDATE_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__WRITE_COMMAND_SCRIPT );
+        createEReference ( scriptModuleEClass, SCRIPT_MODULE__TIMER_SCRIPT );
         createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_INPUTS );
         createEOperation ( scriptModuleEClass, SCRIPT_MODULE___CUSTOM_ENOTIFY__NOTIFICATION );
         createEOperation ( scriptModuleEClass, SCRIPT_MODULE___GET_KNOWN_OUTPUTS );
 
         scriptEClass = createEClass ( SCRIPT );
         createEAttribute ( scriptEClass, SCRIPT__CODE );
+
+        timerScriptEClass = createEClass ( TIMER_SCRIPT );
+        createEAttribute ( timerScriptEClass, TIMER_SCRIPT__PERIOD );
+        createEAttribute ( timerScriptEClass, TIMER_SCRIPT__CODE );
 
         absoluteDanglingReferenceEClass = createEClass ( ABSOLUTE_DANGLING_REFERENCE );
 
@@ -2066,6 +2152,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getScriptModule_Inputs (), this.getInputSpecification (), null, "inputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getScriptModule_Outputs (), this.getOutputSpecification (), null, "outputs", null, 0, -1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getScriptModule_ScriptEngine (), ecorePackage.getEString (), "scriptEngine", "JavaScript", 1, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getScriptModule_InitScript (), this.getScript (), null, "initScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_UpdateScript (), this.getScript (), null, "updateScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_WriteCommandScript (), this.getScript (), null, "writeCommandScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getScriptModule_TimerScript (), this.getTimerScript (), null, "timerScript", null, 0, 1, ScriptModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEOperation ( getScriptModule__GetKnownInputs (), this.getInputSpecification (), "getKnownInputs", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
@@ -2076,6 +2166,10 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         initEClass ( scriptEClass, Script.class, "Script", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getScript_Code (), ecorePackage.getEString (), "code", null, 1, 1, Script.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( timerScriptEClass, TimerScript.class, "TimerScript", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTimerScript_Period (), ecorePackage.getELong (), "period", "0", 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getTimerScript_Code (), ecorePackage.getEString (), "code", null, 1, 1, TimerScript.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( absoluteDanglingReferenceEClass, AbsoluteDanglingReference.class, "AbsoluteDanglingReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

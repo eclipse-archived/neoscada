@@ -211,6 +211,15 @@ public interface ComponentFactory extends EFactory
     Script createScript ();
 
     /**
+     * Returns a new object of class '<em>Timer Script</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Timer Script</em>'.
+     * @generated
+     */
+    TimerScript createTimerScript ();
+
+    /**
      * Returns a new object of class '<em>Absolute Dangling Reference</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -137,6 +137,8 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
                 return createScriptModule ();
             case ComponentPackage.SCRIPT:
                 return createScript ();
+            case ComponentPackage.TIMER_SCRIPT:
+                return createTimerScript ();
             case ComponentPackage.ABSOLUTE_DANGLING_REFERENCE:
                 return createAbsoluteDanglingReference ();
             case ComponentPackage.COMPONENT_DANGLING_REFERENCE:
@@ -410,6 +412,17 @@ public class ComponentFactoryImpl extends EFactoryImpl implements ComponentFacto
     {
         ScriptImpl script = new ScriptImpl ();
         return script;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TimerScript createTimerScript ()
+    {
+        TimerScriptImpl timerScript = new TimerScriptImpl ();
+        return timerScript;
     }
 
     /**

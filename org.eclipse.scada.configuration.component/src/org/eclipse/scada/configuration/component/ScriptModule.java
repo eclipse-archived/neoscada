@@ -25,6 +25,10 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getInputs <em>Inputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getOutputs <em>Outputs</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getScriptEngine <em>Script Engine</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getInitScript <em>Init Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getUpdateScript <em>Update Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getWriteCommandScript <em>Write Command Script</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ScriptModule#getTimerScript <em>Timer Script</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +96,110 @@ public interface ScriptModule extends NamedDocumentable, CalculationModule
      * @generated
      */
     void setScriptEngine ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Init Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Init Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Init Script</em>' containment reference.
+     * @see #setInitScript(Script)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_InitScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    Script getInitScript ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ScriptModule#getInitScript <em>Init Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Init Script</em>' containment reference.
+     * @see #getInitScript()
+     * @generated
+     */
+    void setInitScript ( Script value );
+
+    /**
+     * Returns the value of the '<em><b>Update Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Update Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Update Script</em>' containment reference.
+     * @see #setUpdateScript(Script)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_UpdateScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    Script getUpdateScript ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ScriptModule#getUpdateScript <em>Update Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Update Script</em>' containment reference.
+     * @see #getUpdateScript()
+     * @generated
+     */
+    void setUpdateScript ( Script value );
+
+    /**
+     * Returns the value of the '<em><b>Write Command Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Write Command Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Write Command Script</em>' containment reference.
+     * @see #setWriteCommandScript(Script)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_WriteCommandScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    Script getWriteCommandScript ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ScriptModule#getWriteCommandScript <em>Write Command Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Write Command Script</em>' containment reference.
+     * @see #getWriteCommandScript()
+     * @generated
+     */
+    void setWriteCommandScript ( Script value );
+
+    /**
+     * Returns the value of the '<em><b>Timer Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Timer Script</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Timer Script</em>' containment reference.
+     * @see #setTimerScript(TimerScript)
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getScriptModule_TimerScript()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    TimerScript getTimerScript ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.component.ScriptModule#getTimerScript <em>Timer Script</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Timer Script</em>' containment reference.
+     * @see #getTimerScript()
+     * @generated
+     */
+    void setTimerScript ( TimerScript value );
 
     /**
      * <!-- begin-user-doc -->
