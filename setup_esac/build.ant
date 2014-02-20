@@ -30,6 +30,12 @@
          ================================= -->
     <target name="clean">
         <delete dir="fetch" />
+        
+        <delete dir="setup_esac">
+            <include name="*.msi"/>
+            <include name="*.wixobj"/>
+            <include name="Scan.*.wxs"/>
+        </delete>
     </target>
 
     <!-- ================================= 
