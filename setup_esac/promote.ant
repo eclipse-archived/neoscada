@@ -13,6 +13,9 @@
     <property name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
     <property name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
     <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/lastSuccessfulBuild/artifact"/>
+    
+    <property name="download.root" location="/tmp"/>
+    <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildId}/msi"/>
 
     <!-- ================================= 
           target: default
@@ -41,6 +44,12 @@
           target: promote
          ================================= -->
     <target name="promote" depends="fetch" description="Promote to downloads directory">
+        <mkdir dir="${download.dir}"/>
+        <move todir="${download.dir}/">
+            <fileset dir="fetch">
+            	<include name="*.msi"/>
+            </fileset>
+        </move>
     </target>
 
 </project>
