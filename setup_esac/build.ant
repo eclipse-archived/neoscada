@@ -8,12 +8,13 @@
     </description>
 
     <property file="local.properties" />
-    <property file="build.properties" />
+    <property file="common.properties" />
 
-    <property name="version" value="0.1.0" />
-    <property name="buildId" value="S201401220726" />
-    <property name="versionSuffix" value="-M3" />
     <property name="visibleVersion" value="${version}${versionSuffix}" />
+    
+    <proprety name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
+    <proprety name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
+    <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/lastSuccessfulBuild/artifact"/>
 
     <property environment="env" />
 
@@ -22,7 +23,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,fetch,unpack,heat,build,sign,deploy">
+    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
     </target>
 
     <!-- ================================= 
@@ -150,11 +151,5 @@
             </exec>
         </sequential>
     </macrodef>
-
-    <!-- ================================= 
-          target: deploy
-         ================================= -->
-    <target name="deploy" description="Deploy to downloads directory" unless="skipDeploy">
-    </target>
 
 </project>

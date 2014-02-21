@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     
+     ====================================================================== -->
+<project name="project" default="default">
+    <description>
+        MSI Setup build for Eclipse SCADA Admin Client
+    </description>
+
+    <property file="local.properties" />
+    <property file="common.properties" />
+    
+    <proprety name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
+    <proprety name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
+    <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/lastSuccessfulBuild/artifact"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean,promote">
+    </target>
+
+    <!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="fetch" />
+    </target>
+
+	<!-- ================================= 
+          target: fetch
+         ================================= -->
+    <target name="fetch" description="Fetch signed MSI files from global hudson">
+        <mkdir dir="fetch"/>
+        
+        <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}-${versionSuffix}_x64.msi" />
+        <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}-${versionSuffix}_x86.msi" />
+    </target>
+    
+    <!-- ================================= 
+          target: promote
+         ================================= -->
+    <target name="promote" depends="fetch" description="Promote to downloads directory">
+    </target>
+
+</project>
