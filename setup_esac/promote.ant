@@ -10,8 +10,8 @@
     <property file="local.properties" />
     <property file="common.properties" />
     
-    <proprety name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
-    <proprety name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
+    <property name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
+    <property name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
     <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/lastSuccessfulBuild/artifact"/>
 
     <!-- ================================= 
