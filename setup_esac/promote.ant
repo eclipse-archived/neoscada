@@ -4,8 +4,16 @@
      ====================================================================== -->
 <project name="project" default="default">
     <description>
-        MSI Setup build for Eclipse SCADA Admin Client
+        Copy the MSI files from the global hudson to the download area
     </description>
+    
+    <!--
+    
+      This is a two step approach in order to only update the files
+      if they could be successfully downloaded from the global hudson
+      instance.
+    
+      -->
 
     <property file="local.properties" />
     <property file="common.properties" />
