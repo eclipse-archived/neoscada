@@ -14,10 +14,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The server exporter application starts a {@link Controller} with a specified configuration
- * file and lets it run 
+ * The server exporter application starts a {@link Controller} with a specified
+ * configuration
+ * file and lets it run
+ * 
  * @author Jens Reimann
- *
  */
 public class Application
 {
@@ -105,5 +106,18 @@ public class Application
                 logger.info ( "Still waiting for shutdown..." );
             }
         }
+    }
+
+    /**
+     * A wrapper method for {@link #stop()} <br/>
+     * This wrapper method is for procrun of Apache Commons Daemon, which
+     * requires also the stop method to accept properties
+     * 
+     * @param args
+     *            unused arguments
+     */
+    public static void stop ( final String[] args )
+    {
+        stop ();
     }
 }
