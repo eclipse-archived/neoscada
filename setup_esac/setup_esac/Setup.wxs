@@ -18,8 +18,8 @@
 			Compressed="yes"/>
 		
 		<!-- the setup icon -->
-		<Icon Id="setup.ico" SourceFile="resources\setup.ico"/>
-		<Property Id="ARPPRODUCTICON" Value="setup.ico" />
+		<Icon Id="setup.ico" SourceFile="resources\icon.ico"/>
+		<Property Id="ARPPRODUCTICON" Value="icon.ico" />
 		
 		<MajorUpgrade
 			AllowDowngrades="yes"/>
