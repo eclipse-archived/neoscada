@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -201,7 +201,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
     public void validateFile ( final IFile candidate, final ComposedAdapterFactory adapterFactory, final IProgressMonitor monitor )
     {
-        logger.debug ( "Validate file - file: {}", candidate );
+        logger.trace ( "Validate file - file: {}", candidate );
 
         try
         {
@@ -239,7 +239,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
     public boolean isModelFile ( final IFile candidate, final Set<String> extensions )
     {
         final String ext = candidate.getFileExtension ();
-        logger.debug ( "Is model file - file: {}, ext: {}, list: {}", candidate, ext, extensions );
+        logger.trace ( "Is model file - file: {}, ext: {}, list: {}", candidate, ext, extensions );
 
         if ( extensions.contains ( ext ) )
         {
@@ -251,7 +251,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
     public boolean handleResource ( final IResourceDelta delta, final IResource resource, final ComposedAdapterFactory adapterFactory, final Set<String> extensions, final IProgressMonitor monitor )
     {
-        logger.debug ( "Handle resource - file: {}", resource );
+        logger.trace ( "Handle resource - file: {}", resource );
 
         if ( resource instanceof IProject )
         {
