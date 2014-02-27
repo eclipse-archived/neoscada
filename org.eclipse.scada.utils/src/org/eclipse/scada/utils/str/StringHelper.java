@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - documentation
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
@@ -108,31 +109,47 @@ public class StringHelper
         return buffer.toString ();
     }
 
-    public static String toUpperFirst ( final String name )
+    /**
+     * Make the first character of a string uppercase
+     * 
+     * @param text
+     *            the string, may be <code>null</code>
+     * @return the result, or <code>null</code> if the input was
+     *         <code>null</code>
+     */
+    public static String toUpperFirst ( final String text )
     {
-        if ( name == null )
+        if ( text == null )
         {
             return null;
         }
-        if ( name.length () <= 1 )
+        if ( text.length () <= 1 )
         {
-            return name.toUpperCase ();
+            return text.toUpperCase ();
         }
 
-        return name.substring ( 0, 1 ).toUpperCase () + name.substring ( 1 );
+        return text.substring ( 0, 1 ).toUpperCase () + text.substring ( 1 );
     }
 
-    public static String toLowerFirst ( final String name )
+    /**
+     * Make the first character of a string lowercase
+     * 
+     * @param text
+     *            the string, may be <code>null</code>
+     * @return the result, or <code>null</code> if the input was
+     *         <code>null</code>
+     */
+    public static String toLowerFirst ( final String text )
     {
-        if ( name == null )
+        if ( text == null )
         {
             return null;
         }
-        if ( name.length () <= 1 )
+        if ( text.length () <= 1 )
         {
-            return name.toLowerCase ();
+            return text.toLowerCase ();
         }
 
-        return name.substring ( 0, 1 ).toLowerCase () + name.substring ( 1 );
+        return text.substring ( 0, 1 ).toLowerCase () + text.substring ( 1 );
     }
 }

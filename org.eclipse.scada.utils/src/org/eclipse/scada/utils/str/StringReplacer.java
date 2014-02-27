@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - further development
+ *     IBH SYSTEMS GmbH - more documentation
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
@@ -42,13 +43,18 @@ public class StringReplacer
         public String replace ( String context, String key );
     }
 
+    /**
+     * The default pattern: <code>${var}</code>
+     */
     public static final Pattern DEFAULT_PATTERN = Pattern.compile ( "\\$\\{(.*?)\\}" );
 
     /**
      * Replace with the default pattern of <code>${var}</code>
      * 
      * @param string
+     *            the string which should be processed, may be <code>null</code>
      * @param properties
+     *            the properties used for replacing
      * @return the source string with patterns replaced
      */
     public static String replace ( final String string, final Map<?, ?> properties )
