@@ -11,9 +11,9 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.osgi.autostart;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -102,24 +102,25 @@ public class Activator implements BundleActivator
 
     protected void loadStartLevels () throws IOException
     {
-        String fileName = System.getProperty ( "org.eclipse.scada.utils.osgi.autostart.file", null ); //$NON-NLS-1$
-        fileName = StringReplacer.replace ( fileName, System.getProperties () );
+        String location = System.getProperty ( "org.eclipse.scada.utils.osgi.autostart.file", null ); //$NON-NLS-1$
+        location = StringReplacer.replace ( location, System.getProperties () );
 
-        log ( LogService.LOG_INFO, String.format ( "Loading start bundles from: %s", fileName ) ); //$NON-NLS-1$
+        log ( LogService.LOG_INFO, String.format ( "Loading start bundles from: %s", location ) ); //$NON-NLS-1$
 
         this.bundleStartList.clear ();
 
-        if ( fileName == null )
+        if ( location == null )
         {
             return;
         }
 
-        final File file = new File ( fileName );
+        final URL url = new URL ( location );
+
         final Properties p = new Properties ();
 
-        try ( FileReader reader = new FileReader ( file ) )
+        try ( InputStream input = url.openStream () )
         {
-            p.load ( reader );
+            p.load ( input );
         }
 
         for ( final String key : p.stringPropertyNames () )
