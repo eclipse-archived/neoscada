@@ -15,12 +15,13 @@ import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.Charts;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
-import org.eclipse.scada.utils.codec.Base64;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.IViewSite;
@@ -29,7 +30,9 @@ import org.eclipse.ui.statushandlers.StatusManager;
 
 public class ChartView extends AbstractChartView
 {
-    public static final String VIEW_ID = "org.eclipse.scada.ui.chart.ChartView";
+    private static final String CHILD_CONFIGURATION = "configuration"; //$NON-NLS-1$
+
+    public static final String VIEW_ID = "org.eclipse.scada.ui.chart.ChartView"; //$NON-NLS-1$
 
     private Chart configuration;
 
@@ -57,7 +60,7 @@ public class ChartView extends AbstractChartView
             return;
         }
 
-        final IMemento child = memento.getChild ( "configuration" );
+        final IMemento child = memento.getChild ( CHILD_CONFIGURATION );
         if ( child == null )
         {
             return;
@@ -71,7 +74,7 @@ public class ChartView extends AbstractChartView
 
         try
         {
-            this.configuration = load ( new ByteArrayInputStream ( Base64.decode ( data ) ) );
+            this.configuration = load ( new ByteArrayInputStream ( Base64.decodeBase64 ( data ) ) );
         }
         catch ( final Exception e )
         {
@@ -98,9 +101,9 @@ public class ChartView extends AbstractChartView
         try
         {
             resource.save ( outputStream, options );
-            final IMemento child = memento.createChild ( "configuration" );
+            final IMemento child = memento.createChild ( CHILD_CONFIGURATION );
 
-            child.putTextData ( Base64.encodeBytes ( outputStream.toByteArray () ) );
+            child.putTextData ( StringUtils.newStringUtf8 ( Base64.encodeBase64 ( outputStream.toByteArray (), true ) ) );
         }
         catch ( final Exception e )
         {
