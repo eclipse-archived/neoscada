@@ -11,7 +11,8 @@ Export-Package: org.eclipse.scada.ca.servlet.jaxws;version="1.0.0";
    org.osgi.framework,
    org.eclipse.scada.sec"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: javax.jws,
+Import-Package: javax.annotation,
+ javax.jws,
  javax.xml.ws,
  org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.data;version="0.1.0",

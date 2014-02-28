@@ -6,7 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.datasource.script.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.scada.ae.event;version="0.1.0",
+Import-Package: javax.script,
+ org.eclipse.scada.ae.event;version="0.1.0",
  org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0",

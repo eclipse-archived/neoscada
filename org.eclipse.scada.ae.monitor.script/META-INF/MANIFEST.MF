@@ -7,6 +7,7 @@ Bundle-Activator: org.eclipse.scada.ae.monitor.script.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: com.google.common.collect;version="10.0.0",
+ javax.script,
  org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.data;version="0.1.0",
  org.eclipse.scada.ae.event;version="0.1.0",

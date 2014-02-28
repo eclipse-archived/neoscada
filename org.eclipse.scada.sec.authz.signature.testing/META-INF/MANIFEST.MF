@@ -7,5 +7,13 @@ Fragment-Host: org.eclipse.scada.sec.authz.signature;bundle-version="0.1.0"
 Require-Bundle: org.junit;bundle-version="4.8.0",
  com.google.guava;bundle-version="10.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.scada.utils.collection;version="0.1.0"
+Import-Package: javax.script,
+ javax.security.auth.x500,
+ javax.xml.crypto,
+ javax.xml.crypto.dsig,
+ javax.xml.parsers,
+ javax.xml.transform,
+ javax.xml.transform.dom,
+ javax.xml.transform.stream,
+ org.eclipse.scada.utils.collection;version="0.1.0"
 Bundle-Vendor: Eclipse SCADA Project

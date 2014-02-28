@@ -6,7 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.component.script.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.scada.ca;version="0.1.0",
+Import-Package: javax.script,
+ org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.client;version="0.1.0",
@@ -18,10 +19,10 @@ Import-Package: org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.da.connection.provider;version="0.1.0",
  org.eclipse.scada.da.core;version="0.1.0",
  org.eclipse.scada.da.server.common;version="0.1.0",
+ org.eclipse.scada.da.server.common.chain;version="0.1.0",
  org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.1.0",
  org.eclipse.scada.utils.osgi;version="0.1.0",
  org.eclipse.scada.utils.osgi.pool;version="0.1.0",
  org.eclipse.scada.utils.script;version="0.1.0",
- org.eclipse.scada.da.server.common.chain;version="0.1.0",
  org.osgi.framework;version="1.6.0"
