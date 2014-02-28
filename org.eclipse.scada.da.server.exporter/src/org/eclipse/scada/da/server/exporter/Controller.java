@@ -22,15 +22,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.scada.da.server.exporter.AnnouncerType;
-import org.eclipse.scada.da.server.exporter.ConfigurationType;
-import org.eclipse.scada.da.server.exporter.DocumentRoot;
-import org.eclipse.scada.da.server.exporter.ExportType;
-import org.eclipse.scada.da.server.exporter.ExporterPackage;
-import org.eclipse.scada.da.server.exporter.HiveType;
+import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.server.exporter.util.ExporterResourceFactoryImpl;
 import org.eclipse.scada.utils.init.ServiceLoaderProcessor;
-import org.eclipse.scada.da.core.server.Hive;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,18 +54,12 @@ public class Controller
         this ( parse ( URI.createFileURI ( file.toString () ) ) );
     }
 
-    /**
-     * @since 1.1
-     */
     public Controller ( final HiveFactory defaultHiveFactory, final ConfigurationType configuration ) throws ConfigurationException
     {
         this.defaultHiveFactory = defaultHiveFactory;
         configure ( configuration );
     }
 
-    /**
-     * @since 1.1
-     */
     public Controller ( final HiveFactory defaultHiveFactory, final URL url ) throws ConfigurationException
     {
         this ( defaultHiveFactory, parse ( URI.createURI ( url.toString () ) ).getConfiguration () );

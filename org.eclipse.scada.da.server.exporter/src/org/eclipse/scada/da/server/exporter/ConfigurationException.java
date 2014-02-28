@@ -19,9 +19,6 @@ public class ConfigurationException extends Exception
         super ( message, error );
     }
 
-    /**
-     * @since 1.2.0
-     */
     public ConfigurationException ( final String message )
     {
         super ( message );
