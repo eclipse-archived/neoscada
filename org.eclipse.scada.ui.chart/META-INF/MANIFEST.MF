@@ -44,7 +44,6 @@ Import-Package: org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.subscription;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",
  org.eclipse.scada.utils.beans;version="0.1.0",
- org.eclipse.scada.utils.codec;version="0.1.0",
  org.eclipse.scada.utils.script;version="0.1.0",
  org.slf4j;version="1.5.0",
  org.slf4j.profiler;version="1.6.0"
