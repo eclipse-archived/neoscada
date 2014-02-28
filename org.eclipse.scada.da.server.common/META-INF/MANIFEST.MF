@@ -57,7 +57,8 @@ Export-Package: org.eclipse.scada.da.server.browser.common;version="0.1.0";uses:
    org.eclipse.scada.da.server.browser.common"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.core;version="0.1.0",
+Import-Package: javax.management;resolution:=optional,
+ org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.server;version="0.1.0",
  org.eclipse.scada.core.server.common;version="0.1.0",
