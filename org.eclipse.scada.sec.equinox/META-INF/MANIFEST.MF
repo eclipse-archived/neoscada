@@ -6,7 +6,10 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security Equinox JAAS Integration (Incubation)
 Bundle-Activator: org.eclipse.scada.sec.equinox.Activator
 Bundle-ManifestVersion: 2
-Import-Package: javax.security.auth.spi,
+Import-Package: javax.security.auth,
+ javax.security.auth.callback,
+ javax.security.auth.login,
+ javax.security.auth.spi,
  org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.sec.callback;version="0.1.0",
  org.eclipse.scada.sec.osgi;version="0.1.0",

@@ -13,7 +13,8 @@ Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Security (Incubation)
 Bundle-ManifestVersion: 2
-Import-Package: org.eclipse.scada.sec.utils.password;version="0.1.0",
+Import-Package: javax.security.auth.callback,
+ org.eclipse.scada.sec.utils.password;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.1.0",
  org.eclipse.scada.utils.lang;version="0.1.0",
  org.eclipse.scada.utils.statuscodes;version="0.1.0",
