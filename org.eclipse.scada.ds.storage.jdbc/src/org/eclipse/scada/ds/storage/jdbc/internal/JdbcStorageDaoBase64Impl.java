@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,10 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use Base64 from Apache Commons Codec
  *******************************************************************************/
 package org.eclipse.scada.ds.storage.jdbc.internal;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,8 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.StringUtils;
 import org.eclipse.scada.ds.DataNode;
-import org.eclipse.scada.utils.codec.Base64;
 import org.eclipse.scada.utils.osgi.jdbc.CommonConnectionAccessor;
 import org.eclipse.scada.utils.osgi.jdbc.DataSourceConnectionAccessor;
 import org.eclipse.scada.utils.osgi.jdbc.pool.PoolConnectionAccessor;
@@ -86,14 +87,7 @@ public class JdbcStorageDaoBase64Impl implements JdbcStorageDao
 
         private void appendCurrent ()
         {
-            try
-            {
-                this.result.add ( new DataNode ( this.currentNodeId, Base64.decode ( this.dataBuilder.toString () ) ) );
-            }
-            catch ( final IOException e )
-            {
-                logger.warn ( "Failed to convert data node" );
-            }
+            this.result.add ( new DataNode ( this.currentNodeId, Base64.decodeBase64 ( this.dataBuilder.toString () ) ) );
         }
 
     }
@@ -148,17 +142,10 @@ public class JdbcStorageDaoBase64Impl implements JdbcStorageDao
             {
                 sb.append ( entry );
             }
-            try
-            {
-                final String data = sb.toString ();
-                logger.debug ( "Read: {}", data );
-                return new DataNode ( nodeId, Base64.decode ( data ) );
-            }
-            catch ( final IOException e )
-            {
-                logger.warn ( "Failed to decode data node", e );
-                return null;
-            }
+
+            final String data = sb.toString ();
+            logger.debug ( "Read: {}", data );
+            return new DataNode ( nodeId, Base64.decodeBase64 ( data ) );
         }
     }
 
@@ -219,7 +206,7 @@ public class JdbcStorageDaoBase64Impl implements JdbcStorageDao
 
         if ( node != null && node.getData () != null )
         {
-            data = Base64.encodeBytes ( node.getData () );
+            data = StringUtils.newStringUtf8 ( Base64.encodeBase64 ( node.getData (), true ) );
         }
         else
         {
