@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Equinox Daemon Fragment
+Bundle-SymbolicName: org.eclipse.scada.utils.equinox.daemon
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: org.eclipse.osgi;bundle-version="3.9.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Eclipse SCADA Project
