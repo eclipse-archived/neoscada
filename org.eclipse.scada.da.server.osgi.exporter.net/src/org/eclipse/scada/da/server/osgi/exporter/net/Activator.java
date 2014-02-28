@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,13 +7,14 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix resource leak
  *******************************************************************************/
 package org.eclipse.scada.da.server.osgi.exporter.net;
 
 import org.eclipse.scada.core.ConnectionInformation;
-import org.eclipse.scada.da.server.net.Exporter;
 import org.eclipse.scada.core.server.exporter.ExporterInformation;
 import org.eclipse.scada.da.core.server.Hive;
+import org.eclipse.scada.da.server.net.Exporter;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -173,6 +174,12 @@ public class Activator implements BundleActivator
         {
             this.exporterHandle.unregister ();
             this.exporterHandle = null;
+        }
+
+        if ( this.exporter != null )
+        {
+            this.exporter.stop ();
+            this.exporter = null;
         }
 
         context.removeServiceListener ( this.listener );
