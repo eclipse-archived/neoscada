@@ -62,6 +62,5 @@
 
 		<module>../org.eclipse.scada.utils.doc.isv</module>
 		<module>../org.eclipse.scada.utils.osgi.daemon</module>
-		<module>../org.eclipse.scada.utils.equinox.daemon</module>
 	</modules>
 </project>
