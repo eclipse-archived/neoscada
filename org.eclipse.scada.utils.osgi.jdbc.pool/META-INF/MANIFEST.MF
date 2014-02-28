@@ -5,11 +5,14 @@ Bundle-Vendor: Eclipse SCADA Project
 Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Connection Pool (Incubation)
 Bundle-ManifestVersion: 2
-Import-Package: org.apache.commons.dbcp;version="1.4.0",org.apache.com
- mons.dbcp.datasources;version="1.4.0",org.apache.commons.pool;version
- ="1.6.0",org.apache.commons.pool.impl;version="1.6.0",org.eclipse.sca
- da.utils.osgi.jdbc;version="0.1.0",org.osgi.service.jdbc;version="1.0
- .0",org.slf4j;version="1.5.0"
+Import-Package: javax.sql,
+ org.apache.commons.dbcp;version="1.4.0",
+ org.apache.commons.dbcp.datasources;version="1.4.0",
+ org.apache.commons.pool;version="1.6.0",
+ org.apache.commons.pool.impl;version="1.6.0",
+ org.eclipse.scada.utils.osgi.jdbc;version="0.1.0",
+ org.osgi.service.jdbc;version="1.0.0",
+ org.slf4j;version="1.5.0"
 Bundle-SymbolicName: org.eclipse.scada.utils.osgi.jdbc.pool
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 
