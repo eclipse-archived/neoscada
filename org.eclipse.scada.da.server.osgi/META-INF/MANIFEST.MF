@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.eclipse.scada.da.server.osgi
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.server.osgi.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.server;version="0.1.0",
@@ -30,4 +30,4 @@ Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.utils.osgi.pool;version="0.1.0",
  org.eclipse.scada.utils.statuscodes;version="0.1.0",
  org.osgi.framework;version="1.3.0",
- org.slf4j;version="1.5.8"
+ org.slf4j;version="1.7.0"
