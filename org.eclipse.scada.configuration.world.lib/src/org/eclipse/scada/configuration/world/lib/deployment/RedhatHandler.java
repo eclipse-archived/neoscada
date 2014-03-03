@@ -37,7 +37,7 @@ import org.eclipse.scada.utils.str.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RedhatHandler extends CommonHandler
+public class RedhatHandler extends CommonPackageHandler
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( RedhatHandler.class );
@@ -86,6 +86,7 @@ public class RedhatHandler extends CommonHandler
         replacements.put ( "depends", makeDependencies () );
         replacements.put ( "preun", makeStop () ); //$NON-NLS-1$
         replacements.put ( "post", makePost () ); //$NON-NLS-1$
+        replacements.put ( "license", this.deploy.getLicense () ); //$NON-NLS-1$
 
         final File specFile = new File ( specsDir, packageName + ".spec" ); //$NON-NLS-1$
         Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );

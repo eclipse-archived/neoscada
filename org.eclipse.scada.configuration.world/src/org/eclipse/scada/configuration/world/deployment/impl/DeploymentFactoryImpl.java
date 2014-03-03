@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,12 +10,15 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.deployment.impl;
 
+import java.util.UUID;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.world.deployment.Architecture;
 import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
@@ -24,7 +27,9 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
 import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
 
@@ -32,6 +37,7 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class DeploymentFactoryImpl extends EFactoryImpl implements
@@ -41,19 +47,20 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static DeploymentFactory init ()
     {
         try
         {
-            DeploymentFactory theDeploymentFactory = (DeploymentFactory)EPackage.Registry.INSTANCE.getEFactory ( DeploymentPackage.eNS_URI );
+            final DeploymentFactory theDeploymentFactory = (DeploymentFactory)EPackage.Registry.INSTANCE.getEFactory ( DeploymentPackage.eNS_URI );
             if ( theDeploymentFactory != null )
             {
                 return theDeploymentFactory;
             }
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -64,6 +71,7 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public DeploymentFactoryImpl ()
@@ -74,10 +82,11 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public EObject create ( EClass eClass )
+    public EObject create ( final EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -97,6 +106,10 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
                 return createExpressionNodeMappingEntry ();
             case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY:
                 return createSimpleNodeMappingEntry ();
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM:
+                return createMsiDeploymentMechanism ();
+            case DeploymentPackage.P2_PLATFORM:
+                return createP2Platform ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -105,15 +118,18 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object createFromString ( EDataType eDataType, String initialValue )
+    public Object createFromString ( final EDataType eDataType, final String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
             case DeploymentPackage.FALLBACK_NODE_MAPPING_MODE:
                 return createFallbackNodeMappingModeFromString ( eDataType, initialValue );
+            case DeploymentPackage.ARCHITECTURE:
+                return createArchitectureFromString ( eDataType, initialValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -122,15 +138,18 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String convertToString ( EDataType eDataType, Object instanceValue )
+    public String convertToString ( final EDataType eDataType, final Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
             case DeploymentPackage.FALLBACK_NODE_MAPPING_MODE:
                 return convertFallbackNodeMappingModeToString ( eDataType, instanceValue );
+            case DeploymentPackage.ARCHITECTURE:
+                return convertArchitectureToString ( eDataType, instanceValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -139,48 +158,52 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public DebianDeploymentMechanism createDebianDeploymentMechanism ()
     {
-        DebianDeploymentMechanismImpl debianDeploymentMechanism = new DebianDeploymentMechanismImpl ();
+        final DebianDeploymentMechanismImpl debianDeploymentMechanism = new DebianDeploymentMechanismImpl ();
         return debianDeploymentMechanism;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Author createAuthor ()
     {
-        AuthorImpl author = new AuthorImpl ();
+        final AuthorImpl author = new AuthorImpl ();
         return author;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public RedhatDeploymentMechanism createRedhatDeploymentMechanism ()
     {
-        RedhatDeploymentMechanismImpl redhatDeploymentMechanism = new RedhatDeploymentMechanismImpl ();
+        final RedhatDeploymentMechanismImpl redhatDeploymentMechanism = new RedhatDeploymentMechanismImpl ();
         return redhatDeploymentMechanism;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public DeploymentInformation createDeploymentInformation ()
     {
-        DeploymentInformationImpl deploymentInformation = new DeploymentInformationImpl ();
+        final DeploymentInformationImpl deploymentInformation = new DeploymentInformationImpl ();
         return deploymentInformation;
     }
 
@@ -201,57 +224,96 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public NodeMappings createNodeMappings ()
     {
-        NodeMappingsImpl nodeMappings = new NodeMappingsImpl ();
+        final NodeMappingsImpl nodeMappings = new NodeMappingsImpl ();
         return nodeMappings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public ExpressionNodeMappingEntry createExpressionNodeMappingEntry ()
     {
-        ExpressionNodeMappingEntryImpl expressionNodeMappingEntry = new ExpressionNodeMappingEntryImpl ();
+        final ExpressionNodeMappingEntryImpl expressionNodeMappingEntry = new ExpressionNodeMappingEntryImpl ();
         return expressionNodeMappingEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public SimpleNodeMappingEntry createSimpleNodeMappingEntry ()
     {
-        SimpleNodeMappingEntryImpl simpleNodeMappingEntry = new SimpleNodeMappingEntryImpl ();
+        final SimpleNodeMappingEntryImpl simpleNodeMappingEntry = new SimpleNodeMappingEntryImpl ();
         return simpleNodeMappingEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public MsiDeploymentMechanism createMsiDeploymentMechanism ()
+    {
+        final MsiDeploymentMechanismImpl msiDeploymentMechanism = new MsiDeploymentMechanismImpl ();
+
+        // we initialize this with a random UUID
+        msiDeploymentMechanism.setUpgradeCode ( UUID.randomUUID ().toString () );
+
+        return msiDeploymentMechanism;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public P2Platform createP2Platform ()
+    {
+        final P2PlatformImpl p2Platform = new P2PlatformImpl ();
+        return p2Platform;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public FallbackNodeMappingMode createFallbackNodeMappingModeFromString (
-            EDataType eDataType, String initialValue )
+            final EDataType eDataType, final String initialValue )
     {
-        FallbackNodeMappingMode result = FallbackNodeMappingMode.get ( initialValue );
+        final FallbackNodeMappingMode result = FallbackNodeMappingMode.get ( initialValue );
         if ( result == null )
+        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public String convertFallbackNodeMappingModeToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertFallbackNodeMappingModeToString ( final EDataType eDataType, final Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -259,6 +321,34 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public Architecture createArchitectureFromString ( final EDataType eDataType, final String initialValue )
+    {
+        final Architecture result = Architecture.get ( initialValue );
+        if ( result == null )
+        {
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        }
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public String convertArchitectureToString ( final EDataType eDataType, final Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -270,6 +360,7 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

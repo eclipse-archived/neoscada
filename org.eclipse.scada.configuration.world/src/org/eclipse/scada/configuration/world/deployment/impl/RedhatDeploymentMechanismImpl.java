@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,25 +10,59 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.deployment.impl;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Redhat Deployment Mechanism</b></em>'.
+ * An implementation of the model object '
+ * <em><b>Redhat Deployment Mechanism</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.deployment.impl.RedhatDeploymentMechanismImpl#getLicense
+ * <em>License</em>}</li>
+ * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RedhatDeploymentMechanismImpl extends
         CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism
 {
     /**
+     * The default value of the '{@link #getLicense() <em>License</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @see #getLicense()
+     * @generated
+     * @ordered
+     */
+    protected static final String LICENSE_EDEFAULT = "other"; //$NON-NLS-1$
+
+    /**
+     * The cached value of the '{@link #getLicense() <em>License</em>}'
+     * attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getLicense()
+     * @generated
+     * @ordered
+     */
+    protected String license = LICENSE_EDEFAULT;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected RedhatDeploymentMechanismImpl ()
@@ -39,12 +73,133 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected EClass eStaticClass ()
     {
         return DeploymentPackage.Literals.REDHAT_DEPLOYMENT_MECHANISM;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String getLicense ()
+    {
+        return this.license;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setLicense ( final String newLicense )
+    {
+        final String oldLicense = this.license;
+        this.license = newLicense;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, oldLicense, this.license ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE:
+                return getLicense ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void eSet ( final int featureID, final Object newValue )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE:
+                setLicense ( (String)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void eUnset ( final int featureID )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE:
+                setLicense ( LICENSE_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( final int featureID )
+    {
+        switch ( featureID )
+        {
+            case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE:
+                return LICENSE_EDEFAULT == null ? this.license != null : !LICENSE_EDEFAULT.equals ( this.license );
+        }
+        return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+        {
+            return super.toString ();
+        }
+
+        final StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (license: " ); //$NON-NLS-1$
+        result.append ( this.license );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //RedhatDeploymentMechanismImpl

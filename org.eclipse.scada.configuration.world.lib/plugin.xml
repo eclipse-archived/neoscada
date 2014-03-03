@@ -24,6 +24,9 @@
          <forClass
                class="org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism">
          </forClass>
+         <forClass
+               class="org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism">
+         </forClass>
       </nodeElementProcessor>
    </extension>
    <extension

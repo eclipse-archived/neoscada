@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.world.deployment.Architecture;
 import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
@@ -29,8 +30,10 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
 import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
 import org.eclipse.scada.configuration.world.impl.WorldPackageImpl;
@@ -131,7 +134,28 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass msiDeploymentMechanismEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass p2PlatformEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum fallbackNodeMappingModeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum architectureEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -278,6 +302,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
     public EClass getRedhatDeploymentMechanism ()
     {
         return redhatDeploymentMechanismEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getRedhatDeploymentMechanism_License ()
+    {
+        return (EAttribute)redhatDeploymentMechanismEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -526,10 +560,110 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getMsiDeploymentMechanism ()
+    {
+        return msiDeploymentMechanismEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMsiDeploymentMechanism_Version ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMsiDeploymentMechanism_UpgradeCode ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMsiDeploymentMechanism_Manufacturer ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMsiDeploymentMechanism_SharedPlatform ()
+    {
+        return (EReference)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getMsiDeploymentMechanism_LocalPlatform ()
+    {
+        return (EReference)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMsiDeploymentMechanism_Architecture ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getP2Platform ()
+    {
+        return p2PlatformEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getP2Platform_Repositories ()
+    {
+        return (EAttribute)p2PlatformEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getFallbackNodeMappingMode ()
     {
         return fallbackNodeMappingModeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getArchitecture ()
+    {
+        return architectureEEnum;
     }
 
     /**
@@ -573,6 +707,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEAttribute ( authorEClass, AUTHOR__EMAIL );
 
         redhatDeploymentMechanismEClass = createEClass ( REDHAT_DEPLOYMENT_MECHANISM );
+        createEAttribute ( redhatDeploymentMechanismEClass, REDHAT_DEPLOYMENT_MECHANISM__LICENSE );
 
         deploymentInformationEClass = createEClass ( DEPLOYMENT_INFORMATION );
         createEReference ( deploymentInformationEClass, DEPLOYMENT_INFORMATION__AUTHORS );
@@ -603,8 +738,20 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEAttribute ( simpleNodeMappingEntryEClass, SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME );
         createEAttribute ( simpleNodeMappingEntryEClass, SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME );
 
+        msiDeploymentMechanismEClass = createEClass ( MSI_DEPLOYMENT_MECHANISM );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__VERSION );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__UPGRADE_CODE );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__MANUFACTURER );
+        createEReference ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__SHARED_PLATFORM );
+        createEReference ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE );
+
+        p2PlatformEClass = createEClass ( P2_PLATFORM );
+        createEAttribute ( p2PlatformEClass, P2_PLATFORM__REPOSITORIES );
+
         // Create enums
         fallbackNodeMappingModeEEnum = createEEnum ( FALLBACK_NODE_MAPPING_MODE );
+        architectureEEnum = createEEnum ( ARCHITECTURE );
     }
 
     /**
@@ -645,6 +792,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         commonDeploymentMechanismEClass.getESuperTypes ().add ( this.getDeploymentMechanism () );
         expressionNodeMappingEntryEClass.getESuperTypes ().add ( this.getNodeMappingEntry () );
         simpleNodeMappingEntryEClass.getESuperTypes ().add ( this.getNodeMappingEntry () );
+        msiDeploymentMechanismEClass.getESuperTypes ().add ( this.getDeploymentMechanism () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( deploymentMechanismEClass, DeploymentMechanism.class, "DeploymentMechanism", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -656,6 +804,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEAttribute ( getAuthor_Email (), ecorePackage.getEString (), "email", null, 1, 1, Author.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( redhatDeploymentMechanismEClass, RedhatDeploymentMechanism.class, "RedhatDeploymentMechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getRedhatDeploymentMechanism_License (), ecorePackage.getEString (), "license", "other", 1, 1, RedhatDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( deploymentInformationEClass, DeploymentInformation.class, "DeploymentInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getDeploymentInformation_Authors (), this.getAuthor (), null, "authors", null, 0, -1, DeploymentInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -690,10 +839,25 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEAttribute ( getSimpleNodeMappingEntry_FromHostName (), ecorePackage.getEString (), "fromHostName", null, 1, 1, SimpleNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSimpleNodeMappingEntry_ToHostName (), ecorePackage.getEString (), "toHostName", null, 1, 1, SimpleNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEClass ( msiDeploymentMechanismEClass, MsiDeploymentMechanism.class, "MsiDeploymentMechanism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMsiDeploymentMechanism_Version (), ecorePackage.getEString (), "version", null, 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMsiDeploymentMechanism_UpgradeCode (), ecorePackage.getEString (), "upgradeCode", null, 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMsiDeploymentMechanism_Manufacturer (), ecorePackage.getEString (), "manufacturer", "Eclipse SCADA", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getMsiDeploymentMechanism_SharedPlatform (), this.getP2Platform (), null, "sharedPlatform", null, 0, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getMsiDeploymentMechanism_LocalPlatform (), this.getP2Platform (), null, "localPlatform", null, 0, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMsiDeploymentMechanism_Architecture (), this.getArchitecture (), "architecture", "i386", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( p2PlatformEClass, P2Platform.class, "P2Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getP2Platform_Repositories (), ecorePackage.getEString (), "repositories", null, 0, -1, P2Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.class, "FallbackNodeMappingMode" ); //$NON-NLS-1$
         addEEnumLiteral ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.FAIL );
         addEEnumLiteral ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.IGNORE );
+
+        initEEnum ( architectureEEnum, Architecture.class, "Architecture" ); //$NON-NLS-1$
+        addEEnumLiteral ( architectureEEnum, Architecture.I386 );
+        addEEnumLiteral ( architectureEEnum, Architecture.AMD64 );
     }
 
 } //DeploymentPackageImpl

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,35 +47,35 @@ public class P2ProfileProcessor
 
     private void processProfile ( final File output ) throws IOException
     {
-        final Profile profile = makeProfile ();
+        final Profile profile = makeProfile ( this.app );
 
-        final File profileFile = new File ( output, this.app.getName () + ".profile.xml" );
+        final File profileFile = new File ( output, this.app.getName () + ".profile.xml" ); //$NON-NLS-1$
 
         final ResourceSet rs = new ResourceSetImpl ();
         final Resource r = rs.createResource ( URI.createFileURI ( profileFile.toString () ) );
         r.getContents ().add ( EcoreUtil.copy ( profile ) );
 
         final Map<Object, Object> options = new HashMap<> ();
-        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" );
+        options.put ( XMLResource.OPTION_ENCODING, "UTF-8" ); //$NON-NLS-1$
 
         r.save ( options );
     }
 
-    private Profile makeProfile ()
+    public static Profile makeProfile ( final EquinoxApplication app )
     {
-        final Profile profile = flatten ( EcoreUtil.copy ( this.app.getProfile () ) );
+        final Profile profile = flatten ( EcoreUtil.copy ( app.getProfile () ) );
 
         if ( profile == null )
         {
             throw new IllegalStateException ( "Application implemenation did not return a profile" );
         }
 
-        if ( this.app.getCustomizationProfile () != null )
+        if ( app.getCustomizationProfile () != null )
         {
-            mergeIntoProfile ( flatten ( EcoreUtil.copy ( this.app.getCustomizationProfile () ) ), profile );
+            mergeIntoProfile ( flatten ( EcoreUtil.copy ( app.getCustomizationProfile () ) ), profile );
         }
 
-        profile.setName ( String.format ( "Custom profile for %s on node %s", this.app.getName (), Nodes.fromApp ( this.app ).getHostName () ) );
+        profile.setName ( String.format ( "Custom profile for %s on node %s", app.getName (), Nodes.fromApp ( app ).getHostName () ) );
         profile.setDescription ( null );
 
         // finally clear null system properties
@@ -84,7 +84,7 @@ public class P2ProfileProcessor
         return profile;
     }
 
-    void clearNulls ( final Profile profile )
+    protected static void clearNulls ( final Profile profile )
     {
         for ( final Iterator<SystemProperty> i = profile.getProperty ().iterator (); i.hasNext (); )
         {
@@ -96,7 +96,7 @@ public class P2ProfileProcessor
         }
     }
 
-    static Profile flatten ( final Profile profile )
+    public static Profile flatten ( final Profile profile )
     {
         flatten ( profile, profile.getIncludes () );
         profile.getIncludes ().clear ();

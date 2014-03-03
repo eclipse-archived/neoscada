@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
@@ -43,19 +44,20 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static WorldFactory init ()
     {
         try
         {
-            WorldFactory theWorldFactory = (WorldFactory)EPackage.Registry.INSTANCE.getEFactory ( WorldPackage.eNS_URI );
+            final WorldFactory theWorldFactory = (WorldFactory)EPackage.Registry.INSTANCE.getEFactory ( WorldPackage.eNS_URI );
             if ( theWorldFactory != null )
             {
                 return theWorldFactory;
             }
         }
-        catch ( Exception exception )
+        catch ( final Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -66,6 +68,7 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public WorldFactoryImpl ()
@@ -76,10 +79,11 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public EObject create ( EClass eClass )
+    public EObject create ( final EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -111,10 +115,11 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object createFromString ( EDataType eDataType, String initialValue )
+    public Object createFromString ( final EDataType eDataType, final String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -128,10 +133,11 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String convertToString ( EDataType eDataType, Object instanceValue )
+    public String convertToString ( final EDataType eDataType, final Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -145,117 +151,130 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public World createWorld ()
     {
-        WorldImpl world = new WorldImpl ();
+        final WorldImpl world = new WorldImpl ();
         return world;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ApplicationNode createApplicationNode ()
     {
-        ApplicationNodeImpl applicationNode = new ApplicationNodeImpl ();
+        final ApplicationNodeImpl applicationNode = new ApplicationNodeImpl ();
         return applicationNode;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Endpoint createEndpoint ()
     {
-        EndpointImpl endpoint = new EndpointImpl ();
+        final EndpointImpl endpoint = new EndpointImpl ();
         return endpoint;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ExecDriver createExecDriver ()
     {
-        ExecDriverImpl execDriver = new ExecDriverImpl ();
+        final ExecDriverImpl execDriver = new ExecDriverImpl ();
         return execDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public HandlerPriorityRule createHandlerPriorityRule ()
     {
-        HandlerPriorityRuleImpl handlerPriorityRule = new HandlerPriorityRuleImpl ();
+        final HandlerPriorityRuleImpl handlerPriorityRule = new HandlerPriorityRuleImpl ();
         return handlerPriorityRule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public MasterHandlerPriorities createMasterHandlerPriorities ()
     {
-        MasterHandlerPrioritiesImpl masterHandlerPriorities = new MasterHandlerPrioritiesImpl ();
+        final MasterHandlerPrioritiesImpl masterHandlerPriorities = new MasterHandlerPrioritiesImpl ();
         return masterHandlerPriorities;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Options createOptions ()
     {
-        OptionsImpl options = new OptionsImpl ();
+        final OptionsImpl options = new OptionsImpl ();
         return options;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public UsernamePasswordCredentials createUsernamePasswordCredentials ()
     {
-        UsernamePasswordCredentialsImpl usernamePasswordCredentials = new UsernamePasswordCredentialsImpl ();
+        final UsernamePasswordCredentialsImpl usernamePasswordCredentials = new UsernamePasswordCredentialsImpl ();
         return usernamePasswordCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public PasswordCredentials createPasswordCredentials ()
     {
-        PasswordCredentialsImpl passwordCredentials = new PasswordCredentialsImpl ();
+        final PasswordCredentialsImpl passwordCredentials = new PasswordCredentialsImpl ();
         return passwordCredentials;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public ExternalNode createExternalNode ()
     {
-        ExternalNodeImpl externalNode = new ExternalNodeImpl ();
+        final ExternalNodeImpl externalNode = new ExternalNodeImpl ();
         return externalNode;
     }
 
@@ -274,10 +293,11 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public String convertPatternToString ( EDataType eDataType,
-            Object instanceValue )
+    public String convertPatternToString ( final EDataType eDataType,
+            final Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
@@ -285,8 +305,10 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public WorldPackage getWorldPackage ()
     {
         return (WorldPackage)getEPackage ();
@@ -295,6 +317,7 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

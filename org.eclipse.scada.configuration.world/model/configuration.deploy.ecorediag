@@ -19,10 +19,6 @@
   <children xmi:type="notation:Node" xmi:id="_JSgkaVzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_JShLclzEEeOjNJTT7hEYrg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_JShLc1zEEeOjNJTT7hEYrg" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_JShygFzEEeOjNJTT7hEYrg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/DebianDeploymentMechanism/additionalDependencies"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_JShygVzEEeOjNJTT7hEYrg"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_JShLdFzEEeOjNJTT7hEYrg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_JShLdVzEEeOjNJTT7hEYrg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_JShLdlzEEeOjNJTT7hEYrg"/>
@@ -34,7 +30,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_JShLcFzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JShLcVzEEeOjNJTT7hEYrg" x="329" y="376"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JShLcVzEEeOjNJTT7hEYrg" x="324" y="384"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_JShyglzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_JShyhVzEEeOjNJTT7hEYrg" type="4001"/>
@@ -63,6 +59,10 @@
   <children xmi:type="notation:Node" xmi:id="_JSiZmFzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_JSjAoFzEEeOjNJTT7hEYrg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_JSjAoVzEEeOjNJTT7hEYrg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_oqLTUJ-KEeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/RedhatDeploymentMechanism/license"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oqLTUZ-KEeO0DZsIXagbmg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_JSjAolzEEeOjNJTT7hEYrg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_JSjAo1zEEeOjNJTT7hEYrg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_JSjApFzEEeOjNJTT7hEYrg"/>
@@ -74,7 +74,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_JSiZmVzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/RedhatDeploymentMechanism"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JSiZmlzEEeOjNJTT7hEYrg" x="635" y="376"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JSiZmlzEEeOjNJTT7hEYrg" x="624" y="384"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_JSjAqVzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_JSjnsFzEEeOjNJTT7hEYrg" type="4001"/>
@@ -243,6 +243,77 @@
     <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/FallbackNodeMappingMode"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-fgfYlzEEeOjNJTT7hEYrg" x="1344"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_gNgQwJ7AEeO0DZsIXagbmg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_gNhe4J7AEeO0DZsIXagbmg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_gNhe4Z7AEeO0DZsIXagbmg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_mf0jYJ7AEeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/version"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mf0jYZ7AEeO0DZsIXagbmg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_GOvvEJ7IEeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/upgradeCode"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_GOvvEZ7IEeO0DZsIXagbmg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_KU_ywJ7IEeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/manufacturer"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_KU_ywZ7IEeO0DZsIXagbmg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_QW1mUJ79EeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_QW1mUZ79EeO0DZsIXagbmg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_gNhe4p7AEeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_gNhe457AEeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_gNhe5J7AEeO0DZsIXagbmg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_gNiF8J7AEeO0DZsIXagbmg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_gNiF8Z7AEeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_gNiF8p7AEeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_gNiF857AEeO0DZsIXagbmg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_gNgQwZ7AEeO0DZsIXagbmg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/MsiDeploymentMechanism"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gNgQwp7AEeO0DZsIXagbmg" x="60" y="384"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_nM_7MJ78EeO0DZsIXagbmg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_nNAiQJ78EeO0DZsIXagbmg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_nNAiQZ78EeO0DZsIXagbmg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_r_GYQJ78EeO0DZsIXagbmg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/P2Platform/repositories"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_r_GYQZ78EeO0DZsIXagbmg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_nNAiQp78EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_nNAiQ578EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_nNAiRJ78EeO0DZsIXagbmg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_nNAiRZ78EeO0DZsIXagbmg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_nNAiRp78EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_nNAiR578EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_nNAiSJ78EeO0DZsIXagbmg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_nM_7MZ78EeO0DZsIXagbmg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/P2Platform"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nM_7Mp78EeO0DZsIXagbmg" x="-60" y="240"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_JLCG8J79EeO0DZsIXagbmg" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_JLCuAJ79EeO0DZsIXagbmg" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_JLCuAZ79EeO0DZsIXagbmg" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_LOKcUJ79EeO0DZsIXagbmg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/Architecture/i386"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LOKcUZ79EeO0DZsIXagbmg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_ORlKAJ79EeO0DZsIXagbmg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/Architecture/amd64"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ORlKAZ79EeO0DZsIXagbmg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_JLCuAp79EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_JLCuA579EeO0DZsIXagbmg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_JLCuBJ79EeO0DZsIXagbmg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_JLCG8Z79EeO0DZsIXagbmg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/Architecture"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JLCG8p79EeO0DZsIXagbmg" x="-156" y="396"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_JSSh8VzEEeOjNJTT7hEYrg"/>
   <element xmi:type="ecore:EPackage" href="configuration.ecore#//deployment"/>
   <edges xmi:type="notation:Edge" xmi:id="_JSlc5lzEEeOjNJTT7hEYrg" type="3003" source="_JSgkaVzEEeOjNJTT7hEYrg" target="_JSjnuVzEEeOjNJTT7hEYrg">
@@ -349,5 +420,35 @@
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1ueHk1zEEeOjNJTT7hEYrg" points="[-94, -4, 213, 103]$[-118, -4, 189, 103]$[-118, -93, 189, 14]$[-173, -93, 134, 14]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1ugj0FzEEeOjNJTT7hEYrg" id="(0.36018957345971564,0.21568627450980393)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_igr0UJ7AEeO0DZsIXagbmg" type="3003" source="_gNgQwJ7AEeO0DZsIXagbmg" target="_JSf9UFzEEeOjNJTT7hEYrg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_igr0UZ7AEeO0DZsIXagbmg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_igr0Up7AEeO0DZsIXagbmg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_igr0U57AEeO0DZsIXagbmg" points="[13, -20, -155, 236]$[165, -276, -3, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_uHr1YJ78EeO0DZsIXagbmg" type="3002" source="_gNgQwJ7AEeO0DZsIXagbmg" target="_nM_7MJ78EeO0DZsIXagbmg">
+    <children xmi:type="notation:Node" xmi:id="_uHsccJ78EeO0DZsIXagbmg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_uHsccZ78EeO0DZsIXagbmg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_uHsccp78EeO0DZsIXagbmg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_uHscc578EeO0DZsIXagbmg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_uHr1YZ78EeO0DZsIXagbmg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_uHr1Yp78EeO0DZsIXagbmg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="configuration.ecore#//deployment/MsiDeploymentMechanism/sharedPlatform"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uHr1Y578EeO0DZsIXagbmg" points="[-31, -41, 69, 96]$[-126, -161, -26, -24]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_13L3sJ78EeO0DZsIXagbmg" type="3002" source="_gNgQwJ7AEeO0DZsIXagbmg" target="_nM_7MJ78EeO0DZsIXagbmg">
+    <children xmi:type="notation:Node" xmi:id="_13MewJ78EeO0DZsIXagbmg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_13MewZ78EeO0DZsIXagbmg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_13Mewp78EeO0DZsIXagbmg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_13Mew578EeO0DZsIXagbmg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_13L3sZ78EeO0DZsIXagbmg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_13L3sp78EeO0DZsIXagbmg" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="configuration.ecore#//deployment/MsiDeploymentMechanism/localPlatform"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_13L3s578EeO0DZsIXagbmg" points="[-32, -41, 104, 108]$[-54, -149, 82, 0]"/>
   </edges>
 </notation:Diagram>

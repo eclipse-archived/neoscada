@@ -9,17 +9,18 @@
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
  * 
  */
-package org.eclipse.scada.configuration.world.provider;
+package org.eclipse.scada.configuration.world.deployment.provider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -30,18 +31,20 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.world.Node;
-import org.eclipse.scada.configuration.world.WorldFactory;
-import org.eclipse.scada.configuration.world.WorldPackage;
+
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
+import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
+
+import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.Node} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NodeItemProvider
+public class MsiDeploymentMechanismItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +60,7 @@ public class NodeItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public NodeItemProvider ( AdapterFactory adapterFactory )
+    public MsiDeploymentMechanismItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,28 +78,30 @@ public class NodeItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addShortDescriptionPropertyDescriptor ( object );
-            addNamePropertyDescriptor ( object );
-            addHostNamePropertyDescriptor ( object );
+            addVersionPropertyDescriptor ( object );
+            addUpgradeCodePropertyDescriptor ( object );
+            addManufacturerPropertyDescriptor ( object );
+            addSharedPlatformPropertyDescriptor ( object );
+            addArchitecturePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Short Description feature.
+     * This adds a property descriptor for the Version feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addShortDescriptionPropertyDescriptor ( Object object )
+    protected void addVersionPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
+                        getString ( "_UI_MsiDeploymentMechanism_version_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_version_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__VERSION,
                         true,
                         false,
                         false,
@@ -106,20 +111,20 @@ public class NodeItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Name feature.
+     * This adds a property descriptor for the Upgrade Code feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addNamePropertyDescriptor ( Object object )
+    protected void addUpgradeCodePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
+                        getString ( "_UI_MsiDeploymentMechanism_upgradeCode_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_upgradeCode_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__UPGRADE_CODE,
                         true,
                         false,
                         false,
@@ -129,20 +134,66 @@ public class NodeItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Host Name feature.
+     * This adds a property descriptor for the Manufacturer feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addHostNamePropertyDescriptor ( Object object )
+    protected void addManufacturerPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Node_hostName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Node_hostName_feature", "_UI_Node_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NODE__HOST_NAME,
+                        getString ( "_UI_MsiDeploymentMechanism_manufacturer_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_manufacturer_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__MANUFACTURER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Shared Platform feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSharedPlatformPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MsiDeploymentMechanism_sharedPlatform_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_sharedPlatform_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__SHARED_PLATFORM,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Architecture feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addArchitecturePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MsiDeploymentMechanism_architecture_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_architecture_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE,
                         true,
                         false,
                         false,
@@ -165,8 +216,7 @@ public class NodeItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( WorldPackage.Literals.NODE__ENDPOINTS );
-            childrenFeatures.add ( WorldPackage.Literals.NODE__DEPLOYMENTS );
+            childrenFeatures.add ( DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM );
         }
         return childrenFeatures;
     }
@@ -186,6 +236,18 @@ public class NodeItemProvider
     }
 
     /**
+     * This returns MsiDeploymentMechanism.gif.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object getImage ( Object object )
+    {
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MsiDeploymentMechanism" ) ); //$NON-NLS-1$
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -194,10 +256,10 @@ public class NodeItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Node)object ).getName ();
+        String label = ( (MsiDeploymentMechanism)object ).getVersion ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_Node_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Node_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_MsiDeploymentMechanism_type" ) : //$NON-NLS-1$
+                getString ( "_UI_MsiDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -212,15 +274,15 @@ public class NodeItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Node.class ) )
+        switch ( notification.getFeatureID ( MsiDeploymentMechanism.class ) )
         {
-            case WorldPackage.NODE__SHORT_DESCRIPTION:
-            case WorldPackage.NODE__NAME:
-            case WorldPackage.NODE__HOST_NAME:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__VERSION:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__UPGRADE_CODE:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__MANUFACTURER:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case WorldPackage.NODE__ENDPOINTS:
-            case WorldPackage.NODE__DEPLOYMENTS:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -241,23 +303,8 @@ public class NodeItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( WorldPackage.Literals.NODE__ENDPOINTS,
-                        WorldFactory.eINSTANCE.createEndpoint () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createDebianDeploymentMechanism () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createRedhatDeploymentMechanism () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( WorldPackage.Literals.NODE__DEPLOYMENTS,
-                        DeploymentFactory.eINSTANCE.createMsiDeploymentMechanism () ) );
+                ( DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM,
+                        DeploymentFactory.eINSTANCE.createP2Platform () ) );
     }
 
     /**
@@ -269,7 +316,7 @@ public class NodeItemProvider
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
+        return WorldEditPlugin.INSTANCE;
     }
 
 }

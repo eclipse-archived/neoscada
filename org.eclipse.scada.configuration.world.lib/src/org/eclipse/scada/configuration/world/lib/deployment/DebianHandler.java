@@ -37,7 +37,7 @@ import org.eclipse.scada.utils.str.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DebianHandler extends CommonHandler
+public class DebianHandler extends CommonPackageHandler
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( DebianHandler.class );
@@ -202,12 +202,14 @@ public class DebianHandler extends CommonHandler
         {
             sb.append ( String.format ( "%s (%s) stable; urgency=low\n", packageName, entry.getVersion () ) );
             sb.append ( '\n' );
-            sb.append ( "  * Initial release.\n" );
+            sb.append ( entry.getDescription () );
             sb.append ( '\n' );
+            sb.append ( '\n' ); // additional empty line
 
-            final Formatter f = new Formatter ( sb, Locale.ENGLISH );
-            f.format ( " -- %1$s <%2$s>  %3$ta, %3$te %3$tb %3$tY %3$tT %3$tz", entry.getAuthor ().getName (), entry.getAuthor ().getEmail (), entry.getDate () );
-            f.close ();
+            try ( Formatter f = new Formatter ( sb, Locale.ENGLISH ) )
+            {
+                f.format ( " -- %1$s <%2$s>  %3$ta, %3$te %3$tb %3$tY %3$tT %3$tz", entry.getAuthor ().getName (), entry.getAuthor ().getEmail (), entry.getDate () );
+            }
 
             sb.append ( "\n\n" );
         }

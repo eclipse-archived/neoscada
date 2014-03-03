@@ -7,7 +7,7 @@ Name:      $$packageName$$
 Summary:   Eclipse SCADA Configuration for "$$nodeName$$"
 Version:   %{version}
 Release:   %{qualifier}
-License:   EPL
+License:   $$license$$
 BuildArch: noarch
 Packager:  $$authorName$$ <$$authorEmail$$>
 Group:     Applications/System
