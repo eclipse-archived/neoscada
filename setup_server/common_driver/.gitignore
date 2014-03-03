@@ -1,0 +1,12 @@
+fetch/
+unpack/
+
+bin/
+obj/
+
+*.msm
+*.msi
+*.wixpdb
+*.wixobj
+
+Scan.jar.wxs

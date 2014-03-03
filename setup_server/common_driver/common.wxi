@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<Include>
+
+<?include $(sys.CURRENTDIR)\..\common\common.wxi?>
+	
+<?define ProductName = "Eclipse SCADA Common Drivers" ?>
+
+<?if $(var.Platform) = x64 ?>
+	<?define ProductUpgradeCode = "F8111786-E55B-4307-BDEB-DE45453A7D81" ?>
+<?else ?>
+	<?define ProductUpgradeCode = "791ACD51-F507-4436-80D1-3CBF5CEB71F3" ?>
+<?endif ?>
+
+</Include>

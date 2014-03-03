@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+
+<?include $(sys.CURRENTDIR)\..\common\common.wxi?>
+
+<Wix
+	xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	>
+	
+	<Product Id="*"
+	         Name="Common driver extension sample"
+	         Language="1033"
+	         Version="0.1.0.0"
+	         UpgradeCode="CFF63860-978D-44AB-A346-C15C23CA8FFC"
+	         Manufacturer="$(var.Manufacturer)">
+		
+		<Package
+			InstallScope="perMachine"
+			InstallPrivileges="elevated"
+			InstallerVersion="301"
+			Compressed="yes"
+		/>
+		
+		<Property Id="INSTALLDIR">
+			<RegistrySearch Id="search.extra.jars" Root="HKLM" Key="SOFTWARE\Eclipse SCADA Common Drivers" Type="raw" Name="ExtraJarPath"/>
+		</Property>
+		
+		<Condition Message="You need to install the Eclipse SCADA Common Driver package first">INSTALLDIR or Installed</Condition>
+		
+		<Media Id="1" Cabinet="contents.cab" EmbedCab="yes" CompressionLevel="none"/>
+		
+		<MajorUpgrade
+			AllowDowngrades="yes"/>
+		
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="INSTALLDIR" Name=".">
+			</Directory>
+		</Directory>
+		
+		<Component Id="extra.jars" Guid="00EB419A-1606-4091-BDC1-5E1E830DA7EF" Directory="INSTALLDIR">
+			<!-- install a dummy file -->
+			<File Source="jars/foo.txt"/>
+		</Component>
+		
+		<Feature Id="extra.jars" Level="1">
+			<ComponentRef Id="extra.jars"/>
+		</Feature>
+	</Product>
+</Wix>
