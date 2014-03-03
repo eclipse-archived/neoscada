@@ -10,12 +10,12 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/eclipse/downloads/drops4/R-4.3-201306052000</srcDir>
-		<srcFile>org.eclipse.platform-4.3.zip</srcFile>
+		<srcDir>${eclipse.download.root}/eclipse/downloads/drops4/R-4.3.2-201402211700</srcDir>
+		<srcFile>org.eclipse.platform-4.3.2.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>org.eclipse.platform-4.3</artifactId>
+	<artifactId>org.eclipse.platform-4.3.2</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 </project>
