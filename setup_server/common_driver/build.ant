@@ -14,7 +14,7 @@
     
     <property environment="env" />
 
-    <property name="wix.root" value="${env.WIX_ROOT}" />
+    <property name="wix.root" value="${env.WIX}" />
 	
 	<property name="buildId.external" value="${buildId}"/>
 	<property name="buildId.utils" value="${buildId}"/>
@@ -131,7 +131,7 @@
                 <arg value="Scan.jar.wixobj" />
 
                 <arg value="-out" />
-                <arg value="common_server_${visibleVersion}_.msm" />
+                <arg value="common_server_${visibleVersion}_@{platform}.msm" />
             </exec>
         </sequential>
     </macrodef>
