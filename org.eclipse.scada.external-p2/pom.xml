@@ -73,11 +73,11 @@
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
 							</defineStatements>
 							<requires>
-								<require>emf-xsd-Update-2.9.0</require>
-								<require>equinox-SDK-R-Kepler-201306052000</require>
+								<require>emf-xsd-Update-2.9.2</require>
+								<require>equinox-SDK-R-KeplerSR2-201402211700</require>
 								<require>gemini-dbaccess-1.1.0.RELEASE</require>
 								<require>org.eclipse.ecf.sdk-3.6.1</require>
-								<require>org.eclipse.platform-4.3</require>
+								<require>org.eclipse.platform-4.3.2</require>
 							</requires>
 							<mappings>
 								<mapping>
