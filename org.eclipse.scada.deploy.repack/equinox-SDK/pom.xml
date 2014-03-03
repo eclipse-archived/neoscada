@@ -10,12 +10,12 @@
 	</parent>
 
 	<properties>
-		<srcDir>${eclipse.download.root}/equinox/drops/R-Kepler-201306052000</srcDir>
-		<srcFile>equinox-SDK-Kepler.zip</srcFile>
+		<srcDir>${eclipse.download.root}/equinox/drops/R-KeplerSR2-201402211700</srcDir>
+		<srcFile>equinox-SDK-KeplerSR2.zip</srcFile>
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>equinox-SDK-R-Kepler-201306052000</artifactId>
+	<artifactId>equinox-SDK-R-KeplerSR2-201402211700</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
