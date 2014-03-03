@@ -22,11 +22,11 @@
 	<property name="buildId.base" value="${buildId}"/>
 	<property name="buildId.core" value="${buildId}"/>
 	
-	<property name="fullVersion.external" value="${version}${versionSuffix}"/>
-	<property name="fullVersion.utils" value="${version}${versionSuffix}"/>
-	<property name="fullVersion.protocols" value="${version}${versionSuffix}"/>
-	<property name="fullVersion.base" value="${version}${versionSuffix}"/>
-	<property name="fullVersion.core" value="${version}${versionSuffix}"/>
+	<property name="fullVersion.external" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.utils" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.protocols" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.base" value="${version}${versionSuffix2}"/>
+	<property name="fullVersion.core" value="${version}${versionSuffix2}"/>
 	
     <!-- ================================= 
           target: default
