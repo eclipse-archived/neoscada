@@ -9,6 +9,8 @@
 
     <property file="../local.properties" />
     <property file="../common.properties" />
+    
+    <property name="buildNumber" value="${HUDSON.BUILD_NUMBER}"/>
 
     <property name="visibleVersion" value="${version}${versionSuffix}" />
     
