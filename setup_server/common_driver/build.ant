@@ -7,8 +7,8 @@
         MSI Setup build for Eclipse SCADA Common Server
     </description>
 
-    <property file="local.properties" />
-    <property file="common.properties" />
+    <property file="../local.properties" />
+    <property file="../common.properties" />
 
     <property name="visibleVersion" value="${version}${versionSuffix}" />
     
