@@ -3,6 +3,7 @@
 
 [import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::social /]
+[import org::eclipse::scada::web::generator::main::common /]
 
 [template public header(site : Site, title : String, description : String, fileName : String)]
 <!DOCTYPE html>
@@ -153,27 +154,9 @@
 </html>
 [/template]
 
-[query public toUrl(page : Page) : String = page.id+'.html' /]
-
-[query public toAbsolute(url:String) : String =
-getProperty('site.base') + '/' + url
-/]
-
 [query public toLabel(link : Link) : String =
 if ( link.label = null ) then
 	link.target
 else
 	link.label.encodeHtml()
 endif /]
-
-[query public encodeHtml(string : String ) : String =
-invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeHtml(java.lang.String)', Sequence { string })
-/]
-
-[query public relative(base : String, url : String ) : String =
-invoke( 'org.eclipse.scada.web.generator.service.Helper', 'relative(java.lang.String,java.lang.String)', Sequence { 'http://localhost/'+ base, 'http://localhost/'+url })
-/]
-
-[query public encodeUrl(url : String ) : String =
-invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeUrl(java.lang.String)', Sequence { url })
-/]

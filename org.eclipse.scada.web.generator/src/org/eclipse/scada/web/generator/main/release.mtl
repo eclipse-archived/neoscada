@@ -3,51 +3,62 @@
 
 [import org::eclipse::scada::web::generator::main::social /]
 [import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::html /]
 
-[template public generateRelease(release : Release)]
+[template public generateRelease(release : Release,base : String)]
 <section class="release">
 <h3>
-<img src="images/icons/release-type-[release.type/].png"/>
+<img src="[relative(base, 'images/icons/release-type-' + release.type + '.png')/]"/>
 [release.name/] ([release.type/]) – [release.buildId/]
 </h3>
 
 <ul class="release">
 
 <li>
-	<img class="download-type" src="images/icons/sticky-notes-stack.png"/>
+	<img class="download-type" src="[relative(base, 'images/icons/sticky-notes-stack.png')/]"/>
 	<a href="http://wiki.eclipse.org/EclipseSCADA/Release/[release.version.name/]">Release Notes</a> – 
 	<a href="https://projects.eclipse.org/projects/technology.eclipsescada/releases/[release.version.name/]">Release Plan</a>
 </li>
 
 <li>
-	<img class="download-type" src="images/icons/download-main.png"/>
+	<img class="download-type" src="[relative(base, 'images/icons/download-main.png')/]"/>
 	<a href="[dropsLink(release, 'org.eclipse.scada', '/', false)/]">Download area</a>
 <li>
 
 <li>
-	<img class="download-type" src="images/icons/box.png"/>
+	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'p2', false)/]">Composite P2 repository</a>
 </li>
 
 <li>
-	<img class="download-type" src="images/icons/box.png"/>
+	<img class="download-type" src="[relative(base, 'images/icons/box.png')/]"/>
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/yum?d', false)/]">YUM repository</a>
 	–
 	<a href="[dropsLink(release, 'org.eclipse.scada', 'repos/deb?d', false)/]">Debian packages</a>
 </li>
 
 <li>
-	<img class="download-type" src="images/icons/application-home.png"/>
+	<img class="download-type" src="[relative(base, 'images/icons/application-home.png')/]"/>
 	Eclipse SCADA Admin Client
 <ul class="release">
-	
+	<li itemscope itemtype="http://schema.org/SoftwareApplication">
+		<meta itemprop="softwareVersion" content="[release.name/]" />
+		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
+		<meta itemprop="operatingSystem" content="Linux" />
+		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
+
+		<img class="download-type" src="[relative(base, 'images/icons/download-linux.png')/]"/>
+		Linux –
+		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86.tar.gz', true)/]">32bit</a>,
+		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86_64.tar.gz', true)/]">64bit</a>
+	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
 		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
-		<img class="download-type" src="images/icons/download-windows.png"/>
+		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
 		Windows MSI Installer –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.name + '_x86.msi', true)/]">32bit</a>,
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.name + '_x64.msi', true)/]">64bit</a>
@@ -58,7 +69,7 @@
 		<meta itemprop="operatingSystem" content="Windows" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
-		<img class="download-type" src="images/icons/download-windows.png"/>
+		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
 		Windows –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86.zip', true)/]">32bit</a>,
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-win32.win32.x86_64.zip', true)/]">64bit</a>
@@ -66,21 +77,10 @@
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
 		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
-		<meta itemprop="operatingSystem" content="Linux" />
-		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
-
-		<img class="download-type" src="images/icons/download-linux.png"/>
-		Linux –
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86.tar.gz', true)/]">32bit</a>,
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-linux.gtk.x86_64.tar.gz', true)/]">64bit</a>
-	</li>
-	<li itemscope itemtype="http://schema.org/SoftwareApplication">
-		<meta itemprop="softwareVersion" content="[release.name/]" />
-		<meta itemprop="name" content="Eclipse SCADA Admin Client" />
 		<meta itemprop="operatingSystem" content="Mac OS X" />
 		<meta itemprop="datePublished" content="[formatDate('yyyy-MM-dd\'T\'HH:mm', release.date)/]"/>
 
-		<img class="download-type" src="images/icons/download-mac-os.png"/>
+		<img class="download-type" src="[relative(base, 'images/icons/download-mac-os.png')/]"/>
 		Mac OS X –
 		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada.hmi', 'products/adminclient/org.eclipse.scada.hmi.products.adminclient.app-macosx.cocoa.x86_64.tar.gz', true)/]">64bit</a>
 	</li>

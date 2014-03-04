@@ -5,27 +5,27 @@
 [import org::eclipse::scada::web::generator::main::gallery /]
 [import org::eclipse::scada::web::generator::main::social /]
 
-[template public processContainer(container : Container)]
+[template public processContainer(container : Container, base: String)]
 [for (content : Content | container.content)]
-[processContent(content)/]
+[processContent(content, base)/]
 [/for]
 [/template]
 
-[template public processContent(content : Content)]
+[template public processContent(content : Content, base: String)]
 [/template]
 
-[template public processContent(content : HtmlContent)]
+[template public processContent(content : HtmlContent, base: String)]
 [content.data/]
 [/template]
 
-[template public processContent(content : SocialBar)]
+[template public processContent(content : SocialBar, base: String)]
 [socialBar(content)/]
 [/template]
 
-[template public processContent(content : GalleryContent)]
+[template public processContent(content : GalleryContent, base: String)]
 [generateGallery(content.gallery)/]
 [/template]
 
-[template public processContent(content : ReleaseSection)]
-[generateRelease ( content.release ) /]
+[template public processContent(content : ReleaseSection, base: String)]
+[generateRelease ( content.release, base ) /]
 [/template]

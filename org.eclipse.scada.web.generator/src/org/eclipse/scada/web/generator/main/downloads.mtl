@@ -1,0 +1,36 @@
+[comment encoding = UTF-8 /]
+[module downloads('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
+
+[import org::eclipse::scada::web::generator::main::html /]
+[import org::eclipse::scada::web::generator::main::author /]
+[import org::eclipse::scada::web::generator::main::content /]
+[import org::eclipse::scada::web::generator::main::social /]
+[import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::release /]
+
+[template public generateReleases(site : Site)]
+[for (version : Version | site.versions)]
+[for (release : Release | version.releases)]
+[file ('releases/' + version.name + '/' + release.buildId + '.html', false, 'UTF-8')]
+[generateReleasePage(site,release,'releases/' + version.name + '/' + release.buildId + '.html')/]
+[/file]
+[/for]
+[/for]
+[/template]
+
+[template public generateReleasePage(site : Site, release : Release, fileName : String )]
+[header(site,release.buildId, release.name, fileName)/]
+
+<header>
+<h1>
+[release.name/] ([release.type/]) – [release.buildId/]
+</h1>
+</header>
+
+[processRelease(release, fileName)/]
+[footer(site, fileName)/]
+[/template]
+
+[template public processRelease(release : Release, fileName : String )]
+[generateRelease(release, fileName)/]
+[/template]

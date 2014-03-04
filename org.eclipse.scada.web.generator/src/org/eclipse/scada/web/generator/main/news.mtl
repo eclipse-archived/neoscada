@@ -29,7 +29,7 @@
 <time itemprop="datePublished" datetime="[formatDate('yyyy-MM-dd\'T\'HH:mmZ', entry.date)/]">[entry.date/]</time>
 by <a href="[relative(fileName,authorFile(author))/]" rel="author">[entry.author.name/]</a></p>
 </header>
-[processContainer(entry)/]
+[processContainer(entry, fileName)/]
 
 [socialBar(entry.absolutePermaLink(),entry.title)/]
 

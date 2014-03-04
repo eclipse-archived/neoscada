@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module author('http://eclipse.org/eclipsescada')]
 
+[import org::eclipse::scada::web::generator::main::common /]
 [import org::eclipse::scada::web::generator::main::html /]
 
 [template public generateAuthors(site : Site)]

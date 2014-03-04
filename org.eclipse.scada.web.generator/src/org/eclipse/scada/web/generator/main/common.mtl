@@ -4,3 +4,21 @@
 [query public formatDate( format : String, date : EDate ) : String =
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { format, date }) 
 /]
+
+[query public toUrl(page : Page) : String = page.id+'.html' /]
+
+[query public toAbsolute(url:String) : String =
+getProperty('site.base') + '/' + url
+/]
+
+[query public relative(base : String, url : String ) : String =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'relative(java.lang.String,java.lang.String)', Sequence { 'http://localhost/'+ base, 'http://localhost/'+url })
+/]
+
+[query public encodeHtml(string : String ) : String =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeHtml(java.lang.String)', Sequence { string })
+/]
+
+[query public encodeUrl(url : String ) : String =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeUrl(java.lang.String)', Sequence { url })
+/]

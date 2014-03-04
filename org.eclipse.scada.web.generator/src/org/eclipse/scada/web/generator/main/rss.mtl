@@ -1,7 +1,6 @@
 [comment encoding = UTF-8 /]
 [module rss('http://eclipse.org/eclipsescada')]
 
-[import org::eclipse::scada::web::generator::main::html /]
 [import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::common /]
 

@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module social('http://eclipse.org/eclipsescada')]
 
-[import org::eclipse::scada::web::generator::main::html /]
+[import org::eclipse::scada::web::generator::main::common /]
 
 [template public startSocialBar()]
 <div class="social">
