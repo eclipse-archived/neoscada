@@ -20,7 +20,7 @@
     <!-- ================================= 
           target: default              
          ================================= -->
-    <target name="default" depends="clean.repo,build.repo,clean.update,build.update,link">
+    <target name="default" depends="clean.repo,build.repo,clean.update,build.update,link,index">
     </target>
 
     <!-- ================================= 
@@ -67,6 +67,22 @@
         <copy todir="${update.base}">
             <fileset dir="${download.base.dir}/p2">
             </fileset>
+        </copy>
+    </target>
+
+    <!-- =================================
+          target: index
+         ================================= -->
+    <target name="index">
+        <copy todir="${download.base.dir}">
+            <fileset dir="index">
+            </fileset>
+            <filterset>
+                <filter token="buildTypeLong" value="${buildTypeLong}" />
+                <filter token="buildType" value="${buildType}" />
+                <filter token="buildTimestamp" value="${buildTimestamp}" />
+                <filter token="version" value="${version}" />
+            </filterset>
         </copy>
     </target>
 
