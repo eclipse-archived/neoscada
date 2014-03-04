@@ -88,8 +88,8 @@
 
 		<module>../org.eclipse.scada.deploy.feature</module>
 		<module>../org.eclipse.scada.deploy.sdk.feature</module>
-		<module>../org.eclipse.scada.deploy.console</module>
-		<module>../org.eclipse.scada.deploy.logback</module>
+		<module>../org.eclipse.scada.deploy.console.feature</module>
+		<module>../org.eclipse.scada.deploy.logback.feature</module>
 		
 		<module>../org.eclipse.scada.deploy.packages</module>
 	</modules>
