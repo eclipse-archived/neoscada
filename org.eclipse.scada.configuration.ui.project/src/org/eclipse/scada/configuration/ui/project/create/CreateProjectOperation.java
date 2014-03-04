@@ -77,6 +77,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
 import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
 import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
@@ -91,6 +92,8 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  */
 public class CreateProjectOperation extends WorkspaceModifyOperation
 {
+    private static final String LABEL_UNKNOWN = "unknown";
+
     private static final String BUILDER_JS_VALIDATOR = "org.eclipse.wst.jsdt.core.javascriptValidator"; //$NON-NLS-1$
 
     private static final String PROJECT_NATURE_JS = "org.eclipse.wst.jsdt.core.jsNature"; //$NON-NLS-1$
@@ -136,11 +139,13 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final World world = createInfrastructure ( rs, security, masterProfile, hdProfile );
         final ComponentWorld system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
         final DeploymentInformation di = createDeploymentInformation ();
+        final P2Platform targetPlatform = createTargetPlatformInformation ( TargetPlatforms.KEPLER );
 
         final Definition defaultRecipe = RecipeBuilder.createDefaultRecipe ();
         final Definition integrationRecipe = RecipeBuilder.createIntegrationRecipe ();
 
         save ( rs, base, "global/deployment.information.esdi", di ); //$NON-NLS-1$
+        save ( rs, base, "global/targetPlatform.esdi", targetPlatform ); //$NON-NLS-1$
 
         save ( rs, base, "global/global.security", security ); //$NON-NLS-1$
         save ( rs, base, "global/master.customization.profile.xml", masterProfile ); //$NON-NLS-1$
@@ -181,13 +186,22 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         return mappings;
     }
 
+    private P2Platform createTargetPlatformInformation ( final TargetPlatformProfile tpProfile )
+    {
+        final P2Platform result = DeploymentFactory.eINSTANCE.createP2Platform ();
+
+        result.getRepositories ().addAll ( tpProfile.getRepositories () );
+
+        return result;
+    }
+
     private DeploymentInformation createDeploymentInformation ()
     {
         final DeploymentInformation result = DeploymentFactory.eINSTANCE.createDeploymentInformation ();
 
         final Author author = DeploymentFactory.eINSTANCE.createAuthor ();
 
-        final String username = java.lang.System.getProperty ( "user.name", "unknown" ); //$NON-NLS-1$
+        final String username = java.lang.System.getProperty ( "user.name", LABEL_UNKNOWN ); //$NON-NLS-1$
         String hostname;
         try
         {
@@ -195,9 +209,9 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         }
         catch ( final Exception e )
         {
-            hostname = "unknown";
+            hostname = LABEL_UNKNOWN;
         }
-        author.setEmail ( String.format ( "%s@%s", username, hostname ) );
+        author.setEmail ( String.format ( "%s@%s", username, hostname ) ); //$NON-NLS-1$
         author.setName ( username );
 
         result.getAuthors ().add ( author );
@@ -222,7 +236,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         createAE ( world );
         createSystemPropertyUserService ( world );
 
-        world.setDefaultMasterHandlerPriorities ( (MasterHandlerPriorities)rs.getEObject ( URI.createURI ( "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultPriorities.eswm#_sLVwoN_iEeKP_IG4d7_Nqg" ), true ) );
+        world.setDefaultMasterHandlerPriorities ( (MasterHandlerPriorities)rs.getEObject ( URI.createURI ( "platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultPriorities.eswm#_sLVwoN_iEeKP_IG4d7_Nqg" ), true ) ); //$NON-NLS-1$
 
         for ( final Map.Entry<String, List<String>> entry : this.info.getNodes ().entrySet () )
         {
