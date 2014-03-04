@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="26">
+<?pde version="3.8"?><target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="28">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130604-2047"/>
-<unit id="org.eclipse.pde.feature.group" version="3.9.1.v20130911-1000"/>
-<unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.5.1.v201307171524-7O7QG2NEMkBS3C2az0gQwwALctEj3DZPgTEZceV4"/>
-<unit id="org.eclipse.ocl.all.sdk.feature.group" version="4.1.1.v20130916-1423"/>
-<unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.7.0.201306111341"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>
 <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
@@ -17,6 +9,35 @@
 <unit id="org.eclipse.ecf.core.source.feature.group" version="3.6.1.v20130605-1748"/>
 <unit id="org.eclipse.ecf.core.feature.group" version="3.6.1.v20130605-1748"/>
 <repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.7.0.201306111341"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.9.2.v20140203-1126"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.ocl.all.sdk.feature.group" version="4.1.1.v20140210-1137"/>
+<repository location="http://download.eclipse.org/releases/kepler"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.1.0.v20131218-1534"/>
+<unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<unit id="org.eclipse.scada.base.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<unit id="org.eclipse.scada.external.feature.group" version="0.1.0.v20131217-0842"/>
+<unit id="org.eclipse.scada.external.orbit.feature.group" version="0.1.0.v20131216-1459"/>
+<unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.1.0.v20131217-1010"/>
+<unit id="org.eclipse.scada.core.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<unit id="org.eclipse.scada.external.sdk.feature.group" version="0.1.0.v20140122-1129"/>
+<repository location="http://download.eclipse.org/eclipsescada/updates/milestone/0.1.0"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>

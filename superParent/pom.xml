@@ -215,6 +215,7 @@
 
 	<modules>
 		<module>targetPlatform</module>
+		<module>targetPlatformSdk</module>
 	</modules>
 
 	<profiles>
