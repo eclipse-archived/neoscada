@@ -278,6 +278,10 @@
   <children xmi:type="notation:Node" xmi:id="_nM_7MJ78EeO0DZsIXagbmg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_nNAiQJ78EeO0DZsIXagbmg" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_nNAiQZ78EeO0DZsIXagbmg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_IfIfUKOUEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/P2Platform/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IfIfUaOUEeOeZYeVTUHw8Q"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_r_GYQJ78EeO0DZsIXagbmg" type="2001">
         <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/P2Platform/repositories"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_r_GYQZ78EeO0DZsIXagbmg"/>

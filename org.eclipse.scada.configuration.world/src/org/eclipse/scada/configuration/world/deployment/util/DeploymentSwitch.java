@@ -38,7 +38,6 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage
  * @generated
  */
@@ -48,7 +47,6 @@ public class DeploymentSwitch<T> extends Switch<T>
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static DeploymentPackage modelPackage;
@@ -57,7 +55,6 @@ public class DeploymentSwitch<T> extends Switch<T>
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public DeploymentSwitch ()
@@ -72,192 +69,146 @@ public class DeploymentSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @parameter ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
     @Override
-    protected boolean isSwitchFor ( final EPackage ePackage )
+    protected boolean isSwitchFor ( EPackage ePackage )
     {
         return ePackage == modelPackage;
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns
-     * a non null result; it yields that result.
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the first non-null result returned by a <code>caseXXX</code>
-     *         call.
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
     @Override
-    protected T doSwitch ( final int classifierID, final EObject theEObject )
+    protected T doSwitch ( int classifierID, EObject theEObject )
     {
         switch ( classifierID )
         {
             case DeploymentPackage.DEPLOYMENT_MECHANISM:
             {
-                final DeploymentMechanism deploymentMechanism = (DeploymentMechanism)theEObject;
+                DeploymentMechanism deploymentMechanism = (DeploymentMechanism)theEObject;
                 T result = caseDeploymentMechanism ( deploymentMechanism );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.DEBIAN_DEPLOYMENT_MECHANISM:
             {
-                final DebianDeploymentMechanism debianDeploymentMechanism = (DebianDeploymentMechanism)theEObject;
+                DebianDeploymentMechanism debianDeploymentMechanism = (DebianDeploymentMechanism)theEObject;
                 T result = caseDebianDeploymentMechanism ( debianDeploymentMechanism );
                 if ( result == null )
-                {
                     result = caseCommonDeploymentMechanism ( debianDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = caseDeploymentMechanism ( debianDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.AUTHOR:
             {
-                final Author author = (Author)theEObject;
+                Author author = (Author)theEObject;
                 T result = caseAuthor ( author );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM:
             {
-                final RedhatDeploymentMechanism redhatDeploymentMechanism = (RedhatDeploymentMechanism)theEObject;
+                RedhatDeploymentMechanism redhatDeploymentMechanism = (RedhatDeploymentMechanism)theEObject;
                 T result = caseRedhatDeploymentMechanism ( redhatDeploymentMechanism );
                 if ( result == null )
-                {
                     result = caseCommonDeploymentMechanism ( redhatDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = caseDeploymentMechanism ( redhatDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.DEPLOYMENT_INFORMATION:
             {
-                final DeploymentInformation deploymentInformation = (DeploymentInformation)theEObject;
+                DeploymentInformation deploymentInformation = (DeploymentInformation)theEObject;
                 T result = caseDeploymentInformation ( deploymentInformation );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM:
             {
-                final CommonDeploymentMechanism commonDeploymentMechanism = (CommonDeploymentMechanism)theEObject;
+                CommonDeploymentMechanism commonDeploymentMechanism = (CommonDeploymentMechanism)theEObject;
                 T result = caseCommonDeploymentMechanism ( commonDeploymentMechanism );
                 if ( result == null )
-                {
                     result = caseDeploymentMechanism ( commonDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.CHANGE_ENTRY:
             {
-                final ChangeEntry changeEntry = (ChangeEntry)theEObject;
+                ChangeEntry changeEntry = (ChangeEntry)theEObject;
                 T result = caseChangeEntry ( changeEntry );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.NODE_MAPPINGS:
             {
-                final NodeMappings nodeMappings = (NodeMappings)theEObject;
+                NodeMappings nodeMappings = (NodeMappings)theEObject;
                 T result = caseNodeMappings ( nodeMappings );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY:
             {
-                final ExpressionNodeMappingEntry expressionNodeMappingEntry = (ExpressionNodeMappingEntry)theEObject;
+                ExpressionNodeMappingEntry expressionNodeMappingEntry = (ExpressionNodeMappingEntry)theEObject;
                 T result = caseExpressionNodeMappingEntry ( expressionNodeMappingEntry );
                 if ( result == null )
-                {
                     result = caseNodeMappingEntry ( expressionNodeMappingEntry );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.NODE_MAPPING_ENTRY:
             {
-                final NodeMappingEntry nodeMappingEntry = (NodeMappingEntry)theEObject;
+                NodeMappingEntry nodeMappingEntry = (NodeMappingEntry)theEObject;
                 T result = caseNodeMappingEntry ( nodeMappingEntry );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY:
             {
-                final SimpleNodeMappingEntry simpleNodeMappingEntry = (SimpleNodeMappingEntry)theEObject;
+                SimpleNodeMappingEntry simpleNodeMappingEntry = (SimpleNodeMappingEntry)theEObject;
                 T result = caseSimpleNodeMappingEntry ( simpleNodeMappingEntry );
                 if ( result == null )
-                {
                     result = caseNodeMappingEntry ( simpleNodeMappingEntry );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM:
             {
-                final MsiDeploymentMechanism msiDeploymentMechanism = (MsiDeploymentMechanism)theEObject;
+                MsiDeploymentMechanism msiDeploymentMechanism = (MsiDeploymentMechanism)theEObject;
                 T result = caseMsiDeploymentMechanism ( msiDeploymentMechanism );
                 if ( result == null )
-                {
                     result = caseDeploymentMechanism ( msiDeploymentMechanism );
-                }
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             case DeploymentPackage.P2_PLATFORM:
             {
-                final P2Platform p2Platform = (P2Platform)theEObject;
+                P2Platform p2Platform = (P2Platform)theEObject;
                 T result = caseP2Platform ( p2Platform );
                 if ( result == null )
-                {
                     result = defaultCase ( theEObject );
-                }
                 return result;
             }
             default:
@@ -266,283 +217,227 @@ public class DeploymentSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Mechanism</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Mechanism</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Mechanism</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Mechanism</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDeploymentMechanism ( final DeploymentMechanism object )
+    public T caseDeploymentMechanism ( DeploymentMechanism object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Debian Deployment Mechanism</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Debian Deployment Mechanism</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Debian Deployment Mechanism</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Debian Deployment Mechanism</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDebianDeploymentMechanism ( final DebianDeploymentMechanism object )
+    public T caseDebianDeploymentMechanism ( DebianDeploymentMechanism object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Author</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Author</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Author</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Author</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAuthor ( final Author object )
+    public T caseAuthor ( Author object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Redhat Deployment Mechanism</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Redhat Deployment Mechanism</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Redhat Deployment Mechanism</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Redhat Deployment Mechanism</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRedhatDeploymentMechanism ( final RedhatDeploymentMechanism object )
+    public T caseRedhatDeploymentMechanism ( RedhatDeploymentMechanism object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Information</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Information</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Information</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Information</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDeploymentInformation ( final DeploymentInformation object )
+    public T caseDeploymentInformation ( DeploymentInformation object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Common Deployment Mechanism</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Common Deployment Mechanism</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Common Deployment Mechanism</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Common Deployment Mechanism</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCommonDeploymentMechanism ( final CommonDeploymentMechanism object )
+    public T caseCommonDeploymentMechanism ( CommonDeploymentMechanism object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Change Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Change Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Change Entry</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Change Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseChangeEntry ( final ChangeEntry object )
+    public T caseChangeEntry ( ChangeEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Node Mappings</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Node Mappings</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Node Mappings</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Node Mappings</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNodeMappings ( final NodeMappings object )
+    public T caseNodeMappings ( NodeMappings object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Expression Node Mapping Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Expression Node Mapping Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Expression Node Mapping Entry</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Expression Node Mapping Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseExpressionNodeMappingEntry ( final ExpressionNodeMappingEntry object )
+    public T caseExpressionNodeMappingEntry ( ExpressionNodeMappingEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Node Mapping Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Node Mapping Entry</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNodeMappingEntry ( final NodeMappingEntry object )
+    public T caseNodeMappingEntry ( NodeMappingEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Simple Node Mapping Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Simple Node Mapping Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Simple Node Mapping Entry</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Simple Node Mapping Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSimpleNodeMappingEntry ( final SimpleNodeMappingEntry object )
+    public T caseSimpleNodeMappingEntry ( SimpleNodeMappingEntry object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Msi Deployment Mechanism</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Msi Deployment Mechanism</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Msi Deployment Mechanism</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Msi Deployment Mechanism</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseMsiDeploymentMechanism ( final MsiDeploymentMechanism object )
+    public T caseMsiDeploymentMechanism ( MsiDeploymentMechanism object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>P2 Platform</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>P2 Platform</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>P2 Platform</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>P2 Platform</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseP2Platform ( final P2Platform object )
+    public T caseP2Platform ( P2Platform object )
     {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch, but this is the
      * last case anyway.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
     @Override
-    public T defaultCase ( final EObject object )
+    public T defaultCase ( EObject object )
     {
         return null;
     }

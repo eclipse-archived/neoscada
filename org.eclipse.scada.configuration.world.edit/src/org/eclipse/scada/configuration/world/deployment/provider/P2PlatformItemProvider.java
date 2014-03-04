@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -77,6 +78,7 @@ public class P2PlatformItemProvider
             super.getPropertyDescriptors ( object );
 
             addRepositoriesPropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -105,6 +107,62 @@ public class P2PlatformItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNamePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_P2Platform_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_P2Platform_name_feature", "_UI_P2Platform_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.P2_PLATFORM__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    {
+        if ( childrenFeatures == null )
+        {
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES );
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature ( object, child );
+    }
+
+    /**
      * This returns P2Platform.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -125,7 +183,10 @@ public class P2PlatformItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_P2Platform_type" ); //$NON-NLS-1$
+        String label = ( (P2Platform)object ).getName ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_P2Platform_type" ) : //$NON-NLS-1$
+                getString ( "_UI_P2Platform_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -142,8 +203,11 @@ public class P2PlatformItemProvider
 
         switch ( notification.getFeatureID ( P2Platform.class ) )
         {
-            case DeploymentPackage.P2_PLATFORM__REPOSITORIES:
+            case DeploymentPackage.P2_PLATFORM__NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case DeploymentPackage.P2_PLATFORM__REPOSITORIES:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -160,6 +224,10 @@ public class P2PlatformItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( DeploymentPackage.Literals.P2_PLATFORM__REPOSITORIES, "" ) ); //$NON-NLS-1$
     }
 
     /**

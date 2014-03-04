@@ -12,8 +12,10 @@
 package org.eclipse.scada.configuration.world.deployment.impl;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
@@ -27,6 +29,7 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl#getRepositories <em>Repositories</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,6 +46,26 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
      * @ordered
      */
     protected EList<String> repositories;
+
+    /**
+     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected static final String NAME_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getName()
+     * @generated
+     * @ordered
+     */
+    protected String name = NAME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -84,6 +107,29 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getName ()
+    {
+        return name;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setName ( String newName )
+    {
+        String oldName = name;
+        name = newName;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.P2_PLATFORM__NAME, oldName, name ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -91,6 +137,8 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
         {
             case DeploymentPackage.P2_PLATFORM__REPOSITORIES:
                 return getRepositories ();
+            case DeploymentPackage.P2_PLATFORM__NAME:
+                return getName ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -110,6 +158,9 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
                 getRepositories ().clear ();
                 getRepositories ().addAll ( (Collection<? extends String>)newValue );
                 return;
+            case DeploymentPackage.P2_PLATFORM__NAME:
+                setName ( (String)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -127,6 +178,9 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
             case DeploymentPackage.P2_PLATFORM__REPOSITORIES:
                 getRepositories ().clear ();
                 return;
+            case DeploymentPackage.P2_PLATFORM__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -143,6 +197,8 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
         {
             case DeploymentPackage.P2_PLATFORM__REPOSITORIES:
                 return repositories != null && !repositories.isEmpty ();
+            case DeploymentPackage.P2_PLATFORM__NAME:
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
         }
         return super.eIsSet ( featureID );
     }
@@ -161,6 +217,8 @@ public class P2PlatformImpl extends MinimalEObjectImpl.Container implements P2Pl
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (repositories: " ); //$NON-NLS-1$
         result.append ( repositories );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( name );
         result.append ( ')' );
         return result.toString ();
     }

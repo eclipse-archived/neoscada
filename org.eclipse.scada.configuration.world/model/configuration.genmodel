@@ -607,15 +607,19 @@
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackNodeMappingMode/FAIL"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackNodeMappingMode/IGNORE"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/Architecture">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/Architecture/i386"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/Architecture/amd64"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="configuration.ecore#//deployment/DeploymentMechanism"/>
-      <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/DebianDeploymentMechanism/additionalDependencies"/>
-      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
       <genClasses ecoreClass="configuration.ecore#//deployment/Author">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Author/email"/>
       </genClasses>
-      <genClasses ecoreClass="configuration.ecore#//deployment/RedhatDeploymentMechanism"/>
+      <genClasses ecoreClass="configuration.ecore#//deployment/RedhatDeploymentMechanism">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/RedhatDeploymentMechanism/license"/>
+      </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/DeploymentInformation">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/DeploymentInformation/authors"/>
       </genClasses>
@@ -623,6 +627,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/changes"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/maintainer"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -647,6 +652,19 @@
       <genClasses ecoreClass="configuration.ecore#//deployment/SimpleNodeMappingEntry">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/fromHostName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/toHostName"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/MsiDeploymentMechanism">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/version"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/upgradeCode"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/manufacturer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/sharedPlatform"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/localPlatform"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/P2Platform">
+        <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/repositories"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/name"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

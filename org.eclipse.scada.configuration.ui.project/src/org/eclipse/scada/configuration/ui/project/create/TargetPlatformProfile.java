@@ -12,7 +12,22 @@ package org.eclipse.scada.configuration.ui.project.create;
 
 import java.util.List;
 
+/**
+ * Describes a target profile for the configuration system
+ */
 public interface TargetPlatformProfile
 {
+    /**
+     * Get a label for the user
+     * 
+     * @return the label to show
+     */
+    public String getLabel ();
+
+    /**
+     * Get a list of URIs to use for the target platform
+     * 
+     * @return a list of URIs to P2 repositories
+     */
     public List<String> getRepositories ();
 }

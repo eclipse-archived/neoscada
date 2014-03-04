@@ -15,7 +15,8 @@ package org.eclipse.scada.configuration.world.deployment;
  * A representation of the model object '
  * <em><b>Debian Deployment Mechanism</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getDebianDeploymentMechanism()
  * @model
  * @generated

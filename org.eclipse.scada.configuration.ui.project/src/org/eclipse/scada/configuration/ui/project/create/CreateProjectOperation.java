@@ -190,6 +190,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
     {
         final P2Platform result = DeploymentFactory.eINSTANCE.createP2Platform ();
 
+        result.setName ( tpProfile.getLabel () );
         result.getRepositories ().addAll ( tpProfile.getRepositories () );
 
         return result;

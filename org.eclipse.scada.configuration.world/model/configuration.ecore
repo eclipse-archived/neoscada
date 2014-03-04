@@ -1052,6 +1052,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="P2Platform">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositories" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
       <eLiterals name="i386"/>

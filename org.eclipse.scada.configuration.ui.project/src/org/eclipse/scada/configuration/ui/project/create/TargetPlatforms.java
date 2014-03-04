@@ -15,7 +15,7 @@ import java.util.List;
 
 public enum TargetPlatforms implements TargetPlatformProfile
 {
-    KEPLER
+    KEPLER ( "Eclipse Kepler (4.3)" ) //$NON-NLS-1$
     {
         @Override
         public List<String> getRepositories ()
@@ -26,5 +26,18 @@ public enum TargetPlatforms implements TargetPlatformProfile
             );
         }
     };
+
+    private String label;
+
+    private TargetPlatforms ( final String label )
+    {
+        this.label = label;
+    }
+
+    @Override
+    public String getLabel ()
+    {
+        return this.label;
+    }
 
 }

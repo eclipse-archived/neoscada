@@ -24,23 +24,19 @@ import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanis
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.world.deployment.impl.RedhatDeploymentMechanismImpl#getLicense
- * <em>License</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.RedhatDeploymentMechanismImpl#getLicense <em>License</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RedhatDeploymentMechanismImpl extends
         CommonDeploymentMechanismImpl implements RedhatDeploymentMechanism
 {
     /**
-     * The default value of the '{@link #getLicense() <em>License</em>}'
-     * attribute.
+     * The default value of the '{@link #getLicense() <em>License</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLicense()
      * @generated
      * @ordered
@@ -48,11 +44,9 @@ public class RedhatDeploymentMechanismImpl extends
     protected static final String LICENSE_EDEFAULT = "other"; //$NON-NLS-1$
 
     /**
-     * The cached value of the '{@link #getLicense() <em>License</em>}'
-     * attribute.
+     * The cached value of the '{@link #getLicense() <em>License</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLicense()
      * @generated
      * @ordered
@@ -62,7 +56,6 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected RedhatDeploymentMechanismImpl ()
@@ -73,7 +66,6 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -85,40 +77,35 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getLicense ()
     {
-        return this.license;
+        return license;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setLicense ( final String newLicense )
+    public void setLicense ( String newLicense )
     {
-        final String oldLicense = this.license;
-        this.license = newLicense;
+        String oldLicense = license;
+        license = newLicense;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, oldLicense, this.license ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE, oldLicense, license ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -131,11 +118,10 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -149,11 +135,10 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -167,16 +152,15 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case DeploymentPackage.REDHAT_DEPLOYMENT_MECHANISM__LICENSE:
-                return LICENSE_EDEFAULT == null ? this.license != null : !LICENSE_EDEFAULT.equals ( this.license );
+                return LICENSE_EDEFAULT == null ? license != null : !LICENSE_EDEFAULT.equals ( license );
         }
         return super.eIsSet ( featureID );
     }
@@ -184,20 +168,17 @@ public class RedhatDeploymentMechanismImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (license: " ); //$NON-NLS-1$
-        result.append ( this.license );
+        result.append ( license );
         result.append ( ')' );
         return result.toString ();
     }

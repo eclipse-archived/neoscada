@@ -11,7 +11,6 @@
 package org.eclipse.scada.configuration.world.deployment.impl;
 
 import java.util.UUID;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -37,7 +36,6 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class DeploymentFactoryImpl extends EFactoryImpl implements
@@ -47,20 +45,19 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static DeploymentFactory init ()
     {
         try
         {
-            final DeploymentFactory theDeploymentFactory = (DeploymentFactory)EPackage.Registry.INSTANCE.getEFactory ( DeploymentPackage.eNS_URI );
+            DeploymentFactory theDeploymentFactory = (DeploymentFactory)EPackage.Registry.INSTANCE.getEFactory ( DeploymentPackage.eNS_URI );
             if ( theDeploymentFactory != null )
             {
                 return theDeploymentFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -71,7 +68,6 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public DeploymentFactoryImpl ()
@@ -82,11 +78,10 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -118,11 +113,10 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -138,11 +132,10 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -158,52 +151,48 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public DebianDeploymentMechanism createDebianDeploymentMechanism ()
     {
-        final DebianDeploymentMechanismImpl debianDeploymentMechanism = new DebianDeploymentMechanismImpl ();
+        DebianDeploymentMechanismImpl debianDeploymentMechanism = new DebianDeploymentMechanismImpl ();
         return debianDeploymentMechanism;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Author createAuthor ()
     {
-        final AuthorImpl author = new AuthorImpl ();
+        AuthorImpl author = new AuthorImpl ();
         return author;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public RedhatDeploymentMechanism createRedhatDeploymentMechanism ()
     {
-        final RedhatDeploymentMechanismImpl redhatDeploymentMechanism = new RedhatDeploymentMechanismImpl ();
+        RedhatDeploymentMechanismImpl redhatDeploymentMechanism = new RedhatDeploymentMechanismImpl ();
         return redhatDeploymentMechanism;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public DeploymentInformation createDeploymentInformation ()
     {
-        final DeploymentInformationImpl deploymentInformation = new DeploymentInformationImpl ();
+        DeploymentInformationImpl deploymentInformation = new DeploymentInformationImpl ();
         return deploymentInformation;
     }
 
@@ -224,39 +213,36 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public NodeMappings createNodeMappings ()
     {
-        final NodeMappingsImpl nodeMappings = new NodeMappingsImpl ();
+        NodeMappingsImpl nodeMappings = new NodeMappingsImpl ();
         return nodeMappings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ExpressionNodeMappingEntry createExpressionNodeMappingEntry ()
     {
-        final ExpressionNodeMappingEntryImpl expressionNodeMappingEntry = new ExpressionNodeMappingEntryImpl ();
+        ExpressionNodeMappingEntryImpl expressionNodeMappingEntry = new ExpressionNodeMappingEntryImpl ();
         return expressionNodeMappingEntry;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public SimpleNodeMappingEntry createSimpleNodeMappingEntry ()
     {
-        final SimpleNodeMappingEntryImpl simpleNodeMappingEntry = new SimpleNodeMappingEntryImpl ();
+        SimpleNodeMappingEntryImpl simpleNodeMappingEntry = new SimpleNodeMappingEntryImpl ();
         return simpleNodeMappingEntry;
     }
 
@@ -280,40 +266,35 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public P2Platform createP2Platform ()
     {
-        final P2PlatformImpl p2Platform = new P2PlatformImpl ();
+        P2PlatformImpl p2Platform = new P2PlatformImpl ();
         return p2Platform;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public FallbackNodeMappingMode createFallbackNodeMappingModeFromString (
-            final EDataType eDataType, final String initialValue )
+            EDataType eDataType, String initialValue )
     {
-        final FallbackNodeMappingMode result = FallbackNodeMappingMode.get ( initialValue );
+        FallbackNodeMappingMode result = FallbackNodeMappingMode.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertFallbackNodeMappingModeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertFallbackNodeMappingModeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -321,26 +302,22 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public Architecture createArchitectureFromString ( final EDataType eDataType, final String initialValue )
+    public Architecture createArchitectureFromString ( EDataType eDataType, String initialValue )
     {
-        final Architecture result = Architecture.get ( initialValue );
+        Architecture result = Architecture.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertArchitectureToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertArchitectureToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -348,7 +325,6 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -360,7 +336,6 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

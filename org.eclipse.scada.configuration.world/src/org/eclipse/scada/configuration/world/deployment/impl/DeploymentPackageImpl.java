@@ -650,6 +650,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getP2Platform_Name ()
+    {
+        return (EAttribute)p2PlatformEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getFallbackNodeMappingMode ()
     {
@@ -748,6 +758,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
 
         p2PlatformEClass = createEClass ( P2_PLATFORM );
         createEAttribute ( p2PlatformEClass, P2_PLATFORM__REPOSITORIES );
+        createEAttribute ( p2PlatformEClass, P2_PLATFORM__NAME );
 
         // Create enums
         fallbackNodeMappingModeEEnum = createEEnum ( FALLBACK_NODE_MAPPING_MODE );
@@ -849,6 +860,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
 
         initEClass ( p2PlatformEClass, P2Platform.class, "P2Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getP2Platform_Repositories (), ecorePackage.getEString (), "repositories", null, 0, -1, P2Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getP2Platform_Name (), ecorePackage.getEString (), "name", null, 0, 1, P2Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( fallbackNodeMappingModeEEnum, FallbackNodeMappingMode.class, "FallbackNodeMappingMode" ); //$NON-NLS-1$
