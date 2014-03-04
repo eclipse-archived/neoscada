@@ -19,6 +19,8 @@
 <meta itemprop="name" content="[title.encodeHtml()/]">
 <meta itemprop="image" content="[toAbsolute('images/icon.png')/]">
 
+<link rel="shortcut icon" href="[relative(fileName,'images/icon.ico')/]" />
+
 [if description<>null]
 <meta property="og:description" content="[description.encodeHtml()/]"/>
 <meta itemprop="description" content="[description.encodeHtml()/]">
