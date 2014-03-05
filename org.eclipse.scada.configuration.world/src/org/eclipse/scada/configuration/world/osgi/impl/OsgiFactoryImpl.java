@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.scada.ae.data.Severity;
+import org.eclipse.scada.configuration.world.osgi.*;
 import org.eclipse.scada.configuration.world.osgi.AknProxy;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter;
@@ -310,6 +311,8 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createChangeCounterItem ();
             case OsgiPackage.BUFFERED_VALUE:
                 return createBufferedValue ();
+            case OsgiPackage.TELNET_CONSOLE:
+                return createTelnetConsole ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1219,6 +1222,17 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         BufferedValueImpl bufferedValue = new BufferedValueImpl ();
         return bufferedValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TelnetConsole createTelnetConsole ()
+    {
+        TelnetConsoleImpl telnetConsole = new TelnetConsoleImpl ();
+        return telnetConsole;
     }
 
     /**

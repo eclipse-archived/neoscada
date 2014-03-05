@@ -6667,6 +6667,52 @@ public interface OsgiPackage extends EPackage
     int BUFFERED_VALUE_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl <em>Telnet Console</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getTelnetConsole()
+     * @generated
+     */
+    int TELNET_CONSOLE = 90;
+
+    /**
+     * The feature id for the '<em><b>Host</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TELNET_CONSOLE__HOST = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TELNET_CONSOLE__PORT = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Telnet Console</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TELNET_CONSOLE_FEATURE_COUNT = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Telnet Console</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TELNET_CONSOLE_OPERATION_COUNT = INDEPENDENT_CONFIGURATION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6674,7 +6720,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 90;
+    int AVERAGE_REFERENCE_TYPE = 91;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6684,7 +6730,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 91;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 92;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6694,7 +6740,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 92;
+    int ROUNDING_TYPE = 93;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6704,7 +6750,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 93;
+    int DATA_TYPE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6714,7 +6760,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 94;
+    int PASSWORD_TYPE = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -6724,7 +6770,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 95;
+    int PERSISTENCE = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -6734,7 +6780,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 96;
+    int ERROR_HANDLING = 97;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -6744,7 +6790,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 97;
+    int CHANGE_TYPE = 98;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6754,7 +6800,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 98;
+    int SEVERITY = 99;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6764,7 +6810,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 99;
+    int VARIANT = 100;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -10091,6 +10137,38 @@ public interface OsgiPackage extends EPackage
     EAttribute getBufferedValue_Persistence ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.TelnetConsole <em>Telnet Console</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Telnet Console</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.TelnetConsole
+     * @generated
+     */
+    EClass getTelnetConsole ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.TelnetConsole#getHost <em>Host</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Host</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.TelnetConsole#getHost()
+     * @see #getTelnetConsole()
+     * @generated
+     */
+    EAttribute getTelnetConsole_Host ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.TelnetConsole#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.TelnetConsole#getPort()
+     * @see #getTelnetConsole()
+     * @generated
+     */
+    EAttribute getTelnetConsole_Port ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -12902,6 +12980,32 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute BUFFERED_VALUE__PERSISTENCE = eINSTANCE.getBufferedValue_Persistence ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl <em>Telnet Console</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.TelnetConsoleImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getTelnetConsole()
+         * @generated
+         */
+        EClass TELNET_CONSOLE = eINSTANCE.getTelnetConsole ();
+
+        /**
+         * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TELNET_CONSOLE__HOST = eINSTANCE.getTelnetConsole_Host ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute TELNET_CONSOLE__PORT = eINSTANCE.getTelnetConsole_Port ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

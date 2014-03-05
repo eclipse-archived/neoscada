@@ -310,6 +310,11 @@ public class WorldItemProvider extends ItemProviderAdapter implements IEditingDo
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( InfrastructurePackage.Literals.WORLD__APPLICATION_CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( InfrastructurePackage.Literals.WORLD__DEFAULT_DRIVER_ACCESS_CREDENTIALS,
                         WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
 

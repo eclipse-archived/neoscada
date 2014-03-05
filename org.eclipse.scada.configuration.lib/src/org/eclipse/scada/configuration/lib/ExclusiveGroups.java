@@ -11,10 +11,13 @@
 package org.eclipse.scada.configuration.lib;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -144,5 +147,72 @@ public final class ExclusiveGroups
     public static void removeGroups ( final Collection<? extends EObject> objects, final Collection<? extends EObject> sourceObjects )
     {
         removeGroups ( objects, makeGroupIds ( sourceObjects ) );
+    }
+
+    /**
+     * Return an aggregated map of group violations
+     * <p>
+     * This method actually calls {@link #aggregateGroups(EList)} and only
+     * returns groups with a size greater than 1.
+     * </p>
+     * 
+     * @param objects
+     *            the objects to validate
+     * @return the map of group violations
+     */
+    public static Map<String, Set<EObject>> validate ( final EList<? extends EObject> objects )
+    {
+        final Map<String, Set<EObject>> map = aggregateGroups ( objects );
+
+        final Map<String, Set<EObject>> result = new HashMap<> ();
+
+        for ( final Map.Entry<String, Set<EObject>> entry : map.entrySet () )
+        {
+            if ( entry.getValue ().size () > 1 )
+            {
+                result.put ( entry.getKey (), entry.getValue () );
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Group objects by groupId
+     * <p>
+     * Note that object without are group are not returned
+     * </p>
+     * 
+     * @param objects
+     *            the object to group
+     * @return the grouped objects
+     */
+    public static Map<String, Set<EObject>> aggregateGroups ( final EList<? extends EObject> objects )
+    {
+        final Map<String, Set<EObject>> map = new HashMap<> ();
+
+        for ( final EObject obj : objects )
+        {
+            final EAnnotation annotation = findAnnotation ( obj );
+            if ( annotation == null )
+            {
+                continue;
+            }
+            final String groupId = annotation.getDetails ().get ( VALUE_GROUP_ID );
+            if ( groupId == null )
+            {
+                continue;
+            }
+
+            Set<EObject> set = map.get ( groupId );
+            if ( set == null )
+            {
+                set = new HashSet<> ();
+                map.put ( groupId, set );
+            }
+            set.add ( obj );
+        }
+
+        return map;
     }
 }

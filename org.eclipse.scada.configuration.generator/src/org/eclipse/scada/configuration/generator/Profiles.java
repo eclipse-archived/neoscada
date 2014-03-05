@@ -109,6 +109,11 @@ public final class Profiles
         profile.getProperty ().add ( prop );
     }
 
+    public static void addProgramArugment ( final Profile profile, final String argument )
+    {
+        profile.getArguments ().add ( argument );
+    }
+
     public static void addInclude ( final Profile profile, final ResourceSet resourceSet, final URI uri )
     {
         final EObject content = resourceSet.getEObject ( uri, true );

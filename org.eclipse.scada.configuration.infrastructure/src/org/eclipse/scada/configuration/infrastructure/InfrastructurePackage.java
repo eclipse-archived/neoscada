@@ -1537,13 +1537,22 @@ public interface InfrastructurePackage extends EPackage
     int APPLICATION_CONFIGURATION__MODULES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int APPLICATION_CONFIGURATION__CONFIGURATIONS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Application Configuration</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int APPLICATION_CONFIGURATION_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
+    int APPLICATION_CONFIGURATION_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Application Configuration</em>' class.
@@ -2665,6 +2674,17 @@ public interface InfrastructurePackage extends EPackage
     EReference getApplicationConfiguration_Modules ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getConfigurations <em>Configurations</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Configurations</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration#getConfigurations()
+     * @see #getApplicationConfiguration()
+     * @generated
+     */
+    EReference getApplicationConfiguration_Configurations ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Configurations <em>Configurations</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3492,6 +3512,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference APPLICATION_CONFIGURATION__MODULES = eINSTANCE.getApplicationConfiguration_Modules ();
+
+        /**
+         * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference APPLICATION_CONFIGURATION__CONFIGURATIONS = eINSTANCE.getApplicationConfiguration_Configurations ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl <em>Configurations</em>}' class.

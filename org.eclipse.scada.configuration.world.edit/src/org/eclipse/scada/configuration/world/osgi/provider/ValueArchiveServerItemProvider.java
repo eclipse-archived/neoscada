@@ -337,6 +337,11 @@ public class ValueArchiveServerItemProvider extends ItemProviderAdapter
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( OsgiPackage.Literals.VALUE_ARCHIVE_SERVER__ARCHIVES,
                         OsgiFactory.eINSTANCE.createValueArchive () ) );
     }

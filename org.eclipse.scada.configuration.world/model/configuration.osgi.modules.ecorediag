@@ -560,6 +560,30 @@
     <element xmi:type="ecore:EClass" href="configuration.ecore#//osgi/IndependentConfiguration"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R5aHsl2TEeOIa-ScJn6sXQ" x="-96" y="576"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_zI6KkKRBEeOeZYeVTUHw8Q" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_zI7YsKRBEeOeZYeVTUHw8Q" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_zI7YsaRBEeOeZYeVTUHw8Q" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_OYvY8KRCEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/TelnetConsole/host"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OYvY8aRCEeOeZYeVTUHw8Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_O1bU8KRCEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/TelnetConsole/port"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_O1bU8aRCEeOeZYeVTUHw8Q"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_zI7YsqRBEeOeZYeVTUHw8Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_zI7Ys6RBEeOeZYeVTUHw8Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_zI7YtKRBEeOeZYeVTUHw8Q"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_zI7_wKRBEeOeZYeVTUHw8Q" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_zI7_waRBEeOeZYeVTUHw8Q"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_zI7_wqRBEeOeZYeVTUHw8Q"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_zI7_w6RBEeOeZYeVTUHw8Q"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_zI6KkaRBEeOeZYeVTUHw8Q" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//osgi/TelnetConsole"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zI6KkqRBEeOeZYeVTUHw8Q" x="-120" y="732"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_7nxRwelLEeKD8_oe4c1aWg"/>
   <element xmi:type="ecore:EPackage" href="configuration.ecore#//osgi"/>
   <edges xmi:type="notation:Edge" xmi:id="_qe3JkOrLEeKQYeFaFmhbgg" type="3002" source="_oZCskOrLEeKQYeFaFmhbgg" target="_pvapoOrLEeKQYeFaFmhbgg">
@@ -903,5 +927,11 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_Y1Ti0l2TEeOIa-ScJn6sXQ" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Y1Ti012TEeOIa-ScJn6sXQ" points="[-27, -20, 133, 100]$[-161, -140, -1, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Uh2sQKRCEeOeZYeVTUHw8Q" type="3003" source="_zI6KkKRBEeOeZYeVTUHw8Q" target="_R5aHsF2TEeOIa-ScJn6sXQ">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Uh2sQaRCEeOeZYeVTUHw8Q" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Uh2sQqRCEeOeZYeVTUHw8Q" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Uh2sQ6RCEeOeZYeVTUHw8Q" points="[10, -33, -54, 136]$[57, -189, -7, -20]"/>
   </edges>
 </notation:Diagram>

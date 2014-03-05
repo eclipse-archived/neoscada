@@ -30,11 +30,9 @@ import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.infrastructure.SystemNode} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.SystemNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class SystemNodeItemProvider extends NodeItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -43,10 +41,9 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public SystemNodeItemProvider ( final AdapterFactory adapterFactory )
+    public SystemNodeItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,56 +52,50 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to
-     * deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand},
-     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in
-     * {@link #createCommand}.
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( final Object object )
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
     {
-        if ( this.childrenFeatures == null )
+        if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__MASTERS );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_ARCHIVES );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__SERVICES );
-            this.childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_SLAVES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__DEPLOYMENT );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__MASTERS );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_ARCHIVES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__SERVICES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.SYSTEM_NODE__VALUE_SLAVES );
         }
-        return this.childrenFeatures;
+        return childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature ( final Object object, final Object child )
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
     {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
@@ -145,17 +136,14 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -177,16 +165,14 @@ public class SystemNodeItemProvider extends NodeItemProvider implements IEditing
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 

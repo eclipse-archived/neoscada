@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.osgi.*;
 import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
 import org.eclipse.scada.configuration.world.osgi.AknProxy;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection;
@@ -1183,6 +1184,20 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = caseNamedDocumentable ( bufferedValue );
                 if ( result == null )
                     result = caseDocumentable ( bufferedValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.TELNET_CONSOLE:
+            {
+                TelnetConsole telnetConsole = (TelnetConsole)theEObject;
+                T result = caseTelnetConsole ( telnetConsole );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( telnetConsole );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( telnetConsole );
+                if ( result == null )
+                    result = caseApplicationModule ( telnetConsole );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -2629,6 +2644,22 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseBufferedValue ( BufferedValue object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Telnet Console</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Telnet Console</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseTelnetConsole ( TelnetConsole object )
     {
         return null;
     }

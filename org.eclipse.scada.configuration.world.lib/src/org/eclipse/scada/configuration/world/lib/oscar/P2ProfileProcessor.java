@@ -116,6 +116,7 @@ public class P2ProfileProcessor
     {
         target.getInstallationUnits ().addAll ( source.getInstallationUnits () );
         target.getJvmArguments ().addAll ( source.getJvmArguments () );
+        target.getArguments ().addAll ( source.getArguments () );
         target.getNotes ().addAll ( source.getNotes () );
         target.getSetbsl ().addAll ( EcoreUtil.copyAll ( source.getSetbsl () ) );
         target.getStart ().addAll ( EcoreUtil.copyAll ( source.getStart () ) );

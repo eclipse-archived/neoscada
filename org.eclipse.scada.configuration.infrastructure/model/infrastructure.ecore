@@ -190,6 +190,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/IndependentConfiguration"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configurations">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"

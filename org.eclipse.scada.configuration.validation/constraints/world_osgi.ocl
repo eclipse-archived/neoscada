@@ -8,4 +8,10 @@ inv EventPool_size_greater_than_zero: size > 0
 context EventStoragePostgres
 inv EventStoragePostgres_missing_bundles: postgresDriverBundles->size() > 0
 
+context TelnetConsole
+inv PortRange: port >= 0
+inv PortRange_wildcard: port <> 0
+inv PortRange_root: port > 1024 or port <= 0
+inv Host_any: host <> ''
+
 endpackage

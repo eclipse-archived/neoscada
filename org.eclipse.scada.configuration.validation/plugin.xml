@@ -125,6 +125,19 @@
                   message body text
                </message>
             </constraint>
+			<constraint
+                  class="org.eclipse.scada.configuration.validation.infrastructure.ConfigurationValidation"
+                  id="org.eclipse.scada.configuration.validation.InfrastructureConfiguration"
+                  isEnabledByDefault="true"
+                  lang="Java"
+                  mode="Batch"
+                  name="Application configuration"
+                  severity="ERROR"
+                  statusCode="0">
+               <message>
+                  message body text
+               </message>
+            </constraint>
          </constraints>
       </constraintProvider>
       

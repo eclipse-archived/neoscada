@@ -382,6 +382,11 @@ public class MasterServerItemProvider extends ItemProviderAdapter implements
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( OsgiPackage.Literals.MASTER_SERVER__SUMMARY_GROUPS,
                         OsgiFactory.eINSTANCE.createSummaryGroup () ) );
 

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.osgi.*;
 import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
 import org.eclipse.scada.configuration.world.osgi.AknProxy;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection;
@@ -711,6 +712,12 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
         public Adapter caseBufferedValue ( BufferedValue object )
         {
             return createBufferedValueAdapter ();
+        }
+
+        @Override
+        public Adapter caseTelnetConsole ( TelnetConsole object )
+        {
+            return createTelnetConsoleAdapter ();
         }
 
         @Override
@@ -2278,6 +2285,21 @@ public class OsgiAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createBufferedValueAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.TelnetConsole <em>Telnet Console</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.TelnetConsole
+     * @generated
+     */
+    public Adapter createTelnetConsoleAdapter ()
     {
         return null;
     }

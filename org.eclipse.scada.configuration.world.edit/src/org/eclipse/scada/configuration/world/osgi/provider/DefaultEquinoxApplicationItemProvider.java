@@ -372,6 +372,11 @@ public class DefaultEquinoxApplicationItemProvider
                 ( createChildParameter
                 ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
                         OsgiFactory.eINSTANCE.createHttpService () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( OsgiPackage.Literals.EQUINOX_APPLICATION__MODULES,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
     }
 
     /**

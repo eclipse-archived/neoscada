@@ -715,6 +715,15 @@ public interface OsgiFactory extends EFactory
     BufferedValue createBufferedValue ();
 
     /**
+     * Returns a new object of class '<em>Telnet Console</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Telnet Console</em>'.
+     * @generated
+     */
+    TelnetConsole createTelnetConsole ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

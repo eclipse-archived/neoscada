@@ -270,6 +270,11 @@ public class EquinoxApplicationItemProvider extends ItemProviderAdapter implemen
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.EQUINOX_APPLICATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
     }
 
     /**

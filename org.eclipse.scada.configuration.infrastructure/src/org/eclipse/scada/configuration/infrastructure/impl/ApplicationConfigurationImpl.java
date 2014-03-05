@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.Module;
+import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +43,7 @@ import org.eclipse.scada.configuration.infrastructure.Module;
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ApplicationConfigurationImpl#getConfigurations <em>Configurations</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,6 +100,16 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
      * @ordered
      */
     protected EList<Module> modules;
+
+    /**
+     * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getConfigurations()
+     * @generated
+     * @ordered
+     */
+    protected EList<IndependentConfiguration> configurations;
 
     /**
      * <!-- begin-user-doc -->
@@ -185,6 +197,20 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<IndependentConfiguration> getConfigurations ()
+    {
+        if ( configurations == null )
+        {
+            configurations = new EObjectContainmentEList.Resolving<IndependentConfiguration> ( IndependentConfiguration.class, this, InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS );
+        }
+        return configurations;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -192,6 +218,8 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
         {
             case InfrastructurePackage.APPLICATION_CONFIGURATION__MODULES:
                 return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
+                return ( (InternalEList<?>)getConfigurations () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -212,6 +240,8 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
                 return getName ();
             case InfrastructurePackage.APPLICATION_CONFIGURATION__MODULES:
                 return getModules ();
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
+                return getConfigurations ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -237,6 +267,10 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
                 getModules ().clear ();
                 getModules ().addAll ( (Collection<? extends Module>)newValue );
                 return;
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
+                getConfigurations ().clear ();
+                getConfigurations ().addAll ( (Collection<? extends IndependentConfiguration>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -260,6 +294,9 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
             case InfrastructurePackage.APPLICATION_CONFIGURATION__MODULES:
                 getModules ().clear ();
                 return;
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
+                getConfigurations ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -280,6 +317,8 @@ public class ApplicationConfigurationImpl extends MinimalEObjectImpl.Container i
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case InfrastructurePackage.APPLICATION_CONFIGURATION__MODULES:
                 return modules != null && !modules.isEmpty ();
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
+                return configurations != null && !configurations.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

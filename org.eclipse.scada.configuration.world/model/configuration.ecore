@@ -846,6 +846,15 @@
       <eLiterals name="SET" value="1" literal="SET"/>
       <eLiterals name="DIRECTION" value="2" literal="DIRECTION"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TelnetConsole" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+        <details key="groupId" value="telnet.console"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="localhost"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">
       <eClassifiers xsi:type="ecore:EClass" name="Profile">

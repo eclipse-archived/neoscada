@@ -1213,6 +1213,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getApplicationConfiguration_Configurations ()
+    {
+        return (EReference)applicationConfigurationEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getConfigurations ()
     {
@@ -1462,6 +1472,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
         createEReference ( applicationConfigurationEClass, APPLICATION_CONFIGURATION__MODULES );
+        createEReference ( applicationConfigurationEClass, APPLICATION_CONFIGURATION__CONFIGURATIONS );
 
         configurationsEClass = createEClass ( CONFIGURATIONS );
         createEReference ( configurationsEClass, CONFIGURATIONS__CONFIGURATIONS );
@@ -1640,6 +1651,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getApplicationConfiguration_Modules (), this.getModule (), null, "modules", null, 0, -1, ApplicationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getApplicationConfiguration_Configurations (), theOsgiPackage.getIndependentConfiguration (), null, "configurations", null, 0, -1, ApplicationConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( configurationsEClass, Configurations.class, "Configurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getConfigurations_Configurations (), this.getApplicationConfiguration (), null, "configurations", null, 0, -1, Configurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

@@ -373,6 +373,7 @@ public class WorldGenerator
         // process application configurations
 
         result.addAll ( this.infrastructure.getApplicationConfigurations () );
+
         ExclusiveGroups.removeGroups ( result, app.getConfigurations () );
         result.addAll ( app.getConfigurations () );
 
@@ -382,6 +383,9 @@ public class WorldGenerator
         // TODO: add a default configuration
         if ( cfg != null )
         {
+            ExclusiveGroups.removeGroups ( result, cfg.getConfigurations () );
+            result.addAll ( cfg.getConfigurations () );
+
             for ( final Module m : cfg.getModules () )
             {
                 // FIXME: add extension scheme

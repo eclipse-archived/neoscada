@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
+import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration} object.
@@ -140,6 +141,7 @@ public class ApplicationConfigurationItemProvider
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES );
+            childrenFeatures.add ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS );
         }
         return childrenFeatures;
     }
@@ -204,6 +206,7 @@ public class ApplicationConfigurationItemProvider
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case InfrastructurePackage.APPLICATION_CONFIGURATION__MODULES:
+            case InfrastructurePackage.APPLICATION_CONFIGURATION__CONFIGURATIONS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -231,6 +234,21 @@ public class ApplicationConfigurationItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
                         InfrastructureFactory.eINSTANCE.createRestExporterModule () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createEventStoragePostgres () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createTelnetConsole () ) );
     }
 
     /**

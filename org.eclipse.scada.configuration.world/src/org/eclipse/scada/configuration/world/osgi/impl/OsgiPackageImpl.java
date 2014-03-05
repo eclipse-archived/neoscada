@@ -673,6 +673,13 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass telnetConsoleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum averageReferenceTypeEEnum = null;
 
     /**
@@ -4243,6 +4250,36 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getTelnetConsole ()
+    {
+        return telnetConsoleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTelnetConsole_Host ()
+    {
+        return (EAttribute)telnetConsoleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getTelnetConsole_Port ()
+    {
+        return (EAttribute)telnetConsoleEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAverageReferenceType ()
     {
@@ -4791,6 +4828,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__TRIGGER_ONLY );
         createEAttribute ( bufferedValueEClass, BUFFERED_VALUE__PERSISTENCE );
 
+        telnetConsoleEClass = createEClass ( TELNET_CONSOLE );
+        createEAttribute ( telnetConsoleEClass, TELNET_CONSOLE__HOST );
+        createEAttribute ( telnetConsoleEClass, TELNET_CONSOLE__PORT );
+
         // Create enums
         averageReferenceTypeEEnum = createEEnum ( AVERAGE_REFERENCE_TYPE );
         movingAverageReferenceTypeEEnum = createEEnum ( MOVING_AVERAGE_REFERENCE_TYPE );
@@ -4917,6 +4958,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         defaultEquinoxApplicationEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
         changeCounterItemEClass.getESuperTypes ().add ( this.getItem () );
         bufferedValueEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
+        telnetConsoleEClass.getESuperTypes ().add ( this.getIndependentConfiguration () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( equinoxApplicationEClass, EquinoxApplication.class, "EquinoxApplication", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -5348,6 +5390,10 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEAttribute ( getBufferedValue_TriggerOnly (), ecorePackage.getEBooleanObject (), "triggerOnly", "false", 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getBufferedValue_Persistence (), this.getPersistence (), "persistence", "NONE", 0, 1, BufferedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
+        initEClass ( telnetConsoleEClass, TelnetConsole.class, "TelnetConsole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTelnetConsole_Host (), ecorePackage.getEString (), "host", "localhost", 0, 1, TelnetConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getTelnetConsole_Port (), ecorePackage.getEShort (), "port", null, 1, 1, TelnetConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum ( averageReferenceTypeEEnum, AverageReferenceType.class, "AverageReferenceType" ); //$NON-NLS-1$
         addEEnumLiteral ( averageReferenceTypeEEnum, AverageReferenceType.MIN );
@@ -5429,6 +5475,11 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
                 source,
                 new String[]
                 {       "groupId", "http.service" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( telnetConsoleEClass,
+                source,
+                new String[]
+                {       "groupId", "telnet.console" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 
