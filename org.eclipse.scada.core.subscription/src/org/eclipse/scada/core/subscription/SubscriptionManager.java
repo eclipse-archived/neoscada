@@ -25,10 +25,10 @@ public class SubscriptionManager
 {
     private final Map<Object, Subscription> subscriptions = new HashMap<Object, Subscription> ();
 
-    private SubscriptionValidator validator = null;
+    private SubscriptionValidator validator;
 
     /**
-     * Unsibscribe from all subscriptions that the listener has subscribed to
+     * Unsubscribe from all subscriptions that the listener has subscribed to
      * 
      * @param listener
      *            the listener to unsubscribe
@@ -164,7 +164,7 @@ public class SubscriptionManager
     }
 
     /**
-     * Get all topic whose subscription is in granted state.
+     * Get all topics whose subscription is in granted state.
      * 
      * @return The list of topics whose subscription is in granted state.
      */
