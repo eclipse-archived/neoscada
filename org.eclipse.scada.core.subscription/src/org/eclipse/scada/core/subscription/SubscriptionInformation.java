@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,52 +7,52 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
 /**
  * A subscription information object which holds the information that where used
  * when the listener binds to the subscription.
+ * Two subscription information objects are equal if their listeners are equal.
  * 
- * Two subcsription information objects are equal if their listeners are equal.
  * @author Jens Reimann
- *
  */
-public class SubscriptionInformation
+public class SubscriptionInformation<T>
 {
-    private SubscriptionListener _listener = null;
+    private SubscriptionListener<T> listener;
 
-    private Object _hint = null;
+    private Object hint;
 
     public SubscriptionInformation ()
     {
         super ();
     }
 
-    public SubscriptionInformation ( final SubscriptionListener listener, final Object hint )
+    public SubscriptionInformation ( final SubscriptionListener<T> listener, final Object hint )
     {
-        this._listener = listener;
-        this._hint = hint;
+        this.listener = listener;
+        this.hint = hint;
     }
 
     public Object getHint ()
     {
-        return this._hint;
+        return this.hint;
     }
 
     public void setHint ( final Object hint )
     {
-        this._hint = hint;
+        this.hint = hint;
     }
 
-    public SubscriptionListener getListener ()
+    public SubscriptionListener<T> getListener ()
     {
-        return this._listener;
+        return this.listener;
     }
 
-    public void setListener ( final SubscriptionListener listener )
+    public void setListener ( final SubscriptionListener<T> listener )
     {
-        this._listener = listener;
+        this.listener = listener;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class SubscriptionInformation
     {
         final int PRIME = 31;
         int result = 1;
-        result = PRIME * result + ( this._listener == null ? 0 : this._listener.hashCode () );
+        result = PRIME * result + ( this.listener == null ? 0 : this.listener.hashCode () );
         return result;
     }
 
@@ -79,15 +79,15 @@ public class SubscriptionInformation
         {
             return false;
         }
-        final SubscriptionInformation other = (SubscriptionInformation)obj;
-        if ( this._listener == null )
+        final SubscriptionInformation<?> other = (SubscriptionInformation<?>)obj;
+        if ( this.listener == null )
         {
-            if ( other._listener != null )
+            if ( other.listener != null )
             {
                 return false;
             }
         }
-        else if ( !this._listener.equals ( other._listener ) )
+        else if ( !this.listener.equals ( other.listener ) )
         {
             return false;
         }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,51 +7,49 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
-import org.eclipse.scada.core.subscription.SubscriptionSource;
-
-public class SubscriptionSourceEvent
+public class SubscriptionSourceEvent<T>
 {
-    private Boolean _added = null;
+    private boolean added;
 
-    private SubscriptionSource _source = null;
+    private SubscriptionSource<T> source;
 
-    public SubscriptionSourceEvent ( final boolean added, final SubscriptionSource source )
+    public SubscriptionSourceEvent ( final boolean added, final SubscriptionSource<T> source )
     {
-        super ();
-        this._added = added;
-        this._source = source;
+        this.added = added;
+        this.source = source;
     }
 
-    public Boolean getAdded ()
+    public boolean getAdded ()
     {
-        return this._added;
+        return this.added;
     }
 
-    public void setAdded ( final Boolean added )
+    public void setAdded ( final boolean added )
     {
-        this._added = added;
+        this.added = added;
     }
 
-    public SubscriptionSource getSource ()
+    public SubscriptionSource<T> getSource ()
     {
-        return this._source;
+        return this.source;
     }
 
-    public void setSource ( final SubscriptionSource source )
+    public void setSource ( final SubscriptionSource<T> source )
     {
-        this._source = source;
+        this.source = source;
     }
 
     @Override
     public int hashCode ()
     {
-        final int PRIME = 31;
+        final int prime = 31;
         int result = 1;
-        result = PRIME * result + ( this._added == null ? 0 : this._added.hashCode () );
-        result = PRIME * result + ( this._source == null ? 0 : this._source.hashCode () );
+        result = prime * result + ( this.added ? 1231 : 1237 );
+        result = prime * result + ( this.source == null ? 0 : this.source.hashCode () );
         return result;
     }
 
@@ -66,33 +64,27 @@ public class SubscriptionSourceEvent
         {
             return false;
         }
-        if ( getClass () != obj.getClass () )
+        if ( ! ( obj instanceof SubscriptionSourceEvent ) )
         {
             return false;
         }
-        final SubscriptionSourceEvent other = (SubscriptionSourceEvent)obj;
-        if ( this._added == null )
+        final SubscriptionSourceEvent<?> other = (SubscriptionSourceEvent<?>)obj;
+        if ( this.added != other.added )
         {
-            if ( other._added != null )
+            return false;
+        }
+        if ( this.source == null )
+        {
+            if ( other.source != null )
             {
                 return false;
             }
         }
-        else if ( !this._added.equals ( other._added ) )
-        {
-            return false;
-        }
-        if ( this._source == null )
-        {
-            if ( other._source != null )
-            {
-                return false;
-            }
-        }
-        else if ( !this._source.equals ( other._source ) )
+        else if ( !this.source.equals ( other.source ) )
         {
             return false;
         }
         return true;
     }
+
 }

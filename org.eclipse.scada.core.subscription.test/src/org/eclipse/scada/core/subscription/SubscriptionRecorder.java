@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
@@ -14,36 +15,34 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.scada.core.data.SubscriptionState;
-import org.eclipse.scada.core.subscription.SubscriptionListener;
-import org.eclipse.scada.core.subscription.SubscriptionSource;
 
-public class SubscriptionRecorder implements SubscriptionListener
+public class SubscriptionRecorder<T> implements SubscriptionListener<T>
 {
-    private List<Object> _list = new LinkedList<Object> ();
+    private List<Object> list = new LinkedList<Object> ();
 
     @Override
-    public void updateStatus ( final Object topic, final SubscriptionState subscriptionState )
+    public void updateStatus ( final T topic, final SubscriptionState subscriptionState )
     {
-        this._list.add ( new SubscriptionStateEvent ( subscriptionState ) );
+        this.list.add ( new SubscriptionStateEvent ( subscriptionState ) );
     }
 
-    public void added ( final SubscriptionSource source )
+    public void added ( final SubscriptionSource<T> source )
     {
-        this._list.add ( new SubscriptionSourceEvent ( true, source ) );
+        this.list.add ( new SubscriptionSourceEvent<T> ( true, source ) );
     }
 
-    public void removed ( final SubscriptionSource source )
+    public void removed ( final SubscriptionSource<T> source )
     {
-        this._list.add ( new SubscriptionSourceEvent ( false, source ) );
+        this.list.add ( new SubscriptionSourceEvent<T> ( false, source ) );
     }
 
     public List<Object> getList ()
     {
-        return this._list;
+        return this.list;
     }
 
     public void setList ( final List<Object> list )
     {
-        this._list = list;
+        this.list = list;
     }
 }

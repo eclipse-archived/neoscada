@@ -10,24 +10,23 @@
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.scada.core.data.SubscriptionState;
 
-public class Subscription
+public class Subscription<T>
 {
-    private final Map<SubscriptionInformation, Object> listeners = new HashMap<SubscriptionInformation, Object> ( 1 );
+    private final Map<SubscriptionInformation<T>, Object> listeners = new HashMap<SubscriptionInformation<T>, Object> ( 1 );
 
-    private SubscriptionSource source = null;
+    private SubscriptionSource<T> source;
 
-    private Object topic = null;
+    private final T topic;
 
-    public Subscription ( final Object topic )
+    public Subscription ( final T topic )
     {
-        super ();
         this.topic = topic;
     }
 
@@ -57,9 +56,20 @@ public class Subscription
         return this.source == null && !this.listeners.isEmpty ();
     }
 
-    public synchronized void subscribe ( final SubscriptionListener listener, final Object hint )
+    /**
+     * Check if somebody is subscribed to us
+     * 
+     * @return <code>true</code> if we have listeners, <code>false</code>
+     *         otherwise
+     */
+    public synchronized boolean isSubscribed ()
     {
-        final SubscriptionInformation subscriptionInformation = new SubscriptionInformation ( listener, hint );
+        return !this.listeners.isEmpty ();
+    }
+
+    public synchronized void subscribe ( final SubscriptionListener<T> listener, final Object hint )
+    {
+        final SubscriptionInformation<T> subscriptionInformation = new SubscriptionInformation<T> ( listener, hint );
 
         if ( this.listeners.containsKey ( subscriptionInformation ) )
         {
@@ -74,13 +84,13 @@ public class Subscription
         else
         {
             listener.updateStatus ( this.topic, SubscriptionState.CONNECTED );
-            this.source.addListener ( Arrays.asList ( subscriptionInformation ) );
+            this.source.addListener ( Collections.singleton ( subscriptionInformation ) );
         }
     }
 
-    public synchronized void unsubscribe ( final SubscriptionListener listener )
+    public synchronized void unsubscribe ( final SubscriptionListener<T> listener )
     {
-        final SubscriptionInformation subscriptionInformation = new SubscriptionInformation ( listener, null );
+        final SubscriptionInformation<T> subscriptionInformation = new SubscriptionInformation<T> ( listener, null );
         if ( this.listeners.containsKey ( subscriptionInformation ) )
         {
             final Object hint = this.listeners.remove ( subscriptionInformation );
@@ -88,14 +98,14 @@ public class Subscription
 
             if ( this.source != null )
             {
-                this.source.removeListener ( Arrays.asList ( subscriptionInformation ) );
+                this.source.removeListener ( Collections.singleton ( subscriptionInformation ) );
             }
 
             listener.updateStatus ( this.topic, SubscriptionState.DISCONNECTED );
         }
     }
 
-    public synchronized void setSource ( final SubscriptionSource source )
+    public synchronized void setSource ( final SubscriptionSource<T> source )
     {
         // We only act on changes
         if ( this.source == source )
@@ -108,10 +118,10 @@ public class Subscription
             this.source.removeListener ( this.listeners.keySet () );
         }
 
-        final Set<SubscriptionInformation> keys = this.listeners.keySet ();
+        final Set<SubscriptionInformation<T>> keys = this.listeners.keySet ();
         if ( source != null )
         {
-            for ( final SubscriptionInformation information : keys )
+            for ( final SubscriptionInformation<T> information : keys )
             {
                 information.getListener ().updateStatus ( this.topic, SubscriptionState.CONNECTED );
             }
@@ -122,7 +132,7 @@ public class Subscription
         }
         else
         {
-            for ( final SubscriptionInformation information : keys )
+            for ( final SubscriptionInformation<T> information : keys )
             {
                 information.getListener ().updateStatus ( this.topic, SubscriptionState.GRANTED );
             }

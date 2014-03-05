@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common;
 
@@ -64,9 +65,9 @@ public class ServiceImpl extends AbstractServiceImpl<Session, SessionImpl> imple
 {
     private final static Logger logger = LoggerFactory.getLogger ( ServiceImpl.class );
 
-    private final SubscriptionManager monitorSubscriptions;
+    private final SubscriptionManager<String> monitorSubscriptions;
 
-    private final SubscriptionManager eventSubscriptions;
+    private final SubscriptionManager<String> eventSubscriptions;
 
     private final BundleContext context;
 
@@ -91,8 +92,8 @@ public class ServiceImpl extends AbstractServiceImpl<Session, SessionImpl> imple
         super ( context, executor );
 
         this.context = context;
-        this.monitorSubscriptions = new SubscriptionManager ();
-        this.eventSubscriptions = new SubscriptionManager ();
+        this.monitorSubscriptions = new SubscriptionManager<String> ();
+        this.eventSubscriptions = new SubscriptionManager<String> ();
 
         // create akn handler
         this.aknTracker = new ServiceTracker<AknHandler, AknHandler> ( context, AknHandler.class, null );

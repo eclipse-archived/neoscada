@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.ngp;
 
@@ -85,9 +86,6 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Servi
         super.dispose ();
     }
 
-    /**
-     * @since 1.1
-     */
     @Override
     protected void initializeSession ( final Session session )
     {
@@ -101,7 +99,7 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Servi
             }
 
             @Override
-            public void updateStatus ( final Object topic, final SubscriptionState subscriptionState )
+            public void updateStatus ( final String topic, final SubscriptionState subscriptionState )
             {
                 handleMonitorStatusChange ( topic.toString (), subscriptionState );
             }
@@ -115,7 +113,7 @@ public class ServerConnectionImpl extends ServiceServerConnection<Session, Servi
             }
 
             @Override
-            public void updateStatus ( final Object topic, final SubscriptionState subscriptionState )
+            public void updateStatus ( final String topic, final SubscriptionState subscriptionState )
             {
                 handleEventStatusChange ( topic.toString (), subscriptionState );
             }

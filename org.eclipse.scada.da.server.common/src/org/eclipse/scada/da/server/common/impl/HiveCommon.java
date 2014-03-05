@@ -88,7 +88,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private final List<DataItemFactory> factoryList = new CopyOnWriteArrayList<DataItemFactory> ();
 
-    private final SubscriptionManager itemSubscriptionManager;
+    private final SubscriptionManager<String> itemSubscriptionManager;
 
     private final Set<DataItemValidator> itemValidators = new CopyOnWriteArraySet<DataItemValidator> ();
 
@@ -122,12 +122,12 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         this.itemMapReadLock = itemMapLock.readLock ();
         this.itemMapWriteLock = itemMapLock.writeLock ();
 
-        this.itemSubscriptionManager = new SubscriptionManager ( new SubscriptionValidator () {
+        this.itemSubscriptionManager = new SubscriptionManager<String> ( new SubscriptionValidator<String> () {
 
             @Override
-            public boolean validate ( final SubscriptionListener listener, final Object topic )
+            public boolean validate ( final SubscriptionListener<String> listener, final String topic )
             {
-                return validateItem ( topic.toString () );
+                return validateItem ( topic );
             }
         } );
     }
@@ -786,15 +786,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      */
     public Set<String> getGrantedItems ()
     {
-        final List<Object> topics = this.itemSubscriptionManager.getAllGrantedTopics ();
-
-        final Set<String> items = new HashSet<String> ( topics.size () );
-
-        for ( final Object topic : topics )
-        {
-            items.add ( topic.toString () );
-        }
-        return items;
+        return this.itemSubscriptionManager.getAllGrantedTopics ();
     }
 
     public void addDataItemValidator ( final DataItemValidator dataItemValidator )

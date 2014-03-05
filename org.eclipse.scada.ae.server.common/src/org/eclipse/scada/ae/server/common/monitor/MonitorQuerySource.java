@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common.monitor;
 
@@ -25,7 +26,7 @@ import org.eclipse.scada.core.subscription.SubscriptionSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MonitorQuerySource implements SubscriptionSource, MonitorQueryListener
+public class MonitorQuerySource implements SubscriptionSource<String>, MonitorQueryListener
 {
     private final static Logger logger = LoggerFactory.getLogger ( MonitorQuerySource.class );
 
@@ -44,11 +45,11 @@ public class MonitorQuerySource implements SubscriptionSource, MonitorQueryListe
     }
 
     @Override
-    public synchronized void addListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void addListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
         final boolean wasEmpty = this.listeners.isEmpty ();
 
-        for ( final SubscriptionInformation information : listeners )
+        for ( final SubscriptionInformation<String> information : listeners )
         {
             final MonitorListener listener = (MonitorListener)information.getListener ();
             this.listeners.add ( listener );
@@ -66,9 +67,9 @@ public class MonitorQuerySource implements SubscriptionSource, MonitorQueryListe
     }
 
     @Override
-    public synchronized void removeListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void removeListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
-        for ( final SubscriptionInformation information : listeners )
+        for ( final SubscriptionInformation<String> information : listeners )
         {
             final MonitorListener listener = (MonitorListener)information.getListener ();
             this.listeners.remove ( listener );
@@ -82,7 +83,7 @@ public class MonitorQuerySource implements SubscriptionSource, MonitorQueryListe
     }
 
     @Override
-    public boolean supportsListener ( final SubscriptionInformation subscriptionInformation )
+    public boolean supportsListener ( final SubscriptionInformation<String> subscriptionInformation )
     {
         return subscriptionInformation.getListener () instanceof MonitorListener;
     }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common.event;
 
@@ -31,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Jens Reimann
  */
-public class EventQuerySource implements SubscriptionSource, org.eclipse.scada.ae.event.EventListener
+public class EventQuerySource implements SubscriptionSource<String>, org.eclipse.scada.ae.event.EventListener
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( EventQuerySource.class );
@@ -58,11 +59,11 @@ public class EventQuerySource implements SubscriptionSource, org.eclipse.scada.a
     }
 
     @Override
-    public synchronized void addListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void addListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
         final boolean wasEmpty = this.listeners.isEmpty ();
 
-        for ( final SubscriptionInformation information : listeners )
+        for ( final SubscriptionInformation<String> information : listeners )
         {
             final EventListener listener = (EventListener)information.getListener ();
             this.listeners.add ( listener );
@@ -80,9 +81,9 @@ public class EventQuerySource implements SubscriptionSource, org.eclipse.scada.a
     }
 
     @Override
-    public synchronized void removeListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void removeListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
-        for ( final SubscriptionInformation information : listeners )
+        for ( final SubscriptionInformation<String> information : listeners )
         {
             final EventListener listener = (EventListener)information.getListener ();
             this.listeners.remove ( listener );
@@ -96,7 +97,7 @@ public class EventQuerySource implements SubscriptionSource, org.eclipse.scada.a
     }
 
     @Override
-    public boolean supportsListener ( final SubscriptionInformation information )
+    public boolean supportsListener ( final SubscriptionInformation<String> information )
     {
         return information.getListener () instanceof EventListener;
     }

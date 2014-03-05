@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
@@ -18,7 +19,7 @@ import org.eclipse.scada.core.data.SubscriptionState;
  * 
  * @author Jens Reimann
  */
-public interface SubscriptionListener
+public interface SubscriptionListener<T>
 {
     /**
      * The subscription status update method. It is called by the
@@ -30,5 +31,5 @@ public interface SubscriptionListener
      * @param subscriptionState
      *            The new status of the subscription
      */
-    public abstract void updateStatus ( Object topic, SubscriptionState subscriptionState );
+    public abstract void updateStatus ( T topic, SubscriptionState subscriptionState );
 }

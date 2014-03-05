@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.common;
 
@@ -65,7 +66,7 @@ public class SessionImpl extends AbstractSessionImpl implements Session, Browser
             }
 
             @Override
-            public void updateStatus ( final Object poolId, final SubscriptionState state )
+            public void updateStatus ( final String poolId, final SubscriptionState state )
             {
                 SessionImpl.this.eventStatusChanged ( poolId.toString (), state );
             }
@@ -79,7 +80,7 @@ public class SessionImpl extends AbstractSessionImpl implements Session, Browser
             }
 
             @Override
-            public void updateStatus ( final Object poolId, final SubscriptionState state )
+            public void updateStatus ( final String poolId, final SubscriptionState state )
             {
                 SessionImpl.this.monitorStatusChanged ( poolId.toString (), state );
             }

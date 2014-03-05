@@ -1,17 +1,20 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - generic subscription manager
+ *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
-public interface SubscriptionValidator<T>
+import java.util.Set;
+
+public interface SubscriptionManagerListener<T>
 {
-    public abstract boolean validate ( SubscriptionListener<T> listener, T topic );
+    public void subscriptionsAdded ( Set<T> additions );
+
+    public void subscriptionsRemoved ( Set<T> removals );
 }

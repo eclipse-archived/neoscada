@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - generic subscription manager
  *******************************************************************************/
 package org.eclipse.scada.ae.server.net;
 
@@ -44,6 +45,7 @@ import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.core.data.UserInformation;
 import org.eclipse.scada.core.net.MessageHelper;
 import org.eclipse.scada.core.server.Session.SessionListener;
+import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.eclipse.scada.net.base.MessageListener;
 import org.eclipse.scada.net.base.data.IntegerValue;
 import org.eclipse.scada.net.base.data.LongValue;
@@ -59,7 +61,6 @@ import org.eclipse.scada.utils.concurrent.task.DefaultTaskHandler;
 import org.eclipse.scada.utils.concurrent.task.ResultFutureHandler;
 import org.eclipse.scada.utils.concurrent.task.ResultHandler;
 import org.eclipse.scada.utils.concurrent.task.TaskHandler;
-import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -549,7 +550,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
             }
 
             @Override
-            public void updateStatus ( final Object topic, final SubscriptionState state )
+            public void updateStatus ( final String topic, final SubscriptionState state )
             {
                 ServerConnectionHandler.this.statusChangedEvents ( topic.toString (), state );
             }
@@ -563,7 +564,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
             }
 
             @Override
-            public void updateStatus ( final Object topic, final SubscriptionState state )
+            public void updateStatus ( final String topic, final SubscriptionState state )
             {
                 statusChangedConditions ( topic.toString (), state );
             }

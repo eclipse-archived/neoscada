@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - make subscription manager generic
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -31,7 +32,7 @@ import org.eclipse.scada.da.server.common.impl.stats.HiveEventListener;
  * 
  * @author Jens Reimann
  */
-public class DataItemSubscriptionSource implements SubscriptionSource, ItemListener
+public class DataItemSubscriptionSource implements SubscriptionSource<String>, ItemListener
 {
     private DataItem dataItem = null;
 
@@ -104,9 +105,9 @@ public class DataItemSubscriptionSource implements SubscriptionSource, ItemListe
     }
 
     @Override
-    public synchronized void addListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void addListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
-        for ( final SubscriptionInformation listener : listeners )
+        for ( final SubscriptionInformation<String> listener : listeners )
         {
             this.listeners.add ( (DataItemSubscriptionListener)listener.getListener () );
             // send current state
@@ -132,9 +133,9 @@ public class DataItemSubscriptionSource implements SubscriptionSource, ItemListe
     }
 
     @Override
-    public synchronized void removeListener ( final Collection<SubscriptionInformation> listeners )
+    public synchronized void removeListener ( final Collection<SubscriptionInformation<String>> listeners )
     {
-        for ( final SubscriptionInformation listener : listeners )
+        for ( final SubscriptionInformation<String> listener : listeners )
         {
             this.listeners.remove ( listener.getListener () );
         }
@@ -146,7 +147,7 @@ public class DataItemSubscriptionSource implements SubscriptionSource, ItemListe
     }
 
     @Override
-    public boolean supportsListener ( final SubscriptionInformation subscriptionInformation )
+    public boolean supportsListener ( final SubscriptionInformation<String> subscriptionInformation )
     {
         return subscriptionInformation.getListener () instanceof DataItemSubscriptionListener;
     }
