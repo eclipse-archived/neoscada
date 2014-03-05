@@ -11,4 +11,6 @@ name="Common Equinox Application Setup">
   <feature>org.eclipse.equinox.server.core.feature.group</feature>
   <feature>org.eclipse.equinox.server.jetty.feature.group</feature>
   <feature>org.eclipse.equinox.server.p2.feature.group</feature>
+  
+  <arg>-consoleLog</arg>
 </profile:profile>
