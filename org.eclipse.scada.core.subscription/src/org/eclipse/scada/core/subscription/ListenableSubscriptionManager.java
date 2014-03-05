@@ -146,4 +146,8 @@ public class ListenableSubscriptionManager<T> extends SubscriptionManager<T>
         }
     }
 
+    public synchronized Set<T> getAllSubscribedTopics ()
+    {
+        return new HashSet<> ( this.cache );
+    }
 }
