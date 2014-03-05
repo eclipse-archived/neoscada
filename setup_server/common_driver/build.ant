@@ -135,7 +135,7 @@
                 <arg value="Scan.jar.wixobj" />
 
                 <arg value="-out" />
-                <arg value="common_server_${visibleVersion}_@{platform}.msm" />
+                <arg value="common_server_${visibleVersion}_@{platform}.msi" />
             </exec>
         </sequential>
     </macrodef>
