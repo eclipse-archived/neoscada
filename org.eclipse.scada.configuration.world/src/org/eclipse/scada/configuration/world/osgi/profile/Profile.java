@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getInstallationUnits <em>Installation Units</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArgument <em>Jvm Argument</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArguments <em>Jvm Arguments</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getStart <em>Start</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getSetbsl <em>Setbsl</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getProperty <em>Property</em>}</li>
@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +126,25 @@ public interface Profile extends EObject
     void setDescription ( String value );
 
     /**
+     * Returns the value of the '<em><b>Arguments</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Arguments</em>' attribute list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Program arguments
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Arguments</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getProfile_Arguments()
+     * @model extendedMetaData="name='arg' kind='element'"
+     * @generated
+     */
+    EList<String> getArguments ();
+
+    /**
      * Returns the value of the '<em><b>Start</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle}.
      * <!-- begin-user-doc -->
@@ -206,19 +226,19 @@ public interface Profile extends EObject
     EList<String> getInstallationUnits ();
 
     /**
-     * Returns the value of the '<em><b>Jvm Argument</b></em>' attribute list.
+     * Returns the value of the '<em><b>Jvm Arguments</b></em>' attribute list.
      * The list contents are of type {@link java.lang.String}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Jvm Argument</em>' attribute list isn't clear,
+     * If the meaning of the '<em>Jvm Arguments</em>' attribute list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Jvm Argument</em>' attribute list.
-     * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getProfile_JvmArgument()
+     * @return the value of the '<em>Jvm Arguments</em>' attribute list.
+     * @see org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage#getProfile_JvmArguments()
      * @model extendedMetaData="name='argument' kind='element'"
      * @generated
      */
-    EList<String> getJvmArgument ();
+    EList<String> getJvmArguments ();
 
 } // Profile

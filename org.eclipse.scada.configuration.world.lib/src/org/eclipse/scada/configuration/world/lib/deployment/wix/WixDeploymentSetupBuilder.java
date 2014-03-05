@@ -287,6 +287,8 @@ public class WixDeploymentSetupBuilder extends XMLBase
         String classpath;
 
         List<String> jvmArgs;
+
+        List<String> args;
     }
 
     private void createProcrunService ( final Element comp, final String serviceName, final ServiceConfiguration serviceConfiguration )
@@ -449,7 +451,8 @@ public class WixDeploymentSetupBuilder extends XMLBase
         cfg.stopClass = "org.eclipse.scada.utils.osgi.daemon.EclipseDaemon"; //$NON-NLS-1$
         cfg.stopMethod = "stop"; //$NON-NLS-1$
         cfg.properties = p;
-        cfg.jvmArgs = profile.getJvmArgument ();
+        cfg.jvmArgs = profile.getJvmArguments ();
+        cfg.args = profile.getArguments ();
         cfg.classpath = String.format ( "[INSTALLDIR]\\apps\\%1$s\\daemon.jar;[INSTALLDIR]\\apps\\%1$s\\osgi.jar", eas.getName () ); //$NON-NLS-1$
         createProcrunService ( comp, serviceName, cfg );
     }

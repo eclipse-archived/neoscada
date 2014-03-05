@@ -38,7 +38,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getInstallationUnits <em>Installation Units</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getJvmArgument <em>Jvm Argument</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getJvmArguments <em>Jvm Arguments</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getStart <em>Start</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getSetbsl <em>Setbsl</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getProperty <em>Property</em>}</li>
@@ -47,6 +47,7 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.profile.impl.ProfileImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,14 +67,14 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
     protected EList<String> installationUnits;
 
     /**
-     * The cached value of the '{@link #getJvmArgument() <em>Jvm Argument</em>}' attribute list.
+     * The cached value of the '{@link #getJvmArguments() <em>Jvm Arguments</em>}' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getJvmArgument()
+     * @see #getJvmArguments()
      * @generated
      * @ordered
      */
-    protected EList<String> jvmArgument;
+    protected EList<String> jvmArguments;
 
     /**
      * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference list.
@@ -176,6 +177,16 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
     protected String description = DESCRIPTION_EDEFAULT;
 
     /**
+     * The cached value of the '{@link #getArguments() <em>Arguments</em>}' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getArguments()
+     * @generated
+     * @ordered
+     */
+    protected EList<String> arguments;
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -275,6 +286,20 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<String> getArguments ()
+    {
+        if ( arguments == null )
+        {
+            arguments = new EDataTypeUniqueEList<String> ( String.class, this, ProfilePackage.PROFILE__ARGUMENTS );
+        }
+        return arguments;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<StartBundle> getStart ()
     {
         if ( start == null )
@@ -345,13 +370,13 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<String> getJvmArgument ()
+    public EList<String> getJvmArguments ()
     {
-        if ( jvmArgument == null )
+        if ( jvmArguments == null )
         {
-            jvmArgument = new EDataTypeUniqueEList<String> ( String.class, this, ProfilePackage.PROFILE__JVM_ARGUMENT );
+            jvmArguments = new EDataTypeUniqueEList<String> ( String.class, this, ProfilePackage.PROFILE__JVM_ARGUMENTS );
         }
-        return jvmArgument;
+        return jvmArguments;
     }
 
     /**
@@ -389,8 +414,8 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
         {
             case ProfilePackage.PROFILE__INSTALLATION_UNITS:
                 return getInstallationUnits ();
-            case ProfilePackage.PROFILE__JVM_ARGUMENT:
-                return getJvmArgument ();
+            case ProfilePackage.PROFILE__JVM_ARGUMENTS:
+                return getJvmArguments ();
             case ProfilePackage.PROFILE__START:
                 return getStart ();
             case ProfilePackage.PROFILE__SETBSL:
@@ -407,6 +432,8 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
                 return getName ();
             case ProfilePackage.PROFILE__DESCRIPTION:
                 return getDescription ();
+            case ProfilePackage.PROFILE__ARGUMENTS:
+                return getArguments ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -426,9 +453,9 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
                 getInstallationUnits ().clear ();
                 getInstallationUnits ().addAll ( (Collection<? extends String>)newValue );
                 return;
-            case ProfilePackage.PROFILE__JVM_ARGUMENT:
-                getJvmArgument ().clear ();
-                getJvmArgument ().addAll ( (Collection<? extends String>)newValue );
+            case ProfilePackage.PROFILE__JVM_ARGUMENTS:
+                getJvmArguments ().clear ();
+                getJvmArguments ().addAll ( (Collection<? extends String>)newValue );
                 return;
             case ProfilePackage.PROFILE__START:
                 getStart ().clear ();
@@ -460,6 +487,10 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
             case ProfilePackage.PROFILE__DESCRIPTION:
                 setDescription ( (String)newValue );
                 return;
+            case ProfilePackage.PROFILE__ARGUMENTS:
+                getArguments ().clear ();
+                getArguments ().addAll ( (Collection<? extends String>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -477,8 +508,8 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
             case ProfilePackage.PROFILE__INSTALLATION_UNITS:
                 getInstallationUnits ().clear ();
                 return;
-            case ProfilePackage.PROFILE__JVM_ARGUMENT:
-                getJvmArgument ().clear ();
+            case ProfilePackage.PROFILE__JVM_ARGUMENTS:
+                getJvmArguments ().clear ();
                 return;
             case ProfilePackage.PROFILE__START:
                 getStart ().clear ();
@@ -504,6 +535,9 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
             case ProfilePackage.PROFILE__DESCRIPTION:
                 setDescription ( DESCRIPTION_EDEFAULT );
                 return;
+            case ProfilePackage.PROFILE__ARGUMENTS:
+                getArguments ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -520,8 +554,8 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
         {
             case ProfilePackage.PROFILE__INSTALLATION_UNITS:
                 return installationUnits != null && !installationUnits.isEmpty ();
-            case ProfilePackage.PROFILE__JVM_ARGUMENT:
-                return jvmArgument != null && !jvmArgument.isEmpty ();
+            case ProfilePackage.PROFILE__JVM_ARGUMENTS:
+                return jvmArguments != null && !jvmArguments.isEmpty ();
             case ProfilePackage.PROFILE__START:
                 return start != null && !start.isEmpty ();
             case ProfilePackage.PROFILE__SETBSL:
@@ -538,6 +572,8 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ProfilePackage.PROFILE__DESCRIPTION:
                 return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
+            case ProfilePackage.PROFILE__ARGUMENTS:
+                return arguments != null && !arguments.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -556,14 +592,16 @@ public class ProfileImpl extends MinimalEObjectImpl.Container implements
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (installationUnits: " ); //$NON-NLS-1$
         result.append ( installationUnits );
-        result.append ( ", jvmArgument: " ); //$NON-NLS-1$
-        result.append ( jvmArgument );
+        result.append ( ", jvmArguments: " ); //$NON-NLS-1$
+        result.append ( jvmArguments );
         result.append ( ", notes: " ); //$NON-NLS-1$
         result.append ( notes );
         result.append ( ", name: " ); //$NON-NLS-1$
         result.append ( name );
         result.append ( ", description: " ); //$NON-NLS-1$
         result.append ( description );
+        result.append ( ", arguments: " ); //$NON-NLS-1$
+        result.append ( arguments );
         result.append ( ')' );
         return result.toString ();
     }

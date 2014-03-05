@@ -115,7 +115,7 @@ public class P2ProfileProcessor
     static void mergeIntoProfile ( final Profile source, final Profile target )
     {
         target.getInstallationUnits ().addAll ( source.getInstallationUnits () );
-        target.getJvmArgument ().addAll ( source.getJvmArgument () );
+        target.getJvmArguments ().addAll ( source.getJvmArguments () );
         target.getNotes ().addAll ( source.getNotes () );
         target.getSetbsl ().addAll ( EcoreUtil.copyAll ( source.getSetbsl () ) );
         target.getStart ().addAll ( EcoreUtil.copyAll ( source.getStart () ) );

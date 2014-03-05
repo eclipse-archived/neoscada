@@ -132,10 +132,7 @@ public class LaunchShortcut implements ILaunchShortcut2
     {
         final List<String> args = new LinkedList<> ();
 
-        for ( final String arg : profile.getJvmArgument () )
-        {
-            args.add ( arg );
-        }
+        args.addAll ( profile.getJvmArguments () );
 
         for ( final SystemProperty p : profile.getProperty () )
         {
@@ -150,10 +147,11 @@ public class LaunchShortcut implements ILaunchShortcut2
         final IFile dataJson = container.getFile ( new Path ( "data.json" ) );
         if ( dataJson.exists () )
         {
-            addArg ( args, "org.eclipse.scada.ca.file.provisionJsonUrl", escapeArgValue ( dataJson.getLocation ().toFile ().toURI ().toString () ) );
+            addJvmArg ( args, "org.eclipse.scada.ca.file.provisionJsonUrl", escapeArgValue ( dataJson.getLocation ().toFile ().toURI ().toString () ) );
         }
 
         cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_VM_ARGUMENTS, StringHelper.join ( args, "\n" ) );
+        cfg.setAttribute ( IJavaLaunchConfigurationConstants.ATTR_PROGRAM_ARGUMENTS, StringHelper.join ( profile.getArguments (), "\n" ) );
     }
 
     private String eval ( final String value, final boolean eval ) throws CoreException
@@ -171,11 +169,11 @@ public class LaunchShortcut implements ILaunchShortcut2
 
         if ( result != null )
         {
-            addArg ( args, result.first, eval ( result.second, eval ) );
+            addJvmArg ( args, result.first, eval ( result.second, eval ) );
         }
     }
 
-    private void addArg ( final List<String> args, final String key, final String value )
+    private void addJvmArg ( final List<String> args, final String key, final String value )
     {
         String wrap = "";
         if ( key.contains ( " " ) || value.contains ( " " ) )

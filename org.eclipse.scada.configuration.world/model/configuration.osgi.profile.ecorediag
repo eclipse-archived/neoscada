@@ -20,8 +20,12 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_SoTjceIgEeKXb4ASfdnSUg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_7X6JoOIgEeKXb4ASfdnSUg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/profile/Profile/jvmArgument"/>
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/profile/Profile/jvmArguments"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_7X6JoeIgEeKXb4ASfdnSUg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_KcyysKRAEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//osgi/profile/Profile/arguments"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_KcyysaRAEeOeZYeVTUHw8Q"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Qfm48uIdEeKXb4ASfdnSUg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Qfm48-IdEeKXb4ASfdnSUg"/>

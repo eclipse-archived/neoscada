@@ -69,11 +69,12 @@ public class ProfileItemProvider extends ItemProviderAdapter implements
             super.getPropertyDescriptors ( object );
 
             addInstallationUnitsPropertyDescriptor ( object );
-            addJvmArgumentPropertyDescriptor ( object );
+            addJvmArgumentsPropertyDescriptor ( object );
             addNotesPropertyDescriptor ( object );
             addIncludesPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
             addDescriptionPropertyDescriptor ( object );
+            addArgumentsPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -171,6 +172,29 @@ public class ProfileItemProvider extends ItemProviderAdapter implements
     }
 
     /**
+     * This adds a property descriptor for the Arguments feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addArgumentsPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Profile_arguments_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_arguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProfilePackage.Literals.PROFILE__ARGUMENTS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This adds a property descriptor for the Installation Units feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -194,20 +218,20 @@ public class ProfileItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This adds a property descriptor for the Jvm Argument feature.
+     * This adds a property descriptor for the Jvm Arguments feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addJvmArgumentPropertyDescriptor ( Object object )
+    protected void addJvmArgumentsPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Profile_jvmArgument_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_jvmArgument_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ProfilePackage.Literals.PROFILE__JVM_ARGUMENT,
+                        getString ( "_UI_Profile_jvmArguments_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Profile_jvmArguments_feature", "_UI_Profile_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ProfilePackage.Literals.PROFILE__JVM_ARGUMENTS,
                         true,
                         false,
                         false,
@@ -296,10 +320,11 @@ public class ProfileItemProvider extends ItemProviderAdapter implements
 
         switch ( notification.getFeatureID ( Profile.class ) )
         {
-            case ProfilePackage.PROFILE__JVM_ARGUMENT:
+            case ProfilePackage.PROFILE__JVM_ARGUMENTS:
             case ProfilePackage.PROFILE__NOTES:
             case ProfilePackage.PROFILE__NAME:
             case ProfilePackage.PROFILE__DESCRIPTION:
+            case ProfilePackage.PROFILE__ARGUMENTS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ProfilePackage.PROFILE__INSTALLATION_UNITS:

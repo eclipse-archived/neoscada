@@ -93,13 +93,13 @@ public interface ProfilePackage extends EPackage
     int PROFILE__INSTALLATION_UNITS = 0;
 
     /**
-     * The feature id for the '<em><b>Jvm Argument</b></em>' attribute list.
+     * The feature id for the '<em><b>Jvm Arguments</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROFILE__JVM_ARGUMENT = 1;
+    int PROFILE__JVM_ARGUMENTS = 1;
 
     /**
      * The feature id for the '<em><b>Start</b></em>' containment reference list.
@@ -174,13 +174,22 @@ public interface ProfilePackage extends EPackage
     int PROFILE__DESCRIPTION = 9;
 
     /**
+     * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE__ARGUMENTS = 10;
+
+    /**
      * The number of structural features of the '<em>Profile</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROFILE_FEATURE_COUNT = 10;
+    int PROFILE_FEATURE_COUNT = 11;
 
     /**
      * The number of operations of the '<em>Profile</em>' class.
@@ -430,6 +439,17 @@ public interface ProfilePackage extends EPackage
     EAttribute getProfile_Description ();
 
     /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getArguments <em>Arguments</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Arguments</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.profile.Profile#getArguments()
+     * @see #getProfile()
+     * @generated
+     */
+    EAttribute getProfile_Arguments ();
+
+    /**
      * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getStart <em>Start</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -485,15 +505,15 @@ public interface ProfilePackage extends EPackage
     EAttribute getProfile_InstallationUnits ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArgument <em>Jvm Argument</em>}'.
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArguments <em>Jvm Arguments</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Jvm Argument</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArgument()
+     * @return the meta object for the attribute list '<em>Jvm Arguments</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.profile.Profile#getJvmArguments()
      * @see #getProfile()
      * @generated
      */
-    EAttribute getProfile_JvmArgument ();
+    EAttribute getProfile_JvmArguments ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.profile.StartBundle <em>Start Bundle</em>}'.
@@ -690,6 +710,14 @@ public interface ProfilePackage extends EPackage
         EAttribute PROFILE__DESCRIPTION = eINSTANCE.getProfile_Description ();
 
         /**
+         * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROFILE__ARGUMENTS = eINSTANCE.getProfile_Arguments ();
+
+        /**
          * The meta object literal for the '<em><b>Start</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -730,12 +758,12 @@ public interface ProfilePackage extends EPackage
         EAttribute PROFILE__INSTALLATION_UNITS = eINSTANCE.getProfile_InstallationUnits ();
 
         /**
-         * The meta object literal for the '<em><b>Jvm Argument</b></em>' attribute list feature.
+         * The meta object literal for the '<em><b>Jvm Arguments</b></em>' attribute list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EAttribute PROFILE__JVM_ARGUMENT = eINSTANCE.getProfile_JvmArgument ();
+        EAttribute PROFILE__JVM_ARGUMENTS = eINSTANCE.getProfile_JvmArguments ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.profile.impl.StartBundleImpl <em>Start Bundle</em>}' class.

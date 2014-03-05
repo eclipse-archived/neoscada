@@ -207,6 +207,16 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getProfile_Arguments ()
+    {
+        return (EAttribute)profileEClass.getEStructuralFeatures ().get ( 10 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EReference getProfile_Start ()
     {
         return (EReference)profileEClass.getEStructuralFeatures ().get ( 2 );
@@ -257,7 +267,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getProfile_JvmArgument ()
+    public EAttribute getProfile_JvmArguments ()
     {
         return (EAttribute)profileEClass.getEStructuralFeatures ().get ( 1 );
     }
@@ -415,7 +425,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         // Create classes and their features
         profileEClass = createEClass ( PROFILE );
         createEAttribute ( profileEClass, PROFILE__INSTALLATION_UNITS );
-        createEAttribute ( profileEClass, PROFILE__JVM_ARGUMENT );
+        createEAttribute ( profileEClass, PROFILE__JVM_ARGUMENTS );
         createEReference ( profileEClass, PROFILE__START );
         createEReference ( profileEClass, PROFILE__SETBSL );
         createEReference ( profileEClass, PROFILE__PROPERTY );
@@ -424,6 +434,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         createEReference ( profileEClass, PROFILE__INCLUDES );
         createEAttribute ( profileEClass, PROFILE__NAME );
         createEAttribute ( profileEClass, PROFILE__DESCRIPTION );
+        createEAttribute ( profileEClass, PROFILE__ARGUMENTS );
 
         startBundleEClass = createEClass ( START_BUNDLE );
         createEAttribute ( startBundleEClass, START_BUNDLE__NAME );
@@ -476,7 +487,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         // Initialize classes, features, and operations; add parameters
         initEClass ( profileEClass, Profile.class, "Profile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getProfile_InstallationUnits (), ecorePackage.getEString (), "installationUnits", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getProfile_JvmArgument (), ecorePackage.getEString (), "jvmArgument", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProfile_JvmArguments (), ecorePackage.getEString (), "jvmArguments", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getProfile_Start (), this.getStartBundle (), null, "start", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getProfile_Start ().getEKeys ().add ( this.getStartBundle_Name () );
         initEReference ( getProfile_Setbsl (), this.getBundleStartLevel (), null, "setbsl", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -486,6 +497,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         initEReference ( getProfile_Includes (), this.getProfile (), null, "includes", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getProfile_Name (), ecorePackage.getEString (), "name", null, 0, 1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getProfile_Description (), ecorePackage.getEString (), "description", null, 0, 1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProfile_Arguments (), ecorePackage.getEString (), "arguments", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( startBundleEClass, StartBundle.class, "StartBundle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getStartBundle_Name (), ecorePackage.getEString (), "name", null, 1, 1, StartBundle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -528,7 +540,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
                 {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "feature" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
-        addAnnotation ( getProfile_JvmArgument (),
+        addAnnotation ( getProfile_JvmArguments (),
                 source,
                 new String[]
                 {       "name", "argument", //$NON-NLS-1$ //$NON-NLS-2$
@@ -549,6 +561,12 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
                 source,
                 new String[]
                 {       "kind", "attribute" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProfile_Arguments (),
+                source,
+                new String[]
+                {       "name", "arg", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( startBundleEClass,
                 source,
