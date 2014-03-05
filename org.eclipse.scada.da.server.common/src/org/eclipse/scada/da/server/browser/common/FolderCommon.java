@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,6 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - enhance interface
  *******************************************************************************/
 package org.eclipse.scada.da.server.browser.common;
 
@@ -53,7 +52,7 @@ public class FolderCommon implements Folder
         }
     }
 
-    protected synchronized Entry[] getAllEntries ()
+    private synchronized Entry[] getAllEntries ()
     {
         return this.entryMap.values ().toArray ( new Entry[this.entryMap.size ()] );
     }
@@ -308,13 +307,13 @@ public class FolderCommon implements Folder
         }
     }
 
-    protected synchronized void addListener ( final FolderListener listener, final Object tag )
+    private synchronized void addListener ( final FolderListener listener, final Object tag )
     {
         this.listeners.put ( tag, listener );
         sendCurrentList ( listener, tag );
     }
 
-    protected synchronized void removeListener ( final Object tag )
+    private synchronized void removeListener ( final Object tag )
     {
         this.listeners.remove ( tag );
     }
