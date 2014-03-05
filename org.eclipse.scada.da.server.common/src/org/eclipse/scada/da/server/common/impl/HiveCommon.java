@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - clean up subscription manager
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -87,7 +88,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private final List<DataItemFactory> factoryList = new CopyOnWriteArrayList<DataItemFactory> ();
 
-    private final SubscriptionManager itemSubscriptionManager = new SubscriptionManager ();
+    private final SubscriptionManager itemSubscriptionManager;
 
     private final Set<DataItemValidator> itemValidators = new CopyOnWriteArraySet<DataItemValidator> ();
 
@@ -121,8 +122,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         this.itemMapReadLock = itemMapLock.readLock ();
         this.itemMapWriteLock = itemMapLock.writeLock ();
 
-        // set the validator of the subscription manager
-        this.itemSubscriptionManager.setValidator ( new SubscriptionValidator () {
+        this.itemSubscriptionManager = new SubscriptionManager ( new SubscriptionValidator () {
 
             @Override
             public boolean validate ( final SubscriptionListener listener, final Object topic )
@@ -130,7 +130,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
                 return validateItem ( topic.toString () );
             }
         } );
-
     }
 
     @Override

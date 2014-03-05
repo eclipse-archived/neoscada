@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - change interface, validator in ctor
  *******************************************************************************/
 package org.eclipse.scada.core.subscription;
 
@@ -25,7 +26,17 @@ public class SubscriptionManager
 {
     private final Map<Object, Subscription> subscriptions = new HashMap<Object, Subscription> ();
 
-    private SubscriptionValidator validator;
+    private final SubscriptionValidator validator;
+
+    public SubscriptionManager ( final SubscriptionValidator validator )
+    {
+        this.validator = validator;
+    }
+
+    public SubscriptionManager ()
+    {
+        this.validator = null;
+    }
 
     /**
      * Unsubscribe from all subscriptions that the listener has subscribed to
@@ -79,10 +90,9 @@ public class SubscriptionManager
     public synchronized void subscribe ( final Object topic, final SubscriptionListener listener, final Object hint ) throws ValidationException
     {
         // If we have a validator then do validate
-        SubscriptionValidator v;
-        if ( ( v = this.validator ) != null )
+        if ( this.validator != null )
         {
-            if ( !v.validate ( listener, topic ) )
+            if ( !this.validator.validate ( listener, topic ) )
             {
                 throw new ValidationException ();
             }
@@ -114,11 +124,6 @@ public class SubscriptionManager
         {
             this.subscriptions.remove ( topic );
         }
-    }
-
-    public synchronized void setValidator ( final SubscriptionValidator validator )
-    {
-        this.validator = validator;
     }
 
     /**
