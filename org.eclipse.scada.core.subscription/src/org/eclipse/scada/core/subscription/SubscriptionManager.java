@@ -116,7 +116,7 @@ public class SubscriptionManager
         }
     }
 
-    public void setValidator ( final SubscriptionValidator validator )
+    public synchronized void setValidator ( final SubscriptionValidator validator )
     {
         this.validator = validator;
     }
@@ -158,7 +158,7 @@ public class SubscriptionManager
      * 
      * @return the number of subscriptions
      */
-    public int getSubscriptionCount ()
+    public synchronized int getSubscriptionCount ()
     {
         return this.subscriptions.size ();
     }
