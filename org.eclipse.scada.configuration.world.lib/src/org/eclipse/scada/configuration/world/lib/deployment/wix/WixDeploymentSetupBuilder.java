@@ -287,8 +287,6 @@ public class WixDeploymentSetupBuilder extends XMLBase
         String classpath;
 
         List<String> jvmArgs;
-
-        List<String> args;
     }
 
     private void createProcrunService ( final Element comp, final String serviceName, final ServiceConfiguration serviceConfiguration )
@@ -445,14 +443,11 @@ public class WixDeploymentSetupBuilder extends XMLBase
         cfg.description = String.format ( "This is the Eclipse SCADA application instance '%s'", eas.getName () ); //$NON-NLS-1$
         cfg.startClass = "org.eclipse.scada.utils.osgi.daemon.EclipseDaemon"; //$NON-NLS-1$
         cfg.startMethod = "start"; //$NON-NLS-1$
-        cfg.startArguments = new String[] {
-                "-consoleLog" // we cannot start with -console, since the service will hang then when stopping
-        };
         cfg.stopClass = "org.eclipse.scada.utils.osgi.daemon.EclipseDaemon"; //$NON-NLS-1$
         cfg.stopMethod = "stop"; //$NON-NLS-1$
         cfg.properties = p;
         cfg.jvmArgs = profile.getJvmArguments ();
-        cfg.args = profile.getArguments ();
+        cfg.startArguments = profile.getArguments () != null ? profile.getArguments ().toArray ( new String[profile.getArguments ().size ()] ) : null;
         cfg.classpath = String.format ( "[INSTALLDIR]\\apps\\%1$s\\daemon.jar;[INSTALLDIR]\\apps\\%1$s\\osgi.jar", eas.getName () ); //$NON-NLS-1$
         createProcrunService ( comp, serviceName, cfg );
     }
