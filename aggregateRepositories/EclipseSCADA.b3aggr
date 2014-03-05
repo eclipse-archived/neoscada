@@ -52,7 +52,7 @@
         <features name="org.eclipse.scada.deploy.console.feature.group"/>
       </repositories>
     </contributions>
-    <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
+    <validationRepositories enabled="false" location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
     <validationRepositories location="http://download.eclipse.org/releases/kepler"/>
   </validationSets>
   <configurations operatingSystem="linux" windowSystem="gtk"/>
