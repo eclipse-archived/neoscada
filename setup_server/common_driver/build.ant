@@ -128,10 +128,12 @@
                 <arg value="-arch" />
                 <arg value="@{platform}" />
                 <arg value="Setup.wxs" />
+                <arg value="Service.wxs" />
                 <arg value="Scan.jar.wxs" />
             </exec>
             <exec executable="${wix.root}/bin/light.exe" dir="." failifexecutionfails="true" failonerror="true">
                 <arg value="Setup.wixobj" />
+                <arg value="Service.wixobj" />
                 <arg value="Scan.jar.wixobj" />
 
                 <arg value="-out" />
