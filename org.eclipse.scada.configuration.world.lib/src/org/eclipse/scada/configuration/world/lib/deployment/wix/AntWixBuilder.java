@@ -219,7 +219,14 @@ public class AntWixBuilder extends XMLBase
     private void fillDownloadTaret ( final Element download ) throws Exception
     {
         appendFragment ( download, "<mkdir dir=\"download\"/>" ); //$NON-NLS-1$
-        appendFragment ( download, "<get usetimestamp=\"true\" src=\"https://www.apache.org/dist/commons/daemon/binaries/windows/commons-daemon-1.0.15-bin-windows.zip\" dest=\"download/commons-daemon-bin-windows.zip\"/>" ); //$NON-NLS-1$
+
+        String commonsDaemonSrc = System.getProperty ( "org.eclipse.scada.configuration.world.lib.deployment.wix.commonsDaemon.nativeBin.source" ); //$NON-NLS-1$
+        if ( commonsDaemonSrc == null )
+        {
+            commonsDaemonSrc = "https://www.apache.org/dist/commons/daemon/binaries/windows/commons-daemon-1.0.15-bin-windows.zip";
+        }
+
+        appendFragment ( download, "<get usetimestamp=\"true\" src=\"" + commonsDaemonSrc + "\" dest=\"download/commons-daemon-bin-windows.zip\"/>" ); //$NON-NLS-1$
     }
 
     private void fillBuildTarget ( final Element build )
