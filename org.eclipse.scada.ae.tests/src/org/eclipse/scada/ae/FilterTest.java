@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.ae.filter.test;
+package org.eclipse.scada.ae;
 
 import java.util.ArrayList;
 import java.util.Collection;

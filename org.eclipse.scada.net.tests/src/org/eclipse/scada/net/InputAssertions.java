@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.net.mina;
+package org.eclipse.scada.net;
 
 import java.util.Collection;
 import java.util.Iterator;
