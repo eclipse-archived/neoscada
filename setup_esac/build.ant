@@ -10,6 +10,7 @@
     <property file="local.properties" />
     <property file="common.properties" />
 
+    <property name="buildNumber" value="${env.BUILD_NUMBER}"/>
     <property name="visibleVersion" value="${version}${versionSuffix}" />
     
     <property environment="env" />
@@ -96,6 +97,7 @@
         <sequential>
             <exec executable="${wix.root}/bin/candle.exe" dir="setup_esac" failifexecutionfails="true" failonerror="true">
                 <arg value="-dUnpackDir=${unpack.dir}\@{platform}\product" />
+                <arg value="-dBuildNumber=${buildNumber}" />
                 <arg value="-dPlatform=@{platform}" />
                 <arg value="-arch" />
                 <arg value="@{platform}" />
