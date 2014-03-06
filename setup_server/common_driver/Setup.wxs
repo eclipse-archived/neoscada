@@ -68,6 +68,7 @@
 		<DirectoryRef Id="common_driver">
 			<Component Id="LicenseComponent" Guid="61C96898-D824-46B4-8E84-B59553F5095B" DiskId="1">
 				<File Id="LicenseFile" Name="license.rtf" Source="..\common\resources\license.rtf"/>
+				<File Id="EPL" Name="epl-v10.html" Source="..\common\resources\epl-v10.html"/>
 			</Component>
 		</DirectoryRef>
 		

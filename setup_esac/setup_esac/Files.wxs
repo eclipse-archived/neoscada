@@ -9,6 +9,7 @@
 				<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
 					<Component Id="MainComponent" Guid="AE618338-8C86-4718-89F5-0CE60452282E" DiskId="1">
 						<File Id="LicenseFile" Name="license.rtf" Source="resources\license.rtf"/>
+						<File Id="EPL" Name="epl-v10.html" Source="resources\epl-v10.html"/>
 					</Component>
 				</Directory>
 			</Directory>
