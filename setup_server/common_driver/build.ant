@@ -35,7 +35,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,fetch,unpack,heat,build">
+    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
     </target>
 
     <!-- ================================= 
@@ -128,14 +128,16 @@
                 <arg value="-arch" />
                 <arg value="@{platform}" />
                 <arg value="Setup.wxs" />
+                <arg value="Service.wxs" />
                 <arg value="Scan.jar.wxs" />
             </exec>
             <exec executable="${wix.root}/bin/light.exe" dir="." failifexecutionfails="true" failonerror="true">
                 <arg value="Setup.wixobj" />
+                <arg value="Service.wixobj" />
                 <arg value="Scan.jar.wixobj" />
 
                 <arg value="-out" />
-                <arg value="common_server_${visibleVersion}_@{platform}.msi" />
+                <arg value="common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
             </exec>
         </sequential>
     </macrodef>
@@ -147,5 +149,29 @@
         <build platform="x86" />
         <build platform="x64" />
     </target>
+    
+    <!-- ================================= 
+          target: sign
+         ================================= -->
+    <target name="sign" unless="skipSign">
+        <sign platform="x86" />
+        <sign platform="x64" />
+        <delete dir=".">
+            <include name="*_unsigned.msi" />
+        </delete>
+    </target>
+
+    <macrodef name="sign">
+        <attribute name="platform" />
+        <sequential>
+            <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true">
+                <arg value="-o" />
+                <arg value="common_driver_${visibleVersion}_@{platform}.msi" />
+                <arg value="-F" />
+                <arg value="filedata=@common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="http://build.eclipse.org:31338/winsign.php" />
+            </exec>
+        </sequential>
+    </macrodef>
 
 </project>

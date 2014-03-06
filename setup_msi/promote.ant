@@ -46,6 +46,9 @@
         
         <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}${versionSuffix}_x64.msi" />
         <get dest="fetch" src="${global.hudson.download}/setup_esac/setup_esac/esac_${version}${versionSuffix}_x86.msi" />
+        
+        <get dest="fetch" src="${global.hudson.download}/setup_server/common_driver/common_driver_${version}${versionSuffix}_x64.msi" />
+        <get dest="fetch" src="${global.hudson.download}/setup_server/common_driver/common_driver_${version}${versionSuffix}_x86.msi" />
     </target>
     
     <!-- ================================= 

@@ -33,7 +33,7 @@
 					
 					<RegistryKey
 						Root="HKLM"
-						Key="SOFTWARE\Apache Software Foundation\Procrun 2.0\$(var.ServiceName)"
+						Key="$(var.ApacheRegBase)\$(var.ServiceName)"
 					>
 						<RegistryKey
 							Key="Parameters">
