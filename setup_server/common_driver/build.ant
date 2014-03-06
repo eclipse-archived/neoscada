@@ -35,7 +35,7 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,fetch,unpack,heat,build">
+    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
     </target>
 
     <!-- ================================= 
