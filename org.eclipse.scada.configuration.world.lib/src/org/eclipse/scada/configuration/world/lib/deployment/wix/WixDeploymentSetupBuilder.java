@@ -121,6 +121,8 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private boolean useUserInterface;
 
+    private File licenseFile;
+
     public void setUseFirewall ( final boolean useFirewall )
     {
         this.useFirewall = useFirewall;
@@ -173,9 +175,40 @@ public class WixDeploymentSetupBuilder extends XMLBase
         createCommonDriverServices ( ele, base );
         createEquinoxApplicationServices ( ele, base );
 
+        createLicense ( base );
         createUserInterface ( ele );
 
         createFeature ( ele );
+    }
+
+    private void createLicense ( final File base ) throws Exception
+    {
+        final File targetFile = new File ( new File ( base, "resources" ), "license.rtf" );
+        if ( this.licenseFile != null )
+        {
+            if ( this.licenseFile.isFile () )
+            {
+                Files.copy ( this.licenseFile.toPath (), targetFile.toPath (), StandardCopyOption.REPLACE_EXISTING );
+            }
+            else
+            {
+                throw new IllegalStateException ( String.format ( "Specified license file could not be found (%s)", this.licenseFile.getAbsoluteFile () ) );
+            }
+        }
+        else
+        {
+            writeLicense ( targetFile, "Unspecified license!" );
+        }
+    }
+
+    private void writeLicense ( final File targetFile, final String string ) throws Exception
+    {
+        try ( PrintWriter writer = new PrintWriter ( targetFile, "US-ASCII" ) ) //$NON-NLS-1$
+        {
+            writer.println ( "{\\rtf\\ansi" );
+            writer.println ( string );
+            writer.println ( "}" );
+        }
     }
 
     private void createUserInterface ( final Element product )
@@ -192,6 +225,11 @@ public class WixDeploymentSetupBuilder extends XMLBase
         {
             final Element ui = createElement ( product, "UIRef" );
             ui.setAttribute ( "Id", "WixUI_ErrorProgressText" );
+        }
+        {
+            final Element var = createElement ( product, "WixVariable" );
+            var.setAttribute ( "Id", "WixUILicenseRtf" );
+            var.setAttribute ( "Value", "resources\\license.rtf" );
         }
     }
 
@@ -754,6 +792,11 @@ public class WixDeploymentSetupBuilder extends XMLBase
     public void setPlatform ( final MsiPlatform platform )
     {
         this.platform = platform;
+    }
+
+    public void setLicenseFile ( final File licenseFile )
+    {
+        this.licenseFile = licenseFile;
     }
 
 }

@@ -270,6 +270,10 @@
         <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/enableUserInterface"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_DUWVAaUfEeOeZYeVTUHw8Q"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_0n51EKUmEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/licenseFile"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_0n51EaUmEeOeZYeVTUHw8Q"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_gNhe4p7AEeO0DZsIXagbmg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_gNhe457AEeO0DZsIXagbmg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_gNhe5J7AEeO0DZsIXagbmg"/>

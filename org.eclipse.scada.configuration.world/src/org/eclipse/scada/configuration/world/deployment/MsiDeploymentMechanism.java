@@ -27,6 +27,7 @@ package org.eclipse.scada.configuration.world.deployment;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableFirewall <em>Enable Firewall</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface <em>Enable User Interface</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLicenseFile <em>License File</em>}</li>
  * </ul>
  * </p>
  *
@@ -250,5 +251,31 @@ public interface MsiDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     void setEnableUserInterface ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>License File</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>License File</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>License File</em>' attribute.
+     * @see #setLicenseFile(String)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMsiDeploymentMechanism_LicenseFile()
+     * @model
+     * @generated
+     */
+    String getLicenseFile ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLicenseFile <em>License File</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>License File</em>' attribute.
+     * @see #getLicenseFile()
+     * @generated
+     */
+    void setLicenseFile ( String value );
 
 } // MsiDeploymentMechanism

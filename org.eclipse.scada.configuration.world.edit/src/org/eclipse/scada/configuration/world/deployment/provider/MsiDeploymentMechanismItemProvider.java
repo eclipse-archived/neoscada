@@ -85,6 +85,7 @@ public class MsiDeploymentMechanismItemProvider
             addArchitecturePropertyDescriptor ( object );
             addEnableFirewallPropertyDescriptor ( object );
             addEnableUserInterfacePropertyDescriptor ( object );
+            addLicenseFilePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -251,6 +252,29 @@ public class MsiDeploymentMechanismItemProvider
     }
 
     /**
+     * This adds a property descriptor for the License File feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLicenseFilePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MsiDeploymentMechanism_licenseFile_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MsiDeploymentMechanism_licenseFile_feature", "_UI_MsiDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -330,6 +354,7 @@ public class MsiDeploymentMechanismItemProvider
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL:
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM:

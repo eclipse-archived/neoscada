@@ -700,13 +700,22 @@ public interface DeploymentPackage extends EPackage
     int MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 7;
 
     /**
+     * The feature id for the '<em><b>License File</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
+
+    /**
      * The number of structural features of the '<em>Msi Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MSI_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
+    int MSI_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 9;
 
     /**
      * The number of operations of the '<em>Msi Deployment Mechanism</em>' class.
@@ -1189,6 +1198,17 @@ public interface DeploymentPackage extends EPackage
     EAttribute getMsiDeploymentMechanism_EnableUserInterface ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLicenseFile <em>License File</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>License File</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLicenseFile()
+     * @see #getMsiDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getMsiDeploymentMechanism_LicenseFile ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.P2Platform <em>P2 Platform</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1591,6 +1611,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE = eINSTANCE.getMsiDeploymentMechanism_EnableUserInterface ();
+
+        /**
+         * The meta object literal for the '<em><b>License File</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE = eINSTANCE.getMsiDeploymentMechanism_LicenseFile ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl <em>P2 Platform</em>}' class.

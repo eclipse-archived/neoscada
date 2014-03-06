@@ -40,6 +40,7 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getArchitecture <em>Architecture</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#isEnableFirewall <em>Enable Firewall</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#isEnableUserInterface <em>Enable User Interface</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getLicenseFile <em>License File</em>}</li>
  * </ul>
  * </p>
  *
@@ -186,6 +187,26 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
      * @ordered
      */
     protected boolean enableUserInterface = ENABLE_USER_INTERFACE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getLicenseFile() <em>License File</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLicenseFile()
+     * @generated
+     * @ordered
+     */
+    protected static final String LICENSE_FILE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getLicenseFile() <em>License File</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getLicenseFile()
+     * @generated
+     * @ordered
+     */
+    protected String licenseFile = LICENSE_FILE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -474,6 +495,29 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getLicenseFile ()
+    {
+        return licenseFile;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setLicenseFile ( String newLicenseFile )
+    {
+        String oldLicenseFile = licenseFile;
+        licenseFile = newLicenseFile;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE, oldLicenseFile, licenseFile ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -515,6 +559,8 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return isEnableFirewall ();
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
                 return isEnableUserInterface ();
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE:
+                return getLicenseFile ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -552,6 +598,9 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return;
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
                 setEnableUserInterface ( (Boolean)newValue );
+                return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE:
+                setLicenseFile ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -591,6 +640,9 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
                 setEnableUserInterface ( ENABLE_USER_INTERFACE_EDEFAULT );
                 return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE:
+                setLicenseFile ( LICENSE_FILE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -621,6 +673,8 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return enableFirewall != ENABLE_FIREWALL_EDEFAULT;
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
                 return enableUserInterface != ENABLE_USER_INTERFACE_EDEFAULT;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE:
+                return LICENSE_FILE_EDEFAULT == null ? licenseFile != null : !LICENSE_FILE_EDEFAULT.equals ( licenseFile );
         }
         return super.eIsSet ( featureID );
     }
@@ -649,6 +703,8 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
         result.append ( enableFirewall );
         result.append ( ", enableUserInterface: " ); //$NON-NLS-1$
         result.append ( enableUserInterface );
+        result.append ( ", licenseFile: " ); //$NON-NLS-1$
+        result.append ( licenseFile );
         result.append ( ')' );
         return result.toString ();
     }

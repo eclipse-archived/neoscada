@@ -20,6 +20,7 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
@@ -52,6 +53,17 @@ public class MsiHandler extends CommonHandler
 
         final MsiPlatform platform = convertPlatform ();
 
+        File licenseFile;
+
+        if ( this.deployment.getLicenseFile () != null && !this.deployment.getLicenseFile ().isEmpty () )
+        {
+            licenseFile = nodeDir.getProject ().getFile ( new Path ( this.deployment.getLicenseFile () ) ).getLocation ().toFile ();
+        }
+        else
+        {
+            licenseFile = null;
+        }
+
         final File stage = new File ( packageFolder, "staging" );
         stage.mkdirs ();
 
@@ -63,6 +75,7 @@ public class MsiHandler extends CommonHandler
 
         final WixDeploymentSetupBuilder wixBuilder = new WixDeploymentSetupBuilder ();
 
+        wixBuilder.setLicenseFile ( licenseFile );
         wixBuilder.setUseFirewall ( this.deployment.isEnableFirewall () );
         wixBuilder.setUseUserInterface ( this.deployment.isEnableUserInterface () );
 

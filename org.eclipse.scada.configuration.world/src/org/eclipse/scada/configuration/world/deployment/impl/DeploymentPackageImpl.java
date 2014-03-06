@@ -650,6 +650,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getMsiDeploymentMechanism_LicenseFile ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getP2Platform ()
     {
         return p2PlatformEClass;
@@ -777,6 +787,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE );
         createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL );
         createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__LICENSE_FILE );
 
         p2PlatformEClass = createEClass ( P2_PLATFORM );
         createEAttribute ( p2PlatformEClass, P2_PLATFORM__REPOSITORIES );
@@ -881,6 +892,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEAttribute ( getMsiDeploymentMechanism_Architecture (), this.getArchitecture (), "architecture", "i386", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getMsiDeploymentMechanism_EnableFirewall (), ecorePackage.getEBoolean (), "enableFirewall", "true", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getMsiDeploymentMechanism_EnableUserInterface (), ecorePackage.getEBoolean (), "enableUserInterface", "true", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMsiDeploymentMechanism_LicenseFile (), ecorePackage.getEString (), "licenseFile", null, 0, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( p2PlatformEClass, P2Platform.class, "P2Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getP2Platform_Repositories (), ecorePackage.getEString (), "repositories", null, 0, -1, P2Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
