@@ -10,11 +10,11 @@
     <property file="local.properties" />
     <property file="common.properties" />
 
+    <property environment="env" />
+    
     <property name="buildNumber" value="${env.BUILD_NUMBER}"/>
     <property name="visibleVersion" value="${version}${versionSuffix}" />
     
-    <property environment="env" />
-
     <property name="wix.root" value="${env.WIX}" />
 
     <!-- ================================= 
