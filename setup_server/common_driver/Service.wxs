@@ -8,7 +8,6 @@
 
 <Wix
 	xmlns="http://schemas.microsoft.com/wix/2006/wi"
-	xmlns:firewall="http://schemas.microsoft.com/wix/FirewallExtension"
 >
 	
 	<Fragment>
@@ -87,6 +86,7 @@
 					
 <?ifdef $(var.HasFirewall) ?>
 					<firewall:FirewallException
+						xmlns:firewall="http://schemas.microsoft.com/wix/FirewallExtension"
 						Id="$(var.ServiceName)ControlFW"
 						Name="$(var.ProductName) - Common Server"
 						Scope="any"
