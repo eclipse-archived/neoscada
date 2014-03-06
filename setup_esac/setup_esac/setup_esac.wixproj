@@ -36,10 +36,9 @@
     <Compile Include="Include.wxi" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="heat.xsl" />
     <None Include="resources\icon.ico" />
     <None Include="resources\license.rtf" />
-    <None Include="Scan.x64.xsl" />
-    <None Include="Scan.x86.xsl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources" />

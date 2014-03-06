@@ -15,6 +15,8 @@
     <property environment="env" />
 
     <property name="wix.root" value="${env.WIX}" />
+	
+	<property name="heat.transform" location="setup_esac/heat.xsl"/>
 
     <!-- ================================= 
           target: default
@@ -75,9 +77,21 @@
                 <arg value="var.UnpackDir" />
                 <arg value="-platform" />
                 <arg value="@{platform}" />
+				<!--
+				<arg value="-t"/>
+				<arg value="${heat.transform}"/>
+				-->
                 <arg value="-out" />
                 <arg file="setup_esac/Scan.@{platform}.wxs" />
             </exec>
+			<!--
+			<xslt
+				in="setup_esac/Scan.@{platform}.wxs"
+				out="setup_esac/Scan.@{platform}_f.wxs"
+				style="${heat.transform}"
+				>
+			</xslt>
+			-->
         </sequential>
     </macrodef>
 
