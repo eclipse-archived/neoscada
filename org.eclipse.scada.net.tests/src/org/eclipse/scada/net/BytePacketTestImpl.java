@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2010 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix test case
  *******************************************************************************/
 package org.eclipse.scada.net;
 
 import org.apache.mina.core.buffer.IoBuffer;
+import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import org.eclipse.scada.net.mina.GMPPProtocolDecoder;
 import org.eclipse.scada.net.mina.GMPPProtocolEncoder;
@@ -71,7 +73,7 @@ public class BytePacketTestImpl
         this ( bytes, 0, 0 );
     }
 
-    public void process ( final GMPPProtocolDecoder decoder, final GMPPProtocolEncoder encoder, final ProtocolDecoderOutput in ) throws Exception
+    public void process ( final IoSession session, final GMPPProtocolDecoder decoder, final GMPPProtocolEncoder encoder, final ProtocolDecoderOutput in ) throws Exception
     {
         final IoBuffer buffer = IoBuffer.allocate ( this.bytes.length );
         buffer.put ( this.bytes );
@@ -80,7 +82,8 @@ public class BytePacketTestImpl
         try
         {
             Thread.sleep ( this.preDelay );
-            decoder.decode ( null, buffer, in );
+
+            decoder.decode ( session, buffer, in );
             Thread.sleep ( this.postDelay );
         }
         catch ( final InterruptedException e )

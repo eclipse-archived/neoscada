@@ -10,6 +10,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.buffer;version="2.0.2",
  org.apache.mina.core.filterchain;version="2.0.2",
  org.apache.mina.core.future;version="2.0.2",
+ org.apache.mina.core.service;version="2.0.7",
  org.apache.mina.core.session;version="2.0.2",
  org.apache.mina.filter.codec;version="2.0.2",
  org.slf4j;version="1.5.0"
