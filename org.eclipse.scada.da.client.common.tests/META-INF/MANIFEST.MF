@@ -6,5 +6,5 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Fragment-Host: org.eclipse.scada.da.client;bundle-version="0.1.0"
 Require-Bundle: org.junit;bundle-version="4.8.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core.data;version="0.1.0"
