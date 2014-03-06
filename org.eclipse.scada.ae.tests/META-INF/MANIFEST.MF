@@ -11,5 +11,5 @@ Import-Package: org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.server.storage;version="0.1.0",
  org.eclipse.scada.ae.server.storage.memory;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.junit;bundle-version="4.8.0"
