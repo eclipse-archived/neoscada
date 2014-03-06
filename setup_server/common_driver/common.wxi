@@ -7,8 +7,15 @@
 
 <?if $(var.Platform) = x64 ?>
 	<?define ProductUpgradeCode = "F8111786-E55B-4307-BDEB-DE45453A7D81" ?>
+	
+	<!-- The Apache Commons Daemon configuration must always go to the 32bit registry -->
+	<?define ApacheRegBase = "SOFTWARE\Wow6432Node\Apache Software Foundation\Procrun 2.0" ?>
+	
 <?else ?>
+
 	<?define ProductUpgradeCode = "791ACD51-F507-4436-80D1-3CBF5CEB71F3" ?>
+	<?define ApacheRegBase = "SOFTWARE\Apache Software Foundation\Procrun 2.0" ?>
+	
 <?endif ?>
 
 </Include>
