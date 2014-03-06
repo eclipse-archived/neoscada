@@ -6,8 +6,9 @@
 		<version>0.1.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.scada.core-parent</relativePath>
 	</parent>
+	
 	<groupId>org.eclipse.scada.core</groupId>
-	<artifactId>org.eclipse.scada.hd.testing</artifactId>
+	<artifactId>org.eclipse.scada.hd.server.storage.common.tests</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>eclipse-test-plugin</packaging>
 

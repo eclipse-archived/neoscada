@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Client Common Test (Incubation)
-Bundle-SymbolicName: org.eclipse.scada.da.client.common.test
+Bundle-SymbolicName: org.eclipse.scada.da.client.common.tests
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Fragment-Host: org.eclipse.scada.da.client;bundle-version="0.1.0"

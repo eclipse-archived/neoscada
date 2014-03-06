@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NGP Test (Incubation)
-Bundle-SymbolicName: org.eclipse.scada.ngp.test
+Bundle-SymbolicName: org.eclipse.scada.ngp.tests
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.junit;bundle-version="4.8.0"

@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.hd.testing;
+package org.eclipse.scada.hd;
 
 import java.util.Calendar;
 

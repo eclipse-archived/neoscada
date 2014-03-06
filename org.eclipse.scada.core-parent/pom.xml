@@ -234,13 +234,13 @@
 		<module>../org.eclipse.scada.sec.provider.jdbc</module>
 		<module>../org.eclipse.scada.sec.provider.script</module>
 		<module>../org.eclipse.scada.da.utils.daemon</module>
-
-		<module>../org.eclipse.scada.ngp.test</module>
+		
 		<module>../org.eclipse.scada.da.server.exporter.common</module>
 		<module>../org.eclipse.scada.da.server.exporter.modbus</module>
 		<module>../org.eclipse.scada.sec.provider.ca</module>
 		<module>../org.eclipse.scada.da.server.exporter.rest</module>
 		<module>../org.eclipse.scada.core.doc.isv</module>
+		
 		<module>../org.eclipse.scada.core.ui.editors.feature</module>
 		<module>../org.eclipse.scada.core.client.feature</module>
 		<module>../org.eclipse.scada.core.common.feature</module>
@@ -248,10 +248,12 @@
 		
 		<!-- testing -->
 		
-		<module>../org.eclipse.scada.hd.testing</module>
-		<module>../org.eclipse.scada.hd.server.storage.common.test</module>
+		<module>../org.eclipse.scada.ngp.tests</module>
+		<module>../org.eclipse.scada.hd.tests</module>
+		<module>../org.eclipse.scada.hd.server.storage.common.tests</module>
 		<module>../org.eclipse.scada.da.server.common.tests</module>
 		<module>../org.eclipse.scada.core.subscription.tests</module>
+		<module>../org.eclipse.scada.da.client.common.tests</module>
 	</modules>
 
 </project>
