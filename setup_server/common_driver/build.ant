@@ -137,7 +137,7 @@
                 <arg value="Scan.jar.wixobj" />
 
                 <arg value="-out" />
-                <arg value="common_server_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
             </exec>
         </sequential>
     </macrodef>
@@ -166,9 +166,9 @@
         <sequential>
             <exec executable="${curl.root}curl" failifexecutionfails="true" failonerror="true">
                 <arg value="-o" />
-                <arg value="common_server_${visibleVersion}_@{platform}.msi" />
+                <arg value="common_driver_${visibleVersion}_@{platform}.msi" />
                 <arg value="-F" />
-                <arg value="filedata=@common_server_${visibleVersion}_@{platform}_unsigned.msi" />
+                <arg value="filedata=@common_driver_${visibleVersion}_@{platform}_unsigned.msi" />
                 <arg value="http://build.eclipse.org:31338/winsign.php" />
             </exec>
         </sequential>
