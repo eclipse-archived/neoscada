@@ -9,7 +9,7 @@
             thread="main"
             visible="true">
          <run
-               class="org.eclipse.scada.core.server.ngp.test.ServerTest1">
+               class="org.eclipse.scada.core.server.ngp.testing.ServerTest1">
          </run>
       </application>
    </extension>

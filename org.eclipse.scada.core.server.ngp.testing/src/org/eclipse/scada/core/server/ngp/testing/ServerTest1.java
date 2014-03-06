@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.core.server.ngp.test;
+package org.eclipse.scada.core.server.ngp.testing;
 
 import java.net.InetSocketAddress;
 import java.util.Arrays;

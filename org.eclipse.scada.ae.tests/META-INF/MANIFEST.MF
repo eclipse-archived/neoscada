@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: AE Tests (Incubation)
-Bundle-SymbolicName: org.eclipse.scada.ae.test
+Bundle-SymbolicName: org.eclipse.scada.ae.tests
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Import-Package: org.eclipse.scada.ae;version="0.1.0",

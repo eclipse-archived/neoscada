@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.core.server.ngp.test;
+package org.eclipse.scada.core.server.ngp.testing;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
