@@ -251,7 +251,7 @@
 		<module>../org.eclipse.scada.hd.testing</module>
 		<module>../org.eclipse.scada.hd.server.storage.common.test</module>
 		<module>../org.eclipse.scada.da.server.common.tests</module>
-		<module>../org.eclipse.scada.core.subscription.test</module>
+		<module>../org.eclipse.scada.core.subscription.tests</module>
 	</modules>
 
 </project>
