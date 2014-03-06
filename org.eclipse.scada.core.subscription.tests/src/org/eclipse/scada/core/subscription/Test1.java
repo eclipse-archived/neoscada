@@ -13,6 +13,7 @@ package org.eclipse.scada.core.subscription;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -151,6 +152,6 @@ public class Test1
         this.manager.unsubscribe ( "1", recorder );
         this.manager.unsubscribe ( "2", recorder );
 
-        Assert.assertEquals ( "Topics do not match", new LinkedList<String> (), this.manager.getAllGrantedTopics () );
+        Assert.assertEquals ( "Topics do not match", new HashSet<String> (), this.manager.getAllGrantedTopics () );
     }
 }
