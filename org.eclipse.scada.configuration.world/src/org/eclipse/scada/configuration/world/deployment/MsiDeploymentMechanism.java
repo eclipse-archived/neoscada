@@ -25,6 +25,8 @@ package org.eclipse.scada.configuration.world.deployment;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getSharedPlatform <em>Shared Platform</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getLocalPlatform <em>Local Platform</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableFirewall <em>Enable Firewall</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface <em>Enable User Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -194,5 +196,59 @@ public interface MsiDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     void setArchitecture ( Architecture value );
+
+    /**
+     * Returns the value of the '<em><b>Enable Firewall</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Enable Firewall</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Enable Firewall</em>' attribute.
+     * @see #setEnableFirewall(boolean)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMsiDeploymentMechanism_EnableFirewall()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isEnableFirewall ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableFirewall <em>Enable Firewall</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Enable Firewall</em>' attribute.
+     * @see #isEnableFirewall()
+     * @generated
+     */
+    void setEnableFirewall ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Enable User Interface</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Enable User Interface</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Enable User Interface</em>' attribute.
+     * @see #setEnableUserInterface(boolean)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMsiDeploymentMechanism_EnableUserInterface()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isEnableUserInterface ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface <em>Enable User Interface</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Enable User Interface</em>' attribute.
+     * @see #isEnableUserInterface()
+     * @generated
+     */
+    void setEnableUserInterface ( boolean value );
 
 } // MsiDeploymentMechanism

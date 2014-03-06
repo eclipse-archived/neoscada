@@ -630,6 +630,26 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getMsiDeploymentMechanism_EnableFirewall ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMsiDeploymentMechanism_EnableUserInterface ()
+    {
+        return (EAttribute)msiDeploymentMechanismEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getP2Platform ()
     {
         return p2PlatformEClass;
@@ -755,6 +775,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEReference ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__SHARED_PLATFORM );
         createEReference ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__LOCAL_PLATFORM );
         createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL );
+        createEAttribute ( msiDeploymentMechanismEClass, MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE );
 
         p2PlatformEClass = createEClass ( P2_PLATFORM );
         createEAttribute ( p2PlatformEClass, P2_PLATFORM__REPOSITORIES );
@@ -857,6 +879,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEReference ( getMsiDeploymentMechanism_SharedPlatform (), this.getP2Platform (), null, "sharedPlatform", null, 0, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMsiDeploymentMechanism_LocalPlatform (), this.getP2Platform (), null, "localPlatform", null, 0, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getMsiDeploymentMechanism_Architecture (), this.getArchitecture (), "architecture", "i386", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMsiDeploymentMechanism_EnableFirewall (), ecorePackage.getEBoolean (), "enableFirewall", "true", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getMsiDeploymentMechanism_EnableUserInterface (), ecorePackage.getEBoolean (), "enableUserInterface", "true", 1, 1, MsiDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( p2PlatformEClass, P2Platform.class, "P2Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getP2Platform_Repositories (), ecorePackage.getEString (), "repositories", null, 0, -1, P2Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

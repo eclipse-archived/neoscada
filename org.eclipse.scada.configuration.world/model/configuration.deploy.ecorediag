@@ -262,6 +262,14 @@
         <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_QW1mUZ79EeO0DZsIXagbmg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_B3tX4KUfEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/enableFirewall"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_B3tX4aUfEeOeZYeVTUHw8Q"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_DUWVAKUfEeOeZYeVTUHw8Q" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/MsiDeploymentMechanism/enableUserInterface"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_DUWVAaUfEeOeZYeVTUHw8Q"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_gNhe4p7AEeO0DZsIXagbmg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_gNhe457AEeO0DZsIXagbmg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_gNhe5J7AEeO0DZsIXagbmg"/>

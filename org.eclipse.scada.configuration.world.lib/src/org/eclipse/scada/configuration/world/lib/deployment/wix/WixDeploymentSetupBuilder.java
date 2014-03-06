@@ -117,6 +117,20 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
     private Element caDir;
 
+    private boolean useFirewall;
+
+    private boolean useUserInterface;
+
+    public void setUseFirewall ( final boolean useFirewall )
+    {
+        this.useFirewall = useFirewall;
+    }
+
+    public void setUseUserInterface ( final boolean useUserInterface )
+    {
+        this.useUserInterface = useUserInterface;
+    }
+
     public void write ( final File base ) throws Exception
     {
         // set up document
@@ -159,7 +173,26 @@ public class WixDeploymentSetupBuilder extends XMLBase
         createCommonDriverServices ( ele, base );
         createEquinoxApplicationServices ( ele, base );
 
+        createUserInterface ( ele );
+
         createFeature ( ele );
+    }
+
+    private void createUserInterface ( final Element product )
+    {
+        if ( !this.useUserInterface )
+        {
+            return;
+        }
+
+        {
+            final Element ui = createElement ( product, "UIRef" );
+            ui.setAttribute ( "Id", "WixUI_Minimal" );
+        }
+        {
+            final Element ui = createElement ( product, "UIRef" );
+            ui.setAttribute ( "Id", "WixUI_ErrorProgressText" );
+        }
     }
 
     private void createProperties ( final Element product )
@@ -233,7 +266,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         return comp;
     }
 
-    private Element createCommonService ( final Element parent, final String serviceName, final String name )
+    private Element createCommonService ( final Element parent, final String serviceName, final String name, final String description )
     {
         final Element dir = createElement ( parent, "Directory" ); //$NON-NLS-1$
         dir.setAttribute ( "Id", serviceName ); //$NON-NLS-1$
@@ -242,9 +275,11 @@ public class WixDeploymentSetupBuilder extends XMLBase
         final Element comp = createComponent ( dir, serviceName );
         comp.setAttribute ( "Guid", "*" ); //$NON-NLS-1$ //$NON-NLS-2$
 
+        final String fileId = serviceName + ".exe";
+
         Element file;
         file = createElement ( comp, "File" ); //$NON-NLS-1$
-        file.setAttribute ( "Id", serviceName + ".exe" ); //$NON-NLS-1$ //$NON-NLS-2$
+        file.setAttribute ( "Id", fileId ); //$NON-NLS-1$ 
         if ( this.platform == MsiPlatform.WIN32 )
         {
             file.setAttribute ( "Source", "unpack\\commons-daemon\\prunsrv.exe" ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -262,6 +297,17 @@ public class WixDeploymentSetupBuilder extends XMLBase
         reg = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$
         reg.setAttribute ( "Key", "Parameters" ); //$NON-NLS-1$ //$NON-NLS-2$
         reg.setAttribute ( "ForceCreateOnInstall", "yes" ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        // create firewall rule
+        if ( this.useFirewall )
+        {
+            final Element fw = createElement ( comp, "firewall", "FirewallException", "http://schemas.microsoft.com/wix/FirewallExtension" ); //$NON-NLS-1$ //$NON-NLS-2$
+            fw.setAttribute ( "Id", serviceName + "_fw" ); //$NON-NLS-1$ //$NON-NLS-2$
+            fw.setAttribute ( "Name", name ); //$NON-NLS-1$ 
+            fw.setAttribute ( "Scope", "any" ); //$NON-NLS-1$ //$NON-NLS-2$
+            fw.setAttribute ( "Description", description ); //$NON-NLS-1$ 
+            fw.setAttribute ( "Program", String.format ( "[#%s]", fileId ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
 
         return comp;
     }
@@ -379,8 +425,10 @@ public class WixDeploymentSetupBuilder extends XMLBase
     {
         final Profile profile = eas.getProfile ();
 
+        final String description = String.format ( "This is the Eclipse SCADA application instance '%s'", eas.getName () );
+
         final String serviceName = makeServiceName ( eas );
-        final Element comp = createCommonService ( parent, serviceName, eas.getName () );
+        final Element comp = createCommonService ( parent, serviceName, eas.getName (), description );
 
         // cfg dir
 
@@ -440,7 +488,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
 
         final ServiceConfiguration cfg = new ServiceConfiguration ();
         cfg.displayName = "Eclipse SCADA Application: " + eas.getName (); //$NON-NLS-1$
-        cfg.description = String.format ( "This is the Eclipse SCADA application instance '%s'", eas.getName () ); //$NON-NLS-1$
+        cfg.description = description;
         cfg.startClass = "org.eclipse.scada.utils.osgi.daemon.EclipseDaemon"; //$NON-NLS-1$
         cfg.startMethod = "start"; //$NON-NLS-1$
         cfg.stopClass = "org.eclipse.scada.utils.osgi.daemon.EclipseDaemon"; //$NON-NLS-1$
@@ -481,7 +529,9 @@ public class WixDeploymentSetupBuilder extends XMLBase
     {
         final Path configurationFile = new File ( resourceBase, "exporter.xml" ).toPath (); //$NON-NLS-1$
 
-        final Element comp = createCommonService ( parent, makeServiceName ( cds ), cds.getName () );
+        final String description = String.format ( "This is the Eclipse SCADA common driver instance '%s'", cds.getName () ); //$NON-NLS-1$
+
+        final Element comp = createCommonService ( parent, makeServiceName ( cds ), cds.getName (), description );
 
         Element file;
 
@@ -498,7 +548,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         // create prunsrv configuration
         final ServiceConfiguration cfg = new ServiceConfiguration ();
         cfg.displayName = "Eclipse SCADA Common Driver: " + cds.getName (); //$NON-NLS-1$ 
-        cfg.description = String.format ( "This is the Eclipse SCADA common driver instance '%s'", cds.getName () ); //$NON-NLS-1$ 
+        cfg.description = description;
         cfg.startClass = cfg.stopClass = "org.eclipse.scada.da.server.exporter.Application"; //$NON-NLS-1$ 
         cfg.startMethod = "main"; //$NON-NLS-1$ 
         cfg.startArguments = new String[] {
@@ -580,6 +630,9 @@ public class WixDeploymentSetupBuilder extends XMLBase
         final Element feat = createElement ( product, "Feature" ); //$NON-NLS-1$ 
         feat.setAttribute ( "Id", "Complete" ); //$NON-NLS-1$ //$NON-NLS-2$
         feat.setAttribute ( "Level", "1" ); //$NON-NLS-1$ //$NON-NLS-2$
+        feat.setAttribute ( "Title", this.name ); //$NON-NLS-1$ 
+        feat.setAttribute ( "Display", "expand" ); //$NON-NLS-1$ //$NON-NLS-2$
+        feat.setAttribute ( "Description", "The complete package" ); //$NON-NLS-1$s
 
         Element entry;
 

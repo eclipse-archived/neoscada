@@ -38,6 +38,8 @@ import org.eclipse.scada.configuration.world.deployment.P2Platform;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getSharedPlatform <em>Shared Platform</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getLocalPlatform <em>Local Platform</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#getArchitecture <em>Architecture</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#isEnableFirewall <em>Enable Firewall</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl#isEnableUserInterface <em>Enable User Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,6 +146,46 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
      * @ordered
      */
     protected Architecture architecture = ARCHITECTURE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isEnableFirewall() <em>Enable Firewall</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableFirewall()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ENABLE_FIREWALL_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isEnableFirewall() <em>Enable Firewall</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableFirewall()
+     * @generated
+     * @ordered
+     */
+    protected boolean enableFirewall = ENABLE_FIREWALL_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isEnableUserInterface() <em>Enable User Interface</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableUserInterface()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean ENABLE_USER_INTERFACE_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isEnableUserInterface() <em>Enable User Interface</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isEnableUserInterface()
+     * @generated
+     * @ordered
+     */
+    protected boolean enableUserInterface = ENABLE_USER_INTERFACE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -386,6 +428,52 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isEnableFirewall ()
+    {
+        return enableFirewall;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEnableFirewall ( boolean newEnableFirewall )
+    {
+        boolean oldEnableFirewall = enableFirewall;
+        enableFirewall = newEnableFirewall;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL, oldEnableFirewall, enableFirewall ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean isEnableUserInterface ()
+    {
+        return enableUserInterface;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEnableUserInterface ( boolean newEnableUserInterface )
+    {
+        boolean oldEnableUserInterface = enableUserInterface;
+        enableUserInterface = newEnableUserInterface;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE, oldEnableUserInterface, enableUserInterface ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -423,6 +511,10 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return basicGetLocalPlatform ();
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
                 return getArchitecture ();
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL:
+                return isEnableFirewall ();
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
+                return isEnableUserInterface ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -454,6 +546,12 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return;
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
                 setArchitecture ( (Architecture)newValue );
+                return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL:
+                setEnableFirewall ( (Boolean)newValue );
+                return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
+                setEnableUserInterface ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -487,6 +585,12 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
                 setArchitecture ( ARCHITECTURE_EDEFAULT );
                 return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL:
+                setEnableFirewall ( ENABLE_FIREWALL_EDEFAULT );
+                return;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
+                setEnableUserInterface ( ENABLE_USER_INTERFACE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -513,6 +617,10 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
                 return localPlatform != null;
             case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE:
                 return architecture != ARCHITECTURE_EDEFAULT;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL:
+                return enableFirewall != ENABLE_FIREWALL_EDEFAULT;
+            case DeploymentPackage.MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE:
+                return enableUserInterface != ENABLE_USER_INTERFACE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -537,6 +645,10 @@ public class MsiDeploymentMechanismImpl extends MinimalEObjectImpl.Container imp
         result.append ( manufacturer );
         result.append ( ", architecture: " ); //$NON-NLS-1$
         result.append ( architecture );
+        result.append ( ", enableFirewall: " ); //$NON-NLS-1$
+        result.append ( enableFirewall );
+        result.append ( ", enableUserInterface: " ); //$NON-NLS-1$
+        result.append ( enableUserInterface );
         result.append ( ')' );
         return result.toString ();
     }

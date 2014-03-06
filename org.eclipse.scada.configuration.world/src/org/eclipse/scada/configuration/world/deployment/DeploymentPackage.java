@@ -682,13 +682,31 @@ public interface DeploymentPackage extends EPackage
     int MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Enable Firewall</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Enable User Interface</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Msi Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MSI_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 6;
+    int MSI_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 8;
 
     /**
      * The number of operations of the '<em>Msi Deployment Mechanism</em>' class.
@@ -1149,6 +1167,28 @@ public interface DeploymentPackage extends EPackage
     EAttribute getMsiDeploymentMechanism_Architecture ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableFirewall <em>Enable Firewall</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Enable Firewall</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableFirewall()
+     * @see #getMsiDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getMsiDeploymentMechanism_EnableFirewall ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface <em>Enable User Interface</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Enable User Interface</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism#isEnableUserInterface()
+     * @see #getMsiDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getMsiDeploymentMechanism_EnableUserInterface ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.P2Platform <em>P2 Platform</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1535,6 +1575,22 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute MSI_DEPLOYMENT_MECHANISM__ARCHITECTURE = eINSTANCE.getMsiDeploymentMechanism_Architecture ();
+
+        /**
+         * The meta object literal for the '<em><b>Enable Firewall</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MSI_DEPLOYMENT_MECHANISM__ENABLE_FIREWALL = eINSTANCE.getMsiDeploymentMechanism_EnableFirewall ();
+
+        /**
+         * The meta object literal for the '<em><b>Enable User Interface</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MSI_DEPLOYMENT_MECHANISM__ENABLE_USER_INTERFACE = eINSTANCE.getMsiDeploymentMechanism_EnableUserInterface ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.P2PlatformImpl <em>P2 Platform</em>}' class.

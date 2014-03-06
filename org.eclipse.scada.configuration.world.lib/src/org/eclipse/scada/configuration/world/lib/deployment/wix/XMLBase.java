@@ -47,6 +47,13 @@ public class XMLBase
         return ele;
     }
 
+    protected Element createElement ( final Element parent, final String prefix, final String name, final String namespaceURI )
+    {
+        final Element ele = parent.getOwnerDocument ().createElementNS ( namespaceURI, prefix + ":" + name );
+        parent.appendChild ( ele );
+        return ele;
+    }
+
     protected Element createElementWithText ( final Element parent, final String name, final String text )
     {
         final Element ele = parent.getOwnerDocument ().createElement ( name );

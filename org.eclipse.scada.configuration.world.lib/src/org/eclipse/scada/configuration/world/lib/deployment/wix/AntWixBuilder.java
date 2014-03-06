@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
@@ -72,11 +73,14 @@ public class AntWixBuilder extends XMLBase
 
     private final P2Platform p2Platform;
 
-    public AntWixBuilder ( final String outputFilename, final MsiPlatform platform, final P2Platform p2Platform )
+    private final Set<String> wixExtensions;
+
+    public AntWixBuilder ( final String outputFilename, final MsiPlatform platform, final P2Platform p2Platform, final Set<String> wixExtensions )
     {
         this.outputFilename = outputFilename;
         this.platform = platform;
         this.p2Platform = p2Platform;
+        this.wixExtensions = wixExtensions;
     }
 
     public void write ( final File packageFolder ) throws Exception
@@ -183,8 +187,8 @@ public class AntWixBuilder extends XMLBase
             // find the two files we need for the classpath of the OSGi framework launcher
             // note: this will only work for equinox
 
-            appendFragment ( provision, "<copy tofile=\"${master.dir}/osgi.jar\"><fileset dir=\"${master.dir}/plugins\" includes=\"org.eclipse.osgi_*.jar\" /><mapper type=\"flatten\" /></copy>" );
-            appendFragment ( provision, "<copy tofile=\"${master.dir}/daemon.jar\"><fileset dir=\"${master.dir}/plugins\" includes=\"org.eclipse.scada.utils.osgi.daemon_*.jar\" /><mapper type=\"flatten\" /></copy>" );
+            appendFragment ( provision, String.format ( "<copy tofile=\"%1$s/osgi.jar\"><fileset dir=\"%1$s/plugins\" includes=\"org.eclipse.osgi_*.jar\" /><mapper type=\"flatten\" /></copy>", dest ) );
+            appendFragment ( provision, String.format ( "<copy tofile=\"%1$s/daemon.jar\"><fileset dir=\"%1$s/plugins\" includes=\"org.eclipse.scada.utils.osgi.daemon_*.jar\" /><mapper type=\"flatten\" /></copy>", dest ) );
         }
     }
 
@@ -228,6 +232,11 @@ public class AntWixBuilder extends XMLBase
         addArg ( candle, "-dStagingDir=${staging.dir}" ); //$NON-NLS-1$ 
         addArg ( candle, "-arch" ); //$NON-NLS-1$ 
         addArg ( candle, this.platform != null ? this.platform.toWixString () : MsiPlatform.WIN32.toWixString () );
+        for ( final String ext : this.wixExtensions )
+        {
+            addArg ( candle, "-ext" );
+            addArg ( candle, ext );
+        }
         addArg ( candle, "Setup.wxs" ); //$NON-NLS-1$ 
         addArg ( candle, "Scan.wxs" ); //$NON-NLS-1$ 
 
@@ -236,6 +245,11 @@ public class AntWixBuilder extends XMLBase
         light.setAttribute ( "dir", "." ); //$NON-NLS-1$ //$NON-NLS-2$ 
         light.setAttribute ( "failifexecutionfails", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         light.setAttribute ( "failonerror", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        for ( final String ext : this.wixExtensions )
+        {
+            addArg ( light, "-ext" );
+            addArg ( light, ext );
+        }
         addArg ( light, "Setup.wixobj" ); //$NON-NLS-1$ 
         addArg ( light, "Scan.wixobj" ); //$NON-NLS-1$ 
         addArg ( light, "-out" ); //$NON-NLS-1$ 

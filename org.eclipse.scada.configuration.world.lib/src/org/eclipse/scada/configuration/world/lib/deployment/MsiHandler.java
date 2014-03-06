@@ -13,8 +13,10 @@ package org.eclipse.scada.configuration.world.lib.deployment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -61,8 +63,11 @@ public class MsiHandler extends CommonHandler
 
         final WixDeploymentSetupBuilder wixBuilder = new WixDeploymentSetupBuilder ();
 
+        wixBuilder.setUseFirewall ( this.deployment.isEnableFirewall () );
+        wixBuilder.setUseUserInterface ( this.deployment.isEnableUserInterface () );
+
         wixBuilder.setPlatform ( platform );
-        wixBuilder.setName ( String.format ( "Deployment package for node %s", Nodes.makeName ( this.applicationNode ) ) );
+        wixBuilder.setName ( String.format ( "Deployment package for node %s", Nodes.makeName ( this.applicationNode ) ) ); //$NON-NLS-1$
         wixBuilder.setVersion ( this.deployment.getVersion () );
         wixBuilder.setManufacturer ( this.deployment.getManufacturer () );
         wixBuilder.setUpgradeCode ( this.deployment.getUpgradeCode () );
@@ -74,7 +79,18 @@ public class MsiHandler extends CommonHandler
 
         // create ant builder project
 
-        final AntWixBuilder antBuilder = new AntWixBuilder ( String.format ( "%s_%s.msi", packageName, this.deployment.getVersion () ), platform, findPlatform () );
+        final Set<String> wixExt = new HashSet<> ();
+
+        if ( this.deployment.isEnableFirewall () )
+        {
+            wixExt.add ( "WixFirewallExtension" ); //$NON-NLS-1$
+        }
+        if ( this.deployment.isEnableFirewall () )
+        {
+            wixExt.add ( "WixUIExtension" ); //$NON-NLS-1$
+        }
+
+        final AntWixBuilder antBuilder = new AntWixBuilder ( String.format ( "%s_%s.msi", packageName, this.deployment.getVersion () ), platform, findPlatform (), wixExt ); //$NON-NLS-1$
         createApplications ( nodeDir.getLocation ().toFile (), antBuilder, wixBuilder );
 
         // write out
@@ -134,13 +150,13 @@ public class MsiHandler extends CommonHandler
         final File sourceDir = new File ( nodeDir, driverName );
 
         final Properties p = new Properties ();
-        final File properties = new File ( sourceDir, "application.properties" );
+        final File properties = new File ( sourceDir, "application.properties" ); //$NON-NLS-1$
         if ( properties.isFile () )
         {
             p.load ( new FileInputStream ( properties ) );
         }
 
-        final File exporter = new File ( sourceDir, "exporter.xml" );
+        final File exporter = new File ( sourceDir, "exporter.xml" ); //$NON-NLS-1$
 
         wixBuilder.addCommonDriver ( new WixDeploymentSetupBuilder.CommonDriverService ( driverName, exporter, p ) );
     }
@@ -152,7 +168,7 @@ public class MsiHandler extends CommonHandler
     @Override
     protected String getBaseFolderName ()
     {
-        return "msi-packages";
+        return "msi-packages"; //$NON-NLS-1$
     }
 
 }
