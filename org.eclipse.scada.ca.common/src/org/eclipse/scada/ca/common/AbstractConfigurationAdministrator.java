@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,8 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - additional work, remove the concept of
+ *                        "self managed" factories
  *******************************************************************************/
 package org.eclipse.scada.ca.common;
 
@@ -24,11 +25,9 @@ import org.eclipse.scada.ca.Configuration;
 import org.eclipse.scada.ca.ConfigurationAlreadyExistsException;
 import org.eclipse.scada.ca.ConfigurationEvent;
 import org.eclipse.scada.ca.ConfigurationFactory;
-import org.eclipse.scada.ca.ConfigurationListener;
 import org.eclipse.scada.ca.FactoryEvent;
 import org.eclipse.scada.ca.FactoryNotFoundException;
 import org.eclipse.scada.ca.FreezableConfigurationAdministrator;
-import org.eclipse.scada.ca.SelfManagedConfigurationFactory;
 import org.eclipse.scada.ca.data.ConfigurationState;
 import org.eclipse.scada.ca.data.DiffEntry;
 import org.eclipse.scada.ca.data.FactoryState;
@@ -60,11 +59,7 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
 
     private final Map<ServiceReference<ConfigurationFactory>, ConfigurationFactory> services = new HashMap<ServiceReference<ConfigurationFactory>, ConfigurationFactory> ();
 
-    private final Map<ServiceReference<SelfManagedConfigurationFactory>, SelfManagedConfigurationFactory> selfServices = new HashMap<ServiceReference<SelfManagedConfigurationFactory>, SelfManagedConfigurationFactory> ();
-
     private final ServiceTracker<ConfigurationFactory, ConfigurationFactory> serviceListener;
-
-    private final ServiceTracker<SelfManagedConfigurationFactory, SelfManagedConfigurationFactory> selfServiceListener;
 
     public AbstractConfigurationAdministrator ( final BundleContext context )
     {
@@ -92,38 +87,17 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
                 return AbstractConfigurationAdministrator.this.addingService ( reference );
             }
         } );
-        this.selfServiceListener = new ServiceTracker<SelfManagedConfigurationFactory, SelfManagedConfigurationFactory> ( context, SelfManagedConfigurationFactory.class, new ServiceTrackerCustomizer<SelfManagedConfigurationFactory, SelfManagedConfigurationFactory> () {
-
-            @Override
-            public void removedService ( final ServiceReference<SelfManagedConfigurationFactory> reference, final SelfManagedConfigurationFactory service )
-            {
-                AbstractConfigurationAdministrator.this.removedSelfService ( reference, service );
-            }
-
-            @Override
-            public void modifiedService ( final ServiceReference<SelfManagedConfigurationFactory> reference, final SelfManagedConfigurationFactory service )
-            {
-            }
-
-            @Override
-            public SelfManagedConfigurationFactory addingService ( final ServiceReference<SelfManagedConfigurationFactory> reference )
-            {
-                return AbstractConfigurationAdministrator.this.addingSelfService ( reference );
-            }
-        } );
     }
 
     public synchronized void start () throws Exception
     {
         this.listenerTracker.open ();
         this.serviceListener.open ();
-        this.selfServiceListener.open ();
     }
 
     public synchronized void stop () throws Exception
     {
         this.serviceListener.close ();
-        this.selfServiceListener.close ();
         this.listenerTracker.close ();
     }
 
@@ -255,91 +229,6 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             factory.setService ( null );
             setFactoryState ( factory, FactoryState.LOADED );
         }
-    }
-
-    private synchronized void addFactorySelfService ( final String factoryId, final SelfManagedConfigurationFactory factoryService, final String description )
-    {
-        logger.info ( "Adding self service: {}", factoryId );
-        // TODO Auto-generated method stub
-
-        FactoryImpl factory = this.factories.get ( factoryId );
-        if ( factory == null )
-        {
-            factory = new FactoryImpl ( factoryId );
-            this.factories.put ( factoryId, factory );
-        }
-
-        if ( factory.getService () == null )
-        {
-            factory.setService ( factoryService );
-            factory.setDescription ( description );
-
-            // remove existing configurations
-            factory.setConfigurations ( new ConfigurationImpl[0] );
-
-            final ConfigurationListener listener = new ConfigurationListener () {
-
-                @Override
-                public void configurationUpdate ( final Configuration[] addedOrChanged, final String[] deleted )
-                {
-                    AbstractConfigurationAdministrator.this.handleSelfChange ( factoryId, addedOrChanged, deleted );
-                }
-            };
-            factory.setListener ( listener );
-            factoryService.addConfigurationListener ( listener );
-            setFactoryState ( factory, FactoryState.BOUND );
-        }
-    }
-
-    protected synchronized void handleSelfChange ( final String factoryId, final Configuration[] addedOrChanged, final String[] deleted )
-    {
-        final FactoryImpl factory = getFactory ( factoryId );
-        if ( factory == null )
-        {
-            logger.warn ( "Change for unknown factory: {}", factoryId );
-            return;
-        }
-
-        if ( addedOrChanged != null )
-        {
-            for ( final Configuration cfg : addedOrChanged )
-            {
-                final ConfigurationImpl newCfg = new ConfigurationImpl ( cfg.getId (), factoryId, cfg.getData () );
-                factory.addConfiguration ( newCfg );
-                setConfigurationStatus ( newCfg, cfg.getState (), cfg.getErrorInformation () );
-            }
-        }
-        if ( deleted != null )
-        {
-            for ( final String configurationId : deleted )
-            {
-                logger.info ( "Removing {} from self managed factory {}", new Object[] { configurationId, factoryId } );
-                factory.removeConfigration ( configurationId );
-            }
-        }
-    }
-
-    private synchronized void removeSelfFactoryService ( final String factoryId, final SelfManagedConfigurationFactory factoryService )
-    {
-        logger.info ( "Removed self service: {}", factoryId );
-
-        final FactoryImpl factory = getFactory ( factoryId );
-        if ( factory == null )
-        {
-            return;
-        }
-
-        if ( factory.getService () == factoryService )
-        {
-            // remove service
-
-            final ConfigurationListener listener = factory.getListener ();
-            factoryService.removeConfigurationListener ( listener );
-
-            factory.setService ( null );
-            this.factories.remove ( factoryId );
-        }
-
     }
 
     protected abstract void performPurge ( UserInformation userInformation, String factoryId, PurgeFuture future ) throws Exception;
@@ -483,14 +372,7 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             return new InstantErrorFuture<Void> ( new FactoryNotFoundException ( factoryId ).fillInStackTrace () );
         }
 
-        if ( !factory.isSelfManaged () )
-        {
-            return invokePurge ( userInformation, factoryId );
-        }
-        else
-        {
-            return factory.getSelfService ().purge ();
-        }
+        return invokePurge ( userInformation, factoryId );
     }
 
     @Override
@@ -508,14 +390,7 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             return new InstantErrorFuture<Configuration> ( new ConfigurationAlreadyExistsException ( factoryId, configurationId ).fillInStackTrace () );
         }
 
-        if ( !factory.isSelfManaged () )
-        {
-            return invokeStore ( userInformation, factoryId, configurationId, properties, true );
-        }
-        else
-        {
-            return factory.getSelfService ().update ( configurationId, properties, true );
-        }
+        return invokeStore ( userInformation, factoryId, configurationId, properties, true );
     }
 
     @Override
@@ -533,14 +408,7 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             return new InstantErrorFuture<Configuration> ( new ConfigurationNotFoundException ( factoryId, configurationId ).fillInStackTrace () );
         }
 
-        if ( !factory.isSelfManaged () )
-        {
-            return invokeStore ( userInformation, factoryId, configurationId, properties, fullSet );
-        }
-        else
-        {
-            return factory.getSelfService ().update ( configurationId, properties, fullSet );
-        }
+        return invokeStore ( userInformation, factoryId, configurationId, properties, fullSet );
     }
 
     @Override
@@ -558,14 +426,7 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             return new InstantErrorFuture<Configuration> ( new ConfigurationNotFoundException ( factoryId, configurationId ).fillInStackTrace () );
         }
 
-        if ( !factory.isSelfManaged () )
-        {
-            return invokeDelete ( userInformation, factoryId, configurationId );
-        }
-        else
-        {
-            return factory.getSelfService ().delete ( configurationId );
-        }
+        return invokeDelete ( userInformation, factoryId, configurationId );
     }
 
     protected static final class ConfigurationFuture extends AbstractFuture<Configuration>
@@ -589,7 +450,6 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
 
     protected static class PatchFuture extends CompositeFuture<Configuration>
     {
-
     }
 
     protected static class PurgeFuture extends CompositeFuture<Configuration>
@@ -791,39 +651,6 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
         }
     }
 
-    protected SelfManagedConfigurationFactory addingSelfService ( final ServiceReference<SelfManagedConfigurationFactory> reference )
-    {
-        final String factoryId = checkAndGetFactoryId ( reference );
-
-        if ( factoryId == null )
-        {
-            return null;
-        }
-
-        final String description = getDescription ( reference );
-
-        SelfManagedConfigurationFactory service = null;
-        try
-        {
-            service = this.context.getService ( reference );
-            final SelfManagedConfigurationFactory factory = service;
-
-            addFactorySelfService ( factoryId, factory, description );
-
-            this.selfServices.put ( reference, factory );
-
-            return factory;
-        }
-        catch ( final ClassCastException e )
-        {
-            if ( service != null )
-            {
-                this.context.ungetService ( reference );
-            }
-            return null;
-        }
-    }
-
     private String getDescription ( final ServiceReference<?> reference )
     {
         String description;
@@ -836,16 +663,6 @@ public abstract class AbstractConfigurationAdministrator implements FreezableCon
             description = null;
         }
         return description;
-    }
-
-    protected void removedSelfService ( final ServiceReference<?> reference, final Object service )
-    {
-        final SelfManagedConfigurationFactory factoryService = this.selfServices.remove ( reference );
-        if ( factoryService != null )
-        {
-            this.context.ungetService ( reference );
-            removeSelfFactoryService ( (String)reference.getProperty ( FACTORY_ID ), factoryService );
-        }
     }
 
     private String checkAndGetFactoryId ( final ServiceReference<?> reference )

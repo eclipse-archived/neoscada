@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - remove the concept of "self managed" factories
  *******************************************************************************/
 package org.eclipse.scada.ca.common;
 
@@ -16,7 +17,6 @@ import java.util.TreeMap;
 import org.eclipse.scada.ca.ConfigurationFactory;
 import org.eclipse.scada.ca.ConfigurationListener;
 import org.eclipse.scada.ca.Factory;
-import org.eclipse.scada.ca.SelfManagedConfigurationFactory;
 import org.eclipse.scada.ca.data.FactoryState;
 
 public class FactoryImpl implements Factory
@@ -127,23 +127,5 @@ public class FactoryImpl implements Factory
     public ConfigurationListener getListener ()
     {
         return this.listener;
-    }
-
-    public SelfManagedConfigurationFactory getSelfService ()
-    {
-        final Object service = this.service;
-        if ( service instanceof SelfManagedConfigurationFactory )
-        {
-            return (SelfManagedConfigurationFactory)service;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public boolean isSelfManaged ()
-    {
-        return this.service instanceof SelfManagedConfigurationFactory;
     }
 }
