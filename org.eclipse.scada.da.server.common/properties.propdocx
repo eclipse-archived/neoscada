@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <properties:properties xmlns:properties="urn:openscada:doc:content:properties">
   <properties:groups properties:prefix="org.eclipse.scada.da.server.common">
-    <properties:properties properties:name="chainStorageService.path" properties:shortDescription="The path where chain information will persisted">
-    <properties:longDescription>
-    Setting this to a valid directory will enable the persistence modules of the drivers and allows
-    using the old, driver bases, features like levels and manual values. This is deprecated though.
-    </properties:longDescription>
-    </properties:properties>
     <properties:properties properties:name="org.eclipse.scada.da.server.common.fairItemMapLock" properties:dataType="BOOLEAN" properties:shortDescription="Wether to use a fair mutex for looking up items">
       <properties:defaultValue>false</properties:defaultValue>
     </properties:properties>
