@@ -67,6 +67,26 @@ import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * A common base for implementing Hive instances <h1>Lifecycle</h1>
+ * <p>
+ * Hives are created using the constructor. There is no defined destructor.
+ * However there are start and stop methods that may create and free resources.
+ * All resources allocated in the start method should be destroyed in the stop
+ * method.
+ * </p>
+ * <p>
+ * The item subscription manager will also be created in the
+ * {@link #performStart()} method. So registering items is only possible
+ * <em>after</em> the hive has been started.
+ * </p>
+ * <code>
+ * protected void performStart () {
+ *  super.performStart ();
+ *  registerItem ( "abc", … );
+ * }
+ * </code>
+ */
 public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> implements Hive
 {
     private final static Logger logger = LoggerFactory.getLogger ( HiveCommon.class );
@@ -495,6 +515,10 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     /**
      * Register a new item with the hive
+     * <p>
+     * Note that registering an item is only possible after the Hive has been
+     * started.
+     * </p>
      * 
      * @param item
      *            the item to register
@@ -560,6 +584,10 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     /**
      * Remove an item from the hive.
+     * <p>
+     * Note that registering an item is only possible while the hive is running
+     * (started, not stopped).
+     * </p>
      * 
      * @param item
      *            the item to remove
