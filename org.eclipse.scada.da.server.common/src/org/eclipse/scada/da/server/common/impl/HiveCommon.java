@@ -182,14 +182,13 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
             this.running = true;
         }
 
+        this.operationService = Executors.newFixedThreadPool ( 1, new NamedThreadFactory ( "HiveCommon/" + getHiveId () ) );
+        this.itemSubscriptionManager = new ListenableSubscriptionManager<String> ( this.operationService, this.subscriptionValidator );
+
         if ( this.autoEnableStats && this.rootFolder instanceof FolderCommon )
         {
             enableStats ( (FolderCommon)this.rootFolder );
         }
-
-        this.operationService = Executors.newFixedThreadPool ( 1, new NamedThreadFactory ( "HiveCommon/" + getHiveId () ) );
-
-        this.itemSubscriptionManager = new ListenableSubscriptionManager<String> ( this.operationService, this.subscriptionValidator );
 
         performStart ();
     }
