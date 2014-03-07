@@ -35,11 +35,8 @@ public class Hive extends HiveCommon
 
     public Hive ()
     {
-        super ();
-
         this.rootFolder = new FolderCommon ();
         setRootFolder ( this.rootFolder );
-
     }
 
     @Override
