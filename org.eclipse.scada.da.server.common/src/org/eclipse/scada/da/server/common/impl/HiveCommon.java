@@ -137,11 +137,15 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     protected void addItemSubscriptionListener ( final SubscriptionManagerListener<String> listener )
     {
+        checkRunning ();
+
         this.itemSubscriptionManager.addManagerListener ( listener );
     }
 
     protected void removeItemSubscriptionListener ( final SubscriptionManagerListener<String> listener )
     {
+        checkRunning ();
+
         this.itemSubscriptionManager.removeManagerListener ( listener );
     }
 
@@ -365,6 +369,11 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     @Override
     public NotifyFuture<Session> createSession ( final Properties properties, final CallbackHandler callbackHandler )
     {
+        if ( !this.running )
+        {
+            return new InstantErrorFuture<> ( makeCheckRunningException () );
+        }
+
         final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, callbackHandler );
 
         return new CallingFuture<UserInformation, Session> ( loginFuture ) {
@@ -414,6 +423,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         final SessionCommon sessionCommon = validateSession ( session );
 
+        checkRunning ();
+
         synchronized ( this.sessions )
         {
             this.sessions.remove ( session );
@@ -433,6 +444,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     public void subscribeItem ( final Session session, final String itemId ) throws InvalidSessionException, InvalidItemException
     {
         logger.debug ( "Subscribing item: {}", itemId );
+
+        checkRunning ();
 
         // validate the session first
         final SessionCommon sessionCommon = validateSession ( session );
@@ -459,10 +472,25 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         logger.debug ( "Unsubscribing item: {}", itemId );
 
+        checkRunning ();
+
         final SessionCommon sessionCommon = validateSession ( session );
 
         // unsubscribe using the new item subscription manager
         this.itemSubscriptionManager.unsubscribe ( itemId, sessionCommon );
+    }
+
+    private void checkRunning ()
+    {
+        if ( !this.running )
+        {
+            throw makeCheckRunningException ();
+        }
+    }
+
+    private static IllegalStateException makeCheckRunningException ()
+    {
+        return new IllegalStateException ( "Hive is running running. Start it first!" );
     }
 
     /**
@@ -474,6 +502,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     public void registerItem ( final DataItem item )
     {
         logger.debug ( "Register item: {}", item );
+
+        checkRunning ();
 
         try
         {
@@ -507,6 +537,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private Executor getOperationServiceInstance ()
     {
+        checkRunning ();
+
         return this.operationService;
     }
 
@@ -535,6 +567,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     public void unregisterItem ( final DataItem item )
     {
         logger.debug ( "Unregister item: {}", item );
+
+        checkRunning ();
 
         try
         {
@@ -735,9 +769,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         };
     }
 
-    /**
-     * @since 1.1
-     */
     protected NotifyFuture<WriteResult> processWrite ( final SessionCommon session, final String itemId, final Variant value, final org.eclipse.scada.core.server.OperationParameters effectiveOperationParameters )
     {
         logger.debug ( "Processing write - granted - itemId: {}, value: {}", itemId, value );
