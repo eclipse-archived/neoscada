@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow providing a folder implementation
  *******************************************************************************/
 package org.eclipse.scada.da.server.browser.common.query;
 
@@ -17,6 +18,7 @@ import java.util.Stack;
 
 import org.eclipse.scada.da.core.browser.Entry;
 import org.eclipse.scada.da.core.server.browser.NoSuchFolderException;
+import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.browser.common.FolderListener;
 
 public class GroupFolder implements StorageBasedFolder
@@ -29,6 +31,14 @@ public class GroupFolder implements StorageBasedFolder
 
     private final GroupSubFolder folder;
 
+    public GroupFolder ( final GroupProvider groupProvider, final NameProvider nameProvider, final FolderCommon folder )
+    {
+        this.groupProvider = groupProvider;
+        this.nameProvider = nameProvider;
+
+        this.folder = new GroupSubFolder ( this.nameProvider, folder );
+    }
+
     public GroupFolder ( final GroupProvider groupProvider, final NameProvider nameProvider )
     {
         this.groupProvider = groupProvider;
@@ -37,16 +47,19 @@ public class GroupFolder implements StorageBasedFolder
         this.folder = new GroupSubFolder ( this.nameProvider );
     }
 
+    @Override
     synchronized public Entry[] list ( final Stack<String> path ) throws NoSuchFolderException
     {
         return this.folder.list ( path );
     }
 
+    @Override
     synchronized public void subscribe ( final Stack<String> path, final FolderListener listener, final Object tag ) throws NoSuchFolderException
     {
         this.folder.subscribe ( path, listener, tag );
     }
 
+    @Override
     synchronized public void unsubscribe ( final Stack<String> path, final Object tag ) throws NoSuchFolderException
     {
         this.folder.unsubscribe ( path, tag );
@@ -64,6 +77,7 @@ public class GroupFolder implements StorageBasedFolder
         return b;
     }
 
+    @Override
     synchronized public void added ( final ItemDescriptor descriptor )
     {
         if ( this.itemList.containsKey ( descriptor ) )
@@ -88,6 +102,7 @@ public class GroupFolder implements StorageBasedFolder
         }
     }
 
+    @Override
     synchronized public void removed ( final ItemDescriptor descriptor )
     {
         final GroupSubFolder folder = this.itemList.get ( descriptor );
@@ -101,11 +116,13 @@ public class GroupFolder implements StorageBasedFolder
         this.itemList.remove ( descriptor );
     }
 
+    @Override
     public void added ()
     {
         this.folder.added ();
     }
 
+    @Override
     public void removed ()
     {
         this.folder.removed ();

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow providing folder implementation
  *******************************************************************************/
 package org.eclipse.scada.da.server.browser.common.query;
 
@@ -25,23 +26,29 @@ import org.eclipse.scada.utils.collection.MapBuilder;
 
 public class GroupSubFolder implements Folder
 {
-    private GroupSubFolder parent = null;
+    private final GroupSubFolder parent;
 
-    private NameProvider nameProvider = null;
+    private final NameProvider nameProvider;
 
-    private final FolderCommon folder = new FolderCommon ();
+    private final FolderCommon folder;
 
     private final Map<String, GroupSubFolder> subFolders = new HashMap<String, GroupSubFolder> ();
 
-    public GroupSubFolder ( final NameProvider nameProvider )
+    public GroupSubFolder ( final NameProvider nameProvider, final FolderCommon folder )
     {
-        this ( null, nameProvider );
+        this ( null, nameProvider, folder );
     }
 
-    private GroupSubFolder ( final GroupSubFolder parent, final NameProvider nameProvider )
+    public GroupSubFolder ( final NameProvider nameProvider )
+    {
+        this ( null, nameProvider, new FolderCommon () );
+    }
+
+    private GroupSubFolder ( final GroupSubFolder parent, final NameProvider nameProvider, final FolderCommon folder )
     {
         this.parent = parent;
         this.nameProvider = nameProvider;
+        this.folder = folder;
     }
 
     public GroupSubFolder add ( final Stack<String> path, final ItemDescriptor descriptor )
@@ -76,7 +83,7 @@ public class GroupSubFolder implements Folder
     {
         if ( !this.subFolders.containsKey ( name ) )
         {
-            final GroupSubFolder folder = new GroupSubFolder ( this, this.nameProvider );
+            final GroupSubFolder folder = new GroupSubFolder ( this, this.nameProvider, new FolderCommon () );
             this.subFolders.put ( name, folder );
             final MapBuilder<String, Variant> builder = new MapBuilder<String, Variant> ();
             this.folder.add ( name, folder, builder.getMap () );
