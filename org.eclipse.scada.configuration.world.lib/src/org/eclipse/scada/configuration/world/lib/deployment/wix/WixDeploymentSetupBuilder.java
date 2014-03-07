@@ -388,7 +388,7 @@ public class WixDeploymentSetupBuilder extends XMLBase
         else
         {
             // this has to always go to the 32bit registry
-            reg.setAttribute ( "Key", "SOFTWARE\\Wow6432Node\\Apache Software Foundation\\Procrun 2.0\\" + serviceName ); // FIXME: check if this really works
+            reg.setAttribute ( "Key", "SOFTWARE\\Wow6432Node\\Apache Software Foundation\\Procrun 2.0\\" + serviceName ); //$NON-NLS-1$ //$NON-NLS-2$
         }
         reg = createElement ( reg, "RegistryKey" ); //$NON-NLS-1$ 
         reg.setAttribute ( "Key", "Parameters" ); //$NON-NLS-1$ //$NON-NLS-2$
