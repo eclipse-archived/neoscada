@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add scrolling
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details.part.overview;
 
@@ -18,6 +19,8 @@ import org.eclipse.scada.da.client.dataitem.details.part.AbstractBaseDetailsPart
 import org.eclipse.scada.da.ui.connection.data.DataItemHolder;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -52,62 +55,74 @@ public class OverviewDetailsPart extends AbstractBaseDetailsPart
     {
         super.createPart ( parent );
 
-        parent.setLayout ( new GridLayout ( 2, false ) );
+        parent.setLayout ( new FillLayout () );
 
         Label label;
 
+        parent.setBackgroundMode ( SWT.INHERIT_FORCE );
+        final ScrolledComposite scroll = new ScrolledComposite ( parent, SWT.V_SCROLL );
+        scroll.setBackgroundMode ( SWT.INHERIT_FORCE );
+        scroll.setExpandHorizontal ( true );
+        scroll.setExpandVertical ( true );
+
+        final Composite wrapper = new Composite ( scroll, SWT.NONE );
+        wrapper.setLayout ( new GridLayout ( 2, false ) );
+        scroll.setContent ( wrapper );
+
         // connection uri
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_ConnectionLabel );
-        this.connectionUriText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.connectionUriText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.connectionUriText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
         // item id
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_ItemIdLabel );
-        this.itemIdText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.itemIdText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.itemIdText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
         // item state
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_SubscriptionStateLabel );
-        this.stateText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.stateText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.stateText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_WarningLabel );
-        this.warnText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.warnText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.warnText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_AlarmLabel );
-        this.alarmText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.alarmText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.alarmText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_ErrorLabel );
-        this.errorText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.errorText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.errorText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_ManualLabel );
-        this.manualText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.manualText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.manualText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_BlockedLabel );
-        this.blockedText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.blockedText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.blockedText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_ValueLabel );
-        this.valueText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.valueText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.valueText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
 
-        label = new Label ( parent, SWT.NONE );
+        label = new Label ( wrapper, SWT.NONE );
         label.setText ( Messages.OverviewDetailsPart_TimestampLabel );
-        this.timestampText = new Text ( parent, SWT.READ_ONLY | SWT.BORDER );
+        this.timestampText = new Text ( wrapper, SWT.READ_ONLY | SWT.BORDER );
         this.timestampText.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
+
+        scroll.setMinSize ( wrapper.computeSize ( SWT.DEFAULT, SWT.DEFAULT ) );
     }
 
     @Override
