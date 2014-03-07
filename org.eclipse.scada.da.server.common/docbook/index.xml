@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink"
+	xsi:schemaLocation="http://docbook.org/ns/docbook http://docbook.org/xml/5.0/xsd/docbook.xsd">
+
+	<title>org.eclipse.scada.da.server.common</title>
+
+	<section>
+		<title>System Properties</title>
+
+		<para>
+			The bundle uses the following system properties:
+		</para>
+
+		<para>
+			<variablelist>
+				<varlistentry>
+					<term>
+						<property>org.eclipse.scada.da.server.common.fairItemMapLock
+						</property>
+					</term>
+					<listitem>
+						<para>
+							Whether the item map lock uses a fair or non-fair mutex lock.
+						</para>
+						<para>
+							The default value is <quote>false</quote>.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		</para>
+
+	</section>
+
+</section>
