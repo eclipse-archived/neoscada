@@ -150,4 +150,10 @@ public class ListenableSubscriptionManager<T> extends SubscriptionManager<T>
     {
         return new HashSet<> ( this.cache );
     }
+
+    public synchronized void dispose ()
+    {
+        this.cache.clear ();
+        this.listeners.clear ();
+    }
 }

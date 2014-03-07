@@ -35,8 +35,9 @@ import org.eclipse.scada.core.server.common.AuthorizationProvider;
 import org.eclipse.scada.core.server.common.AuthorizedOperation;
 import org.eclipse.scada.core.server.common.ServiceCommon;
 import org.eclipse.scada.core.server.common.session.AbstractSessionImpl;
+import org.eclipse.scada.core.subscription.ListenableSubscriptionManager;
 import org.eclipse.scada.core.subscription.SubscriptionListener;
-import org.eclipse.scada.core.subscription.SubscriptionManager;
+import org.eclipse.scada.core.subscription.SubscriptionManagerListener;
 import org.eclipse.scada.core.subscription.SubscriptionValidator;
 import org.eclipse.scada.core.subscription.ValidationException;
 import org.eclipse.scada.da.core.WriteAttributeResults;
@@ -88,7 +89,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private final List<DataItemFactory> factoryList = new CopyOnWriteArrayList<DataItemFactory> ();
 
-    private final SubscriptionManager<String> itemSubscriptionManager;
+    private ListenableSubscriptionManager<String> itemSubscriptionManager;
 
     private final Set<DataItemValidator> itemValidators = new CopyOnWriteArraySet<DataItemValidator> ();
 
@@ -115,6 +116,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private boolean running;
 
+    private SubscriptionValidator<String> subscriptionValidator;
+
     public HiveCommon ()
     {
         final ReentrantReadWriteLock itemMapLock = new ReentrantReadWriteLock ( Boolean.getBoolean ( "org.eclipse.scada.da.server.common.fairItemMapLock" ) );
@@ -122,14 +125,24 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         this.itemMapReadLock = itemMapLock.readLock ();
         this.itemMapWriteLock = itemMapLock.writeLock ();
 
-        this.itemSubscriptionManager = new SubscriptionManager<String> ( new SubscriptionValidator<String> () {
+        this.subscriptionValidator = new SubscriptionValidator<String> () {
 
             @Override
             public boolean validate ( final SubscriptionListener<String> listener, final String topic )
             {
                 return validateItem ( topic );
             }
-        } );
+        };
+    }
+
+    protected void addItemSubscriptionListener ( final SubscriptionManagerListener<String> listener )
+    {
+        this.itemSubscriptionManager.addManagerListener ( listener );
+    }
+
+    protected void removeItemSubscriptionListener ( final SubscriptionManagerListener<String> listener )
+    {
+        this.itemSubscriptionManager.removeManagerListener ( listener );
     }
 
     @Override
@@ -152,7 +165,46 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
         this.operationService = Executors.newFixedThreadPool ( 1, new NamedThreadFactory ( "HiveCommon/" + getHiveId () ) );
 
+        this.itemSubscriptionManager = new ListenableSubscriptionManager<String> ( this.operationService, this.subscriptionValidator );
+
         performStart ();
+    }
+
+    @Override
+    public void stop () throws Exception
+    {
+        logger.info ( "Stopping hive" );
+
+        synchronized ( this )
+        {
+            if ( !this.running )
+            {
+                return;
+            }
+            this.running = false;
+        }
+
+        performStop ();
+
+        disableStats ();
+
+        if ( this.browser != null )
+        {
+            this.browser.stop ();
+            this.browser = null;
+        }
+
+        if ( this.itemSubscriptionManager != null )
+        {
+            this.itemSubscriptionManager.dispose ();
+            this.itemSubscriptionManager = null;
+        }
+
+        if ( this.operationService != null )
+        {
+            this.operationService.shutdown ();
+            this.operationService = null;
+        }
     }
 
     /**
@@ -183,37 +235,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * @return a unique id of you hive type
      */
     public abstract String getHiveId ();
-
-    @Override
-    public void stop () throws Exception
-    {
-        logger.info ( "Stopping hive" );
-
-        synchronized ( this )
-        {
-            if ( !this.running )
-            {
-                return;
-            }
-            this.running = false;
-        }
-
-        performStop ();
-
-        disableStats ();
-
-        if ( this.browser != null )
-        {
-            this.browser.stop ();
-            this.browser = null;
-        }
-
-        if ( this.operationService != null )
-        {
-            this.operationService.shutdown ();
-            this.operationService = null;
-        }
-    }
 
     public void addSessionListener ( final SessionListener listener )
     {
