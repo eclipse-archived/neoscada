@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - honor the lifecycle
  *******************************************************************************/
 package org.eclipse.scada.da.server.simulation.component;
 
@@ -31,27 +32,23 @@ import org.eclipse.scada.da.server.common.impl.HiveCommon;
 import org.eclipse.scada.da.server.simulation.component.modules.BaseModule;
 import org.eclipse.scada.da.server.simulation.component.modules.SimpleMOV;
 import org.eclipse.scada.da.server.simulation.component.modules.SimpleScale;
+import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 
 public class Hive extends HiveCommon
 {
     private final ScheduledExecutorService executor;
 
-    private final List<BaseModule> _modules = new LinkedList<BaseModule> ();
+    private final List<BaseModule> modules = new LinkedList<BaseModule> ();
 
-    private final InvisibleStorage _storage = new InvisibleStorage ();
+    private final InvisibleStorage storage = new InvisibleStorage ();
 
     public Hive ()
     {
-        super ();
-
-        this.executor = Executors.newSingleThreadScheduledExecutor ();
+        this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.da.server.simulation.component" ) );
 
         // create root folder
         final FolderCommon rootFolder = new FolderCommon ();
         setRootFolder ( rootFolder );
-
-        addModule ( new SimpleMOV ( this, "1000" ) );
-        addModule ( new SimpleScale ( this, "1001" ) );
 
         final QueryFolder queryFolder = new QueryFolder ( new Matcher () {
 
@@ -62,11 +59,11 @@ public class Hive extends HiveCommon
             }
         }, new IDNameProvider () );
         rootFolder.add ( "all", queryFolder, new HashMap<String, Variant> () );
-        this._storage.addChild ( queryFolder );
+        this.storage.addChild ( queryFolder );
 
         final GroupFolder groupFolder = new GroupFolder ( new SplitGroupProvider ( new AttributeNameProvider ( "tag" ), "\\." ), new IDNameProvider () );
         rootFolder.add ( "components", groupFolder, new HashMap<String, Variant> () );
-        this._storage.addChild ( groupFolder );
+        this.storage.addChild ( groupFolder );
     }
 
     @Override
@@ -81,19 +78,33 @@ public class Hive extends HiveCommon
     }
 
     @Override
-    public void stop () throws Exception
+    protected void performStart () throws Exception
     {
+        super.performStart ();
+
+        addModule ( new SimpleMOV ( this, "1000" ) );
+        addModule ( new SimpleScale ( this, "1001" ) );
+    }
+
+    @Override
+    protected void performStop () throws Exception
+    {
+        for ( final BaseModule module : this.modules )
+        {
+            module.dispose ();
+        }
+        this.modules.clear ();
         this.executor.shutdown ();
-        super.stop ();
+        super.performStop ();
     }
 
     public ItemStorage getStorage ()
     {
-        return this._storage;
+        return this.storage;
     }
 
     public void addModule ( final BaseModule module )
     {
-        this._modules.add ( module );
+        this.modules.add ( module );
     }
 }

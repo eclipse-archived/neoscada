@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - change lifecycle
  *******************************************************************************/
 package org.eclipse.scada.da.server.exec;
 
@@ -24,6 +25,7 @@ import org.eclipse.scada.da.server.exec.command.CommandQueue;
 import org.eclipse.scada.da.server.exec.command.ContinuousCommand;
 import org.eclipse.scada.da.server.exec.command.TriggerCommand;
 import org.eclipse.scada.da.server.exec.configuration.ConfigurationException;
+import org.eclipse.scada.da.server.exec.configuration.Configurator;
 import org.eclipse.scada.da.server.exec.configuration.XmlConfigurator;
 import org.eclipse.scada.utils.collection.MapBuilder;
 
@@ -43,6 +45,8 @@ public class Hive extends HiveCommon
     private final Collection<TriggerCommand> triggers = new LinkedList<TriggerCommand> ();
 
     private final FolderCommon triggerFolder;
+
+    private final Configurator configurator;
 
     /**
      * Default Constructor
@@ -66,13 +70,12 @@ public class Hive extends HiveCommon
         this ( new XmlConfigurator ( root ) );
     }
 
-    protected Hive ( final XmlConfigurator configurator ) throws ConfigurationException
+    protected Hive ( final Configurator configurator ) throws ConfigurationException
     {
         setRootFolder ( this.rootFolder );
         this.triggerFolder = new FolderCommon ();
         this.rootFolder.add ( TRIGGER_FOLDER_NAME, this.triggerFolder, new MapBuilder<String, Variant> ().put ( "description", Variant.valueOf ( "Contains all triggers" ) ).getMap () );
-
-        configurator.configure ( this );
+        this.configurator = configurator;
     }
 
     @Override
@@ -104,6 +107,9 @@ public class Hive extends HiveCommon
     protected void performStart () throws Exception
     {
         super.performStart ();
+
+        this.configurator.configure ( this );
+
         startQueues ();
     }
 
