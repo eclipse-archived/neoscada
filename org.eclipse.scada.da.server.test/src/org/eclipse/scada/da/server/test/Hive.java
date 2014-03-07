@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - change lifecycle
  *******************************************************************************/
 package org.eclipse.scada.da.server.test;
 
@@ -47,14 +48,13 @@ import org.eclipse.scada.utils.collection.MapBuilder;
 
 public class Hive extends HiveCommon
 {
-
     private final List<ItemDescriptor> changingItems = new LinkedList<ItemDescriptor> ();
 
-    private final QueryFolder queryFolderFactory;
+    private QueryFolder queryFolderFactory;
 
     private final List<DataItem> transientItems = new LinkedList<DataItem> ();
 
-    private final FolderCommon testFolder;
+    private FolderCommon testFolder;
 
     @SuppressWarnings ( "unused" )
     private FolderItemFactory itemFactory;
@@ -65,9 +65,40 @@ public class Hive extends HiveCommon
 
     private TestModelObject testObject;
 
+    private Thread changeThread;
+
+    private volatile boolean running;
+
     public Hive () throws IOException
     {
         this.timer = new Timer ( true );
+    }
+
+    @Override
+    protected void performStart () throws Exception
+    {
+        super.performStart ();
+
+        setup ();
+    }
+
+    @Override
+    protected void performStop () throws Exception
+    {
+        super.performStop ();
+
+        this.running = false;
+
+        if ( this.changeThread != null )
+        {
+            this.changeThread.join ();
+            this.changeThread = null;
+        }
+    }
+
+    private void setup ()
+    {
+        this.running = true;
 
         // create root folder
         final FolderCommon rootFolder = new FolderCommon ();
@@ -206,12 +237,12 @@ public class Hive extends HiveCommon
         } );
 
         // do some stuff in the query folders
-        final Thread changeThread = new Thread ( new Runnable () {
+        this.changeThread = new Thread ( new Runnable () {
 
             @Override
             public void run ()
             {
-                while ( true )
+                while ( Hive.this.running )
                 {
                     for ( final ItemDescriptor desc : Hive.this.changingItems )
                     {
@@ -242,8 +273,8 @@ public class Hive extends HiveCommon
                 }
             }
         } );
-        changeThread.setDaemon ( true );
-        changeThread.start ();
+        this.changeThread.setDaemon ( true );
+        this.changeThread.start ();
 
         setupExporter ( rootFolder );
     }
