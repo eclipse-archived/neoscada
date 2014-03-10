@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Parser Server Unit Tests (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.base.extractor.tests
+Bundle-Version: 0.2.0.qualifier
+Fragment-Host: org.eclipse.scada.base.extractor;bundle-version="0.2.0.qualifier"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit,
+ ch.qos.logback.classic;bundle-version="1.0.7",
+ ch.qos.logback.core;bundle-version="1.0.7"
+Import-Package: org.eclipse.scada.base.extractor.extract
+Bundle-Vendor: Eclipse SCADA Project
