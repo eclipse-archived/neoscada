@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/b3/2011/aggregator/1.1.0" buildmaster="//@contacts[email='jens.reimann@ibh-systems.com']" label="Eclipse SCADA @version@ @buildTypeLong@ Repository (Incubation)" mavenResult="true" allowLegacySites="false">
+<aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/b3/2011/aggregator/1.1.0" buildmaster="//@contacts[email='jens.reimann@ibh-systems.com']" label="Eclipse SCADA @version@ @buildTypeLong@ Repository (Incubation)" allowLegacySites="false">
   <validationSets label="Validation Set">
     <contributions label="Eclipse SCADA" contacts="//@contacts[email='jens.reimann@ibh-systems.com']">
       <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2/">
