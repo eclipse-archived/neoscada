@@ -67,9 +67,10 @@ public class BaseWatcher
 
             this.key = path.register ( watcher, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY );
             baseWatcher.addWatcherMap ( path, this );
-            baseWatcher.addWatcherMap ( new File ( path.toFile (), "native" ).toPath (), this );
 
             final File nativeDir = new File ( path.toFile (), "native" );
+            baseWatcher.addWatcherMap ( nativeDir.toPath (), this );
+
             logger.debug ( "Checking native dir: {}", nativeDir );
 
             if ( nativeDir.exists () && nativeDir.isDirectory () )

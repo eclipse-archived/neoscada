@@ -161,6 +161,8 @@ public abstract class AbstractStorageImpl implements HistoricalItem, ValueSource
 
     protected void handleStoreChanged ( final Date start, final Date end )
     {
+        logger.debug ( "process store change - start: {}, end: {}", start, end );
+
         runOnQuery ( new QueryRunnable () {
 
             @Override

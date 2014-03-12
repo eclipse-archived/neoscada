@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fixing bug #430172
  *******************************************************************************/
 package org.eclipse.scada.hd.server.storage.common;
 
@@ -246,7 +247,8 @@ public class QueryImpl implements Query
 
     public void reload ()
     {
-        changeParameters ( this.state.get ().getParameters () );
+        logger.debug ( "reload" );
+        changeParameters ( this.state.get ().getParameters (), true );
     }
 
     private void startLoad ()
@@ -433,6 +435,8 @@ public class QueryImpl implements Query
 
     public void dataChanged ( final Date start, final Date end )
     {
+        logger.debug ( "dataChanged - start: {}, end: {}", start, end );
+
         // TODO: implement a partial reload
         reload ();
     }
