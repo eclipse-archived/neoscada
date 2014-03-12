@@ -3,9 +3,7 @@
       id="org.eclipse.scada.releng.p2.to.maven"
       label="%featureName"
       version="0.1.0.qualifier"
-      provider-name="%providerName"
-      license-feature="org.eclipse.scada.license"
-      license-feature-version="0.1.0.qualifier">
+      provider-name="%providerName">
 
    <description>
       %description
