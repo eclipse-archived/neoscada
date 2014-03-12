@@ -25,12 +25,15 @@ Contributors:
     
     <property file="default.properties"/>
 
-    <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
+    <property name="download.dir.maven" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/maven"/>
+    <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
+    
+    <property name="p2tom2.file" location="p2tom2.properties"/>
     
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="director,clean.publish,provision.b3,prepare.b3,run.b3,publish.b3">
+    <target name="default" depends="director,clean.publish,provision.b3,prepare.b3,run.b3,publish.b3,p2tom2">
     </target>
 
     <!-- ================================= 
@@ -56,7 +59,9 @@ Contributors:
           target: clean.publish
          ================================= -->
     <target name="clean.publish">
-        <delete dir="${download.dir}"/>
+        <delete dir="temp/b3"/>
+        <delete dir="${download.dir.p2}"/>
+        <delete dir="${download.dir.maven}"/>
     </target>
     
     <!-- ================================= 
@@ -135,14 +140,14 @@ Contributors:
           target: publish.b3
          ================================= -->
     <target name="publish.b3">
-        <mkdir dir="${download.dir}"/>
-        <copy todir="${download.dir}">
+        <mkdir dir="${download.dir.p2}"/>
+        <copy todir="${download.dir.p2}">
             <fileset dir="temp/build/final">
         	</fileset>
     	</copy>
         
         <!-- add index.html -->
-        <copy todir="${download.dir}">
+        <copy todir="${download.dir.p2}">
    		    <fileset dir="p2">
    		    </fileset>
    			<filterset>
@@ -153,5 +158,38 @@ Contributors:
 			</filterset>
    		</copy>
     </target>
+    
+    <!-- ================================= 
+          target: p2tom2              
+         ================================= -->
+    <target name="p2tom2">
+        <mkdir dir="${download.dir.maven}"/>
+        
+        <mkdir dir="temp/p2tom2"/>
+        
+        <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-0.0.1.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
+        <unzip src="temp/p2tom2.zip" dest="temp"/>
+        
+        <java classname="org.eclipse.equinox.launcher.Main"
+            fork="true"
+            >
+            <classpath>
+                <fileset dir="temp/p2tom2/plugins/">
+                    <include name="org.eclipse.equinox.launcher_*.jar" />
+                </fileset>
+            </classpath>
+            
+            <arg value="-consoleLog" />
+
+            <arg value="file:${p2tom2.file}" /> <!-- configuration -->
+            <arg value="file:${download.dir.p2}" /> <!-- source repo -->
+            <!-- validation repos -->
+            <arg value="http://download.eclipse.org/releases/kepler"/>
+            
+            <sysproperty key="path.p2temp" file="${java.io.tmpdir}/p2tom2.p2"/>
+            <sysproperty key="path.output" file="${download.dir.maven}"/>
+        </java>
+    </target>
+
 
 </project>
