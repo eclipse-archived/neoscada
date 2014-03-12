@@ -509,7 +509,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private static IllegalStateException makeCheckRunningException ()
     {
-        return new IllegalStateException ( "Hive is running running. Start it first!" );
+        return new IllegalStateException ( "Hive is not running running. Start it first!" );
     }
 
     /**
