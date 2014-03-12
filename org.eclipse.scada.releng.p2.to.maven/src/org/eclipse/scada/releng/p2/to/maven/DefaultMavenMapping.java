@@ -159,7 +159,7 @@ public class DefaultMavenMapping implements MavenMapping
         final String tychoVersion = iu.getProperty ( "maven-version" );
         if ( tychoVersion != null )
         {
-            final IVersionFormat format = Version.compile ( "n[.n=0;[.n=0;[.n=0;]]][-S='';=[A-Za-z0-9_-];]" );
+            final IVersionFormat format = Version.compile ( "n[.n=0;[.n=0;[.n=0;]]][[-.]S='';]" );
             version = format.parse ( tychoVersion );
         }
         else
