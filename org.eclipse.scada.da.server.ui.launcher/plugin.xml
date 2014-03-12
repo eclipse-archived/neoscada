@@ -95,7 +95,7 @@
                   </test>
                   <test
                         property="org.eclipse.core.resources.contentTypeId"
-                        value="org.eclipse.scada.configuration.osgi.profile">
+                        value="org.eclipse.scada.configuration.world.osgi.profile">
                   </test>
                </adapt>
             </iterate>
