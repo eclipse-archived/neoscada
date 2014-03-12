@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: P2 to Maven converter
+Bundle-SymbolicName: org.eclipse.scada.releng.p2.to.maven;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.equinox.app
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.eclipse.scada.releng.p2.to.maven.Activator
+Import-Package: org.eclipse.core.runtime;version="3.4.0",
+ org.eclipse.equinox.internal.p2.metadata,
+ org.eclipse.equinox.p2.core;version="2.0.0",
+ org.eclipse.equinox.p2.metadata;version="2.1.0",
+ org.eclipse.equinox.p2.metadata.expression;version="2.0.0",
+ org.eclipse.equinox.p2.metadata.index;version="2.0.0",
+ org.eclipse.equinox.p2.query;version="2.0.0",
+ org.eclipse.equinox.p2.repository;version="2.0.0",
+ org.eclipse.equinox.p2.repository.artifact;version="2.3.0",
+ org.eclipse.equinox.p2.repository.metadata;version="2.0.0",
+ org.osgi.framework;version="1.7.0",
+ org.osgi.util.tracker;version="1.5.1"
