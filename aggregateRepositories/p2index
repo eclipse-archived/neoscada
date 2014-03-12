@@ -61,8 +61,8 @@ def find_drop_dirs(downloads_dir):
         if os.path.isdir(dd) and 'drops' in os.listdir(dd):
             ddd = os.path.join(dd, 'drops', version)
             print "Checking drops: %s" % ddd
-            print "Content: %s" % os.listdir(ddd)
             if os.path.isdir(ddd):
+            	print "Content: %s" % os.listdir(ddd)
                 result.append(ddd)
     return result
 
