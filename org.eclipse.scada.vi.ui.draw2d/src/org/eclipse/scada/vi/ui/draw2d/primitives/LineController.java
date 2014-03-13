@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanups
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
 import org.eclipse.draw2d.PolylineShape;
-import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
@@ -117,7 +117,7 @@ public class LineController extends ShapeController
     }
 
     @Override
-    protected Shape getPropertyFigure ()
+    protected PolylineShape getPropertyFigure ()
     {
         return this.figure;
     }
