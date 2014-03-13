@@ -107,6 +107,8 @@ public class AntWixBuilder extends XMLBase
 
         createProperty ( ele, "wix.root", "value", "${env.WIX}" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ 
         createProperty ( ele, "staging.dir", "location", "staging" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ 
+        createProperty ( ele, "subst.drive", "value", "K:" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ 
+        createProperty ( ele, "staging.dir.short", "location", "${subst.drive}/staging" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ 
 
         createTarget ( ele, "default", Arrays.asList ( "clean", "download", "unpack", "provision", "heat", "build" ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ 
         final Element clean = createTarget ( ele, "clean" ); //$NON-NLS-1$ 
@@ -231,12 +233,20 @@ public class AntWixBuilder extends XMLBase
 
     private void fillBuildTarget ( final Element build )
     {
+        final Element substc = createElement ( build, "exec" ); //$NON-NLS-1$ 
+        substc.setAttribute ( "executable", "subst" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substc.setAttribute ( "failifexecutionfails", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substc.setAttribute ( "failonerror", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+
+        addArg ( substc, "${subst.drive}" ); //$NON-NLS-1$
+        addArg ( substc, "." ); //$NON-NLS-1$
+
         final Element candle = createElement ( build, "exec" ); //$NON-NLS-1$
         candle.setAttribute ( "executable", "${wix.root}/bin/candle.exe" ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        candle.setAttribute ( "dir", "." ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        candle.setAttribute ( "dir", "${subst.drive}/" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         candle.setAttribute ( "failifexecutionfails", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         candle.setAttribute ( "failonerror", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        addArg ( candle, "-dStagingDir=${staging.dir}" ); //$NON-NLS-1$ 
+        addArg ( candle, "-dStagingDir=${staging.dir.short}" ); //$NON-NLS-1$ 
         addArg ( candle, "-arch" ); //$NON-NLS-1$ 
         addArg ( candle, this.platform != null ? this.platform.toWixString () : MsiPlatform.WIN32.toWixString () );
         for ( final String ext : this.wixExtensions )
@@ -249,7 +259,7 @@ public class AntWixBuilder extends XMLBase
 
         final Element light = createElement ( build, "exec" ); //$NON-NLS-1$ 
         light.setAttribute ( "executable", "${wix.root}/bin/light.exe" ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        light.setAttribute ( "dir", "." ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        light.setAttribute ( "dir", "${subst.drive}/" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         light.setAttribute ( "failifexecutionfails", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         light.setAttribute ( "failonerror", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         for ( final String ext : this.wixExtensions )
@@ -261,18 +271,34 @@ public class AntWixBuilder extends XMLBase
         addArg ( light, "Scan.wixobj" ); //$NON-NLS-1$ 
         addArg ( light, "-out" ); //$NON-NLS-1$ 
         addArg ( light, this.outputFilename );
+
+        final Element substd = createElement ( build, "exec" ); //$NON-NLS-1$ 
+        substd.setAttribute ( "executable", "subst" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substd.setAttribute ( "failifexecutionfails", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substd.setAttribute ( "failonerror", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+
+        addArg ( substd, "${subst.drive}" ); //$NON-NLS-1$
+        addArg ( substd, "/D" ); //$NON-NLS-1$
     }
 
     private void fillHeatTarget ( final Element heat )
     {
+        final Element substc = createElement ( heat, "exec" ); //$NON-NLS-1$ 
+        substc.setAttribute ( "executable", "subst" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substc.setAttribute ( "failifexecutionfails", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substc.setAttribute ( "failonerror", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+
+        addArg ( substc, "${subst.drive}" ); //$NON-NLS-1$
+        addArg ( substc, "." ); //$NON-NLS-1$
+
         final Element ele = createElement ( heat, "exec" ); //$NON-NLS-1$ 
         ele.setAttribute ( "executable", "${wix.root}/bin/heat.exe" ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        ele.setAttribute ( "dir", "staging" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        ele.setAttribute ( "dir", "${staging.dir.short}" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         ele.setAttribute ( "failifexecutionfails", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
         ele.setAttribute ( "failonerror", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
         addArg ( ele, "dir" ); //$NON-NLS-1$
-        addArg ( ele, "." ); //$NON-NLS-1$
+        addArg ( ele, "${staging.dir.short}" ); //$NON-NLS-1$
         addArg ( ele, "-gg" ); //$NON-NLS-1$
         addArg ( ele, "-cg" ); //$NON-NLS-1$
         addArg ( ele, "ScanComponent" ); //$NON-NLS-1$
@@ -286,7 +312,16 @@ public class AntWixBuilder extends XMLBase
         addArg ( ele, "-var" ); //$NON-NLS-1$
         addArg ( ele, "var.StagingDir" ); //$NON-NLS-1$
         addArg ( ele, "-out" ); //$NON-NLS-1$
-        addArg ( ele, "../Scan.wxs" ); //$NON-NLS-1$
+        addArg ( ele, "${subst.drive}/Scan.wxs" ); //$NON-NLS-1$
+
+        final Element substd = createElement ( heat, "exec" ); //$NON-NLS-1$ 
+        substd.setAttribute ( "executable", "subst" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substd.setAttribute ( "failifexecutionfails", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        substd.setAttribute ( "failonerror", "false" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+
+        addArg ( substd, "${subst.drive}" ); //$NON-NLS-1$
+        addArg ( substd, "/D" ); //$NON-NLS-1$
+
     }
 
     private void addArg ( final Element ele, final String string )
