@@ -88,6 +88,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="releases" upperBound="-1"
         eType="#//Release" containment="true" eOpposite="#//Release/version"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" lowerBound="1" eType="#//VersionState"
+        defaultValueLiteral="PLANNED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gallery">
     <eStructuralFeatures xsi:type="ecore:EReference" name="images" upperBound="-1"
@@ -111,5 +113,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="plusUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="facebookUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="twitterUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VersionState">
+    <eLiterals name="IN_DEVELOPMENT" literal="IN_DEVELOPMENT"/>
+    <eLiterals name="RELEASED" value="1" literal="RELEASED"/>
+    <eLiterals name="PLANNED" value="3" literal="PLANNED"/>
   </eClassifiers>
 </ecore:EPackage>

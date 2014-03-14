@@ -18,7 +18,7 @@
         <acceleoCompiler 
             sourceFolder="${target.folder}"
             outputFolder="${target.folder}"
-            dependencies=""
+            dependencies="${target.folder}/../../org.eclipse.scada.web;"
             binaryResource="false"
             packagesToRegister="">
         </acceleoCompiler>

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.web.Release;
 import org.eclipse.scada.web.Version;
+import org.eclipse.scada.web.VersionState;
 import org.eclipse.scada.web.WebPackage;
 
 /**
@@ -25,6 +26,7 @@ import org.eclipse.scada.web.WebPackage;
  * <ul>
  *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getReleases <em>Releases</em>}</li>
  *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.impl.VersionImpl#getState <em>State</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,6 +62,26 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final VersionState STATE_EDEFAULT = VersionState.PLANNED;
+
+	/**
+	 * The cached value of the '{@link #getState() <em>State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getState()
+	 * @generated
+	 * @ordered
+	 */
+	protected VersionState state = STATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,6 +140,27 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VersionState getState() {
+		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setState(VersionState newState) {
+		VersionState oldState = state;
+		state = newState == null ? STATE_EDEFAULT : newState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, WebPackage.VERSION__STATE, oldState, state));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -154,6 +197,8 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 				return getReleases();
 			case WebPackage.VERSION__NAME:
 				return getName();
+			case WebPackage.VERSION__STATE:
+				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,6 +219,9 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 			case WebPackage.VERSION__NAME:
 				setName((String)newValue);
 				return;
+			case WebPackage.VERSION__STATE:
+				setState((VersionState)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -192,6 +240,9 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 			case WebPackage.VERSION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case WebPackage.VERSION__STATE:
+				setState(STATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,6 +259,8 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 				return releases != null && !releases.isEmpty();
 			case WebPackage.VERSION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case WebPackage.VERSION__STATE:
+				return state != STATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -224,6 +277,8 @@ public class VersionImpl extends MinimalEObjectImpl.Container implements Version
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", state: ");
+		result.append(state);
 		result.append(')');
 		return result.toString();
 	}

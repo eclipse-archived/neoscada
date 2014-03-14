@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.scada.web.Version#getReleases <em>Releases</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Version#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.Version#getState <em>State</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,5 +68,35 @@ public interface Version extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>State</b></em>' attribute.
+	 * The default value is <code>"PLANNED"</code>.
+	 * The literals are from the enumeration {@link org.eclipse.scada.web.VersionState}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>State</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>State</em>' attribute.
+	 * @see org.eclipse.scada.web.VersionState
+	 * @see #setState(VersionState)
+	 * @see org.eclipse.scada.web.WebPackage#getVersion_State()
+	 * @model default="PLANNED" required="true"
+	 * @generated
+	 */
+	VersionState getState();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.web.Version#getState <em>State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>State</em>' attribute.
+	 * @see org.eclipse.scada.web.VersionState
+	 * @see #getState()
+	 * @generated
+	 */
+	void setState(VersionState value);
 
 } // Version

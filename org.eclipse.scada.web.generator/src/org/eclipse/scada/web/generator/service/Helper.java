@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.eclipse.emf.common.util.URI;
@@ -23,6 +24,9 @@ public class Helper {
 	}
 
 	public String encodeHtml(String string) {
+		if ( string == null )
+			return null;
+		
 		// FIXME: we could do better than that with an additional library
 		string = string.replace("&", "&amp;");
 		string = string.replace("<", "&lt;");
@@ -58,4 +62,28 @@ public class Helper {
 	}
 	
 	// FIXME: make method for making a URL relative
+	
+	public Integer getIndex ( Date date ) 
+	{
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		int result = c.get(Calendar.YEAR) * 100 + (c.get(Calendar.MONTH)+1);
+		return result;
+	}
+	
+	public String makeArchiveLabel ( Integer value  )
+	{
+		int month = ( value % 100 ) -1 ;
+		int year = value / 100;
+		Calendar c = Calendar.getInstance();
+		c.set(year, month, 1);
+		return new SimpleDateFormat("MMMM yyyy").format(c.getTime());
+	}
+	
+	public String archiveLink ( Integer value  )
+	{
+		int month = ( value % 100 ) ;
+		int year = value / 100;
+		return String.format ("%04d/%02d", year, month);
+	}
 }

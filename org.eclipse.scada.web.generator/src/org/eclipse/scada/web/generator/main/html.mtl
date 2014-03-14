@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module html('http://eclipse.org/eclipsescada')]
+[module html('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
 
 [import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::social /]
@@ -67,6 +67,13 @@
 	<ul class="header">
 [for (news : NewsEntry | site.news->subOrderedSet(1, 5.min(site.news->size()) ))]
 		<li class="menuitem postitem"><a href="[relative(fileName,news.permaLink())/]">[news.title.encodeHtml()/]</a></li>
+[/for]
+	</ul>
+
+	<h3>Archive</h3>
+	<ul class="header">
+[for ( index : Integer | site.news->collect(e|e.date.getIndex())->asOrderedSet()->sortedBy(i|-i) ) ]
+		<li class="menuitem postitem"><a href="[relative(fileName,'news/' + archiveLink(index))/]">[index.makeArchiveLabel()/]</a></li>
 [/for]
 	</ul>
 
@@ -160,3 +167,5 @@ if ( link.label = null ) then
 else
 	link.label.encodeHtml()
 endif /]
+
+

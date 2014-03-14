@@ -1,6 +1,20 @@
 [comment encoding = UTF-8 /]
 [module common('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
 
+[query public toLabel ( versionState : VersionState ) : String =
+if ( versionState = VersionState::IN_DEVELOPMENT ) then
+	'in development'
+else if ( versionState = VersionState::RELEASED ) then
+	'released'
+else if ( versionState = VersionState::PLANNED ) then
+	'planned'
+else
+	'unknown'
+endif
+endif
+endif
+/]
+
 [query public formatDate( format : String, date : EDate ) : String =
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { format, date }) 
 /]
@@ -9,6 +23,10 @@ invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.la
 
 [query public toAbsolute(url:String) : String =
 getProperty('site.base') + '/' + url
+/]
+
+[query public printDate(news : NewsEntry) : String =
+ 	formatDate('yyyy-MM-dd', news.date)
 /]
 
 [query public relative(base : String, url : String ) : String =
@@ -21,4 +39,16 @@ invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeHtml(java.lang.
 
 [query public encodeUrl(url : String ) : String =
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'encodeUrl(java.lang.String)', Sequence { url })
+/]
+
+[query public getIndex(date : EDate ) : Integer =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'getIndex(java.util.Date)', Sequence { date })
+/]
+
+[query public makeArchiveLabel(value : Integer ) : String  =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'makeArchiveLabel(java.lang.Integer)', Sequence { value })
+/]
+
+[query public archiveLink(value : Integer ) : String  =
+invoke( 'org.eclipse.scada.web.generator.service.Helper', 'archiveLink(java.lang.Integer)', Sequence { value })
 /]

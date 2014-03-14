@@ -817,13 +817,22 @@ public interface WebPackage extends EPackage {
 	int VERSION__NAME = 1;
 
 	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION__STATE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Version</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VERSION_FEATURE_COUNT = 2;
+	int VERSION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Version</em>' class.
@@ -1076,6 +1085,16 @@ public interface WebPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.eclipse.scada.web.VersionState <em>Version State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.scada.web.VersionState
+	 * @see org.eclipse.scada.web.impl.WebPackageImpl#getVersionState()
+	 * @generated
+	 */
+	int VERSION_STATE = 20;
+
+	/**
 	 * The meta object id for the '<em>URL</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,7 +1102,7 @@ public interface WebPackage extends EPackage {
 	 * @see org.eclipse.scada.web.impl.WebPackageImpl#getURL()
 	 * @generated
 	 */
-	int URL = 20;
+	int URL = 21;
 
 
 	/**
@@ -1601,6 +1620,17 @@ public interface WebPackage extends EPackage {
 	EAttribute getVersion_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.Version#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.eclipse.scada.web.Version#getState()
+	 * @see #getVersion()
+	 * @generated
+	 */
+	EAttribute getVersion_State();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.scada.web.Gallery <em>Gallery</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1769,6 +1799,16 @@ public interface WebPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getReleaseType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.eclipse.scada.web.VersionState <em>Version State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Version State</em>'.
+	 * @see org.eclipse.scada.web.VersionState
+	 * @generated
+	 */
+	EEnum getVersionState();
 
 	/**
 	 * Returns the meta object for data type '{@link java.net.URL <em>URL</em>}'.
@@ -2217,6 +2257,14 @@ public interface WebPackage extends EPackage {
 		EAttribute VERSION__NAME = eINSTANCE.getVersion_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VERSION__STATE = eINSTANCE.getVersion_State();
+
+		/**
 		 * The meta object literal for the '{@link org.eclipse.scada.web.impl.GalleryImpl <em>Gallery</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2355,6 +2403,16 @@ public interface WebPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RELEASE_TYPE = eINSTANCE.getReleaseType();
+
+		/**
+		 * The meta object literal for the '{@link org.eclipse.scada.web.VersionState <em>Version State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.scada.web.VersionState
+		 * @see org.eclipse.scada.web.impl.WebPackageImpl#getVersionState()
+		 * @generated
+		 */
+		EEnum VERSION_STATE = eINSTANCE.getVersionState();
 
 		/**
 		 * The meta object literal for the '<em>URL</em>' data type.

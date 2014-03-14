@@ -16,6 +16,36 @@
 [/file]
 [/for]
 [/for]
+[generateReleasePage(site)/]
+[/template]
+
+[template public generateReleasePage(site : Site)]
+[file ('releases/index.html', false, 'UTF-8')]
+[header(site, 'Releases', 'List of releases', 'releases/index.html')/]
+
+<header>
+<h1>Releases</h1>
+
+
+<table class="releases_master_table">
+<tr><th>Released:</th><td>[versionShortcuts(site, VersionState::RELEASED)/]</td></tr>
+<tr><th>In development:</th><td>[versionShortcuts(site, VersionState::IN_DEVELOPMENT)/]</td></tr>
+</table>
+</section>
+
+</header>
+
+[for (version : Version | site.versions)]
+<section>
+<h2 id="[version.name/]">[version.name/] ([version.state.toLabel()/])</h2>
+[for (release : Release | version.releases)]
+[generateRelease(release, 'releases/index.html')/]
+</section>
+[/for]
+[/for]
+
+[footer(site, 'releases/index.html')/]
+[/file]
 [/template]
 
 [template public generateReleasePage(site : Site, release : Release, fileName : String )]
@@ -33,4 +63,16 @@
 
 [template public processRelease(release : Release, fileName : String )]
 [generateRelease(release, fileName)/]
+[/template]
+
+[template protected versionShortcuts(site : Site, state: VersionState)]
+[let versions : OrderedSet(Version) = site.versions->reject(v|v.state<>state)]
+[if versions->isEmpty()]
+None
+[else]
+[for (version : Version | versions) separator (', ')]
+<a href="#[version.name/]">[version.name/]</a>
+[/for]
+[/if]
+[/let]
 [/template]
