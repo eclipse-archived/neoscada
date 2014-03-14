@@ -25,6 +25,7 @@
 [if news.description<>null]
 	<description>
 [news.description.encodeHtml()/]
+[(' → <a href="' + news.absolutePermaLink() + '">Continue reading</a>').encodeHtml()/]
 	</description>
 [/if]
 </item>
