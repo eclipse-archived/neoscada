@@ -17,9 +17,9 @@ public class Helper {
 		return new SimpleDateFormat(format).format(date);
 	}
 
-	public String parmaEncode(String title) throws UnsupportedEncodingException {
+	public String permaEncode(String title) throws UnsupportedEncodingException {
 		title = title.toLowerCase();
-		title = title.replaceAll("[^a-z]", "_");
+		title = title.replaceAll("[^a-zA-Z0-9]", "_");
 		return title;
 	}
 

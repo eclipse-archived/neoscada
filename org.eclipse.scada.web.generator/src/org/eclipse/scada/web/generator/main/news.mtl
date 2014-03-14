@@ -78,7 +78,7 @@ toAbsolute(permaLink(news))
 'news/' +
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { 'yyyy/MM/dd', news.date })
 + '/' +
- invoke( 'org.eclipse.scada.web.generator.service.Helper', 'parmaEncode(java.lang.String)', Sequence { news.title })
+ invoke( 'org.eclipse.scada.web.generator.service.Helper', 'permaEncode(java.lang.String)', Sequence { news.title })
 + '.html'
 /]
 
