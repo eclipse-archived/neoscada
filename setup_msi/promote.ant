@@ -18,9 +18,11 @@
     <property file="local.properties" />
     <property file="common.properties" />
     
+    <property name="global.hudson.buildNumber" value="lastSuccessfulBuild"/>
+    
     <property name="global.hudson.root" value="https://hudson.eclipse.org/hudson"/>
     <property name="global.hudson.job" value="EclipseSCADA-Installer-Windows"/>
-    <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/lastSuccessfulBuild/artifact"/>
+    <property name="global.hudson.download" value="${global.hudson.root}/job/${global.hudson.job}/${global.hudson.buildNumber}/artifact"/>
     
     <property name="download.root" location="/tmp"/>
     <property name="download.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildId}/msi"/>
