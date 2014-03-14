@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.scada.web/src" modelPluginID="org.eclipse.scada.web"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
+    modelDirectory="/org.eclipse.scada.web/src" modelPluginID="org.eclipse.scada.web"
     modelName="Web" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
@@ -11,6 +12,11 @@
       <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/nightly"/>
       <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/milestone"/>
       <genEnumLiterals ecoreEnumLiteral="web.ecore#//ReleaseType/release"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="web.ecore#//VersionState">
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//VersionState/IN_DEVELOPMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//VersionState/RELEASED"/>
+      <genEnumLiterals ecoreEnumLiteral="web.ecore#//VersionState/PLANNED"/>
     </genEnums>
     <genDataTypes ecoreDataType="web.ecore#//URL"/>
     <genClasses ecoreClass="web.ecore#//Site">
@@ -59,6 +65,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/releaseNotesLink"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference web.ecore#//Release/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Release/date"/>
     </genClasses>
     <genClasses ecoreClass="web.ecore#//ReleaseSection">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference web.ecore#//ReleaseSection/release"/>
@@ -70,6 +77,7 @@
     <genClasses ecoreClass="web.ecore#//Version">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//Version/releases"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Version/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//Version/state"/>
     </genClasses>
     <genClasses ecoreClass="web.ecore#//Gallery">
       <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
@@ -83,6 +91,14 @@
     <genClasses ecoreClass="web.ecore#//GalleryContent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference web.ecore#//GalleryContent/gallery"/>
     </genClasses>
-    <genClasses ecoreClass="web.ecore#//SocialBar"/>
+    <genClasses ecoreClass="web.ecore#//SocialBar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference web.ecore#//SocialBar/information"/>
+    </genClasses>
+    <genClasses ecoreClass="web.ecore#//SocialInformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//SocialInformation/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//SocialInformation/plusUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//SocialInformation/facebookUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute web.ecore#//SocialInformation/twitterUrl"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
