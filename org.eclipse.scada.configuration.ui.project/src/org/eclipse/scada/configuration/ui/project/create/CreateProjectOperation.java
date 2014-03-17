@@ -495,7 +495,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         cfg.getRules ().add ( logonRule );
 
         addScriptRule ( cfg, "allow.logon", null, "CONNECT", "SESSION", trueScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "allow.operator.session", "operator", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
+        addScriptRule ( cfg, "allow.operator.session", "operator", "PRIV", "SESSION", hasUserScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
         addScriptRule ( cfg, "reject.operator.session", "operator", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
         addScriptRule ( cfg, "reject.all.session", null, "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
         addScriptRule ( cfg, "allow.all", null, null, null, hasUserScript ); //$NON-NLS-1$  
