@@ -23,6 +23,7 @@
             allowMultiple="false"
             category="org.eclipse.scada.chart.ui"
             class="org.eclipse.scada.ui.chart.view.ChartControllerView"
+            icon="icons/chartController.gif"
             id="org.eclipse.scada.ui.chart.ChartController"
             name="%view.chartController.name"
             restorable="true">

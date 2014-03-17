@@ -41,6 +41,8 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 public class ChartControllerView extends AbstractChartManagePart
 {
 
+    public static final String VIEW_ID = "org.eclipse.scada.ui.chart.ChartController";
+
     private TableViewer viewer;
 
     private DataBindingContext dbc;
