@@ -41,17 +41,32 @@ public class QueryImpl implements Query
 
     private static class LoadState
     {
+        /**
+         * The query is currently loading data
+         */
         private final boolean loading;
 
+        /**
+         * The query is closed
+         */
         private final boolean closed;
 
+        /**
+         * The query is forced to reload, although parameters did not change
+         */
+        private final boolean forceReload;
+
+        /**
+         * The query parameters
+         */
         private final QueryParameters parameters;
 
-        public LoadState ( final boolean closed, final boolean loading, final QueryParameters parameters )
+        public LoadState ( final boolean closed, final boolean loading, final boolean forceReload, final QueryParameters parameters )
         {
             super ();
             this.closed = closed;
             this.loading = loading;
+            this.forceReload = forceReload;
 
             this.parameters = parameters;
         }
@@ -59,6 +74,11 @@ public class QueryImpl implements Query
         public QueryParameters getParameters ()
         {
             return this.parameters;
+        }
+
+        public boolean isForceReload ()
+        {
+            return this.forceReload;
         }
 
         public boolean isLoading ()
@@ -110,7 +130,7 @@ public class QueryImpl implements Query
 
         this.buffer = new UpdatableQueryBuffer ( this.listener, eventExecutor, fixedStartDate, fixedEndDate );
 
-        this.state.set ( new LoadState ( false, false, parameters ) );
+        this.state.set ( new LoadState ( false, false, false, parameters ) );
 
         changeParameters ( parameters, true );
     }
@@ -163,7 +183,7 @@ public class QueryImpl implements Query
                 return false;
             }
 
-            update = new LoadState ( true, expect.isLoading (), expect.getParameters () );
+            update = new LoadState ( true, expect.isLoading (), false, expect.getParameters () );
         } while ( !this.state.compareAndSet ( expect, update ) );
 
         logger.info ( "Close requested" );
@@ -204,7 +224,7 @@ public class QueryImpl implements Query
 
             shouldStart = !expect.isLoading ();
 
-            update = new LoadState ( false, expect.isLoading (), parameters );
+            update = new LoadState ( false, expect.isLoading (), force, parameters );
             logger.debug ( "Try to apply state: {}", update );
             i++;
         } while ( !this.state.compareAndSet ( expect, update ) );
@@ -214,7 +234,7 @@ public class QueryImpl implements Query
             startLoad ();
         }
 
-        logger.debug ( "State applied: {}", update );
+        logger.debug ( "State applied: {} after {} iteration(s)", update, i );
 
     }
 
@@ -242,6 +262,7 @@ public class QueryImpl implements Query
         {
             return false;
         }
+
         return true;
     }
 
@@ -288,14 +309,14 @@ public class QueryImpl implements Query
                 return;
             }
 
-            if ( parameterEquals ( this.buffer.getParameters (), expect.getParameters () ) )
+            if ( !expect.isForceReload () && parameterEquals ( this.buffer.getParameters (), expect.getParameters () ) )
             {
                 logger.debug ( "Target state is no change from current state" );
                 return;
             }
 
             // the new state would be that we are loading, try to set and be the first
-            update = new LoadState ( false, true, expect.getParameters () );
+            update = new LoadState ( false, true, false, expect.getParameters () );
         } while ( !this.state.compareAndSet ( expect, update ) );
 
         // now we are the only running loader
@@ -408,7 +429,7 @@ public class QueryImpl implements Query
         do
         {
             expect = this.state.get ();
-            update = new LoadState ( expect.isClosed (), false, expect.getParameters () );
+            update = new LoadState ( expect.isClosed (), false, false, expect.getParameters () );
 
             needStart = !update.isClosed () && !parameterEquals ( ours.getParameters (), update.getParameters () );
 
@@ -437,7 +458,21 @@ public class QueryImpl implements Query
     {
         logger.debug ( "dataChanged - start: {}, end: {}", start, end );
 
-        // TODO: implement a partial reload
+        final LoadState current = this.state.get ();
+
+        logger.debug ( "currentState: {}", current );
+
+        if ( current != null && start.after ( new Date ( current.getParameters ().getEndTimestamp () ) ) )
+        {
+            /*
+             * if the current state parameters tell us that the end of the query
+             * is actually before the start of the change timeframe we can ignore
+             * the change altogether
+             */
+            logger.debug ( "Ignoring change since it is after our query data" );
+            return;
+        }
+
         reload ();
     }
 }
