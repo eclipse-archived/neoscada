@@ -372,7 +372,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
     {
         for ( final Driver driver : master.getDriver () )
         {
-            if ( driver.getName ().equals ( driverName ) && driver instanceof AbstractFactoryDriver )
+            if ( driver.getName ().equals ( driverName ) && ( driver instanceof AbstractFactoryDriver ) )
             {
                 return (AbstractFactoryDriver)driver;
             }
@@ -494,17 +494,23 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         logonRule.setTypeFilter ( Pattern.compile ( "SESSION" ) ); //$NON-NLS-1$
         cfg.getRules ().add ( logonRule );
 
-        addScriptRule ( cfg, "allow.logon", "CONNECT", "SESSION", trueScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "reject.all.session", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "allow.all", null, null, hasUserScript ); //$NON-NLS-1$  
+        addScriptRule ( cfg, "allow.logon", null, "CONNECT", "SESSION", trueScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
+        addScriptRule ( cfg, "allow.operator.session", "operator", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
+        addScriptRule ( cfg, "reject.operator.session", "operator", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
+        addScriptRule ( cfg, "reject.all.session", null, "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
+        addScriptRule ( cfg, "allow.all", null, null, null, hasUserScript ); //$NON-NLS-1$  
 
         return cfg;
     }
 
-    protected static void addScriptRule ( final Configuration cfg, final String id, final String action, final String type, final GenericScript script )
+    protected static void addScriptRule ( final Configuration cfg, final String id, final String idFilter, final String action, final String type, final GenericScript script )
     {
         final ScriptRule rule = SecurityFactory.eINSTANCE.createScriptRule ();
         rule.setId ( id );
+        if ( idFilter != null )
+        {
+            rule.setIdFilter ( Pattern.compile ( idFilter ) );
+        }
         if ( action != null )
         {
             rule.setActionFilter ( Pattern.compile ( action ) );
