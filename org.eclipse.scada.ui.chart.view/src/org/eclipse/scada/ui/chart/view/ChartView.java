@@ -37,10 +37,8 @@ public class ChartView extends AbstractChartView
     private Chart configuration;
 
     @Override
-    public void createPartControl ( final Composite parent )
+    protected void createChartControl ( final Composite parent )
     {
-        super.createPartControl ( parent );
-
         if ( this.configuration == null )
         {
             this.configuration = Charts.makeDefaultConfiguration ();

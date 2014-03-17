@@ -40,6 +40,12 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
 
     private IContributionItem newWizards;
 
+    private IWorkbenchAction showHelpAction;
+
+    private IWorkbenchAction searchHelpAction;
+
+    private IWorkbenchAction dynamicHelpAction;
+
     public ApplicationActionBarAdvisor ( final IActionBarConfigurer configurer )
     {
         super ( configurer );
@@ -55,9 +61,17 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         this.showViews = ContributionItemFactory.VIEWS_SHORTLIST.create ( window );
         this.newWizards = ContributionItemFactory.NEW_WIZARD_SHORTLIST.create ( window );
 
+        this.showHelpAction = ActionFactory.HELP_CONTENTS.create ( window );
+        this.searchHelpAction = ActionFactory.HELP_SEARCH.create ( window );
+        this.dynamicHelpAction = ActionFactory.DYNAMIC_HELP.create ( window );
+
         register ( this.exitAction );
         register ( this.aboutAction );
         register ( this.newWindowAction );
+
+        register ( this.showHelpAction );
+        register ( this.searchHelpAction );
+        register ( this.dynamicHelpAction );
 
         register ( ActionFactory.NEW_WIZARD_DROP_DOWN.create ( window ) );
         register ( ActionFactory.NEW.create ( window ) );
@@ -104,6 +118,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
 
         // Help
         helpMenu.add ( getAction ( ActionFactory.INTRO.getId () ) );
+        helpMenu.add ( this.showHelpAction ); // NEW
+        helpMenu.add ( this.searchHelpAction ); // NEW
+        helpMenu.add ( this.dynamicHelpAction ); // NEW
         helpMenu.add ( new GroupMarker ( IWorkbenchActionConstants.MB_ADDITIONS ) );
         helpMenu.add ( new Separator () );
         helpMenu.add ( this.aboutAction );

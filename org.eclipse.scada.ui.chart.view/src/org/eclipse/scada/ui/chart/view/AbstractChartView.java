@@ -37,6 +37,7 @@ import org.eclipse.scada.ui.databinding.SelectionHelper;
 import org.eclipse.scada.ui.utils.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.printing.PrintDialog;
@@ -47,6 +48,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.ui.statushandlers.StatusManager;
@@ -59,7 +61,7 @@ public abstract class AbstractChartView extends ViewPart
 
     private Shell shell;
 
-    private Composite parent;
+    private Composite wrapper;
 
     public class CenterNowAction extends Action
     {
@@ -114,6 +116,20 @@ public abstract class AbstractChartView extends ViewPart
             {
                 StatusManager.getManager ().handle ( e.getStatus (), StatusManager.BLOCK );
             }
+        }
+    }
+
+    public class HelpAction extends Action
+    {
+        public HelpAction ()
+        {
+            super ( "Help", AbstractUIPlugin.imageDescriptorFromPlugin ( Activator.PLUGIN_ID, "icons/help.gif" ) );
+        }
+
+        @Override
+        public void run ()
+        {
+            PlatformUI.getWorkbench ().getHelpSystem ().displayDynamicHelp ();
         }
     }
 
@@ -174,21 +190,29 @@ public abstract class AbstractChartView extends ViewPart
     @Override
     public void createPartControl ( final Composite parent )
     {
-        parent.setLayout ( GridLayoutFactory.slimStack () );
+        parent.setLayout ( new FillLayout () );
 
-        this.parent = parent;
+        this.wrapper = new Composite ( parent, SWT.NONE );
+        this.wrapper.setLayout ( GridLayoutFactory.slimStack () );
+
         this.shell = parent.getShell ();
+
+        PlatformUI.getWorkbench ().getHelpSystem ().setHelp ( this.wrapper, "org.eclipse.scada.ui.chart.view.chartView" ); //$NON-NLS-1$
 
         fillMenu ( getViewSite ().getActionBars ().getMenuManager () );
         fillToolbar ( getViewSite ().getActionBars ().getToolBarManager () );
+
+        createChartControl ( parent );
     }
+
+    protected abstract void createChartControl ( Composite parent );
 
     protected void createView ( final Chart configuration )
     {
-        final Composite extensionSpace = new Composite ( this.parent, SWT.NONE );
+        final Composite extensionSpace = new Composite ( this.wrapper, SWT.NONE );
         extensionSpace.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, false ) );
         extensionSpace.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
-        this.chartArea = new ChartArea ( this.parent, SWT.NONE );
+        this.chartArea = new ChartArea ( this.wrapper, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
         this.viewer = new ChartViewer ( this.chartArea.getChartRenderer (), configuration, new CompositeExtensionSpace ( extensionSpace ), null );
 
@@ -238,6 +262,11 @@ public abstract class AbstractChartView extends ViewPart
         contributionManager.add ( new PageTimespanAction ( 1, TimeUnit.MINUTES, "1m>", "Move forward 1 minute" ) );
         contributionManager.add ( new PageTimespanAction ( 1, TimeUnit.HOURS, "1h>", "Move forward 1 hour" ) );
         contributionManager.add ( new PageTimespanAction ( 1, TimeUnit.DAYS, "1d>", "Move forward 1 day" ) );
+
+        contributionManager.add ( new Separator () );
+
+        contributionManager.add ( new HelpAction () );
+
     }
 
     @Override

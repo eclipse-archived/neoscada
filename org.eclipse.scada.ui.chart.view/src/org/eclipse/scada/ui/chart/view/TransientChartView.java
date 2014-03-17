@@ -11,12 +11,18 @@
 package org.eclipse.scada.ui.chart.view;
 
 import org.eclipse.scada.ui.chart.model.Chart;
+import org.eclipse.swt.widgets.Composite;
 
 public class TransientChartView extends AbstractChartView
 {
     public static final String VIEW_ID = "org.eclipse.scada.ui.chart.TransientChartView";
 
     private Chart configuration;
+
+    @Override
+    protected void createChartControl ( final Composite parent )
+    {
+    }
 
     public void setConfiguration ( final Chart configuration )
     {

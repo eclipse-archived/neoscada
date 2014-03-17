@@ -4,4 +4,5 @@ Bundle-Name: Documentation for Eclipse SCADA HMI
 Bundle-SymbolicName: org.eclipse.scada.hmi.doc.isv;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Require-Bundle: org.eclipse.pde.core
+Require-Bundle: org.eclipse.pde.core,
+ org.eclipse.help

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+   <context id="chartView">
+      <description>The Eclipse SCADA Chart Viewer</description>
+      <topic href="help/html/control_chart.html" label="Controlling the chart"/>
+   </context>
+</contexts>
