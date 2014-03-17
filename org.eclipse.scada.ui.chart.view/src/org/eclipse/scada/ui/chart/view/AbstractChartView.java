@@ -63,8 +63,8 @@ public abstract class AbstractChartView extends ViewPart
         public CenterNowAction ()
         {
             super ( "<now>" );
-            setDescription ( "Set center to now" );
-            setToolTipText ( "Set center to now" );
+            setDescription ( "Center chart to current time" );
+            setToolTipText ( "Center chart to current time" );
         }
 
         @Override
