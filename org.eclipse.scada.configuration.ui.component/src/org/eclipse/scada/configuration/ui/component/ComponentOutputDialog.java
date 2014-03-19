@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -20,13 +20,16 @@ import org.eclipse.jface.dialogs.DialogSettings;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.ColumnWeightData;
+import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.viewers.ViewerComparator;
 import org.eclipse.jface.window.IShellProvider;
 import org.eclipse.scada.configuration.ui.component.Helper.ItemEntry;
+import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.eclipse.scada.ui.databinding.ObservableMapStyledCellLabelProvider;
@@ -77,7 +80,7 @@ public class ComponentOutputDialog extends Dialog
     @Override
     protected IDialogSettings getDialogBoundsSettings ()
     {
-        return DialogSettings.getOrCreateSection ( Activator.getDefault ().getDialogSettings (), "componentOutputDialog" );
+        return DialogSettings.getOrCreateSection ( Activator.getDefault ().getDialogSettings (), "componentOutputDialog" ); //$NON-NLS-1$
     }
 
     @Override
@@ -122,7 +125,7 @@ public class ComponentOutputDialog extends Dialog
         }
 
         {
-            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () );
+            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () ); //$NON-NLS-1$
             final IObservableMap map2 = EMFProperties.value ( OsgiPackage.Literals.ITEM__INFORMATION ).observeDetail ( map );
             final IObservableMap map3 = EMFProperties.value ( OsgiPackage.Literals.ITEM_INFORMATION__DESCRIPTION ).observeDetail ( map2 );
 
@@ -130,6 +133,34 @@ public class ComponentOutputDialog extends Dialog
             col2.getColumn ().setText ( "Description" );
             col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map3 ) );
             layout.addColumnData ( new ColumnWeightData ( 200 ) );
+        }
+
+        {
+            final IObservableMap map = PojoProperties.value ( "item" ).observeDetail ( this.contentProvider.getKnownElements () ); //$NON-NLS-1$
+
+            final TreeViewerColumn col2 = new TreeViewerColumn ( this.viewer, SWT.NONE );
+            col2.getColumn ().setText ( "Type" );
+            col2.setLabelProvider ( new ObservableMapStyledCellLabelProvider ( map ) {
+                @Override
+                public void update ( final ViewerCell cell )
+                {
+                    final Object element = cell.getElement ();
+                    final Item value = (Item)this.attributeMaps[0].get ( element );
+                    if ( value == null )
+                    {
+                        return;
+                    }
+
+                    final StyledString s = new StyledString ();
+                    s.append ( value.eClass ().getName () );
+
+                    s.append ( String.format ( " (%s)", value.eClass ().getEPackage ().getName () ), StyledString.QUALIFIER_STYLER ); //$NON-NLS-1$
+
+                    cell.setText ( s.getString () );
+                    cell.setStyleRanges ( s.getStyleRanges () );
+                }
+            } );
+            layout.addColumnData ( new ColumnWeightData ( 50 ) );
         }
 
         this.viewer.getControl ().addDisposeListener ( new DisposeListener () {
@@ -154,7 +185,7 @@ public class ComponentOutputDialog extends Dialog
                 {
                     return -1;
                 }
-                return StringHelper.join ( i1.getLocal (), "." ).compareTo ( StringHelper.join ( i2.getLocal (), "." ) );
+                return StringHelper.join ( i1.getLocal (), "." ).compareTo ( StringHelper.join ( i2.getLocal (), "." ) ); //$NON-NLS-1$ //$NON-NLS-2$
             };
         } );
         this.viewer.setInput ( this.input );
