@@ -6,6 +6,7 @@
       <wizard
             category="org.eclipse.scada.configuration"
             class="org.eclipse.scada.configuration.ui.project.wizard.NewProjectWizard"
+            icon="icons/smiley-cool.png"
             id="org.eclipse.scada.configuration.ui.project.NewProjectWizard"
             name="%wizard.newProject.name"
             project="true">
@@ -41,12 +42,14 @@
       </category>
       <wizard
             category="org.eclipse.scada.configuration.ui.project.templates"
+            icon="icons/dashboard--plus.png"
             id="org.eclipse.scada.configuration.ui.project.detailViewWizard"
             name="%wizard.detailView.name"
             template="org.eclipse.scada.configuration.ui.project.detailView">
       </wizard>
       <wizard
             category="org.eclipse.scada.configuration.ui.project.templates"
+            icon="icons/plug--plus.png"
             id="org.eclipse.scada.configuration.ui.project.connectionContextWizard"
             name="Connection Context"
             template="org.eclipse.scada.configuration.ui.project.connectionContext">
@@ -74,12 +77,14 @@
       <template
             class="org.eclipse.scada.configuration.ui.project.template.DetailViewTemplate"
             contributingId="org.eclipse.scada.vi.details.detailView"
+            icon="icons/dashboard--plus.png"
             id="org.eclipse.scada.configuration.ui.project.detailView"
             name="%template.detailView.name">
       </template>
       <template
             class="org.eclipse.scada.configuration.ui.project.template.ConnectionContextTemplate"
             contributingId="org.eclipse.core.expressions.definitions"
+            icon="icons/plug--plus.png"
             id="org.eclipse.scada.configuration.ui.project.connectionContext"
             name="Connection Context">
       </template>

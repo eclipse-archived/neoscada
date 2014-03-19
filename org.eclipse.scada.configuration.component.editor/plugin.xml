@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- Copyright (c) 2013 IBH SYSTEMS GmbH.
+ Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  All rights reserved. This program and the accompanying materials
  are made available under the terms of the Eclipse Public License v1.0
  which accompanies this distribution, and is available at
@@ -21,18 +21,17 @@
             name="%_UI_ComponentModelWizard_label"
             class="org.eclipse.scada.configuration.component.presentation.ComponentModelWizard"
             category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
-            icon="icons/full/obj16/ComponentModelFile.gif">
+            icon="icons/full/obj16/servers-network.png">
          <description>%_UI_ComponentModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated component -->
       <editor
             id="org.eclipse.scada.configuration.component.presentation.ComponentEditorID"
             name="%_UI_ComponentEditor_label"
-            icon="icons/full/obj16/ComponentModelFile.gif"
+            icon="icons/full/obj16/servers-network.png"
             class="org.eclipse.scada.configuration.component.presentation.ComponentEditor"
             contributorClass="org.eclipse.scada.configuration.component.presentation.ComponentActionBarContributor">
          <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.component"/>

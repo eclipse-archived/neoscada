@@ -9,7 +9,7 @@
             name="%_UI_SecurityModelWizard_label"
             class="org.eclipse.scada.configuration.security.presentation.SecurityModelWizard"
             category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
-            icon="icons/full/obj16/SecurityModelFile.gif">
+            icon="icons/full/obj16/file.png">
          <description>%_UI_SecurityModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -19,7 +19,7 @@
       <editor
             id="org.eclipse.scada.configuration.security.presentation.SecurityEditorID"
             name="%_UI_SecurityEditor_label"
-            icon="icons/full/obj16/SecurityModelFile.gif"
+            icon="icons/full/obj16/file.png"
             extensions="security"
             class="org.eclipse.scada.configuration.security.presentation.SecurityEditor"
             contributorClass="org.eclipse.scada.configuration.security.presentation.SecurityActionBarContributor">

@@ -21,18 +21,17 @@
             name="%_UI_RecipeModelWizard_label"
             class="org.eclipse.scada.configuration.recipe.presentation.RecipeModelWizard"
             category="org.eclipse.scada.configuration/org.eclipse.scada.configuration.models"
-            icon="icons/full/obj16/RecipeModelFile.gif">
+            icon="icons/full/obj16/script-text.png">
          <description>%_UI_RecipeModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated recipe -->
       <editor
             id="org.eclipse.scada.configuration.recipe.presentation.RecipeEditorID"
             name="%_UI_RecipeEditor_label"
-            icon="icons/full/obj16/RecipeModelFile.gif"
+            icon="icons/full/obj16/script-text.png"
             class="org.eclipse.scada.configuration.recipe.presentation.RecipeEditor"
             contributorClass="org.eclipse.scada.configuration.recipe.presentation.RecipeActionBarContributor">
          <contentTypeBinding contentTypeId="org.eclipse.scada.configuration.recipe"/>
