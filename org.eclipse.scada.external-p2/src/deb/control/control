@@ -7,8 +7,8 @@ Depends: org.eclipse.scada
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse SCADA P2 Repository - [[artifactId]]
 Distribution: development
-Depends: emf-xsd-Update-2.9.0,
- equinox-SDK-R-Kepler-201306052000,
+Depends: emf-xsd-Update-2.9.2,
+ equinox-SDK-R-KeplerSR2-201402211700,
  gemini-dbaccess-1.1.0.RELEASE,
  org.eclipse.ecf.sdk-3.6.1,
- org.eclipse.platform-4.3
+ org.eclipse.platform-4.3.2
