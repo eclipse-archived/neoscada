@@ -12,6 +12,7 @@
 package org.eclipse.scada.configuration.component.common.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -76,8 +77,44 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
                 return createChangeHeartbeatDetector ();
             case CommonPackage.TIMER_ACTION:
                 return createTimerAction ();
+            case CommonPackage.CURRENT_TIME_COMPONENT:
+                return createCurrentTimeComponent ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object createFromString ( EDataType eDataType, String initialValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.DATE_FORMAT:
+                return createDateFormatFromString ( eDataType, initialValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String convertToString ( EDataType eDataType, Object instanceValue )
+    {
+        switch ( eDataType.getClassifierID () )
+        {
+            case CommonPackage.DATE_FORMAT:
+                return convertDateFormatToString ( eDataType, instanceValue );
+            default:
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
@@ -112,6 +149,37 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory
     {
         TimerActionImpl timerAction = new TimerActionImpl ();
         return timerAction;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CurrentTimeComponent createCurrentTimeComponent ()
+    {
+        CurrentTimeComponentImpl currentTimeComponent = new CurrentTimeComponentImpl ();
+        return currentTimeComponent;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DateFormat createDateFormatFromString ( EDataType eDataType, String initialValue )
+    {
+        return (DateFormat)super.createFromString ( eDataType, initialValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertDateFormatToString ( EDataType eDataType, Object instanceValue )
+    {
+        return super.convertToString ( eDataType, instanceValue );
     }
 
     /**

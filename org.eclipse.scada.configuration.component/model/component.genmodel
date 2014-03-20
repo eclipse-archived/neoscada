@@ -31,8 +31,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//Component">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference component.ecore#//Component/level"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/customizationPipeline"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/archiveSelector"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="customization"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/customizationPipeline"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="customization"
+          propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//Component/archiveSelector"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//DataComponent">
       <genOperations ecoreOperation="component.ecore#//DataComponent/getMasterOn"/>
@@ -53,9 +55,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterImportConnectionAnalyzer/connection"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//SingleValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//DataMapperAnalyzer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//DataMapperAnalyzer/dataMapper"/>
@@ -172,7 +174,8 @@
     </genClasses>
     <genClasses ecoreClass="component.ecore#//TransientValue"/>
     <genClasses ecoreClass="component.ecore#//MasterComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterComponent/masterOn"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
+          ecoreFeature="ecore:EReference component.ecore#//MasterComponent/masterOn"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//BufferedValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//BufferedValue/name"/>

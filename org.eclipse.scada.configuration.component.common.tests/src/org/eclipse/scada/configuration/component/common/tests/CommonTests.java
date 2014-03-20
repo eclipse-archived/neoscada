@@ -46,6 +46,7 @@ public class CommonTests extends TestSuite
         suite.addTestSuite ( ToggleHeartbeatGeneratorTest.class );
         suite.addTestSuite ( ChangeHeartbeatDetectorTest.class );
         suite.addTestSuite ( TimerActionTest.class );
+        suite.addTestSuite ( CurrentTimeComponentTest.class );
         return suite;
     }
 

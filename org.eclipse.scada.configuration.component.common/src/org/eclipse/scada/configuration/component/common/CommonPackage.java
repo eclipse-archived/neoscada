@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.common;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -76,6 +77,15 @@ public interface CommonPackage extends EPackage
      * @generated
      */
     int HEARTBEAT_GENERATOR = 0;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_GENERATOR__SHORT_DESCRIPTION = ComponentPackage.MASTER_COMPONENT__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -178,6 +188,15 @@ public interface CommonPackage extends EPackage
     int TOGGLE_HEARTBEAT_GENERATOR = 1;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TOGGLE_HEARTBEAT_GENERATOR__SHORT_DESCRIPTION = HEARTBEAT_GENERATOR__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -278,6 +297,15 @@ public interface CommonPackage extends EPackage
     int HEARTBEAT_DETECTOR = 2;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__SHORT_DESCRIPTION = ComponentPackage.MASTER_COMPONENT__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -349,6 +377,15 @@ public interface CommonPackage extends EPackage
      * @generated
      */
     int CHANGE_HEARTBEAT_DETECTOR = 3;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__SHORT_DESCRIPTION = HEARTBEAT_DETECTOR__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -451,6 +488,15 @@ public interface CommonPackage extends EPackage
     int TIMER_ACTION = 4;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_ACTION__SHORT_DESCRIPTION = ComponentPackage.MASTER_COMPONENT__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -548,6 +594,125 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int TIMER_ACTION_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl <em>Current Time Component</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl
+     * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getCurrentTimeComponent()
+     * @generated
+     */
+    int CURRENT_TIME_COMPONENT = 5;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__SHORT_DESCRIPTION = ComponentPackage.MASTER_COMPONENT__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Level</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__LEVEL = ComponentPackage.MASTER_COMPONENT__LEVEL;
+
+    /**
+     * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__CUSTOMIZATION_PIPELINE = ComponentPackage.MASTER_COMPONENT__CUSTOMIZATION_PIPELINE;
+
+    /**
+     * The feature id for the '<em><b>Archive Selector</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__MASTER_ON = ComponentPackage.MASTER_COMPONENT__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__NAME = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Update Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__UPDATE_PERIOD = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Date Format</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__DATE_FORMAT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Current Time Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT_FEATURE_COUNT = ComponentPackage.MASTER_COMPONENT_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>Get Master On</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT___GET_MASTER_ON = ComponentPackage.MASTER_COMPONENT___GET_MASTER_ON;
+
+    /**
+     * The number of operations of the '<em>Current Time Component</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT_OPERATION_COUNT = ComponentPackage.MASTER_COMPONENT_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '<em>Date Format</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.common.DateFormat
+     * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getDateFormat()
+     * @generated
+     */
+    int DATE_FORMAT = 6;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.HeartbeatGenerator <em>Heartbeat Generator</em>}'.
@@ -710,6 +875,60 @@ public interface CommonPackage extends EPackage
     EAttribute getTimerAction_Name ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent <em>Current Time Component</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Current Time Component</em>'.
+     * @see org.eclipse.scada.configuration.component.common.CurrentTimeComponent
+     * @generated
+     */
+    EClass getCurrentTimeComponent ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getName()
+     * @see #getCurrentTimeComponent()
+     * @generated
+     */
+    EAttribute getCurrentTimeComponent_Name ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getUpdatePeriod <em>Update Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Update Period</em>'.
+     * @see org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getUpdatePeriod()
+     * @see #getCurrentTimeComponent()
+     * @generated
+     */
+    EAttribute getCurrentTimeComponent_UpdatePeriod ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getDateFormat <em>Date Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Date Format</em>'.
+     * @see org.eclipse.scada.configuration.component.common.CurrentTimeComponent#getDateFormat()
+     * @see #getCurrentTimeComponent()
+     * @generated
+     */
+    EAttribute getCurrentTimeComponent_DateFormat ();
+
+    /**
+     * Returns the meta object for data type '{@link org.eclipse.scada.configuration.component.common.DateFormat <em>Date Format</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Date Format</em>'.
+     * @see org.eclipse.scada.configuration.component.common.DateFormat
+     * @model instanceClass="org.eclipse.scada.configuration.component.common.DateFormat"
+     * @generated
+     */
+    EDataType getDateFormat ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -862,6 +1081,50 @@ public interface CommonPackage extends EPackage
          * @generated
          */
         EAttribute TIMER_ACTION__NAME = eINSTANCE.getTimerAction_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl <em>Current Time Component</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.common.impl.CurrentTimeComponentImpl
+         * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getCurrentTimeComponent()
+         * @generated
+         */
+        EClass CURRENT_TIME_COMPONENT = eINSTANCE.getCurrentTimeComponent ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CURRENT_TIME_COMPONENT__NAME = eINSTANCE.getCurrentTimeComponent_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Update Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CURRENT_TIME_COMPONENT__UPDATE_PERIOD = eINSTANCE.getCurrentTimeComponent_UpdatePeriod ();
+
+        /**
+         * The meta object literal for the '<em><b>Date Format</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CURRENT_TIME_COMPONENT__DATE_FORMAT = eINSTANCE.getCurrentTimeComponent_DateFormat ();
+
+        /**
+         * The meta object literal for the '<em>Date Format</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.common.DateFormat
+         * @see org.eclipse.scada.configuration.component.common.impl.CommonPackageImpl#getDateFormat()
+         * @generated
+         */
+        EDataType DATE_FORMAT = eINSTANCE.getDateFormat ();
 
     }
 

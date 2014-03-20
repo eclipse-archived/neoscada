@@ -89,7 +89,7 @@ public class MasterComponentItemProvider
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

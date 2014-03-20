@@ -140,7 +140,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -163,7 +163,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -186,7 +186,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_runtimePropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

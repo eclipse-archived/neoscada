@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.common.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -21,6 +22,8 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.CommonFactory;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
+import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
+import org.eclipse.scada.configuration.component.common.DateFormat;
 import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.HeartbeatGenerator;
 import org.eclipse.scada.configuration.component.common.TimerAction;
@@ -69,6 +72,20 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * @generated
      */
     private EClass timerActionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass currentTimeComponentEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType dateFormatEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -305,6 +322,56 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getCurrentTimeComponent ()
+    {
+        return currentTimeComponentEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCurrentTimeComponent_Name ()
+    {
+        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCurrentTimeComponent_UpdatePeriod ()
+    {
+        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCurrentTimeComponent_DateFormat ()
+    {
+        return (EAttribute)currentTimeComponentEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EDataType getDateFormat ()
+    {
+        return dateFormatEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public CommonFactory getCommonFactory ()
     {
@@ -351,6 +418,14 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         createEReference ( timerActionEClass, TIMER_ACTION__TARGET_ITEM );
         createEAttribute ( timerActionEClass, TIMER_ACTION__VALUE );
         createEAttribute ( timerActionEClass, TIMER_ACTION__NAME );
+
+        currentTimeComponentEClass = createEClass ( CURRENT_TIME_COMPONENT );
+        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__NAME );
+        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__UPDATE_PERIOD );
+        createEAttribute ( currentTimeComponentEClass, CURRENT_TIME_COMPONENT__DATE_FORMAT );
+
+        // Create data types
+        dateFormatEDataType = createEDataType ( DATE_FORMAT );
     }
 
     /**
@@ -393,6 +468,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         heartbeatDetectorEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
         changeHeartbeatDetectorEClass.getESuperTypes ().add ( this.getHeartbeatDetector () );
         timerActionEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
+        currentTimeComponentEClass.getESuperTypes ().add ( theComponentPackage.getMasterComponent () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( heartbeatGeneratorEClass, HeartbeatGenerator.class, "HeartbeatGenerator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -414,6 +490,14 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage
         initEReference ( getTimerAction_TargetItem (), theComponentPackage.getInputDefinition (), null, "targetItem", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getTimerAction_Value (), theOsgiPackage.getVariant (), "value", null, 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getTimerAction_Name (), theXMLTypePackage.getString (), "name", "$TIMER_ACTION", 1, 1, TimerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( currentTimeComponentEClass, CurrentTimeComponent.class, "CurrentTimeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getCurrentTimeComponent_Name (), ecorePackage.getEString (), "name", "TIME", 1, -1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getCurrentTimeComponent_UpdatePeriod (), ecorePackage.getELong (), "updatePeriod", "100", 1, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getCurrentTimeComponent_DateFormat (), this.getDateFormat (), "dateFormat", "", 0, 1, CurrentTimeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        // Initialize data types
+        initEDataType ( dateFormatEDataType, DateFormat.class, "DateFormat", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

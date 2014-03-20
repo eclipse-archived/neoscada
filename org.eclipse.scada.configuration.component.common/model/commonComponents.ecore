@@ -48,4 +48,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
         defaultValueLiteral="$TIMER_ACTION"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CurrentTimeComponent" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//MasterComponent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="TIME"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatePeriod" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="100"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dateFormat" eType="#//DateFormat"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="DateFormat" instanceClassName="org.eclipse.scada.configuration.component.common.DateFormat"/>
 </ecore:EPackage>

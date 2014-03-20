@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.component.common.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -21,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.scada.configuration.component.common.HeartbeatDetector;
 import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
 
 /**
@@ -75,7 +77,10 @@ public class HeartbeatDetectorItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_HeartbeatDetector_type" ); //$NON-NLS-1$
+        String label = ( (HeartbeatDetector)object ).getShortDescription ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_HeartbeatDetector_type" ) : //$NON-NLS-1$
+                getString ( "_UI_HeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

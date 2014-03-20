@@ -96,7 +96,7 @@ public class HeartbeatGeneratorItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -201,8 +201,10 @@ public class HeartbeatGeneratorItemProvider
     @Override
     public String getText ( Object object )
     {
-        HeartbeatGenerator heartbeatGenerator = (HeartbeatGenerator)object;
-        return getString ( "_UI_HeartbeatGenerator_type" ) + " " + heartbeatGenerator.getPeriod (); //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (HeartbeatGenerator)object ).getShortDescription ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_HeartbeatGenerator_type" ) : //$NON-NLS-1$
+                getString ( "_UI_HeartbeatGenerator_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

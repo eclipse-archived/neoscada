@@ -112,7 +112,7 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -135,7 +135,7 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

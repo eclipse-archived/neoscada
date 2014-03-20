@@ -21,6 +21,7 @@ import org.eclipse.scada.configuration.component.DataComponent;
 
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.common.*;
+import org.eclipse.scada.configuration.world.Documentable;
 
 /**
  * <!-- begin-user-doc -->
@@ -96,6 +97,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( heartbeatGenerator );
                 if ( result == null )
+                    result = caseDocumentable ( heartbeatGenerator );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -112,6 +115,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( toggleHeartbeatGenerator );
                 if ( result == null )
+                    result = caseDocumentable ( toggleHeartbeatGenerator );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -125,6 +130,8 @@ public class CommonSwitch<T> extends Switch<T>
                     result = caseDataComponent ( heartbeatDetector );
                 if ( result == null )
                     result = caseComponent ( heartbeatDetector );
+                if ( result == null )
+                    result = caseDocumentable ( heartbeatDetector );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -142,6 +149,8 @@ public class CommonSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( changeHeartbeatDetector );
                 if ( result == null )
+                    result = caseDocumentable ( changeHeartbeatDetector );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -155,6 +164,24 @@ public class CommonSwitch<T> extends Switch<T>
                     result = caseDataComponent ( timerAction );
                 if ( result == null )
                     result = caseComponent ( timerAction );
+                if ( result == null )
+                    result = caseDocumentable ( timerAction );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case CommonPackage.CURRENT_TIME_COMPONENT:
+            {
+                CurrentTimeComponent currentTimeComponent = (CurrentTimeComponent)theEObject;
+                T result = caseCurrentTimeComponent ( currentTimeComponent );
+                if ( result == null )
+                    result = caseMasterComponent ( currentTimeComponent );
+                if ( result == null )
+                    result = caseDataComponent ( currentTimeComponent );
+                if ( result == null )
+                    result = caseComponent ( currentTimeComponent );
+                if ( result == null )
+                    result = caseDocumentable ( currentTimeComponent );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -240,6 +267,38 @@ public class CommonSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseTimerAction ( TimerAction object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Current Time Component</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Current Time Component</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCurrentTimeComponent ( CurrentTimeComponent object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDocumentable ( Documentable object )
     {
         return null;
     }

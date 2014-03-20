@@ -11,17 +11,30 @@
   <genPackages prefix="Common" basePackage="org.eclipse.scada.configuration.component"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
       childCreationExtenders="true" ecorePackage="commonComponents.ecore#/">
+    <genDataTypes ecoreDataType="commonComponents.ecore#//DateFormat"/>
     <genClasses ecoreClass="commonComponents.ecore#//HeartbeatGenerator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//HeartbeatGenerator/period"/>
+      <genFeatures createChild="false" propertyCategory="configuration" ecoreFeature="ecore:EAttribute commonComponents.ecore#//HeartbeatGenerator/period"/>
       <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference commonComponents.ecore#//HeartbeatGenerator/targetItem"/>
       <genFeatures property="Readonly" children="true" createChild="true" ecoreFeature="ecore:EReference commonComponents.ecore#//HeartbeatGenerator/activeInput"/>
     </genClasses>
     <genClasses ecoreClass="commonComponents.ecore#//ToggleHeartbeatGenerator"/>
     <genClasses image="false" ecoreClass="commonComponents.ecore#//HeartbeatDetector"/>
     <genClasses ecoreClass="commonComponents.ecore#//ChangeHeartbeatDetector">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ChangeHeartbeatDetector/timeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ChangeHeartbeatDetector/checkPeriod"/>
+      <genFeatures createChild="false" propertyCategory="configuration" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ChangeHeartbeatDetector/timeout"/>
+      <genFeatures createChild="false" propertyCategory="configuration" ecoreFeature="ecore:EAttribute commonComponents.ecore#//ChangeHeartbeatDetector/checkPeriod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonComponents.ecore#//ChangeHeartbeatDetector/sourceItem"/>
+    </genClasses>
+    <genClasses ecoreClass="commonComponents.ecore#//TimerAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//TimerAction/period"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference commonComponents.ecore#//TimerAction/targetItem"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//TimerAction/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute commonComponents.ecore#//TimerAction/name"/>
+    </genClasses>
+    <genClasses ecoreClass="commonComponents.ecore#//CurrentTimeComponent">
+      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute commonComponents.ecore#//CurrentTimeComponent/name"/>
+      <genFeatures createChild="false" propertyCategory="configuration" ecoreFeature="ecore:EAttribute commonComponents.ecore#//CurrentTimeComponent/updatePeriod"/>
+      <genFeatures createChild="false" propertyCategory="configuration" propertyDescription="A date format pattern suitable for SimpleDateFormatter"
+          ecoreFeature="ecore:EAttribute commonComponents.ecore#//CurrentTimeComponent/dateFormat"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

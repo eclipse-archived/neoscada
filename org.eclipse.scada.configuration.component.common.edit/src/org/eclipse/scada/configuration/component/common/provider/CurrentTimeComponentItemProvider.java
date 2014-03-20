@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -16,7 +16,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,18 +25,19 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.component.ComponentFactory;
-import org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector;
 import org.eclipse.scada.configuration.component.common.CommonPackage;
+import org.eclipse.scada.configuration.component.common.CurrentTimeComponent;
+import org.eclipse.scada.configuration.component.common.DateFormat;
+import org.eclipse.scada.configuration.component.provider.MasterComponentItemProvider;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.ChangeHeartbeatDetector} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.common.CurrentTimeComponent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ChangeHeartbeatDetectorItemProvider
-        extends HeartbeatDetectorItemProvider
+public class CurrentTimeComponentItemProvider
+        extends MasterComponentItemProvider
         implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -51,7 +51,7 @@ public class ChangeHeartbeatDetectorItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ChangeHeartbeatDetectorItemProvider ( AdapterFactory adapterFactory )
+    public CurrentTimeComponentItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -69,27 +69,51 @@ public class ChangeHeartbeatDetectorItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addTimeoutPropertyDescriptor ( object );
-            addCheckPeriodPropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
+            addUpdatePeriodPropertyDescriptor ( object );
+            addDateFormatPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Timeout feature.
+     * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addTimeoutPropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ChangeHeartbeatDetector_timeout_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_timeout_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT,
+                        getString ( "_UI_CurrentTimeComponent_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_name_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Update Period feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addUpdatePeriodPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CurrentTimeComponent_updatePeriod_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CurrentTimeComponent_updatePeriod_feature", "_UI_CurrentTimeComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__UPDATE_PERIOD,
                         true,
                         false,
                         false,
@@ -99,86 +123,55 @@ public class ChangeHeartbeatDetectorItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Check Period feature.
+     * This adds a property descriptor for the Date Format feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addCheckPeriodPropertyDescriptor ( Object object )
+    protected void addDateFormatPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ChangeHeartbeatDetector_checkPeriod_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ChangeHeartbeatDetector_checkPeriod_feature", "_UI_ChangeHeartbeatDetector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD,
+                        getString ( "_UI_CurrentTimeComponent_dateFormat_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_CurrentTimeComponent_dateFormat_description" ), //$NON-NLS-1$
+                        CommonPackage.Literals.CURRENT_TIME_COMPONENT__DATE_FORMAT,
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         getString ( "_UI_configurationPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This returns CurrentTimeComponent.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    public Object getImage ( final Object object )
     {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns ChangeHeartbeatDetector.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object getImage ( Object object )
-    {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ChangeHeartbeatDetector" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/clock.png" ) ); //$NON-NLS-1$
     }
 
     /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (ChangeHeartbeatDetector)object ).getShortDescription ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_ChangeHeartbeatDetector_type" ) : //$NON-NLS-1$
-                getString ( "_UI_ChangeHeartbeatDetector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        final DateFormat label = ( (CurrentTimeComponent)object ).getDateFormat ();
+        return label == null ?
+                getString ( "_UI_CurrentTimeComponent_type" ) : //$NON-NLS-1$
+                getString ( "_UI_CurrentTimeComponent_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -193,14 +186,12 @@ public class ChangeHeartbeatDetectorItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( ChangeHeartbeatDetector.class ) )
+        switch ( notification.getFeatureID ( CurrentTimeComponent.class ) )
         {
-            case CommonPackage.CHANGE_HEARTBEAT_DETECTOR__TIMEOUT:
-            case CommonPackage.CHANGE_HEARTBEAT_DETECTOR__CHECK_PERIOD:
+            case CommonPackage.CURRENT_TIME_COMPONENT__NAME:
+            case CommonPackage.CURRENT_TIME_COMPONENT__UPDATE_PERIOD:
+            case CommonPackage.CURRENT_TIME_COMPONENT__DATE_FORMAT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case CommonPackage.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -217,16 +208,6 @@ public class ChangeHeartbeatDetectorItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM,
-                        ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( CommonPackage.Literals.CHANGE_HEARTBEAT_DETECTOR__SOURCE_ITEM,
-                        ComponentFactory.eINSTANCE.createComponentReferenceInputDefinition () ) );
     }
 
 }
