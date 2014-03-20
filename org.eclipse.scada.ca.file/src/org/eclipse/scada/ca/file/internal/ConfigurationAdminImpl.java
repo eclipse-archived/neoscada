@@ -110,7 +110,7 @@ public class ConfigurationAdminImpl extends AbstractConfigurationAdministrator
             if ( !this.root.exists () )
             {
                 logger.warn ( "Storage root does not exist: {}, Try to provision...", this.root );
-                this.root.mkdir ();
+                this.root.mkdirs ();
                 provisionData ();
             }
             if ( !this.root.isDirectory () )
