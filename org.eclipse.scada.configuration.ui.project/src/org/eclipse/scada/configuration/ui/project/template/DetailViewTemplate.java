@@ -28,25 +28,43 @@ public class DetailViewTemplate extends BaseTemplate
 
     private static final String OPT_NAME = "name"; //$NON-NLS-1$  
 
+    private String id;
+
+    private String name;
+
     public DetailViewTemplate ()
     {
         setPageCount ( 1 );
-        createOptions ();
+        createOptions ( "detailView" );
     }
 
-    private void createOptions ()
+    public DetailViewTemplate ( final String id, final String name )
     {
-        addOption ( OPT_NAME, Messages.DetailViewTemplate_Option_Name_Label, "detailView", 0 ); //$NON-NLS-1$
+        this.id = id;
+        this.name = name;
+
+        setPageCount ( 1 );
+        createOptions ( name );
+
+        setOptionEnabled ( OPT_NAME, false );
+    }
+
+    private void createOptions ( final String name )
+    {
+        addOption ( OPT_NAME, Messages.DetailViewTemplate_Option_Name_Label, name, 0 );
     }
 
     @Override
     public void addPages ( final Wizard wizard )
     {
-        final WizardPage page = createPage ( 0, IHelpContextIds.TEMPLATE_DETAIL_VIEW );
-        page.setTitle ( Messages.DetailViewTemplate_Page_Title );
-        page.setDescription ( Messages.DetailViewTemplate_Page_Description );
-        wizard.addPage ( page );
-        markPagesAdded ();
+        if ( this.id == null )
+        {
+            final WizardPage page = createPage ( 0, IHelpContextIds.TEMPLATE_DETAIL_VIEW );
+            page.setTitle ( Messages.DetailViewTemplate_Page_Title );
+            page.setDescription ( Messages.DetailViewTemplate_Page_Description );
+            wizard.addPage ( page );
+            markPagesAdded ();
+        }
     }
 
     @Override
@@ -77,7 +95,7 @@ public class DetailViewTemplate extends BaseTemplate
     @Override
     protected void updateModel ( final IProgressMonitor monitor ) throws CoreException
     {
-        final String name = getName ();
+        final String name = this.name != null ? this.name : getName ();
 
         final IPluginModelFactory factory = this.model.getPluginFactory ();
 
@@ -92,6 +110,19 @@ public class DetailViewTemplate extends BaseTemplate
         viewClass.setAttribute ( "class", "org.eclipse.scada.vi.details.swt.impl.DetailViewImpl" ); //$NON-NLS-1$  //$NON-NLS-2$
 
         addParameter ( factory, viewClass, "uri", String.format ( "platform:/plugin/%s/%s", this.model.getPluginBase ().getId (), makeViewFileName ( name ) ) ); //$NON-NLS-1$  //$NON-NLS-2$
+    }
+
+    @Override
+    protected String makeId ( final String name )
+    {
+        if ( this.id != null )
+        {
+            return this.id;
+        }
+        else
+        {
+            return super.makeId ( name );
+        }
     }
 
     protected String makeViewFileName ( final String name )

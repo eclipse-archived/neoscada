@@ -85,10 +85,10 @@ public class VIBaseTemplate extends AbstractVITemplate
         classElement = createViewerExtension ( factory, ext, "main.debug", "END", "TOP", "org.eclipse.scada.vi.ui.user.viewer.ext.DebugActionExtension" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         IPluginElement viewElement;
-        viewElement = createViewInstance ( factory, viewExt, "placeholder", true, false, "Placeholder", "resources/views/placeholder.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        viewElement = createViewInstance ( factory, viewExt, "placeholder", true, false, "Logon", "resources/views/placeholder.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         addExpressionByDefinition ( factory, ext, viewElement, "visibility", makeId ( "noSession" ) );
 
-        viewElement = createViewInstance ( factory, viewExt, "main", true, false, "Main", "resources/views/main.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        viewElement = createViewInstance ( factory, viewExt, "main", true, true, "Main", "resources/views/main.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         addExpressionByDefinition ( factory, ext, viewElement, "visibility", makeId ( "hasSession" ) );
     }
 

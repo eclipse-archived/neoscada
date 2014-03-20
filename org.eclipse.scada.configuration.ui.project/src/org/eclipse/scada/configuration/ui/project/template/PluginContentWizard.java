@@ -23,7 +23,7 @@ public class PluginContentWizard extends NewPluginTemplateWizard
         new ConnectionContextTemplate (), //
         new ConnectionDefinitionsTemplate (), //
         new AEViewSection (), //
-        new DetailViewTemplate (), //
+        new DetailViewTemplate ( "org.eclipse.scada.details.node", "node" ), //
         new VIBaseTemplate () //
         };
     }
