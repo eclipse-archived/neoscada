@@ -106,7 +106,7 @@ public abstract class BaseTemplate extends OptionTemplateSection
     @Override
     protected String getTemplateDirectory ()
     {
-        return "templates/scada/1.2"; //$NON-NLS-1$
+        return "templates/scada/0.1"; //$NON-NLS-1$
     }
 
     protected String makeConnectionId ( final String tag )

@@ -14,27 +14,14 @@ import java.util.Collection;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.pde.core.plugin.IPluginElement;
 import org.eclipse.pde.core.plugin.IPluginExtension;
 import org.eclipse.pde.core.plugin.IPluginModelFactory;
 import org.eclipse.pde.core.plugin.IPluginReference;
 import org.eclipse.pde.ui.templates.PluginReference;
-import org.eclipse.scada.configuration.ui.project.IHelpContextIds;
 
 public class VIBaseTemplate extends AbstractVITemplate
 {
-
-    @Override
-    public void addPages ( final Wizard wizard )
-    {
-        final WizardPage page = createPage ( 0, IHelpContextIds.TEMPLATE_DETAIL_VIEW );
-        page.setTitle ( Messages.DetailViewTemplate_Page_Title );
-        page.setDescription ( Messages.DetailViewTemplate_Page_Description );
-        wizard.addPage ( page );
-        markPagesAdded ();
-    }
 
     @Override
     public String getUsedExtensionPoint ()
@@ -90,7 +77,7 @@ public class VIBaseTemplate extends AbstractVITemplate
 
         classElement = createViewerExtension ( factory, ext, "main.message", "FILL", "TOP", "org.eclipse.scada.vi.ui.viewer.ext.item.SystemMessageExtension" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         addParameter ( factory, classElement, "connectionId", makeConnectionId ( "main" ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
-        addParameter ( factory, classElement, "itemId", "OS.DEMO.SCADA.SYSMSG.V" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        addParameter ( factory, classElement, "itemId", "ES.DEMO.SCADA.SYSMSG.V" ); //$NON-NLS-1$ //$NON-NLS-2$ 
 
         classElement = createViewerExtension ( factory, ext, "main.logo", "END", "TOP", "org.eclipse.scada.vi.ui.viewer.ext.image.ImageExtension" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         addParameter ( factory, classElement, "url", "platform:/plugin/" + this.pluginId + "/resources/customerLogo.png" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ 
@@ -98,7 +85,7 @@ public class VIBaseTemplate extends AbstractVITemplate
         classElement = createViewerExtension ( factory, ext, "main.debug", "END", "TOP", "org.eclipse.scada.vi.ui.user.viewer.ext.DebugActionExtension" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
         IPluginElement viewElement;
-        viewElement = createViewInstance ( factory, viewExt, "placeholder", true, false, "Main", "resources/views/placeholder.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        viewElement = createViewInstance ( factory, viewExt, "placeholder", true, false, "Placeholder", "resources/views/placeholder.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         addExpressionByDefinition ( factory, ext, viewElement, "visibility", makeId ( "noSession" ) );
 
         viewElement = createViewInstance ( factory, viewExt, "main", true, false, "Main", "resources/views/main.vi", false ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

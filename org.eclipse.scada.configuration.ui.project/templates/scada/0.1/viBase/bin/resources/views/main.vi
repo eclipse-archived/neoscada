@@ -4,7 +4,7 @@
     <children>
       <element xsi:type="visualInterface:SymbolReference" uri="../symbols/node/node.vi">
         <properties key="title" value="SRV001"/>
-        <properties key="prefix" value="OS.DEMO.SYS.SRV001"/>
+        <properties key="prefix" value="ES.DEMO.SYS.SRV001"/>
       </element>
       <position x="10.0" y="10.0"/>
       <dimension width="200.0" height="-1.0"/>

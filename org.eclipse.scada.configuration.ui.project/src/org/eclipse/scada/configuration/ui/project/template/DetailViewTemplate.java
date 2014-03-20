@@ -36,7 +36,7 @@ public class DetailViewTemplate extends BaseTemplate
 
     private void createOptions ()
     {
-        addOption ( OPT_NAME, Messages.DetailViewTemplate_Option_Name_Label, "detailView", 0 );
+        addOption ( OPT_NAME, Messages.DetailViewTemplate_Option_Name_Label, "detailView", 0 ); //$NON-NLS-1$
     }
 
     @Override
