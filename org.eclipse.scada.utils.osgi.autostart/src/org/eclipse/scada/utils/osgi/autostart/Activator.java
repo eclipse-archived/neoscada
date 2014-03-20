@@ -11,8 +11,10 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.osgi.autostart;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -114,7 +116,17 @@ public class Activator implements BundleActivator
             return;
         }
 
-        final URL url = new URL ( location );
+        URL url;
+
+        try
+        {
+            url = new URL ( location );
+        }
+        catch ( final MalformedURLException e )
+        {
+            // as file instead
+            url = new File ( location ).toURI ().toURL ();
+        }
 
         final Properties p = new Properties ();
 
