@@ -181,7 +181,7 @@ public class AntWixBuilder extends XMLBase
             sb.append ( "equinox.use.ds=true\n" ); //$NON-NLS-1$ 
             sb.append ( "eclipse.p2.data.area=@config.dir/../p2/\n" ); //$NON-NLS-1$ 
             sb.append ( "eclipse.p2.profile=SDKProfile\n" ); //$NON-NLS-1$
-            sb.append ( "org.eclipse.scada.utils.osgi.autostart.file=$${osgi.install.area}/startLevels.properties\n" ); //$NON-NLS-1$ 
+            sb.append ( "org.eclipse.scada.utils.osgi.autostart.url=$${osgi.install.area}/startLevels.properties\n" ); //$NON-NLS-1$ 
             sb.append ( "org.eclipse.equinox.simpleconfigurator.configUrl=file\\:org.eclipse.equinox.simpleconfigurator/bundles.info\n" ); //$NON-NLS-1$ 
 
             echo.appendChild ( echo.getOwnerDocument ().createCDATASection ( sb.toString () ) );
