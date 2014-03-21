@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -e
+
+ARCHIVE_DIR=/home/data/httpd/archive.eclipse.org/eclipsescada
+DOWNLOAD_DIR=/home/data/httpd/download.eclipse.org/eclipsescada
+
+VERSION="$1"
+BUILD_ID="$2"
+
+test -z "$VERSION" && ( echo "pass version"; exit 1 )
+test -z "$BUILD_ID" && ( echo "pass build id" ; exit 1 )
+
+DIRS="
+org.eclipse.scada
+org.eclipse.scada.external
+org.eclipse.scada.utils
+org.eclipse.scada.protocols
+org.eclipse.scada.base
+org.eclipse.scada.chart
+org.eclipse.scada.core
+org.eclipse.scada.hmi
+org.eclipse.scada.ide
+org.eclipse.scada.deploy
+org.eclipse.scada.deploy.p2director-incubation
+org.eclipse.scada.deploy.package-incubation
+org.eclipse.scada.deploy.repack-incubation
+"
+
+for i in $DIRS; do
+
+if [ -d "$DOWNLOAD_DIR/downloads/$i/drops/$VERSION/$BUILD_ID" ]; then
+	echo "Archive: $i / $VERSION / $BUILD_ID"
+	mkdir -p "$ARCHIVE_DIR/downloads/$i/drops/$VERSION"
+	mv "$DOWNLOAD_DIR/downloads/$i/drops/$VERSION/$BUILD_ID" "$ARCHIVE_DIR/downloads/$i/drops/$VERSION/"
+fi
+
+done
