@@ -22,7 +22,7 @@
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/download-main.png')/]"/>
-	<a href="[dropsLink(release, 'org.eclipse.scada', '/', false)/]">Download area</a>
+	<a href="[dropsLink(release, 'org.eclipse.scada', '', false)/]">Download area</a>
 <li>
 
 <li>
