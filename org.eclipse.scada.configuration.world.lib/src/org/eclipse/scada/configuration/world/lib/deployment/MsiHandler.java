@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.lib.deployment.wix.AntWixBuilder;
 import org.eclipse.scada.configuration.world.lib.deployment.wix.MsiPlatform;
 import org.eclipse.scada.configuration.world.lib.deployment.wix.WixDeploymentSetupBuilder;
 import org.eclipse.scada.configuration.world.lib.oscar.P2ProfileProcessor;
+import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
@@ -71,6 +72,13 @@ public class MsiHandler extends CommonHandler
 
         createStage ( nodeDir.getLocation ().toFile (), stage, monitor );
 
+        final boolean enableSubst = !Boolean.parseBoolean ( properties.get ( "msi.disableSubst" ) );
+        if ( enableSubst )
+        {
+            Helper.createFile ( new File ( packageFolder, "README.subst.txt" ), MsiHandler.class.getResourceAsStream ( "templates/msi/README.subst.txt" ), monitor, false );
+        }
+        Helper.createFile ( new File ( packageFolder, "README.ant.txt" ), MsiHandler.class.getResourceAsStream ( "templates/msi/README.ant.txt" ), monitor, false );
+
         // create wix setup project
 
         final WixDeploymentSetupBuilder wixBuilder = new WixDeploymentSetupBuilder ();
@@ -98,12 +106,12 @@ public class MsiHandler extends CommonHandler
         {
             wixExt.add ( "WixFirewallExtension" ); //$NON-NLS-1$
         }
-        if ( this.deployment.isEnableFirewall () )
+        if ( this.deployment.isEnableUserInterface () )
         {
             wixExt.add ( "WixUIExtension" ); //$NON-NLS-1$
         }
 
-        final AntWixBuilder antBuilder = new AntWixBuilder ( String.format ( "%s_%s.msi", packageName, this.deployment.getVersion () ), platform, findPlatform (), wixExt ); //$NON-NLS-1$
+        final AntWixBuilder antBuilder = new AntWixBuilder ( String.format ( "%s_%s.msi", packageName, this.deployment.getVersion () ), platform, findPlatform (), wixExt, enableSubst ); //$NON-NLS-1$
         createApplications ( nodeDir.getLocation ().toFile (), antBuilder, wixBuilder );
 
         // write out
