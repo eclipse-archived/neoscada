@@ -55,7 +55,7 @@
     <!-- ================================= 
           target: build
          ================================= -->
-    <target name="build">
+    <target name="build" unless="skip.deb.build">
         <exec executable="${maven.exec}" dir="apt" failifexecutionfails="true" failonerror="true">
             <arg value="clean"/>
             <arg value="package"/>
