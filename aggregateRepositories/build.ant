@@ -18,9 +18,21 @@
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
 
     <!-- ================================= 
-          target: default              
+          target: default
          ================================= -->
-    <target name="default" depends="clean.repo,build.repo,clean.update,build.update,link,index">
+    <target name="default" depends="phase1,phase2">
+    </target>
+    
+    <!-- ================================= 
+          target: phase1
+         ================================= -->
+    <target name="phase1" depends="clean.repo,build.repo,clean.update,build.update">
+    </target>
+    
+    <!-- ================================= 
+          target: phase2
+         ================================= -->
+    <target name="phase2" depends="link,index">
     </target>
 
     <!-- ================================= 
