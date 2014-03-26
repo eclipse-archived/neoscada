@@ -134,10 +134,9 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
 
         final CustomizationPipeline pipeline = createPipeline ( new Path ( "templates/default.icm_js" ) ); //$NON-NLS-1$
         final Selector archiveSelector = createSelector ( new Path ( "templates/archiveSelector.isel_js" ) ); //$NON-NLS-1$
-        final Selector globalizeSelector = createSelector ( new Path ( "templates/globalize.isel_js" ) ); //$NON-NLS-1$
 
         final World world = createInfrastructure ( rs, security, masterProfile, hdProfile );
-        final ComponentWorld system = createComponents ( world, pipeline, archiveSelector, globalizeSelector );
+        final ComponentWorld system = createComponents ( world, pipeline, archiveSelector );
         final DeploymentInformation di = createDeploymentInformation ();
         final P2Platform targetPlatform = createTargetPlatformInformation ( TargetPlatforms.KEPLER );
 
@@ -153,7 +152,6 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
 
         save ( rs, base, "customization/default.icm_js", pipeline ); //$NON-NLS-1$
         save ( rs, base, "customization/archiveSelector.isel_js", archiveSelector ); //$NON-NLS-1$
-        save ( rs, base, "customization/globalize.isel_js", globalizeSelector ); //$NON-NLS-1$
 
         save ( rs, base, "world.esim", world ); //$NON-NLS-1$
         save ( rs, base, "world.escm", system ); //$NON-NLS-1$
@@ -324,7 +322,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         world.getOptions ().setDefaultUserService ( service );
     }
 
-    private org.eclipse.scada.configuration.component.ComponentWorld createComponents ( final World world, final CustomizationPipeline pipeline, final Selector archiveSelector, final Selector globalizeSelector )
+    private org.eclipse.scada.configuration.component.ComponentWorld createComponents ( final World world, final CustomizationPipeline pipeline, final Selector archiveSelector )
     {
         final ComponentWorld system = ComponentFactory.eINSTANCE.createComponentWorld ();
 
@@ -372,7 +370,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
     {
         for ( final Driver driver : master.getDriver () )
         {
-            if ( driver.getName ().equals ( driverName ) && ( driver instanceof AbstractFactoryDriver ) )
+            if ( driver.getName ().equals ( driverName ) && driver instanceof AbstractFactoryDriver )
             {
                 return (AbstractFactoryDriver)driver;
             }
