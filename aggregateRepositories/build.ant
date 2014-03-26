@@ -40,7 +40,7 @@
     <!-- ================================= 
           target: build.repo
          ================================= -->
-    <target name="build.repo">
+    <target name="build.repo" unless="skip.build.repo">
         <ant antfile="deb.ant" inheritall="true" />
         <ant antfile="yum.ant" inheritall="true" />
     </target>
@@ -48,7 +48,7 @@
     <!-- ================================= 
           target: build.update
          ================================= -->
-    <target name="build.update">
+    <target name="build.update" unless="skip.build.update">
         <ant antfile="p2.ant" inheritall="true" />
     </target>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.scada.releng</groupId>
+	<artifactId>build-apt</artifactId>
+	<version>0.1.0</version>
+
+	<packaging>pom</packaging>
+
+	<description>Build an APT repository</description>
+
+	<repositories>
+		<repository>
+			<id>jdeb</id>
+			<url>http://repo.openscada.org/maven.jdeb</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.openscada</groupId>
+				<artifactId>jdeb</artifactId>
+				<version>1.1.2-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>apt</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${sourceDirectory}</sourceDirectory>
+							<outputDirectory>${outputDirectory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -54,7 +54,12 @@
           target: build
          ================================= -->
     <target name="build">
-        <!-- TODO: build the apt repository -->
+        <exec executable="mvn" dir="apt" failifexecutionfails="true" failonerror="true">
+            <arg value="clean"/>
+            <arg value="package"/>
+            <arg value="-DsourceDirectory=${download.deb.dir}"/>
+            <arg value="-DoutputDirectory=${download.apt.dir}"/>
+        </exec>
     </target>
 
     <target name="echo">
