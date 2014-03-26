@@ -13,6 +13,8 @@
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
     <property name="download.deb.dir" location="${download.base.dir}/repos/deb" />
     <property name="download.apt.dir" location="${download.base.dir}/repos/apt" />
+    
+    <property name="maven.exec" value="mvn"/>
 
     <!-- ================================= 
           target: default
@@ -54,7 +56,7 @@
           target: build
          ================================= -->
     <target name="build">
-        <exec executable="mvn" dir="apt" failifexecutionfails="true" failonerror="true">
+        <exec executable="${maven.exec}" dir="apt" failifexecutionfails="true" failonerror="true">
             <arg value="clean"/>
             <arg value="package"/>
             <arg value="-DsourceDirectory=${download.deb.dir}"/>
