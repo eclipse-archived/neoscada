@@ -312,11 +312,13 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final UserEntry user = InfrastructureFactory.eINSTANCE.createUserEntry ();
         user.setName ( "admin" ); //$NON-NLS-1$
         user.setPassword ( "admin12" ); //$NON-NLS-1$
+        user.getRoles ().add ( "ADMIN" );
         service.getUsers ().add ( user );
 
         final UserEntry user2 = InfrastructureFactory.eINSTANCE.createUserEntry ();
         user2.setName ( this.info.getDefaultInterconnectCredentials ().getUsername () );
         user2.setPassword ( this.info.getDefaultInterconnectCredentials ().getPassword () );
+        user2.getRoles ().add ( "INTERCONNECT" );
         service.getUsers ().add ( user2 );
 
         world.getOptions ().setDefaultUserService ( service );
@@ -484,6 +486,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         final GenericScript trueScript = addSecurityScript ( cfg, "true;" ); //$NON-NLS-1$
         final GenericScript falseScript = addSecurityScript ( cfg, "false;" ); //$NON-NLS-1$
         final GenericScript hasUserScript = addSecurityScript ( cfg, "user != null;" ); //$NON-NLS-1$
+        final GenericScript hasAdminRoleScript = addSecurityScript ( cfg, "user != null && user.hasRole ( \"ADMIN\" );" ); //$NON-NLS-1$
 
         // logon rule
         final LogonRule logonRule = SecurityFactory.eINSTANCE.createLogonRule ();
@@ -492,11 +495,11 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
         logonRule.setTypeFilter ( Pattern.compile ( "SESSION" ) ); //$NON-NLS-1$
         cfg.getRules ().add ( logonRule );
 
-        addScriptRule ( cfg, "allow.logon", null, "CONNECT", "SESSION", trueScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "allow.operator.session", "operator", "PRIV", "SESSION", hasUserScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "reject.operator.session", "operator", "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "reject.all.session", null, "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$
-        addScriptRule ( cfg, "allow.all", null, null, null, hasUserScript ); //$NON-NLS-1$  
+        addScriptRule ( cfg, "allow.logon", null, "CONNECT", "SESSION", trueScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$ 
+        addScriptRule ( cfg, "allow.operator.session", "operator", "PRIV", "SESSION", hasUserScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$ //$NON-NLS-4$
+        addScriptRule ( cfg, "allow.admin.session", "admin", "PRIV", "SESSION", hasAdminRoleScript ); //$NON-NLS-1$  //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        addScriptRule ( cfg, "reject.all.session", null, "PRIV", "SESSION", falseScript ); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$ 
+        addScriptRule ( cfg, "allow.all", null, null, null, hasUserScript ); //$NON-NLS-1$
 
         return cfg;
     }
