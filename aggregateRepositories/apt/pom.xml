@@ -15,6 +15,9 @@
 		<repository>
 			<id>jdeb</id>
 			<url>http://repo.openscada.org/maven.jdeb</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
