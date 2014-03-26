@@ -279,13 +279,22 @@ public interface ComponentPackage extends EPackage
     int LEVEL__NAME = CONTAINER_FEATURE_COUNT + 5;
 
     /**
+     * The feature id for the '<em><b>Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL__DESCRIPTION = CONTAINER_FEATURE_COUNT + 6;
+
+    /**
      * The number of structural features of the '<em>Level</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int LEVEL_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 6;
+    int LEVEL_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 7;
 
     /**
      * The number of operations of the '<em>Level</em>' class.
@@ -3315,6 +3324,17 @@ public interface ComponentPackage extends EPackage
     EAttribute getLevel_Name ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.Level#getDescription <em>Description</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Description</em>'.
+     * @see org.eclipse.scada.configuration.component.Level#getDescription()
+     * @see #getLevel()
+     * @generated
+     */
+    EAttribute getLevel_Description ();
+
+    /**
      * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.Level#getLevels <em>Levels</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4715,6 +4735,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EAttribute LEVEL__NAME = eINSTANCE.getLevel_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute LEVEL__DESCRIPTION = eINSTANCE.getLevel_Description ();
 
         /**
          * The meta object literal for the '<em><b>Levels</b></em>' containment reference list feature.

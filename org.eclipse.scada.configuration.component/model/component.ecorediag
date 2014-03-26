@@ -23,6 +23,10 @@
         <element xmi:type="ecore:EAttribute" href="component.ecore#//Level/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_oAR8Zu0-EeKGXeBKLQA3cw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_Zbcn8LTWEeOF3saO75bl9w" type="2001">
+        <element xmi:type="ecore:EAttribute" href="component.ecore#//Level/description"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Zbcn8bTWEeOF3saO75bl9w"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_oARVVe0-EeKGXeBKLQA3cw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_oARVVu0-EeKGXeBKLQA3cw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_oAR8YO0-EeKGXeBKLQA3cw"/>

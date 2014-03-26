@@ -67,6 +67,7 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
             addCustomizationPipelinePropertyDescriptor ( object );
             addArchiveSelectorPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
+            addDescriptionPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -86,6 +87,29 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
                         getString ( "_UI_Level_name_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Level_name_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         ComponentPackage.Literals.LEVEL__NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Description feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDescriptionPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Level_description_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Level_description_feature", "_UI_Level_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.LEVEL__DESCRIPTION,
                         true,
                         false,
                         false,
@@ -216,6 +240,7 @@ public class LevelItemProvider extends ContainerItemProvider implements IEditing
         switch ( notification.getFeatureID ( Level.class ) )
         {
             case ComponentPackage.LEVEL__NAME:
+            case ComponentPackage.LEVEL__DESCRIPTION:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ComponentPackage.LEVEL__COMPONENTS:
