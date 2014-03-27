@@ -790,7 +790,7 @@ public class Variant implements Serializable, Comparable<Variant>
     {
         if ( this.value == null )
         {
-            return 0;
+            return 31;
         }
         return this.value.hashCode ();
     }
