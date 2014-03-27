@@ -294,7 +294,6 @@ public class Variant implements Serializable, Comparable<Variant>
     }
 
     /**
-     * @since 0.14.0
      * @param defaultValue
      *            the default value
      * @return the value as a double or the default value if the value cannot be
@@ -355,7 +354,6 @@ public class Variant implements Serializable, Comparable<Variant>
     }
 
     /**
-     * @since 0.14.0
      * @param defaultValue
      *            the default value
      * @return the value as an integer or the default value if the value cannot
@@ -416,7 +414,6 @@ public class Variant implements Serializable, Comparable<Variant>
     }
 
     /**
-     * @since 0.14.0
      * @param defaultValue
      *            the default value
      * @return the value as a long or the default value if the value cannot be
@@ -552,7 +549,8 @@ public class Variant implements Serializable, Comparable<Variant>
     }
 
     /**
-     * @since 0.15.0
+     * Return the value as boolean
+     * 
      * @param defaultValue
      *            the default value
      * @return the value as a boolean or the default value if the value is null
@@ -582,7 +580,6 @@ public class Variant implements Serializable, Comparable<Variant>
      *            the default value in case the conversion fails or the variant
      *            is NULL
      * @return the resulting java object
-     * @since 0.16.0
      */
     public Serializable as ( final VariantType variantType, final Serializable defaultValue )
     {
@@ -639,7 +636,6 @@ public class Variant implements Serializable, Comparable<Variant>
      *             to some other type
      * @throws NotConvertableException
      *             in case the variant cannot be converted to the target value
-     * @since 0.16.0
      */
     public Serializable as ( final VariantType variantType ) throws NullValueException, NotConvertableException
     {
