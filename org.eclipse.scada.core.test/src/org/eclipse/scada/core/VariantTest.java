@@ -233,7 +233,14 @@ public class VariantTest
     public void testVariantCompareStringDifferntType () throws Exception
     {
         testCompare ( "0", 0, true );
+        testCompare ( "0.0", 0, false );
+        testCompare ( "0.0", 0.0, true );
+        testCompare ( "0", 0.0, true );
+
         testCompare ( "1", 1, true );
+        testCompare ( "1.0", 1, false );
+        testCompare ( "1.0", 1.0, true );
+
         testCompare ( "1.5", 1.5, true );
         testCompare ( "1", 1.5, false );
 
