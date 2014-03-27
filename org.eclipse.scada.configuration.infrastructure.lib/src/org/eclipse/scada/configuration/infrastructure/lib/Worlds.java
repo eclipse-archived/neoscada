@@ -19,7 +19,6 @@ import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
-import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
