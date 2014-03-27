@@ -157,9 +157,9 @@ public class Variant implements Serializable, Comparable<Variant>
         setValue ( value );
     }
 
-    protected Variant ( final Variant arg0 )
+    protected Variant ( final Variant other )
     {
-        this ( arg0 != null ? arg0.value : null );
+        this ( other != null ? other.value : null );
     }
 
     public boolean isNull ()
@@ -738,37 +738,37 @@ public class Variant implements Serializable, Comparable<Variant>
             return true;
         }
 
-        final Variant arg0 = (Variant)obj;
+        final Variant other = (Variant)obj;
 
         try
         {
-            if ( arg0.isNull () )
+            if ( other.isNull () )
             {
                 return isNull ();
             }
             else if ( isNull () )
             {
-                return arg0.isNull ();
+                return other.isNull ();
             }
-            else if ( arg0.isBoolean () )
+            else if ( other.isBoolean () )
             {
-                return compareToBoolean ( arg0.asBoolean () );
+                return compareToBoolean ( other.asBoolean () );
             }
-            else if ( arg0.isDouble () )
+            else if ( other.isDouble () )
             {
-                return compareToDouble ( arg0.asDouble () );
+                return compareToDouble ( other.asDouble () );
             }
-            else if ( arg0.isLong () )
+            else if ( other.isLong () )
             {
-                return compareToLong ( arg0.asLong () );
+                return compareToLong ( other.asLong () );
             }
-            else if ( arg0.isInteger () )
+            else if ( other.isInteger () )
             {
-                return compareToInteger ( arg0.asInteger () );
+                return compareToInteger ( other.asInteger () );
             }
-            else if ( arg0.isString () )
+            else if ( other.isString () )
             {
-                return compareToString ( arg0.asString () );
+                return compareToString ( other.asString () );
             }
 
             return false;
