@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - also store file location when entering directly
  *******************************************************************************/
 package org.eclipse.scada.ca.ui.importer.wizard;
 
@@ -22,6 +23,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.oscar.OscarLoader;
 import org.eclipse.scada.ca.ui.importer.Activator;
 import org.eclipse.scada.ca.ui.util.DiffController;
@@ -38,7 +40,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.ca.connection.provider.ConnectionService;
 
 public class LocalDataPage extends WizardPage
 {
@@ -128,7 +129,6 @@ public class LocalDataPage extends WizardPage
         if ( file != null )
         {
             this.fileName.setText ( file );
-            storeFileToPreferences ( file );
             loadFile ();
         }
     }
@@ -243,6 +243,7 @@ public class LocalDataPage extends WizardPage
                 }
             } );
 
+            storeFileToPreferences ( file.getAbsolutePath () );
         }
         catch ( final Exception e )
         {
