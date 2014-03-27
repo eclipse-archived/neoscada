@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,10 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - rewritten most of the test in order to test more variants
  *******************************************************************************/
 package org.eclipse.scada.core;
 
-import org.eclipse.scada.core.Variant;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,292 +41,209 @@ public class VariantTest
         }
     }
 
-    @Test
-    public void testVariantCompareNullSame () throws Exception
+    private void testCompare ( final Object v1, final Object v2, final boolean expectEqual )
     {
-        final Variant nullValue = new Variant ();
-
-        compareVariant ( nullValue, nullValue, true );
+        compareVariant ( Variant.valueOf ( v1 ), Variant.valueOf ( v2 ), expectEqual );
+        compareVariant ( new Variant ( v1 ), new Variant ( v2 ), expectEqual );
     }
 
     @Test
-    public void testVariantCompareNullDifferent () throws Exception
+    public void testVariantCompareEqualSameType () throws Exception
     {
-        final Variant nullValue1 = new Variant ();
-        final Variant nullValue2 = new Variant ();
+        testCompare ( null, null, true );
 
-        compareVariant ( nullValue1, nullValue2, true );
+        testCompare ( 0, 0, true );
+        testCompare ( 1, 1, true );
+        testCompare ( -1, -01, true );
 
+        testCompare ( 0L, 0L, true );
+        testCompare ( 1L, 1L, true );
+        testCompare ( -1L, -1L, true );
+
+        testCompare ( 0.0, 0.0, true );
+        testCompare ( 1.0, 1.0, true );
+        testCompare ( -1.0, -1.0, true );
+        testCompare ( 1.5, 1.5, true );
+        testCompare ( -1.5, -1.5, true );
+
+        testCompare ( "", "", true );
+        testCompare ( "foo", "foo", true );
+        testCompare ( "bar", "bar", true );
+
+        testCompare ( false, false, true );
+        testCompare ( true, true, true );
     }
 
     @Test
-    public void testVariantCompareIntEqual () throws Exception
+    public void testVariantCompareNullNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 1 );
-
-        compareVariant ( v1, v2, true );
+        testCompare ( null, 0, false );
+        testCompare ( null, 0L, false );
+        testCompare ( null, 0.0, false );
+        testCompare ( null, false, false );
+        testCompare ( null, true, false );
+        testCompare ( null, "", false );
     }
 
     @Test
-    public void testVariantCompareIntDifferent () throws Exception
+    public void testVariantCompareBooleanNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 2 );
+        testCompare ( false, 1, false );
+        testCompare ( false, 1L, false );
+        testCompare ( false, 1.0, false );
+        testCompare ( false, "1", false );
+        testCompare ( false, true, false );
 
-        compareVariant ( v1, v2, false );
+        testCompare ( true, 0, false );
+        testCompare ( true, 0L, false );
+        testCompare ( true, 0.0, false );
+        testCompare ( true, "0", false );
+        testCompare ( true, false, false );
     }
 
     @Test
-    public void testVariantCompareLongEqual () throws Exception
+    public void testVariantCompareIntNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( (long)1 );
-        final Variant v2 = new Variant ( (long)1 );
-
-        compareVariant ( v1, v2, true );
+        testCompare ( 0, 1, false );
+        testCompare ( 0, 1L, false );
+        testCompare ( 0, 1.0, false );
+        testCompare ( 0, "1", false );
+        testCompare ( 0, true, false );
     }
 
     @Test
-    public void testVariantCompareLongDifferent () throws Exception
+    public void testVariantCompareLongNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( (long)1 );
-        final Variant v2 = new Variant ( (long)2 );
-
-        compareVariant ( v1, v2, false );
+        testCompare ( 0L, 1, false );
+        testCompare ( 0L, 1L, false );
+        testCompare ( 0L, 1.0, false );
+        testCompare ( 0L, "1", false );
+        testCompare ( 0L, true, false );
     }
 
     @Test
-    public void testVariantCompareStringEqual () throws Exception
+    public void testVariantCompareDoubleNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( "test" );
-        final Variant v2 = new Variant ( "test" );
+        testCompare ( 0.0, 1, false );
+        testCompare ( 0.0, 1L, false );
+        testCompare ( 0.0, "1", false );
+        testCompare ( 0.0, true, false );
 
-        compareVariant ( v1, v2, true );
+        testCompare ( 0.0, -1.5, false );
+        testCompare ( 0.0, 1.5, false );
     }
 
     @Test
-    public void testVariantCompareStringDifferent () throws Exception
+    public void testVariantCompareStringNotEqual () throws Exception
     {
-        final Variant v1 = new Variant ( "test1" );
-        final Variant v2 = new Variant ( "test2" );
-
-        compareVariant ( v1, v2, false );
+        testCompare ( "0", 1, false );
+        testCompare ( "0", 1L, false );
+        testCompare ( "0", "1", false );
+        testCompare ( "0", true, false );
     }
 
     @Test
-    public void testVariantCompareIntVSLongEqual () throws Exception
+    public void testVariantCompareIntDifferentType () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( (long)1 );
+        testCompare ( 0, 0L, true );
+        testCompare ( 1, 1L, true );
 
-        compareVariant ( v1, v2, true );
+        testCompare ( 0, 0.0, true );
+        testCompare ( 1, 1.0, true );
+
+        testCompare ( 0, false, true );
+        testCompare ( 1, true, true );
+
+        testCompare ( 0, "0", true );
+        testCompare ( 1, "1", true );
     }
 
     @Test
-    public void testVariantCompareIntVSLongDifferent () throws Exception
+    public void testVariantCompareLongDifferentType () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( (long)2 );
+        testCompare ( 0L, 0, true );
+        testCompare ( 1L, 1, true );
 
-        compareVariant ( v1, v2, false );
+        testCompare ( 0L, 0.0, true );
+        testCompare ( 1L, 1.0, true );
+
+        testCompare ( 0L, false, true );
+        testCompare ( 1L, true, true );
+
+        testCompare ( 0L, "0", true );
+        testCompare ( 1L, "1", true );
     }
 
     @Test
-    public void testVariantCompareIntVSDoubleEqual () throws Exception
+    public void testVariantCompareBooleanDifferentType () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 1.0 );
+        testCompare ( false, 0, true );
+        testCompare ( false, 0.0, true );
+        testCompare ( false, 0L, true );
 
-        compareVariant ( v1, v2, true );
+        testCompare ( true, 1, true );
+        testCompare ( true, 1L, true );
+        testCompare ( true, 1.0, true );
+
+        testCompare ( true, -1.5, true );
+        testCompare ( true, 1.5, true );
+
+        testCompare ( true, -1, true );
+        testCompare ( true, -1L, true );
+        testCompare ( true, -1.0, true );
+
+        testCompare ( false, "", true );
+        testCompare ( false, "foobar", true );
+        testCompare ( false, "false", true );
+        testCompare ( false, "0", true );
+
+        testCompare ( true, "true", true );
+        testCompare ( true, "1", true );
+
+        testCompare ( true, "0", false );
     }
 
     @Test
-    public void testVariantCompareIntVSDoubleDifferent () throws Exception
+    public void testVariantCompareDoubleDifferentType () throws Exception
     {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 1.5 );
+        testCompare ( 0.0, 0, true );
+        testCompare ( 1.0, 1, true );
 
-        compareVariant ( v1, v2, false );
+        testCompare ( 0.0, 0L, true );
+        testCompare ( 1.0, 1L, true );
+
+        testCompare ( 0.0, false, true );
+        testCompare ( 1.0, true, true );
+
+        testCompare ( 0.0, "0", true );
+        testCompare ( 1.0, "1", true );
+
+        testCompare ( 0.0, "0.0", true );
+        testCompare ( 1.0, "1.0", true );
+
+        testCompare ( 0.0, "", false );
+        testCompare ( 1.0, "", false );
+
+        testCompare ( 0.0, "1.0", false );
+        testCompare ( 1.5, "1.0", false );
+        testCompare ( -1.0, "1.0", false );
     }
 
     @Test
-    public void testVariantCompareStringVSDoubleEqual () throws Exception
+    public void testVariantCompareStringDifferntType () throws Exception
     {
-        final Variant v1 = new Variant ( "1" );
-        final Variant v2 = new Variant ( 1.0 );
+        testCompare ( "0", 0, true );
+        testCompare ( "1", 1, true );
+        testCompare ( "1.5", 1.5, true );
+        testCompare ( "1", 1.5, false );
 
-        compareVariant ( v1, v2, true );
-    }
+        testCompare ( "foo", 1.5, false );
+        testCompare ( "foo", 1, false );
+        testCompare ( "foo", 1L, false );
+        testCompare ( "foo", 0, false );
 
-    @Test
-    public void testVariantCompareStringVSDoubleDifferent () throws Exception
-    {
-        final Variant v1 = new Variant ( "1" );
-        final Variant v2 = new Variant ( 1.5 );
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareStringVSBooleanEqual () throws Exception
-    {
-        Variant v1 = new Variant ( "1" );
-        Variant v2 = new Variant ( true );
-
-        compareVariant ( v1, v2, true );
-
-        v1 = new Variant ( "0" );
-        v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, true );
-
-        v1 = new Variant ( "" );
-        v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, true );
-
-        v1 = new Variant ( "true" );
-        v2 = new Variant ( true );
-
-        compareVariant ( v1, v2, true );
-
-        v1 = new Variant ( "false" );
-        v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareStringVSBooleanDifferent () throws Exception
-    {
-        Variant v1 = new Variant ( "1" );
-        Variant v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, false );
-
-        v1 = new Variant ( "0" );
-        v2 = new Variant ( true );
-
-        compareVariant ( v1, v2, false );
-
-        v1 = new Variant ( "true" );
-        v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, false );
-
-        v1 = new Variant ( "false" );
-        v2 = new Variant ( true );
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSBooleanEqual () throws Exception
-    {
-        final Variant v1 = new Variant ( false );
-        final Variant v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSBooleanDifferent () throws Exception
-    {
-        final Variant v1 = new Variant ( true );
-        final Variant v2 = new Variant ( false );
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSNullEqual1 () throws Exception
-    {
-        final Variant v1 = new Variant ( false );
-        final Variant v2 = new Variant ();
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSNullEqual2 () throws Exception
-    {
-        final Variant v1 = new Variant ( true );
-        final Variant v2 = new Variant ();
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareNullVSNullEqual () throws Exception
-    {
-        final Variant v1 = new Variant ();
-        final Variant v2 = new Variant ();
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSLongEqual () throws Exception
-    {
-        final Variant v1 = new Variant ( true );
-        final Variant v2 = new Variant ( (long)-2000 );
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSLongDifferent () throws Exception
-    {
-        final Variant v1 = new Variant ( true );
-        final Variant v2 = new Variant ( (long)0 );
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSDoubleEqual () throws Exception
-    {
-        Variant v1 = new Variant ( false );
-        Variant v2 = new Variant ( 0.0 );
-
-        compareVariant ( v1, v2, true );
-
-        v1 = new Variant ( true );
-        v2 = new Variant ( -1.0 );
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareBooleanVSDoubleDifferent () throws Exception
-    {
-        Variant v1 = new Variant ( false );
-        Variant v2 = new Variant ( 0.1 );
-
-        compareVariant ( v1, v2, false );
-
-        v1 = new Variant ( true );
-        v2 = new Variant ( 0.0 );
-
-        compareVariant ( v1, v2, false );
-    }
-
-    @Test
-    public void testVariantCompareIntegerVSDoubleEqual () throws Exception
-    {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 1.0 );
-
-        compareVariant ( v1, v2, true );
-    }
-
-    @Test
-    public void testVariantCompareIntegerVSDoubleDifferent () throws Exception
-    {
-        final Variant v1 = new Variant ( 1 );
-        final Variant v2 = new Variant ( 1.1 );
-
-        compareVariant ( v1, v2, false );
+        testCompare ( "false", false, true );
+        testCompare ( "true", true, true );
     }
 
     @Test
@@ -337,5 +254,4 @@ public class VariantTest
 
         compareVariant ( v1, v2, true );
     }
-
 }
