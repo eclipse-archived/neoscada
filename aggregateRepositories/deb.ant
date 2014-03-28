@@ -62,6 +62,9 @@
             <arg value="-DsourceDirectory=${download.deb.dir}"/>
             <arg value="-DoutputDirectory=${download.apt.dir}"/>
         </exec>
+        
+        <!-- we delete the plain debian result here to save space -->
+        <delete dir="${download.deb.dir}"/>
     </target>
 
     <target name="echo">
