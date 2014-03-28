@@ -34,8 +34,9 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
+            description="Dumps the current summaries state to the console"
             id="org.eclipse.scada.vi.ui.user.showSummaries"
-            name="Show Summaries">
+            name="Dump Summaries to Console">
       </command>
    </extension>
    <extension
