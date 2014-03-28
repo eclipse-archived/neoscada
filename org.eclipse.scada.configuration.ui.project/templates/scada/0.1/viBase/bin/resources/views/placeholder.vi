@@ -4,8 +4,5 @@
     <children horizontalAlignment="CENTER" verticalAlignment="CENTER" grabHorizontalSpace="true" grabVerticalSpace="true" spanCols="3">
       <element xsi:type="visualInterface:Image" uri="../images/logo.png"/>
     </children>
-    <children horizontalAlignment="END" verticalAlignment="END" spanCols="3">
-      <element xsi:type="visualInterface:Image" uri="../images/icon_48px.png"/>
-    </children>
   </root>
 </visualInterface:Symbol>
