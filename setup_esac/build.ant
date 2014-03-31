@@ -30,6 +30,7 @@
          ================================= -->
     <target name="clean">
         <delete dir="fetch" />
+        <delete dir="unpack" />
 
         <delete dir="setup_esac">
             <include name="*.msi" />
