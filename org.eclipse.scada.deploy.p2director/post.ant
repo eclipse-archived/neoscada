@@ -55,27 +55,17 @@ is active.
           target: file
          ================================= -->
     <target name="file">
-        <fileset id="rpms.x86_64" dir="${output}">
-            <include name="*.x86_64.rpm" />
-        </fileset>
-        <fileset id="rpms.i386" dir="${output}">
-            <include name="*.i386.rpm" />
+        <fileset id="rpms" dir="${output}">
+            <include name="*.rpm" />
         </fileset>
 
-        <pathconvert property="rpmText.x86_64" refid="rpms.x86_64" pathsep="\n">
+        <pathconvert property="rpmsText" refid="rpms" pathsep="\n">
             <mapper type="flatten" />
         </pathconvert>
 
-        <pathconvert property="rpmText.i386" refid="rpms.i386" pathsep="\n">
-            <mapper type="flatten" />
-        </pathconvert>
-
-        <echo message="${repo}.x86_64.rpmFileName=${rpmText.x86_64}" />
-        <echo message="${repo}.i386.rpmFileName=${rpmText.i386}" />
+        <echo message="${repo}.rpmFileName=${rpmsText}" />
         
-        <echo file="${output}/rpm.properties">${repo}.i386.rpmFileName=${rpmText.i386}
-${repo}.x86_64.rpmFileName=${rpmText.x86_64}
-</echo>
+        <echo file="${output}/rpm.properties">${repo}.rpmFileName=${rpmsText}</echo>
     </target>
 
     <!-- ================================= 

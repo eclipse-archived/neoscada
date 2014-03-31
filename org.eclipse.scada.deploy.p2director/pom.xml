@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.eclipse.scada.releng</groupId>
 		<artifactId>superParent</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.eclipse.scada.deploy</groupId>
 	<artifactId>org.eclipse.scada.deploy.p2director-incubation</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>eclipse-repository</packaging>
 	
 	<organization>
@@ -44,14 +44,9 @@
 				<configuration>
 					<environments>
 						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
+							<os>all</os>
+							<ws>all</ws>
+							<arch>all</arch>
 						</environment>
 					</environments>
 				</configuration>
@@ -87,17 +82,14 @@
 
 				<executions>
 					<execution>
-						<id>linux-x86_64</id>
 						<phase>package</phase>
 						<goals>
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
-							<controlDir>${basedir}/src/linux-x86_64/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_[[version]]_amd64.deb</deb>
 							<dataSet>
 								<data>
-									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</src>
+									<src>target/products/org.eclipse.scada.deploy.p2director/all/all/all</src>
 									<type>directory</type>
 									<excludes>p2director</excludes>
 									<mapper>
@@ -106,7 +98,7 @@
 									</mapper>
 								</data>
 								<data>
-									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</src>
+									<src>target/products/org.eclipse.scada.deploy.p2director/all/all/all</src>
 									<type>directory</type>
 									<includes>p2director</includes>
 									<mapper>
@@ -124,46 +116,6 @@
 							</dataSet>
 						</configuration>
 					</execution>
-
-					<execution>
-						<id>linux-x86</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jdeb</goal>
-						</goals>
-						<configuration>
-							<controlDir>${basedir}/src/linux-x86/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_[[version]]_i386.deb</deb>
-							<dataSet>
-								<data>
-									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</src>
-									<type>directory</type>
-									<excludes>p2director</excludes>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/${project.artifactId}/product</prefix>
-									</mapper>
-								</data>
-								<data>
-									<src>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</src>
-									<type>directory</type>
-									<includes>p2director</includes>
-									<mapper>
-										<type>perm</type>
-										<prefix>/usr/share/${project.artifactId}/product</prefix>
-										<filemode>0755</filemode>
-									</mapper>
-								</data>
-								<data>
-									<type>link</type>
-									<linkName>/usr/bin/p2director</linkName>
-									<linkTarget>/usr/share/${project.artifactId}/product/p2director</linkTarget>
-									<symlink>true</symlink>
-								</data>
-							</dataSet>
-						</configuration>
-					</execution>
-
 				</executions>
 			</plugin>
 
@@ -205,13 +157,10 @@
 								</goals>
 							</execution>
 							<execution>
-								<id>generate-rpm-amd64</id>
 								<goals>
 									<goal>rpm</goal>
 								</goals>
 								<configuration>
-									<needarch>x86_64</needarch>
-									<workarea>target/rpm/x86_64</workarea>
 									<requires>
 										<require>jre &gt;= 1.7.0</require>
 									</requires>
@@ -222,43 +171,7 @@
 											<groupname>root</groupname>
 											<sources>
 												<source>
-													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86_64</location>
-												</source>
-											</sources>
-										</mapping>
-										<mapping>
-											<directory>/usr/bin</directory>
-											<filemode>0755</filemode>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<softlinkSource>
-													<location>/usr/share/${project.artifactId}/product/p2director</location>
-												</softlinkSource>
-											</sources>
-										</mapping>
-									</mappings>
-								</configuration>
-							</execution>
-							<execution>
-								<id>generate-rpm-i386</id>
-								<goals>
-									<goal>rpm</goal>
-								</goals>
-								<configuration>
-									<needarch>i386</needarch>
-									<workarea>target/rpm/x86</workarea>
-									<requires>
-										<require>jre &gt;= 1.7.0</require>
-									</requires>
-									<mappings>
-										<mapping>
-											<directory>/usr/share/${project.artifactId}/product</directory>
-											<username>root</username>
-											<groupname>root</groupname>
-											<sources>
-												<source>
-													<location>target/products/org.eclipse.scada.deploy.p2director/linux/gtk/x86</location>
+													<location>target/products/org.eclipse.scada.deploy.p2director/all/all/all</location>
 												</source>
 											</sources>
 										</mapping>
