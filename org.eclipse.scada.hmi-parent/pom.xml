@@ -78,6 +78,8 @@
 
 		<module>../org.eclipse.scada.hmi.feature</module>
 		<module>../org.eclipse.scada.hmi.sdk.feature</module>
+		
+		<module>../org.eclipse.scada.vi.editors.feature</module>
 
 		<module>../org.eclipse.scada.ae.ui</module>
 		<module>../org.eclipse.scada.ae.ui.connection</module>
