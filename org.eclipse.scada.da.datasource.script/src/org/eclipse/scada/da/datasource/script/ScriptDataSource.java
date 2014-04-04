@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,6 +26,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
+import org.eclipse.scada.ae.event.EventProcessor;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.OperationException;
 import org.eclipse.scada.core.Variant;
@@ -44,7 +45,6 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.ae.event.EventProcessor;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -266,6 +266,13 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
             this.timer.cancel ( false );
             this.timer = null;
         }
+    }
+
+    @Override
+    public void dispose ()
+    {
+        stopTimer ();
+        super.dispose ();
     }
 
     private void setScript ( final ConfigurationDataHelper cfg ) throws ScriptException
