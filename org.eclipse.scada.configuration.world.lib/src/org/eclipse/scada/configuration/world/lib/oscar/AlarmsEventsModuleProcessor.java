@@ -178,6 +178,6 @@ public class AlarmsEventsModuleProcessor extends BasicOscarProcessor
 
         final AlarmsEventsConnection connection = Locator.findPossibleConnection ( from, to, AlarmsEventsConnection.class );
 
-        return connection.makeUri ( Nodes.isLocal ( from, to ) ) + "#" + Names.makeName ( remote );
+        return connection.getName () + "#" + Names.makeName ( remote );
     }
 }
