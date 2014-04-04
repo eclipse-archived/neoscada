@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
@@ -76,18 +77,21 @@ public final class Locator
      */
     public static <T extends Connection> List<T> findPossibleConnections ( final EquinoxApplication from, final EquinoxApplication to, final Class<T> clazz )
     {
-        final List<T> connections = findConnections ( from, clazz );
-
         final List<T> result = new LinkedList<> ();
 
-        for ( final T connection : connections )
+        for ( final T connection : findConnections ( from, clazz ) )
         {
             for ( final Exporter exporter : to.getExporter () )
             {
-                if ( !connection.getPossibleEndpoints ( exporter ).isEmpty () )
+                final EList<Endpoint> possibleEndpoints = connection.getPossibleEndpoints ( exporter );
+                if ( possibleEndpoints.isEmpty () )
+                {
+                    continue;
+                }
+
+                if ( possibleEndpoints.contains ( connection.getEndpoint () ) )
                 {
                     result.add ( connection );
-                    break;
                 }
             }
         }
