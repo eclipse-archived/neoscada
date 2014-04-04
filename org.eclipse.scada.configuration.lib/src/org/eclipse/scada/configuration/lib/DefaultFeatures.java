@@ -55,16 +55,24 @@ public class DefaultFeatures
         };
     }
 
-    public static final ItemCustomizer WRITE_LOGGER = new ItemCustomizer () {
+    public static final ItemCustomizer WRITE_LOGGER = WRITE_LOGGER ( true, true, false, false );
 
-        @Override
-        public void customize ( final Item item )
-        {
-            final EventLogger feature = OsgiFactory.eINSTANCE.createEventLogger ();
-            feature.setName ( "write.logger" );
-            feature.setLogWrites ( true );
-            registerFeature ( item, feature );
-        }
+    public static final ItemCustomizer WRITE_LOGGER ( final boolean logWrites, final boolean logSubscriptionChange, final boolean logValueChange, final boolean logAttributesChange )
+    {
+        return new ItemCustomizer () {
+
+            @Override
+            public void customize ( final Item item )
+            {
+                final EventLogger feature = OsgiFactory.eINSTANCE.createEventLogger ();
+                feature.setName ( "write.logger" );
+                feature.setLogWrites ( logWrites );
+                feature.setLogSubscriptionChange ( logSubscriptionChange );
+                feature.setLogValueChange ( logValueChange );
+                feature.setLogAttributesChange ( logAttributesChange );
+                registerFeature ( item, feature );
+            }
+        };
     };
 
     public static ItemCustomizer MANUAL_OVERRIDE = MANUAL_OVERRIDE ( null );
