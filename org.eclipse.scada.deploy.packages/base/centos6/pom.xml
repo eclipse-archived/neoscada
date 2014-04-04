@@ -64,6 +64,7 @@
 										<require>jakarta-commons-daemon-jsvc</require>
 										<require>openssh-clients</require>
 										<require>perl</require>
+										<require>jre &gt;= 1.7.0</require>
 									</requires>
 									
 									<defaultUsername>root</defaultUsername>
