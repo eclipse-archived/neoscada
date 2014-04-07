@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+section Delete old version commit
+
+mkdir logs
+
+for i in $repos; do
+   repo="org.eclipse.scada.${i}"
+   echo $repo
+   pushd "$repo"
+   msg="`git log -n1 --pretty=format:%s | egrep "^Generate version qualifiers for " `"
+   if [ -z "$msg" ]; then
+      die "Unable to find standard qualifier commit in previous commit. Manual intervention needed!"
+   fi
+   git revert --no-edit HEAD >../logs/deleteVersions.${repo}.log
+   popd
+done
+
+popd # workspace

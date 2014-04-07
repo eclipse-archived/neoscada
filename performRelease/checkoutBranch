@@ -26,4 +26,4 @@ popd
 
 echo
 echo
-echo Now you can tag the branch using "createTag" or "createTag -m"
+echo Now you can tag the branch using "createTag -p"

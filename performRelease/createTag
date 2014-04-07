@@ -4,12 +4,15 @@ set -e
 
 . profile
 
-usage() { echo "Usage: $0 [-m]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-m|-p]" 1>&2; exit 1; }
 
-while getopts ":m" o; do
+while getopts ":mp" o; do
    case "$o" in
       m)
          MERGE=1
+         ;;
+      p)
+         PRESERVE=1
          ;;
       *)
          usage
@@ -17,6 +20,10 @@ while getopts ":m" o; do
    esac
 done
 shift $((OPTIND-1))
+
+if [ ! -z "$MERGE" -a ! -z "$PRESERVE" ]; then
+   die "-m and -p are mutally exclusive"
+fi
 
 section Create tag: $tag
 
@@ -26,16 +33,19 @@ pushd workspace
 
 # clone all repositories
 
-section Clone repositories
+if [ -z "$PRESERVE" ]; then
+   # Don't clone
+   section Clone repositories
 
-for i in $repos; do
-  repo="org.eclipse.scada.${i}"
-  echo $repo
-  
-  # clone the repository
-  
-  cloneRepository "$repo" "$branch"
-done
+   for i in $repos; do
+     repo="org.eclipse.scada.${i}"
+     echo $repo
+     
+     # clone the repository
+     
+     cloneRepository "$repo" "$branch"
+   done
+fi
 
 mkdir logs
 
@@ -43,18 +53,17 @@ mkdir logs
 
 if [ ! -z "$MERGE" ]; then
 
+   pushd ..
+   ./deleteVersions
+   popd
+
    section Merge from master
 
    for i in $repos; do
      repo="org.eclipse.scada.${i}"
      echo $repo
      pushd "$repo"
-     msg="`git log -n1 --pretty=format:%s | egrep "^Generate version qualifiers for " `"
-     if [ -z "$msg" ]; then
-        die "Unable to find standard qualifier commit in previous commit. Manual intervention needed!"
-     fi
-     git revert --no-edit HEAD >../logs/merge.${repo}.log
-     git merge origin/master >>../logs/merge.${repo}.log
+     git merge origin/master >../logs/merge.${repo}.log
      popd
    done
 
