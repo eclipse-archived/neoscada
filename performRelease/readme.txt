@@ -11,7 +11,10 @@ createBranch
  
 # once per release build
 
-createTag
+createTag     # for the first tag
+createTag -m  # for the following tags
+
+#build
 
 buildLocally
 
@@ -19,4 +22,4 @@ buildLocally
 
 pushTag
  
-  
+Also see: https://wiki.eclipse.org/EclipseSCADA/Release/Perform  
