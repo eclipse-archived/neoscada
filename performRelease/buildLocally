@@ -24,7 +24,7 @@ shift $((OPTIND-1))
 
 pushd workspace
 
-section Build superParent ($TYPE)
+section Build superParent - $TYPE
 
 mvn clean install -f org.eclipse.scada.releng/superParent/pom.xml
 
