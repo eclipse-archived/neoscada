@@ -47,7 +47,7 @@ if [ -z "$PRESERVE" ]; then
    done
 fi
 
-mkdir logs
+test -d logs || mkdir logs
 
 # merge changes from master
 

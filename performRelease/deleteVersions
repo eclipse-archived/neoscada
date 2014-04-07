@@ -9,7 +9,7 @@ pushd workspace
 
 section Delete old version commit
 
-mkdir logs
+test -d logs || mkdir logs
 
 for i in $repos; do
    repo="org.eclipse.scada.${i}"
