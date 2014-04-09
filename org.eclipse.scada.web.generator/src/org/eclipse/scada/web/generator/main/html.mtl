@@ -39,9 +39,21 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-48015579-1', 'eclipse.org');
+  ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 
 </script>
+
+<script>
+var track = function(url, category, action) {
+   ga('send', 'event', category, action, url, {'hitCallback':
+     function () {
+     	document.location = url;
+     }
+   });
+  return false;
+}
+</script> 
 
 </head>
 <body>

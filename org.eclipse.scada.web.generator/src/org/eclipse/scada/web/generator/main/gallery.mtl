@@ -11,7 +11,7 @@
 [for (image : Image | gallery.images)]
 
 <figure>
-	<a href="[image.src/]">
+	<a href="[image.src/]" onclick="return track('[image.src/]','screenshot','view');">
 		<img src="[image.src/]" title="[image.label/]" alt="[image.label/]"/>
 	</a>
 	<figcaption>[image.label/]</figcaption>

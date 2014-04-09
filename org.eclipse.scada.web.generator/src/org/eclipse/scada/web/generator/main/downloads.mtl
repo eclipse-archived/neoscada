@@ -10,6 +10,11 @@
 
 [template public generateReleases(site : Site)]
 [for (version : Version | site.versions)]
+
+[file ( 'releases/' + version.name + '/index.html', false, 'UTF-8')]
+[generateVersionsPage(site,version, 'releases/' + version.name + '/index.html')/]
+[/file]
+
 [for (release : Release | version.releases)]
 [file ('releases/' + version.name + '/' + release.buildId + '.html', false, 'UTF-8')]
 [generateReleasePage(site,release,'releases/' + version.name + '/' + release.buildId + '.html')/]
@@ -31,17 +36,25 @@
 <tr><th>Released:</th><td>[versionShortcuts(site, VersionState::RELEASED)/]</td></tr>
 <tr><th>In development:</th><td>[versionShortcuts(site, VersionState::IN_DEVELOPMENT)/]</td></tr>
 </table>
-</section>
 
 </header>
 
 [for (version : Version | site.versions)]
 <section>
-<h2 id="[version.name/]">[version.name/] ([version.state.toLabel()/])</h2>
-[for (release : Release | version.releases)]
-[generateRelease(release, 'releases/index.html')/]
+<h2 id="[version.name/]">
+	<a href="[version.name/]">
+		[version.name/] ([version.state.toLabel()/])
+	</a>
+</h2>
+<ul>
+	[for (release : Release | version.releases)]
+	<li>
+	[release.name/]
+	→ <a href="[version.name/]/[release.buildId/].html">[release.buildId/]</a>
+	</li>
+	[/for]
+</ul>
 </section>
-[/for]
 [/for]
 
 [footer(site, 'releases/index.html')/]
@@ -71,8 +84,35 @@
 None
 [else]
 [for (version : Version | versions) separator (', ')]
-<a href="#[version.name/]">[version.name/]</a>
+<a href="[version.name/]">[version.name/]</a>
 [/for]
 [/if]
 [/let]
 [/template]
+
+[template public generateVersionsPage(site : Site, version : Version, fileName : String )]
+[header(site, 'Version ' + version.name, 'List of releases', fileName)/]
+
+<header>
+
+<h1>Releases of version [version.name/]</h1>
+</header>
+
+<section>
+<h2>Most recent</h2>
+[processRelease(version.releases->first(), fileName)/]
+</section>
+
+[if (not version.earlierReleases()->isEmpty())]
+	<section>
+	<h2>Earlier releases</h2>
+	[for (release : Release | version.earlierReleases())]
+	[processRelease(release, fileName)/]
+	[/for]
+	</section>
+[/if]
+
+[footer(site, fileName)/]
+[/template]
+
+[query public earlierReleases(version : Version) : Set(Release) = version.releases->excluding(version.releases->first()) /]
