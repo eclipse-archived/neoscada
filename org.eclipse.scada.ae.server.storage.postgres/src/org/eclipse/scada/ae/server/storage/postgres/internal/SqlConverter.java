@@ -224,7 +224,7 @@ public class SqlConverter
             }
             else if ( "presence".equals ( op ) )
             {
-                condition.condition = String.format ( " DATA -> ? IS NOT NULL" );
+                condition.condition = String.format ( " (DATA -> ?) IS NOT NULL" );
                 condition.parameters.add ( attribute );
             }
             else if ( v.isInteger () || v.isLong () )
@@ -247,7 +247,7 @@ public class SqlConverter
             }
             else if ( v.isNull () )
             {
-                condition.condition = String.format ( " DATA -> ? IS NULL" );
+                condition.condition = String.format ( " (DATA -> ?) IS NULL" );
                 condition.parameters.add ( attribute );
             }
             else

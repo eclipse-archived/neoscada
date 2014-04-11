@@ -37,7 +37,7 @@ CREATE TABLE es_ae_rep
   ID                           CHAR(36) NOT NULL,
   ENTRY_TIMESTAMP              TIMESTAMP,
   NODE_ID                      VARCHAR(32),
-  DATA                         STRING[],
+  DATA                         VARCHAR[],
   CONSTRAINT pk_es_ae_rep PRIMARY KEY (id)
 );
 
