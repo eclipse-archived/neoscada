@@ -322,13 +322,22 @@ public interface InfrastructurePackage extends EPackage
     int EQUINOX_APPLICATION__LOCAL_CREDENTIALS = 4;
 
     /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EQUINOX_APPLICATION__SECURITY_CONFIGURATION = 5;
+
+    /**
      * The number of structural features of the '<em>Equinox Application</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EQUINOX_APPLICATION_FEATURE_COUNT = 5;
+    int EQUINOX_APPLICATION_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Equinox Application</em>' class.
@@ -393,6 +402,15 @@ public interface InfrastructurePackage extends EPackage
      * @ordered
      */
     int MASTER_SERVER__LOCAL_CREDENTIALS = EQUINOX_APPLICATION__LOCAL_CREDENTIALS;
+
+    /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_SERVER__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
 
     /**
      * The feature id for the '<em><b>Authoratives</b></em>' containment reference list.
@@ -1199,6 +1217,15 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SERVER__LOCAL_CREDENTIALS = EQUINOX_APPLICATION__LOCAL_CREDENTIALS;
 
     /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SERVER__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
+
+    /**
      * The number of structural features of the '<em>Value Archive Server</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1758,6 +1785,15 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SLAVE__LOCAL_CREDENTIALS = EQUINOX_APPLICATION__LOCAL_CREDENTIALS;
 
     /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_ARCHIVE_SLAVE__SECURITY_CONFIGURATION = EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
+
+    /**
      * The feature id for the '<em><b>Storage Path</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2225,6 +2261,17 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EReference getEquinoxApplication_LocalCredentials ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Security Configuration</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration()
+     * @see #getEquinoxApplication()
+     * @generated
+     */
+    EReference getEquinoxApplication_SecurityConfiguration ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.CommonDriver <em>Common Driver</em>}'.
@@ -3146,6 +3193,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference EQUINOX_APPLICATION__LOCAL_CREDENTIALS = eINSTANCE.getEquinoxApplication_LocalCredentials ();
+
+        /**
+         * The meta object literal for the '<em><b>Security Configuration</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EQUINOX_APPLICATION__SECURITY_CONFIGURATION = eINSTANCE.getEquinoxApplication_SecurityConfiguration ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.CommonDriverImpl <em>Common Driver</em>}' class.

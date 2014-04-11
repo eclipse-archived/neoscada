@@ -47,6 +47,7 @@ import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
 import org.eclipse.scada.configuration.recipe.lib.Output;
+import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.configuration.utils.TypeWalker;
 import org.eclipse.scada.configuration.world.ApplicationNode;
@@ -205,7 +206,7 @@ public class WorldGenerator
                 master.setCustomizationProfile ( createProfile ( this.infrastructure.getDefaultMasterCustomizationProfile () ) );
 
                 // add security configuration
-                master.setSecurityConfiguration ( this.infrastructure.getDefaultSecurityConfiguration () );
+                master.setSecurityConfiguration ( findSecurityConfiguration ( infraMaster ) );
 
                 // add user service
                 Worlds.addUserService ( master, null, this.options );
@@ -247,7 +248,7 @@ public class WorldGenerator
                 archive.setCustomizationProfile ( createProfile ( this.infrastructure.getDefaultValueArchiveCustomizationProfile () ) );
 
                 // add security configuration
-                archive.setSecurityConfiguration ( this.infrastructure.getDefaultSecurityConfiguration () );
+                archive.setSecurityConfiguration ( findSecurityConfiguration ( infraArchive ) );
 
                 // add user service
                 Worlds.addUserService ( archive, null, this.options );
@@ -363,6 +364,18 @@ public class WorldGenerator
                     connectMasterToDriver ( master, entry.getKey (), entry.getValue ().getEndpoints ().get ( 0 ) );
                 }
             }
+        }
+    }
+
+    protected Configuration findSecurityConfiguration ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app )
+    {
+        if ( app.getSecurityConfiguration () != null )
+        {
+            return app.getSecurityConfiguration ();
+        }
+        else
+        {
+            return this.infrastructure.getDefaultSecurityConfiguration ();
         }
     }
 
