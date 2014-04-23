@@ -63,7 +63,7 @@
 								<require>glibc</require>
 								<!-- for jsvc -->
 								<require>apache-commons-daemon-jsvc</require>
-								<require>openssh-clients</require>
+								<require>openssh</require>
 								<require>perl-base</require>
 								<require>jre &gt;= 1.7.0</require>
 							</requires>
