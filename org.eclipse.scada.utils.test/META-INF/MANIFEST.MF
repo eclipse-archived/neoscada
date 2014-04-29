@@ -6,5 +6,6 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Name: Eclipse SCADA Utils Testing (Incubation)
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.eclipse.scada.utils.test
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: javax.script
 

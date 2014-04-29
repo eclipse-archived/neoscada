@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - further development
+ *     IBH SYSTEMS GmbH - cleanups for bug 433409
  *******************************************************************************/
 package org.eclipse.scada.utils.script;
 
@@ -28,10 +29,11 @@ import javax.script.ScriptException;
  * A wrapper to execute scripts
  * 
  * @author Jens Reimann
- * @since 0.17.0
  */
 public class ScriptExecutor
 {
+    private static final String PROP_NAME_DISABLE_COMPILE = "org.eclipse.scada.utils.script.ScriptExecutor.disableCompile";
+
     private final ScriptEngine engine;
 
     private final String command;
@@ -44,14 +46,36 @@ public class ScriptExecutor
 
     private final String sourceName;
 
+    private static ScriptEngine createEngine ( final ScriptEngineManager engineManager, final String engineName ) throws ScriptException
+    {
+        if ( engineManager == null )
+        {
+            throw new IllegalArgumentException ( "Script engine manager must not be null" );
+        }
+
+        if ( engineName == null )
+        {
+            return null;
+        }
+
+        final ScriptEngine engine = engineManager.getEngineByName ( engineName );
+
+        if ( engine == null )
+        {
+            throw new ScriptException ( String.format ( "Script engine '%s' could not be found", engineName ) );
+        }
+
+        return engine;
+    }
+
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final String command, final ClassLoader classLoader ) throws ScriptException
     {
-        this ( engineName == null ? null : engineManager.getEngineByName ( engineName ), engineName == null ? null : command, classLoader );
+        this ( createEngine ( engineManager, engineName ), engineName == null ? null : command, classLoader );
     }
 
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final URL commandUrl, final ClassLoader classLoader ) throws ScriptException, IOException
     {
-        this ( engineName == null ? null : engineManager.getEngineByName ( engineName ), engineName == null ? null : commandUrl, classLoader );
+        this ( createEngine ( engineManager, engineName ), engineName == null ? null : commandUrl, classLoader );
     }
 
     /**
@@ -74,7 +98,7 @@ public class ScriptExecutor
         this.classLoader = classLoader;
         this.sourceName = sourceName;
 
-        if ( command != null && engine instanceof Compilable && !Boolean.getBoolean ( "org.eclipse.scada.ScriptExecutor.disableCompile" ) )
+        if ( command != null && engine instanceof Compilable && !Boolean.getBoolean ( PROP_NAME_DISABLE_COMPILE ) )
         {
             engine.put ( ScriptEngine.FILENAME, sourceName );
             final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
@@ -118,7 +142,7 @@ public class ScriptExecutor
         this.classLoader = classLoader;
         this.sourceName = commandUrl.toString ();
 
-        if ( commandUrl != null && engine instanceof Compilable && !Boolean.getBoolean ( "org.eclipse.scada.ScriptExecutor.disableCompile" ) )
+        if ( commandUrl != null && engine instanceof Compilable && !Boolean.getBoolean ( PROP_NAME_DISABLE_COMPILE ) )
         {
             final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
             try
@@ -175,6 +199,12 @@ public class ScriptExecutor
 
     private Object executeScript ( final ScriptContext scriptContext, final Map<String, Object> scriptObjects ) throws ScriptException, IOException
     {
+        if ( this.command == null && this.commandUrl == null && this.compiledScript == null )
+        {
+            // catch first, since the following reference to "engine" might already be null
+            return null;
+        }
+
         Map<String, Object> vars = null;
         try
         {
