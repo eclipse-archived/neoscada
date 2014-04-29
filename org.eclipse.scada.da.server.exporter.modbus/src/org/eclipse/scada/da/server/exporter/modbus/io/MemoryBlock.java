@@ -171,7 +171,7 @@ public class MemoryBlock
                 for ( final SourceDefinition def : definitions )
                 {
                     final DataItemValue value = cache.get ( def.getItemId () );
-                    logger.trace ( "Render value - def: {}, value: {}", def, value );
+                    logger.debug ( "Render value - def: {}, value: {}", def, value );
                     def.getType ().render ( buffer, def.getOffset (), value );
                 }
 
