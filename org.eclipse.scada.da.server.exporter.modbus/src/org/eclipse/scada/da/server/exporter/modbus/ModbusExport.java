@@ -244,7 +244,8 @@ public class ModbusExport
                 throw new IllegalArgumentException ( String.format ( "Type '%s' is unknown.", args[1] ) ); //$NON-NLS-1$
         }
 
-        return new SourceDefinition ( itemId, offset, type );
+        // offset is stored in words, SourceDefinition uses bytes
+        return new SourceDefinition ( itemId, offset * 2, type );
     }
 
     private Double getFactor ( final String[] args )
