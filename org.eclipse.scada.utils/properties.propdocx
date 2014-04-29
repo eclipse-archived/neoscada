@@ -5,7 +5,7 @@
       <properties:defaultValue>false</properties:defaultValue>
     </properties:properties>
     <properties:properties properties:name="org.eclipse.scada.defaultStringInterner"/>
-    <properties:properties properties:name="org.eclipse.scada.ScriptExecutor.disableCompile" properties:dataType="BOOLEAN">
+    <properties:properties properties:name="org.eclipse.scada.utils.script.ScriptExecutor.disableCompile" properties:dataType="BOOLEAN">
       <properties:defaultValue>false</properties:defaultValue>
     </properties:properties>
   </properties:groups>
