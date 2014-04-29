@@ -37,7 +37,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.scada.core.ui.connection.login.SessionManager;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.eclipse.scada.vi.details.model.Component;
 import org.eclipse.scada.vi.details.model.GroupEntry;
 import org.eclipse.scada.vi.details.model.HiddenComponent;
@@ -59,7 +61,6 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.scada.core.ui.connection.login.SessionManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,7 +115,7 @@ public class DetailViewImpl implements org.eclipse.scada.vi.details.DetailView, 
     {
         try
         {
-            final ScriptEngineManager engineManager = new ScriptEngineManager ( Activator.class.getClassLoader () );
+            final ScriptEngineManager engineManager = Scripts.createManager ( DetailViewImpl.class.getClassLoader () );
             final ScriptContext scriptContext = new SimpleScriptContext ();
             scriptContext.setBindings ( new SimpleBindings (), ScriptContext.GLOBAL_SCOPE );
             scriptContext.setAttribute ( "properties", properties, ScriptContext.GLOBAL_SCOPE ); //$NON-NLS-1$

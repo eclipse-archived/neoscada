@@ -7,16 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work
-/*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - additional work, fix for bug 433409
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
@@ -39,6 +30,7 @@ import org.eclipse.scada.chart.swt.render.AbstractLineRender;
 import org.eclipse.scada.chart.swt.render.StepRenderer;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 
 public class ScriptInput extends LineInput
 {
@@ -58,7 +50,7 @@ public class ScriptInput extends LineInput
     public ScriptInput ( final ChartViewer viewer, final Realm realm, final ResourceManager resourceManager, final XAxis xAxis, final YAxis yAxis )
     {
         super ( resourceManager );
-        this.scriptEngineManager = new ScriptEngineManager ();
+        this.scriptEngineManager = Scripts.createManager ( ScriptInput.class.getClassLoader () );
 
         this.viewer = viewer;
 

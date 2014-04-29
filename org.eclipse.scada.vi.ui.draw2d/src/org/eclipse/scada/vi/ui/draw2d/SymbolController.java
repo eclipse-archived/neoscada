@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d;
 
@@ -31,14 +32,17 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import org.eclipse.scada.core.Variant;
+import org.eclipse.scada.core.ui.styles.StyleGenerator;
+import org.eclipse.scada.core.ui.styles.StyleGenerator.GeneratorListener;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.RegistrationManager;
+import org.eclipse.scada.vi.data.RegistrationManager.Listener;
 import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.data.SummaryListener;
-import org.eclipse.scada.vi.data.RegistrationManager.Listener;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Symbol;
 import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
@@ -51,8 +55,6 @@ import org.eclipse.ui.console.IConsoleManager;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.core.ui.styles.StyleGenerator;
-import org.eclipse.scada.core.ui.styles.StyleGenerator.GeneratorListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -148,7 +150,7 @@ public class SymbolController implements Listener
         this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext (), this.symbolInfoName );
         this.registrationManager.addListener ( this );
         this.registrationManager.open ();
-        this.engineManager = new ScriptEngineManager ( this.classLoader );
+        this.engineManager = Scripts.createManager ( this.classLoader );
 
         final Symbol symbol = symbolLoader.loadSymbol ();
 
