@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.formula;
 
@@ -52,6 +53,7 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.slf4j.Logger;
@@ -118,17 +120,7 @@ public class FormulaDataSource extends AbstractMultiSourceDataSource
 
         this.classLoader = getClass ().getClassLoader ();
 
-        final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
-        try
-        {
-            Thread.currentThread ().setContextClassLoader ( this.classLoader );
-            this.manager = new ScriptEngineManager ( this.classLoader );
-        }
-        finally
-        {
-            Thread.currentThread ().setContextClassLoader ( currentClassLoader );
-        }
-
+        this.manager = Scripts.createManager ( this.classLoader );
     }
 
     protected void setOutputDataSource ( final DataSource dataSource )

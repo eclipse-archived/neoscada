@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.sec.authz.signature;
 
@@ -16,8 +17,6 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
 
-import javax.script.ScriptEngineManager;
-
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.sec.AuthenticationImplementation;
 import org.eclipse.scada.sec.AuthorizationService;
@@ -25,12 +24,10 @@ import org.eclipse.scada.sec.audit.AuditLogService;
 import org.eclipse.scada.sec.authz.AuthorizationRule;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @since 1.1
- */
 public class SignatureAuthorizationService implements AuthorizationService
 {
 
@@ -83,7 +80,7 @@ public class SignatureAuthorizationService implements AuthorizationService
         ScriptExecutor postProcessor;
         if ( script != null )
         {
-            postProcessor = new ScriptExecutor ( new ScriptEngineManager (), engine, script, SignatureAuthorizationService.class.getClassLoader () );
+            postProcessor = new ScriptExecutor ( Scripts.createManager ( SignatureAuthorizationService.class.getClassLoader () ), engine, script, SignatureAuthorizationService.class.getClassLoader () );
         }
         else
         {

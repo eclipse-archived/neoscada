@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix for bug 433409
  *******************************************************************************/
 package org.eclipse.scada.sec.osgi.manager;
 
@@ -27,6 +28,7 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.InstantFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +54,7 @@ public abstract class AbstractBaseRule implements AuthorizationRule
 
     public AbstractBaseRule ()
     {
-        this.engineManager = new ScriptEngineManager ( AbstractBaseRule.class.getClassLoader () );
+        this.engineManager = Scripts.createManager ( AbstractBaseRule.class.getClassLoader () );
     }
 
     @Override

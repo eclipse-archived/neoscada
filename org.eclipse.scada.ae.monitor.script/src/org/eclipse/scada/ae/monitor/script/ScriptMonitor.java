@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.ae.monitor.script;
 
@@ -43,6 +44,7 @@ import org.eclipse.scada.da.master.MasterItem;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
@@ -119,16 +121,7 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
         this.monitorStateInjector = new MonitorStateInjector ( stringInterner );
         this.monitorStateInjector.setPrefix ( this.prefix );
 
-        final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
-        try
-        {
-            Thread.currentThread ().setContextClassLoader ( this.classLoader );
-            this.manager = new ScriptEngineManager ( this.classLoader );
-        }
-        finally
-        {
-            Thread.currentThread ().setContextClassLoader ( currentClassLoader );
-        }
+        this.manager = Scripts.createManager ( this.classLoader );
 
         this.handler = new InjectMasterHandler ( id, masterItemPoolTracker, 0, caTracker, this.prefix, factoryId );
         this.listener = new MultiDataSourceListener ( dataSourcePoolTracker ) {

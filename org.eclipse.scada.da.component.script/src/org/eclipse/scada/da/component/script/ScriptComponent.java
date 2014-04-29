@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.da.component.script;
 
@@ -22,9 +23,10 @@ import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
+import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.da.server.common.DataItem;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 
 public class ScriptComponent
@@ -42,7 +44,7 @@ public class ScriptComponent
         final String scriptLanguage = cfg.getString ( "scriptLanguage", "JavaScript" );
         final String script = cfg.getStringChecked ( "script", "'script' must be set to an executable script fragment" );
 
-        final ScriptEngineManager scriptEngineManager = new ScriptEngineManager ( Activator.class.getClassLoader () );
+        final ScriptEngineManager scriptEngineManager = Scripts.createManager ( Activator.class.getClassLoader () );
         final ScriptEngine scriptEngine = scriptEngineManager.getEngineByName ( scriptLanguage );
 
         final ScriptExecutor scriptExecutor = new ScriptExecutor ( scriptEngine, script, Activator.class.getClassLoader () );

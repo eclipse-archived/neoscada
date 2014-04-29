@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.script;
 
@@ -45,6 +46,7 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,17 +86,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         this.classLoader = getClass ().getClassLoader ();
         this.eventProcessor = eventProcessor;
 
-        final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
-
-        try
-        {
-            Thread.currentThread ().setContextClassLoader ( this.classLoader );
-            this.manager = new ScriptEngineManager ( this.classLoader );
-        }
-        finally
-        {
-            Thread.currentThread ().setContextClassLoader ( currentClassLoader );
-        }
+        this.manager = Scripts.createManager ( this.classLoader );
 
         this.writer = new WriterController ( poolTracker );
     }

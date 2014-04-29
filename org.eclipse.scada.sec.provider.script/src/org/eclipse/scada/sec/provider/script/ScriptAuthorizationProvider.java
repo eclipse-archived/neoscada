@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - fix bug 433409
  *******************************************************************************/
 package org.eclipse.scada.sec.provider.script;
 
@@ -22,6 +23,7 @@ import org.eclipse.scada.sec.AuthenticationImplementation;
 import org.eclipse.scada.sec.AuthorizationService;
 import org.eclipse.scada.sec.authz.AuthorizationRule;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,17 +41,7 @@ public class ScriptAuthorizationProvider implements AuthorizationService
     public ScriptAuthorizationProvider ()
     {
         this.classLoader = getClass ().getClassLoader ();
-
-        final ClassLoader currentClassLoader = Thread.currentThread ().getContextClassLoader ();
-        try
-        {
-            Thread.currentThread ().setContextClassLoader ( this.classLoader );
-            this.manager = new ScriptEngineManager ( this.classLoader );
-        }
-        finally
-        {
-            Thread.currentThread ().setContextClassLoader ( currentClassLoader );
-        }
+        this.manager = Scripts.createManager ( this.classLoader );
     }
 
     public void setAuthenticationImplementation ( final AuthenticationImplementation authenticationImplementation )
