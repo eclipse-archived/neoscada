@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,7 +21,8 @@ public class Perspective implements IPerspectiveFactory
     public void createInitialLayout ( final IPageLayout layout )
     {
         layout.setEditorAreaVisible ( false );
-        final IFolderLayout folder = layout.createFolder ( "org.eclipse.scada.hmi.app.adminclient", IPageLayout.RIGHT, 0.4f, IPageLayout.ID_EDITOR_AREA ); //$NON-NLS-1$ 
-        folder.addPlaceholder ( "*" ); //$NON-NLS-1$
+        layout.addView ( "org.eclipse.scada.core.ui.connection.ConnectionView", IPageLayout.LEFT, 0.25f, IPageLayout.ID_EDITOR_AREA );
+        final IFolderLayout folder = layout.createFolder ( "org.eclipse.scada.hmi.app.adminclient", IPageLayout.RIGHT, 0.4f, IPageLayout.ID_EDITOR_AREA ); //$NON-NLS-1$
+        folder.addPlaceholder ( "*" );
     }
 }

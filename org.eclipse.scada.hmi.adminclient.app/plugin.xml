@@ -17,8 +17,8 @@
       <perspective
             class="org.eclipse.scada.hmi.app.adminclient.app.Perspective"
             icon="icons/nav_home.gif"
-            id="org.eclipse.scada.hmi.app.adminclient.app.perspective"
-            name="Administration Perspective">
+            id="org.eclipse.scada.hmi.app.adminclient.app.perspective.perspective"
+            name="%perspective.home.name">
       </perspective>
    </extension>
    <extension
@@ -26,7 +26,7 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.scada.hmi.adminclient.app.application"
-            name="Eclipse SCADA Admin Client (Incubation)">
+            name="%product.name">
          <property
                name="windowImages"
                value="icons/app/icon_16px.png,icons/app/icon_32px.png,icons/app/icon_48px.png,icons/app/icon_64px.png,icons/app/icon_128px.png">
@@ -46,7 +46,7 @@
                value="Eclipse SCADA Admin Client"/>
          <property
                name="aboutText"
-               value="This is the Eclipse SCADA Admin Client">
+               value="%aboutText">
          </property>
          <property
                name="aboutImage"
@@ -89,7 +89,7 @@
             category="org.eclipse.ui.preferencePages.Workbench"
             class="org.eclipse.ui.intro.universal.ExtensionFactory:welcomeCustomization"
             id="org.eclipse.scada.hmi.adminclient.app.introCustomization"
-            name="Intro">
+            name="%intra.page.name">
          <keywordReference id="org.eclipse.ui.ide.appearance"/>
       </page>
    </extension>
@@ -108,5 +108,4 @@
              content="intro/migrate.xml">
        </configExtension>
     </extension>
-
 </plugin>
