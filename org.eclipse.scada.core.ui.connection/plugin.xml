@@ -369,24 +369,6 @@
       </propertyTester>
    </extension>
    <extension
-         point="org.eclipse.ui.perspectiveExtensions">
-      <perspectiveExtension
-            targetID="org.eclipse.scada.othala.application.perspective">
-         <view
-               closeable="true"
-               id="org.eclipse.scada.core.ui.connection.ConnectionView"
-               minimized="false"
-               moveable="true"
-               ratio="0.25"
-               relationship="left"
-               relative="org.eclipse.ui.editorss"
-               showTitle="true"
-               standalone="false"
-               visible="true">
-         </view>
-      </perspectiveExtension>
-   </extension>
-   <extension
          point="org.eclipse.core.runtime.adapters">
       <factory
             adaptableType="org.eclipse.scada.core.ui.connection.data.ConnectionHolder"
