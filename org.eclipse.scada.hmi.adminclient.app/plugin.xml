@@ -46,7 +46,7 @@
                value="Eclipse SCADA Admin Client"/>
          <property
                name="aboutText"
-               value="%aboutText">
+               value="%productBlurb">
          </property>
          <property
                name="aboutImage"
