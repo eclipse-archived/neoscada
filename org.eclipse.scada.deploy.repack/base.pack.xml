@@ -110,7 +110,8 @@
 								<configuration>
 									<mappings>
 										<mapping>
-											<directory>/usr/share/eclipsescada/p2/${srcFile}</directory>
+											<directory>/usr/share/eclipsescada/p2</directory>
+											<directoryIncldue>false</directoryIncldue>
 											<filemode>0644</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
