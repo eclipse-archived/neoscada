@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #*******************************************************************************
 # Copyright (c) 2013 IBH SYSTEMS GmbH and others.
 # All rights reserved. This program and the accompanying materials
@@ -8,7 +10,6 @@
 # Contributors:
 #     IBH SYSTEMS GmbH - initial API and implementation
 #*******************************************************************************
-#!/bin/bash
 
 . /etc/default/eclipsescada
 
