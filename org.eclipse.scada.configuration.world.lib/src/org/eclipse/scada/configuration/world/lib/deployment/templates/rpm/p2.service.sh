@@ -20,7 +20,26 @@
 ### END INIT INFO
 
 # source function library
-. /etc/init.d/functions
+if [ -r /etc/init.d/functions ]; then
+    . /etc/init.d/functions
+    es_failure () { failure ; }
+    es_success () { success ; }
+    es_start () { daemon --user=eclipsescada --pidfile="$pidfile" "$prog" ; }
+    es_stop () { killproc -p "$pidfile" "$prog" ; }
+    es_check () { echo ; }
+    es_exit () { exit $RETVAL ; }
+fi
+if [ -r /etc/rc.status ]; then
+    . /etc/rc.status
+    es_failure () { rc_failed "$?" ; }
+    es_success () { true ; }
+    es_check () { rc_status -v ; }
+    es_start () { startproc -u eclipsescada -p "$pidfile" "$prog" ; }
+    es_stop () { killproc -p "$pidfile" "$prog" ; }
+    es_exit () { rc_exit ; }
+    rc_reset
+fi
+
 . /etc/default/eclipsescada
 
 RETVAL=0
@@ -31,29 +50,29 @@ prog="/usr/bin/scada.app.$$appName$$.launcher"
 start (){
     echo -n $"Starting application instance - $instanceName: "
     if [ $UID -ne 0 ]; then
-	RETVAL=1
-	failure
+		RETVAL=1
+		es_failure
     elif [ ! -d ~eclipsescada/"$instanceName" ]; then
-	RETVAL=2
-	failure
+		RETVAL=2
+		es_failure
     else
-	daemon --user="eclipsescada" --pidfile="$pidfile" "$prog"
-	RETVAL=$?
+		es_start
+		RETVAL=$?
     fi;
-    echo
+    es_check
     return $RETVAL
 }
 
 stop () {
     echo -n $"Stopping application instance - $instanceName: "
     if [ $UID -ne 0 ]; then
-	RETVAL=1
-	failure
+		RETVAL=1
+		es_failure
     else
-	killproc -p "$pidfile" "$prog"
-	RETVAL=$?
+		es_stop
+		RETVAL=$?
     fi;
-    echo
+    es_check
     return $RETVAL
 }
 
@@ -101,4 +120,4 @@ case "$1" in
         RETVAL=2
 esac
 
-exit $RETVAL
+es_exit

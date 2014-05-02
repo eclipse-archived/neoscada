@@ -21,7 +21,21 @@
 ### END INIT INFO
 
 # source function library
-. /lib/
+if [ -r /etc/init.d/functions ]; then
+    . /etc/init.d/functions
+    es_failure () { failure ; }
+    es_success () { success ; }
+    es_check () { echo ; }
+    es_exit () { exit $RETVAL ; }
+fi
+if [ -r /etc/rc.status ]; then
+    . /etc/rc.status
+    es_failure () { rc_failed $? ; }
+    es_success () { true ; }
+    es_check () { rc_status -v ; }
+    es_exit () { rc_exit ; }
+    rc_reset
+fi
 
 RETVAL=0
 instanceName="$$driverName$$"
@@ -30,34 +44,34 @@ pidfile="/var/run/$instanceName.pid"
 start (){
     echo -n $"Starting driver instance - $instanceName: "
     if [ $UID -ne 0 ]; then
-	RETVAL=1
-	failure
+	    RETVAL=1
+	    es_failure
     else
-	esDriverExporter "$instanceName" && success || failure
-	RETVAL=$?
+	    esDriverExporter "$instanceName" && es_success || es_failure
+	    RETVAL=$?
     fi;
-    echo
+    es_check
     return $RETVAL
 }
 
 stop () {
     echo -n $"Stopping driver instance - $instanceName: "
     if [ $UID -ne 0 ]; then
-	RETVAL=1
-	failure
+	    RETVAL=1
+	    es_failure
     else
-	esDriverExporter "$instanceName" -stop && success || failure
-	RETVAL=$?
+	    esDriverExporter "$instanceName" -stop && es_success || es_failure
+	    RETVAL=$?
     fi;
-    echo
+    es_check
     return $RETVAL
 }
 
 status () {
     if [ -e "$pidfile" ]; then
-	echo "running: `cat "$pidfile"`"
+	    echo "running: `cat "$pidfile"`"
     else
-	echo "not running"
+	    echo "not running"
     fi;
 }
 
@@ -97,4 +111,4 @@ case "$1" in
         RETVAL=2
 esac
 
-exit $RETVAL
+es_exit
