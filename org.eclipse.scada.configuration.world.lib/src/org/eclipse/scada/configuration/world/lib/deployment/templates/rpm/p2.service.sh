@@ -89,7 +89,7 @@ case "$1" in
         RETVAL=$?
         ;;
   status)
-	status
+        status
         RETVAL=$?
         ;;
   condrestart|try-restart)
