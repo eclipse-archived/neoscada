@@ -2,10 +2,10 @@
 # init file for $$appName$$
 #
 # chkconfig: - 50 50
-# description: Eclipse SCADA driver instance $$appName$$
+# description: Eclipse SCADA application instance $$appName$$
 #
-# processname: /usr/bin/jsvc
-# pidfile: /var/run/$$appName$$.pid
+# processname: /usr/bin/scada.app.$$appName$$.launcher
+# pidfile: /var/run/eclipsescada/scada.app.$$appName$$.pid
 
 ### BEGIN INIT INFO
 # Provides: scada.app.$$appName$$
@@ -44,7 +44,7 @@ fi
 
 RETVAL=0
 instanceName="$$appName$$"
-pidfile="/var/run/eclipsescada/scada.app.$instanceName.pid"
+pidfile="/var/run/eclipsescada/scada.app.$$appName$$.pid"
 prog="/usr/bin/scada.app.$$appName$$.launcher"
 
 start (){

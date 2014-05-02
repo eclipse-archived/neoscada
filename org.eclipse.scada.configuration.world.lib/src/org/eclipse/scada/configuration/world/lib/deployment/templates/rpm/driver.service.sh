@@ -6,7 +6,7 @@
 #
 # processname: /usr/bin/jsvc
 # config: /etc/eclipsescada/drivers/$$driverName$$/
-# pidfile: /var/run/$$driverName$$.pid
+# pidfile: /var/run/eclipsescada/driver.$$driverName$$.pid
 
 ### BEGIN INIT INFO
 # Provides: scada.driver.$$driverName$$
@@ -39,7 +39,7 @@ fi
 
 RETVAL=0
 instanceName="$$driverName$$"
-pidfile="/var/run/$instanceName.pid"
+pidfile="/var/run/eclipsescada/driver.$$driverName$$.pid"
 
 start (){
     echo -n $"Starting driver instance - $instanceName: "
