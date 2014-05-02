@@ -87,7 +87,7 @@
 									</sources>
 								</mapping>
 								<mapping>
-									<directory>/usr/share/perl5/site_perl/EclipseSCADA</directory>
+									<directory>/usr/lib/perl5/site_perl/EclipseSCADA</directory>
 									<sources>
 										<source>
 											<location>${srcBase}/perl/EclipseSCADA</location>
