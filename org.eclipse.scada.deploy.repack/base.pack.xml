@@ -111,7 +111,7 @@
 									<mappings>
 										<mapping>
 											<directory>/usr/share/eclipsescada/p2</directory>
-											<directoryInclude>false</directoryInclude>
+											<directoryIncluded>false</directoryIncluded>
 											<filemode>0644</filemode>
 											<username>root</username>
 											<groupname>root</groupname>
