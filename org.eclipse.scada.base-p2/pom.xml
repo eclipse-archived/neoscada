@@ -6,14 +6,13 @@
 	<parent>
 		<artifactId>org.eclipse.scada.base-parent</artifactId>
 		<groupId>org.eclipse.scada.base</groupId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 		<relativePath>../org.eclipse.scada.base-parent</relativePath>
 	</parent>
 
 	<groupId>org.eclipse.scada.base</groupId>
 	<artifactId>org.eclipse.scada.base.p2-incubation</artifactId>
 	<packaging>eclipse-repository</packaging>
-
 
 	<profiles>
 
