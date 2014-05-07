@@ -13,8 +13,8 @@
 
     <property file="default.properties" />
 
-    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${version}" />
-    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${version}" />
+    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${release}" />
+    <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
 
     <!-- ================================= 
@@ -93,7 +93,8 @@
                 <filter token="buildTypeLong" value="${buildTypeLong}" />
                 <filter token="buildType" value="${buildType}" />
                 <filter token="buildTimestamp" value="${buildTimestamp}" />
-                <filter token="version" value="${version}" />
+            	<filter token="version" value="${version}" />
+                <filter token="release" value="${release}" />
             </filterset>
         </copy>
     </target>

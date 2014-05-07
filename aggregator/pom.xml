@@ -71,7 +71,8 @@
 						<configuration>
 							<target>
 								<ant antfile="../aggregateRepositories/build.ant" dir="../aggregateRepositories">
-									<property name="version" value="${unqualifiedVersion}"/>
+									<property name="version" value="${unqualifiedVersion}"/> <!-- provided by the build helper -->
+									<property name="release" value="${release}"/>
 								</ant>
 							</target>
 						</configuration>

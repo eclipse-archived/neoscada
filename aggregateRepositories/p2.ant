@@ -25,8 +25,8 @@ Contributors:
     
     <property file="default.properties"/>
 
-    <property name="download.dir.maven" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/maven"/>
-    <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
+    <property name="download.dir.maven" location="${download.root}/downloads/org.eclipse.scada/drops/${release}/${buildType}${buildTimestamp}/maven"/>
+    <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${release}/${buildType}${buildTimestamp}/p2"/>
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
     

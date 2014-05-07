@@ -7,6 +7,10 @@
 	<artifactId>superParent</artifactId>
 	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	
+	<organization>
+		<name>Eclipse SCADA Project</name>
+	</organization>
 
 	<distributionManagement>
 		<repository>
@@ -24,6 +28,9 @@
 	<properties>
 		<buildType>N</buildType>
 		<buildTypeLong>nightly</buildTypeLong>
+				
+		<release>0.2</release>
+		<releaseVersion>${project.version}</releaseVersion>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -155,6 +162,7 @@
 					<timestampProvider>jgit</timestampProvider>
 					<jgit.ignore>
 						pom.xml
+						CHANGES.txt
 					</jgit.ignore>
 					<format>'v'yyyyMMdd-HHmm</format>
 					<sourceReferences>
