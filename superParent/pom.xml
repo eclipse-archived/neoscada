@@ -221,6 +221,17 @@
 	<profiles>
 
 		<profile>
+			<id>nightly</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<buildType>N</buildType>
+				<buildTypeLong>nightly</buildTypeLong>
+			</properties>
+		</profile>
+
+		<profile>
 			<id>integration</id>
 			<properties>
 				<buildType>I</buildType>
