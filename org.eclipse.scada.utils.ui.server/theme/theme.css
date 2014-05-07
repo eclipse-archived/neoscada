@@ -1,0 +1,13 @@
+.header {
+	background-color: #31619C;
+	padding: 0px 0px 0px 20px; 
+}
+
+Label.headerLabel {
+	color: white;
+	font: bold 30px Helvetica, Verdana, sans-serif;
+}
+
+Label.mainLabel {
+	font: bold 30px Helvetica, Verdana, sans-serif;
+}
