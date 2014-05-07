@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>org.eclipse.scada.releng</groupId>
 		<artifactId>superParent</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.eclipse.scada.ide</groupId>
 	<artifactId>org.eclipse.scada.ide-parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -34,12 +34,11 @@
 
 	<profiles>
 		<profile>
-			<id>integration</id>
+			<id>nightly</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<repositories>
-
 				<repository>
 					<id>eclipse.scada.external</id>
 					<layout>p2</layout>
@@ -151,5 +150,10 @@
 		<module>../org.eclipse.scada.configuration.component.common.lib</module>
 		
 		<module>../org.eclipse.scada.ide.hd.hdsspy</module>
+		
+		<!--
+		fails with some strange error: 
+		<module>../org.eclipse.scada.configuration.world.lib.test</module>
+		 -->
 	</modules>
 </project>
