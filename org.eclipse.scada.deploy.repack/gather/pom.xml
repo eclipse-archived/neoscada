@@ -32,6 +32,7 @@
 								<configuration>
 									<target>
 										<property name="repo" value="${project.groupId}" />
+										<property name="version" value="${unqualifiedVersion}" />
 										<ant antfile="post.ant" />
 									</target>
 								</configuration>
