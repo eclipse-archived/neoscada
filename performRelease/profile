@@ -1,7 +1,7 @@
-branch=0.1.x-release
+branch=0.2.x-release
 buildType=R
-version=0.1.0
-qualifier=
+version=0.2.0
+qualifier=M1
 buildHelperVersion=0.0.14
 
 repos="external utils chart protocols base core hmi ide deploy releng"
