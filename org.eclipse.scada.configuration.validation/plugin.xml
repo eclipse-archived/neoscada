@@ -50,6 +50,17 @@
          </enablement>
       </clientContext>
       
+      <clientContext id="org.eclipse.scada.configuration.validation.adapter.world.deployment">
+         <enablement>
+            <and>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <test
+                  property="org.eclipse.scada.configuration.validation.adapter.ePackage"
+                  value="http://eclipse.org/SCADA/Configuration/World/Deployment"/>
+            </and>
+         </enablement>
+      </clientContext>
+      
       <binding
          context="org.eclipse.scada.configuration.validation.adapter.infra"
          category="org.eclipse.scada.configuration"/>
@@ -58,6 +69,9 @@
          category="org.eclipse.scada.configuration"/>
      <binding
          context="org.eclipse.scada.configuration.validation.adapter.world.osgi"
+         category="org.eclipse.scada.configuration"/>
+     <binding
+         context="org.eclipse.scada.configuration.validation.adapter.world.deployment"
          category="org.eclipse.scada.configuration"/>
    </extension>
 
@@ -104,6 +118,16 @@
          
          <ocl path="constraints/world_osgi.ocl"/>
       </constraintProvider>
+      
+      <constraintProvider
+            class="org.eclipse.scada.configuration.validation.ocl.OCLConstraintProvider"
+            category="Constraints from an OCL Document">
+         
+         <package namespaceUri="http://eclipse.org/SCADA/Configuration/World/Deployment"/>
+         
+         <ocl path="constraints/world_deployment.ocl"/>
+      </constraintProvider>
+      
       <constraintProvider
             cache="true"
             mode="Batch">

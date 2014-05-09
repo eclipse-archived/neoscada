@@ -1,0 +1,8 @@
+import 'platform:/plugin/org.eclipse.scada.configuration.world/model/configuration.ecore'
+
+package world::deployment
+
+context ChangeEntry
+inv Description_min_length: description.size () > 10
+
+endpackage
