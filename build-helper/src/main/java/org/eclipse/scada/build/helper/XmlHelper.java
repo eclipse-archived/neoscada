@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add getText method
  *******************************************************************************/
 package org.eclipse.scada.build.helper;
 
@@ -73,6 +74,30 @@ public final class XmlHelper
         ele.appendChild ( ele.getOwnerDocument ().createTextNode ( newContent ) );
     }
 
+    public static String getText ( final Node startNode, final String expression ) throws XPathExpressionException
+    {
+        StringBuilder sb = null;
+
+        for ( final Node node : XmlHelper.findNodes ( startNode, expression ) )
+        {
+            if ( sb == null )
+            {
+                sb = new StringBuilder ();
+            }
+
+            sb.append ( node.getTextContent () );
+        }
+
+        if ( sb != null )
+        {
+            return sb.toString ();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public static void updateValue ( final Document doc, final String expression, final String content ) throws XPathExpressionException
     {
         for ( final Node node : XmlHelper.findNodes ( doc, expression ) )
@@ -115,11 +140,11 @@ public final class XmlHelper
         return expectedContent.contains ( actualContent );
     }
 
-    public static List<Node> findNodes ( final Document doc, final String expression ) throws XPathExpressionException
+    public static List<Node> findNodes ( final Node node, final String expression ) throws XPathExpressionException
     {
         final XPath path = xpf.newXPath ();
         final XPathExpression expr = path.compile ( expression );
-        final NodeList nodeList = (NodeList)expr.evaluate ( doc, XPathConstants.NODESET );
+        final NodeList nodeList = (NodeList)expr.evaluate ( node, XPathConstants.NODESET );
 
         if ( nodeList == null )
         {
