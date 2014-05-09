@@ -12,7 +12,7 @@
     </tstamp>
 
     <property file="default.properties" />
-
+	
     <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${release}" />
     <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />

@@ -30,8 +30,7 @@
 		<buildTypeLong>nightly</buildTypeLong>
 				
 		<release>0.2</release>
-		<releaseVersion>${project.version}</releaseVersion>
-
+				
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<tycho-version>0.20.0</tycho-version>
