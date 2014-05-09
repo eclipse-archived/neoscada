@@ -178,4 +178,18 @@
          version="1.4.0.v201209201156"
          unpack="false"/>
 
+   <plugin
+         id="org.apache.mina.core"
+         download-size="0"
+         install-size="0"
+         version="2.0.7.v201401071602"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.mina.filter.compression"
+         download-size="0"
+         install-size="0"
+         version="2.0.7.v201401141305"
+         unpack="false"/>
+
 </feature>

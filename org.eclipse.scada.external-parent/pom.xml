@@ -41,8 +41,11 @@
 		<module>../org.eclipse.scada.external.orbit.feature</module>
 
 		<module>../org.apache.commons.daemon</module>
+		
+		<!-- use version from orbit : S20140428023358
 		<module>../org.apache.mina.core</module>
 		<module>../org.apache.mina.filter.compression</module>
+		-->
 	</modules>
 
 </project>
