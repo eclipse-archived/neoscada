@@ -171,8 +171,8 @@
 
 		<!-- product - single viewer -->
 
-		<module>../org.eclipse.scada.ui.singleViewer.app.feature</module>
 		<module>../org.eclipse.scada.ui.singleViewer.app</module>
+		<module>../org.eclipse.scada.ui.singleViewer.app.feature</module>
 		<module>../org.eclipse.scada.ui.singleViewer.app-product</module>
 
 	</modules>
