@@ -4,106 +4,25 @@ set -e
 
 . profile
 
-usage() { echo "Usage: $0 [-m|-p]" 1>&2; exit 1; }
-
-while getopts ":mp" o; do
-   case "$o" in
-      m)
-         MERGE=1
-         ;;
-      p)
-         PRESERVE=1
-         ;;
-      *)
-         usage
-         ;;
-   esac
-done
-shift $((OPTIND-1))
-
-if [ ! -z "$MERGE" -a ! -z "$PRESERVE" ]; then
-   die "-m and -p are mutally exclusive"
-fi
-
 section Create tag: $tag
 
-[ -d workspace ] && die "Workspace still exists"
-mkdir workspace
+[ -d workspace ] || die "Workspace does not exists"
 pushd workspace
-
-# clone all repositories
-
-if [ -z "$PRESERVE" ]; then
-   # Don't clone
-   section Clone repositories
-
-   for i in $repos; do
-     repo="org.eclipse.scada.${i}"
-     echo $repo
-     
-     # clone the repository
-     
-     cloneRepository "$repo" "$branch"
-   done
-fi
 
 test -d logs || mkdir logs
 
-# merge changes from master
-
-if [ ! -z "$MERGE" ]; then
-
-   pushd ..
-   ./deleteVersions
-   popd
-
-   section Merge from master
-
-   for i in $repos; do
-     repo="org.eclipse.scada.${i}"
-     echo $repo
-     pushd "$repo"
-     git merge origin/master >../logs/merge.${repo}.log
-     popd
-   done
-
-fi
-
-# set the superParent version
-
-section Set Super Parent Version
-
-mvn versions:set -f org.eclipse.scada.releng/superParent/pom.xml -DnewVersion=$release >logs/setSuperParentVersion.log
-
-# generate qualifiers
-
-section "Generate qualifiers (this might take a while)"
-
-mvn org.eclipse.scada.releng:build-helper:${buildHelperVersion}:generate-qualifier \
-  -f org.eclipse.scada.releng/aggregator/pom.xml \
-  -Prpm \
-  -DforceUpdateParentQualifiers=org.eclipse.scada.releng:superParent:$qualifier \
-  -DdefaultNameProvider=static \
-  -DnameProviderMap.eclipse-plugin=timestamp \
-  -DnameProviderMap.eclipse-feature=timestamp \
-  -DnameProviderMap.eclipse-test-plugin=timestamp \
-  -DnameProviderProperties.staticQualifier=$qualifier \
-  -DnameProviderProperties.timestampProvider=jgit > logs/generateQualifiers.log
-
 # commit and tag the changes
 
-section Commit and tag
+section Create tag: $tag
 
 for i in $repos; do
   repo="org.eclipse.scada.${i}"
 
   (
     pushd "$repo" 
-    git add .
-    git commit -m "Generate version qualifiers for $release"
-    git tag -a "$tag" -m "Tag release - $release"
+    git tag -a "$tag" -m "Tag version - $version"
     popd
-  ) >> logs/commitAndTag.log
+  ) >> logs/tag.log
   
 done
 

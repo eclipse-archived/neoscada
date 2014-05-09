@@ -1,15 +1,18 @@
-branch=0.2.x-release
-buildType=R
-version=0.2.0
-qualifier=M1
-buildHelperVersion=0.0.14
+buildType=M
+release=0.2
+microVersion=0
+qualifier=.M1
+buildHelperVersion=0.0.16
+
+unqualifiedVersion=$release.$microVersion
+branch=$release.x-release
 
 repos="external utils chart protocols base core hmi ide deploy releng"
 
-release="$version"
-[ ! -z "$qualifier" ] && release="$release.$qualifier"
+version="$unqualifiedVersion"
+[ ! -z "$qualifier" ] && version="$unqualifiedVersion$qualifier"
 
-tag="$buildType$release"
+tag="$buildType$version"
 
 function die {
         echo "$@" 1>&2 # echo to stderr

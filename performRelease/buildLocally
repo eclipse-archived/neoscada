@@ -33,7 +33,7 @@ section "Build Main (this might take A WHILE)"
 mvn clean verify \
   -f org.eclipse.scada.releng/aggregator/pom.xml \
   -Prpm -Pdeb -Peclipse-hudson \
- '-P!nightly' '-P!integration' "-P$TYPE" \
+ '-P!nightly' "-P$TYPE" \
   -Ddownload.root=/tmp/my-download-test \
   -Declipse.download.root=http://download.eclipse.org
   

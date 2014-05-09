@@ -26,4 +26,4 @@ popd
 
 echo
 echo
-echo Now you can tag the branch using "createTag -p"
+echo Now you can merge from master using "mergeFromMaster"

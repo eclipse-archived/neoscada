@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -e
+
+. profile
+
+section Apply version: $version
+
+[ -d workspace ] || die "Workspace does not exists"
+pushd workspace
+
+test -d logs || mkdir logs
+
+# ensure that we have the plugin locally
+
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get \
+	-Dartifact=org.eclipse.scada.releng:build-helper:${buildHelperVersion} \
+	-DremoteRepositories=https://repo.eclipse.org/content/repositories/eclipsescada-releases
+
+# call the plugin
+
+# -llr is required to use the local fetched plugin
+mvn org.eclipse.scada.releng:build-helper:${buildHelperVersion}:set-version \
+	-U \
+	-llr \
+	-Dpackagings=pom \
+	-Dpoms=org.eclipse.scada.releng/aggregator/pom.xml,org.eclipse.scada.releng/superParent/pom.xml \
+	-DnewVersion=$version
+
+section Commit result
+
+for i in $repos; do
+  repo="org.eclipse.scada.${i}"
+
+  pushd "$repo"
+    git add .
+    if ! git diff --cached --exit-code &>/dev/null; then
+    	git commit -m "Applied version: $version"
+    fi
+  popd
+done
+
+popd # workspace
+
+echo
+echo
+echo Now build the tag locally using "buildLocally"
