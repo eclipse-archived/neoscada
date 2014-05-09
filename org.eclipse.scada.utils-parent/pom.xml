@@ -59,6 +59,7 @@
 		<module>../org.eclipse.scada.ui.databinding</module>
 		<module>../org.eclipse.scada.ui.localization</module>
 		<module>../org.eclipse.scada.ui.utils</module>
+		<module>../org.eclipse.scada.ui.utils.handler</module>
 
 		<module>../org.eclipse.scada.utils.doc.isv</module>
 		<module>../org.eclipse.scada.utils.osgi.daemon</module>
