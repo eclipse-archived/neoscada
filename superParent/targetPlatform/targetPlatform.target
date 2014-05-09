@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="Eclipse SCADA Target Platform" sequenceNumber="28">
+<?pde version="3.8"?><target name="Eclipse SCADA Target Platform" sequenceNumber="29">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20130604-2047"/>
@@ -29,11 +29,6 @@
 <unit id="org.apache.commons.pool" version="1.6.0.v201204271246"/>
 <unit id="org.apache.commons.pool.source" version="1.6.0.v201204271246"/>
 <unit id="org.apache.commons.dbcp.source" version="1.4.0.v201204271417"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
-<unit id="ch.qos.logback.core.source" version="1.0.7.v20121108-1250"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
@@ -102,6 +97,15 @@
 <unit id="org.apache.mina.filter.compression" version="2.0.7.v201401141305"/>
 <unit id="org.apache.mina.core" version="2.0.7.v201401071602"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/S20140428023358/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="ch.qos.logback.classic" version="1.0.7.v20121108-1250"/>
+<unit id="ch.qos.logback.core" version="1.0.7.v20121108-1250"/>
+<unit id="ch.qos.logback.slf4j.source" version="1.0.7.v20121108-1250"/>
+<unit id="ch.qos.logback.classic.source" version="1.0.7.v20121108-1250"/>
+<unit id="ch.qos.logback.slf4j" version="1.0.7.v20121108-1250"/>
+<unit id="ch.qos.logback.core.source" version="1.0.7.v20121108-1250"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140114142710/repository/"/>
 </location>
 </locations>
 <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
