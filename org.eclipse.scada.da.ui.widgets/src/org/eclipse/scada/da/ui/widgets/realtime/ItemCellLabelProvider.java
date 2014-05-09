@@ -10,14 +10,22 @@
  *******************************************************************************/
 package org.eclipse.scada.da.ui.widgets.realtime;
 
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.scada.ui.localization.Activator;
+
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 
 public class ItemCellLabelProvider extends CellLabelProvider
 {
+    private static DateFormat TIMESTAMP_DATE_FORMAT = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss.SSS" ); //$NON-NLS-1$
 
     private final ResourceManager resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
@@ -93,9 +101,36 @@ public class ItemCellLabelProvider extends CellLabelProvider
                     cell.setText ( listEntry.getValue ().asString ( "<null>" ) ); //$NON-NLS-1$
                 }
                 break;
+            case 4:
+                if ( listEntry.getItemValue () != null )
+                {
+                    final Calendar timestamp = listEntry.getItemValue ().getTimestamp ();
+                    if ( timestamp != null )
+                    {
+                        cell.setText ( formatTimestamp ( timestamp ) );
+                    }
+                }
+                break;
             default:
                 break;
         }
+    }
+
+    private String formatTimestamp ( final Calendar timestamp )
+    {
+        if ( timestamp == null )
+        {
+            return null;
+        }
+
+        final Calendar c = (Calendar)timestamp.clone ();
+        final TimeZone tz = Activator.getTimeZone ();
+        if ( tz != null )
+        {
+            c.setTimeZone ( tz );
+        }
+
+        return TIMESTAMP_DATE_FORMAT.format ( c.getTime () );
     }
 
     @Override

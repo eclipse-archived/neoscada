@@ -94,6 +94,10 @@ public class RealTimeListViewer implements RealtimeListAdapter
         col.getColumn ().setText ( Messages.RealTimeListViewer_Col_Text_Value );
         col.setLabelProvider ( new ItemCellLabelProvider () );
 
+        col = new TreeViewerColumn ( this.viewer, SWT.NONE );
+        col.getColumn ().setText ( "Timestamp" );
+        col.setLabelProvider ( new ItemCellLabelProvider () );
+
         this.viewer.getTree ().setHeaderVisible ( true );
 
         final TableLayout tableLayout = new TableLayout ();
@@ -112,7 +116,7 @@ public class RealTimeListViewer implements RealtimeListAdapter
 
     protected void applyInitialColWidth ( final TableLayout tableLayout )
     {
-        if ( this.initialColWidth != null && !this.initialColWidth.isEmpty () )
+        if ( this.initialColWidth != null && !this.initialColWidth.isEmpty () && this.viewer != null && this.initialColWidth.size () != this.viewer.getTree ().getColumnCount () )
         {
             for ( final Integer w : this.initialColWidth )
             {
@@ -124,6 +128,7 @@ public class RealTimeListViewer implements RealtimeListAdapter
             tableLayout.addColumnData ( new ColumnWeightData ( 200, true ) );
             tableLayout.addColumnData ( new ColumnWeightData ( 100, true ) );
             tableLayout.addColumnData ( new ColumnWeightData ( 100, true ) );
+            tableLayout.addColumnData ( new ColumnWeightData ( 200, true ) );
             tableLayout.addColumnData ( new ColumnWeightData ( 200, true ) );
         }
     }
@@ -138,7 +143,10 @@ public class RealTimeListViewer implements RealtimeListAdapter
         this.viewer.removeSelectionChangedListener ( this.removeAction );
 
         this.list.clear ();
-        this.contentProvider.dispose ();
+        if ( this.contentProvider != null )
+        {
+            this.contentProvider.dispose ();
+        }
     }
 
     @Override
