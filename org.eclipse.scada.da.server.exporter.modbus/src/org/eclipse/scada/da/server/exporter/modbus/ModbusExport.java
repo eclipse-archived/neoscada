@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - more data types
  *******************************************************************************/
 package org.eclipse.scada.da.server.exporter.modbus;
 
@@ -34,11 +35,13 @@ import org.eclipse.scada.da.server.common.exporter.ObjectExporter;
 import org.eclipse.scada.da.server.common.osgi.factory.ObjectPoolDataItemFactory;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.modbus.io.DoubleType;
+import org.eclipse.scada.da.server.exporter.modbus.io.IntegerType;
 import org.eclipse.scada.da.server.exporter.modbus.io.MemoryBlock;
-import org.eclipse.scada.da.server.exporter.modbus.io.ShortType;
+import org.eclipse.scada.da.server.exporter.modbus.io.ShortIntegerType;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceType;
-import org.eclipse.scada.da.server.exporter.modbus.io.UnsignedShortType;
+import org.eclipse.scada.da.server.exporter.modbus.io.UnsignedIntegerType;
+import org.eclipse.scada.da.server.exporter.modbus.io.UnsignedShortIntegerType;
 import org.eclipse.scada.protocol.modbus.codec.ModbusSlaveProtocolFilter;
 import org.eclipse.scada.protocol.modbus.codec.ModbusTcpDecoder;
 import org.eclipse.scada.protocol.modbus.codec.ModbusTcpEncoder;
@@ -234,11 +237,17 @@ public class ModbusExport
                 break;
             case "INT16": //$NON-NLS-1$
             case "SHORT": //$NON-NLS-1$
-                type = new ShortType ( getFactor ( args ) );
+                type = new ShortIntegerType ( getFactor ( args ) );
                 break;
             case "UINT16": //$NON-NLS-1$
             case "WORD": //$NON-NLS-1$
-                type = new UnsignedShortType ( getFactor ( args ) );
+                type = new UnsignedShortIntegerType ( getFactor ( args ) );
+                break;
+            case "INT32": //$NON-NLS-1$
+                type = new IntegerType ( getFactor ( args ) );
+                break;
+            case "UINT32": //$NON-NLS-1$
+                type = new UnsignedIntegerType ( getFactor ( args ) );
                 break;
             default:
                 throw new IllegalArgumentException ( String.format ( "Type '%s' is unknown.", args[1] ) ); //$NON-NLS-1$

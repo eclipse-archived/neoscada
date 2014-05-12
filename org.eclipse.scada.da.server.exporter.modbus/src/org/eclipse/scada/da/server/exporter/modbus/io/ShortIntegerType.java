@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,7 +13,7 @@ package org.eclipse.scada.da.server.exporter.modbus.io;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
 
-public class ShortType extends AbstractSourceType
+public class ShortIntegerType extends AbstractSourceType
 {
     private final Double factor;
 
@@ -21,13 +21,13 @@ public class ShortType extends AbstractSourceType
 
     public final static int LENGTH = AbstractSourceType.COMMON_HEADER + DATA_LENGTH;
 
-    public ShortType ( final Double factor )
+    public ShortIntegerType ( final Double factor )
     {
         super ( DATA_LENGTH ); // 16bit signed integer
         this.factor = factor;
     }
 
-    public ShortType ()
+    public ShortIntegerType ()
     {
         this ( null );
     }
@@ -85,11 +85,11 @@ public class ShortType extends AbstractSourceType
         {
             return false;
         }
-        if ( ! ( obj instanceof ShortType ) )
+        if ( ! ( obj instanceof ShortIntegerType ) )
         {
             return false;
         }
-        final ShortType other = (ShortType)obj;
+        final ShortIntegerType other = (ShortIntegerType)obj;
         if ( this.factor == null )
         {
             if ( other.factor != null )

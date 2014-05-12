@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -13,21 +13,21 @@ package org.eclipse.scada.da.server.exporter.modbus.io;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
 
-public class UnsignedShortType extends AbstractSourceType
+public class UnsignedIntegerType extends AbstractSourceType
 {
     private final Double factor;
 
-    private final static int DATA_LENGTH = 2;
+    private final static int DATA_LENGTH = 4;
 
     public final static int LENGTH = AbstractSourceType.COMMON_HEADER + DATA_LENGTH;
 
-    public UnsignedShortType ( final Double factor )
+    public UnsignedIntegerType ( final Double factor )
     {
-        super ( DATA_LENGTH ); // 16bit signed integer
+        super ( DATA_LENGTH ); // 32bit unsigned integer
         this.factor = factor;
     }
 
-    public UnsignedShortType ()
+    public UnsignedIntegerType ()
     {
         this ( null );
     }
@@ -35,33 +35,33 @@ public class UnsignedShortType extends AbstractSourceType
     @Override
     public void putValue ( final IoBuffer slice, final Variant value )
     {
-        slice.putUnsignedShort ( makeValue ( value ) );
+        slice.putUnsignedInt ( makeValue ( value ) );
     }
 
-    private int makeValue ( final Variant value )
+    private long makeValue ( final Variant value )
     {
         if ( value == null )
         {
-            return 0;
+            return 0L;
         }
 
         if ( this.factor == null )
         {
-            final Integer v = value.asInteger ( null );
+            final Long v = value.asLong ( null );
             if ( v == null )
             {
-                return 0;
+                return 0L;
             }
-            return v.intValue ();
+            return v.longValue ();
         }
         else
         {
             final Double v = value.asDouble ( null );
             if ( v == null )
             {
-                return 0;
+                return 0L;
             }
-            return (int) ( this.factor * v );
+            return (long) ( this.factor * v );
         }
     }
 
@@ -85,11 +85,11 @@ public class UnsignedShortType extends AbstractSourceType
         {
             return false;
         }
-        if ( ! ( obj instanceof UnsignedShortType ) )
+        if ( ! ( obj instanceof UnsignedIntegerType ) )
         {
             return false;
         }
-        final UnsignedShortType other = (UnsignedShortType)obj;
+        final UnsignedIntegerType other = (UnsignedIntegerType)obj;
         if ( this.factor == null )
         {
             if ( other.factor != null )
