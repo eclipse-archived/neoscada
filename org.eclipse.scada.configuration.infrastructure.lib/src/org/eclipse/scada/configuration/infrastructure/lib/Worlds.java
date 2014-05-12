@@ -24,13 +24,13 @@ import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserService;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.SystemPropertiesUserServiceProcessor;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
-import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
@@ -180,27 +180,19 @@ public final class Worlds
         return findInterconnectCredentials ( masterImport.getImportedMaster () );
     }
 
-    public static Endpoint createEndpoint ( final int port, final String name )
-    {
-        final Endpoint ep = WorldFactory.eINSTANCE.createEndpoint ();
-        ep.setPortNumber ( (short)port );
-        ep.setName ( name );
-        return ep;
-    }
-
     public static Endpoint createDaEndpoint ( final Options options, final Driver driver )
     {
         if ( driver instanceof CommonDriver )
         {
-            return createEndpoint ( ( (CommonDriver)driver ).getPortNumber (), "CommonDriver Endpoint: " + driver.getName () );
+            return Endpoints.createEndpoint ( ( (CommonDriver)driver ).getPortNumber (), "CommonDriver Endpoint: " + driver.getName () );
         }
         else if ( driver instanceof EquinoxDriver )
         {
-            return createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
+            return Endpoints.createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
         }
         else if ( driver instanceof ExternalDriver )
         {
-            return createEndpoint ( ( (ExternalDriver)driver ).getPortNumber (), "ExternalDriver Endpoint: " + driver.getName () );
+            return Endpoints.createEndpoint ( ( (ExternalDriver)driver ).getPortNumber (), "ExternalDriver Endpoint: " + driver.getName () );
         }
         throw new IllegalStateException ( String.format ( "Unable to create DA endpoint for driver type: %s", driver.getClass ().getName () ) );
     }

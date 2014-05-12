@@ -24,6 +24,7 @@ import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.World;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Driver;
@@ -81,7 +82,7 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
 
         final ConfigurationAdministratorExporter caExporter = OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter ();
         caExporter.setName ( "caExporter" ); //$NON-NLS-1$
-        caExporter.getEndpoints ().add ( Worlds.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), "CA Exporter" ) );
+        caExporter.getEndpoints ().add ( Endpoints.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), "CA Exporter" ) );
         result.getExporter ().add ( caExporter );
 
         Worlds.addUserService ( result, eDriver.getUserService (), world.getOptions () );

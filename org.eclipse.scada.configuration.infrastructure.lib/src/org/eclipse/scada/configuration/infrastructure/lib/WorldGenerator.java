@@ -45,7 +45,9 @@ import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
+import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.recipe.lib.Output;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.ModelLoader;
@@ -59,7 +61,6 @@ import org.eclipse.scada.configuration.world.PasswordCredentials;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
-import org.eclipse.scada.configuration.world.lib.Nodes;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
 import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
@@ -405,7 +406,7 @@ public class WorldGenerator
                 if ( m instanceof HttpServiceModule )
                 {
                     final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
-                    final Endpoint ep = Worlds.createEndpoint ( ( (HttpServiceModule)m ).getPort (), "HTTP Endpoint" );
+                    final Endpoint ep = Endpoints.createEndpoint ( ( (HttpServiceModule)m ).getPort (), "HTTP Endpoint" );
                     final Node node = Nodes.fromApp ( implApp );
                     node.getEndpoints ().add ( ep );
                     s.setEndpoint ( ep );
@@ -577,7 +578,7 @@ public class WorldGenerator
     {
         final Exporter exporter = (Exporter)EcoreUtil.create ( exporterClass );
 
-        final Endpoint ep = Worlds.createEndpoint ( port, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
+        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
         node.getEndpoints ().add ( ep );
 
         exporter.setName ( application.getName () + "/exporter" );

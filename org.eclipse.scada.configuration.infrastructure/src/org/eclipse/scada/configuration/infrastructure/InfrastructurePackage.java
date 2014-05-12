@@ -1610,13 +1610,22 @@ public interface InfrastructurePackage extends EPackage
     int CONFIGURATIONS__CONFIGURATIONS = 0;
 
     /**
+     * The feature id for the '<em><b>Settings</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONFIGURATIONS__SETTINGS = 1;
+
+    /**
      * The number of structural features of the '<em>Configurations</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONFIGURATIONS_FEATURE_COUNT = 1;
+    int CONFIGURATIONS_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Configurations</em>' class.
@@ -1830,6 +1839,34 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SLAVE_OPERATION_COUNT = EQUINOX_APPLICATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.Settings
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSettings()
+     * @generated
+     */
+    int SETTINGS = 26;
+
+    /**
+     * The number of structural features of the '<em>Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SETTINGS_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SETTINGS_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1837,7 +1874,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
      * @generated
      */
-    int SLAVE_STORAGE_LAYOUT = 26;
+    int SLAVE_STORAGE_LAYOUT = 27;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -2753,6 +2790,17 @@ public interface InfrastructurePackage extends EPackage
     EReference getConfigurations_Configurations ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.Configurations#getSettings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Settings</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Configurations#getSettings()
+     * @see #getConfigurations()
+     * @generated
+     */
+    EReference getConfigurations_Settings ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2835,6 +2883,16 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EAttribute getValueArchiveSlave_StorageLayout ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Settings</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.Settings
+     * @generated
+     */
+    EClass getSettings ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}'.
@@ -3595,6 +3653,14 @@ public interface InfrastructurePackage extends EPackage
         EReference CONFIGURATIONS__CONFIGURATIONS = eINSTANCE.getConfigurations_Configurations ();
 
         /**
+         * The meta object literal for the '<em><b>Settings</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONFIGURATIONS__SETTINGS = eINSTANCE.getConfigurations_Settings ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.Module <em>Module</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -3665,6 +3731,16 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT = eINSTANCE.getValueArchiveSlave_StorageLayout ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.Settings
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSettings()
+         * @generated
+         */
+        EClass SETTINGS = eINSTANCE.getSettings ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.

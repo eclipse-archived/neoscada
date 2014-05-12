@@ -18,6 +18,10 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
  * A representation of the model object '<em><b>Node</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A base interface for nodes.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,6 +34,10 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.Container;
+import org.eclipse.scada.configuration.component.util.ComponentSwitch;
+import org.eclipse.scada.configuration.infrastructure.Configurations;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.util.InfrastructureSwitch;
@@ -431,6 +435,56 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusExporterModule} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusExporterModuleItemProvider modbusExporterModuleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterModule}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusExporterModuleAdapter ()
+    {
+        if ( modbusExporterModuleItemProvider == null )
+        {
+            modbusExporterModuleItemProvider = new ModbusExporterModuleItemProvider ( this );
+        }
+
+        return modbusExporterModuleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ModbusExporterInterceptorItemProvider modbusExporterInterceptorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createModbusExporterInterceptorAdapter ()
+    {
+        if ( modbusExporterInterceptorItemProvider == null )
+        {
+            modbusExporterInterceptorItemProvider = new ModbusExporterInterceptorItemProvider ( this );
+        }
+
+        return modbusExporterInterceptorItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -605,6 +659,107 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
             modbusUInt16ItemProvider.dispose ();
         if ( modbusUInt32ItemProvider != null )
             modbusUInt32ItemProvider.dispose ();
+        if ( modbusExporterModuleItemProvider != null )
+            modbusExporterModuleItemProvider.dispose ();
+        if ( modbusExporterInterceptorItemProvider != null )
+            modbusExporterInterceptorItemProvider.dispose ();
+    }
+
+    /**
+     * A child creation extender for the {@link ComponentPackage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static class ComponentChildCreationExtender implements IChildCreationExtender
+    {
+        /**
+         * The switch for creating child descriptors specific to each extended class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected static class CreationSwitch extends ComponentSwitch<Object>
+        {
+            /**
+             * The child descriptors being populated.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            CreationSwitch ( List<Object> newChildDescriptors, EditingDomain editingDomain )
+            {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseContainer ( Container object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS,
+                                ModbusFactory.eINSTANCE.createModbusExporterInterceptor () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected CommandParameter createChildParameter ( Object feature, Object child )
+            {
+                return new CommandParameter ( null, feature, child );
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
+        {
+            ArrayList<Object> result = new ArrayList<Object> ();
+            new CreationSwitch ( result, editingDomain ).doSwitch ( (EObject)object );
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public ResourceLocator getResourceLocator ()
+        {
+            return ModbusEditPlugin.INSTANCE;
+        }
     }
 
     /**
@@ -663,6 +818,22 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
                         ( createChildParameter
                         ( InfrastructurePackage.Literals.NODE__DEVICES,
                                 ModbusFactory.eINSTANCE.createModbusDevice () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseConfigurations ( Configurations object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
+                                ModbusFactory.eINSTANCE.createModbusExporterModule () ) );
 
                 return null;
             }
@@ -781,6 +952,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
         {
             ArrayList<Object> result = new ArrayList<Object> ();
@@ -793,6 +965,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public ResourceLocator getResourceLocator ()
         {
             return ModbusEditPlugin.INSTANCE;
@@ -876,6 +1049,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
         {
             ArrayList<Object> result = new ArrayList<Object> ();
@@ -888,6 +1062,7 @@ public class ModbusItemProviderAdapterFactory extends ModbusAdapterFactory imple
          * <!-- end-user-doc -->
          * @generated
          */
+        @Override
         public ResourceLocator getResourceLocator ()
         {
             return ModbusEditPlugin.INSTANCE;

@@ -20,30 +20,19 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Equinox Application</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber
- * <em>Instance Number</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfigurations
- * <em>Configurations</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration
- * <em>Configuration</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials
- * <em>Local Credentials</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration
- * <em>Security Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber <em>Instance Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication()
  * @model abstract="true"
  * @generated
@@ -58,7 +47,6 @@ public interface EquinoxApplication extends EObject
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Name()
@@ -68,14 +56,10 @@ public interface EquinoxApplication extends EObject
     String getName ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName
-     * <em>Name</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Name</em>' attribute.
+     * @param value the new value of the '<em>Name</em>' attribute.
      * @see #getName()
      * @generated
      */
@@ -90,7 +74,6 @@ public interface EquinoxApplication extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Instance Number</em>' attribute.
      * @see #setInstanceNumber(int)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_InstanceNumber()
@@ -100,34 +83,25 @@ public interface EquinoxApplication extends EObject
     int getInstanceNumber ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber
-     * <em>Instance Number</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getInstanceNumber <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Instance Number</em>' attribute.
+     * @param value the new value of the '<em>Instance Number</em>' attribute.
      * @see #getInstanceNumber()
      * @generated
      */
     void setInstanceNumber ( int value );
 
     /**
-     * Returns the value of the '<em><b>Configurations</b></em>' containment
-     * reference list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}
-     * .
+     * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.IndependentConfiguration}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Configurations</em>' containment reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Configurations</em>' containment reference
-     *         list.
+     * @return the value of the '<em>Configurations</em>' containment reference list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Configurations()
      * @model containment="true" resolveProxies="true"
      * @generated
@@ -142,7 +116,6 @@ public interface EquinoxApplication extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Configuration</em>' reference.
      * @see #setConfiguration(ApplicationConfiguration)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_Configuration()
@@ -152,14 +125,10 @@ public interface EquinoxApplication extends EObject
     ApplicationConfiguration getConfiguration ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration
-     * <em>Configuration</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getConfiguration <em>Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Configuration</em>' reference.
+     * @param value the new value of the '<em>Configuration</em>' reference.
      * @see #getConfiguration()
      * @generated
      */
@@ -173,7 +142,6 @@ public interface EquinoxApplication extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Local Credentials</em>' reference.
      * @see #setLocalCredentials(Credentials)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_LocalCredentials()
@@ -183,29 +151,23 @@ public interface EquinoxApplication extends EObject
     Credentials getLocalCredentials ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials
-     * <em>Local Credentials</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getLocalCredentials <em>Local Credentials</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Local Credentials</em>' reference.
+     * @param value the new value of the '<em>Local Credentials</em>' reference.
      * @see #getLocalCredentials()
      * @generated
      */
     void setLocalCredentials ( Credentials value );
 
     /**
-     * Returns the value of the '<em><b>Security Configuration</b></em>'
-     * reference.
+     * Returns the value of the '<em><b>Security Configuration</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Security Configuration</em>' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
      * @return the value of the '<em>Security Configuration</em>' reference.
      * @see #setSecurityConfiguration(Configuration)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxApplication_SecurityConfiguration()
@@ -215,15 +177,10 @@ public interface EquinoxApplication extends EObject
     Configuration getSecurityConfiguration ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration
-     * <em>Security Configuration</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxApplication#getSecurityConfiguration <em>Security Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Security Configuration</em>'
-     *            reference.
+     * @param value the new value of the '<em>Security Configuration</em>' reference.
      * @see #getSecurityConfiguration()
      * @generated
      */

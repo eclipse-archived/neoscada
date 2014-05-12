@@ -18,4 +18,16 @@
             class="org.eclipse.scada.configuration.modbus.lib.ModbusExporterProcessor">
       </oscarProcessor>
    </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+        
+  	<factory
+         adaptableType="org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor"
+         class="org.eclipse.scada.configuration.modbus.lib.internal.InterceptorAdapterFactory">
+      <adapter
+            type="org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler">
+      </adapter>
+   </factory>
+        
+  </extension>
 </plugin>

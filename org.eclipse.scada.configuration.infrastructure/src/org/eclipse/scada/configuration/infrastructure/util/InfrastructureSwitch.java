@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.infrastructure.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
@@ -369,6 +370,14 @@ public class InfrastructureSwitch<T> extends Switch<T>
                 T result = caseValueArchiveSlave ( valueArchiveSlave );
                 if ( result == null )
                     result = caseEquinoxApplication ( valueArchiveSlave );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.SETTINGS:
+            {
+                Settings settings = (Settings)theEObject;
+                T result = caseSettings ( settings );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -790,6 +799,22 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseValueArchiveSlave ( ValueArchiveSlave object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSettings ( Settings object )
     {
         return null;
     }

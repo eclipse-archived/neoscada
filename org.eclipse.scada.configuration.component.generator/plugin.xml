@@ -88,8 +88,8 @@
            </adapter>
         </factory>
    	<factory
-             adaptableType="org.eclipse.scada.configuration.component.RestInterceptor"
-             class="org.eclipse.scada.configuration.component.generator.internal.InterceptorAdapterFactory">
+         adaptableType="org.eclipse.scada.configuration.component.RestInterceptor"
+         class="org.eclipse.scada.configuration.component.generator.internal.InterceptorAdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler">
           </adapter>

@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.infrastructure.*;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
@@ -263,6 +264,12 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         public Adapter caseValueArchiveSlave ( ValueArchiveSlave object )
         {
             return createValueArchiveSlaveAdapter ();
+        }
+
+        @Override
+        public Adapter caseSettings ( Settings object )
+        {
+            return createSettingsAdapter ();
         }
 
         @Override
@@ -748,6 +755,21 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createValueArchiveSlaveAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.Settings
+     * @generated
+     */
+    public Adapter createSettingsAdapter ()
     {
         return null;
     }

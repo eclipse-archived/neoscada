@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -25,7 +25,7 @@ import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
 import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
-import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.memory.TypeSystem;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerFactory;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerModule;
@@ -92,7 +92,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
         master.setId ( device.getName () );
         result.getMasters ().add ( master );
 
-        final Endpoint ep = Worlds.createEndpoint ( device.getPort (), "Modbus Device Endpoint" );
+        final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "Modbus Device Endpoint" );
         master.setEndpoint ( ep );
         master.setProtocolType ( device.getProtocolType () );
         master.setInterFrameDelay ( device.getInterFrameDelay () );

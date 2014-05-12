@@ -77,7 +77,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Credentials" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" interface="true"
-      eSuperTypes="#//NamedDocumentable"/>
+      eSuperTypes="#//NamedDocumentable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This interface allows declaring generic service objects which apply to a node. This can be used for declaring custom service types which also might get references by custom model extensions.&#xA;&#xA;For example could this be a VPN connection to another system."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedDocumentable" abstract="true" interface="true"
       eSuperTypes="#//Documentable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -788,7 +792,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="IndependentConfiguration" abstract="true"
         interface="true" eSuperTypes="#//osgi/ApplicationConfiguration">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="This is a marker interface for standalone configuration element that can be used directly in the infrastructure model."/>
+        <details key="documentation" value="This is a marker interface for standalone configuration elements that can be used directly in the infrastructure model.&#xA;&#xA;Modules which can be configured without the reference to any other world model object can use this interface. This allows the direct use of this model without the need to provide a transformation from the Component/Infrastructure model to the World model."/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TransientItem" eSuperTypes="#//osgi/Item"/>

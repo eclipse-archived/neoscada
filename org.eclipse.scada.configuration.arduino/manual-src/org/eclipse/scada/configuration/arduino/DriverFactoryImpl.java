@@ -18,7 +18,7 @@ import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
 import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
-import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.world.Endpoint;
 
 public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ArduinoDriver>
@@ -54,7 +54,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ArduinoDrive
         con.setName ( device.getName () );
         con.setShortDescription ( device.getShortDescription () );
 
-        final Endpoint ep = Worlds.createEndpoint ( device.getPort (), "Arduino Endpoint" );
+        final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "Arduino Endpoint" );
         con.setEndpoint ( ep );
 
         // lookup node

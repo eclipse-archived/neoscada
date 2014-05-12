@@ -2,19 +2,21 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Component Configuration Library (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.lib;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.configuration.component.lib.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.configuration.component.lib;version="0.1.0";
+Export-Package: org.eclipse.scada.configuration.component.lib;version="0.2.0";
   uses:="org.eclipse.core.runtime,
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.scada.configuration.generator,
    org.eclipse.emf.common.util,
    org.eclipse.scada.configuration.component,
-   org.osgi.framework",
- org.eclipse.scada.configuration.component.lib.create;version="0.1.0";
+   org.osgi.framework,
+   org.eclipse.scada.configuration.item",
+ org.eclipse.scada.configuration.component.lib.create;version="0.2.0";
   uses:="org.eclipse.core.runtime,
    org.eclipse.scada.configuration.world.osgi,
+   org.eclipse.scada.configuration.generator,
    org.eclipse.scada.configuration.infrastructure,
    org.eclipse.scada.configuration.component,
    org.eclipse.scada.configuration.item,

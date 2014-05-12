@@ -3,6 +3,9 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="infrastructure" nsURI="http://eclipse.org/SCADA/Configuration/Infrastructure"
     nsPrefix="infrastructure">
   <eClassifiers xsi:type="ecore:EClass" name="World">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Life, the universe and everything."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
         eType="#//Node" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
@@ -30,6 +33,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A base interface for nodes."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
@@ -62,14 +68,33 @@
         eType="#//MasterServer" eOpposite="#//MasterServer/importMaster"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Options">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Some basic world options."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseDaNgpPort" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2100"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2100">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base port number for DA connections. Will be incremented by the instance number of an Equinox application."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseAeNgpPort" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2200"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2200">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base port number for AE connections. Will be incremented by the instance number of an Equinox application."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseCaNgpPort" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2400"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2400">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base port number for CA connections. Will be incremented by the instance number of an Equinox application."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseHdNgpPort" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2300"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort" defaultValueLiteral="2300">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The base port number for HD connections. Will be incremented by the instance number of an Equinox application."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="monitorPools" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/MonitorPool"
         containment="true"/>
@@ -100,8 +125,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalNode" eSuperTypes="#//Node">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An unmanaged node."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SystemNode" eSuperTypes="#//Node">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A node managed by the system."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deployment" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//deployment/DeploymentMechanism"
         containment="true"/>
@@ -190,6 +222,9 @@
         eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This object describes application modules that extend the application that references to this element. For example a master server can reference to an application configuration element which defines an HTTP server and REST interface. So these modules will become part of the application. But it is only necessary to define these modules once, and then re-use them with multiple master servers."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="modules" upperBound="-1"
         eType="#//Module" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
@@ -197,8 +232,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Configurations">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A place where to store configurations and settings in the world model.&#xA;&#xA;It is also possible to store these object instances outside of the main world model."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
         eType="#//ApplicationConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="settings" upperBound="-1"
+        eType="#//Settings" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Module" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="HttpServiceModule" eSuperTypes="#//Module">
@@ -218,5 +258,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SlaveStorageLayout">
     <eLiterals name="SINGLE"/>
     <eLiterals name="MULTI" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Settings" abstract="true" interface="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A base interface for settings.&#xA;&#xA;Settings are, compared to ApplicationConfiguration, not assigned to an application they are running in."/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

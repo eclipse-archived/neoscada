@@ -2,11 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common Configuration Tools (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.lib
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.configuration.lib;version="0.1.0";
+Export-Package: org.eclipse.scada.configuration.lib;version="0.2.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.scada.configuration.world.osgi,
+   org.eclipse.emf.common.util,
    org.eclipse.scada.ae.data,
    org.eclipse.scada.configuration.world"
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.9.0"

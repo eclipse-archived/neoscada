@@ -38,6 +38,7 @@ import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
+import org.eclipse.scada.configuration.infrastructure.Settings;
 import org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
@@ -241,6 +242,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass valueArchiveSlaveEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass settingsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1255,6 +1263,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getConfigurations_Settings ()
+    {
+        return (EReference)configurationsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getModule ()
     {
@@ -1336,6 +1354,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     public EAttribute getValueArchiveSlave_StorageLayout ()
     {
         return (EAttribute)valueArchiveSlaveEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getSettings ()
+    {
+        return settingsEClass;
     }
 
     /**
@@ -1487,6 +1515,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         configurationsEClass = createEClass ( CONFIGURATIONS );
         createEReference ( configurationsEClass, CONFIGURATIONS__CONFIGURATIONS );
+        createEReference ( configurationsEClass, CONFIGURATIONS__SETTINGS );
 
         moduleEClass = createEClass ( MODULE );
 
@@ -1499,6 +1528,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         valueArchiveSlaveEClass = createEClass ( VALUE_ARCHIVE_SLAVE );
         createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_PATH );
         createEAttribute ( valueArchiveSlaveEClass, VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT );
+
+        settingsEClass = createEClass ( SETTINGS );
 
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
@@ -1667,6 +1698,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( configurationsEClass, Configurations.class, "Configurations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getConfigurations_Configurations (), this.getApplicationConfiguration (), null, "configurations", null, 0, -1, Configurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getConfigurations_Settings (), this.getSettings (), null, "settings", null, 0, -1, Configurations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( moduleEClass, Module.class, "Module", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -1679,6 +1711,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEClass ( valueArchiveSlaveEClass, ValueArchiveSlave.class, "ValueArchiveSlave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getValueArchiveSlave_StoragePath (), ecorePackage.getEString (), "storagePath", "/var/lib/eclipsescada/hds.slave", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getValueArchiveSlave_StorageLayout (), this.getSlaveStorageLayout (), "storageLayout", "MULTI", 1, 1, ValueArchiveSlave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( settingsEClass, Settings.class, "Settings", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
@@ -1701,7 +1735,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$					
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$														
         addAnnotation ( getSystemNode_Masters (),
                 source,
                 new String[]

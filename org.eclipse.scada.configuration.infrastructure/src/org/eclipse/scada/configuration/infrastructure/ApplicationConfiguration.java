@@ -21,6 +21,10 @@ import org.eclipse.scada.configuration.world.osgi.IndependentConfiguration;
  * <em><b>Application Configuration</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This object describes application modules that extend the application that references to this element. For example a master server can reference to an application configuration element which defines an HTTP server and REST interface. So these modules will become part of the application. But it is only necessary to define these modules once, and then re-use them with multiple master servers.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>

@@ -12,9 +12,12 @@ package org.eclipse.scada.configuration.modbus.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.scada.configuration.component.provider.ComponentEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
+import org.eclipse.scada.configuration.item.provider.ItemEditPlugin;
 import org.eclipse.scada.configuration.memory.provider.MemoryEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
@@ -23,7 +26,6 @@ import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
  * This is the central singleton for the Modbus edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public final class ModbusEditPlugin extends EMFPlugin
@@ -32,7 +34,6 @@ public final class ModbusEditPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final ModbusEditPlugin INSTANCE = new ModbusEditPlugin ();
@@ -41,7 +42,6 @@ public final class ModbusEditPlugin extends EMFPlugin
      * Keep track of the singleton.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static Implementation plugin;
@@ -50,19 +50,21 @@ public final class ModbusEditPlugin extends EMFPlugin
      * Create the instance.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ModbusEditPlugin ()
     {
         super ( new ResourceLocator[]
         {
+                ComponentEditPlugin.INSTANCE,
                 ExecEditPlugin.INSTANCE,
+                GlobalizeEditPlugin.INSTANCE,
                 InfrastructureEditPlugin.INSTANCE,
+                ItemEditPlugin.INSTANCE,
                 MemoryEditPlugin.INSTANCE,
+                ScriptEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
-                GlobalizeEditPlugin.INSTANCE,
         } );
     }
 
@@ -70,7 +72,6 @@ public final class ModbusEditPlugin extends EMFPlugin
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the singleton instance.
      * @generated
      */
@@ -84,7 +85,6 @@ public final class ModbusEditPlugin extends EMFPlugin
      * Returns the singleton instance of the Eclipse plugin.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the singleton instance.
      * @generated
      */
@@ -97,7 +97,6 @@ public final class ModbusEditPlugin extends EMFPlugin
      * The actual implementation of the Eclipse <b>Plugin</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static class Implementation extends EclipsePlugin
@@ -106,7 +105,6 @@ public final class ModbusEditPlugin extends EMFPlugin
          * Creates an instance.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
         public Implementation ()
