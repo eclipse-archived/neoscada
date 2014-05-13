@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ###############################################################################
 # Copyright (c) 2014 IBH SYSTEMS GmbH and others.
@@ -11,13 +11,17 @@
 #     IBH SYSTEMS GmbH - initial API and implementation
 ###############################################################################
 
-test ! -z [ "$JAVA_HOME" ] && JAVA="$JAVA_HOME/bin/java"
-test ! -z [ "$JRE_HOME" ] && JAVA="$JRE_HOME/bin/java"
+[ ! -z "$JAVA_HOME" ] && JAVA="$JAVA_HOME/bin/java"
+[ ! -z  "$JRE_HOME" ] && JAVA="$JRE_HOME/bin/java"
 
-test -z "$JAVA" && JAVA="`which java`"
+[ -z "$JAVA" ] && JAVA="`which java`"
 
-test -x "$JAVA" || ( echo "Unable to find java executable" ; exit 1 )
+[ -x "$JAVA" ] || ( echo "Unable to find java executable" ; exit 1 )
 
-DIR="`dirname \"$0\"`"
+if [ -L $0 ] ; then
+	DIR="$(dirname "$(readlink -f "$0")")"
+else
+	DIR="$(dirname "$0")"
+fi
 
-"$JAVA" -jar "`ls \"$DIR\"/plugins/org.eclipse.equinox.launcher_*.jar`"
+"$JAVA" -jar "$(ls "$DIR"//plugins/org.eclipse.equinox.launcher_*.jar)"
