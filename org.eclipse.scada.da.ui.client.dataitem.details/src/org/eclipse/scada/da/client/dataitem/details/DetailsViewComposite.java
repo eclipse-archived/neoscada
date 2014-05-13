@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - create generic header label
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details;
 
@@ -31,7 +32,7 @@ import org.eclipse.scada.da.client.dataitem.details.part.DetailsPart;
 import org.eclipse.scada.da.ui.connection.data.DataItemHolder;
 import org.eclipse.scada.da.ui.connection.data.DataSourceListener;
 import org.eclipse.scada.da.ui.connection.data.Item;
-import org.eclipse.scada.da.ui.styles.DataItemValueStateExtractor;
+import org.eclipse.scada.da.ui.widgets.DataItemHeaderLabel;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.events.DisposeEvent;
@@ -39,15 +40,10 @@ import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.scada.core.ui.styles.StateStyler;
-import org.eclipse.scada.core.ui.styles.StyleBlinker;
-import org.eclipse.scada.core.ui.styles.StyleBlinker.CurrentStyle;
 
 public class DetailsViewComposite extends Composite
 {
@@ -58,21 +54,11 @@ public class DetailsViewComposite extends Composite
 
     private CTabFolder tabFolder;
 
-    private Label headerIcon;
-
-    private Label headerLabel;
-
-    private Composite header;
-
-    private Label headerValueLabel;
-
     private final LocalResourceManager resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
 
     private final Display display;
 
-    private StyleBlinker blinker;
-
-    private StateStyler styler;
+    private DataItemHeaderLabel header;
 
     public DetailsViewComposite ( final Composite parent, final int style )
     {
@@ -191,27 +177,8 @@ public class DetailsViewComposite extends Composite
 
     private void createHeader ( final Composite parent )
     {
-        this.header = new Composite ( parent, SWT.NONE );
+        this.header = new DataItemHeaderLabel ( parent );
         this.header.setLayoutData ( new GridData ( SWT.FILL, SWT.BEGINNING, true, false ) );
-        this.header.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
-
-        this.headerIcon = new Label ( this.header, SWT.NONE );
-
-        this.headerLabel = new Label ( this.header, SWT.NONE );
-        this.headerLabel.setText ( Messages.DetailsViewComposite_EmptyDataItem );
-
-        this.headerValueLabel = new Label ( this.header, SWT.NONE );
-
-        this.blinker = new StyleBlinker () {
-
-            @Override
-            public void update ( final CurrentStyle style )
-            {
-                handleStyleUpdate ( style );
-            }
-        };
-
-        this.styler = new StateStyler ( this.blinker );
     }
 
     private void handleDispose ()
@@ -223,9 +190,6 @@ public class DetailsViewComposite extends Composite
         disposeDataItem ();
 
         this.resourceManager.dispose ();
-
-        this.styler.dispose ();
-        this.blinker.dispose ();
     }
 
     /**
@@ -240,15 +204,8 @@ public class DetailsViewComposite extends Composite
 
         if ( item != null )
         {
+            this.header.subscribe ( Activator.getDefault ().getBundle ().getBundleContext (), item );
 
-            if ( this.headerLabel != null )
-            {
-                this.headerLabel.setText ( String.format ( Messages.DetailsViewComposite_DataItemFormat, item.getId () ) );
-                this.headerValueLabel.setText ( "" ); //$NON-NLS-1$
-            }
-
-            // for initial update
-            updateData ( null );
             this.dataItem = new DataItemHolder ( Activator.getDefault ().getBundle ().getBundleContext (), item, new DataSourceListener () {
 
                 @Override
@@ -265,11 +222,7 @@ public class DetailsViewComposite extends Composite
         }
         else
         {
-            if ( this.headerLabel != null )
-            {
-                this.headerLabel.setText ( Messages.DetailsViewComposite_EmptyDataItem );
-                this.headerValueLabel.setText ( "" ); //$NON-NLS-1$
-            }
+            this.header.unsubscribe ();
 
             // clear
             for ( final DetailsPart part : this.detailParts )
@@ -282,12 +235,9 @@ public class DetailsViewComposite extends Composite
     protected void updateData ( final DataItemValue value )
     {
         this.display.asyncExec ( new Runnable () {
-
             @Override
             public void run ()
             {
-                updateHeader ( value );
-
                 for ( final DetailsPart part : DetailsViewComposite.this.detailParts )
                 {
                     part.updateData ( value );
@@ -295,54 +245,6 @@ public class DetailsViewComposite extends Composite
             }
         } );
 
-    }
-
-    protected void handleStyleUpdate ( final CurrentStyle style )
-    {
-        if ( this.header.isDisposed () )
-        {
-            return;
-        }
-
-        applyWidget ( (Control)this.headerValueLabel, style );
-        applyWidget ( this.header, style );
-        applyWidget ( (Control)this.headerLabel, style );
-        applyWidget ( this.headerIcon, style );
-        this.header.layout ();
-    }
-
-    private static void applyWidget ( final Label label, final CurrentStyle style )
-    {
-        applyWidget ( (Control)label, style );
-        label.setImage ( style.image );
-    }
-
-    private static void applyWidget ( final Control label, final CurrentStyle style )
-    {
-        label.setForeground ( style.foreground );
-        label.setBackground ( style.background );
-        label.setFont ( style.font );
-    }
-
-    private void updateHeader ( final DataItemValue value )
-    {
-        if ( this.headerValueLabel.isDisposed () )
-        {
-            return;
-        }
-
-        this.styler.style ( new DataItemValueStateExtractor ( value ) );
-
-        if ( value == null )
-        {
-            this.headerValueLabel.setText ( Messages.DetailsViewComposite_NoValueText );
-            return;
-        }
-
-        // set the value label
-        this.headerValueLabel.setText ( value.toString () );
-
-        this.header.layout ();
     }
 
     private void disposeDataItem ()

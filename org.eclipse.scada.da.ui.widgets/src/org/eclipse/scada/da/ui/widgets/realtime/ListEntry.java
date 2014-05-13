@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - clean up
  *******************************************************************************/
 package org.eclipse.scada.da.ui.widgets.realtime;
 
@@ -20,21 +21,21 @@ import java.util.Observable;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.data.SubscriptionState;
+import org.eclipse.scada.core.ui.styles.StateStyler;
+import org.eclipse.scada.core.ui.styles.StyleBlinker;
+import org.eclipse.scada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.ui.connection.data.DataItemHolder;
 import org.eclipse.scada.da.ui.connection.data.DataSourceListener;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.da.ui.styles.DataItemValueStateExtractor;
-import org.eclipse.scada.da.ui.widgets.Activator;
+import org.eclipse.scada.da.ui.widgets.internal.Activator;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertyDescriptor;
-import org.eclipse.scada.core.ui.styles.StateStyler;
-import org.eclipse.scada.core.ui.styles.StyleBlinker;
-import org.eclipse.scada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

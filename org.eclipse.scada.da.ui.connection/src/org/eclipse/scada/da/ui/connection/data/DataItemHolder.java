@@ -33,6 +33,14 @@ public class DataItemHolder extends AbstractItemHolder
 
     private final DataSourceListener listener;
 
+    /**
+     * @since 0.2.0
+     */
+    public DataItemHolder ( final BundleContext context, final Item item )
+    {
+        this ( context, item, null );
+    }
+
     public DataItemHolder ( final BundleContext context, final Item item, final DataSourceListener listener )
     {
         super ( context, item, null );
@@ -78,8 +86,11 @@ public class DataItemHolder extends AbstractItemHolder
         if ( connectionService != null )
         {
             this.dataItem = new DataItem ( this.item.getId () );
-            this.dataItem.addObserver ( this.observer );
-            this.dataItem.register ( connectionService.getItemManager () );
+            if ( this.listener != null )
+            {
+                this.dataItem.addObserver ( this.observer );
+                this.dataItem.register ( connectionService.getItemManager () );
+            }
         }
     }
 
@@ -90,8 +101,11 @@ public class DataItemHolder extends AbstractItemHolder
 
         if ( this.dataItem != null )
         {
-            this.dataItem.deleteObserver ( this.observer );
-            this.dataItem.unregister ();
+            if ( this.listener != null )
+            {
+                this.dataItem.deleteObserver ( this.observer );
+                this.dataItem.unregister ();
+            }
             this.dataItem = null;
         }
         fireListenerChange ( null );

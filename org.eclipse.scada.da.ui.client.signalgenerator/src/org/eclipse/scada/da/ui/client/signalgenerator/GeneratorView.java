@@ -24,10 +24,9 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.ui.client.signalgenerator.page.GeneratorPage;
-import org.eclipse.scada.da.ui.connection.data.DataSourceListener;
 import org.eclipse.scada.da.ui.connection.data.Item;
+import org.eclipse.scada.da.ui.widgets.DataItemHeaderLabel;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -64,6 +63,8 @@ public class GeneratorView extends ViewPart implements SimulationTarget
 
     private Label errorLabel;
 
+    private DataItemHeaderLabel headerLabel;
+
     public GeneratorView ()
     {
     }
@@ -73,10 +74,22 @@ public class GeneratorView extends ViewPart implements SimulationTarget
     {
         createPages ();
         applyParentLayout ( parent );
+        createHeaderLabel ( parent );
         createHeader ( parent );
         createTabFolder ( parent );
 
         updateState ();
+    }
+
+    private void createHeaderLabel ( final Composite parent )
+    {
+        this.headerLabel = new DataItemHeaderLabel ( parent );
+        this.headerLabel.setLayoutData ( new GridData ( GridData.FILL, GridData.BEGINNING, true, false ) );
+
+        if ( this.item != null )
+        {
+            this.headerLabel.subscribe ( Activator.getDefault ().getBundle ().getBundleContext (), this.item.getItem () );
+        }
     }
 
     private void createTabFolder ( final Composite parent )
@@ -110,7 +123,6 @@ public class GeneratorView extends ViewPart implements SimulationTarget
     {
         this.header = new Composite ( parent, SWT.NONE );
         this.header.setLayoutData ( new GridData ( GridData.BEGINNING, GridData.BEGINNING, true, false ) );
-
         this.header.setLayout ( new RowLayout () );
 
         this.startButton = new Button ( this.header, SWT.TOGGLE );
@@ -218,16 +230,14 @@ public class GeneratorView extends ViewPart implements SimulationTarget
 
     public void setDataItem ( final Item item )
     {
+        if ( this.headerLabel != null )
+        {
+            this.headerLabel.subscribe ( Activator.getDefault ().getBundle ().getBundleContext (), item );
+        }
+
         if ( item != null )
         {
-            this.item = new org.eclipse.scada.da.ui.connection.data.DataItemHolder ( Activator.getDefault ().getBundle ().getBundleContext (), item, new DataSourceListener () {
-
-                @Override
-                public void updateData ( final DataItemValue value )
-                {
-                    GeneratorView.this.updateData ();
-                }
-            } );
+            this.item = new org.eclipse.scada.da.ui.connection.data.DataItemHolder ( Activator.getDefault ().getBundle ().getBundleContext (), item );
 
             setPartName ( String.format ( Messages.getString ( "GeneratorView.partName" ), item.getId (), item.getConnectionString () ) );
         }
@@ -236,11 +246,6 @@ public class GeneratorView extends ViewPart implements SimulationTarget
             setPartName ( Messages.getString ( "GeneratorView.emptyPartName" ) );
         }
         updateState ();
-    }
-
-    protected void updateData ()
-    {
-        // TODO Auto-generated method stub
     }
 
     private Collection<GeneratorPageInformation> getPageInformation () throws CoreException
