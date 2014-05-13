@@ -18,9 +18,27 @@ package org.eclipse.scada.utils.ui.server;
  */
 public interface PageProvider
 {
+    /**
+     * Provide a label hierarchy <br/>
+     * This hierarchy of labels is used to place the page in the navigation
+     * tree.
+     * 
+     * @return this method must neither return <code>null</code> nor an empty
+     *         array.
+     */
     public String[] getPath ();
 
+    /**
+     * Get the name of the page
+     * 
+     * @return the name of the page
+     */
     public String getName ();
 
+    /**
+     * Create the page
+     * 
+     * @return The new page instance
+     */
     public Page createPage ();
 }
