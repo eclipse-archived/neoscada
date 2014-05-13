@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,8 +27,6 @@ public class BooleanGenerator
     private int startDelay = 1000;
 
     private int endDelay = 1000;
-
-    private int iterations = -1;
 
     private boolean running = false;
 
@@ -92,31 +90,22 @@ public class BooleanGenerator
         final long now = System.currentTimeMillis ();
         switch ( this.currentState )
         {
-        case START_DELAY:
-            if ( now - this.lastTick > this.startDelay )
-            {
-                this.currentState = State.END_DELAY;
-                this.lastTick = now;
-                this.target.writeValue ( Variant.TRUE );
-            }
-            break;
-        case END_DELAY:
-            if ( now - this.lastTick > this.endDelay )
-            {
-                this.currentState = State.START_DELAY;
-                this.lastTick = now;
-                if ( this.iterations > 0 )
+            case START_DELAY:
+                if ( now - this.lastTick > this.startDelay )
                 {
-                    this.iterations--;
+                    this.currentState = State.END_DELAY;
+                    this.lastTick = now;
+                    this.target.writeValue ( Variant.TRUE );
                 }
-                this.target.writeValue ( Variant.FALSE );
-            }
-            break;
-        }
-
-        if ( this.iterations == 0 )
-        {
-            this.running = false;
+                break;
+            case END_DELAY:
+                if ( now - this.lastTick > this.endDelay )
+                {
+                    this.currentState = State.START_DELAY;
+                    this.lastTick = now;
+                    this.target.writeValue ( Variant.FALSE );
+                }
+                break;
         }
     }
 
@@ -138,15 +127,5 @@ public class BooleanGenerator
     public void setEndDelay ( final int endDelay )
     {
         this.endDelay = endDelay;
-    }
-
-    public int getIterations ()
-    {
-        return this.iterations;
-    }
-
-    public void setIterations ( final int iterations )
-    {
-        this.iterations = iterations;
     }
 }
