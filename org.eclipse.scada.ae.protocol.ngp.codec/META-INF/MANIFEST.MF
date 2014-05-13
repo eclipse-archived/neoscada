@@ -11,7 +11,7 @@ Export-Package: org.eclipse.scada.ae.protocol.ngp.codec;version="0.1.0";
    org.apache.mina.core.buffer,
    org.eclipse.scada.ae.data"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.apache.mina.core.buffer;version="2.0.7",
+Import-Package: org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.eclipse.scada.ae.data;version="0.1.0",
  org.eclipse.scada.ae.data.message;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0",
