@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup
  *******************************************************************************/
 package org.eclipse.scada.da.ui.client.signalgenerator;
 
@@ -18,6 +19,7 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -79,7 +81,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
 
     private void createTabFolder ( final Composite parent )
     {
-        this.tabFolder = new CTabFolder ( parent, SWT.BOTTOM );
+        this.tabFolder = new CTabFolder ( parent, SWT.TOP );
         this.tabFolder.setLayoutData ( new GridData ( GridData.FILL, GridData.FILL, true, true ) );
 
         for ( final GeneratorPageInformation page : this.pages )
@@ -193,7 +195,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
         }
         catch ( final CoreException e )
         {
-            ErrorDialog.openError ( this.getSite ().getShell (), Messages.getString ( "GeneratorView.createPages.error" ), Messages.getString ( "GeneratorView.createPages.errorMessage" ), e.getStatus () );
+            ErrorDialog.openError ( getSite ().getShell (), Messages.getString ( "GeneratorView.createPages.error" ), Messages.getString ( "GeneratorView.createPages.errorMessage" ), e.getStatus () );
         }
     }
 
@@ -220,6 +222,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
         {
             this.item = new org.eclipse.scada.da.ui.connection.data.DataItemHolder ( Activator.getDefault ().getBundle ().getBundleContext (), item, new DataSourceListener () {
 
+                @Override
                 public void updateData ( final DataItemValue value )
                 {
                     GeneratorView.this.updateData ();
@@ -255,7 +258,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
 
             if ( ! ( o instanceof GeneratorPage ) )
             {
-                throw new CoreException ( new Status ( Status.ERROR, Activator.PLUGIN_ID, Messages.getString ( "GeneratorView.classTypeMismatchError" ) ) );
+                throw new CoreException ( new Status ( IStatus.ERROR, Activator.PLUGIN_ID, Messages.getString ( "GeneratorView.classTypeMismatchError" ) ) );
             }
 
             final GeneratorPageInformation info = new GeneratorPageInformation ();
@@ -267,6 +270,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
 
         Collections.sort ( result, new Comparator<GeneratorPageInformation> () {
 
+            @Override
             public int compare ( final GeneratorPageInformation arg0, final GeneratorPageInformation arg1 )
             {
                 String key1 = arg0.getSortKey ();
@@ -304,6 +308,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
         }
     }
 
+    @Override
     public void writeValue ( final Variant value )
     {
         final org.eclipse.scada.da.ui.connection.data.DataItemHolder item = this.item;
@@ -332,6 +337,7 @@ public class GeneratorView extends ViewPart implements SimulationTarget
         {
             d.asyncExec ( new Runnable () {
 
+                @Override
                 public void run ()
                 {
                     if ( !GeneratorView.this.errorLabel.isDisposed () )

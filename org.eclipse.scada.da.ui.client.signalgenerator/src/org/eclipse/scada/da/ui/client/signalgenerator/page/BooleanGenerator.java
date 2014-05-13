@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - remove iterations
  *******************************************************************************/
 package org.eclipse.scada.da.ui.client.signalgenerator.page;
 
