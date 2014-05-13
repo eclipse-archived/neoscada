@@ -98,7 +98,7 @@
 									</mapper>
 								</data>
 								<data>
-									<src>target/products/org.eclipse.scada.deploy.p2director/all/all/all</src>
+									<src>src/p2director</src>
 									<type>directory</type>
 									<includes>p2director</includes>
 									<mapper>
@@ -172,6 +172,17 @@
 											<sources>
 												<source>
 													<location>target/products/org.eclipse.scada.deploy.p2director/all/all/all</location>
+												</source>
+											</sources>
+										</mapping>
+										<mapping>
+											<directory>/usr/share/${project.artifactId}/product</directory>
+											<username>root</username>
+											<groupname>root</groupname>
+											<filemode>0755</filemode>
+											<sources>
+												<source>
+													<location>src/p2director</location>
 												</source>
 											</sources>
 										</mapping>
