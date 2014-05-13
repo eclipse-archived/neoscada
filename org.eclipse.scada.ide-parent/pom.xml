@@ -135,6 +135,9 @@
 		<module>../org.eclipse.scada.configuration.world.editor</module>
 		<module>../org.eclipse.scada.configuration.world.lib</module>
 
+		<module>../org.eclipse.scada.configuration.script</module>
+		<module>../org.eclipse.scada.configuration.script.edit</module>
+
 		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
 		<module>../org.eclipse.scada.da.server.ui</module>
 		<module>../org.eclipse.scada.da.server.ui.launcher</module>
