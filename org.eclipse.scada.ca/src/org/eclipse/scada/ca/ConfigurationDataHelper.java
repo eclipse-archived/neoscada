@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.VariantEditor;
@@ -570,6 +572,74 @@ public class ConfigurationDataHelper
         final Properties p = new Properties ();
         p.putAll ( getPrefixed ( prefix ) );
         return p;
+    }
+
+    /**
+     * Scan by prefix and aggregate by the remainder <br/>
+     * <p>
+     * This will aggregate from:
+     * </p>
+     * <p>
+     * <code>
+     * a=b
+     * c=d
+     * entry.group1=foo
+     * entry.group1.a=value1
+     * entry.group1.b=value2
+     * entry.group2.a=value3
+     * entry.group2.c=value4
+     * </code>
+     * </p>
+     * <p>
+     * Using the pattern "<code>entry\\.(?<group.*>)\\.(?<key.*?>)</code>". To:
+     * </p>
+     * <p>
+     * <code>
+     * group1 = {
+     *  a=value1
+     *  b=value2
+     * }
+     * group2 = {
+     *  a=value3
+     *  c=value4
+     * }
+     * </code>
+     * </p>
+     * <p>
+     * <em>Note:</em> Key that do not match at all won't get transfered into the
+     * result maps.
+     * </p>
+     * 
+     * @param data
+     *            the data to scan
+     * @param pattern
+     *            a pattern that identifies the group part and the key part from
+     *            the original key. The pattern must have two named groups:
+     *            "group" and "key".
+     * @return A map of maps: group to map(key to value)
+     */
+    public Map<String, Map<String, String>> getAggregated ( final Pattern pattern )
+    {
+        final Map<String, Map<String, String>> result = new HashMap<> ();
+
+        for ( final Map.Entry<String, String> entry : this.data.entrySet () )
+        {
+            final Matcher m = pattern.matcher ( entry.getKey () );
+            if ( m.matches () )
+            {
+                final String group = m.group ( "group" ); //$NON-NLS-1$
+                final String key = m.group ( "key" ); //$NON-NLS-1$
+                Map<String, String> map = result.get ( group );
+                if ( map == null )
+                {
+                    map = new HashMap<> ();
+                    result.put ( group, map );
+                }
+                map.put ( key, entry.getValue () );
+            }
+        }
+
+        return result;
     }
 
     public <E extends Enum<E>> E getEnumChecked ( final String name, final Class<E> enumType, final String errorMessage )
