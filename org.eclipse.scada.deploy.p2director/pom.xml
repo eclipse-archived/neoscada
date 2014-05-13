@@ -99,7 +99,7 @@
 								</data>
 								<data>
 									<src>src/p2director</src>
-									<type>directory</type>
+									<type>file</type>
 									<includes>p2director</includes>
 									<mapper>
 										<type>perm</type>
