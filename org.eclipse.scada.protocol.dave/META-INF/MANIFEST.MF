@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DAVE Protocol Implementation (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.dave
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Export-Package: org.eclipse.scada.protocol.dave;version="0.1.0";
   uses:="org.apache.mina.core.session,
@@ -10,11 +10,11 @@ Export-Package: org.eclipse.scada.protocol.dave;version="0.1.0";
    org.apache.mina.core.filterchain,
    org.apache.mina.core.write"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.apache.mina.core.buffer;version="2.0.2",
- org.apache.mina.core.filterchain;version="2.0.2",
- org.apache.mina.core.session;version="2.0.2",
- org.apache.mina.core.write;version="2.0.2",
- org.apache.mina.handler.multiton;version="2.0.2",
+Import-Package: org.apache.mina.core.buffer;version="[2.0.2,3.0.0)",
+ org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
+ org.apache.mina.core.session;version="[2.0.2,3.0.0)",
+ org.apache.mina.core.write;version="[2.0.2,3.0.0)",
+ org.apache.mina.handler.multiton;version="[2.0.2,3.0.0)",
  org.eclipse.scada.protocol.iso8073;version="0.1.0",
  org.eclipse.scada.utils;version="0.1.0",
  org.eclipse.scada.utils.lang;version="0.1.0",
