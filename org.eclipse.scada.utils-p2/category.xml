@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.scada.utils_0.1.0.qualifier.jar" id="org.eclipse.scada.utils" version="0.1.0.qualifier">
+   <feature url="features/org.eclipse.scada.utils_0.2.0.qualifier.jar" id="org.eclipse.scada.utils" version="0.2.0.qualifier">
       <category name="org.eclipse.scada.utils.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.utils.sdk_0.1.0.qualifier.jar" id="org.eclipse.scada.utils.sdk" version="0.1.0.qualifier">
+   <feature url="features/org.eclipse.scada.utils.sdk_0.2.0.qualifier.jar" id="org.eclipse.scada.utils.sdk" version="0.2.0.qualifier">
       <category name="org.eclipse.scada.utils.sdk.category"/>
    </feature>
-   <feature url="features/org.eclipse.scada.ui.utils_0.1.0.qualifier.jar" id="org.eclipse.scada.ui.utils" version="0.1.0.qualifier">
+   <feature url="features/org.eclipse.scada.ui.utils_0.2.0.qualifier.jar" id="org.eclipse.scada.ui.utils" version="0.2.0.qualifier">
       <category name="org.eclipse.scada.utils.category"/>
    </feature>
    <category-def name="org.eclipse.scada.utils.category" label="Eclipse SCADA Utils (Incubation)">
