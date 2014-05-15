@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2011 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup and add real period
  *******************************************************************************/
 package org.eclipse.scada.da.ui.client.signalgenerator.page;
 
@@ -28,7 +29,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPage
+public class AnalogPage extends AbstractStepGeneratorPage
 {
     private Text minText;
 
@@ -48,9 +49,12 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
 
     private AnalogType function;
 
+    private Text freqText;
+
+    @Override
     public void createPage ( final Composite parent )
     {
-        setDisplay ( parent.getDisplay () );
+        super.createPage ( parent );
 
         parent.setLayout ( new FillLayout ( SWT.VERTICAL ) );
 
@@ -60,6 +64,7 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
         Label label;
 
         final ModifyListener updateAdapter = new ModifyListener () {
+            @Override
             public void modifyText ( final ModifyEvent e )
             {
                 updateSelection ();
@@ -84,9 +89,17 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
 
         // frequency
         label = new Label ( comp, SWT.NONE );
+        label.setText ( Messages.getString ( "AnalogPage.PresetFrequency" ) ); //$NON-NLS-1$
+        this.freqText = new Text ( comp, SWT.BORDER | SWT.SINGLE );
+        this.freqText.setText ( "2000" ); //$NON-NLS-1$
+        this.freqText.addModifyListener ( updateAdapter );
+        this.freqText.setLayoutData ( labelData () );
+
+        // period
+        label = new Label ( comp, SWT.NONE );
         label.setText ( Messages.getString ( "AnalogPage.PresetPeriod" ) ); //$NON-NLS-1$
         this.perText = new Text ( comp, SWT.BORDER | SWT.SINGLE );
-        this.perText.setText ( "2000" ); //$NON-NLS-1$
+        this.perText.setText ( "250" ); //$NON-NLS-1$
         this.perText.addModifyListener ( updateAdapter );
         this.perText.setLayoutData ( labelData () );
 
@@ -114,6 +127,7 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
         this.functionComboViewer.setSelection ( new StructuredSelection ( AnalogType.values ()[0] ), true );
         this.functionComboViewer.addSelectionChangedListener ( new ISelectionChangedListener () {
 
+            @Override
             public void selectionChanged ( final SelectionChangedEvent event )
             {
                 updateSelection ();
@@ -134,8 +148,9 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
     {
         this.minimum = getMinimum ();
         this.maximum = getMaximum ();
-        this.selectedPeriod = getPeriod ();
+        this.selectedPeriod = getFrequency ();
         this.function = getFunction ();
+        setPeriod ( getPeriod () );
     }
 
     protected double getMinimum ()
@@ -162,15 +177,27 @@ public class AnalogPage extends AbstractStepGeneratorPage implements GeneratorPa
         }
     }
 
-    protected double getPeriod ()
+    protected double getFrequency ()
     {
         try
         {
-            return Double.parseDouble ( this.perText.getText () );
+            return Double.parseDouble ( this.freqText.getText () );
         }
         catch ( final Throwable e )
         {
-            return 1.0;
+            return 20_000.0;
+        }
+    }
+
+    protected long getPeriod ()
+    {
+        try
+        {
+            return Long.parseLong ( this.perText.getText () );
+        }
+        catch ( final Throwable e )
+        {
+            return 250L;
         }
     }
 
