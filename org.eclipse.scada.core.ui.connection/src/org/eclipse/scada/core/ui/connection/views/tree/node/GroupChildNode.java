@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - minor improvements
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.views.tree.node;
 
@@ -77,8 +78,7 @@ public class GroupChildNode extends DelegatingTreeNode
         else
         {
             // pass on
-            final String name = path.get ( 0 );
-            path.remove ( 0 );
+            final String name = path.remove ( 0 );
 
             final GroupChildNode child = this.children.get ( name );
             if ( child != null )
