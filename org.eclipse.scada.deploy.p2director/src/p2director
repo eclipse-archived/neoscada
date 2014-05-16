@@ -24,4 +24,4 @@ else
 	DIR="$(dirname "$0")"
 fi
 
-"$JAVA" -jar "$(ls "$DIR"//plugins/org.eclipse.equinox.launcher_*.jar)"
+"$JAVA" -jar "$(ls "$DIR"//plugins/org.eclipse.equinox.launcher_*.jar)" "$@"
