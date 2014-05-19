@@ -16,24 +16,29 @@ public final class TypeHelper
     {
     }
 
-    public static int calculateByteSize ( final TypeDefinition typeDefinition )
+    public static int calculateByteSize ( final int offset, final TypeDefinition typeDefinition )
     {
         if ( typeDefinition == null )
         {
-            return -1;
+            return 0;
         }
 
         int max = 0;
 
         for ( final Variable var : typeDefinition.getVariables () )
         {
-            max = Math.max ( max, var.getType ().getIndex () + var.getType ().getLength () );
+            max = Math.max ( max, offset + var.getType ().getIndex () + var.getType ().getLength () );
             for ( final Attribute attr : var.getAttributes () )
             {
-                max = Math.max ( max, attr.getType ().getIndex () + attr.getType ().getLength () );
+                max = Math.max ( max, offset + attr.getType ().getIndex () + attr.getType ().getLength () );
             }
         }
 
         return max;
+    }
+
+    public static int calculateByteSize ( final TypeDefinition typeDefinition )
+    {
+        return calculateByteSize ( 0, typeDefinition );
     }
 }

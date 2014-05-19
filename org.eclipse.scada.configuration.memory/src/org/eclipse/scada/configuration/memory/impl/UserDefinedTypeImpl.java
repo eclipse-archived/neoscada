@@ -206,7 +206,7 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     {
         if ( this.type != null )
         {
-            return TypeHelper.calculateByteSize ( this.type );
+            return TypeHelper.calculateByteSize ( this.index, this.type );
         }
         else
         {
