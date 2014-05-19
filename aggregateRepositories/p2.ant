@@ -29,6 +29,7 @@ Contributors:
     <property name="download.dir.p2" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}/p2"/>
     
     <property name="p2tom2.file" location="p2tom2.properties"/>
+	<property name="p2tom2.version" value="0.2.0"/>
     
     <!-- ================================= 
           target: default
@@ -168,7 +169,7 @@ Contributors:
         
         <mkdir dir="temp/p2tom2"/>
         
-        <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-0.0.1.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
+        <get src="http://download.eclipse.org/eclipsescada/releng/p2tom2-${p2tom2.version}.zip" dest="temp/p2tom2.zip" usetimestamp="true"/>
         <unzip src="temp/p2tom2.zip" dest="temp"/>
         
         <java classname="org.eclipse.equinox.launcher.Main"
