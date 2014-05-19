@@ -153,7 +153,7 @@ public class DaveDeviceItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_connectionPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -176,7 +176,7 @@ public class DaveDeviceItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_connectionPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -199,7 +199,7 @@ public class DaveDeviceItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_connectionPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -222,7 +222,7 @@ public class DaveDeviceItemProvider
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_dataPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -245,7 +245,7 @@ public class DaveDeviceItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_connectionPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

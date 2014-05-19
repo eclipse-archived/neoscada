@@ -103,7 +103,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -126,7 +126,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -149,7 +149,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -172,7 +172,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -195,7 +195,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_requestPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -218,7 +218,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -241,7 +241,7 @@ public class DaveBlockDefinitionItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_mainPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
