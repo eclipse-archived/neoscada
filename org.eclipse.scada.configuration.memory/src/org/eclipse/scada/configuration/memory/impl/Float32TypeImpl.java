@@ -20,7 +20,7 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class Float32TypeImpl extends BaseScalarTypeImpl implements Float32Type
@@ -28,7 +28,6 @@ public class Float32TypeImpl extends BaseScalarTypeImpl implements Float32Type
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Float32TypeImpl ()
@@ -45,7 +44,6 @@ public class Float32TypeImpl extends BaseScalarTypeImpl implements Float32Type
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

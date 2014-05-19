@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_HmrUAN9CEeOL7L16O2uKtg" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_KsLsYN9CEeOL7L16O2uKtg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_KsNhkN9CEeOL7L16O2uKtg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_KsOvsN9CEeOL7L16O2uKtg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_KsOvsd9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_KsOvst9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_KsOvs99CEeOL7L16O2uKtg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_KsOvtN9CEeOL7L16O2uKtg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_KsOvtd9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_KsOvtt9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_KsOvt99CEeOL7L16O2uKtg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_KsLsYd9CEeOL7L16O2uKtg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="dave.ecore#//DaveDevice"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KsLsYt9CEeOL7L16O2uKtg" x="158" y="113"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_UBOwMN9CEeOL7L16O2uKtg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UDTMwN9CEeOL7L16O2uKtg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UDTMwd9CEeOL7L16O2uKtg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_UB10MN9CEeOL7L16O2uKtg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_UB2bQN9CEeOL7L16O2uKtg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_UB2bQd9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UB2bQt9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UB2bQ99CEeOL7L16O2uKtg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_UB2bRN9CEeOL7L16O2uKtg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_UB2bRd9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_UB2bRt9CEeOL7L16O2uKtg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_UB2bR99CEeOL7L16O2uKtg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_UBOwMd9CEeOL7L16O2uKtg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UBOwMt9CEeOL7L16O2uKtg" x="394" y="107"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_HmrUAd9CEeOL7L16O2uKtg"/>
+  <element xmi:type="ecore:EPackage" href="dave.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_Ufjq8N9CEeOL7L16O2uKtg" type="3003" source="_KsLsYN9CEeOL7L16O2uKtg" target="_UBOwMN9CEeOL7L16O2uKtg">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ufjq8d9CEeOL7L16O2uKtg" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ufjq8t9CEeOL7L16O2uKtg" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ufjq899CEeOL7L16O2uKtg" points="[50, -1, -202, -4]$[253, -26, 1, -29]"/>
+  </edges>
+</notation:Diagram>

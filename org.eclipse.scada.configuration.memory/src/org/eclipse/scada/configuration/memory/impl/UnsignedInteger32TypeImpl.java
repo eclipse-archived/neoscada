@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger32Type;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements UnsignedInteger32Type
@@ -29,7 +29,6 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected UnsignedInteger32TypeImpl ()
@@ -46,7 +45,6 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

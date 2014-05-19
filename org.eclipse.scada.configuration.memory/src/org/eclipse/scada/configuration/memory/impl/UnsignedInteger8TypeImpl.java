@@ -21,7 +21,7 @@ import org.eclipse.scada.configuration.memory.UnsignedInteger8Type;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements UnsignedInteger8Type
@@ -29,7 +29,6 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected UnsignedInteger8TypeImpl ()
@@ -46,7 +45,6 @@ public class UnsignedInteger8TypeImpl extends BaseScalarTypeImpl implements Unsi
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

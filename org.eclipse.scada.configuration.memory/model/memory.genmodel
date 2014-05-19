@@ -23,6 +23,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="memory.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//Type/index"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute memory.ecore#//Type/length"/>
       <genOperations ecoreOperation="memory.ecore#//Type/encode"/>
     </genClasses>
     <genClasses ecoreClass="memory.ecore#//Variable">
@@ -37,7 +38,7 @@
     <genClasses ecoreClass="memory.ecore#//Float32Type"/>
     <genClasses image="false" ecoreClass="memory.ecore#//BaseScalarType"/>
     <genClasses ecoreClass="memory.ecore#//UserDefinedType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference memory.ecore#//UserDefinedType/type"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference memory.ecore#//UserDefinedType/type"/>
     </genClasses>
     <genClasses ecoreClass="memory.ecore#//UnsignedInteger16Type"/>
     <genClasses image="false" ecoreClass="memory.ecore#//ScalarType"/>

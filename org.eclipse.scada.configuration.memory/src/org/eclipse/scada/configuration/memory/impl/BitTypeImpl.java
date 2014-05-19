@@ -23,22 +23,18 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.memory.impl.BitTypeImpl#getSubIndex
- * <em>Sub Index</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.memory.impl.BitTypeImpl#getSubIndex <em>Sub Index</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
 {
     /**
-     * The default value of the '{@link #getSubIndex() <em>Sub Index</em>}'
-     * attribute.
+     * The default value of the '{@link #getSubIndex() <em>Sub Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSubIndex()
      * @generated
      * @ordered
@@ -46,11 +42,9 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     protected static final int SUB_INDEX_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getSubIndex() <em>Sub Index</em>}'
-     * attribute.
+     * The cached value of the '{@link #getSubIndex() <em>Sub Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSubIndex()
      * @generated
      * @ordered
@@ -60,7 +54,6 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected BitTypeImpl ()
@@ -77,7 +70,6 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -89,40 +81,35 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public int getSubIndex ()
     {
-        return this.subIndex;
+        return subIndex;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSubIndex ( final int newSubIndex )
+    public void setSubIndex ( int newSubIndex )
     {
-        final int oldSubIndex = this.subIndex;
-        this.subIndex = newSubIndex;
+        int oldSubIndex = subIndex;
+        subIndex = newSubIndex;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BIT_TYPE__SUB_INDEX, oldSubIndex, this.subIndex ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BIT_TYPE__SUB_INDEX, oldSubIndex, subIndex ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -135,11 +122,10 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -153,11 +139,10 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -171,16 +156,15 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case MemoryPackage.BIT_TYPE__SUB_INDEX:
-                return this.subIndex != SUB_INDEX_EDEFAULT;
+                return subIndex != SUB_INDEX_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -188,20 +172,17 @@ public class BitTypeImpl extends BaseScalarTypeImpl implements BitType
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (subIndex: " ); //$NON-NLS-1$
-        result.append ( this.subIndex );
+        result.append ( subIndex );
         result.append ( ')' );
         return result.toString ();
     }

@@ -27,15 +27,11 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getIndex
- * <em>Index</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getLength
- * <em>Length</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getIndex <em>Index</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getLength <em>Length</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container implements BaseScalarType
@@ -44,7 +40,6 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
      * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -55,7 +50,6 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
      * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -63,11 +57,9 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     protected int index = INDEX_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLength() <em>Length</em>}'
-     * attribute.
+     * The default value of the '{@link #getLength() <em>Length</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getLength()
      * @generated
      * @ordered
@@ -77,7 +69,6 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected BaseScalarTypeImpl ()
@@ -88,7 +79,6 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -100,36 +90,31 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public int getIndex ()
     {
-        return this.index;
+        return index;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setIndex ( final int newIndex )
+    public void setIndex ( int newIndex )
     {
-        final int oldIndex = this.index;
-        this.index = newIndex;
+        int oldIndex = index;
+        index = newIndex;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BASE_SCALAR_TYPE__INDEX, oldIndex, this.index ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BASE_SCALAR_TYPE__INDEX, oldIndex, index ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -143,7 +128,6 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -157,11 +141,10 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -176,11 +159,10 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -194,11 +176,10 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -212,16 +193,15 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case MemoryPackage.BASE_SCALAR_TYPE__INDEX:
-                return this.index != INDEX_EDEFAULT;
+                return index != INDEX_EDEFAULT;
             case MemoryPackage.BASE_SCALAR_TYPE__LENGTH:
                 return getLength () != LENGTH_EDEFAULT;
         }
@@ -231,11 +211,10 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -248,20 +227,17 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (index: " ); //$NON-NLS-1$
-        result.append ( this.index );
+        result.append ( index );
         result.append ( ')' );
         return result.toString ();
     }
