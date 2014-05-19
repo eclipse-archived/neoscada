@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverFactory;
 import org.eclipse.scada.configuration.infrastructure.lib.DeviceTypeValidator;
 import org.eclipse.scada.configuration.lib.Endpoints;
+import org.eclipse.scada.configuration.memory.TypeHelper;
 import org.eclipse.scada.configuration.memory.TypeSystem;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerFactory;
 import org.eclipse.scada.configuration.memory.manager.MemoryManagerModule;
@@ -157,7 +158,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
                 }
                 if ( block.getTimeout () < 0 )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block timeot must not be negative" ) );
+                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block timeout must not be negative" ) );
                 }
                 if ( block.getStartAddress () < MIN_ADDRESS || block.getStartAddress () >= MAX_ADDRESS )
                 {
@@ -166,6 +167,11 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
                 if ( block.getStartAddress () + block.getCount () >= MAX_ADDRESS )
                 {
                     result.add ( ConstraintStatus.createStatus ( ctx, block, null, "A start address of {} and block size of {} would read beyond the maximum.", block.getStartAddress (), block.getCount () ) );
+                }
+                final int typeLen = TypeHelper.calculateByteSize ( block.getType () );
+                if ( block.getCount () * 2 < typeLen )
+                {
+                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "The defined block type ({} bytes) is bigger than the block request ({} bytes / {} registers).", typeLen, block.getCount () * 2, block.getCount () ) );
                 }
             }
         }

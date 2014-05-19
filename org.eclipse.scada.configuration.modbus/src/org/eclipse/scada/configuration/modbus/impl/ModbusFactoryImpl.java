@@ -41,7 +41,6 @@ import org.eclipse.scada.da.server.osgi.modbus.RequestType;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
@@ -50,20 +49,19 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static ModbusFactory init ()
     {
         try
         {
-            final ModbusFactory theModbusFactory = (ModbusFactory)EPackage.Registry.INSTANCE.getEFactory ( ModbusPackage.eNS_URI );
+            ModbusFactory theModbusFactory = (ModbusFactory)EPackage.Registry.INSTANCE.getEFactory ( ModbusPackage.eNS_URI );
             if ( theModbusFactory != null )
             {
                 return theModbusFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -74,7 +72,6 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ModbusFactoryImpl ()
@@ -85,11 +82,10 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -131,11 +127,10 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -153,11 +148,10 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -175,221 +169,202 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusDevice createModbusDevice ()
     {
-        final ModbusDeviceImpl modbusDevice = new ModbusDeviceImpl ();
+        ModbusDeviceImpl modbusDevice = new ModbusDeviceImpl ();
         return modbusDevice;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusDriver createModbusDriver ()
     {
-        final ModbusDriverImpl modbusDriver = new ModbusDriverImpl ();
+        ModbusDriverImpl modbusDriver = new ModbusDriverImpl ();
         return modbusDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusSlave createModbusSlave ()
     {
-        final ModbusSlaveImpl modbusSlave = new ModbusSlaveImpl ();
+        ModbusSlaveImpl modbusSlave = new ModbusSlaveImpl ();
         return modbusSlave;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusMaster createModbusMaster ()
     {
-        final ModbusMasterImpl modbusMaster = new ModbusMasterImpl ();
+        ModbusMasterImpl modbusMaster = new ModbusMasterImpl ();
         return modbusMaster;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusBlock createModbusBlock ()
     {
-        final ModbusBlockImpl modbusBlock = new ModbusBlockImpl ();
+        ModbusBlockImpl modbusBlock = new ModbusBlockImpl ();
         return modbusBlock;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusExporter createModbusExporter ()
     {
-        final ModbusExporterImpl modbusExporter = new ModbusExporterImpl ();
+        ModbusExporterImpl modbusExporter = new ModbusExporterImpl ();
         return modbusExporter;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusExporterDevice createModbusExporterDevice ()
     {
-        final ModbusExporterDeviceImpl modbusExporterDevice = new ModbusExporterDeviceImpl ();
+        ModbusExporterDeviceImpl modbusExporterDevice = new ModbusExporterDeviceImpl ();
         return modbusExporterDevice;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusExporterItem createModbusExporterItem ()
     {
-        final ModbusExporterItemImpl modbusExporterItem = new ModbusExporterItemImpl ();
+        ModbusExporterItemImpl modbusExporterItem = new ModbusExporterItemImpl ();
         return modbusExporterItem;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusDouble createModbusDouble ()
     {
-        final ModbusDoubleImpl modbusDouble = new ModbusDoubleImpl ();
+        ModbusDoubleImpl modbusDouble = new ModbusDoubleImpl ();
         return modbusDouble;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusSInt16 createModbusSInt16 ()
     {
-        final ModbusSInt16Impl modbusSInt16 = new ModbusSInt16Impl ();
+        ModbusSInt16Impl modbusSInt16 = new ModbusSInt16Impl ();
         return modbusSInt16;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusSInt32 createModbusSInt32 ()
     {
-        final ModbusSInt32Impl modbusSInt32 = new ModbusSInt32Impl ();
+        ModbusSInt32Impl modbusSInt32 = new ModbusSInt32Impl ();
         return modbusSInt32;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusUInt16 createModbusUInt16 ()
     {
-        final ModbusUInt16Impl modbusUInt16 = new ModbusUInt16Impl ();
+        ModbusUInt16Impl modbusUInt16 = new ModbusUInt16Impl ();
         return modbusUInt16;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusUInt32 createModbusUInt32 ()
     {
-        final ModbusUInt32Impl modbusUInt32 = new ModbusUInt32Impl ();
+        ModbusUInt32Impl modbusUInt32 = new ModbusUInt32Impl ();
         return modbusUInt32;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusExporterModule createModbusExporterModule ()
     {
-        final ModbusExporterModuleImpl modbusExporterModule = new ModbusExporterModuleImpl ();
+        ModbusExporterModuleImpl modbusExporterModule = new ModbusExporterModuleImpl ();
         return modbusExporterModule;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ModbusExporterInterceptor createModbusExporterInterceptor ()
     {
-        final ModbusExporterInterceptorImpl modbusExporterInterceptor = new ModbusExporterInterceptorImpl ();
+        ModbusExporterInterceptorImpl modbusExporterInterceptor = new ModbusExporterInterceptorImpl ();
         return modbusExporterInterceptor;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ProtocolType createProtocolTypeFromString ( final EDataType eDataType, final String initialValue )
+    public ProtocolType createProtocolTypeFromString ( EDataType eDataType, String initialValue )
     {
-        final ProtocolType result = ProtocolType.get ( initialValue );
+        ProtocolType result = ProtocolType.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertProtocolTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertProtocolTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -397,26 +372,22 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public ByteOrder createByteOrderFromString ( final EDataType eDataType, final String initialValue )
+    public ByteOrder createByteOrderFromString ( EDataType eDataType, String initialValue )
     {
-        final ByteOrder result = ByteOrder.get ( initialValue );
+        ByteOrder result = ByteOrder.get ( initialValue );
         if ( result == null )
-        {
             throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertByteOrderToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertByteOrderToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -424,10 +395,9 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public RequestType createRequestTypeFromString ( final EDataType eDataType, final String initialValue )
+    public RequestType createRequestTypeFromString ( EDataType eDataType, String initialValue )
     {
         return (RequestType)super.createFromString ( eDataType, initialValue );
     }
@@ -435,10 +405,9 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertRequestTypeToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertRequestTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return super.convertToString ( eDataType, instanceValue );
     }
@@ -446,7 +415,6 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -458,7 +426,6 @@ public class ModbusFactoryImpl extends EFactoryImpl implements ModbusFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

@@ -124,6 +124,9 @@ public interface ModbusBlock extends EObject
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The number of registers to read.
+     * <!-- end-model-doc -->
      * @return the value of the '<em>Count</em>' attribute.
      * @see #setCount(int)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_Count()
