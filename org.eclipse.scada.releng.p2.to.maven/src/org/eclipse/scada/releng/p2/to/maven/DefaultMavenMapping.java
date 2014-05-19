@@ -22,6 +22,8 @@ import org.eclipse.equinox.p2.metadata.Version;
 public class DefaultMavenMapping implements MavenMapping
 {
 
+    private static boolean IGNORE_TYCHO = !Boolean.getBoolean ( "useTychoVersion" );
+
     private final Properties properties;
 
     private final Set<String> defaultIgnores = new HashSet<> ();
@@ -157,7 +159,7 @@ public class DefaultMavenMapping implements MavenMapping
         Version version;
 
         final String tychoVersion = iu.getProperty ( "maven-version" );
-        if ( tychoVersion != null )
+        if ( !IGNORE_TYCHO && tychoVersion != null )
         {
             final IVersionFormat format = Version.compile ( "n[.n=0;[.n=0;[.n=0;]]][[-.]S='';]" );
             version = format.parse ( tychoVersion );
