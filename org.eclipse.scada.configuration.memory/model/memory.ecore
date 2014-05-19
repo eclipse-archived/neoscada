@@ -14,6 +14,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" interface="true">
     <eOperations name="encode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"
@@ -28,13 +29,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Float32Type" eSuperTypes="#//BaseScalarType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BaseScalarType" abstract="true" eSuperTypes="#//ScalarType">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseScalarType" abstract="true" eSuperTypes="#//ScalarType"/>
   <eClassifiers xsi:type="ecore:EClass" name="UserDefinedType" eSuperTypes="#//Type">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeDefinition"
         eKeys="#//TypeDefinition/name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnsignedInteger16Type" eSuperTypes="#//OrderedType"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScalarType" abstract="true" interface="true"

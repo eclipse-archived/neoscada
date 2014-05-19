@@ -43,6 +43,10 @@
   <children xmi:type="notation:Node" xmi:id="_x23GICBmEeOLA4w2U3e-aw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_x23tMCBmEeOLA4w2U3e-aw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_x23tMSBmEeOLA4w2U3e-aw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_lCyZ4CBqEeOLA4w2U3e-aw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="memory.ecore#//Type/index"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_lCyZ4SBqEeOLA4w2U3e-aw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_x23tMiBmEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_x23tMyBmEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_x23tNCBmEeOLA4w2U3e-aw"/>
@@ -119,10 +123,6 @@
   <children xmi:type="notation:Node" xmi:id="_mQ7IUCBnEeOLA4w2U3e-aw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_mQ7vYCBnEeOLA4w2U3e-aw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_mQ8WcCBnEeOLA4w2U3e-aw" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_U38DQCBnEeOLA4w2U3e-aw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="memory.ecore#//BaseScalarType/index"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_U38DQSBnEeOLA4w2U3e-aw"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_mQ8WcSBnEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_mQ8WciBnEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_mQ8WcyBnEeOLA4w2U3e-aw"/>
@@ -139,10 +139,6 @@
   <children xmi:type="notation:Node" xmi:id="_FFtEICBoEeOLA4w2U3e-aw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_FFuSQCBoEeOLA4w2U3e-aw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_FFuSQSBoEeOLA4w2U3e-aw" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_lCyZ4CBqEeOLA4w2U3e-aw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="memory.ecore#//UserDefinedType/index"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_lCyZ4SBqEeOLA4w2U3e-aw"/>
-      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_FFuSQiBoEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_FFuSQyBoEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_FFuSRCBoEeOLA4w2U3e-aw"/>

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -29,29 +29,24 @@ import org.eclipse.scada.configuration.memory.UserDefinedType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getIndex <em>Index</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getIndex
+ * <em>Index</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getType
+ * <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements UserDefinedType
 {
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected TypeDefinition type;
-
-    /**
      * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -62,6 +57,7 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
      * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -69,8 +65,20 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     protected int index = INDEX_EDEFAULT;
 
     /**
+     * The cached value of the '{@link #getType() <em>Type</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @see #getType()
+     * @generated
+     * @ordered
+     */
+    protected TypeDefinition type;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected UserDefinedTypeImpl ()
@@ -81,6 +89,7 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -92,71 +101,82 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public TypeDefinition getType ()
     {
-        if ( type != null && type.eIsProxy () )
+        if ( this.type != null && this.type.eIsProxy () )
         {
-            InternalEObject oldType = (InternalEObject)type;
-            type = (TypeDefinition)eResolveProxy ( oldType );
-            if ( type != oldType )
+            final InternalEObject oldType = (InternalEObject)this.type;
+            this.type = (TypeDefinition)eResolveProxy ( oldType );
+            if ( this.type != oldType )
             {
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MemoryPackage.USER_DEFINED_TYPE__TYPE, oldType, type ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, MemoryPackage.USER_DEFINED_TYPE__TYPE, oldType, this.type ) );
+                }
             }
         }
-        return type;
+        return this.type;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public TypeDefinition basicGetType ()
     {
-        return type;
+        return this.type;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setType ( TypeDefinition newType )
+    public void setType ( final TypeDefinition newType )
     {
-        TypeDefinition oldType = type;
-        type = newType;
+        final TypeDefinition oldType = this.type;
+        this.type = newType;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.USER_DEFINED_TYPE__TYPE, oldType, type ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.USER_DEFINED_TYPE__TYPE, oldType, this.type ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public int getIndex ()
     {
-        return index;
+        return this.index;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setIndex ( int newIndex )
+    public void setIndex ( final int newIndex )
     {
-        int oldIndex = index;
-        index = newIndex;
+        final int oldIndex = this.index;
+        this.index = newIndex;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.USER_DEFINED_TYPE__INDEX, oldIndex, index ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.USER_DEFINED_TYPE__INDEX, oldIndex, this.index ) );
+        }
     }
 
     /**
@@ -174,19 +194,22 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
-            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
-                if ( resolve )
-                    return getType ();
-                return basicGetType ();
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
                 return getIndex ();
+            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
+                if ( resolve )
+                {
+                    return getType ();
+                }
+                return basicGetType ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -194,18 +217,19 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
-            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
-                setType ( (TypeDefinition)newValue );
-                return;
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
                 setIndex ( (Integer)newValue );
+                return;
+            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
+                setType ( (TypeDefinition)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -214,18 +238,19 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
-            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
-                setType ( (TypeDefinition)null );
-                return;
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
                 setIndex ( INDEX_EDEFAULT );
+                return;
+            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
+                setType ( (TypeDefinition)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -234,17 +259,18 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
-            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
-                return type != null;
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
-                return index != INDEX_EDEFAULT;
+                return this.index != INDEX_EDEFAULT;
+            case MemoryPackage.USER_DEFINED_TYPE__TYPE:
+                return this.type != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -252,10 +278,11 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -268,17 +295,20 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (index: " ); //$NON-NLS-1$
-        result.append ( index );
+        result.append ( this.index );
         result.append ( ')' );
         return result.toString ();
     }
