@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -32,6 +33,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.scada.configuration.dave.DaveDevice;
+import org.eclipse.scada.configuration.dave.DaveFactory;
 import org.eclipse.scada.configuration.dave.DavePackage;
 
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -77,6 +79,11 @@ public class DaveDeviceItemProvider
 
             addShortDescriptionPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
+            addPortPropertyDescriptor ( object );
+            addRackPropertyDescriptor ( object );
+            addSlotPropertyDescriptor ( object );
+            addTypeSystemPropertyDescriptor ( object );
+            addReadTimeoutPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -128,6 +135,154 @@ public class DaveDeviceItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Port feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addPortPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DaveDevice_port_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveDevice_port_feature", "_UI_DaveDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DavePackage.Literals.DAVE_DEVICE__PORT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Rack feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addRackPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DaveDevice_rack_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveDevice_rack_feature", "_UI_DaveDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DavePackage.Literals.DAVE_DEVICE__RACK,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Slot feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSlotPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DaveDevice_slot_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveDevice_slot_feature", "_UI_DaveDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DavePackage.Literals.DAVE_DEVICE__SLOT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Type System feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTypeSystemPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DaveDevice_typeSystem_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveDevice_typeSystem_feature", "_UI_DaveDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DavePackage.Literals.DAVE_DEVICE__TYPE_SYSTEM,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Read Timeout feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReadTimeoutPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DaveDevice_readTimeout_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveDevice_readTimeout_feature", "_UI_DaveDevice_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DavePackage.Literals.DAVE_DEVICE__READ_TIMEOUT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    {
+        if ( childrenFeatures == null )
+        {
+            super.getChildrenFeatures ( object );
+            childrenFeatures.add ( DavePackage.Literals.DAVE_DEVICE__BLOCKS );
+        }
+        return childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature ( Object object, Object child )
+    {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature ( object, child );
+    }
+
+    /**
      * This returns DaveDevice.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -170,7 +325,14 @@ public class DaveDeviceItemProvider
         {
             case DavePackage.DAVE_DEVICE__SHORT_DESCRIPTION:
             case DavePackage.DAVE_DEVICE__NAME:
+            case DavePackage.DAVE_DEVICE__PORT:
+            case DavePackage.DAVE_DEVICE__RACK:
+            case DavePackage.DAVE_DEVICE__SLOT:
+            case DavePackage.DAVE_DEVICE__READ_TIMEOUT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -187,6 +349,11 @@ public class DaveDeviceItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( DavePackage.Literals.DAVE_DEVICE__BLOCKS,
+                        DaveFactory.eINSTANCE.createDaveBlockDefinition () ) );
     }
 
     /**

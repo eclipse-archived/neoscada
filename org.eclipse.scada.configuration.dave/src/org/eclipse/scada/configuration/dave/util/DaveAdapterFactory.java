@@ -22,8 +22,11 @@ import org.eclipse.scada.configuration.dave.*;
 
 import org.eclipse.scada.configuration.infrastructure.Device;
 
+import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,6 +98,30 @@ public class DaveAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseDaveDriver ( DaveDriver object )
+                {
+                    return createDaveDriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseDaveCommunicationProcessor ( DaveCommunicationProcessor object )
+                {
+                    return createDaveCommunicationProcessorAdapter ();
+                }
+
+                @Override
+                public Adapter caseDaveRequestBlock ( DaveRequestBlock object )
+                {
+                    return createDaveRequestBlockAdapter ();
+                }
+
+                @Override
+                public Adapter caseDaveBlockDefinition ( DaveBlockDefinition object )
+                {
+                    return createDaveBlockDefinitionAdapter ();
+                }
+
+                @Override
                 public Adapter caseDocumentable ( Documentable object )
                 {
                     return createDocumentableAdapter ();
@@ -110,6 +137,24 @@ public class DaveAdapterFactory extends AdapterFactoryImpl
                 public Adapter caseDevice ( Device object )
                 {
                     return createDeviceAdapter ();
+                }
+
+                @Override
+                public Adapter caseApplication ( Application object )
+                {
+                    return createApplicationAdapter ();
+                }
+
+                @Override
+                public Adapter caseDriver ( Driver object )
+                {
+                    return createDriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseEquinoxApplication ( EquinoxApplication object )
+                {
+                    return createEquinoxApplicationAdapter ();
                 }
 
                 @Override
@@ -144,6 +189,66 @@ public class DaveAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDaveDeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.dave.DaveDriver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.dave.DaveDriver
+     * @generated
+     */
+    public Adapter createDaveDriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.dave.DaveCommunicationProcessor <em>Communication Processor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.dave.DaveCommunicationProcessor
+     * @generated
+     */
+    public Adapter createDaveCommunicationProcessorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.dave.DaveRequestBlock <em>Request Block</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.dave.DaveRequestBlock
+     * @generated
+     */
+    public Adapter createDaveRequestBlockAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.dave.DaveBlockDefinition <em>Block Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.dave.DaveBlockDefinition
+     * @generated
+     */
+    public Adapter createDaveBlockDefinitionAdapter ()
     {
         return null;
     }
@@ -189,6 +294,51 @@ public class DaveAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Application
+     * @generated
+     */
+    public Adapter createApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Driver
+     * @generated
+     */
+    public Adapter createDriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication
+     * @generated
+     */
+    public Adapter createEquinoxApplicationAdapter ()
     {
         return null;
     }

@@ -11,22 +11,23 @@
  */
 package org.eclipse.scada.configuration.dave.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.scada.configuration.dave.DaveBlockDefinition;
 import org.eclipse.scada.configuration.dave.DaveDevice;
 import org.eclipse.scada.configuration.dave.DavePackage;
-
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.memory.TypeSystem;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +39,12 @@ import org.eclipse.scada.configuration.infrastructure.Node;
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getShortDescription <em>Short Description</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getNode <em>Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getRack <em>Rack</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getSlot <em>Slot</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getBlocks <em>Blocks</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getTypeSystem <em>Type System</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDeviceImpl#getReadTimeout <em>Read Timeout</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +91,106 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
      * @ordered
      */
     protected String name = NAME_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPort()
+     * @generated
+     * @ordered
+     */
+    protected static final int PORT_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPort()
+     * @generated
+     * @ordered
+     */
+    protected int port = PORT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getRack() <em>Rack</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRack()
+     * @generated
+     * @ordered
+     */
+    protected static final short RACK_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getRack() <em>Rack</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getRack()
+     * @generated
+     * @ordered
+     */
+    protected short rack = RACK_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getSlot() <em>Slot</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSlot()
+     * @generated
+     * @ordered
+     */
+    protected static final short SLOT_EDEFAULT = 0;
+
+    /**
+     * The cached value of the '{@link #getSlot() <em>Slot</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getSlot()
+     * @generated
+     * @ordered
+     */
+    protected short slot = SLOT_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getBlocks() <em>Blocks</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBlocks()
+     * @generated
+     * @ordered
+     */
+    protected EList<DaveBlockDefinition> blocks;
+
+    /**
+     * The cached value of the '{@link #getTypeSystem() <em>Type System</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTypeSystem()
+     * @generated
+     * @ordered
+     */
+    protected TypeSystem typeSystem;
+
+    /**
+     * The default value of the '{@link #getReadTimeout() <em>Read Timeout</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReadTimeout()
+     * @generated
+     * @ordered
+     */
+    protected static final int READ_TIMEOUT_EDEFAULT = 5000;
+
+    /**
+     * The cached value of the '{@link #getReadTimeout() <em>Read Timeout</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getReadTimeout()
+     * @generated
+     * @ordered
+     */
+    protected int readTimeout = READ_TIMEOUT_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -216,6 +323,156 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getPort ()
+    {
+        return port;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setPort ( int newPort )
+    {
+        int oldPort = port;
+        port = newPort;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__PORT, oldPort, port ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public short getRack ()
+    {
+        return rack;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setRack ( short newRack )
+    {
+        short oldRack = rack;
+        rack = newRack;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__RACK, oldRack, rack ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public short getSlot ()
+    {
+        return slot;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setSlot ( short newSlot )
+    {
+        short oldSlot = slot;
+        slot = newSlot;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__SLOT, oldSlot, slot ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<DaveBlockDefinition> getBlocks ()
+    {
+        if ( blocks == null )
+        {
+            blocks = new EObjectContainmentWithInverseEList.Resolving<DaveBlockDefinition> ( DaveBlockDefinition.class, this, DavePackage.DAVE_DEVICE__BLOCKS, DavePackage.DAVE_BLOCK_DEFINITION__DEVICE );
+        }
+        return blocks;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TypeSystem getTypeSystem ()
+    {
+        if ( typeSystem != null && typeSystem.eIsProxy () )
+        {
+            InternalEObject oldTypeSystem = (InternalEObject)typeSystem;
+            typeSystem = (TypeSystem)eResolveProxy ( oldTypeSystem );
+            if ( typeSystem != oldTypeSystem )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DEVICE__TYPE_SYSTEM, oldTypeSystem, typeSystem ) );
+            }
+        }
+        return typeSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public TypeSystem basicGetTypeSystem ()
+    {
+        return typeSystem;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTypeSystem ( TypeSystem newTypeSystem )
+    {
+        TypeSystem oldTypeSystem = typeSystem;
+        typeSystem = newTypeSystem;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__TYPE_SYSTEM, oldTypeSystem, typeSystem ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getReadTimeout ()
+    {
+        return readTimeout;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReadTimeout ( int newReadTimeout )
+    {
+        int oldReadTimeout = readTimeout;
+        readTimeout = newReadTimeout;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DEVICE__READ_TIMEOUT, oldReadTimeout, readTimeout ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -225,6 +482,8 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
                 if ( eInternalContainer () != null )
                     msgs = eBasicRemoveFromContainer ( msgs );
                 return basicSetNode ( (Node)otherEnd, msgs );
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                return ( (InternalEList<InternalEObject>)(InternalEList<?>)getBlocks () ).basicAdd ( otherEnd, msgs );
         }
         return super.eInverseAdd ( otherEnd, featureID, msgs );
     }
@@ -241,6 +500,8 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
         {
             case DavePackage.DAVE_DEVICE__NODE:
                 return basicSetNode ( null, msgs );
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                return ( (InternalEList<?>)getBlocks () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -279,6 +540,20 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
                 if ( resolve )
                     return getNode ();
                 return basicGetNode ();
+            case DavePackage.DAVE_DEVICE__PORT:
+                return getPort ();
+            case DavePackage.DAVE_DEVICE__RACK:
+                return getRack ();
+            case DavePackage.DAVE_DEVICE__SLOT:
+                return getSlot ();
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                return getBlocks ();
+            case DavePackage.DAVE_DEVICE__TYPE_SYSTEM:
+                if ( resolve )
+                    return getTypeSystem ();
+                return basicGetTypeSystem ();
+            case DavePackage.DAVE_DEVICE__READ_TIMEOUT:
+                return getReadTimeout ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -288,6 +563,7 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -301,6 +577,25 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
                 return;
             case DavePackage.DAVE_DEVICE__NODE:
                 setNode ( (Node)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__PORT:
+                setPort ( (Integer)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__RACK:
+                setRack ( (Short)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__SLOT:
+                setSlot ( (Short)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                getBlocks ().clear ();
+                getBlocks ().addAll ( (Collection<? extends DaveBlockDefinition>)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__TYPE_SYSTEM:
+                setTypeSystem ( (TypeSystem)newValue );
+                return;
+            case DavePackage.DAVE_DEVICE__READ_TIMEOUT:
+                setReadTimeout ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -325,6 +620,24 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
             case DavePackage.DAVE_DEVICE__NODE:
                 setNode ( (Node)null );
                 return;
+            case DavePackage.DAVE_DEVICE__PORT:
+                setPort ( PORT_EDEFAULT );
+                return;
+            case DavePackage.DAVE_DEVICE__RACK:
+                setRack ( RACK_EDEFAULT );
+                return;
+            case DavePackage.DAVE_DEVICE__SLOT:
+                setSlot ( SLOT_EDEFAULT );
+                return;
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                getBlocks ().clear ();
+                return;
+            case DavePackage.DAVE_DEVICE__TYPE_SYSTEM:
+                setTypeSystem ( (TypeSystem)null );
+                return;
+            case DavePackage.DAVE_DEVICE__READ_TIMEOUT:
+                setReadTimeout ( READ_TIMEOUT_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -345,6 +658,18 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case DavePackage.DAVE_DEVICE__NODE:
                 return basicGetNode () != null;
+            case DavePackage.DAVE_DEVICE__PORT:
+                return port != PORT_EDEFAULT;
+            case DavePackage.DAVE_DEVICE__RACK:
+                return rack != RACK_EDEFAULT;
+            case DavePackage.DAVE_DEVICE__SLOT:
+                return slot != SLOT_EDEFAULT;
+            case DavePackage.DAVE_DEVICE__BLOCKS:
+                return blocks != null && !blocks.isEmpty ();
+            case DavePackage.DAVE_DEVICE__TYPE_SYSTEM:
+                return typeSystem != null;
+            case DavePackage.DAVE_DEVICE__READ_TIMEOUT:
+                return readTimeout != READ_TIMEOUT_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -365,6 +690,14 @@ public class DaveDeviceImpl extends MinimalEObjectImpl.Container implements Dave
         result.append ( shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
         result.append ( name );
+        result.append ( ", port: " ); //$NON-NLS-1$
+        result.append ( port );
+        result.append ( ", rack: " ); //$NON-NLS-1$
+        result.append ( rack );
+        result.append ( ", slot: " ); //$NON-NLS-1$
+        result.append ( slot );
+        result.append ( ", readTimeout: " ); //$NON-NLS-1$
+        result.append ( readTimeout );
         result.append ( ')' );
         return result.toString ();
     }

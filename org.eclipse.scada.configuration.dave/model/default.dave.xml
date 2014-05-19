@@ -3,8 +3,8 @@
 	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
 	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
 	includes="platform:/plugin/org.eclipse.scada.configuration.lib/model/fragments/ca.file.profile.xml#/ platform:/plugin/org.eclipse.scada.configuration.lib/model/driver.base.profile.xml#/"
-	name="Modbus Driver">
+	name="Dave Driver">
 
 	<start>org.eclipse.scada.da.server.common.memory</start>
-	<start>org.eclipse.scada.da.server.osgi.modbus</start>
+	<start>org.eclipse.scada.da.server.osgi.dave</start>
 </profile:profile>

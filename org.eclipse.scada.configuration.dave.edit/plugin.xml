@@ -33,6 +33,9 @@
       <extender
             uri="http://eclipse.org/SCADA/Configuration/Infrastructure"
             class="org.eclipse.scada.configuration.dave.provider.DaveItemProviderAdapterFactory$InfrastructureChildCreationExtender"/>
+      <extender
+            uri="http://eclipse.org/SCADA/Configuration/World"
+            class="org.eclipse.scada.configuration.dave.provider.DaveItemProviderAdapterFactory$WorldChildCreationExtender"/>
    </extension>
 
 </plugin>

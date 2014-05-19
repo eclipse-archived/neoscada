@@ -19,6 +19,7 @@ import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugi
 
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
 
+import org.eclipse.scada.configuration.memory.provider.MemoryEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -62,6 +63,7 @@ public final class DaveEditPlugin extends EMFPlugin
                 ExecEditPlugin.INSTANCE,
                 GlobalizeEditPlugin.INSTANCE,
                 InfrastructureEditPlugin.INSTANCE,
+                MemoryEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
         } );

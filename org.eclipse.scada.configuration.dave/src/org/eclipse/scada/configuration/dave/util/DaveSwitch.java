@@ -20,8 +20,11 @@ import org.eclipse.scada.configuration.dave.*;
 
 import org.eclipse.scada.configuration.infrastructure.Device;
 
+import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
  * <!-- begin-user-doc -->
@@ -100,6 +103,48 @@ public class DaveSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case DavePackage.DAVE_DRIVER:
+            {
+                DaveDriver daveDriver = (DaveDriver)theEObject;
+                T result = caseDaveDriver ( daveDriver );
+                if ( result == null )
+                    result = caseDriver ( daveDriver );
+                if ( result == null )
+                    result = caseEquinoxApplication ( daveDriver );
+                if ( result == null )
+                    result = caseApplication ( daveDriver );
+                if ( result == null )
+                    result = caseNamedDocumentable ( daveDriver );
+                if ( result == null )
+                    result = caseDocumentable ( daveDriver );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DavePackage.DAVE_COMMUNICATION_PROCESSOR:
+            {
+                DaveCommunicationProcessor daveCommunicationProcessor = (DaveCommunicationProcessor)theEObject;
+                T result = caseDaveCommunicationProcessor ( daveCommunicationProcessor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DavePackage.DAVE_REQUEST_BLOCK:
+            {
+                DaveRequestBlock daveRequestBlock = (DaveRequestBlock)theEObject;
+                T result = caseDaveRequestBlock ( daveRequestBlock );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DavePackage.DAVE_BLOCK_DEFINITION:
+            {
+                DaveBlockDefinition daveBlockDefinition = (DaveBlockDefinition)theEObject;
+                T result = caseDaveBlockDefinition ( daveBlockDefinition );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -117,6 +162,70 @@ public class DaveSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDaveDevice ( DaveDevice object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDaveDriver ( DaveDriver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Communication Processor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Communication Processor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDaveCommunicationProcessor ( DaveCommunicationProcessor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Request Block</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Request Block</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDaveRequestBlock ( DaveRequestBlock object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Block Definition</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Block Definition</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDaveBlockDefinition ( DaveBlockDefinition object )
     {
         return null;
     }
@@ -165,6 +274,54 @@ public class DaveSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDevice ( Device object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplication ( Application object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDriver ( Driver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEquinoxApplication ( EquinoxApplication object )
     {
         return null;
     }

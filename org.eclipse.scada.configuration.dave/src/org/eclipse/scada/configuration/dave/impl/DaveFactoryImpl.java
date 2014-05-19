@@ -75,6 +75,14 @@ public class DaveFactoryImpl extends EFactoryImpl implements DaveFactory
         {
             case DavePackage.DAVE_DEVICE:
                 return createDaveDevice ();
+            case DavePackage.DAVE_DRIVER:
+                return createDaveDriver ();
+            case DavePackage.DAVE_COMMUNICATION_PROCESSOR:
+                return createDaveCommunicationProcessor ();
+            case DavePackage.DAVE_REQUEST_BLOCK:
+                return createDaveRequestBlock ();
+            case DavePackage.DAVE_BLOCK_DEFINITION:
+                return createDaveBlockDefinition ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -89,6 +97,50 @@ public class DaveFactoryImpl extends EFactoryImpl implements DaveFactory
     {
         DaveDeviceImpl daveDevice = new DaveDeviceImpl ();
         return daveDevice;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DaveDriver createDaveDriver ()
+    {
+        DaveDriverImpl daveDriver = new DaveDriverImpl ();
+        return daveDriver;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DaveCommunicationProcessor createDaveCommunicationProcessor ()
+    {
+        DaveCommunicationProcessorImpl daveCommunicationProcessor = new DaveCommunicationProcessorImpl ();
+        return daveCommunicationProcessor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DaveRequestBlock createDaveRequestBlock ()
+    {
+        DaveRequestBlockImpl daveRequestBlock = new DaveRequestBlockImpl ();
+        return daveRequestBlock;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DaveBlockDefinition createDaveBlockDefinition ()
+    {
+        DaveBlockDefinitionImpl daveBlockDefinition = new DaveBlockDefinitionImpl ();
+        return daveBlockDefinition;
     }
 
     /**

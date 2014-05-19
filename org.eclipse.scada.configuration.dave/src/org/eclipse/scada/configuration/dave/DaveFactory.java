@@ -41,6 +41,42 @@ public interface DaveFactory extends EFactory
     DaveDevice createDaveDevice ();
 
     /**
+     * Returns a new object of class '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Driver</em>'.
+     * @generated
+     */
+    DaveDriver createDaveDriver ();
+
+    /**
+     * Returns a new object of class '<em>Communication Processor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Communication Processor</em>'.
+     * @generated
+     */
+    DaveCommunicationProcessor createDaveCommunicationProcessor ();
+
+    /**
+     * Returns a new object of class '<em>Request Block</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Request Block</em>'.
+     * @generated
+     */
+    DaveRequestBlock createDaveRequestBlock ();
+
+    /**
+     * Returns a new object of class '<em>Block Definition</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Block Definition</em>'.
+     * @generated
+     */
+    DaveBlockDefinition createDaveBlockDefinition ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

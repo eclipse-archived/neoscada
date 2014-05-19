@@ -43,6 +43,7 @@ public class DaveAllTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new DaveAllTests ( "Dave Tests" ); //$NON-NLS-1$
+        suite.addTest ( DaveTests.suite () );
         return suite;
     }
 
