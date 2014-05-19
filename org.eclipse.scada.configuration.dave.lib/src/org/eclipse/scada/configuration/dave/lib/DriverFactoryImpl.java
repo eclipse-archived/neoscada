@@ -162,7 +162,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
 
         if ( typeSystems.size () > 1 )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All modbus devices of one driver instance must share the same type system ({})", typeSystems ) );
+            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All S7 devices of one driver instance must share the same type system ({0})", typeSystems ) );
         }
     }
 
@@ -172,15 +172,15 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
         {
             if ( block.getArea () < 0 || block.getArea () > MAX_AREA )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Area must be between [0..{}]", MAX_AREA ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Area must be between [0..{0}]", MAX_AREA ) );
             }
             if ( block.getBlock () < 0 || block.getBlock () > MAX_BLOCK )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block must be between [0..{}]", MAX_BLOCK ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block must be between [0..{0}]", MAX_BLOCK ) );
             }
             if ( block.getOffset () < 0 || block.getOffset () > MAX_OFFSET )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Offset must be between [0..{}]", MAX_OFFSET ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Offset must be between [0..{0}]", MAX_OFFSET ) );
             }
             if ( block.getPeriod () < 0 )
             {
@@ -189,7 +189,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
             final int len = TypeHelper.calculateByteSize ( block.getType () );
             if ( len > MAX_REQUEST_SIZE )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block size ({}) is greater then the maxmimum request size ({}). You will need to split up your type definition to reduce block size.", len, MAX_REQUEST_SIZE ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block size ({0}) is greater then the maxmimum request size ({1}). You will need to split up your type definition to reduce block size.", len, MAX_REQUEST_SIZE ) );
             }
         }
     }

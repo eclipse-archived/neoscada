@@ -130,7 +130,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
 
         if ( typeSystems.size () > 1 )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All modbus devices of one driver instance must share the same type system ({})", typeSystems ) );
+            result.add ( ConstraintStatus.createStatus ( ctx, driver, null, "All modbus devices of one driver instance must share the same type system ({0})", typeSystems ) );
         }
     }
 
@@ -144,7 +144,7 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
         {
             if ( slave.getUnitAddress () == 0x00 || slave.getUnitAddress () == 0xFF )
             {
-                result.add ( ConstraintStatus.createStatus ( ctx, slave, null, "Unit address {} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () ) );
+                result.add ( ConstraintStatus.createStatus ( ctx, slave, null, "Unit address {0} is invalid. Must be greater than 0x00 and less than 0xFF.", slave.getUnitAddress () ) );
             }
             for ( final ModbusBlock block : slave.getBlocks () )
             {
@@ -162,16 +162,16 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
                 }
                 if ( block.getStartAddress () < MIN_ADDRESS || block.getStartAddress () >= MAX_ADDRESS )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block address must be between {} and {}", MIN_ADDRESS, MAX_ADDRESS ) );
+                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "Block address must be between {0} and {1}", MIN_ADDRESS, MAX_ADDRESS ) );
                 }
                 if ( block.getStartAddress () + block.getCount () >= MAX_ADDRESS )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "A start address of {} and block size of {} would read beyond the maximum.", block.getStartAddress (), block.getCount () ) );
+                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "A start address of {0} and block size of {1} would read beyond the maximum.", block.getStartAddress (), block.getCount () ) );
                 }
                 final int typeLen = TypeHelper.calculateByteSize ( block.getType () );
                 if ( block.getCount () * 2 < typeLen )
                 {
-                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "The defined block type ({} bytes) is bigger than the block request ({} bytes / {} registers).", typeLen, block.getCount () * 2, block.getCount () ) );
+                    result.add ( ConstraintStatus.createStatus ( ctx, block, null, "The defined block type ({0} bytes) is bigger than the block request ({1} bytes / {2} registers).", typeLen, block.getCount () * 2, block.getCount () ) );
                 }
             }
         }
