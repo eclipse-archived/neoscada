@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -47,56 +47,70 @@ public class MultiConfigurationEditor extends MultiPageEditorPart
     @Override
     protected void createPages ()
     {
-        try
-        {
-            int i = 0;
+        final IEditorInput input = getEditorInput ();
 
-            final String factoryId = getEditorInput ().getFactoryId ();
-            for ( final ConfigurationFormInformation info : Activator.findMatching ( factoryId ) )
+        if ( input instanceof ConfigurationEditorInput )
+        {
+            try
             {
-                try
+                int i = 0;
+
+                final String factoryId = ( (ConfigurationEditorInput)input ).getFactoryId ();
+                for ( final ConfigurationFormInformation info : Activator.findMatching ( factoryId ) )
                 {
-                    addPage ( i, new FormEditor ( info ), getEditorInput () );
-                    setPageText ( i, info.getLabel () );
-                    i++;
+                    try
+                    {
+                        addPage ( i, new FormEditor ( info ), getEditorInput () );
+                        setPageText ( i, info.getLabel () );
+                        i++;
+                    }
+                    catch ( final CoreException e )
+                    {
+                        StatusManager.getManager ().handle ( e.getStatus (), StatusManager.SHOW );
+                    }
                 }
-                catch ( final CoreException e )
-                {
-                    StatusManager.getManager ().handle ( e.getStatus (), StatusManager.SHOW );
-                }
+
+                // add default editor 
+                addPage ( i, this.basicEditor = new BasicEditor (), getEditorInput () );
+                setPageText ( i, "Basic Editor" );
+
             }
-
-            // add default editor 
-            addPage ( i, this.basicEditor = new BasicEditor (), getEditorInput () );
-            setPageText ( i, "Basic Editor" );
-
-        }
-        catch ( final PartInitException e )
-        {
-            StatusManager.getManager ().handle ( e.getStatus (), StatusManager.BLOCK );
+            catch ( final PartInitException e )
+            {
+                StatusManager.getManager ().handle ( e.getStatus (), StatusManager.BLOCK );
+            }
         }
     }
 
     @Override
     protected void setInput ( final IEditorInput input )
     {
-        final ConfigurationEditorInput configurationInput = (ConfigurationEditorInput)input;
-
-        configurationInput.performLoad ( new NullProgressMonitor () );
+        if ( input instanceof ConfigurationEditorInput )
+        {
+            final ConfigurationEditorInput configurationInput = (ConfigurationEditorInput)input;
+            configurationInput.performLoad ( new NullProgressMonitor () );
+        }
 
         super.setInput ( input );
     }
 
     @Override
-    public ConfigurationEditorInput getEditorInput ()
-    {
-        return (ConfigurationEditorInput)super.getEditorInput ();
-    }
-
-    @Override
     public void doSave ( final IProgressMonitor monitor )
     {
-        getEditorInput ().performSave ( monitor );
+        final IEditorInput input = getEditorInput ();
+        if ( input instanceof ConfigurationEditorInput )
+        {
+            ( (ConfigurationEditorInput)input ).performSave ( monitor );
+        }
+    }
+
+    public void refresh ()
+    {
+        final IEditorInput input = getEditorInput ();
+        if ( input instanceof ConfigurationEditorInput )
+        {
+            ( (ConfigurationEditorInput)input ).performLoad ( new NullProgressMonitor () );
+        }
     }
 
     @Override
@@ -113,11 +127,6 @@ public class MultiConfigurationEditor extends MultiPageEditorPart
     public void handleInsert ()
     {
         this.basicEditor.handleInsert ();
-    }
-
-    public void refresh ()
-    {
-        getEditorInput ().performLoad ( new NullProgressMonitor () );
     }
 
 }

@@ -15,15 +15,15 @@
             default="false"
             id="org.eclipse.scada.ca.ui.connection.editors.MultiConfigurationEditor"
             name="Multi Configuration Editor">
-         <contentTypeBinding
-               contentTypeId="org.eclipse.scada.ca.oscar">
-         </contentTypeBinding>
       </editor>
       <editor
             class="org.eclipse.scada.ca.ui.editor.factory.FactoryEditor"
             default="false"
             id="org.eclipse.scada.ca.ui.connection.editors.FactoryEditor"
             name="Factory Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.scada.ca.oscar">
+         </contentTypeBinding>
       </editor>
    </extension>
    <extension
