@@ -30,11 +30,9 @@ import org.eclipse.scada.configuration.memory.BaseScalarType;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.memory.BaseScalarType} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.memory.BaseScalarType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -43,10 +41,9 @@ public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements I
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public BaseScalarTypeItemProvider ( final AdapterFactory adapterFactory )
+    public BaseScalarTypeItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,33 +52,32 @@ public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements I
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addIndexPropertyDescriptor ( object );
+            addLengthPropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Index feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addIndexPropertyDescriptor ( final Object object )
+    protected void addIndexPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Type_index_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Type_index_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -95,37 +91,57 @@ public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements I
     }
 
     /**
+     * This adds a property descriptor for the Length feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLengthPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Type_length_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Type_length_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        MemoryPackage.Literals.TYPE__LENGTH,
+                        false,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String getText ( final Object object )
+    public String getText ( Object object )
     {
-        final BaseScalarType baseScalarType = (BaseScalarType)object;
+        BaseScalarType baseScalarType = (BaseScalarType)object;
         return getString ( "_UI_BaseScalarType_type" ) + " " + baseScalarType.getIndex (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
         switch ( notification.getFeatureID ( BaseScalarType.class ) )
         {
             case MemoryPackage.BASE_SCALAR_TYPE__INDEX:
+            case MemoryPackage.BASE_SCALAR_TYPE__LENGTH:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -133,16 +149,14 @@ public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements I
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -151,7 +165,6 @@ public class BaseScalarTypeItemProvider extends ItemProviderAdapter implements I
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

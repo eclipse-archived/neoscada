@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.memory.TypeDefinition;
+import org.eclipse.scada.configuration.memory.TypeHelper;
 import org.eclipse.scada.configuration.memory.UserDefinedType;
 
 /**
@@ -32,6 +33,9 @@ import org.eclipse.scada.configuration.memory.UserDefinedType;
  * <li>
  * {@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getIndex
  * <em>Index</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getLength
+ * <em>Length</em>}</li>
  * <li>
  * {@link org.eclipse.scada.configuration.memory.impl.UserDefinedTypeImpl#getType
  * <em>Type</em>}</li>
@@ -63,6 +67,18 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected int index = INDEX_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getLength() <em>Length</em>}'
+     * attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getLength()
+     * @generated
+     * @ordered
+     */
+    protected static final int LENGTH_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -186,6 +202,25 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
      * @generated NOT
      */
     @Override
+    public int getLength ()
+    {
+        if ( this.type != null )
+        {
+            return TypeHelper.calculateByteSize ( this.type );
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
     public String encode ()
     {
         return String.format ( "UDT:%s:%s", this.index, this.type.getName () );
@@ -204,6 +239,8 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
         {
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
                 return getIndex ();
+            case MemoryPackage.USER_DEFINED_TYPE__LENGTH:
+                return getLength ();
             case MemoryPackage.USER_DEFINED_TYPE__TYPE:
                 if ( resolve )
                 {
@@ -269,6 +306,8 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
         {
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
                 return this.index != INDEX_EDEFAULT;
+            case MemoryPackage.USER_DEFINED_TYPE__LENGTH:
+                return getLength () != LENGTH_EDEFAULT;
             case MemoryPackage.USER_DEFINED_TYPE__TYPE:
                 return this.type != null;
         }
@@ -312,5 +351,4 @@ public class UserDefinedTypeImpl extends MinimalEObjectImpl.Container implements
         result.append ( ')' );
         return result.toString ();
     }
-
 } //UserDefinedTypeImpl

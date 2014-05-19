@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,10 +27,15 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getIndex <em>Index</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getIndex
+ * <em>Index</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.memory.impl.BaseScalarTypeImpl#getLength
+ * <em>Length</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container implements BaseScalarType
@@ -39,6 +44,7 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
      * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -49,6 +55,7 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
      * The cached value of the '{@link #getIndex() <em>Index</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getIndex()
      * @generated
      * @ordered
@@ -56,8 +63,21 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     protected int index = INDEX_EDEFAULT;
 
     /**
+     * The default value of the '{@link #getLength() <em>Length</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @see #getLength()
+     * @generated
+     * @ordered
+     */
+    protected static final int LENGTH_EDEFAULT = 0;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected BaseScalarTypeImpl ()
@@ -68,6 +88,7 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -79,31 +100,53 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public int getIndex ()
     {
-        return index;
+        return this.index;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setIndex ( int newIndex )
+    @Override
+    public void setIndex ( final int newIndex )
     {
-        int oldIndex = index;
-        index = newIndex;
+        final int oldIndex = this.index;
+        this.index = newIndex;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BASE_SCALAR_TYPE__INDEX, oldIndex, index ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, MemoryPackage.BASE_SCALAR_TYPE__INDEX, oldIndex, this.index ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
+    public int getLength ()
+    {
+        // TODO: implement this method to return the 'Length' attribute
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
     public String encode ()
     {
         // TODO: implement this method
@@ -114,15 +157,18 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
             case MemoryPackage.BASE_SCALAR_TYPE__INDEX:
                 return getIndex ();
+            case MemoryPackage.BASE_SCALAR_TYPE__LENGTH:
+                return getLength ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -130,10 +176,11 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -147,10 +194,11 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -164,15 +212,18 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case MemoryPackage.BASE_SCALAR_TYPE__INDEX:
-                return index != INDEX_EDEFAULT;
+                return this.index != INDEX_EDEFAULT;
+            case MemoryPackage.BASE_SCALAR_TYPE__LENGTH:
+                return getLength () != LENGTH_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -180,10 +231,11 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -196,17 +248,20 @@ public abstract class BaseScalarTypeImpl extends MinimalEObjectImpl.Container im
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (index: " ); //$NON-NLS-1$
-        result.append ( index );
+        result.append ( this.index );
         result.append ( ')' );
         return result.toString ();
     }

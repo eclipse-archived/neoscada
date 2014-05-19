@@ -14,7 +14,8 @@ package org.eclipse.scada.configuration.memory;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Base Scalar Type</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
+ *
  * @see org.eclipse.scada.configuration.memory.MemoryPackage#getBaseScalarType()
  * @model abstract="true"
  * @generated

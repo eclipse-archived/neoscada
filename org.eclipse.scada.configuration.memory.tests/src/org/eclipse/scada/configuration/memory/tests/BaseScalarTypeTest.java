@@ -19,6 +19,12 @@ import org.eclipse.scada.configuration.memory.BaseScalarType;
  * A test case for the model object '<em><b>Base Scalar Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.memory.Type#getLength() <em>Length</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.memory.Type#encode() <em>Encode</em>}</li>
@@ -68,6 +74,20 @@ public abstract class BaseScalarTypeTest extends TestCase
     protected BaseScalarType getFixture ()
     {
         return fixture;
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.memory.Type#getLength() <em>Length</em>}' feature getter.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.memory.Type#getLength()
+     * @generated
+     */
+    public void testGetLength ()
+    {
+        // TODO: implement this feature getter test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
     /**

@@ -30,11 +30,9 @@ import org.eclipse.scada.configuration.memory.MemoryPackage;
 import org.eclipse.scada.configuration.memory.UserDefinedType;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.memory.UserDefinedType} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.memory.UserDefinedType} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -43,10 +41,9 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public UserDefinedTypeItemProvider ( final AdapterFactory adapterFactory )
+    public UserDefinedTypeItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -55,34 +52,33 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addIndexPropertyDescriptor ( object );
+            addLengthPropertyDescriptor ( object );
             addTypePropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addTypePropertyDescriptor ( final Object object )
+    protected void addTypePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_UserDefinedType_type_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_UserDefinedType_type_feature", "_UI_UserDefinedType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -99,14 +95,13 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      * This adds a property descriptor for the Index feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void addIndexPropertyDescriptor ( final Object object )
+    protected void addIndexPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_Type_index_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Type_index_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -120,14 +115,36 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
     }
 
     /**
+     * This adds a property descriptor for the Length feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addLengthPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Type_length_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Type_length_feature", "_UI_Type_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        MemoryPackage.Literals.TYPE__LENGTH,
+                        false,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns UserDefinedType.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/UserDefinedType" ) ); //$NON-NLS-1$
     }
@@ -154,23 +171,21 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
         switch ( notification.getFeatureID ( UserDefinedType.class ) )
         {
             case MemoryPackage.USER_DEFINED_TYPE__INDEX:
+            case MemoryPackage.USER_DEFINED_TYPE__LENGTH:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -178,16 +193,14 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -196,7 +209,6 @@ public class UserDefinedTypeItemProvider extends ItemProviderAdapter implements 
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override

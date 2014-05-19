@@ -39,7 +39,6 @@ import org.eclipse.scada.configuration.memory.Variable;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
@@ -47,7 +46,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass typeDefinitionEClass = null;
@@ -55,7 +53,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass userDefinedTypeEClass = null;
@@ -63,7 +60,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass unsignedInteger16TypeEClass = null;
@@ -71,7 +67,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass scalarTypeEClass = null;
@@ -79,7 +74,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass unsignedInteger32TypeEClass = null;
@@ -87,7 +81,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass unsignedInteger8TypeEClass = null;
@@ -95,7 +88,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass typeSystemEClass = null;
@@ -103,7 +95,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass orderedTypeEClass = null;
@@ -111,7 +102,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum byteOrderEEnum = null;
@@ -119,7 +109,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass bitTypeEClass = null;
@@ -127,7 +116,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass typeEClass = null;
@@ -135,7 +123,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass variableEClass = null;
@@ -143,7 +130,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass attributeEClass = null;
@@ -151,7 +137,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass float32TypeEClass = null;
@@ -159,7 +144,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass baseScalarTypeEClass = null;
@@ -188,7 +172,6 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -210,12 +193,10 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     public static MemoryPackage init ()
     {
         if ( isInited )
-        {
             return (MemoryPackage)EPackage.Registry.INSTANCE.getEPackage ( MemoryPackage.eNS_URI );
-        }
 
         // Obtain or create and register package
-        final MemoryPackageImpl theMemoryPackage = (MemoryPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof MemoryPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new MemoryPackageImpl () );
+        MemoryPackageImpl theMemoryPackage = (MemoryPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof MemoryPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new MemoryPackageImpl () );
 
         isInited = true;
 
@@ -236,367 +217,346 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getTypeDefinition ()
     {
-        return this.typeDefinitionEClass;
+        return typeDefinitionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getTypeDefinition_Name ()
     {
-        return (EAttribute)this.typeDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)typeDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getTypeDefinition_Variables ()
     {
-        return (EReference)this.typeDefinitionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)typeDefinitionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getUserDefinedType ()
     {
-        return this.userDefinedTypeEClass;
+        return userDefinedTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getUserDefinedType_Type ()
     {
-        return (EReference)this.userDefinedTypeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)userDefinedTypeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getUnsignedInteger16Type ()
     {
-        return this.unsignedInteger16TypeEClass;
+        return unsignedInteger16TypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getScalarType ()
     {
-        return this.scalarTypeEClass;
+        return scalarTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getUnsignedInteger32Type ()
     {
-        return this.unsignedInteger32TypeEClass;
+        return unsignedInteger32TypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getUnsignedInteger8Type ()
     {
-        return this.unsignedInteger8TypeEClass;
+        return unsignedInteger8TypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getTypeSystem ()
     {
-        return this.typeSystemEClass;
+        return typeSystemEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getTypeSystem_Types ()
     {
-        return (EReference)this.typeSystemEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)typeSystemEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getTypeSystem_Includes ()
     {
-        return (EReference)this.typeSystemEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)typeSystemEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getTypeSystem_Name ()
     {
-        return (EAttribute)this.typeSystemEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)typeSystemEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getOrderedType ()
     {
-        return this.orderedTypeEClass;
+        return orderedTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getOrderedType_Order ()
     {
-        return (EAttribute)this.orderedTypeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)orderedTypeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getByteOrder ()
     {
-        return this.byteOrderEEnum;
+        return byteOrderEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getBitType ()
     {
-        return this.bitTypeEClass;
+        return bitTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getBitType_SubIndex ()
     {
-        return (EAttribute)this.bitTypeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)bitTypeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getType ()
     {
-        return this.typeEClass;
+        return typeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getType_Index ()
     {
-        return (EAttribute)this.typeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)typeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    public EAttribute getType_Length ()
+    {
+        return (EAttribute)typeEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public EOperation getType__Encode ()
     {
-        return this.typeEClass.getEOperations ().get ( 0 );
+        return typeEClass.getEOperations ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getVariable ()
     {
-        return this.variableEClass;
+        return variableEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getVariable_Type ()
     {
-        return (EReference)this.variableEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)variableEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getVariable_Name ()
     {
-        return (EAttribute)this.variableEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)variableEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getVariable_Attributes ()
     {
-        return (EReference)this.variableEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)variableEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getAttribute ()
     {
-        return this.attributeEClass;
+        return attributeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getAttribute_Name ()
     {
-        return (EAttribute)this.attributeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)attributeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getAttribute_Type ()
     {
-        return (EReference)this.attributeEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)attributeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getFloat32Type ()
     {
-        return this.float32TypeEClass;
+        return float32TypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getBaseScalarType ()
     {
-        return this.baseScalarTypeEClass;
+        return baseScalarTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -608,98 +568,91 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.typeDefinitionEClass = createEClass ( TYPE_DEFINITION );
-        createEAttribute ( this.typeDefinitionEClass, TYPE_DEFINITION__NAME );
-        createEReference ( this.typeDefinitionEClass, TYPE_DEFINITION__VARIABLES );
+        typeDefinitionEClass = createEClass ( TYPE_DEFINITION );
+        createEAttribute ( typeDefinitionEClass, TYPE_DEFINITION__NAME );
+        createEReference ( typeDefinitionEClass, TYPE_DEFINITION__VARIABLES );
 
-        this.bitTypeEClass = createEClass ( BIT_TYPE );
-        createEAttribute ( this.bitTypeEClass, BIT_TYPE__SUB_INDEX );
+        bitTypeEClass = createEClass ( BIT_TYPE );
+        createEAttribute ( bitTypeEClass, BIT_TYPE__SUB_INDEX );
 
-        this.typeEClass = createEClass ( TYPE );
-        createEAttribute ( this.typeEClass, TYPE__INDEX );
-        createEOperation ( this.typeEClass, TYPE___ENCODE );
+        typeEClass = createEClass ( TYPE );
+        createEAttribute ( typeEClass, TYPE__INDEX );
+        createEAttribute ( typeEClass, TYPE__LENGTH );
+        createEOperation ( typeEClass, TYPE___ENCODE );
 
-        this.variableEClass = createEClass ( VARIABLE );
-        createEReference ( this.variableEClass, VARIABLE__TYPE );
-        createEAttribute ( this.variableEClass, VARIABLE__NAME );
-        createEReference ( this.variableEClass, VARIABLE__ATTRIBUTES );
+        variableEClass = createEClass ( VARIABLE );
+        createEReference ( variableEClass, VARIABLE__TYPE );
+        createEAttribute ( variableEClass, VARIABLE__NAME );
+        createEReference ( variableEClass, VARIABLE__ATTRIBUTES );
 
-        this.attributeEClass = createEClass ( ATTRIBUTE );
-        createEAttribute ( this.attributeEClass, ATTRIBUTE__NAME );
-        createEReference ( this.attributeEClass, ATTRIBUTE__TYPE );
+        attributeEClass = createEClass ( ATTRIBUTE );
+        createEAttribute ( attributeEClass, ATTRIBUTE__NAME );
+        createEReference ( attributeEClass, ATTRIBUTE__TYPE );
 
-        this.float32TypeEClass = createEClass ( FLOAT32_TYPE );
+        float32TypeEClass = createEClass ( FLOAT32_TYPE );
 
-        this.baseScalarTypeEClass = createEClass ( BASE_SCALAR_TYPE );
+        baseScalarTypeEClass = createEClass ( BASE_SCALAR_TYPE );
 
-        this.userDefinedTypeEClass = createEClass ( USER_DEFINED_TYPE );
-        createEReference ( this.userDefinedTypeEClass, USER_DEFINED_TYPE__TYPE );
+        userDefinedTypeEClass = createEClass ( USER_DEFINED_TYPE );
+        createEReference ( userDefinedTypeEClass, USER_DEFINED_TYPE__TYPE );
 
-        this.unsignedInteger16TypeEClass = createEClass ( UNSIGNED_INTEGER16_TYPE );
+        unsignedInteger16TypeEClass = createEClass ( UNSIGNED_INTEGER16_TYPE );
 
-        this.scalarTypeEClass = createEClass ( SCALAR_TYPE );
+        scalarTypeEClass = createEClass ( SCALAR_TYPE );
 
-        this.unsignedInteger32TypeEClass = createEClass ( UNSIGNED_INTEGER32_TYPE );
+        unsignedInteger32TypeEClass = createEClass ( UNSIGNED_INTEGER32_TYPE );
 
-        this.unsignedInteger8TypeEClass = createEClass ( UNSIGNED_INTEGER8_TYPE );
+        unsignedInteger8TypeEClass = createEClass ( UNSIGNED_INTEGER8_TYPE );
 
-        this.typeSystemEClass = createEClass ( TYPE_SYSTEM );
-        createEReference ( this.typeSystemEClass, TYPE_SYSTEM__TYPES );
-        createEReference ( this.typeSystemEClass, TYPE_SYSTEM__INCLUDES );
-        createEAttribute ( this.typeSystemEClass, TYPE_SYSTEM__NAME );
+        typeSystemEClass = createEClass ( TYPE_SYSTEM );
+        createEReference ( typeSystemEClass, TYPE_SYSTEM__TYPES );
+        createEReference ( typeSystemEClass, TYPE_SYSTEM__INCLUDES );
+        createEAttribute ( typeSystemEClass, TYPE_SYSTEM__NAME );
 
-        this.orderedTypeEClass = createEClass ( ORDERED_TYPE );
-        createEAttribute ( this.orderedTypeEClass, ORDERED_TYPE__ORDER );
+        orderedTypeEClass = createEClass ( ORDERED_TYPE );
+        createEAttribute ( orderedTypeEClass, ORDERED_TYPE__ORDER );
 
         // Create enums
-        this.byteOrderEEnum = createEEnum ( BYTE_ORDER );
+        byteOrderEEnum = createEEnum ( BYTE_ORDER );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -711,68 +664,69 @@ public class MemoryPackageImpl extends EPackageImpl implements MemoryPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.bitTypeEClass.getESuperTypes ().add ( getBaseScalarType () );
-        this.float32TypeEClass.getESuperTypes ().add ( getBaseScalarType () );
-        this.baseScalarTypeEClass.getESuperTypes ().add ( getScalarType () );
-        this.userDefinedTypeEClass.getESuperTypes ().add ( getType () );
-        this.unsignedInteger16TypeEClass.getESuperTypes ().add ( getOrderedType () );
-        this.scalarTypeEClass.getESuperTypes ().add ( getType () );
-        this.unsignedInteger32TypeEClass.getESuperTypes ().add ( getOrderedType () );
-        this.unsignedInteger8TypeEClass.getESuperTypes ().add ( getBaseScalarType () );
-        this.orderedTypeEClass.getESuperTypes ().add ( getBaseScalarType () );
+        bitTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        float32TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        baseScalarTypeEClass.getESuperTypes ().add ( this.getScalarType () );
+        userDefinedTypeEClass.getESuperTypes ().add ( this.getType () );
+        unsignedInteger16TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
+        scalarTypeEClass.getESuperTypes ().add ( this.getType () );
+        unsignedInteger32TypeEClass.getESuperTypes ().add ( this.getOrderedType () );
+        unsignedInteger8TypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
+        orderedTypeEClass.getESuperTypes ().add ( this.getBaseScalarType () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass ( this.typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getTypeDefinition_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getTypeDefinition_Variables (), getVariable (), null, "variables", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeDefinitionEClass, TypeDefinition.class, "TypeDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getTypeDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getTypeDefinition_Variables (), this.getVariable (), null, "variables", null, 0, -1, TypeDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.bitTypeEClass, BitType.class, "BitType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getBitType_SubIndex (), this.ecorePackage.getEInt (), "subIndex", null, 1, 1, BitType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( bitTypeEClass, BitType.class, "BitType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getBitType_SubIndex (), ecorePackage.getEInt (), "subIndex", null, 1, 1, BitType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.typeEClass, Type.class, "Type", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getType_Index (), this.ecorePackage.getEInt (), "index", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeEClass, Type.class, "Type", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getType_Index (), ecorePackage.getEInt (), "index", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getType_Length (), ecorePackage.getEInt (), "length", null, 1, 1, Type.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEOperation ( getType__Encode (), this.ecorePackage.getEString (), "encode", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEOperation ( getType__Encode (), ecorePackage.getEString (), "encode", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getVariable_Type (), getType (), null, "type", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getVariable_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getVariable_Attributes (), getAttribute (), null, "attributes", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getVariable_Type (), this.getType (), null, "type", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getVariable_Name (), ecorePackage.getEString (), "name", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getVariable_Attributes (), this.getAttribute (), null, "attributes", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getAttribute_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getAttribute_Type (), getScalarType (), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAttribute_Name (), ecorePackage.getEString (), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAttribute_Type (), this.getScalarType (), null, "type", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.float32TypeEClass, Float32Type.class, "Float32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( float32TypeEClass, Float32Type.class, "Float32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.baseScalarTypeEClass, BaseScalarType.class, "BaseScalarType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( baseScalarTypeEClass, BaseScalarType.class, "BaseScalarType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.userDefinedTypeEClass, UserDefinedType.class, "UserDefinedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getUserDefinedType_Type (), getTypeDefinition (), null, "type", null, 1, 1, UserDefinedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        getUserDefinedType_Type ().getEKeys ().add ( getTypeDefinition_Name () );
+        initEClass ( userDefinedTypeEClass, UserDefinedType.class, "UserDefinedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getUserDefinedType_Type (), this.getTypeDefinition (), null, "type", null, 1, 1, UserDefinedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        getUserDefinedType_Type ().getEKeys ().add ( this.getTypeDefinition_Name () );
 
-        initEClass ( this.unsignedInteger16TypeEClass, UnsignedInteger16Type.class, "UnsignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger16TypeEClass, UnsignedInteger16Type.class, "UnsignedInteger16Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.scalarTypeEClass, ScalarType.class, "ScalarType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( scalarTypeEClass, ScalarType.class, "ScalarType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.unsignedInteger32TypeEClass, UnsignedInteger32Type.class, "UnsignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger32TypeEClass, UnsignedInteger32Type.class, "UnsignedInteger32Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.unsignedInteger8TypeEClass, UnsignedInteger8Type.class, "UnsignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( unsignedInteger8TypeEClass, UnsignedInteger8Type.class, "UnsignedInteger8Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.typeSystemEClass, TypeSystem.class, "TypeSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getTypeSystem_Types (), getTypeDefinition (), null, "types", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        getTypeSystem_Types ().getEKeys ().add ( getTypeDefinition_Name () );
-        initEReference ( getTypeSystem_Includes (), getTypeSystem (), null, "includes", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
-        getTypeSystem_Includes ().getEKeys ().add ( getTypeSystem_Name () );
-        initEAttribute ( getTypeSystem_Name (), this.ecorePackage.getEString (), "name", null, 1, 1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( typeSystemEClass, TypeSystem.class, "TypeSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getTypeSystem_Types (), this.getTypeDefinition (), null, "types", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        getTypeSystem_Types ().getEKeys ().add ( this.getTypeDefinition_Name () );
+        initEReference ( getTypeSystem_Includes (), this.getTypeSystem (), null, "includes", null, 0, -1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
+        getTypeSystem_Includes ().getEKeys ().add ( this.getTypeSystem_Name () );
+        initEAttribute ( getTypeSystem_Name (), ecorePackage.getEString (), "name", null, 1, 1, TypeSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getOrderedType_Order (), getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( orderedTypeEClass, OrderedType.class, "OrderedType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOrderedType_Order (), this.getByteOrder (), "order", "BIG_ENDIAN", 1, 1, OrderedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
-        initEEnum ( this.byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$
-        addEEnumLiteral ( this.byteOrderEEnum, ByteOrder.BIG_ENDIAN );
-        addEEnumLiteral ( this.byteOrderEEnum, ByteOrder.LITTLE_ENDIAN );
+        initEEnum ( byteOrderEEnum, ByteOrder.class, "ByteOrder" ); //$NON-NLS-1$
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.BIG_ENDIAN );
+        addEEnumLiteral ( byteOrderEEnum, ByteOrder.LITTLE_ENDIAN );
 
         // Create resource
         createResource ( eNS_URI );

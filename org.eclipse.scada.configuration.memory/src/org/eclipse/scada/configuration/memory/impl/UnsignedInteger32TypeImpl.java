@@ -55,4 +55,13 @@ public class UnsignedInteger32TypeImpl extends OrderedTypeImpl implements Unsign
         return MemoryPackage.Literals.UNSIGNED_INTEGER32_TYPE;
     }
 
+    /**
+     * @generated NOT
+     */
+    @Override
+    public int getLength ()
+    {
+        return 4;
+    }
+
 } //UnsignedInteger32TypeImpl

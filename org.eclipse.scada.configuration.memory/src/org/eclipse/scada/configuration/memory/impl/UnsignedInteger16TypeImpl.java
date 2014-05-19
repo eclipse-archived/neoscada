@@ -55,4 +55,13 @@ public class UnsignedInteger16TypeImpl extends OrderedTypeImpl implements Unsign
         return MemoryPackage.Literals.UNSIGNED_INTEGER16_TYPE;
     }
 
+    /**
+     * @generated NOT
+     */
+    @Override
+    public int getLength ()
+    {
+        return 2;
+    }
+
 } //UnsignedInteger16TypeImpl

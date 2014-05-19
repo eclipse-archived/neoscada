@@ -47,6 +47,10 @@
         <element xmi:type="ecore:EAttribute" href="memory.ecore#//Type/index"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_lCyZ4SBqEeOLA4w2U3e-aw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_q0rNoN9UEeOL7L16O2uKtg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="memory.ecore#//Type/length"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_q0rNod9UEeOL7L16O2uKtg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_x23tMiBmEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_x23tMyBmEeOLA4w2U3e-aw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_x23tNCBmEeOLA4w2U3e-aw"/>
