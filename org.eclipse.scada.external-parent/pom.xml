@@ -30,6 +30,13 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		
+		<repository>
+			<id>org.eclipse.scada.external-repo</id>
+			<name>Eclipse SCADA Externals Wrapper</name>
+			<layout>p2</layout>
+			<url>file:${basedir}/../org.eclipse.scada.external-repo/repo</url>
+		</repository>
 	</repositories>
 
 	<modules>
@@ -39,6 +46,7 @@
 		<module>../org.eclipse.scada.external.sdk.feature</module>
 
 		<module>../org.eclipse.scada.external.orbit.feature</module>
+		<module>../org.eclipse.scada.external.wrapper.feature</module>
 
 		<module>../org.apache.commons.daemon</module>
 		

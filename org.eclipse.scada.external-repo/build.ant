@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Create a P2 repostory for externals                                                                
+     ====================================================================== -->
+<project name="p2.externals" default="default">
+    <description>
+		Create a P2 repostory for externals
+    </description>
+
+	<property name="target" location="repo"/>
+	
+	<!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean, build" description="description">
+    </target>
+
+	<!-- ================================= 
+          target: clean
+         ================================= -->
+    <target name="clean">
+        <delete dir="${target}"/>
+    </target>
+
+	
+    <!-- ================================= 
+          target: build
+         ================================= -->
+    <target name="build">
+    	<mkdir dir="${target}"/>
+    		
+    	<p2.publish.featuresAndBundles
+    		reusepackedfiles="true"
+    		compress="false"
+    		append="false"
+    		repository="file:${target}"
+    		repositoryname="Eclipse SCADA Externals Wrapper"
+    		publishartifacts="true"
+    		>
+    		<bundles dir="source" includes="**/*.jar"/>
+    	</p2.publish.featuresAndBundles>
+    </target>
+
+</project>

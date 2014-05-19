@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='Eclipse SCADA Externals Wrapper' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='3'>
+    <property name='p2.timestamp' value='1400495031083'/>
+    <property name='publishPackFilesAsSiblings' value='true'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='5'>
+    <rule filter='(&amp; (classifier=osgi.bundle) (format=packed))' output='${repoUrl}/plugins/${id}_${version}.jar.pack.gz'/>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature) (format=packed))' output='${repoUrl}/features/${id}_${version}.jar.pack.gz'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='5'>
+    <artifact classifier='osgi.bundle' id='io.netty.handler' version='4.0.19.Final'>
+      <properties size='3'>
+        <property name='artifact.size' value='75796'/>
+        <property name='download.size' value='75796'/>
+        <property name='download.md5' value='4d202e51f070560dbe4566c3fce63054'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='io.netty.common' version='4.0.19.Final'>
+      <properties size='3'>
+        <property name='artifact.size' value='377676'/>
+        <property name='download.size' value='377676'/>
+        <property name='download.md5' value='cbbf1ac0893ced01bcf7eaafc1d2255b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='io.netty.transport' version='4.0.19.Final'>
+      <properties size='3'>
+        <property name='artifact.size' value='298777'/>
+        <property name='download.size' value='298777'/>
+        <property name='download.md5' value='f4554124544660404954d9a3e4dcd8e7'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='io.netty.codec' version='4.0.19.Final'>
+      <properties size='3'>
+        <property name='artifact.size' value='138081'/>
+        <property name='download.size' value='138081'/>
+        <property name='download.md5' value='4c1aeb598c93aa73132374c29cb70015'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='io.netty.buffer' version='4.0.19.Final'>
+      <properties size='3'>
+        <property name='artifact.size' value='160403'/>
+        <property name='download.size' value='160403'/>
+        <property name='download.md5' value='b5c1dbfe5b09d4204a5c18c3506297f3'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

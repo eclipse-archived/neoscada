@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='Eclipse SCADA Externals Wrapper' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1400495031083'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <units size='5'>
+    <unit id='io.netty.buffer' version='4.0.19.Final' singleton='false'>
+      <update id='io.netty.buffer' range='[0.0.0,4.0.19.Final)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Netty/Buffer'/>
+        <property name='org.eclipse.equinox.p2.description' value='Netty is an asynchronous event-driven network application framework for     rapid development of maintainable high performance protocol servers and    clients.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Netty Project'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://netty.io/'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='io.netty.buffer' version='4.0.19.Final'/>
+        <provided namespace='osgi.bundle' name='io.netty.buffer' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.buffer' version='4.0.19.Final'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='java.package' name='io.netty.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.concurrent' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal.logging' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='sun.nio.ch' range='0.0.0' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='io.netty.buffer' version='4.0.19.Final'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: io.netty.buffer&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='io.netty.codec' version='4.0.19.Final' singleton='false'>
+      <update id='io.netty.codec' range='[0.0.0,4.0.19.Final)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Netty/Codec'/>
+        <property name='org.eclipse.equinox.p2.description' value='Netty is an asynchronous event-driven network application framework for     rapid development of maintainable high performance protocol servers and    clients.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Netty Project'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://netty.io/'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='io.netty.codec' version='4.0.19.Final'/>
+        <provided namespace='osgi.bundle' name='io.netty.codec' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.base64' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.bytes' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.compression' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.marshalling' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.protobuf' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.serialization' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.codec.string' version='4.0.19.Final'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='10'>
+        <required namespace='java.package' name='com.google.protobuf' range='[2.5.0,3.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='com.jcraft.jzlib' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='io.netty.buffer' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.channel' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.concurrent' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal.logging' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='org.jboss.marshalling' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='sun.nio.ch' range='0.0.0' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='io.netty.codec' version='4.0.19.Final'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: io.netty.codec&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='io.netty.handler' version='4.0.19.Final' singleton='false'>
+      <update id='io.netty.handler' range='[0.0.0,4.0.19.Final)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Netty/Handler'/>
+        <property name='org.eclipse.equinox.p2.description' value='Netty is an asynchronous event-driven network application framework for     rapid development of maintainable high performance protocol servers and    clients.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Netty Project'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://netty.io/'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='io.netty.handler' version='4.0.19.Final'/>
+        <provided namespace='osgi.bundle' name='io.netty.handler' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.logging' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.ssl' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.stream' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.timeout' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.handler.traffic' version='4.0.19.Final'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='java.package' name='io.netty.buffer' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.channel' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.handler.codec' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.concurrent' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal.logging' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='javax.net.ssl' range='0.0.0'/>
+        <required namespace='java.package' name='sun.nio.ch' range='0.0.0' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='io.netty.handler' version='4.0.19.Final'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: io.netty.handler&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='io.netty.common' version='4.0.19.Final' singleton='false'>
+      <update id='io.netty.common' range='[0.0.0,4.0.19.Final)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Netty/Common'/>
+        <property name='org.eclipse.equinox.p2.description' value='Netty is an asynchronous event-driven network application framework for     rapid development of maintainable high performance protocol servers and    clients.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Netty Project'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://netty.io/'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='io.netty.common' version='4.0.19.Final'/>
+        <provided namespace='osgi.bundle' name='io.netty.common' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.util' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.util.concurrent' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.util.internal' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.util.internal.chmv8' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.util.internal.logging' version='4.0.19.Final'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='java.package' name='sun.misc' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='sun.nio.ch' range='0.0.0' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javassist' range='[3.18.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.apache.commons.logging' range='[1.1.0,2.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.apache.log4j' range='[1.2.0,2.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.slf4j' range='[1.7.0,2.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='org.slf4j.helpers' range='[1.7.0,2.0.0)' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='io.netty.common' version='4.0.19.Final'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: io.netty.common&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='io.netty.transport' version='4.0.19.Final' singleton='false'>
+      <update id='io.netty.transport' range='[0.0.0,4.0.19.Final)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Netty/Transport'/>
+        <property name='org.eclipse.equinox.p2.description' value='Netty is an asynchronous event-driven network application framework for     rapid development of maintainable high performance protocol servers and    clients.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Netty Project'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://netty.io/'/>
+      </properties>
+      <provides size='13'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='io.netty.transport' version='4.0.19.Final'/>
+        <provided namespace='osgi.bundle' name='io.netty.transport' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.bootstrap' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.embedded' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.group' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.local' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.nio' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.oio' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.socket' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.socket.nio' version='4.0.19.Final'/>
+        <provided namespace='java.package' name='io.netty.channel.socket.oio' version='4.0.19.Final'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='java.package' name='io.netty.buffer' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.concurrent' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='io.netty.util.internal.logging' range='[4.0.0,5.0.0)'/>
+        <required namespace='java.package' name='sun.nio.ch' range='0.0.0' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='io.netty.transport' version='4.0.19.Final'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: io.netty.transport&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>
