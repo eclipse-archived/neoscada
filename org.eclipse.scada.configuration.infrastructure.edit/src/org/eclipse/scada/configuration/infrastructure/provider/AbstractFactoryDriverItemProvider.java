@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -26,11 +26,15 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.lib.Activator;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver} object.
+ * This is the item provider adapter for a
+ * {@link org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver}
+ * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class AbstractFactoryDriverItemProvider extends DriverItemProvider implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource
@@ -39,9 +43,10 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider implem
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public AbstractFactoryDriverItemProvider ( AdapterFactory adapterFactory )
+    public AbstractFactoryDriverItemProvider ( final AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -50,55 +55,64 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider implem
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
     {
-        if ( itemPropertyDescriptors == null )
+        if ( this.itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
             addDriverTypeIdPropertyDescriptor ( object );
             addDevicesPropertyDescriptor ( object );
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Driver Type Id feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     * 
+     * @generated NOT
      */
-    protected void addDriverTypeIdPropertyDescriptor ( Object object )
+    protected void addDriverTypeIdPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_AbstractFactoryDriver_driverTypeId_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_driverTypeId_feature", "_UI_AbstractFactoryDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString ( "_UI_AbstractFactoryDriver_driverTypeId_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_driverTypeId_feature", "_UI_AbstractFactoryDriver_type" ),
                         InfrastructurePackage.Literals.ABSTRACT_FACTORY_DRIVER__DRIVER_TYPE_ID,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
                         null,
-                        null ) );
+                        null ) {
+                    @Override
+                    public Collection<?> getChoiceOfValues ( final Object object )
+                    {
+                        return Activator.getAllDriverFactories ();
+                    }
+                } );
     }
 
     /**
      * This adds a property descriptor for the Devices feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    protected void addDevicesPropertyDescriptor ( Object object )
+    protected void addDevicesPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
+        this.itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_AbstractFactoryDriver_devices_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractFactoryDriver_devices_feature", "_UI_AbstractFactoryDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -115,26 +129,30 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider implem
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public String getText ( Object object )
+    public String getText ( final Object object )
     {
-        String label = ( (AbstractFactoryDriver)object ).getName ();
+        final String label = ( (AbstractFactoryDriver)object ).getName ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_AbstractFactoryDriver_type" ) : //$NON-NLS-1$
                 getString ( "_UI_AbstractFactoryDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to
+     * update any cached
+     * children and by creating a viewer notification, which it passes to
+     * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void notifyChanged ( Notification notification )
+    public void notifyChanged ( final Notification notification )
     {
         updateChildren ( notification );
 
@@ -148,14 +166,16 @@ public class AbstractFactoryDriverItemProvider extends DriverItemProvider implem
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
+     * describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

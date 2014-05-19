@@ -10,8 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -126,13 +128,19 @@ public class Activator extends AbstractUIPlugin
             return null;
         }
 
+        final Map<String, DriverFactory> cache = getFactories ();
+        return cache.get ( typeId );
+    }
+
+    private static Map<String, DriverFactory> getFactories ()
+    {
         Map<String, DriverFactory> cache = Activator.cache;
         if ( cache == null )
         {
             cache = createFactories ();
             Activator.cache = cache;
         }
-        return cache.get ( typeId );
+        return cache;
     }
 
     protected static Map<String, DriverFactory> createFactories ()
@@ -164,6 +172,11 @@ public class Activator extends AbstractUIPlugin
         }
 
         return result;
+    }
+
+    public static Set<String> getAllDriverFactories ()
+    {
+        return Collections.unmodifiableSet ( getFactories ().keySet () );
     }
 
 }
