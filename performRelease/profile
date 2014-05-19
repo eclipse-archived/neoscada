@@ -1,11 +1,12 @@
-buildType=M
+buildType=S
+
 release=0.2
 microVersion=0
 qualifier=.M1
 buildHelperVersion=0.0.16
 
+branch="$release.x-release"
 unqualifiedVersion=$release.$microVersion
-branch=$release.x-release
 
 repos="external utils chart protocols base core hmi ide deploy releng"
 
