@@ -55,6 +55,11 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/tools/orbit/downloads/drops/${eclipse.orbit.version}/repository/</url>
 		</repository>
+		<repository>
+			<id>eclipse.rap</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/rt/rap/2.2</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
