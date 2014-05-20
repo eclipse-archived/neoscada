@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -53,7 +53,7 @@ public class DaveDriverProcessor extends EquinoxApplicationProcessor
         data.put ( "slot", "" + device.getSlot () );
         data.put ( "name", device.getId () );
 
-        ctx.addData ( "org.openscada.da.server.dave.device", id, data );
+        ctx.addData ( "org.eclipse.scada.da.server.dave.device", id, data );
 
         for ( final DaveRequestBlock block : device.getBlocks () )
         {
@@ -76,6 +76,6 @@ public class DaveDriverProcessor extends EquinoxApplicationProcessor
         data.put ( "block", "" + block.getBlock () );
         data.put ( "type", "" + block.getType ().getName () );
 
-        ctx.addData ( "org.openscada.da.server.dave.block", id, data );
+        ctx.addData ( "org.eclipse.scada.da.server.dave.block", id, data );
     }
 }
