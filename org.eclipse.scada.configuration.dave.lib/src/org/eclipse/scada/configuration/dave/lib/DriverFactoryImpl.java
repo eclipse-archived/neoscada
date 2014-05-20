@@ -168,6 +168,11 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
 
     private void validateDevice ( final IValidationContext ctx, final EquinoxDriver driver, final DaveDevice device, final Collection<IStatus> result )
     {
+        if ( device.getName () == null || device.getName ().isEmpty () )
+        {
+            result.add ( ConstraintStatus.createStatus ( ctx, device, null, "'Name' must not be empty" ) );
+        }
+
         for ( final DaveBlockDefinition block : device.getBlocks () )
         {
             if ( block.getArea () < 0 || block.getArea () > MAX_AREA )
