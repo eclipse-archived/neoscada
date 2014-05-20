@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -423,7 +423,7 @@ public class VariableManagerImpl implements VariableManager, ConfigurationFactor
                 }
                 else
                 {
-                    result.add ( new TypeEntry ( varName, args[0], Integer.parseInt ( args[1] ) ) );
+                    result.add ( new TypeEntry ( varName, args[1], Integer.parseInt ( args[0] ) ) );
                 }
                 break;
             case TRIBIT:
