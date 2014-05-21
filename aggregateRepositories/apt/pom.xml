@@ -41,6 +41,11 @@
 							<distributionLabel>The default distribution for this release</distributionLabel>
 							<componentLabel>The main component</componentLabel>
 							<origin>Eclipse SCADA Project</origin>
+							<architectures>
+								<architecture>i386</architecture>
+								<architecture>amd64</architecture>
+								<architecture>armhf</architecture>
+							</architectures>
 						</configuration>
 					</execution>
 				</executions>
