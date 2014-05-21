@@ -244,7 +244,6 @@ public class AntWixBuilder extends XMLBase
 
     private void fillBuildTarget ( final Element build )
     {
-
         startSubst ( build );
 
         final Element candle = createElement ( build, "exec" ); //$NON-NLS-1$
@@ -321,6 +320,12 @@ public class AntWixBuilder extends XMLBase
 
     private void fillHeatTarget ( final Element heat )
     {
+        {
+            // create just in case
+            final Element ele = createElement ( heat, "mkdir" );
+            ele.setAttribute ( "dir", String.format ( "${%s}", this.stagingDirVar ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+
         startSubst ( heat );
 
         final Element ele = createElement ( heat, "exec" ); //$NON-NLS-1$ 
