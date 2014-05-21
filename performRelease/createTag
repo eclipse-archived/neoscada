@@ -20,7 +20,7 @@ for i in $repos; do
 
   (
     pushd "$repo" 
-    git tag -a "$tag" -m "Tag version - $version"
+    git tag -f  -a "$tag" -m "Tag version - $version"
     popd
   ) >> logs/tag.log
   
