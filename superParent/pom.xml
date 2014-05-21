@@ -221,6 +221,11 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.2.1</version>
 				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho.extras</groupId>
+					<artifactId>tycho-document-bundle-plugin</artifactId>
+					<version>${tycho-extras-version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
