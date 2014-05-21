@@ -78,7 +78,7 @@
 		<!-- test units -->
 		
 		<!--
-		some tycho issue .. check laster 
+		some tycho issue .. check later 
 		<module>../org.eclipse.scada.protocol.ngp.common.test</module>
 		-->
 	</modules>
