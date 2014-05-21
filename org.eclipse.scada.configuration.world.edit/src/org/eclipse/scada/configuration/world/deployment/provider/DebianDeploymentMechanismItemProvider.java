@@ -22,6 +22,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism} object.
@@ -84,7 +86,11 @@ public class DebianDeploymentMechanismItemProvider extends
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_DebianDeploymentMechanism_type" ); //$NON-NLS-1$
+        StartupMechanism labelValue = ( (DebianDeploymentMechanism)object ).getStartupMechanism ();
+        String label = labelValue == null ? null : labelValue.toString ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_DebianDeploymentMechanism_type" ) : //$NON-NLS-1$
+                getString ( "_UI_DebianDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**

@@ -11,8 +11,6 @@
 package org.eclipse.scada.configuration.world.lib.deployment;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,6 +29,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -46,7 +45,7 @@ public class DebianHandler extends CommonPackageHandler
 
     public DebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
     {
-        super ( applicationNode );
+        super ( applicationNode, deploy );
         this.deploy = deploy;
     }
 
@@ -135,17 +134,9 @@ public class DebianHandler extends CommonPackageHandler
     }
 
     @Override
-    protected void processDriver ( final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir, final File driverDir ) throws IOException, Exception
+    protected StartupMechanism getDefaultStartupMechanism ()
     {
-        super.processDriver ( monitor, packageFolder, replacements, driverName, sourceDir, driverDir );
-        Helper.createFile ( new File ( packageFolder, "src/etc/init/scada.driver." + driverName + ".conf" ), DebianHandler.class.getResourceAsStream ( "templates/deb/driver.upstart.conf" ), replacements, monitor );
-    }
-
-    @Override
-    protected void processEquinox ( final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor, final String name ) throws IOException, Exception, FileNotFoundException
-    {
-        super.processEquinox ( sourceBase, packageFolder, replacements, monitor, name );
-        Helper.createFile ( new File ( packageFolder, "src/etc/init/scada.app." + name + ".conf" ), DebianHandler.class.getResourceAsStream ( "templates/deb/p2.upstart.conf" ), replacements, monitor );
+        return StartupMechanism.UPSTART;
     }
 
     private String makeDependencies ()

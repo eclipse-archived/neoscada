@@ -141,13 +141,22 @@ public interface DeploymentPackage extends EPackage
     int COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Startup Mechanism</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Common Deployment Mechanism</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 3;
+    int COMMON_DEPLOYMENT_MECHANISM_FEATURE_COUNT = DEPLOYMENT_MECHANISM_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Common Deployment Mechanism</em>' class.
@@ -194,6 +203,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int DEBIAN_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES;
+
+    /**
+     * The feature id for the '<em><b>Startup Mechanism</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEBIAN_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM;
 
     /**
      * The number of structural features of the '<em>Debian Deployment Mechanism</em>' class.
@@ -295,6 +313,15 @@ public interface DeploymentPackage extends EPackage
      * @ordered
      */
     int REDHAT_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES;
+
+    /**
+     * The feature id for the '<em><b>Startup Mechanism</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REDHAT_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM;
 
     /**
      * The feature id for the '<em><b>License</b></em>' attribute.
@@ -793,6 +820,16 @@ public interface DeploymentPackage extends EPackage
     int ARCHITECTURE = 14;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.StartupMechanism <em>Startup Mechanism</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.StartupMechanism
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getStartupMechanism()
+     * @generated
+     */
+    int STARTUP_MECHANISM = 15;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism <em>Mechanism</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -928,6 +965,17 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EAttribute getCommonDeploymentMechanism_AdditionalDependencies ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getStartupMechanism <em>Startup Mechanism</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Startup Mechanism</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getStartupMechanism()
+     * @see #getCommonDeploymentMechanism()
+     * @generated
+     */
+    EAttribute getCommonDeploymentMechanism_StartupMechanism ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ChangeEntry <em>Change Entry</em>}'.
@@ -1261,6 +1309,16 @@ public interface DeploymentPackage extends EPackage
     EEnum getArchitecture ();
 
     /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.deployment.StartupMechanism <em>Startup Mechanism</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Startup Mechanism</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.StartupMechanism
+     * @generated
+     */
+    EEnum getStartupMechanism ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1399,6 +1457,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES = eINSTANCE.getCommonDeploymentMechanism_AdditionalDependencies ();
+
+        /**
+         * The meta object literal for the '<em><b>Startup Mechanism</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM = eINSTANCE.getCommonDeploymentMechanism_StartupMechanism ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ChangeEntryImpl <em>Change Entry</em>}' class.
@@ -1665,6 +1731,16 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EEnum ARCHITECTURE = eINSTANCE.getArchitecture ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.StartupMechanism <em>Startup Mechanism</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.StartupMechanism
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getStartupMechanism()
+         * @generated
+         */
+        EEnum STARTUP_MECHANISM = eINSTANCE.getStartupMechanism ();
 
     }
 

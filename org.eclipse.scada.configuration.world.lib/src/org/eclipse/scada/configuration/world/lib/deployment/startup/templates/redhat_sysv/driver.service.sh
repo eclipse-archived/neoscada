@@ -1,23 +1,23 @@
 #!/bin/bash
-# init file for $$driverName$$
+# init file for @@driverName@@
 #
 # chkconfig: - 50 50
-# description: Eclipse SCADA driver instance $$driverName$$
+# description: Eclipse SCADA driver instance @@driverName@@
 #
 # processname: /usr/bin/jsvc
-# config: /etc/eclipsescada/drivers/$$driverName$$/
-# pidfile: /var/run/eclipsescada/driver.$$driverName$$.pid
+# config: /etc/eclipsescada/drivers/@@driverName@@/
+# pidfile: /var/run/eclipsescada/driver.@@driverName@@.pid
 
 ### BEGIN INIT INFO
-# Provides: scada.driver.$$driverName$$
+# Provides: scada.driver.@@driverName@@
 # Required-Start: $local_fs $network
 # Required-Stop: $local_fs $network
 # Should-Start: 
 # Should-Stop: 
 # Default-Start: 
 # Default-Stop: 
-# Short-Description: start and stop Eclipse SCADA Driver instance $$driverName$$
-# Description: Eclipse SCADA driver instance $$driverName$$
+# Short-Description: start and stop Eclipse SCADA Driver instance @@driverName@@
+# Description: Eclipse SCADA driver instance @@driverName@@
 ### END INIT INFO
 
 # source function library
@@ -38,8 +38,8 @@ if [ -r /etc/rc.status ]; then
 fi
 
 RETVAL=0
-instanceName="$$driverName$$"
-pidfile="/var/run/eclipsescada/driver.$$driverName$$.pid"
+instanceName="@@driverName@@"
+pidfile="/var/run/eclipsescada/driver.@@driverName@@.pid"
 
 start (){
     echo -n $"Starting driver instance - $instanceName: "

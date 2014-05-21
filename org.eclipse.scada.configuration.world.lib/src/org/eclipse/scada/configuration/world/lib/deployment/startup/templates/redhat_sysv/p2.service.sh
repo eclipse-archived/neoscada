@@ -1,22 +1,22 @@
 #!/bin/bash
-# init file for $$appName$$
+# init file for @@appName@@
 #
 # chkconfig: - 50 50
-# description: Eclipse SCADA application instance $$appName$$
+# description: Eclipse SCADA application instance @@appName@@
 #
-# processname: /usr/bin/scada.app.$$appName$$.launcher
-# pidfile: /var/run/eclipsescada/scada.app.$$appName$$.pid
+# processname: /usr/bin/scada.app.@@appName@@.launcher
+# pidfile: /var/run/eclipsescada/scada.app.@@appName@@.pid
 
 ### BEGIN INIT INFO
-# Provides: scada.app.$$appName$$
+# Provides: scada.app.@@appName@@
 # Required-Start: $local_fs $network
 # Required-Stop: $local_fs $network
 # Should-Start: 
 # Should-Stop: 
 # Default-Start: 
 # Default-Stop: 
-# Short-Description: start and stop Eclipse SCADA application instance $$appName$$
-# Description: Eclipse SCADA application instance $$appName$$
+# Short-Description: start and stop Eclipse SCADA application instance @@appName@@
+# Description: Eclipse SCADA application instance @@appName@@
 ### END INIT INFO
 
 # source function library
@@ -43,9 +43,9 @@ fi
 . /etc/default/eclipsescada
 
 RETVAL=0
-instanceName="$$appName$$"
-pidfile="/var/run/eclipsescada/scada.app.$$appName$$.pid"
-prog="/usr/bin/scada.app.$$appName$$.launcher"
+instanceName="@@appName@@"
+pidfile="/var/run/eclipsescada/scada.app.@@appName@@.pid"
+prog="/usr/bin/scada.app.@@appName@@.launcher"
 
 start (){
     echo -n $"Starting application instance - $instanceName: "

@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +38,7 @@ import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getMaintainer <em>Maintainer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.CommonDeploymentMechanismImpl#getStartupMechanism <em>Startup Mechanism</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,6 +76,26 @@ public abstract class CommonDeploymentMechanismImpl extends
      * @ordered
      */
     protected EList<String> additionalDependencies;
+
+    /**
+     * The default value of the '{@link #getStartupMechanism() <em>Startup Mechanism</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStartupMechanism()
+     * @generated
+     * @ordered
+     */
+    protected static final StartupMechanism STARTUP_MECHANISM_EDEFAULT = StartupMechanism.DEFAULT;
+
+    /**
+     * The cached value of the '{@link #getStartupMechanism() <em>Startup Mechanism</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getStartupMechanism()
+     * @generated
+     * @ordered
+     */
+    protected StartupMechanism startupMechanism = STARTUP_MECHANISM_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -172,6 +194,29 @@ public abstract class CommonDeploymentMechanismImpl extends
      * <!-- end-user-doc -->
      * @generated
      */
+    public StartupMechanism getStartupMechanism ()
+    {
+        return startupMechanism;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setStartupMechanism ( StartupMechanism newStartupMechanism )
+    {
+        StartupMechanism oldStartupMechanism = startupMechanism;
+        startupMechanism = newStartupMechanism == null ? STARTUP_MECHANISM_EDEFAULT : newStartupMechanism;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM, oldStartupMechanism, startupMechanism ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -202,6 +247,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return basicGetMaintainer ();
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
                 return getAdditionalDependencies ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
+                return getStartupMechanism ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -228,6 +275,9 @@ public abstract class CommonDeploymentMechanismImpl extends
                 getAdditionalDependencies ().clear ();
                 getAdditionalDependencies ().addAll ( (Collection<? extends String>)newValue );
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
+                setStartupMechanism ( (StartupMechanism)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -251,6 +301,9 @@ public abstract class CommonDeploymentMechanismImpl extends
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
                 getAdditionalDependencies ().clear ();
                 return;
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
+                setStartupMechanism ( STARTUP_MECHANISM_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -271,6 +324,8 @@ public abstract class CommonDeploymentMechanismImpl extends
                 return maintainer != null;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
                 return additionalDependencies != null && !additionalDependencies.isEmpty ();
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
+                return startupMechanism != STARTUP_MECHANISM_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -289,6 +344,8 @@ public abstract class CommonDeploymentMechanismImpl extends
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (additionalDependencies: " ); //$NON-NLS-1$
         result.append ( additionalDependencies );
+        result.append ( ", startupMechanism: " ); //$NON-NLS-1$
+        result.append ( startupMechanism );
         result.append ( ')' );
         return result.toString ();
     }

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.world.deployment.*;
 import org.eclipse.scada.configuration.world.deployment.Architecture;
 import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
@@ -124,6 +125,8 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
                 return createFallbackNodeMappingModeFromString ( eDataType, initialValue );
             case DeploymentPackage.ARCHITECTURE:
                 return createArchitectureFromString ( eDataType, initialValue );
+            case DeploymentPackage.STARTUP_MECHANISM:
+                return createStartupMechanismFromString ( eDataType, initialValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -143,6 +146,8 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
                 return convertFallbackNodeMappingModeToString ( eDataType, instanceValue );
             case DeploymentPackage.ARCHITECTURE:
                 return convertArchitectureToString ( eDataType, instanceValue );
+            case DeploymentPackage.STARTUP_MECHANISM:
+                return convertStartupMechanismToString ( eDataType, instanceValue );
             default:
                 throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -318,6 +323,29 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
      * @generated
      */
     public String convertArchitectureToString ( EDataType eDataType, Object instanceValue )
+    {
+        return instanceValue == null ? null : instanceValue.toString ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public StartupMechanism createStartupMechanismFromString ( EDataType eDataType, String initialValue )
+    {
+        StartupMechanism result = StartupMechanism.get ( initialValue );
+        if ( result == null )
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public String convertStartupMechanismToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }

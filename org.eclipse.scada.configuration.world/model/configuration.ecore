@@ -1012,6 +1012,7 @@
           eType="#//deployment/Author" eKeys="#//deployment/Author/email"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalDependencies"
           ordered="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startupMechanism" eType="#//deployment/StartupMechanism"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChangeEntry">
       <eStructuralFeatures xsi:type="ecore:EReference" name="author" lowerBound="1"
@@ -1086,6 +1087,11 @@
     <eClassifiers xsi:type="ecore:EEnum" name="Architecture">
       <eLiterals name="i386"/>
       <eLiterals name="amd64" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="StartupMechanism">
+      <eLiterals name="DEFAULT"/>
+      <eLiterals name="UPSTART" value="1"/>
+      <eLiterals name="REDHAT_SYSV" value="2"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

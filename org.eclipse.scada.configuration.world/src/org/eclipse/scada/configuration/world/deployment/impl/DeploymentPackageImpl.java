@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.impl.WorldPackageImpl;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl;
@@ -156,6 +157,13 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * @generated
      */
     private EEnum architectureEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum startupMechanismEEnum = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -377,6 +385,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
     public EAttribute getCommonDeploymentMechanism_AdditionalDependencies ()
     {
         return (EAttribute)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getCommonDeploymentMechanism_StartupMechanism ()
+    {
+        return (EAttribute)commonDeploymentMechanismEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -711,6 +729,16 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public EEnum getStartupMechanism ()
+    {
+        return startupMechanismEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public DeploymentFactory getDeploymentFactory ()
     {
@@ -756,6 +784,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__CHANGES );
         createEReference ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__MAINTAINER );
         createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES );
+        createEAttribute ( commonDeploymentMechanismEClass, COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM );
 
         changeEntryEClass = createEClass ( CHANGE_ENTRY );
         createEReference ( changeEntryEClass, CHANGE_ENTRY__AUTHOR );
@@ -796,6 +825,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         // Create enums
         fallbackNodeMappingModeEEnum = createEEnum ( FALLBACK_NODE_MAPPING_MODE );
         architectureEEnum = createEEnum ( ARCHITECTURE );
+        startupMechanismEEnum = createEEnum ( STARTUP_MECHANISM );
     }
 
     /**
@@ -858,6 +888,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEReference ( getCommonDeploymentMechanism_Maintainer (), this.getAuthor (), null, "maintainer", null, 1, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getCommonDeploymentMechanism_Maintainer ().getEKeys ().add ( this.getAuthor_Email () );
         initEAttribute ( getCommonDeploymentMechanism_AdditionalDependencies (), ecorePackage.getEString (), "additionalDependencies", null, 0, -1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getCommonDeploymentMechanism_StartupMechanism (), this.getStartupMechanism (), "startupMechanism", null, 0, 1, CommonDeploymentMechanism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( changeEntryEClass, ChangeEntry.class, "ChangeEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getChangeEntry_Author (), this.getAuthor (), null, "author", null, 1, 1, ChangeEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -906,6 +937,11 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         initEEnum ( architectureEEnum, Architecture.class, "Architecture" ); //$NON-NLS-1$
         addEEnumLiteral ( architectureEEnum, Architecture.I386 );
         addEEnumLiteral ( architectureEEnum, Architecture.AMD64 );
+
+        initEEnum ( startupMechanismEEnum, StartupMechanism.class, "StartupMechanism" ); //$NON-NLS-1$
+        addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.DEFAULT );
+        addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.UPSTART );
+        addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.REDHAT_SYSV );
     }
 
 } //DeploymentPackageImpl

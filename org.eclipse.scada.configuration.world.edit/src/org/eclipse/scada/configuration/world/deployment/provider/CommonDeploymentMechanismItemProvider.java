@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 
 /**
@@ -70,6 +71,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
 
             addMaintainerPropertyDescriptor ( object );
             addAdditionalDependenciesPropertyDescriptor ( object );
+            addStartupMechanismPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -112,6 +114,29 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
                         getString ( "_UI_CommonDeploymentMechanism_additionalDependencies_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_additionalDependencies_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Startup Mechanism feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addStartupMechanismPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_CommonDeploymentMechanism_startupMechanism_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_CommonDeploymentMechanism_startupMechanism_feature", "_UI_CommonDeploymentMechanism_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DeploymentPackage.Literals.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM,
                         true,
                         false,
                         false,
@@ -175,7 +200,11 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_CommonDeploymentMechanism_type" ); //$NON-NLS-1$
+        StartupMechanism labelValue = ( (CommonDeploymentMechanism)object ).getStartupMechanism ();
+        String label = labelValue == null ? null : labelValue.toString ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_CommonDeploymentMechanism_type" ) : //$NON-NLS-1$
+                getString ( "_UI_CommonDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -193,6 +222,7 @@ public class CommonDeploymentMechanismItemProvider extends ItemProviderAdapter
         switch ( notification.getFeatureID ( CommonDeploymentMechanism.class ) )
         {
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__ADDITIONAL_DEPENDENCIES:
+            case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__STARTUP_MECHANISM:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case DeploymentPackage.COMMON_DEPLOYMENT_MECHANISM__CHANGES:

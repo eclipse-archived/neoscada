@@ -11,8 +11,6 @@
 package org.eclipse.scada.configuration.world.lib.deployment;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -23,7 +21,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -31,6 +28,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -46,8 +44,14 @@ public class RedhatHandler extends CommonPackageHandler
 
     public RedhatHandler ( final ApplicationNode applicationNode, final RedhatDeploymentMechanism deploy )
     {
-        super ( applicationNode );
+        super ( applicationNode, deploy );
         this.deploy = deploy;
+    }
+
+    @Override
+    protected StartupMechanism getDefaultStartupMechanism ()
+    {
+        return StartupMechanism.REDHAT_SYSV;
     }
 
     @Override
@@ -168,33 +172,6 @@ public class RedhatHandler extends CommonPackageHandler
             sb.append ( "\n" ); //$NON-NLS-1$
         }
         return sb.toString ();
-    }
-
-    private static Pattern ALT_PATTERN = Pattern.compile ( "\\@\\@(.*?)\\@\\@" ); //$NON-NLS-1$
-
-    @Override
-    protected void processDriver ( final IProgressMonitor monitor, final File packageFolder, final Map<String, String> replacements, final String driverName, final File sourceDir, final File driverDir ) throws IOException, Exception
-    {
-        super.processDriver ( monitor, packageFolder, replacements, driverName, sourceDir, driverDir );
-        File initFile;
-        Helper.createFile ( initFile = new File ( packageFolder, "src/etc/init.d/scada.driver." + driverName ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/driver.service.sh" ), replacements, monitor ); //$NON-NLS-1$
-        initFile.setExecutable ( true );
-    }
-
-    @Override
-    protected void processEquinox ( final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor, final String name ) throws IOException, Exception, FileNotFoundException
-    {
-        super.processEquinox ( sourceBase, packageFolder, replacements, monitor, name );
-        {
-            final File file = new File ( packageFolder, "src/etc/init.d/scada.app." + name ); //$NON-NLS-1$
-            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.service.sh" ), replacements, monitor ); //$NON-NLS-1$
-            file.setExecutable ( true );
-        }
-        {
-            final File file = new File ( packageFolder, "src/usr/bin/scada.app." + name + ".launcher" ); //$NON-NLS-1$  //$NON-NLS-2$
-            Helper.createFile ( file, RedhatHandler.class.getResourceAsStream ( "templates/rpm/p2.launcher.sh" ), replacements, monitor, ALT_PATTERN ); //$NON-NLS-1$
-            file.setExecutable ( true );
-        }
     }
 
     private String makeDependencies ()

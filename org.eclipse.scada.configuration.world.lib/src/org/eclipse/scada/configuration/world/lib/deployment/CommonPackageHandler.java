@@ -25,6 +25,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.world.ApplicationNode;
+import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.SystemVHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
 import org.eclipse.scada.configuration.world.lib.utils.CopyRecursive;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
@@ -34,9 +39,12 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
 
 public abstract class CommonPackageHandler extends CommonHandler
 {
-    public CommonPackageHandler ( final ApplicationNode applicationNode )
+    private final CommonDeploymentMechanism deploy;
+
+    public CommonPackageHandler ( final ApplicationNode applicationNode, final CommonDeploymentMechanism deploy )
     {
         super ( applicationNode );
+        this.deploy = deploy;
     }
 
     @Override
@@ -71,6 +79,12 @@ public abstract class CommonPackageHandler extends CommonHandler
 
         Helper.createFile ( new File ( packageFolder, "src/etc/eclipsescada/drivers/" + driverName + "/logback.xml" ), CommonPackageHandler.class.getResourceAsStream ( "templates/driver.logback.xml" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "src/etc/eclipsescada/drivers/" + driverName + "/jvm.args" ), CommonPackageHandler.class.getResourceAsStream ( "templates/jvm.args" ), replacements, monitor );
+
+        final StartupHandler sm = createStartupHandler ( getDefaultStartupMechanism () );
+        if ( sm != null )
+        {
+            sm.createDriver ( packageFolder, driverName, replacements, monitor );
+        }
     }
 
     protected void createEquinox ( final File sourceBase, final File packageFolder, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
@@ -102,6 +116,12 @@ public abstract class CommonPackageHandler extends CommonHandler
         createFile.setExecutable ( true );
 
         patchProfile ( name, target );
+
+        final StartupHandler sm = createStartupHandler ( getDefaultStartupMechanism () );
+        if ( sm != null )
+        {
+            sm.createEquinox ( packageFolder, name, replacements, monitor );
+        }
     }
 
     /**
@@ -123,5 +143,46 @@ public abstract class CommonPackageHandler extends CommonHandler
         bootstrap.setValue ( "file:///usr/share/eclipsescada/ca.bootstrap/bootstrap." + name + ".json" );
         profile.getProperty ().add ( bootstrap );
         r.save ( null );
+    }
+
+    protected abstract StartupMechanism getDefaultStartupMechanism ();
+
+    protected StartupHandler createStartupHandler ( final StartupMechanism defaultStartupMechanism )
+    {
+        final StartupMechanism sm = getStartupMechanism ( defaultStartupMechanism );
+        if ( sm == null )
+        {
+            return null;
+        }
+
+        switch ( sm )
+        {
+            case REDHAT_SYSV:
+                return new SystemVHandler ();
+            case UPSTART:
+                return new UpstartHandler ();
+            case DEFAULT:
+                return null; // we ran of options here
+        }
+        throw new IllegalStateException ( String.format ( "Startup method %s is unsupported", sm ) );
+    }
+
+    /**
+     * Get the startup mechanism to use
+     * 
+     * @param defaultStartupMechanism
+     *            the default if none is set
+     * @return the startup mechanism, or the default
+     */
+    private StartupMechanism getStartupMechanism ( final StartupMechanism defaultStartupMechanism )
+    {
+        if ( this.deploy.getStartupMechanism () == null || this.deploy.getStartupMechanism () == StartupMechanism.DEFAULT )
+        {
+            return defaultStartupMechanism;
+        }
+        else
+        {
+            return this.deploy.getStartupMechanism ();
+        }
     }
 }

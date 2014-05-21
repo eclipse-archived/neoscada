@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getChanges <em>Changes</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getMaintainer <em>Maintainer</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getAdditionalDependencies <em>Additional Dependencies</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getStartupMechanism <em>Startup Mechanism</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,5 +91,34 @@ public interface CommonDeploymentMechanism extends DeploymentMechanism
      * @generated
      */
     EList<String> getAdditionalDependencies ();
+
+    /**
+     * Returns the value of the '<em><b>Startup Mechanism</b></em>' attribute.
+     * The literals are from the enumeration {@link org.eclipse.scada.configuration.world.deployment.StartupMechanism}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Startup Mechanism</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Startup Mechanism</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.deployment.StartupMechanism
+     * @see #setStartupMechanism(StartupMechanism)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getCommonDeploymentMechanism_StartupMechanism()
+     * @model
+     * @generated
+     */
+    StartupMechanism getStartupMechanism ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism#getStartupMechanism <em>Startup Mechanism</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Startup Mechanism</em>' attribute.
+     * @see org.eclipse.scada.configuration.world.deployment.StartupMechanism
+     * @see #getStartupMechanism()
+     * @generated
+     */
+    void setStartupMechanism ( StartupMechanism value );
 
 } // CommonDeploymentMechanism

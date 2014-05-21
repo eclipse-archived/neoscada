@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
+import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism} object.
@@ -113,7 +114,8 @@ public class RedhatDeploymentMechanismItemProvider extends
     @Override
     public String getText ( Object object )
     {
-        String label = ( (RedhatDeploymentMechanism)object ).getLicense ();
+        StartupMechanism labelValue = ( (RedhatDeploymentMechanism)object ).getStartupMechanism ();
+        String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_RedhatDeploymentMechanism_type" ) : //$NON-NLS-1$
                 getString ( "_UI_RedhatDeploymentMechanism_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$

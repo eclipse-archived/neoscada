@@ -95,6 +95,10 @@
         <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_SBR-ce7_EeKbjax2RXj0dA"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_vGgswOD1EeOpg4BGGiolrw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//deployment/CommonDeploymentMechanism/startupMechanism"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_vGgsweD1EeOpg4BGGiolrw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_AWWF0gluEeOZ0OsoPMo03g"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_AWWF0wluEeOZ0OsoPMo03g"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_AWWF1AluEeOZ0OsoPMo03g"/>
@@ -135,6 +139,29 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_GKtRIQluEeOZ0OsoPMo03g" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/ChangeEntry"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GKtRIgluEeOZ0OsoPMo03g" x="48" y="144"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_lBTXUOD1EeOpg4BGGiolrw" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_lBUlcOD1EeOpg4BGGiolrw" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_lBUlceD1EeOpg4BGGiolrw" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_KT5jwOD5EeOpg4BGGiolrw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/StartupMechanism/DEFAULT"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_KT5jweD5EeOpg4BGGiolrw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_3Rme4OD1EeOpg4BGGiolrw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/StartupMechanism/UPSTART"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3Rme4eD1EeOpg4BGGiolrw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_5FEnoOD1EeOpg4BGGiolrw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/StartupMechanism/REDHAT_SYSV"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_5FEnoeD1EeOpg4BGGiolrw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_lBUlcuD1EeOpg4BGGiolrw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_lBUlc-D1EeOpg4BGGiolrw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_lBUldOD1EeOpg4BGGiolrw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_lBTXUeD1EeOpg4BGGiolrw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/StartupMechanism"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lBTXUuD1EeOpg4BGGiolrw" x="432" y="-48"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_qwmwod_lEeKXb4ASfdnSUg"/>
   <element xmi:type="ecore:EPackage" href="configuration.ecore#//deployment"/>
