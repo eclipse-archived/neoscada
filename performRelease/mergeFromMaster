@@ -19,6 +19,7 @@ for i in $repos; do
   repo="org.eclipse.scada.${i}"
   echo $repo
   pushd "$repo"
+  git fetch origin
   git merge origin/master >../logs/merge.${repo}.log
   popd
 done
