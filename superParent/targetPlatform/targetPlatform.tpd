@@ -18,6 +18,13 @@ location "http://download.eclipse.org/releases/kepler" {
 	org.eclipse.acceleo.feature.group
 }
 
+location "http://download.eclipse.org/rt/rap/2.2" {
+	org.eclipse.rap.rwt
+	org.eclipse.rap.rwt.osgi
+	org.eclipse.rap.jface
+	org.eclipse.rap.jface.databinding
+}
+
 location "http://download.eclipse.org/tools/orbit/downloads/drops/S20140428023358/repository/" {
 	org.apache.commons.beanutils;version=1.8.0
 	org.apache.commons.dbcp;version=1.4.0
