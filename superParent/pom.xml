@@ -96,7 +96,7 @@
 						<artifact>
 							<groupId>org.eclipse.scada.releng</groupId>
 							<artifactId>targetPlatform</artifactId>
-							<version>${parent.version}</version>
+							<version>${project.parent.version}</version>
 						</artifact>
 					</target>
 					<environments>
