@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,8 +14,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
+import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 public final class Properties
 {
@@ -25,7 +25,7 @@ public final class Properties
 
     public static PropertyEntry create ( final String key, final String value )
     {
-        final PropertyEntry prop = OsgiFactory.eINSTANCE.createPropertyEntry ();
+        final PropertyEntry prop = WorldFactory.eINSTANCE.createPropertyEntry ();
         prop.setKey ( key );
         prop.setValue ( value );
         return prop;

@@ -98,6 +98,9 @@ public interface ModbusBlock extends EObject
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * The start register.
+     * <!-- end-model-doc -->
      * @return the value of the '<em>Start Address</em>' attribute.
      * @see #setStartAddress(int)
      * @see org.eclipse.scada.configuration.modbus.ModbusPackage#getModbusBlock_StartAddress()

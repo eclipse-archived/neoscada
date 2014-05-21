@@ -16,6 +16,12 @@ package org.eclipse.scada.configuration.world;
  * A representation of the model object '<em><b>Service</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * This interface allows declaring generic service objects which apply to a node. This can be used for declaring custom service types which also might get references by custom model extensions.
+ * 
+ * For example could this be a VPN connection to another system.
+ * <!-- end-model-doc -->
+ *
  *
  * @see org.eclipse.scada.configuration.world.WorldPackage#getService()
  * @model interface="true" abstract="true"

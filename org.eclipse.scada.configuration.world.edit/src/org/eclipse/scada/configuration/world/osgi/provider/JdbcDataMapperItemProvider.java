@@ -12,7 +12,6 @@ package org.eclipse.scada.configuration.world.osgi.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -26,8 +25,8 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.JdbcDataMapper;
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
@@ -219,7 +218,7 @@ public class JdbcDataMapperItemProvider extends DataMapperItemProvider
         newChildDescriptors.add
                 ( createChildParameter
                 ( OsgiPackage.Literals.JDBC_DATA_MAPPER__PROPERTIES,
-                        OsgiFactory.eINSTANCE.createPropertyEntry () ) );
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
 }

@@ -2,12 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.editor;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.component.presentation.ComponentEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.component.presentation;uses:="org.eclipse.swt.dnd,  org.eclipse.jface.viewers,  org.eclipse.emf.edit.ui.dnd,  org.eclipse.emf.edit.domain";version="0.1.0"
+Export-Package: org.eclipse.scada.configuration.component.presentation;version="0.2.0";
+  uses:="org.eclipse.swt.dnd,
+   org.eclipse.jface.viewers,
+   org.eclipse.emf.edit.ui.dnd,
+   org.eclipse.emf.edit.domain"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.scada.configuration.component.edit;visibility:=reexport,

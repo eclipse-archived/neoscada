@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.world.osgi;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +42,7 @@ public interface JdbcUserService extends NamedDocumentable
 {
     /**
      * Returns the value of the '<em><b>Jdbc Propeties</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Jdbc Propeties</em>' containment reference

@@ -71,6 +71,10 @@
     <genClasses image="false" ecoreClass="configuration.ecore#//NamedDocumentable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NamedDocumentable/name"/>
     </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PropertyEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/value"/>
+    </genClasses>
     <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
         extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="configuration.ecore#//osgi">
@@ -330,10 +334,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ExternalEventMonitor/filter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ExternalEventMonitor/properties"/>
       </genClasses>
-      <genClasses ecoreClass="configuration.ecore#//osgi/PropertyEntry">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PropertyEntry/key"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PropertyEntry/value"/>
-      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/PropertyEntry"/>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ExternalEventFilter"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/StaticExternalEventFilter">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/StaticExternalEventFilter/value"/>
@@ -564,13 +565,17 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BufferedValue/triggerOnly"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/BufferedValue/persistence"/>
       </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/TelnetConsole">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/TelnetConsole/host"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/TelnetConsole/port"/>
+      </genClasses>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"
           extensibleProviderFactory="true" childCreationExtenders="true" contentTypeIdentifier="org.eclipse.scada.configuration.world.osgi.profile"
           fileExtensions="xml" ecorePackage="configuration.ecore#//osgi/profile">
         <genClasses ecoreClass="configuration.ecore#//osgi/profile/Profile">
           <genFeatures children="true" createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/installationUnits"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/jvmArgument"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/jvmArguments"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/start"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/setbsl"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/property"/>
@@ -580,6 +585,7 @@
               ecoreFeature="ecore:EReference configuration.ecore#//osgi/profile/Profile/includes"/>
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/name"/>
           <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/description"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/Profile/arguments"/>
         </genClasses>
         <genClasses ecoreClass="configuration.ecore#//osgi/profile/StartBundle">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/profile/StartBundle/name"/>
@@ -661,6 +667,9 @@
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/sharedPlatform"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/MsiDeploymentMechanism/localPlatform"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/architecture"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableFirewall"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/enableUserInterface"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/licenseFile"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/P2Platform">
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/repositories"/>

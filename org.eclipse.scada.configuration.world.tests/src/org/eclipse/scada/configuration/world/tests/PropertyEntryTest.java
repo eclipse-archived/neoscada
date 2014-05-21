@@ -1,20 +1,22 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.osgi.tests;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world.tests;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
+import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,7 +87,7 @@ public class PropertyEntryTest extends TestCase
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( OsgiFactory.eINSTANCE.createPropertyEntry () );
+        setFixture ( WorldFactory.eINSTANCE.createPropertyEntry () );
     }
 
     /**

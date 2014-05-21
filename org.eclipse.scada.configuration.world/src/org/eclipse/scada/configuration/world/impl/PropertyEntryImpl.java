@@ -1,21 +1,25 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.osgi.impl;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
+
+import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,15 +28,14 @@ import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl#getKey <em>Key</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
-        PropertyEntry
+public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements PropertyEntry
 {
     /**
      * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -92,7 +95,7 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
     @Override
     protected EClass eStaticClass ()
     {
-        return OsgiPackage.Literals.PROPERTY_ENTRY;
+        return WorldPackage.Literals.PROPERTY_ENTRY;
     }
 
     /**
@@ -115,7 +118,7 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
         String oldKey = key;
         key = newKey;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.PROPERTY_ENTRY__KEY, oldKey, key ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.PROPERTY_ENTRY__KEY, oldKey, key ) );
     }
 
     /**
@@ -138,7 +141,7 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
         String oldValue = value;
         value = newValue;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, OsgiPackage.PROPERTY_ENTRY__VALUE, oldValue, value ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.PROPERTY_ENTRY__VALUE, oldValue, value ) );
     }
 
     /**
@@ -151,9 +154,9 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case OsgiPackage.PROPERTY_ENTRY__KEY:
+            case WorldPackage.PROPERTY_ENTRY__KEY:
                 return getKey ();
-            case OsgiPackage.PROPERTY_ENTRY__VALUE:
+            case WorldPackage.PROPERTY_ENTRY__VALUE:
                 return getValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -169,10 +172,10 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case OsgiPackage.PROPERTY_ENTRY__KEY:
+            case WorldPackage.PROPERTY_ENTRY__KEY:
                 setKey ( (String)newValue );
                 return;
-            case OsgiPackage.PROPERTY_ENTRY__VALUE:
+            case WorldPackage.PROPERTY_ENTRY__VALUE:
                 setValue ( (String)newValue );
                 return;
         }
@@ -189,10 +192,10 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case OsgiPackage.PROPERTY_ENTRY__KEY:
+            case WorldPackage.PROPERTY_ENTRY__KEY:
                 setKey ( KEY_EDEFAULT );
                 return;
-            case OsgiPackage.PROPERTY_ENTRY__VALUE:
+            case WorldPackage.PROPERTY_ENTRY__VALUE:
                 setValue ( VALUE_EDEFAULT );
                 return;
         }
@@ -209,9 +212,9 @@ public class PropertyEntryImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case OsgiPackage.PROPERTY_ENTRY__KEY:
+            case WorldPackage.PROPERTY_ENTRY__KEY:
                 return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals ( key );
-            case OsgiPackage.PROPERTY_ENTRY__VALUE:
+            case WorldPackage.PROPERTY_ENTRY__VALUE:
                 return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals ( value );
         }
         return super.eIsSet ( featureID );

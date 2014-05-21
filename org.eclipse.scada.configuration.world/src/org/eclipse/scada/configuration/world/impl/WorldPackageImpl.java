@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.Options;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
@@ -181,6 +182,13 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * @generated
      */
     private EClass namedDocumentableEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass propertyEntryEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -748,6 +756,36 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getPropertyEntry ()
+    {
+        return propertyEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Key ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Value ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getPattern ()
     {
@@ -846,6 +884,10 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         namedDocumentableEClass = createEClass ( NAMED_DOCUMENTABLE );
         createEAttribute ( namedDocumentableEClass, NAMED_DOCUMENTABLE__NAME );
+
+        propertyEntryEClass = createEClass ( PROPERTY_ENTRY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
 
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
@@ -968,6 +1010,10 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         initEClass ( namedDocumentableEClass, NamedDocumentable.class, "NamedDocumentable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getNamedDocumentable_Name (), ecorePackage.getEString (), "name", null, 0, 1, NamedDocumentable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getPropertyEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

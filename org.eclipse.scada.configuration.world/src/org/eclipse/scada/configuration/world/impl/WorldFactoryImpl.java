@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.world.*;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.ExecDriver;
@@ -102,6 +103,8 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
                 return createPasswordCredentials ();
             case WorldPackage.EXTERNAL_NODE:
                 return createExternalNode ();
+            case WorldPackage.PROPERTY_ENTRY:
+                return createPropertyEntry ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -259,6 +262,17 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     {
         ExternalNodeImpl externalNode = new ExternalNodeImpl ();
         return externalNode;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PropertyEntry createPropertyEntry ()
+    {
+        PropertyEntryImpl propertyEntry = new PropertyEntryImpl ();
+        return propertyEntry;
     }
 
     /**

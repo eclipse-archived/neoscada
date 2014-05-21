@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.modbus;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.Settings;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +64,7 @@ public interface ModbusExporterModule extends Settings
 
     /**
      * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
@@ -77,6 +76,6 @@ public interface ModbusExporterModule extends Settings
      * @model containment="true"
      * @generated
      */
-    EList<PropertyEntry> getProperties ();
+    EList<org.eclipse.scada.configuration.world.PropertyEntry> getProperties ();
 
 } // ModbusExporterModule

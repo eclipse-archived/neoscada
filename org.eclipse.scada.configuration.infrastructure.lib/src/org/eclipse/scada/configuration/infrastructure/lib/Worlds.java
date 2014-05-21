@@ -30,11 +30,11 @@ import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 
 public final class Worlds
 {

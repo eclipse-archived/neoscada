@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.world.osgi.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -30,7 +29,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.RestExporter;
 
@@ -223,7 +222,7 @@ public class RestExporterItemProvider extends ItemProviderAdapter implements
         newChildDescriptors.add
                 ( createChildParameter
                 ( OsgiPackage.Literals.REST_EXPORTER__HIVE_PROPERTIES,
-                        OsgiFactory.eINSTANCE.createPropertyEntry () ) );
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

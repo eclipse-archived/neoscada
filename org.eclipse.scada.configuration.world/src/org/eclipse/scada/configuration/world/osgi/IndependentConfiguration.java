@@ -17,7 +17,9 @@ package org.eclipse.scada.configuration.world.osgi;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * This is a marker interface for standalone configuration element that can be used directly in the infrastructure model.
+ * This is a marker interface for standalone configuration elements that can be used directly in the infrastructure model.
+ * 
+ * Modules which can be configured without the reference to any other world model object can use this interface. This allows the direct use of this model without the need to provide a transformation from the Component/Infrastructure model to the World model.
  * <!-- end-model-doc -->
  *
  *

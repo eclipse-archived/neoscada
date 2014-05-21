@@ -874,31 +874,6 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected PropertyEntryItemProvider propertyEntryItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createPropertyEntryAdapter ()
-    {
-        if ( propertyEntryItemProvider == null )
-        {
-            propertyEntryItemProvider = new PropertyEntryItemProvider ( this );
-        }
-
-        return propertyEntryItemProvider;
-    }
-
-    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2228,8 +2203,6 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             roundingItemProvider.dispose ();
         if ( externalEventMonitorItemProvider != null )
             externalEventMonitorItemProvider.dispose ();
-        if ( propertyEntryItemProvider != null )
-            propertyEntryItemProvider.dispose ();
         if ( staticExternalEventFilterItemProvider != null )
             staticExternalEventFilterItemProvider.dispose ();
         if ( simpleExternalEventFilterItemProvider != null )

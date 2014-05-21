@@ -1084,6 +1084,52 @@ public interface WorldPackage extends EPackage
     int SERVICE_OPERATION_COUNT = NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.PropertyEntryImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPropertyEntry()
+     * @generated
+     */
+    int PROPERTY_ENTRY = 18;
+
+    /**
+     * The feature id for the '<em><b>Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__KEY = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1091,7 +1137,7 @@ public interface WorldPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 18;
+    int PATTERN = 19;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
@@ -1548,6 +1594,38 @@ public interface WorldPackage extends EPackage
     EAttribute getNamedDocumentable_Name ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.PropertyEntry <em>Property Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Property Entry</em>'.
+     * @see org.eclipse.scada.configuration.world.PropertyEntry
+     * @generated
+     */
+    EClass getPropertyEntry ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.PropertyEntry#getKey <em>Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Key</em>'.
+     * @see org.eclipse.scada.configuration.world.PropertyEntry#getKey()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Key ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.PropertyEntry#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.eclipse.scada.configuration.world.PropertyEntry#getValue()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Value ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1961,6 +2039,32 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EAttribute NAMED_DOCUMENTABLE__NAME = eINSTANCE.getNamedDocumentable_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.PropertyEntryImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPropertyEntry()
+         * @generated
+         */
+        EClass PROPERTY_ENTRY = eINSTANCE.getPropertyEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__KEY = eINSTANCE.getPropertyEntry_Key ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

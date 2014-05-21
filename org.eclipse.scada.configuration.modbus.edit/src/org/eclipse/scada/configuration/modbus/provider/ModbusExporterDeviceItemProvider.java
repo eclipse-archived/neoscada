@@ -13,14 +13,10 @@ package org.eclipse.scada.configuration.modbus.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -32,12 +28,10 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
 import org.eclipse.scada.configuration.modbus.ModbusFactory;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
-
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterDevice} object.
@@ -259,7 +253,7 @@ public class ModbusExporterDeviceItemProvider
         newChildDescriptors.add
                 ( createChildParameter
                 ( ModbusPackage.Literals.MODBUS_EXPORTER_DEVICE__PROPERTIES,
-                        OsgiFactory.eINSTANCE.createPropertyEntry () ) );
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

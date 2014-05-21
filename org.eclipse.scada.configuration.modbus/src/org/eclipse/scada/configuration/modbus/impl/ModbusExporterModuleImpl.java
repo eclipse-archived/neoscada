@@ -12,26 +12,18 @@
 package org.eclipse.scada.configuration.modbus.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.scada.configuration.modbus.ByteOrder;
 import org.eclipse.scada.configuration.modbus.ModbusExporterModule;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
-
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,7 +69,7 @@ public class ModbusExporterModuleImpl extends MinimalEObjectImpl.Container imple
      * @generated
      * @ordered
      */
-    protected EList<PropertyEntry> properties;
+    protected EList<org.eclipse.scada.configuration.world.PropertyEntry> properties;
 
     /**
      * <!-- begin-user-doc -->
@@ -128,11 +120,11 @@ public class ModbusExporterModuleImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<PropertyEntry> getProperties ()
+    public EList<org.eclipse.scada.configuration.world.PropertyEntry> getProperties ()
     {
         if ( properties == null )
         {
-            properties = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_MODULE__PROPERTIES );
+            properties = new EObjectContainmentEList<org.eclipse.scada.configuration.world.PropertyEntry> ( org.eclipse.scada.configuration.world.PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_MODULE__PROPERTIES );
         }
         return properties;
     }
@@ -187,7 +179,7 @@ public class ModbusExporterModuleImpl extends MinimalEObjectImpl.Container imple
                 return;
             case ModbusPackage.MODBUS_EXPORTER_MODULE__PROPERTIES:
                 getProperties ().clear ();
-                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                getProperties ().addAll ( (Collection<? extends org.eclipse.scada.configuration.world.PropertyEntry>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );

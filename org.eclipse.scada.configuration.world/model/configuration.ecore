@@ -86,6 +86,10 @@
       eSuperTypes="#//Documentable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
       nsPrefix="osgi">
     <eClassifiers xsi:type="ecore:EEnum" name="AverageReferenceType">
@@ -360,7 +364,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="sql" unique="false" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
+          eType="#//PropertyEntry" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataMapperEntry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -406,12 +410,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PropertyEntry">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="#//PropertyEntry" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalEventFilter" abstract="true"
         eSuperTypes="#//NamedDocumentable"/>
@@ -635,7 +634,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriverName" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcProperties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
+          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="customSelectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="customDeleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -652,7 +651,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JdbcUserService" eSuperTypes="#//NamedDocumentable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcPropeties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
+          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriver" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="authorative" lowerBound="1"
@@ -752,7 +751,7 @@
       <eOperations name="getJdbcDriverName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getDriverBundles" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcProperties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
+          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="An optional database schema."/>
@@ -778,7 +777,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
           eType="#//osgi/Item"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
-          eType="#//osgi/PropertyEntry" containment="true"/>
+          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="contextId" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>

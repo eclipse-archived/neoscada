@@ -323,13 +323,6 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    private EClass propertyEntryEClass = null;
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     private EClass externalEventFilterEClass = null;
 
     /**
@@ -2396,39 +2389,6 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     public EReference getExternalEventMonitor_Properties ()
     {
         return (EReference)externalEventMonitorEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EClass getPropertyEntry ()
-    {
-        return propertyEntryEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getPropertyEntry_Key ()
-    {
-        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getPropertyEntry_Value ()
-    {
-        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -4609,10 +4569,6 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         createEAttribute ( externalEventMonitorEClass, EXTERNAL_EVENT_MONITOR__FILTER );
         createEReference ( externalEventMonitorEClass, EXTERNAL_EVENT_MONITOR__PROPERTIES );
 
-        propertyEntryEClass = createEClass ( PROPERTY_ENTRY );
-        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
-        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
-
         externalEventFilterEClass = createEClass ( EXTERNAL_EVENT_FILTER );
 
         staticExternalEventFilterEClass = createEClass ( STATIC_EXTERNAL_EVENT_FILTER );
@@ -5130,7 +5086,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEClass ( jdbcDataMapperEClass, JdbcDataMapper.class, "JdbcDataMapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getJdbcDataMapper_JdbcDriver (), ecorePackage.getEString (), "jdbcDriver", null, 1, 1, JdbcDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getJdbcDataMapper_Sql (), ecorePackage.getEString (), "sql", null, 1, 1, JdbcDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getJdbcDataMapper_Properties (), this.getPropertyEntry (), null, "properties", null, 0, -1, JdbcDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getJdbcDataMapper_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, JdbcDataMapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( dataMapperEntryEClass, DataMapperEntry.class, "DataMapperEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDataMapperEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, DataMapperEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5159,11 +5115,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( externalEventMonitorEClass, ExternalEventMonitor.class, "ExternalEventMonitor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getExternalEventMonitor_Filter (), ecorePackage.getEString (), "filter", null, 1, 1, ExternalEventMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getExternalEventMonitor_Properties (), this.getPropertyEntry (), null, "properties", null, 0, -1, ExternalEventMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-
-        initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getPropertyEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getExternalEventMonitor_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, ExternalEventMonitor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( externalEventFilterEClass, ExternalEventFilter.class, "ExternalEventFilter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -5296,7 +5248,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( pullEventsEClass, PullEvents.class, "PullEvents", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPullEvents_JdbcDriverName (), ecorePackage.getEString (), "jdbcDriverName", null, 1, 1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getPullEvents_JdbcProperties (), this.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getPullEvents_JdbcProperties (), theWorldPackage.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPullEvents_JobInterval (), ecorePackage.getEIntegerObject (), "jobInterval", null, 0, 1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPullEvents_CustomSelectSql (), ecorePackage.getEString (), "customSelectSql", null, 0, 1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPullEvents_CustomDeleteSql (), ecorePackage.getEString (), "customDeleteSql", null, 0, 1, PullEvents.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5305,7 +5257,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEReference ( getJdbcUserServiceModule_UserServices (), this.getJdbcUserService (), null, "userServices", null, 0, -1, JdbcUserServiceModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( jdbcUserServiceEClass, JdbcUserService.class, "JdbcUserService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getJdbcUserService_JdbcPropeties (), this.getPropertyEntry (), null, "jdbcPropeties", null, 0, -1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getJdbcUserService_JdbcPropeties (), theWorldPackage.getPropertyEntry (), null, "jdbcPropeties", null, 0, -1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getJdbcUserService_JdbcDriver (), ecorePackage.getEString (), "jdbcDriver", null, 1, 1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getJdbcUserService_Authorative (), ecorePackage.getEBoolean (), "authorative", "true", 1, 1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getJdbcUserService_FindUserSql (), ecorePackage.getEString (), "findUserSql", null, 1, 1, JdbcUserService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -5348,7 +5300,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEOperation ( getEventStoragePostgres__GetDriverBundles (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( abstractEventStorageJdbcEClass, AbstractEventStorageJdbc.class, "AbstractEventStorageJdbc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getAbstractEventStorageJdbc_JdbcProperties (), this.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAbstractEventStorageJdbc_JdbcProperties (), theWorldPackage.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_Schema (), ecorePackage.getEString (), "schema", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_InstanceName (), ecorePackage.getEString (), "instanceName", "default", 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getAbstractEventStorageJdbc_EnableReplication (), ecorePackage.getEBoolean (), "enableReplication", "false", 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -5363,7 +5315,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
 
         initEClass ( restExporterEClass, RestExporter.class, "RestExporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRestExporter_Items (), this.getItem (), null, "items", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getRestExporter_HiveProperties (), this.getPropertyEntry (), null, "hiveProperties", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getRestExporter_HiveProperties (), theWorldPackage.getPropertyEntry (), null, "hiveProperties", null, 0, -1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getRestExporter_ContextId (), ecorePackage.getEString (), "contextId", null, 1, 1, RestExporter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( httpServiceEClass, HttpService.class, "HttpService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

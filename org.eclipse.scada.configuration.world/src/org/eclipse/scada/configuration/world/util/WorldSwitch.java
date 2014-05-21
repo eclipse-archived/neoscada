@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.world.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.scada.configuration.world.*;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.CommonDriver;
@@ -298,6 +299,14 @@ public class WorldSwitch<T> extends Switch<T>
                 T result = caseNamedDocumentable ( namedDocumentable );
                 if ( result == null )
                     result = caseDocumentable ( namedDocumentable );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.PROPERTY_ENTRY:
+            {
+                PropertyEntry propertyEntry = (PropertyEntry)theEObject;
+                T result = casePropertyEntry ( propertyEntry );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -591,6 +600,22 @@ public class WorldSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseNamedDocumentable ( NamedDocumentable object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Property Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Property Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePropertyEntry ( PropertyEntry object )
     {
         return null;
     }

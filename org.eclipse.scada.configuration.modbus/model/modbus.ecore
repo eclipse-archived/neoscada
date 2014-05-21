@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slaveId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/PropertyEntry"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataOrder" lowerBound="1"
         eType="#//ByteOrder" defaultValueLiteral="BIG_ENDIAN"/>
@@ -103,7 +103,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataOrder" lowerBound="1"
         eType="#//ByteOrder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/PropertyEntry"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterInterceptor" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor">

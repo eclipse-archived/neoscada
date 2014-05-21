@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Protos GmbH and others.
+ * Copyright (c) 2013, 2014 Protos GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,8 @@
  *
  * Contributors:
  *     Protos GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - add profile handling, fix some issues
+ *     IBH SYSTEMS GmbH - add profile handling, fix some issues, refactor
+ *          PropertyEntry
  *******************************************************************************/
 package org.eclipse.scada.configuration.modbus.lib;
 
@@ -24,10 +25,10 @@ import org.eclipse.scada.configuration.modbus.ModbusExporter;
 import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
 import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.lib.oscar.OscarContext;
 import org.eclipse.scada.configuration.world.lib.oscar.OscarProcessor;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 public class ModbusExporterProcessor implements OscarProcessor

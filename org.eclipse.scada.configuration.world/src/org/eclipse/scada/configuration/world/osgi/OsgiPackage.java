@@ -3224,52 +3224,6 @@ public interface OsgiPackage extends EPackage
     int EXTERNAL_EVENT_MONITOR_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl
-     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPropertyEntry()
-     * @generated
-     */
-    int PROPERTY_ENTRY = 40;
-
-    /**
-     * The feature id for the '<em><b>Key</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_ENTRY__KEY = 0;
-
-    /**
-     * The feature id for the '<em><b>Value</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_ENTRY__VALUE = 1;
-
-    /**
-     * The number of structural features of the '<em>Property Entry</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_ENTRY_FEATURE_COUNT = 2;
-
-    /**
-     * The number of operations of the '<em>Property Entry</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PROPERTY_ENTRY_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExternalEventFilterImpl <em>External Event Filter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3277,7 +3231,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getExternalEventFilter()
      * @generated
      */
-    int EXTERNAL_EVENT_FILTER = 41;
+    int EXTERNAL_EVENT_FILTER = 40;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3323,7 +3277,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getStaticExternalEventFilter()
      * @generated
      */
-    int STATIC_EXTERNAL_EVENT_FILTER = 42;
+    int STATIC_EXTERNAL_EVENT_FILTER = 41;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3378,7 +3332,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSimpleExternalEventFilter()
      * @generated
      */
-    int SIMPLE_EXTERNAL_EVENT_FILTER = 43;
+    int SIMPLE_EXTERNAL_EVENT_FILTER = 42;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3433,7 +3387,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getItemReference()
      * @generated
      */
-    int ITEM_REFERENCE = 47;
+    int ITEM_REFERENCE = 46;
 
     /**
      * The feature id for the '<em><b>Item</b></em>' reference.
@@ -3479,7 +3433,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getTypedItemReference()
      * @generated
      */
-    int TYPED_ITEM_REFERENCE = 44;
+    int TYPED_ITEM_REFERENCE = 43;
 
     /**
      * The feature id for the '<em><b>Item</b></em>' reference.
@@ -3534,7 +3488,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getCodeFragment()
      * @generated
      */
-    int CODE_FRAGMENT = 45;
+    int CODE_FRAGMENT = 44;
 
     /**
      * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -3571,7 +3525,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getScriptTimer()
      * @generated
      */
-    int SCRIPT_TIMER = 46;
+    int SCRIPT_TIMER = 45;
 
     /**
      * The feature id for the '<em><b>Script</b></em>' containment reference.
@@ -3617,7 +3571,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getFormulaItem()
      * @generated
      */
-    int FORMULA_ITEM = 48;
+    int FORMULA_ITEM = 47;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3708,7 +3662,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getFormulaItemOutbound()
      * @generated
      */
-    int FORMULA_ITEM_OUTBOUND = 49;
+    int FORMULA_ITEM_OUTBOUND = 48;
 
     /**
      * The feature id for the '<em><b>Output</b></em>' containment reference.
@@ -3763,7 +3717,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getFormulaItemInbound()
      * @generated
      */
-    int FORMULA_ITEM_INBOUND = 50;
+    int FORMULA_ITEM_INBOUND = 49;
 
     /**
      * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -3809,7 +3763,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBooleanMonitor()
      * @generated
      */
-    int BOOLEAN_MONITOR = 51;
+    int BOOLEAN_MONITOR = 50;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3918,7 +3872,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getListMonitor()
      * @generated
      */
-    int LIST_MONITOR = 52;
+    int LIST_MONITOR = 51;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4027,7 +3981,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getListMonitorEntry()
      * @generated
      */
-    int LIST_MONITOR_ENTRY = 53;
+    int LIST_MONITOR_ENTRY = 52;
 
     /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -4082,7 +4036,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverage()
      * @generated
      */
-    int AVERAGE = 54;
+    int AVERAGE = 53;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4146,7 +4100,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverage()
      * @generated
      */
-    int MOVING_AVERAGE = 55;
+    int MOVING_AVERAGE = 54;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4237,7 +4191,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageItem()
      * @generated
      */
-    int AVERAGE_ITEM = 56;
+    int AVERAGE_ITEM = 55;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4310,7 +4264,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageItem()
      * @generated
      */
-    int MOVING_AVERAGE_ITEM = 57;
+    int MOVING_AVERAGE_ITEM = 56;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4383,7 +4337,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBlockings()
      * @generated
      */
-    int BLOCKINGS = 58;
+    int BLOCKINGS = 57;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4438,7 +4392,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBlockGroup()
      * @generated
      */
-    int BLOCK_GROUP = 59;
+    int BLOCK_GROUP = 58;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4502,7 +4456,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBlockHandler()
      * @generated
      */
-    int BLOCK_HANDLER = 60;
+    int BLOCK_HANDLER = 59;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4557,7 +4511,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBlock()
      * @generated
      */
-    int BLOCK = 61;
+    int BLOCK = 60;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4603,7 +4557,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getGlobalSummaryItem()
      * @generated
      */
-    int GLOBAL_SUMMARY_ITEM = 62;
+    int GLOBAL_SUMMARY_ITEM = 61;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4667,7 +4621,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getWeakReferenceDataSourceItem()
      * @generated
      */
-    int WEAK_REFERENCE_DATA_SOURCE_ITEM = 63;
+    int WEAK_REFERENCE_DATA_SOURCE_ITEM = 62;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4731,7 +4685,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAlarmsEventsExporter()
      * @generated
      */
-    int ALARMS_EVENTS_EXPORTER = 64;
+    int ALARMS_EVENTS_EXPORTER = 63;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4795,7 +4749,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAlarmsEventsConnection()
      * @generated
      */
-    int ALARMS_EVENTS_CONNECTION = 65;
+    int ALARMS_EVENTS_CONNECTION = 64;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4913,7 +4867,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMonitorPoolProxy()
      * @generated
      */
-    int MONITOR_POOL_PROXY = 66;
+    int MONITOR_POOL_PROXY = 65;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -4977,7 +4931,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventPoolProxy()
      * @generated
      */
-    int EVENT_POOL_PROXY = 67;
+    int EVENT_POOL_PROXY = 66;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5050,7 +5004,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAlarmsEventsModule()
      * @generated
      */
-    int ALARMS_EVENTS_MODULE = 68;
+    int ALARMS_EVENTS_MODULE = 67;
 
     /**
      * The feature id for the '<em><b>Monitor Pool Proxies</b></em>' containment reference list.
@@ -5114,7 +5068,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAknProxy()
      * @generated
      */
-    int AKN_PROXY = 69;
+    int AKN_PROXY = 68;
 
     /**
      * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -5178,7 +5132,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPullEvents()
      * @generated
      */
-    int PULL_EVENTS = 70;
+    int PULL_EVENTS = 69;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5269,7 +5223,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getJdbcUserServiceModule()
      * @generated
      */
-    int JDBC_USER_SERVICE_MODULE = 71;
+    int JDBC_USER_SERVICE_MODULE = 70;
 
     /**
      * The feature id for the '<em><b>User Services</b></em>' containment reference list.
@@ -5306,7 +5260,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getJdbcUserService()
      * @generated
      */
-    int JDBC_USER_SERVICE = 72;
+    int JDBC_USER_SERVICE = 71;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5433,7 +5387,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDefaultValueArchiveServer()
      * @generated
      */
-    int DEFAULT_VALUE_ARCHIVE_SERVER = 73;
+    int DEFAULT_VALUE_ARCHIVE_SERVER = 72;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5542,7 +5496,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getHistoricalDataExporter()
      * @generated
      */
-    int HISTORICAL_DATA_EXPORTER = 74;
+    int HISTORICAL_DATA_EXPORTER = 73;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5606,7 +5560,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getValueArchive()
      * @generated
      */
-    int VALUE_ARCHIVE = 75;
+    int VALUE_ARCHIVE = 74;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5661,7 +5615,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getConfigurationAdministratorExporter()
      * @generated
      */
-    int CONFIGURATION_ADMINISTRATOR_EXPORTER = 76;
+    int CONFIGURATION_ADMINISTRATOR_EXPORTER = 75;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -5725,7 +5679,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getReferenceItem()
      * @generated
      */
-    int REFERENCE_ITEM = 77;
+    int REFERENCE_ITEM = 76;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5789,7 +5743,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getApplicationConfiguration()
      * @generated
      */
-    int APPLICATION_CONFIGURATION = 82;
+    int APPLICATION_CONFIGURATION = 81;
 
     /**
      * The number of structural features of the '<em>Application Configuration</em>' class.
@@ -5817,7 +5771,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getIndependentConfiguration()
      * @generated
      */
-    int INDEPENDENT_CONFIGURATION = 85;
+    int INDEPENDENT_CONFIGURATION = 84;
 
     /**
      * The number of structural features of the '<em>Independent Configuration</em>' class.
@@ -5845,7 +5799,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventStorage()
      * @generated
      */
-    int EVENT_STORAGE = 78;
+    int EVENT_STORAGE = 77;
 
     /**
      * The number of structural features of the '<em>Event Storage</em>' class.
@@ -5873,7 +5827,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAbstractEventStorageJdbc()
      * @generated
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC = 81;
+    int ABSTRACT_EVENT_STORAGE_JDBC = 80;
 
     /**
      * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
@@ -5973,7 +5927,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventStorageJdbc()
      * @generated
      */
-    int EVENT_STORAGE_JDBC = 79;
+    int EVENT_STORAGE_JDBC = 78;
 
     /**
      * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
@@ -6109,7 +6063,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventStoragePostgres()
      * @generated
      */
-    int EVENT_STORAGE_POSTGRES = 80;
+    int EVENT_STORAGE_POSTGRES = 79;
 
     /**
      * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
@@ -6227,7 +6181,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRestExporter()
      * @generated
      */
-    int REST_EXPORTER = 83;
+    int REST_EXPORTER = 82;
 
     /**
      * The feature id for the '<em><b>Items</b></em>' reference list.
@@ -6282,7 +6236,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getHttpService()
      * @generated
      */
-    int HTTP_SERVICE = 84;
+    int HTTP_SERVICE = 83;
 
     /**
      * The feature id for the '<em><b>Endpoint</b></em>' reference.
@@ -6319,7 +6273,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getTransientItem()
      * @generated
      */
-    int TRANSIENT_ITEM = 86;
+    int TRANSIENT_ITEM = 85;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6374,7 +6328,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDefaultEquinoxApplication()
      * @generated
      */
-    int DEFAULT_EQUINOX_APPLICATION = 87;
+    int DEFAULT_EQUINOX_APPLICATION = 86;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -6483,7 +6437,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeCounterItem()
      * @generated
      */
-    int CHANGE_COUNTER_ITEM = 88;
+    int CHANGE_COUNTER_ITEM = 87;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -6574,7 +6528,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getBufferedValue()
      * @generated
      */
-    int BUFFERED_VALUE = 89;
+    int BUFFERED_VALUE = 88;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -6674,7 +6628,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getTelnetConsole()
      * @generated
      */
-    int TELNET_CONSOLE = 90;
+    int TELNET_CONSOLE = 89;
 
     /**
      * The feature id for the '<em><b>Host</b></em>' attribute.
@@ -6720,7 +6674,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 91;
+    int AVERAGE_REFERENCE_TYPE = 90;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6730,7 +6684,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 92;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 91;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6740,7 +6694,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 93;
+    int ROUNDING_TYPE = 92;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6750,7 +6704,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 94;
+    int DATA_TYPE = 93;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6760,7 +6714,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 95;
+    int PASSWORD_TYPE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -6770,7 +6724,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 96;
+    int PERSISTENCE = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -6780,7 +6734,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 97;
+    int ERROR_HANDLING = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -6790,7 +6744,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 98;
+    int CHANGE_TYPE = 97;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6800,7 +6754,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 99;
+    int SEVERITY = 98;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6810,7 +6764,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 100;
+    int VARIANT = 99;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -8335,38 +8289,6 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EReference getExternalEventMonitor_Properties ();
-
-    /**
-     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry <em>Property Entry</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Property Entry</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.PropertyEntry
-     * @generated
-     */
-    EClass getPropertyEntry ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getKey <em>Key</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Key</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.PropertyEntry#getKey()
-     * @see #getPropertyEntry()
-     * @generated
-     */
-    EAttribute getPropertyEntry_Key ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getValue <em>Value</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Value</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.PropertyEntry#getValue()
-     * @see #getPropertyEntry()
-     * @generated
-     */
-    EAttribute getPropertyEntry_Value ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ExternalEventFilter <em>External Event Filter</em>}'.
@@ -11528,32 +11450,6 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EReference EXTERNAL_EVENT_MONITOR__PROPERTIES = eINSTANCE.getExternalEventMonitor_Properties ();
-
-        /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl <em>Property Entry</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.world.osgi.impl.PropertyEntryImpl
-         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPropertyEntry()
-         * @generated
-         */
-        EClass PROPERTY_ENTRY = eINSTANCE.getPropertyEntry ();
-
-        /**
-         * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PROPERTY_ENTRY__KEY = eINSTANCE.getPropertyEntry_Key ();
-
-        /**
-         * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.ExternalEventFilterImpl <em>External Event Filter</em>}' class.

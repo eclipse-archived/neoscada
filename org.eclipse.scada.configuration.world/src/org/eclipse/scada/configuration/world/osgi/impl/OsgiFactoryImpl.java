@@ -18,92 +18,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.scada.ae.data.Severity;
 import org.eclipse.scada.configuration.world.osgi.*;
-import org.eclipse.scada.configuration.world.osgi.AknProxy;
-import org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection;
-import org.eclipse.scada.configuration.world.osgi.AlarmsEventsExporter;
-import org.eclipse.scada.configuration.world.osgi.AlarmsEventsModule;
-import org.eclipse.scada.configuration.world.osgi.AttributesSummary;
-import org.eclipse.scada.configuration.world.osgi.Average;
-import org.eclipse.scada.configuration.world.osgi.AverageItem;
-import org.eclipse.scada.configuration.world.osgi.AverageReferenceType;
-import org.eclipse.scada.configuration.world.osgi.Block;
-import org.eclipse.scada.configuration.world.osgi.BlockGroup;
-import org.eclipse.scada.configuration.world.osgi.BlockHandler;
-import org.eclipse.scada.configuration.world.osgi.Blockings;
-import org.eclipse.scada.configuration.world.osgi.BooleanMonitor;
-import org.eclipse.scada.configuration.world.osgi.BufferedValue;
-import org.eclipse.scada.configuration.world.osgi.ChangeCounterItem;
-import org.eclipse.scada.configuration.world.osgi.ChangeType;
-import org.eclipse.scada.configuration.world.osgi.CodeFragment;
-import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter;
-import org.eclipse.scada.configuration.world.osgi.ConstantItem;
-import org.eclipse.scada.configuration.world.osgi.CustomMasterServer;
-import org.eclipse.scada.configuration.world.osgi.DataAccessConnection;
-import org.eclipse.scada.configuration.world.osgi.DataAccessExporter;
-import org.eclipse.scada.configuration.world.osgi.DataMapperEntry;
-import org.eclipse.scada.configuration.world.osgi.DataType;
-import org.eclipse.scada.configuration.world.osgi.DefaultEquinoxApplication;
-import org.eclipse.scada.configuration.world.osgi.DefaultMasterServer;
-import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
-import org.eclipse.scada.configuration.world.osgi.ErrorHandling;
-import org.eclipse.scada.configuration.world.osgi.EventLogger;
-import org.eclipse.scada.configuration.world.osgi.EventPool;
-import org.eclipse.scada.configuration.world.osgi.EventPoolProxy;
-import org.eclipse.scada.configuration.world.osgi.EventStorageJdbc;
-import org.eclipse.scada.configuration.world.osgi.EventStoragePostgres;
-import org.eclipse.scada.configuration.world.osgi.ExternalEventMonitor;
-import org.eclipse.scada.configuration.world.osgi.FormulaItem;
-import org.eclipse.scada.configuration.world.osgi.FormulaItemInbound;
-import org.eclipse.scada.configuration.world.osgi.FormulaItemOutbound;
-import org.eclipse.scada.configuration.world.osgi.GlobalSummaryItem;
-import org.eclipse.scada.configuration.world.osgi.HistoricalDataExporter;
-import org.eclipse.scada.configuration.world.osgi.HttpService;
-import org.eclipse.scada.configuration.world.osgi.ImportItem;
-import org.eclipse.scada.configuration.world.osgi.ItemExport;
-import org.eclipse.scada.configuration.world.osgi.ItemInformation;
-import org.eclipse.scada.configuration.world.osgi.ItemReference;
-import org.eclipse.scada.configuration.world.osgi.JdbcDataMapper;
-import org.eclipse.scada.configuration.world.osgi.JdbcUserService;
-import org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule;
-import org.eclipse.scada.configuration.world.osgi.LevelMonitor;
-import org.eclipse.scada.configuration.world.osgi.ListMonitor;
-import org.eclipse.scada.configuration.world.osgi.ListMonitorEntry;
-import org.eclipse.scada.configuration.world.osgi.ManualOverride;
-import org.eclipse.scada.configuration.world.osgi.MarkerEntry;
-import org.eclipse.scada.configuration.world.osgi.MarkerGroup;
-import org.eclipse.scada.configuration.world.osgi.Markers;
-import org.eclipse.scada.configuration.world.osgi.MonitorPool;
-import org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy;
-import org.eclipse.scada.configuration.world.osgi.MovingAverage;
-import org.eclipse.scada.configuration.world.osgi.MovingAverageItem;
-import org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType;
-import org.eclipse.scada.configuration.world.osgi.Negate;
-import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
-import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.PasswordType;
-import org.eclipse.scada.configuration.world.osgi.Persistence;
-import org.eclipse.scada.configuration.world.osgi.PersistentItem;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
-import org.eclipse.scada.configuration.world.osgi.ProxyItem;
-import org.eclipse.scada.configuration.world.osgi.PullEvents;
-import org.eclipse.scada.configuration.world.osgi.ReferenceItem;
-import org.eclipse.scada.configuration.world.osgi.RestExporter;
-import org.eclipse.scada.configuration.world.osgi.Rounding;
-import org.eclipse.scada.configuration.world.osgi.RoundingType;
-import org.eclipse.scada.configuration.world.osgi.Scale;
-import org.eclipse.scada.configuration.world.osgi.ScriptItem;
-import org.eclipse.scada.configuration.world.osgi.ScriptTimer;
-import org.eclipse.scada.configuration.world.osgi.SimpleDataMapper;
-import org.eclipse.scada.configuration.world.osgi.SimpleExternalEventFilter;
-import org.eclipse.scada.configuration.world.osgi.SourceItem;
-import org.eclipse.scada.configuration.world.osgi.StaticExternalEventFilter;
-import org.eclipse.scada.configuration.world.osgi.SummaryGroup;
-import org.eclipse.scada.configuration.world.osgi.SummaryItem;
-import org.eclipse.scada.configuration.world.osgi.TransientItem;
-import org.eclipse.scada.configuration.world.osgi.TypedItemReference;
-import org.eclipse.scada.configuration.world.osgi.ValueArchive;
-import org.eclipse.scada.configuration.world.osgi.ValueMapper;
-import org.eclipse.scada.configuration.world.osgi.WeakReferenceDataSourceItem;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.VariantEditor;
 
@@ -221,8 +135,6 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createRounding ();
             case OsgiPackage.EXTERNAL_EVENT_MONITOR:
                 return createExternalEventMonitor ();
-            case OsgiPackage.PROPERTY_ENTRY:
-                return createPropertyEntry ();
             case OsgiPackage.STATIC_EXTERNAL_EVENT_FILTER:
                 return createStaticExternalEventFilter ();
             case OsgiPackage.SIMPLE_EXTERNAL_EVENT_FILTER:
@@ -727,17 +639,6 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         ExternalEventMonitorImpl externalEventMonitor = new ExternalEventMonitorImpl ();
         return externalEventMonitor;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public PropertyEntry createPropertyEntry ()
-    {
-        PropertyEntryImpl propertyEntry = new PropertyEntryImpl ();
-        return propertyEntry;
     }
 
     /**

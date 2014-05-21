@@ -331,6 +331,31 @@ public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.PropertyEntry} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PropertyEntryItemProvider propertyEntryItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPropertyEntryAdapter ()
+    {
+        if ( propertyEntryItemProvider == null )
+        {
+            propertyEntryItemProvider = new PropertyEntryItemProvider ( this );
+        }
+
+        return propertyEntryItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

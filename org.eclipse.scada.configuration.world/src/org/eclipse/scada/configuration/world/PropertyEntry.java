@@ -1,14 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.osgi;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -20,12 +21,12 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getKey <em>Key</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.PropertyEntry#getKey <em>Key</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.PropertyEntry#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getPropertyEntry()
+ * @see org.eclipse.scada.configuration.world.WorldPackage#getPropertyEntry()
  * @model
  * @generated
  */
@@ -41,14 +42,14 @@ public interface PropertyEntry extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Key</em>' attribute.
      * @see #setKey(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getPropertyEntry_Key()
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getPropertyEntry_Key()
      * @model required="true"
      * @generated
      */
     String getKey ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getKey <em>Key</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.PropertyEntry#getKey <em>Key</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Key</em>' attribute.
@@ -67,14 +68,14 @@ public interface PropertyEntry extends EObject
      * <!-- end-user-doc -->
      * @return the value of the '<em>Value</em>' attribute.
      * @see #setValue(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getPropertyEntry_Value()
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getPropertyEntry_Value()
      * @model required="true"
      * @generated
      */
     String getValue ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.PropertyEntry#getValue <em>Value</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.PropertyEntry#getValue <em>Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Value</em>' attribute.

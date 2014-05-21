@@ -310,15 +310,6 @@ public interface OsgiFactory extends EFactory
     ExternalEventMonitor createExternalEventMonitor ();
 
     /**
-     * Returns a new object of class '<em>Property Entry</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return a new object of class '<em>Property Entry</em>'.
-     * @generated
-     */
-    PropertyEntry createPropertyEntry ();
-
-    /**
      * Returns a new object of class '<em>Static External Event Filter</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

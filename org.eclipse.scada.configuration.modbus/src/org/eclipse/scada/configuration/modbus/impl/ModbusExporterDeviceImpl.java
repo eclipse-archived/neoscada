@@ -12,28 +12,20 @@
 package org.eclipse.scada.configuration.modbus.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.scada.configuration.modbus.ByteOrder;
 import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
 import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
-
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,7 +94,7 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * @generated
      * @ordered
      */
-    protected EList<PropertyEntry> properties;
+    protected EList<org.eclipse.scada.configuration.world.PropertyEntry> properties;
 
     /**
      * The default value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
@@ -230,11 +222,11 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<PropertyEntry> getProperties ()
+    public EList<org.eclipse.scada.configuration.world.PropertyEntry> getProperties ()
     {
         if ( properties == null )
         {
-            properties = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES );
+            properties = new EObjectContainmentEList<org.eclipse.scada.configuration.world.PropertyEntry> ( org.eclipse.scada.configuration.world.PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES );
         }
         return properties;
     }
@@ -329,7 +321,7 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
                 return;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES:
                 getProperties ().clear ();
-                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                getProperties ().addAll ( (Collection<? extends org.eclipse.scada.configuration.world.PropertyEntry>)newValue );
                 return;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
                 setDataOrder ( (ByteOrder)newValue );

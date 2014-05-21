@@ -1,14 +1,15 @@
-/*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
-package org.eclipse.scada.configuration.world.osgi.provider;
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
+package org.eclipse.scada.configuration.world.provider;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,18 +29,23 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.PropertyEntry;
+import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.PropertyEntry} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.PropertyEntry} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyEntryItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+public class PropertyEntryItemProvider
+        extends ItemProviderAdapter
+        implements
+        IEditingDomainItemProvider,
+        IStructuredItemContentProvider,
+        ITreeItemContentProvider,
+        IItemLabelProvider,
+        IItemPropertySource,
         ITableItemLabelProvider
 {
     /**
@@ -86,7 +92,7 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements
                         getResourceLocator (),
                         getString ( "_UI_PropertyEntry_key_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_key_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PROPERTY_ENTRY__KEY,
+                        WorldPackage.Literals.PROPERTY_ENTRY__KEY,
                         true,
                         false,
                         false,
@@ -109,7 +115,7 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements
                         getResourceLocator (),
                         getString ( "_UI_PropertyEntry_value_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_PropertyEntry_value_feature", "_UI_PropertyEntry_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PROPERTY_ENTRY__VALUE,
+                        WorldPackage.Literals.PROPERTY_ENTRY__VALUE,
                         true,
                         false,
                         false,
@@ -167,8 +173,8 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements
 
         switch ( notification.getFeatureID ( PropertyEntry.class ) )
         {
-            case OsgiPackage.PROPERTY_ENTRY__KEY:
-            case OsgiPackage.PROPERTY_ENTRY__VALUE:
+            case WorldPackage.PROPERTY_ENTRY__KEY:
+            case WorldPackage.PROPERTY_ENTRY__VALUE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -183,8 +189,7 @@ public class PropertyEntryItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
