@@ -16,6 +16,9 @@ location "http://download.eclipse.org/releases/kepler" {
 	
 	org.eclipse.wst.web_ui.feature.feature.group
 	org.eclipse.acceleo.feature.group
+	
+	org.eclipse.gef.sdk.feature.group
+	org.eclipse.jdt.feature.group
 }
 
 location "http://download.eclipse.org/rt/rap/2.2" {
