@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.modbus;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.infrastructure.Settings;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +77,6 @@ public interface ModbusExporterModule extends Settings
      * @model containment="true"
      * @generated
      */
-    EList<org.eclipse.scada.configuration.world.PropertyEntry> getProperties ();
+    EList<PropertyEntry> getProperties ();
 
 } // ModbusExporterModule

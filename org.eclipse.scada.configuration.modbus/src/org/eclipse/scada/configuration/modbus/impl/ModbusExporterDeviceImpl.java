@@ -26,6 +26,7 @@ import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
 import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,7 +95,7 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * @generated
      * @ordered
      */
-    protected EList<org.eclipse.scada.configuration.world.PropertyEntry> properties;
+    protected EList<PropertyEntry> properties;
 
     /**
      * The default value of the '{@link #getDataOrder() <em>Data Order</em>}' attribute.
@@ -222,11 +223,11 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<org.eclipse.scada.configuration.world.PropertyEntry> getProperties ()
+    public EList<PropertyEntry> getProperties ()
     {
         if ( properties == null )
         {
-            properties = new EObjectContainmentEList<org.eclipse.scada.configuration.world.PropertyEntry> ( org.eclipse.scada.configuration.world.PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES );
+            properties = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES );
         }
         return properties;
     }
@@ -321,7 +322,7 @@ public class ModbusExporterDeviceImpl extends MinimalEObjectImpl.Container imple
                 return;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__PROPERTIES:
                 getProperties ().clear ();
-                getProperties ().addAll ( (Collection<? extends org.eclipse.scada.configuration.world.PropertyEntry>)newValue );
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
             case ModbusPackage.MODBUS_EXPORTER_DEVICE__DATA_ORDER:
                 setDataOrder ( (ByteOrder)newValue );

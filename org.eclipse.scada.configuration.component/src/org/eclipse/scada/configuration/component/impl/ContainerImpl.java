@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ import org.eclipse.scada.configuration.component.ItemInterceptor;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ContainerImpl#getItemInterceptors <em>Item Interceptors</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ContainerImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,6 +54,16 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
      * @ordered
      */
     protected EList<ItemInterceptor> itemInterceptors;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * <!-- begin-user-doc -->
@@ -93,6 +105,20 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ComponentPackage.CONTAINER__PROPERTIES );
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -100,6 +126,8 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
         {
             case ComponentPackage.CONTAINER__ITEM_INTERCEPTORS:
                 return ( (InternalEList<?>)getItemInterceptors () ).basicRemove ( otherEnd, msgs );
+            case ComponentPackage.CONTAINER__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -116,6 +144,8 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
         {
             case ComponentPackage.CONTAINER__ITEM_INTERCEPTORS:
                 return getItemInterceptors ();
+            case ComponentPackage.CONTAINER__PROPERTIES:
+                return getProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -135,6 +165,10 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
                 getItemInterceptors ().clear ();
                 getItemInterceptors ().addAll ( (Collection<? extends ItemInterceptor>)newValue );
                 return;
+            case ComponentPackage.CONTAINER__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -152,6 +186,9 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
             case ComponentPackage.CONTAINER__ITEM_INTERCEPTORS:
                 getItemInterceptors ().clear ();
                 return;
+            case ComponentPackage.CONTAINER__PROPERTIES:
+                getProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -168,6 +205,8 @@ public abstract class ContainerImpl extends MinimalEObjectImpl.Container impleme
         {
             case ComponentPackage.CONTAINER__ITEM_INTERCEPTORS:
                 return itemInterceptors != null && !itemInterceptors.isEmpty ();
+            case ComponentPackage.CONTAINER__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

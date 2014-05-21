@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.DataComponent;
@@ -32,6 +34,7 @@ import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +48,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getMapper <em>Mapper</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.MappedSourceValueImpl#getInput <em>Input</em>}</li>
@@ -115,6 +119,16 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
      * @ordered
      */
     protected Selector archiveSelector;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * The cached value of the '{@link #getMasterOn() <em>Master On</em>}' reference list.
@@ -373,6 +387,20 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES );
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<MasterServer> getMasterOn ()
     {
         if ( masterOn == null )
@@ -549,6 +577,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
         {
             case ComponentPackage.MAPPED_SOURCE_VALUE__LEVEL:
                 return basicSetLevel ( null, msgs );
+            case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
             case ComponentPackage.MAPPED_SOURCE_VALUE__INPUT:
                 return basicSetInput ( null, msgs );
         }
@@ -597,6 +627,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                 if ( resolve )
                     return getArchiveSelector ();
                 return basicGetArchiveSelector ();
+            case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                return getProperties ();
             case ComponentPackage.MAPPED_SOURCE_VALUE__MASTER_ON:
                 return getMasterOn ();
             case ComponentPackage.MAPPED_SOURCE_VALUE__MAPPER:
@@ -638,6 +670,10 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                 return;
             case ComponentPackage.MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)newValue );
+                return;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
             case ComponentPackage.MAPPED_SOURCE_VALUE__MASTER_ON:
                 getMasterOn ().clear ();
@@ -682,6 +718,9 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
             case ComponentPackage.MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)null );
                 return;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                getProperties ().clear ();
+                return;
             case ComponentPackage.MAPPED_SOURCE_VALUE__MASTER_ON:
                 getMasterOn ().clear ();
                 return;
@@ -718,6 +757,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                 return customizationPipeline != null;
             case ComponentPackage.MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR:
                 return archiveSelector != null;
+            case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
             case ComponentPackage.MAPPED_SOURCE_VALUE__MASTER_ON:
                 return masterOn != null && !masterOn.isEmpty ();
             case ComponentPackage.MAPPED_SOURCE_VALUE__MAPPER:
@@ -748,6 +789,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                     return ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE;
                 case ComponentPackage.MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR:
                     return ComponentPackage.COMPONENT__ARCHIVE_SELECTOR;
+                case ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES:
+                    return ComponentPackage.COMPONENT__PROPERTIES;
                 default:
                     return -1;
             }
@@ -791,6 +834,8 @@ public class MappedSourceValueImpl extends MinimalEObjectImpl.Container implemen
                     return ComponentPackage.MAPPED_SOURCE_VALUE__CUSTOMIZATION_PIPELINE;
                 case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                     return ComponentPackage.MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR;
+                case ComponentPackage.COMPONENT__PROPERTIES:
+                    return ComponentPackage.MAPPED_SOURCE_VALUE__PROPERTIES;
                 default:
                     return -1;
             }

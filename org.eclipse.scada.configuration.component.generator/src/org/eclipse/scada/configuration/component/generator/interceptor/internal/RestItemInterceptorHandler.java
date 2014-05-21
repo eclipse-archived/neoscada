@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.generator.interceptor.internal;
 
+import java.util.Properties;
+
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.component.generator.interceptor.AbstractItemInterceptorHandler;
@@ -21,7 +23,7 @@ import org.eclipse.scada.configuration.world.osgi.RestExporter;
 public class RestItemInterceptorHandler extends AbstractItemInterceptorHandler
 {
     @Override
-    protected boolean processInterceptItem ( final Item item, final ItemInterceptor interceptorElement, final MasterContext masterContext )
+    protected boolean processInterceptItem ( final Item item, final ItemInterceptor interceptorElement, final MasterContext masterContext, final Properties properties )
     {
         final RestInterceptor interceptor = (RestInterceptor)interceptorElement;
         final String contextId = interceptor.getDefinition ().getContextId ();

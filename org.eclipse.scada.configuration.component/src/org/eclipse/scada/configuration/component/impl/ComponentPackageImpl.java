@@ -629,6 +629,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getComponent_Properties ()
+    {
+        return (EReference)componentEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDataComponent ()
     {
         return dataComponentEClass;
@@ -1519,6 +1529,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getItemInterceptor_Properties ()
+    {
+        return (EReference)itemInterceptorEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getContainer ()
     {
         return containerEClass;
@@ -1532,6 +1552,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     public EReference getContainer_ItemInterceptors ()
     {
         return (EReference)containerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getContainer_Properties ()
+    {
+        return (EReference)containerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -1816,6 +1846,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEReference ( componentEClass, COMPONENT__LEVEL );
         createEReference ( componentEClass, COMPONENT__CUSTOMIZATION_PIPELINE );
         createEReference ( componentEClass, COMPONENT__ARCHIVE_SELECTOR );
+        createEReference ( componentEClass, COMPONENT__PROPERTIES );
 
         dataComponentEClass = createEClass ( DATA_COMPONENT );
         createEOperation ( dataComponentEClass, DATA_COMPONENT___GET_MASTER_ON );
@@ -1936,9 +1967,11 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         itemInterceptorEClass = createEClass ( ITEM_INTERCEPTOR );
         createEReference ( itemInterceptorEClass, ITEM_INTERCEPTOR__MASTER_ON );
+        createEReference ( itemInterceptorEClass, ITEM_INTERCEPTOR__PROPERTIES );
 
         containerEClass = createEClass ( CONTAINER );
         createEReference ( containerEClass, CONTAINER__ITEM_INTERCEPTORS );
+        createEReference ( containerEClass, CONTAINER__PROPERTIES );
 
         restInterceptorEClass = createEClass ( REST_INTERCEPTOR );
         createEReference ( restInterceptorEClass, REST_INTERCEPTOR__SELECTOR );
@@ -2067,6 +2100,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEReference ( getComponent_Level (), this.getLevel (), this.getLevel_Components (), "level", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponent_CustomizationPipeline (), theItemPackage.getCustomizationPipeline (), null, "customizationPipeline", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getComponent_ArchiveSelector (), theItemPackage.getSelector (), null, "archiveSelector", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getComponent_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( dataComponentEClass, DataComponent.class, "DataComponent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -2198,9 +2232,11 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
 
         initEClass ( itemInterceptorEClass, ItemInterceptor.class, "ItemInterceptor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getItemInterceptor_MasterOn (), theInfrastructurePackage.getMasterServer (), null, "masterOn", null, 0, -1, ItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getItemInterceptor_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, ItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( containerEClass, org.eclipse.scada.configuration.component.Container.class, "Container", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getContainer_ItemInterceptors (), this.getItemInterceptor (), null, "itemInterceptors", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getContainer_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, org.eclipse.scada.configuration.component.Container.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( restInterceptorEClass, RestInterceptor.class, "RestInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getRestInterceptor_Selector (), theItemPackage.getSelector (), null, "selector", null, 0, 1, RestInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

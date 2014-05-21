@@ -10,9 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
 import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +27,7 @@ import org.eclipse.scada.configuration.world.Documentable;
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.Component#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.Component#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,5 +116,21 @@ public interface Component extends Documentable
      * @generated
      */
     void setArchiveSelector ( Selector value );
+
+    /**
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getComponent_Properties()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<PropertyEntry> getProperties ();
 
 } // Component

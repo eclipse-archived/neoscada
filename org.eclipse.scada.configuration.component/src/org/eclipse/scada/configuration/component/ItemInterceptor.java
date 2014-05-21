@@ -14,6 +14,7 @@ package org.eclipse.scada.configuration.component;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.component.ItemInterceptor#getMasterOn <em>Master On</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.ItemInterceptor#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,4 +51,20 @@ public interface ItemInterceptor extends EObject
      * @generated
      */
     EList<MasterServer> getMasterOn ();
+
+    /**
+     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.component.ComponentPackage#getItemInterceptor_Properties()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<PropertyEntry> getProperties ();
 } // ItemInterceptor

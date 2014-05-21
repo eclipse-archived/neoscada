@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.modbus.lib.internal;
 
+import java.util.Properties;
+
 import javax.script.ScriptContext;
 import javax.script.ScriptEngineManager;
 import javax.script.SimpleScriptContext;
@@ -34,7 +36,7 @@ public class ModbusExporterInterceptorHandler extends AbstractItemInterceptorHan
 {
 
     @Override
-    protected boolean processInterceptItem ( final Item item, final ItemInterceptor interceptorElement, final MasterContext masterContext )
+    protected boolean processInterceptItem ( final Item item, final ItemInterceptor interceptorElement, final MasterContext masterContext, final Properties properties )
     {
         final ModbusExporterInterceptor interceptor = (ModbusExporterInterceptor)interceptorElement;
 
@@ -48,6 +50,7 @@ public class ModbusExporterInterceptorHandler extends AbstractItemInterceptorHan
             final ModbusProcessor modbus = new ModbusProcessor ( this, interceptor, masterContext, item );
             context.setAttribute ( "MODBUS", modbus, ScriptContext.ENGINE_SCOPE );
             context.setAttribute ( "item", item, ScriptContext.ENGINE_SCOPE );
+            context.setAttribute ( "properties", properties, ScriptContext.ENGINE_SCOPE );
             executor.execute ( context );
         }
         catch ( final Exception e )

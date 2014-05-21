@@ -34,6 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.Container;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.Container} object.
@@ -93,6 +94,7 @@ public class ContainerItemProvider
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS );
+            childrenFeatures.add ( ComponentPackage.Literals.CONTAINER__PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -138,6 +140,7 @@ public class ContainerItemProvider
         switch ( notification.getFeatureID ( Container.class ) )
         {
             case ComponentPackage.CONTAINER__ITEM_INTERCEPTORS:
+            case ComponentPackage.CONTAINER__PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -160,6 +163,11 @@ public class ContainerItemProvider
                 ( createChildParameter
                 ( ComponentPackage.Literals.CONTAINER__ITEM_INTERCEPTORS,
                         ComponentFactory.eINSTANCE.createRestInterceptor () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ComponentPackage.Literals.CONTAINER__PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

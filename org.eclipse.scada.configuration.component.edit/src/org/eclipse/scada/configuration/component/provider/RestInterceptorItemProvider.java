@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.RestInterceptor;
 import org.eclipse.scada.configuration.item.ItemFactory;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.component.RestInterceptor} object.
@@ -160,6 +161,7 @@ public class RestInterceptorItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
+            childrenFeatures.add ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES );
             childrenFeatures.add ( ComponentPackage.Literals.REST_INTERCEPTOR__SELECTOR );
         }
         return childrenFeatures;
@@ -217,6 +219,7 @@ public class RestInterceptorItemProvider
 
         switch ( notification.getFeatureID ( RestInterceptor.class ) )
         {
+            case ComponentPackage.REST_INTERCEPTOR__PROPERTIES:
             case ComponentPackage.REST_INTERCEPTOR__SELECTOR:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
@@ -235,6 +238,11 @@ public class RestInterceptorItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
         newChildDescriptors.add
                 ( createChildParameter

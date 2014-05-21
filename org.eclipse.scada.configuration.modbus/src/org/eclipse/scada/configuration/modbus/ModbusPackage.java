@@ -1024,6 +1024,15 @@ public interface ModbusPackage extends EPackage
     int MODBUS_EXPORTER_INTERCEPTOR__MASTER_ON = ComponentPackage.ITEM_INTERCEPTOR__MASTER_ON;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES = ComponentPackage.ITEM_INTERCEPTOR__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Settings</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

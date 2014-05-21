@@ -10,18 +10,23 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +39,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.ComponentImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +86,16 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
      * @ordered
      */
     protected Selector archiveSelector;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * <!-- begin-user-doc -->
@@ -283,6 +299,20 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ComponentPackage.COMPONENT__PROPERTIES );
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseAdd ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -308,6 +338,8 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
         {
             case ComponentPackage.COMPONENT__LEVEL:
                 return basicSetLevel ( null, msgs );
+            case ComponentPackage.COMPONENT__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -352,6 +384,8 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
                 if ( resolve )
                     return getArchiveSelector ();
                 return basicGetArchiveSelector ();
+            case ComponentPackage.COMPONENT__PROPERTIES:
+                return getProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -361,6 +395,7 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
      * <!-- end-user-doc -->
      * @generated
      */
+    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
@@ -377,6 +412,10 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
                 return;
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)newValue );
+                return;
+            case ComponentPackage.COMPONENT__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -404,6 +443,9 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)null );
                 return;
+            case ComponentPackage.COMPONENT__PROPERTIES:
+                getProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -426,6 +468,8 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
                 return customizationPipeline != null;
             case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                 return archiveSelector != null;
+            case ComponentPackage.COMPONENT__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

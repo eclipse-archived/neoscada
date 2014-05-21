@@ -19,12 +19,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor;
 import org.eclipse.scada.configuration.modbus.ModbusExporterModule;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.script.Script;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +37,7 @@ import org.eclipse.scada.configuration.script.Script;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterInterceptorImpl#getMasterOn <em>Master On</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterInterceptorImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterInterceptorImpl#getSettings <em>Settings</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterInterceptorImpl#getScript <em>Script</em>}</li>
  * </ul>
@@ -52,6 +56,16 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
      * @ordered
      */
     protected EList<MasterServer> masterOn;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * The cached value of the '{@link #getSettings() <em>Settings</em>}' reference.
@@ -106,6 +120,20 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
             masterOn = new EObjectResolvingEList<MasterServer> ( MasterServer.class, this, ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__MASTER_ON );
         }
         return masterOn;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES );
+        }
+        return properties;
     }
 
     /**
@@ -213,6 +241,8 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
     {
         switch ( featureID )
         {
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT:
                 return basicSetScript ( null, msgs );
         }
@@ -231,6 +261,8 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
         {
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__MASTER_ON:
                 return getMasterOn ();
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
+                return getProperties ();
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS:
                 if ( resolve )
                     return getSettings ();
@@ -256,6 +288,10 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
                 getMasterOn ().clear ();
                 getMasterOn ().addAll ( (Collection<? extends MasterServer>)newValue );
                 return;
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS:
                 setSettings ( (ModbusExporterModule)newValue );
                 return;
@@ -279,6 +315,9 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__MASTER_ON:
                 getMasterOn ().clear ();
                 return;
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
+                getProperties ().clear ();
+                return;
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS:
                 setSettings ( (ModbusExporterModule)null );
                 return;
@@ -301,6 +340,8 @@ public class ModbusExporterInterceptorImpl extends MinimalEObjectImpl.Container 
         {
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__MASTER_ON:
                 return masterOn != null && !masterOn.isEmpty ();
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SETTINGS:
                 return settings != null;
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT:

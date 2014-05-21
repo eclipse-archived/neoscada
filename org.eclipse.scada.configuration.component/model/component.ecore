@@ -35,6 +35,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="customizationPipeline"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//CustomizationPipeline"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="archiveSelector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataComponent" abstract="true" eSuperTypes="#//Component">
     <eOperations name="getMasterOn" upperBound="-1" eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
@@ -227,10 +230,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="ItemInterceptor" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemInterceptors" upperBound="-1"
         eType="#//ItemInterceptor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RestInterceptor" eSuperTypes="#//ItemInterceptor">
     <eStructuralFeatures xsi:type="ecore:EReference" name="selector" eType="ecore:EClass ../../org.eclipse.scada.configuration.item/model/item.ecore#//Selector"

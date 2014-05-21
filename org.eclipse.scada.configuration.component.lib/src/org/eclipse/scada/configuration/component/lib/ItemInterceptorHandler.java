@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.lib;
 
+import java.util.Properties;
+
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.generator.GeneratorContext.MasterContext;
 import org.eclipse.scada.configuration.world.osgi.Item;
@@ -29,8 +31,10 @@ public interface ItemInterceptorHandler
      *            the interceptor element
      * @param masterContext
      *            the master context
+     * @param properties
+     *            the aggregated component properties
      * @return <code>true</code> if the event should be passed to other
      *         interceptors
      */
-    public boolean interceptItem ( Item item, ItemInterceptor interceptor, MasterContext masterContext );
+    public boolean interceptItem ( Item item, ItemInterceptor interceptor, MasterContext masterContext, Properties properties );
 }

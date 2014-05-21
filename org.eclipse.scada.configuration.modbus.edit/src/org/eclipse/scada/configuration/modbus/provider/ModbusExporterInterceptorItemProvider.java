@@ -31,6 +31,7 @@ import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor;
 import org.eclipse.scada.configuration.modbus.ModbusPackage;
 import org.eclipse.scada.configuration.script.ScriptFactory;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor} object.
@@ -137,6 +138,7 @@ public class ModbusExporterInterceptorItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
+            childrenFeatures.add ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES );
             childrenFeatures.add ( ModbusPackage.Literals.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT );
         }
         return childrenFeatures;
@@ -194,6 +196,7 @@ public class ModbusExporterInterceptorItemProvider
 
         switch ( notification.getFeatureID ( ModbusExporterInterceptor.class ) )
         {
+            case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__PROPERTIES:
             case ModbusPackage.MODBUS_EXPORTER_INTERCEPTOR__SCRIPT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
@@ -212,6 +215,11 @@ public class ModbusExporterInterceptorItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
         newChildDescriptors.add
                 ( createChildParameter

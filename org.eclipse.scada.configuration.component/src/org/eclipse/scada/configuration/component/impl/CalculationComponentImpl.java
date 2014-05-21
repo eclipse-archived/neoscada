@@ -34,6 +34,7 @@ import org.eclipse.scada.configuration.component.OutputDefinition;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.item.Selector;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +48,7 @@ import org.eclipse.scada.configuration.item.Selector;
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getCustomizationPipeline <em>Customization Pipeline</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getArchiveSelector <em>Archive Selector</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getMasterOn <em>Master On</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getImplementation <em>Implementation</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl#getOutputs <em>Outputs</em>}</li>
@@ -117,6 +119,16 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
      * @ordered
      */
     protected Selector archiveSelector;
+
+    /**
+     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> properties;
 
     /**
      * The cached value of the '{@link #getMasterOn() <em>Master On</em>}' reference list.
@@ -375,6 +387,20 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getProperties ()
+    {
+        if ( properties == null )
+        {
+            properties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, ComponentPackage.CALCULATION_COMPONENT__PROPERTIES );
+        }
+        return properties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EList<MasterServer> getMasterOn ()
     {
         if ( masterOn == null )
@@ -485,6 +511,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
         {
             case ComponentPackage.CALCULATION_COMPONENT__LEVEL:
                 return basicSetLevel ( null, msgs );
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                return ( (InternalEList<?>)getProperties () ).basicRemove ( otherEnd, msgs );
             case ComponentPackage.CALCULATION_COMPONENT__OUTPUTS:
                 return ( (InternalEList<?>)getOutputs () ).basicRemove ( otherEnd, msgs );
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
@@ -535,6 +563,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 if ( resolve )
                     return getArchiveSelector ();
                 return basicGetArchiveSelector ();
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                return getProperties ();
             case ComponentPackage.CALCULATION_COMPONENT__MASTER_ON:
                 return getMasterOn ();
             case ComponentPackage.CALCULATION_COMPONENT__IMPLEMENTATION:
@@ -574,6 +604,10 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 return;
             case ComponentPackage.CALCULATION_COMPONENT__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)newValue );
+                return;
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                getProperties ().clear ();
+                getProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
                 return;
             case ComponentPackage.CALCULATION_COMPONENT__MASTER_ON:
                 getMasterOn ().clear ();
@@ -619,6 +653,9 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
             case ComponentPackage.CALCULATION_COMPONENT__ARCHIVE_SELECTOR:
                 setArchiveSelector ( (Selector)null );
                 return;
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                getProperties ().clear ();
+                return;
             case ComponentPackage.CALCULATION_COMPONENT__MASTER_ON:
                 getMasterOn ().clear ();
                 return;
@@ -655,6 +692,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                 return customizationPipeline != null;
             case ComponentPackage.CALCULATION_COMPONENT__ARCHIVE_SELECTOR:
                 return archiveSelector != null;
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                return properties != null && !properties.isEmpty ();
             case ComponentPackage.CALCULATION_COMPONENT__MASTER_ON:
                 return masterOn != null && !masterOn.isEmpty ();
             case ComponentPackage.CALCULATION_COMPONENT__IMPLEMENTATION:
@@ -685,6 +724,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                     return ComponentPackage.COMPONENT__CUSTOMIZATION_PIPELINE;
                 case ComponentPackage.CALCULATION_COMPONENT__ARCHIVE_SELECTOR:
                     return ComponentPackage.COMPONENT__ARCHIVE_SELECTOR;
+                case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
+                    return ComponentPackage.COMPONENT__PROPERTIES;
                 default:
                     return -1;
             }
@@ -728,6 +769,8 @@ public class CalculationComponentImpl extends MinimalEObjectImpl.Container imple
                     return ComponentPackage.CALCULATION_COMPONENT__CUSTOMIZATION_PIPELINE;
                 case ComponentPackage.COMPONENT__ARCHIVE_SELECTOR:
                     return ComponentPackage.CALCULATION_COMPONENT__ARCHIVE_SELECTOR;
+                case ComponentPackage.COMPONENT__PROPERTIES:
+                    return ComponentPackage.CALCULATION_COMPONENT__PROPERTIES;
                 default:
                     return -1;
             }

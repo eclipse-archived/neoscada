@@ -97,13 +97,22 @@ public interface ComponentPackage extends EPackage
     int CONTAINER__ITEM_INTERCEPTORS = 0;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINER__PROPERTIES = 1;
+
+    /**
      * The number of structural features of the '<em>Container</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CONTAINER_FEATURE_COUNT = 1;
+    int CONTAINER_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Container</em>' class.
@@ -132,6 +141,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int COMPONENT_WORLD__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT_WORLD__PROPERTIES = CONTAINER__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Levels</b></em>' containment reference list.
@@ -223,6 +241,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int LEVEL__ITEM_INTERCEPTORS = CONTAINER__ITEM_INTERCEPTORS;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LEVEL__PROPERTIES = CONTAINER__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -352,13 +379,22 @@ public interface ComponentPackage extends EPackage
     int COMPONENT__ARCHIVE_SELECTOR = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int COMPONENT__PROPERTIES = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 3;
+
+    /**
      * The number of structural features of the '<em>Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int COMPONENT_FEATURE_COUNT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 3;
+    int COMPONENT_FEATURE_COUNT = WorldPackage.DOCUMENTABLE_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Component</em>' class.
@@ -414,6 +450,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int DATA_COMPONENT__ARCHIVE_SELECTOR = COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_COMPONENT__PROPERTIES = COMPONENT__PROPERTIES;
 
     /**
      * The number of structural features of the '<em>Data Component</em>' class.
@@ -517,6 +562,15 @@ public interface ComponentPackage extends EPackage
     int MASTER_COMPONENT__ARCHIVE_SELECTOR = DATA_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_COMPONENT__PROPERTIES = DATA_COMPONENT__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -597,6 +651,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int SINGLE_VALUE__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_VALUE__PROPERTIES = MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -706,6 +769,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int CONSTANT_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONSTANT_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -891,6 +963,15 @@ public interface ComponentPackage extends EPackage
     int PERSISTENT_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PERSISTENT_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1000,6 +1081,15 @@ public interface ComponentPackage extends EPackage
     int DRIVER_CONNECTION_ANALYZER__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_CONNECTION_ANALYZER__PROPERTIES = MASTER_COMPONENT__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1091,6 +1181,15 @@ public interface ComponentPackage extends EPackage
     int MASTER_IMPORT_CONNECTION_ANALYZER__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MASTER_IMPORT_CONNECTION_ANALYZER__PROPERTIES = MASTER_COMPONENT__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1180,6 +1279,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int DATA_MAPPER_ANALYZER__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MAPPER_ANALYZER__PROPERTIES = MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -1328,13 +1436,22 @@ public interface ComponentPackage extends EPackage
     int MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__PROPERTIES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+    int MAPPED_SOURCE_VALUE__MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Mapper</b></em>' reference.
@@ -1343,7 +1460,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__MAPPER = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
+    int MAPPED_SOURCE_VALUE__MAPPER = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Input</b></em>' containment reference.
@@ -1352,7 +1469,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__INPUT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+    int MAPPED_SOURCE_VALUE__INPUT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
@@ -1361,7 +1478,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
+    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Mapped Source Value</em>' class.
@@ -1370,7 +1487,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
+    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -1446,13 +1563,22 @@ public interface ComponentPackage extends EPackage
     int CALCULATION_COMPONENT__ARCHIVE_SELECTOR = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CALCULATION_COMPONENT__PROPERTIES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT__MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+    int CALCULATION_COMPONENT__MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Implementation</b></em>' reference.
@@ -1461,7 +1587,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT__IMPLEMENTATION = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
+    int CALCULATION_COMPONENT__IMPLEMENTATION = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -1470,7 +1596,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT__OUTPUTS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+    int CALCULATION_COMPONENT__OUTPUTS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Inputs</b></em>' containment reference list.
@@ -1479,7 +1605,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT__INPUTS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
+    int CALCULATION_COMPONENT__INPUTS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Calculation Component</em>' class.
@@ -1488,7 +1614,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int CALCULATION_COMPONENT_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
+    int CALCULATION_COMPONENT_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -2497,6 +2623,15 @@ public interface ComponentPackage extends EPackage
     int EXTERNAL_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2634,13 +2769,22 @@ public interface ComponentPackage extends EPackage
     int ITEM_INTERCEPTOR__MASTER_ON = 0;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_INTERCEPTOR__PROPERTIES = 1;
+
+    /**
      * The number of structural features of the '<em>Item Interceptor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ITEM_INTERCEPTOR_FEATURE_COUNT = 1;
+    int ITEM_INTERCEPTOR_FEATURE_COUNT = 2;
 
     /**
      * The number of operations of the '<em>Item Interceptor</em>' class.
@@ -2669,6 +2813,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int REST_INTERCEPTOR__MASTER_ON = ITEM_INTERCEPTOR__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REST_INTERCEPTOR__PROPERTIES = ITEM_INTERCEPTOR__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Selector</b></em>' containment reference.
@@ -2751,6 +2904,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int GLOBALIZE_COMPONENT__ARCHIVE_SELECTOR = DATA_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GLOBALIZE_COMPONENT__PROPERTIES = DATA_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2851,6 +3013,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int TRANSIENT_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSIENT_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -2960,6 +3131,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int BUFFERED_VALUE__ARCHIVE_SELECTOR = MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int BUFFERED_VALUE__PROPERTIES = MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -3105,6 +3285,15 @@ public interface ComponentPackage extends EPackage
      * @ordered
      */
     int CHANGE_COUNTER__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_COUNTER__PROPERTIES = SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -3420,6 +3609,17 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EReference getComponent_ArchiveSelector ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.Component#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.component.Component#getProperties()
+     * @see #getComponent()
+     * @generated
+     */
+    EReference getComponent_Properties ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.DataComponent <em>Data Component</em>}'.
@@ -4361,6 +4561,17 @@ public interface ComponentPackage extends EPackage
     EReference getItemInterceptor_MasterOn ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.ItemInterceptor#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor#getProperties()
+     * @see #getItemInterceptor()
+     * @generated
+     */
+    EReference getItemInterceptor_Properties ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.Container <em>Container</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4380,6 +4591,17 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EReference getContainer_ItemInterceptors ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.component.Container#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.component.Container#getProperties()
+     * @see #getContainer()
+     * @generated
+     */
+    EReference getContainer_Properties ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.RestInterceptor <em>Rest Interceptor</em>}'.
@@ -4809,6 +5031,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference COMPONENT__ARCHIVE_SELECTOR = eINSTANCE.getComponent_ArchiveSelector ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference COMPONENT__PROPERTIES = eINSTANCE.getComponent_Properties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.DataComponentImpl <em>Data Component</em>}' class.
@@ -5585,6 +5815,14 @@ public interface ComponentPackage extends EPackage
         EReference ITEM_INTERCEPTOR__MASTER_ON = eINSTANCE.getItemInterceptor_MasterOn ();
 
         /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ITEM_INTERCEPTOR__PROPERTIES = eINSTANCE.getItemInterceptor_Properties ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ContainerImpl <em>Container</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5601,6 +5839,14 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference CONTAINER__ITEM_INTERCEPTORS = eINSTANCE.getContainer_ItemInterceptors ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONTAINER__PROPERTIES = eINSTANCE.getContainer_Properties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.RestInterceptorImpl <em>Rest Interceptor</em>}' class.

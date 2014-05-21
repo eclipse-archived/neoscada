@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.component.CalculationComponent;
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.world.WorldFactory;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
@@ -227,6 +228,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
+            childrenFeatures.add ( ComponentPackage.Literals.COMPONENT__PROPERTIES );
             childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS );
             childrenFeatures.add ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS );
         }
@@ -292,6 +294,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
             case ComponentPackage.CALCULATION_COMPONENT__NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
+            case ComponentPackage.CALCULATION_COMPONENT__PROPERTIES:
             case ComponentPackage.CALCULATION_COMPONENT__OUTPUTS:
             case ComponentPackage.CALCULATION_COMPONENT__INPUTS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
@@ -311,6 +314,11 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ComponentPackage.Literals.COMPONENT__PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
