@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.web.Release#getReleaseNotesLink <em>Release Notes Link</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getDate <em>Date</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.Release#getUnqualifiedName <em>Unqualified Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -195,5 +196,31 @@ public interface Release extends EObject {
 	 * @generated
 	 */
 	void setDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Unqualified Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unqualified Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unqualified Name</em>' attribute.
+	 * @see #setUnqualifiedName(String)
+	 * @see org.eclipse.scada.web.WebPackage#getRelease_UnqualifiedName()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getUnqualifiedName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.web.Release#getUnqualifiedName <em>Unqualified Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unqualified Name</em>' attribute.
+	 * @see #getUnqualifiedName()
+	 * @generated
+	 */
+	void setUnqualifiedName(String value);
 
 } // Release

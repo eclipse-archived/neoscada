@@ -16,8 +16,8 @@
 
 <li>
 	<img class="download-type" src="[relative(base, 'images/icons/sticky-notes-stack.png')/]"/>
-	<a href="http://wiki.eclipse.org/EclipseSCADA/Release/[release.version.name/]">Release Notes</a> – 
-	<a href="https://projects.eclipse.org/projects/technology.eclipsescada/releases/[release.version.name/]">Release Plan</a>
+	<a href="[release.releaseNotesLink/]">Release Notes</a> – 
+	<a href="https://projects.eclipse.org/projects/technology.eclipsescada/releases/[release.unqualifiedName/]">Release Plan</a>
 </li>
 
 <li>
@@ -104,5 +104,5 @@ else
 endif
 /]
 
-[query public dropsLink(release : Release, what: String, link : String, mirror: Boolean) : String = downloadLink('/downloads/' + what + '/drops/' + release.version.name + '/' + release.buildId + '/' + link, mirror) /]
+[query public dropsLink(release : Release, what: String, link : String, mirror: Boolean) : String = downloadLink('/downloads/' + what + '/drops/' + release.unqualifiedName + '/' + release.buildId + '/' + link, mirror) /]
 [query public activeLink(link : String, cssClass: String) : String = '<a href="' + link + '" class="' + cssClass + '">' + link + '</a>' /]

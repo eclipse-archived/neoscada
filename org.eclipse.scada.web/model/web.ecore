@@ -68,6 +68,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="version" eType="#//Version"
         eOpposite="#//Version/releases"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unqualifiedName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReleaseType">
     <eLiterals name="nightly"/>

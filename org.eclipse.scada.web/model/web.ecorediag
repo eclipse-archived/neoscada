@@ -223,6 +223,10 @@
         <element xmi:type="ecore:EAttribute" href="web.ecore#//Release/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_imKLkYkGEeOiENjrduvi3Q"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_2YxeYOGCEeO2OtxgjjzFnA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//Release/unqualifiedName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_2YxeYeGCEeO2OtxgjjzFnA"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_lqgMsIkOEeOiENjrduvi3Q" type="2001">
         <element xmi:type="ecore:EAttribute" href="web.ecore#//Release/releaseNotesLink"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_lqgMsYkOEeOiENjrduvi3Q"/>
