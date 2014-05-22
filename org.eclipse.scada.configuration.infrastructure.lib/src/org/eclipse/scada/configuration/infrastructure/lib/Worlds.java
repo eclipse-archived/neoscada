@@ -261,7 +261,14 @@ public final class Worlds
 
     public static String makeConnectionName ( final Driver driver )
     {
-        return "driver." + driver.getName ();
+        final Node node = driver.getNode ();
+        String name = node.getName ();
+        if ( name == null )
+        {
+            name = node.getHostName ();
+        }
+
+        return "driver." + driver.getName () + ".on." + name;
     }
 
 }
