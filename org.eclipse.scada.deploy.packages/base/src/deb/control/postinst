@@ -28,6 +28,11 @@ if [ -d "/var/log/$USER" ]; then
 	chmod 0770 "/var/log/$USER"
 fi
 
+if [ -d "/var/run/$USER" ]; then
+	chgrp "$USER" "/var/run/$USER"
+	chmod 0775 "/var/run/$USER"
+fi
+
 #DEBHELPER#
 
 exit 0
