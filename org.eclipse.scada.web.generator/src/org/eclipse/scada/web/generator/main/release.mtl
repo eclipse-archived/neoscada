@@ -60,8 +60,8 @@
 
 		<img class="download-type" src="[relative(base, 'images/icons/download-windows.png')/]"/>
 		Windows MSI Installer –
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.name + '_x86.msi', true)/]">32bit</a>,
-		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.name + '_x64.msi', true)/]">64bit</a>
+		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x86.msi', true)/]">32bit</a>,
+		<a itemprop="downloadUrl" href="[dropsLink(release, 'org.eclipse.scada', 'msi/esac_' + release.msiVersion() + '_x64.msi', true)/]">64bit</a>
 	</li>
 	<li itemscope itemtype="http://schema.org/SoftwareApplication">
 		<meta itemprop="softwareVersion" content="[release.name/]" />
@@ -95,6 +95,13 @@
 </section>
 [/template]
 
+[query protected msiVersion ( release: Release ) : String =
+	if ( release.alternateMsiName = null ) then
+		release.name
+	else
+		release.alternateMsiName
+	endif
+ /]
 
 [query public downloadLink(link : String, mirror: Boolean) : String = 
 if(mirror) then

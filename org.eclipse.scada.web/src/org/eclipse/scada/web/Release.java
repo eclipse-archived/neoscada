@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.web.Release#getVersion <em>Version</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getDate <em>Date</em>}</li>
  *   <li>{@link org.eclipse.scada.web.Release#getUnqualifiedName <em>Unqualified Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.web.Release#getAlternateMsiName <em>Alternate Msi Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -222,5 +223,31 @@ public interface Release extends EObject {
 	 * @generated
 	 */
 	void setUnqualifiedName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Alternate Msi Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Alternate Msi Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Alternate Msi Name</em>' attribute.
+	 * @see #setAlternateMsiName(String)
+	 * @see org.eclipse.scada.web.WebPackage#getRelease_AlternateMsiName()
+	 * @model
+	 * @generated
+	 */
+	String getAlternateMsiName();
+
+	/**
+	 * Sets the value of the '{@link org.eclipse.scada.web.Release#getAlternateMsiName <em>Alternate Msi Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Alternate Msi Name</em>' attribute.
+	 * @see #getAlternateMsiName()
+	 * @generated
+	 */
+	void setAlternateMsiName(String value);
 
 } // Release

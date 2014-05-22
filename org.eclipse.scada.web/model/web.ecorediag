@@ -235,6 +235,10 @@
         <element xmi:type="ecore:EAttribute" href="web.ecore#//Release/date"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_6AFEYZPzEeO2EbN7_j-3dg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_wpwzsOGvEeOL9vOknQ4WFw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="web.ecore#//Release/alternateMsiName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wpwzseGvEeOL9vOknQ4WFw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_u8zU8okCEeOiENjrduvi3Q"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_u8zU84kCEeOiENjrduvi3Q"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_u8zU9IkCEeOiENjrduvi3Q"/>

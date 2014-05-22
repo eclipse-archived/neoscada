@@ -705,13 +705,22 @@ public interface WebPackage extends EPackage {
 	int RELEASE__UNQUALIFIED_NAME = 6;
 
 	/**
+	 * The feature id for the '<em><b>Alternate Msi Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE__ALTERNATE_MSI_NAME = 7;
+
+	/**
 	 * The number of structural features of the '<em>Release</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELEASE_FEATURE_COUNT = 7;
+	int RELEASE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Release</em>' class.
@@ -1563,6 +1572,17 @@ public interface WebPackage extends EPackage {
 	EAttribute getRelease_UnqualifiedName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipse.scada.web.Release#getAlternateMsiName <em>Alternate Msi Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alternate Msi Name</em>'.
+	 * @see org.eclipse.scada.web.Release#getAlternateMsiName()
+	 * @see #getRelease()
+	 * @generated
+	 */
+	EAttribute getRelease_AlternateMsiName();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.scada.web.ReleaseSection <em>Release Section</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2221,6 +2241,14 @@ public interface WebPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELEASE__UNQUALIFIED_NAME = eINSTANCE.getRelease_UnqualifiedName();
+
+		/**
+		 * The meta object literal for the '<em><b>Alternate Msi Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELEASE__ALTERNATE_MSI_NAME = eINSTANCE.getRelease_AlternateMsiName();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.scada.web.impl.ReleaseSectionImpl <em>Release Section</em>}' class.
