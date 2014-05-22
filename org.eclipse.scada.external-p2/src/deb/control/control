@@ -11,4 +11,4 @@ Depends: emf-xsd-Update-2.9.2,
  equinox-SDK-R-KeplerSR2-201402211700,
  gemini-dbaccess-1.1.0.RELEASE,
  org.eclipse.ecf.sdk-3.6.1,
- org.eclipse.platform-4.3.2
+ rap-2.2.0-R-20131204-0942
