@@ -55,7 +55,16 @@ public enum StartupMechanism implements Enumerator
      * @generated
      * @ordered
      */
-    REDHAT_SYSV ( 2, "REDHAT_SYSV", "REDHAT_SYSV" ); //$NON-NLS-1$ //$NON-NLS-2$
+    REDHAT_SYSV ( 2, "REDHAT_SYSV", "REDHAT_SYSV" ),
+    /**
+     * The '<em><b>LSB SYSV</b></em>' literal object.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #LSB_SYSV_VALUE
+     * @generated
+     * @ordered
+     */
+    LSB_SYSV ( 3, "LSB_SYSV", "LSB_SYSV" ); //$NON-NLS-1$ //$NON-NLS-2$
 
     /**
      * The '<em><b>DEFAULT</b></em>' literal value.
@@ -103,6 +112,21 @@ public enum StartupMechanism implements Enumerator
     public static final int REDHAT_SYSV_VALUE = 2;
 
     /**
+     * The '<em><b>LSB SYSV</b></em>' literal value.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>LSB SYSV</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @see #LSB_SYSV
+     * @model
+     * @generated
+     * @ordered
+     */
+    public static final int LSB_SYSV_VALUE = 3;
+
+    /**
      * An array of all the '<em><b>Startup Mechanism</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -114,6 +138,7 @@ public enum StartupMechanism implements Enumerator
                     DEFAULT,
                     UPSTART,
                     REDHAT_SYSV,
+                    LSB_SYSV,
             };
 
     /**
@@ -178,6 +203,8 @@ public enum StartupMechanism implements Enumerator
                 return UPSTART;
             case REDHAT_SYSV_VALUE:
                 return REDHAT_SYSV;
+            case LSB_SYSV_VALUE:
+                return LSB_SYSV;
         }
         return null;
     }

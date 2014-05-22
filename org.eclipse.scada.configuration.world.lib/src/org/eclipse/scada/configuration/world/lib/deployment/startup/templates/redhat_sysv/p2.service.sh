@@ -58,7 +58,7 @@ start (){
     else
 		es_start
 		RETVAL=$?
-    fi;
+    fi
     es_check
     return $RETVAL
 }
@@ -71,7 +71,7 @@ stop () {
     else
 		es_stop
 		RETVAL=$?
-    fi;
+    fi
     es_check
     return $RETVAL
 }
@@ -81,7 +81,7 @@ status () {
 	echo "running: `cat "$pidfile"`"
     else
 	echo "not running"
-    fi;
+    fi
 }
 
 restart(){

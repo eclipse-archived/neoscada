@@ -11,9 +11,12 @@
 package org.eclipse.scada.configuration.world.lib.deployment.startup;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.ResourceInformation.Type;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 
 public class UpstartHandler implements StartupHandler
@@ -31,4 +34,45 @@ public class UpstartHandler implements StartupHandler
         Helper.createFile ( new File ( packageFolder, "src/etc/init/scada.app." + appName + ".conf" ), UpstartHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.conf" ), replacements, monitor );
     }
 
+    @Override
+    public Set<ResourceInformation> getDriverFiles ( final String driverName )
+    {
+        return Collections.singleton ( new ResourceInformation ( "/etc/init/scada.driver." + driverName + ".conf", Type.FILE ) );
+    }
+
+    @Override
+    public Set<ResourceInformation> getEquinoxFiles ( final String appName )
+    {
+        return Collections.singleton ( new ResourceInformation ( "/etc/init/scada.app." + appName + ".conf", Type.FILE ) );
+    }
+
+    @Override
+    public String restartDriverCommand ( final String driverName )
+    {
+        return "restart scada.driver." + driverName;
+    }
+
+    @Override
+    public String stopDriverCommand ( final String driverName )
+    {
+        return "stop scada.driver." + driverName;
+    }
+
+    @Override
+    public String restartEquinoxCommand ( final String appName )
+    {
+        return null;
+    }
+
+    @Override
+    public String stopEquinoxCommand ( final String appName )
+    {
+        return null;
+    }
+
+    @Override
+    public Set<String> getAdditionalPackageDependencies ()
+    {
+        return Collections.singleton ( "screen" );
+    }
 }

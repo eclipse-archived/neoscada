@@ -1092,6 +1092,7 @@
       <eLiterals name="DEFAULT"/>
       <eLiterals name="UPSTART" value="1"/>
       <eLiterals name="REDHAT_SYSV" value="2"/>
+      <eLiterals name="LSB_SYSV" value="3"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

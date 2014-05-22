@@ -155,13 +155,17 @@
         <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/StartupMechanism/REDHAT_SYSV"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_5FEnoeD1EeOpg4BGGiolrw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_mtWc4OEKEeOpg4BGGiolrw" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/StartupMechanism/LSB_SYSV"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_mtWc4eEKEeOpg4BGGiolrw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_lBUlcuD1EeOpg4BGGiolrw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_lBUlc-D1EeOpg4BGGiolrw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_lBUldOD1EeOpg4BGGiolrw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_lBTXUeD1EeOpg4BGGiolrw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/StartupMechanism"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lBTXUuD1EeOpg4BGGiolrw" x="432" y="-48"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lBTXUuD1EeOpg4BGGiolrw" x="432" y="-72"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_qwmwod_lEeKXb4ASfdnSUg"/>
   <element xmi:type="ecore:EPackage" href="configuration.ecore#//deployment"/>

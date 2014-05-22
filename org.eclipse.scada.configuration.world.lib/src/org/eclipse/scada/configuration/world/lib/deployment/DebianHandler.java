@@ -30,6 +30,7 @@ import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -67,8 +68,8 @@ public class DebianHandler extends CommonPackageHandler
         replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
         replacements.put ( "authorEmail", this.deploy.getMaintainer ().getEmail () ); //$NON-NLS-1$
         replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
-        replacements.put ( "postinst.restart", createPostInst ( makeDriverList () ) ); //$NON-NLS-1$
-        replacements.put ( "prerm.stop", createPreRm ( makeDriverList () ) ); //$NON-NLS-1$
+        replacements.put ( "postinst.restart", createPostInst () ); //$NON-NLS-1$
+        replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
         replacements.put ( "depends", makeDependencies () ); //$NON-NLS-1$
 
         replacements.put ( "postinst.scripts", createScriptFile ( packageFolder, "postinst" ) );
@@ -153,30 +154,82 @@ public class DebianHandler extends CommonPackageHandler
         result.add ( "org.eclipse.scada.deploy.p2-incubation" ); //$NON-NLS-1$
         result.addAll ( this.deploy.getAdditionalDependencies () );
 
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh != null )
+        {
+            result.addAll ( sh.getAdditionalPackageDependencies () );
+        }
+
         return StringHelper.join ( result, ", " ); //$NON-NLS-1$
     }
 
-    private String createPostInst ( final Set<String> driverName )
+    private String createPostInst ()
     {
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh == null )
+        {
+            return "";
+        }
+
         final StringBuilder sb = new StringBuilder ();
 
-        for ( final String driver : driverName )
+        for ( final String driver : makeDriverList () )
         {
-            sb.append ( String.format ( "    restart scada.driver.%1$s || echo failed to restart %1$s", driver ) );
-            sb.append ( "\n" );
+            final String cmd = sh.restartDriverCommand ( driver );
+            if ( cmd == null )
+            {
+                continue;
+            }
+
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) );
+            sb.append ( '\n' );
+        }
+
+        for ( final String app : makeEquinoxList () )
+        {
+            final String cmd = sh.restartEquinoxCommand ( app );
+            if ( cmd == null )
+            {
+                continue;
+            }
+
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) );
+            sb.append ( '\n' );
         }
 
         return sb.toString ();
     }
 
-    private String createPreRm ( final Set<String> driverName )
+    private String createPreRm ()
     {
         final StringBuilder sb = new StringBuilder ();
 
-        for ( final String driver : driverName )
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh == null )
         {
-            sb.append ( String.format ( "    stop scada.driver.%1$s || echo failed to restart %1$s", driver ) );
-            sb.append ( "\n" );
+            return "";
+        }
+
+        for ( final String driver : makeDriverList () )
+        {
+            final String cmd = sh.stopDriverCommand ( driver );
+            if ( cmd == null )
+            {
+                continue;
+            }
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) );
+            sb.append ( '\n' );
+        }
+
+        for ( final String app : makeEquinoxList () )
+        {
+            final String cmd = sh.stopEquinoxCommand ( app );
+            if ( cmd == null )
+            {
+                continue;
+            }
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) );
+            sb.append ( '\n' );
         }
 
         return sb.toString ();
@@ -193,7 +246,7 @@ public class DebianHandler extends CommonPackageHandler
         {
             sb.append ( String.format ( "%s (%s) stable; urgency=low\n", packageName, entry.getVersion () ) );
             sb.append ( '\n' );
-            sb.append ( entry.getDescription () );
+            sb.append ( "  * " + entry.getDescription () );
             sb.append ( '\n' );
             sb.append ( '\n' ); // additional empty line
 

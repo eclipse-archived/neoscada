@@ -942,6 +942,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.DEFAULT );
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.UPSTART );
         addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.REDHAT_SYSV );
+        addEEnumLiteral ( startupMechanismEEnum, StartupMechanism.LSB_SYSV );
     }
 
 } //DeploymentPackageImpl

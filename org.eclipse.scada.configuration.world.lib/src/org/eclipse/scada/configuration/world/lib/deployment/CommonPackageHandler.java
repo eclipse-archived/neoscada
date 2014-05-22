@@ -27,8 +27,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.LSBSystemVHandler;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.RedhatSystemVHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
-import org.eclipse.scada.configuration.world.lib.deployment.startup.SystemVHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.UpstartHandler;
 import org.eclipse.scada.configuration.world.lib.utils.CopyRecursive;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
@@ -40,6 +41,8 @@ import org.eclipse.scada.configuration.world.osgi.profile.SystemProperty;
 public abstract class CommonPackageHandler extends CommonHandler
 {
     private final CommonDeploymentMechanism deploy;
+
+    private StartupHandler startupHandler;
 
     public CommonPackageHandler ( final ApplicationNode applicationNode, final CommonDeploymentMechanism deploy )
     {
@@ -147,7 +150,22 @@ public abstract class CommonPackageHandler extends CommonHandler
 
     protected abstract StartupMechanism getDefaultStartupMechanism ();
 
-    protected StartupHandler createStartupHandler ( final StartupMechanism defaultStartupMechanism )
+    protected StartupHandler getStartupHandler ()
+    {
+        if ( this.startupHandler == null )
+        {
+            this.startupHandler = createStartupHandler ();
+        }
+
+        return this.startupHandler;
+    }
+
+    private StartupHandler createStartupHandler ()
+    {
+        return createStartupHandler ( getDefaultStartupMechanism () );
+    }
+
+    private StartupHandler createStartupHandler ( final StartupMechanism defaultStartupMechanism )
     {
         final StartupMechanism sm = getStartupMechanism ( defaultStartupMechanism );
         if ( sm == null )
@@ -158,9 +176,11 @@ public abstract class CommonPackageHandler extends CommonHandler
         switch ( sm )
         {
             case REDHAT_SYSV:
-                return new SystemVHandler ();
+                return new RedhatSystemVHandler ();
             case UPSTART:
                 return new UpstartHandler ();
+            case LSB_SYSV:
+                return new LSBSystemVHandler ();
             case DEFAULT:
                 return null; // we ran of options here
         }

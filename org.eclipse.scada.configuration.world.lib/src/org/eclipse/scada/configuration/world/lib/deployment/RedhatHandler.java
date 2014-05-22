@@ -29,6 +29,8 @@ import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.ResourceInformation;
+import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.configuration.world.lib.utils.Helper;
 import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
 import org.eclipse.scada.utils.str.StringHelper;
@@ -144,15 +146,21 @@ public class RedhatHandler extends CommonPackageHandler
 
     private String makeStop ()
     {
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh == null )
+        {
+            return "";
+        }
+
         final StringBuilder sb = new StringBuilder ();
         for ( final String driver : makeDriverList () )
         {
-            sb.append ( "test \"$1\" -eq \"0\" && /etc/init.d/scada.driver." + driver + " stop || true" );
+            sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopDriverCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
-        for ( final String driver : makeEquinoxList () )
+        for ( final String app : makeEquinoxList () )
         {
-            sb.append ( "test \"$1\" -eq \"0\" && /etc/init.d/scada.app." + driver + " stop || true" );
+            sb.append ( "test \"$1\" -eq \"0\" && " + sh.stopEquinoxCommand ( app ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
         return sb.toString ();
@@ -160,15 +168,21 @@ public class RedhatHandler extends CommonPackageHandler
 
     private String makePost ()
     {
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh == null )
+        {
+            return "";
+        }
+
         final StringBuilder sb = new StringBuilder ();
         for ( final String driver : makeDriverList () )
         {
-            sb.append ( "/etc/init.d/scada.driver." + driver + " condrestart || true" );
+            sb.append ( sh.restartDriverCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
         for ( final String driver : makeEquinoxList () )
         {
-            sb.append ( "/etc/init.d/scada.app." + driver + " condrestart || true" );
+            sb.append ( sh.restartEquinoxCommand ( driver ) + " || true" );
             sb.append ( "\n" ); //$NON-NLS-1$
         }
         return sb.toString ();
@@ -176,18 +190,25 @@ public class RedhatHandler extends CommonPackageHandler
 
     private String makeDependencies ()
     {
-        final Set<String> result = new HashSet<> ();
+        final Set<String> dependencies = new HashSet<> ();
 
-        result.add ( "Requires: org.eclipse.scada" ); //$NON-NLS-1$
-
+        dependencies.add ( "org.eclipse.scada" );
         if ( needP2 () )
         {
-            result.add ( "Requires: org.eclipse.scada.p2" ); //$NON-NLS-1$
+            dependencies.add ( "org.eclipse.scada.p2" ); //$NON-NLS-1$
+        }
+        dependencies.add ( "org.eclipse.scada.deploy.p2-incubation" );
+        dependencies.addAll ( this.deploy.getAdditionalDependencies () );
+
+        final StartupHandler sh = getStartupHandler ();
+        if ( sh != null )
+        {
+            dependencies.addAll ( sh.getAdditionalPackageDependencies () );
         }
 
-        result.add ( "Requires: org.eclipse.scada.deploy.p2-incubation" ); //$NON-NLS-1$
+        final Set<String> result = new HashSet<> ();
 
-        for ( final String dep : this.deploy.getAdditionalDependencies () )
+        for ( final String dep : dependencies )
         {
             result.add ( "Requires: " + dep );
         }
@@ -197,6 +218,8 @@ public class RedhatHandler extends CommonPackageHandler
 
     private String makeFiles ()
     {
+        final StartupHandler sh = getStartupHandler ();
+
         final StringBuilder sb = new StringBuilder ();
 
         for ( final String driver : makeDriverList () )
@@ -205,17 +228,16 @@ public class RedhatHandler extends CommonPackageHandler
             sb.append ( '\n' );
             sb.append ( "%attr(640,root,eclipsescada) %_sysconfdir/eclipsescada/drivers/" + driver + "/*" ); //$NON-NLS-1$
             sb.append ( '\n' );
-            sb.append ( "%attr(755,root,root) /etc/init.d/scada.driver." + driver ); //$NON-NLS-1$
-            sb.append ( '\n' );
+
+            if ( sh != null )
+            {
+                addFiles ( sb, sh.getDriverFiles ( driver ) );
+            }
         }
 
         for ( final String app : makeEquinoxList () )
         {
-            sb.append ( "%attr(755,root,root) /etc/init.d/scada.app." + app ); //$NON-NLS-1$
-            sb.append ( '\n' );
             sb.append ( "%attr(755,root,root) %_bindir/scada.create." + app ); //$NON-NLS-1$
-            sb.append ( '\n' );
-            sb.append ( "%attr(755,root,root) %_bindir/scada.app." + app + ".launcher" ); //$NON-NLS-1$
             sb.append ( '\n' );
             sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/ca.bootstrap/bootstrap." + app + ".json" ); //$NON-NLS-1$
             sb.append ( '\n' );
@@ -225,9 +247,34 @@ public class RedhatHandler extends CommonPackageHandler
             sb.append ( '\n' );
             sb.append ( "%attr(640,root,eclipsescada) /usr/share/eclipsescada/profiles/" + app + "/*" ); //$NON-NLS-1$
             sb.append ( '\n' );
+
+            if ( sh != null )
+            {
+                addFiles ( sb, sh.getEquinoxFiles ( app ) );
+            }
         }
 
         return sb.toString ();
+    }
+
+    private void addFiles ( final StringBuilder sb, final Set<ResourceInformation> files )
+    {
+        for ( final ResourceInformation ri : files )
+        {
+            switch ( ri.getType () )
+            {
+                case EXECUTABLE:
+                    sb.append ( "%attr(755,root,root) " );
+                    break;
+                case FILE:
+                    sb.append ( "%attr(640,root,eclipsescada) " );
+                    break;
+                default:
+                    continue; // ignore resource
+            }
+            sb.append ( ri.getTargetFilename () );
+            sb.append ( '\n' );
+        }
     }
 
     private String makeRelease ()
