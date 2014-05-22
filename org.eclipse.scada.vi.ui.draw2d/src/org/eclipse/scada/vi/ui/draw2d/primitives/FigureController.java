@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix some bugs with border parser
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d.primitives;
 
@@ -33,13 +34,8 @@ import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.RGB;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.scada.ui.blink.AbstractBlinker;
+import org.eclipse.scada.utils.script.ScriptExecutor;
 import org.eclipse.scada.vi.model.Cursor;
 import org.eclipse.scada.vi.model.Dimension;
 import org.eclipse.scada.vi.model.Figure;
@@ -48,6 +44,11 @@ import org.eclipse.scada.vi.model.VisualInterfaceFactory;
 import org.eclipse.scada.vi.ui.draw2d.Activator;
 import org.eclipse.scada.vi.ui.draw2d.Controller;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.statushandlers.StatusManager;
 
 /**
  * A figure controller
@@ -648,7 +649,7 @@ public abstract class FigureController implements Controller
         return Integer.parseInt ( value );
     }
 
-    protected Map<String, String> parseBorderArguments ( final String singleArgumentName, final String border )
+    protected static Map<String, String> parseBorderArguments ( final String singleArgumentName, final String border )
     {
         if ( border == null || border.isEmpty () )
         {
@@ -658,14 +659,75 @@ public abstract class FigureController implements Controller
         {
             final Map<String, String> result = new LinkedHashMap<String, String> ();
             final String str = border.substring ( 1, border.length () - 1 );
-            for ( final String tok : str.split ( "[, \\t\\n\\r]" ) )
+
+            String key = null;
+            StringBuilder temp = null;
+
+            int levels = 0;
+
+            for ( int i = 0; i < str.length (); i++ )
             {
-                final String[] ele = tok.split ( "=", 2 );
-                if ( ele.length > 1 )
+                final char c = str.charAt ( i );
+                switch ( c )
                 {
-                    result.put ( ele[0], ele[1] );
+                    case '[':
+                        temp = add ( temp, c );
+                        levels++;
+                        break;
+                    case ']':
+                        temp = add ( temp, c );
+                        levels--;
+                        break;
+                    case '=':
+                        if ( levels == 0 )
+                        {
+                            if ( key == null )
+                            {
+                                key = temp != null ? temp.toString () : "";
+                                temp = null;
+                            }
+                            else
+                            {
+                                temp = add ( temp, c );
+                            }
+                        }
+                        else
+                        {
+                            temp = add ( temp, c );
+                        }
+                        break;
+                    case ',':
+                        if ( levels == 0 )
+                        {
+                            if ( key != null && temp != null )
+                            {
+                                result.put ( key, temp.toString () );
+                            }
+                            key = null;
+                            temp = null;
+                        }
+                        else
+                        {
+                            temp = add ( temp, c );
+                        }
+                        break;
+                    default:
+                        temp = add ( temp, c );
+                        break;
                 }
             }
+
+            if ( levels > 0 )
+            {
+                throw new IllegalArgumentException ( "Unbalanced brackets" );
+            }
+
+            // the end
+            if ( key != null && temp != null )
+            {
+                result.put ( key, temp.toString () );
+            }
+
             return result;
         }
         else
@@ -673,6 +735,19 @@ public abstract class FigureController implements Controller
             final Map<String, String> result = new LinkedHashMap<String, String> ( 1 );
             result.put ( singleArgumentName, border );
             return result;
+        }
+    }
+
+    private static StringBuilder add ( final StringBuilder temp, final char c )
+    {
+        if ( temp == null )
+        {
+            return new StringBuilder ().append ( c );
+        }
+        else
+        {
+            temp.append ( c );
+            return temp;
         }
     }
 
