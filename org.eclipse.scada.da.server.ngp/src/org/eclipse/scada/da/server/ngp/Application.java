@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add alias for system property
  *******************************************************************************/
 package org.eclipse.scada.da.server.ngp;
 
@@ -16,7 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Application to export a storage using the OpenSCADA NGP protocol
+ * Application to export a storage using the Eclipse SCADA NGP protocol
  * 
  * @author Jens Reimann
  */
@@ -41,7 +42,7 @@ public class Application
             }
             if ( ci == null )
             {
-                ci = ConnectionInformation.fromURI ( "da:ngp://0.0.0.0:" + System.getProperty ( "openscada.da.ngp.server.port", "2101" ) );
+                ci = ConnectionInformation.fromURI ( "da:ngp://0.0.0.0:" + System.getProperty ( "org.eclipse.scada.da.ngp.server.port", System.getProperty ( "openscada.da.ngp.server.port", "2101" ) ) );
             }
 
             // create exporter
@@ -57,7 +58,7 @@ public class Application
         catch ( final Throwable e )
         {
             // ops
-            logger.error ( "Error in openSCADA HD[NGP] Server", e );
+            logger.error ( "Error in Eclipse SCADA DA[NGP] Server", e );
             System.exit ( 1 );
         }
     }

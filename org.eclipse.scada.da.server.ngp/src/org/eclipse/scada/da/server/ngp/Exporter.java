@@ -74,9 +74,6 @@ public class Exporter implements LifecycleAware
         return this.startedAddresses;
     }
 
-    /**
-     * @since 1.1
-     */
     public Set<ConnectionInformation> getStartedConnectionInformations ()
     {
         return convert ( "da", getStartedAddresses () );
