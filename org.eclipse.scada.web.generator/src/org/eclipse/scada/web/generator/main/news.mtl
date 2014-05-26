@@ -1,11 +1,11 @@
 [comment encoding = UTF-8 /]
 [module news('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import org::eclipse::scada::web::generator::main::html /]
 [import org::eclipse::scada::web::generator::main::author /]
 [import org::eclipse::scada::web::generator::main::content /]
 [import org::eclipse::scada::web::generator::main::social /]
 [import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::html /]
 
 [template public generateNews(site : Site)]
 [for (news : NewsEntry | site.news)]

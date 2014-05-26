@@ -173,11 +173,4 @@ var track = function(url, category, action) {
 </html>
 [/template]
 
-[query public toLabel(link : Link) : String =
-if ( link.label = null ) then
-	link.target
-else
-	link.label.encodeHtml()
-endif /]
-
 

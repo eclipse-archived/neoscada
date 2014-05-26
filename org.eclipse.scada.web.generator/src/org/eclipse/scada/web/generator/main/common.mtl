@@ -15,6 +15,13 @@ endif
 endif
 /]
 
+[query public toLabel(link : Link) : String =
+if ( link.label = null ) then
+	link.target
+else
+	link.label.encodeHtml()
+endif /]
+
 [query public formatDate( format : String, date : EDate ) : String =
 invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { format, date }) 
 /]
