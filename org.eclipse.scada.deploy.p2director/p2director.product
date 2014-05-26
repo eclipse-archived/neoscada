@@ -172,10 +172,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.app" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="3" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.equinox.frameworkadmin" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.equinox.frameworkadmin.equinox" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="3" />
-      <plugin id="org.eclipse.equinox.simpleconfigurator.manipulator" autoStart="true" startLevel="3" />
    </configurations>
 
 </product>

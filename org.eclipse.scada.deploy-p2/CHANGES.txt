@@ -1,1 +1,2 @@
+release date=11:18 26.05.2014,version=0.2.0~SNAPSHOT,urgency=low,by=Jens Reimann <jens.reimann@ibh-systems.com>,distribution=development
  * initial release

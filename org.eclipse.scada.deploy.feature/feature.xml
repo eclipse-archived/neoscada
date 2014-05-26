@@ -35,4 +35,11 @@
       <import feature="org.eclipse.equinox.server.p2" version="1.2.0.v20130604-2047"/>
    </requires>
 
+   <plugin
+         id="org.eclipse.update.configurator"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
