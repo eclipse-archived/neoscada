@@ -25,4 +25,5 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Module extends EObject
 {
+
 } // Module

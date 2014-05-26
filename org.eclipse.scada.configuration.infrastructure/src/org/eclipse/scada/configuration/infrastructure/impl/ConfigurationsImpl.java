@@ -32,25 +32,19 @@ import org.eclipse.scada.configuration.infrastructure.Settings;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getConfigurations
- * <em>Configurations</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getSettings
- * <em>Settings</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getConfigurations <em>Configurations</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ConfigurationsImpl#getSettings <em>Settings</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements Configurations
 {
     /**
-     * The cached value of the '{@link #getConfigurations()
-     * <em>Configurations</em>}' containment reference list.
+     * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getConfigurations()
      * @generated
      * @ordered
@@ -58,11 +52,9 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     protected EList<ApplicationConfiguration> configurations;
 
     /**
-     * The cached value of the '{@link #getSettings() <em>Settings</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getSettings() <em>Settings</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSettings()
      * @generated
      * @ordered
@@ -72,7 +64,6 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ConfigurationsImpl ()
@@ -83,7 +74,6 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -95,43 +85,40 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<ApplicationConfiguration> getConfigurations ()
     {
-        if ( this.configurations == null )
+        if ( configurations == null )
         {
-            this.configurations = new EObjectContainmentEList.Resolving<ApplicationConfiguration> ( ApplicationConfiguration.class, this, InfrastructurePackage.CONFIGURATIONS__CONFIGURATIONS );
+            configurations = new EObjectContainmentEList.Resolving<ApplicationConfiguration> ( ApplicationConfiguration.class, this, InfrastructurePackage.CONFIGURATIONS__CONFIGURATIONS );
         }
-        return this.configurations;
+        return configurations;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Settings> getSettings ()
     {
-        if ( this.settings == null )
+        if ( settings == null )
         {
-            this.settings = new EObjectContainmentEList.Resolving<Settings> ( Settings.class, this, InfrastructurePackage.CONFIGURATIONS__SETTINGS );
+            settings = new EObjectContainmentEList.Resolving<Settings> ( Settings.class, this, InfrastructurePackage.CONFIGURATIONS__SETTINGS );
         }
-        return this.settings;
+        return settings;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -146,11 +133,10 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -165,12 +151,11 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -189,11 +174,10 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -210,18 +194,17 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case InfrastructurePackage.CONFIGURATIONS__CONFIGURATIONS:
-                return this.configurations != null && !this.configurations.isEmpty ();
+                return configurations != null && !configurations.isEmpty ();
             case InfrastructurePackage.CONFIGURATIONS__SETTINGS:
-                return this.settings != null && !this.settings.isEmpty ();
+                return settings != null && !settings.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

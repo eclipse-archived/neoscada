@@ -237,6 +237,16 @@ public class ApplicationConfigurationItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createWebAdminConsole () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createOracleVMSettings () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 

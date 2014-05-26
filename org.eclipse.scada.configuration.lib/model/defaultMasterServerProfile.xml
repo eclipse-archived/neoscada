@@ -53,16 +53,7 @@
   <feature>org.eclipse.scada.core.server.feature.group</feature>
   <feature>org.eclipse.scada.core.client.feature.group</feature>
   <feature>org.eclipse.scada.core.common.feature.group</feature>
-    
-  <argument>-Xmx1280m</argument>
-  <argument>-Xms768m</argument>
-  <argument>-XX:PermSize=64m</argument>
-  <argument>-XX:MaxPermSize=128m</argument>
-  <argument>-XX:+UseParNewGC</argument>
-  <argument>-XX:+UseConcMarkSweepGC</argument>
-  <argument>-XX:+CMSIncrementalMode</argument>
-  <argument>-XX:+CMSParallelRemarkEnabled</argument>
-  <argument>-XX:-OmitStackTraceInFastThrow</argument>
+
   <setbsl level="5">org.eclipse.scada.da.server.osgi.exporter.net</setbsl>
   <setbsl level="5">org.eclipse.scada.ae.server.exporter.net</setbsl>
   <note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>

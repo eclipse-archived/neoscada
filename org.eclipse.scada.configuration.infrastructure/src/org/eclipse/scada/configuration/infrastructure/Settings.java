@@ -17,12 +17,14 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Settings</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <!-- begin-model-doc -->
  * A base interface for settings.
- * Settings are, compared to ApplicationConfiguration, not assigned to an
- * application they are running in.
- * <!-- end-model-doc -->
  * 
+ * Settings are, compared to ApplicationConfiguration, not assigned to an application they are running in.
+ * <!-- end-model-doc -->
+ *
+ *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getSettings()
  * @model interface="true" abstract="true"
  * @generated

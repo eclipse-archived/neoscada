@@ -273,6 +273,18 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseWebAdminConsole ( WebAdminConsole object )
+        {
+            return createWebAdminConsoleAdapter ();
+        }
+
+        @Override
+        public Adapter caseOracleVMSettings ( OracleVMSettings object )
+        {
+            return createOracleVMSettingsAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -770,6 +782,36 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole <em>Web Admin Console</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.WebAdminConsole
+     * @generated
+     */
+    public Adapter createWebAdminConsoleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings <em>Oracle VM Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.OracleVMSettings
+     * @generated
+     */
+    public Adapter createOracleVMSettingsAdapter ()
     {
         return null;
     }

@@ -37,6 +37,7 @@ import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
+import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.Settings;
 import org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout;
@@ -46,6 +47,7 @@ import org.eclipse.scada.configuration.infrastructure.UserEntry;
 import org.eclipse.scada.configuration.infrastructure.UserService;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
+import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -249,6 +251,20 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass settingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass webAdminConsoleEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass oracleVMSettingsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1371,6 +1387,56 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getWebAdminConsole ()
+    {
+        return webAdminConsoleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getWebAdminConsole_HttpService ()
+    {
+        return (EReference)webAdminConsoleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getOracleVMSettings ()
+    {
+        return oracleVMSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOracleVMSettings_InitialHeapSize ()
+    {
+        return (EAttribute)oracleVMSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getOracleVMSettings_MaximumHeapSize ()
+    {
+        return (EAttribute)oracleVMSettingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getSlaveStorageLayout ()
     {
@@ -1531,6 +1597,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         settingsEClass = createEClass ( SETTINGS );
 
+        webAdminConsoleEClass = createEClass ( WEB_ADMIN_CONSOLE );
+        createEReference ( webAdminConsoleEClass, WEB_ADMIN_CONSOLE__HTTP_SERVICE );
+
+        oracleVMSettingsEClass = createEClass ( ORACLE_VM_SETTINGS );
+        createEAttribute ( oracleVMSettingsEClass, ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE );
+        createEAttribute ( oracleVMSettingsEClass, ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE );
+
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
@@ -1590,6 +1663,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         httpServiceModuleEClass.getESuperTypes ().add ( this.getModule () );
         restExporterModuleEClass.getESuperTypes ().add ( this.getModule () );
         valueArchiveSlaveEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
+        webAdminConsoleEClass.getESuperTypes ().add ( this.getModule () );
+        oracleVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1714,6 +1789,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( settingsEClass, Settings.class, "Settings", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
+        initEClass ( webAdminConsoleEClass, WebAdminConsole.class, "WebAdminConsole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getWebAdminConsole_HttpService (), this.getHttpServiceModule (), null, "httpService", null, 1, 1, WebAdminConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( oracleVMSettingsEClass, OracleVMSettings.class, "OracleVMSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getOracleVMSettings_InitialHeapSize (), ecorePackage.getEString (), "initialHeapSize", null, 0, 1, OracleVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getOracleVMSettings_MaximumHeapSize (), ecorePackage.getEString (), "maximumHeapSize", null, 0, 1, OracleVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
         addEEnumLiteral ( slaveStorageLayoutEEnum, SlaveStorageLayout.SINGLE );
@@ -1725,6 +1807,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         // Create annotations
         // http:///org/eclipse/emf/ecore/util/ExtendedMetaData
         createExtendedMetaDataAnnotations ();
+        // http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup
+        createExclusiveGroupAnnotations ();
     }
 
     /**
@@ -1750,6 +1834,22 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
                 source,
                 new String[]
                 {       "kind", "group" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createExclusiveGroupAnnotations ()
+    {
+        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																					
+        addAnnotation ( oracleVMSettingsEClass,
+                source,
+                new String[]
+                {       "groupId", "oracle.vm.settings" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 

@@ -64,4 +64,10 @@ class OCLConstraint extends AbstractOCLModelConstraint<EClassifier, Constraint, 
 
         return result;
     }
+
+    @Override
+    public String toString ()
+    {
+        return this.query.queryText ();
+    }
 }

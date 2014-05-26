@@ -14,4 +14,10 @@ inv Options_different_port_ca_collide: baseCaNgpPort <> baseDaNgpPort and baseAe
 context Node
 inv Node_hostName_pattern: hostName.matches('[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.?')
 
+/*
+context WebAdminConsole
+inv WebAdminConsole_same_cfg: ( not httpService.oclIsUndefined() )
+	and httpService.oclAsType(ecore::EObject).eContainer() = oclAsType(ecore::EObject).eContainer ()
+ */
+ 
 endpackage

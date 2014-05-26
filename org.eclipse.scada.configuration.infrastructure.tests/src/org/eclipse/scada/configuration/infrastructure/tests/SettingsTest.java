@@ -19,7 +19,6 @@ import org.eclipse.scada.configuration.infrastructure.Settings;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Settings</b></em>'.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public abstract class SettingsTest extends TestCase
@@ -29,7 +28,6 @@ public abstract class SettingsTest extends TestCase
      * The fixture for this Settings test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Settings fixture = null;
@@ -38,10 +36,9 @@ public abstract class SettingsTest extends TestCase
      * Constructs a new Settings test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public SettingsTest ( final String name )
+    public SettingsTest ( String name )
     {
         super ( name );
     }
@@ -50,10 +47,9 @@ public abstract class SettingsTest extends TestCase
      * Sets the fixture for this Settings test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    protected void setFixture ( final Settings fixture )
+    protected void setFixture ( Settings fixture )
     {
         this.fixture = fixture;
     }
@@ -62,12 +58,11 @@ public abstract class SettingsTest extends TestCase
      * Returns the fixture for this Settings test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Settings getFixture ()
     {
-        return this.fixture;
+        return fixture;
     }
 
 } //SettingsTest

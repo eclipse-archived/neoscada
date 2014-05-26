@@ -2,5 +2,36 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="driver" name="Driver Extension Point" schema="schema/driver.exsd"/>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.HttpServiceModule"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.RestExporterModule"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.WebAdminConsole"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+       <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.OracleVMSettings"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
+   </extension>
 
 </plugin>

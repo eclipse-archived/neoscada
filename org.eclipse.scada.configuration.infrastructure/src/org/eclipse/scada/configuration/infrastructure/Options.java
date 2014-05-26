@@ -19,36 +19,24 @@ import org.eclipse.scada.configuration.world.osgi.MonitorPool;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Options</b></em>'.
  * <!-- end-user-doc -->
+ *
  * <!-- begin-model-doc -->
  * Some basic world options.
  * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseDaNgpPort
- * <em>Base Da Ngp Port</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseAeNgpPort
- * <em>Base Ae Ngp Port</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseCaNgpPort
- * <em>Base Ca Ngp Port</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseHdNgpPort
- * <em>Base Hd Ngp Port</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getMonitorPools
- * <em>Monitor Pools</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getEventPools
- * <em>Event Pools</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.infrastructure.Options#getDefaultUserService
- * <em>Default User Service</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseDaNgpPort <em>Base Da Ngp Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseAeNgpPort <em>Base Ae Ngp Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseCaNgpPort <em>Base Ca Ngp Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseHdNgpPort <em>Base Hd Ngp Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getMonitorPools <em>Monitor Pools</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getEventPools <em>Event Pools</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.Options#getDefaultUserService <em>Default User Service</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions()
  * @model
  * @generated
@@ -65,10 +53,8 @@ public interface Options extends EObject
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * The base port number for DA connections. Will be incremented by the
-     * instance number of an Equinox application.
+     * The base port number for DA connections. Will be incremented by the instance number of an Equinox application.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Base Da Ngp Port</em>' attribute.
      * @see #setBaseDaNgpPort(short)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_BaseDaNgpPort()
@@ -78,14 +64,10 @@ public interface Options extends EObject
     short getBaseDaNgpPort ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseDaNgpPort
-     * <em>Base Da Ngp Port</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseDaNgpPort <em>Base Da Ngp Port</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Base Da Ngp Port</em>' attribute.
+     * @param value the new value of the '<em>Base Da Ngp Port</em>' attribute.
      * @see #getBaseDaNgpPort()
      * @generated
      */
@@ -101,10 +83,8 @@ public interface Options extends EObject
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * The base port number for AE connections. Will be incremented by the
-     * instance number of an Equinox application.
+     * The base port number for AE connections. Will be incremented by the instance number of an Equinox application.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Base Ae Ngp Port</em>' attribute.
      * @see #setBaseAeNgpPort(short)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_BaseAeNgpPort()
@@ -114,14 +94,10 @@ public interface Options extends EObject
     short getBaseAeNgpPort ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseAeNgpPort
-     * <em>Base Ae Ngp Port</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseAeNgpPort <em>Base Ae Ngp Port</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Base Ae Ngp Port</em>' attribute.
+     * @param value the new value of the '<em>Base Ae Ngp Port</em>' attribute.
      * @see #getBaseAeNgpPort()
      * @generated
      */
@@ -137,10 +113,8 @@ public interface Options extends EObject
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * The base port number for CA connections. Will be incremented by the
-     * instance number of an Equinox application.
+     * The base port number for CA connections. Will be incremented by the instance number of an Equinox application.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Base Ca Ngp Port</em>' attribute.
      * @see #setBaseCaNgpPort(short)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_BaseCaNgpPort()
@@ -150,14 +124,10 @@ public interface Options extends EObject
     short getBaseCaNgpPort ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseCaNgpPort
-     * <em>Base Ca Ngp Port</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseCaNgpPort <em>Base Ca Ngp Port</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Base Ca Ngp Port</em>' attribute.
+     * @param value the new value of the '<em>Base Ca Ngp Port</em>' attribute.
      * @see #getBaseCaNgpPort()
      * @generated
      */
@@ -173,10 +143,8 @@ public interface Options extends EObject
      * </p>
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
-     * The base port number for HD connections. Will be incremented by the
-     * instance number of an Equinox application.
+     * The base port number for HD connections. Will be incremented by the instance number of an Equinox application.
      * <!-- end-model-doc -->
-     * 
      * @return the value of the '<em>Base Hd Ngp Port</em>' attribute.
      * @see #setBaseHdNgpPort(short)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_BaseHdNgpPort()
@@ -186,33 +154,25 @@ public interface Options extends EObject
     short getBaseHdNgpPort ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Options#getBaseHdNgpPort
-     * <em>Base Hd Ngp Port</em>}' attribute.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Options#getBaseHdNgpPort <em>Base Hd Ngp Port</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Base Hd Ngp Port</em>' attribute.
+     * @param value the new value of the '<em>Base Hd Ngp Port</em>' attribute.
      * @see #getBaseHdNgpPort()
      * @generated
      */
     void setBaseHdNgpPort ( short value );
 
     /**
-     * Returns the value of the '<em><b>Monitor Pools</b></em>' containment
-     * reference list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
+     * Returns the value of the '<em><b>Monitor Pools</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.MonitorPool}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Monitor Pools</em>' containment reference list
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Monitor Pools</em>' containment reference
-     *         list.
+     * @return the value of the '<em>Monitor Pools</em>' containment reference list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_MonitorPools()
      * @model containment="true" resolveProxies="true"
      * @generated
@@ -220,19 +180,15 @@ public interface Options extends EObject
     EList<MonitorPool> getMonitorPools ();
 
     /**
-     * Returns the value of the '<em><b>Event Pools</b></em>' containment
-     * reference list.
-     * The list contents are of type
-     * {@link org.eclipse.scada.configuration.world.osgi.EventPool}.
+     * Returns the value of the '<em><b>Event Pools</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.osgi.EventPool}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Pools</em>' containment reference list
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Event Pools</em>' containment reference
-     *         list.
+     * @return the value of the '<em>Event Pools</em>' containment reference list.
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_EventPools()
      * @model containment="true" resolveProxies="true"
      * @generated
@@ -240,8 +196,7 @@ public interface Options extends EObject
     EList<EventPool> getEventPools ();
 
     /**
-     * Returns the value of the '<em><b>Default User Service</b></em>'
-     * containment reference.
+     * Returns the value of the '<em><b>Default User Service</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Default User Service</em>' containment
@@ -249,9 +204,7 @@ public interface Options extends EObject
      * here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Default User Service</em>' containment
-     *         reference.
+     * @return the value of the '<em>Default User Service</em>' containment reference.
      * @see #setDefaultUserService(UserService)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getOptions_DefaultUserService()
      * @model containment="true" resolveProxies="true"
@@ -260,15 +213,10 @@ public interface Options extends EObject
     UserService getDefaultUserService ();
 
     /**
-     * Sets the value of the '
-     * {@link org.eclipse.scada.configuration.infrastructure.Options#getDefaultUserService
-     * <em>Default User Service</em>}' containment reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.Options#getDefaultUserService <em>Default User Service</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Default User Service</em>'
-     *            containment reference.
+     * @param value the new value of the '<em>Default User Service</em>' containment reference.
      * @see #getDefaultUserService()
      * @generated
      */

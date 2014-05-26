@@ -1867,6 +1867,89 @@ public interface InfrastructurePackage extends EPackage
     int SETTINGS_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl <em>Web Admin Console</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getWebAdminConsole()
+     * @generated
+     */
+    int WEB_ADMIN_CONSOLE = 27;
+
+    /**
+     * The feature id for the '<em><b>Http Service</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WEB_ADMIN_CONSOLE__HTTP_SERVICE = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Web Admin Console</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WEB_ADMIN_CONSOLE_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Web Admin Console</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WEB_ADMIN_CONSOLE_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl <em>Oracle VM Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getOracleVMSettings()
+     * @generated
+     */
+    int ORACLE_VM_SETTINGS = 28;
+
+    /**
+     * The feature id for the '<em><b>Initial Heap Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Maximum Heap Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Oracle VM Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORACLE_VM_SETTINGS_FEATURE_COUNT = MODULE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Oracle VM Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ORACLE_VM_SETTINGS_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1874,7 +1957,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
      * @generated
      */
-    int SLAVE_STORAGE_LAYOUT = 27;
+    int SLAVE_STORAGE_LAYOUT = 29;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -2895,6 +2978,59 @@ public interface InfrastructurePackage extends EPackage
     EClass getSettings ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole <em>Web Admin Console</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Web Admin Console</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.WebAdminConsole
+     * @generated
+     */
+    EClass getWebAdminConsole ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService <em>Http Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Http Service</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.WebAdminConsole#getHttpService()
+     * @see #getWebAdminConsole()
+     * @generated
+     */
+    EReference getWebAdminConsole_HttpService ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings <em>Oracle VM Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Oracle VM Settings</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.OracleVMSettings
+     * @generated
+     */
+    EClass getOracleVMSettings ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize <em>Initial Heap Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Initial Heap Size</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getInitialHeapSize()
+     * @see #getOracleVMSettings()
+     * @generated
+     */
+    EAttribute getOracleVMSettings_InitialHeapSize ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize <em>Maximum Heap Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Maximum Heap Size</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.OracleVMSettings#getMaximumHeapSize()
+     * @see #getOracleVMSettings()
+     * @generated
+     */
+    EAttribute getOracleVMSettings_MaximumHeapSize ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3741,6 +3877,50 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EClass SETTINGS = eINSTANCE.getSettings ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl <em>Web Admin Console</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getWebAdminConsole()
+         * @generated
+         */
+        EClass WEB_ADMIN_CONSOLE = eINSTANCE.getWebAdminConsole ();
+
+        /**
+         * The meta object literal for the '<em><b>Http Service</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference WEB_ADMIN_CONSOLE__HTTP_SERVICE = eINSTANCE.getWebAdminConsole_HttpService ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl <em>Oracle VM Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.OracleVMSettingsImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getOracleVMSettings()
+         * @generated
+         */
+        EClass ORACLE_VM_SETTINGS = eINSTANCE.getOracleVMSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Initial Heap Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE = eINSTANCE.getOracleVMSettings_InitialHeapSize ();
+
+        /**
+         * The meta object literal for the '<em><b>Maximum Heap Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE = eINSTANCE.getOracleVMSettings_MaximumHeapSize ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.

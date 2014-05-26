@@ -382,6 +382,26 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.WEB_ADMIN_CONSOLE:
+            {
+                WebAdminConsole webAdminConsole = (WebAdminConsole)theEObject;
+                T result = caseWebAdminConsole ( webAdminConsole );
+                if ( result == null )
+                    result = caseModule ( webAdminConsole );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.ORACLE_VM_SETTINGS:
+            {
+                OracleVMSettings oracleVMSettings = (OracleVMSettings)theEObject;
+                T result = caseOracleVMSettings ( oracleVMSettings );
+                if ( result == null )
+                    result = caseModule ( oracleVMSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -815,6 +835,38 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSettings ( Settings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Web Admin Console</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Web Admin Console</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseWebAdminConsole ( WebAdminConsole object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Oracle VM Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Oracle VM Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseOracleVMSettings ( OracleVMSettings object )
     {
         return null;
     }

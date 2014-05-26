@@ -35,19 +35,16 @@ import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
 import org.eclipse.scada.configuration.infrastructure.ExternalNode;
-import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
 import org.eclipse.scada.configuration.infrastructure.MasterServer;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.Options;
-import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.SystemNode;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveServer;
 import org.eclipse.scada.configuration.infrastructure.ValueArchiveSlave;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.lib.ExclusiveGroups;
-import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.recipe.lib.Output;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.ModelLoader;
@@ -69,13 +66,12 @@ import org.eclipse.scada.configuration.world.osgi.DefaultValueArchiveServer;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
 import org.eclipse.scada.configuration.world.osgi.Exporter;
-import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.RestExporter;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfileFactory;
+import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -402,23 +398,14 @@ public class WorldGenerator
 
             for ( final Module m : cfg.getModules () )
             {
-                // FIXME: add extension scheme
-                if ( m instanceof HttpServiceModule )
+
+                final ModuleHandler mh = AdapterHelper.adapt ( m, ModuleHandler.class );
+                if ( mh == null )
                 {
-                    final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
-                    final Endpoint ep = Endpoints.createEndpoint ( ( (HttpServiceModule)m ).getPort (), "HTTP Endpoint" );
-                    final Node node = Nodes.fromApp ( implApp );
-                    node.getEndpoints ().add ( ep );
-                    s.setEndpoint ( ep );
-                    result.add ( s );
+                    throw new IllegalStateException ( String.format ( "Unknown how to process application module: %s", m.getClass ().getName () ) );
                 }
-                else if ( m instanceof RestExporterModule )
-                {
-                    final RestExporter s = OsgiFactory.eINSTANCE.createRestExporter ();
-                    s.setContextId ( ( (RestExporterModule)m ).getContextId () );
-                    s.getHiveProperties ().addAll ( Worlds.convertToProperties ( Worlds.findInterconnectCredentials ( app ) ) );
-                    result.add ( s );
-                }
+
+                mh.process ( m, result, app, implApp );
             }
         }
 

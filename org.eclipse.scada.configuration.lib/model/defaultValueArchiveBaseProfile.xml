@@ -27,14 +27,4 @@
 	<feature>org.eclipse.scada.core.server.feature.group</feature>
 	<feature>org.eclipse.scada.core.client.feature.group</feature>
 	<feature>org.eclipse.scada.core.common.feature.group</feature>
-	
-	<argument>-Xmx192m</argument>
-	<argument>-Xms192m</argument>
-	<argument>-XX:PermSize=64m</argument>
-	<argument>-XX:MaxPermSize=128m</argument>
-	<argument>-XX:+UseParNewGC</argument>
-	<argument>-XX:+UseConcMarkSweepGC</argument>
-	<argument>-XX:+CMSIncrementalMode</argument>
-	<argument>-XX:+CMSParallelRemarkEnabled</argument>
-	
 </profile:profile>

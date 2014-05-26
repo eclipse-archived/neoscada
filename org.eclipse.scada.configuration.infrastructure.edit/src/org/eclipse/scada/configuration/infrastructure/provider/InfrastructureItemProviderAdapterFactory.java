@@ -571,6 +571,56 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected WebAdminConsoleItemProvider webAdminConsoleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createWebAdminConsoleAdapter ()
+    {
+        if ( webAdminConsoleItemProvider == null )
+        {
+            webAdminConsoleItemProvider = new WebAdminConsoleItemProvider ( this );
+        }
+
+        return webAdminConsoleItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected OracleVMSettingsItemProvider oracleVMSettingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.OracleVMSettings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createOracleVMSettingsAdapter ()
+    {
+        if ( oracleVMSettingsItemProvider == null )
+        {
+            oracleVMSettingsItemProvider = new OracleVMSettingsItemProvider ( this );
+        }
+
+        return oracleVMSettingsItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -202,6 +202,24 @@ public interface InfrastructureFactory extends EFactory
     ValueArchiveSlave createValueArchiveSlave ();
 
     /**
+     * Returns a new object of class '<em>Web Admin Console</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Web Admin Console</em>'.
+     * @generated
+     */
+    WebAdminConsole createWebAdminConsole ();
+
+    /**
+     * Returns a new object of class '<em>Oracle VM Settings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Oracle VM Settings</em>'.
+     * @generated
+     */
+    OracleVMSettings createOracleVMSettings ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

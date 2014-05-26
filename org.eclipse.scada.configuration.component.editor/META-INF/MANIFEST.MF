@@ -7,11 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.component.presentation.ComponentEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.component.presentation;version="0.2.0";
-  uses:="org.eclipse.swt.dnd,
-   org.eclipse.jface.viewers,
-   org.eclipse.emf.edit.ui.dnd,
-   org.eclipse.emf.edit.domain"
+Export-Package: org.eclipse.scada.configuration.component.presentation;uses:="org.eclipse.swt.dnd,  org.eclipse.jface.viewers,  org.eclipse.emf.edit.ui.dnd,  org.eclipse.emf.edit.domain";version="0.2.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.scada.configuration.component.edit;visibility:=reexport,

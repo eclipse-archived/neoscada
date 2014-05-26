@@ -129,6 +129,10 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createRestExporterModule ();
             case InfrastructurePackage.VALUE_ARCHIVE_SLAVE:
                 return createValueArchiveSlave ();
+            case InfrastructurePackage.WEB_ADMIN_CONSOLE:
+                return createWebAdminConsole ();
+            case InfrastructurePackage.ORACLE_VM_SETTINGS:
+                return createOracleVMSettings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -405,6 +409,28 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
         valueArchiveSlave.setName ( "hdslave" );
         valueArchiveSlave.setInstanceNumber ( 3 );
         return valueArchiveSlave;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public WebAdminConsole createWebAdminConsole ()
+    {
+        WebAdminConsoleImpl webAdminConsole = new WebAdminConsoleImpl ();
+        return webAdminConsole;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public OracleVMSettings createOracleVMSettings ()
+    {
+        OracleVMSettingsImpl oracleVMSettings = new OracleVMSettingsImpl ();
+        return oracleVMSettings;
     }
 
     /**

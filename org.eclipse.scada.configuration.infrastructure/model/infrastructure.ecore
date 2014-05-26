@@ -264,4 +264,15 @@
       <details key="documentation" value="A base interface for settings.&#xA;&#xA;Settings are, compared to ApplicationConfiguration, not assigned to an application they are running in."/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebAdminConsole" eSuperTypes="#//Module">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="httpService" lowerBound="1"
+        eType="#//HttpServiceModule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OracleVMSettings" eSuperTypes="#//Module">
+    <eAnnotations source="http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup">
+      <details key="groupId" value="oracle.vm.settings"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialHeapSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumHeapSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>
