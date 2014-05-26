@@ -18,6 +18,7 @@ import org.eclipse.rap.rwt.application.Application;
 import org.eclipse.rap.rwt.application.Application.OperationMode;
 import org.eclipse.rap.rwt.application.ApplicationConfiguration;
 import org.eclipse.rap.rwt.client.WebClient;
+import org.eclipse.scada.utils.ui.server.internal.Properties;
 
 public class BasicApplicationConfiguration implements ApplicationConfiguration
 {
@@ -27,9 +28,9 @@ public class BasicApplicationConfiguration implements ApplicationConfiguration
         application.setOperationMode ( OperationMode.SWT_COMPATIBILITY );
 
         final Map<String, String> properties = new HashMap<String, String> ();
-        properties.put ( WebClient.PAGE_TITLE, "Server UI" );
+        properties.put ( WebClient.PAGE_TITLE, System.getProperty ( Properties.PAGE_TITLE, "Server UI" ) );
         application.addStyleSheet ( RWT.DEFAULT_THEME_ID, "theme/theme.css" );
-        application.addEntryPoint ( "/ui", MainEntryPoint.class, properties );
+        application.addEntryPoint ( System.getProperty ( Properties.PAGE_PREFIX, "/ui" ), MainEntryPoint.class, properties );
     }
 
 }

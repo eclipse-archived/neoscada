@@ -75,7 +75,7 @@ public class PageManager
     {
         this.realm = realm;
         this.context = context;
-        this.rootNode = new TreeNode ( realm, "" );
+        this.rootNode = new TreeNode ( realm, "" ); //$NON-NLS-1$
 
         this.pageName = new WritableValue ( realm );
 
@@ -222,7 +222,7 @@ public class PageManager
 
     private void performAddProvider ( final PageProvider provider )
     {
-        logger.debug ( "Adding provider: {}", provider );
+        logger.debug ( "Adding provider: {}", provider ); //$NON-NLS-1$
 
         final TreeNode node = this.rootNode.addEntry ( provider.getName (), getPath ( provider ), provider );
         if ( this.currentNode == null && node != null )

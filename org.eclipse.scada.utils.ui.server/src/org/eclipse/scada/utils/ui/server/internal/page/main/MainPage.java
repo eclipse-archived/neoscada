@@ -12,6 +12,7 @@ package org.eclipse.scada.utils.ui.server.internal.page.main;
 
 import org.eclipse.rap.rwt.RWT;
 import org.eclipse.scada.utils.ui.server.Page;
+import org.eclipse.scada.utils.ui.server.internal.Properties;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -27,7 +28,7 @@ public class MainPage implements Page
         parent.setLayout ( new GridLayout ( 1, false ) );
 
         final Label label = new Label ( parent, SWT.NONE );
-        label.setText ( "Main Page" );
+        label.setText ( System.getProperty ( Properties.MAIN_PAGE_TEXT, "Administration Console" ) );
         label.setData ( RWT.CUSTOM_VARIANT, "mainLabel" );
 
         final GridData gd = new GridData ( SWT.CENTER, SWT.BEGINNING, true, true );

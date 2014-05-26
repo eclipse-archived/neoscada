@@ -12,6 +12,7 @@ package org.eclipse.scada.utils.ui.server.internal.page.main;
 
 import org.eclipse.scada.utils.ui.server.Page;
 import org.eclipse.scada.utils.ui.server.PageProvider;
+import org.eclipse.scada.utils.ui.server.internal.Properties;
 
 public class MainPageProvider implements PageProvider
 {
@@ -19,7 +20,7 @@ public class MainPageProvider implements PageProvider
     @Override
     public String getName ()
     {
-        return "Main";
+        return System.getProperty ( Properties.MAIN_PAGE_LABEL, "Home" );
     }
 
     @Override

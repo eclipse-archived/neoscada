@@ -27,6 +27,7 @@ import org.eclipse.rap.rwt.application.AbstractEntryPoint;
 import org.eclipse.rap.rwt.service.ServerPushSession;
 import org.eclipse.scada.utils.ui.server.internal.FactoryImpl;
 import org.eclipse.scada.utils.ui.server.internal.PageManager;
+import org.eclipse.scada.utils.ui.server.internal.Properties;
 import org.eclipse.scada.utils.ui.server.internal.TreeNode;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
@@ -284,7 +285,7 @@ public class MainEntryPoint extends AbstractEntryPoint
         footer.setBackgroundMode ( SWT.INHERIT_DEFAULT );
 
         final Label label = new Label ( footer, SWT.NONE );
-        label.setText ( "Hello World" );
+        label.setText ( System.getProperty ( Properties.FOOTER_TEXT, "Eclipse SCADA Admin Console" ) );
 
         return footer;
     }
