@@ -28,7 +28,7 @@ location "http://download.eclipse.org/rt/rap/2.2" {
 	org.eclipse.rap.jface.databinding
 }
 
-location "http://download.eclipse.org/tools/orbit/downloads/drops/S20140428023358/repository/" {
+location "http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/" {
 
 /*
  * We do have CQs for specific versions. So we need to fix them.
