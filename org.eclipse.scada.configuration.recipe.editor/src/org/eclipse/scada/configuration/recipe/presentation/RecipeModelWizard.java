@@ -49,7 +49,7 @@ import org.eclipse.scada.configuration.recipe.Definition;
 import org.eclipse.scada.configuration.recipe.RecipeFactory;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
 import org.eclipse.scada.configuration.recipe.provider.RecipeEditPlugin;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;

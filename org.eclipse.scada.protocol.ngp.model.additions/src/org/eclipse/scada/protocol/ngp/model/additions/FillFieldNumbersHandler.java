@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - relocate SelectionHelper
  *******************************************************************************/
 package org.eclipse.scada.protocol.ngp.model.additions;
 
@@ -19,7 +20,7 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.scada.protocol.ngp.model.Protocol.Attribute;
 import org.eclipse.scada.protocol.ngp.model.Protocol.ProtocolPackage;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.ui.IEditorPart;
 
 public class FillFieldNumbersHandler extends AbstractSelectionHandler

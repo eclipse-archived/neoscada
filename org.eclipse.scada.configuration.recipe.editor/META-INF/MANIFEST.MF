@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.recipe.editor;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.recipe.presentation.RecipeEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -42,4 +42,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.ui.databinding
+Import-Package: org.eclipse.scada.ui.utils;version="0.1.0"

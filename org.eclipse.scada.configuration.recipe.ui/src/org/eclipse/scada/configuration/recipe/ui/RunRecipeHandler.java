@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -33,7 +33,7 @@ import org.eclipse.scada.configuration.recipe.lib.Builder;
 import org.eclipse.scada.configuration.recipe.lib.Recipe;
 import org.eclipse.scada.configuration.utils.ModelLoader;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 
 public class RunRecipeHandler extends AbstractSelectionHandler

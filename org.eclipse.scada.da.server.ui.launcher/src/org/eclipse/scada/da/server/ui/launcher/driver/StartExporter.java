@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - relocate selection and adapter helper
  *******************************************************************************/
 package org.eclipse.scada.da.server.ui.launcher.driver;
 
@@ -16,9 +17,9 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.scada.da.server.ui.HivesPlugin;
 import org.eclipse.scada.da.server.ui.launcher.Activator;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
-import org.eclipse.ui.statushandlers.StatusManager;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,11 +36,11 @@ public class StartExporter extends AbstractSelectionHandler
             try
             {
                 HivesPlugin.getDefault ().getServerHost ().startServer ( file );
-                getActivePage ().showView ( "org.eclipse.scada.da.server.ui.ServersView" );
+                getActivePage ().showView ( "org.eclipse.scada.da.server.ui.ServersView" ); //$NON-NLS-1$
             }
             catch ( final Exception e )
             {
-                logger.warn ( "Failed to start file: " + file, e );
+                logger.warn ( "Failed to start file: " + file, e ); //$NON-NLS-1$
                 StatusManager.getManager ().handle ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ), StatusManager.BLOCK );
             }
         }
