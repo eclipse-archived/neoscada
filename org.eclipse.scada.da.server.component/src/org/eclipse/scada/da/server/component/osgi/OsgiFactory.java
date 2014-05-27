@@ -10,8 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.component.osgi;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -77,7 +77,7 @@ public class OsgiFactory
         this.executor.shutdown ();
     }
 
-    private final Map<ServiceReference<ComponentFactory>, ComponentHandle> refMap = new HashMap<> ();
+    private final Map<ServiceReference<ComponentFactory>, ComponentHandle> refMap = new ConcurrentHashMap<> ();
 
     protected ComponentFactory handleAddingService ( final ServiceReference<ComponentFactory> reference, final ComponentFactory service )
     {

@@ -70,7 +70,6 @@ public class Hive extends HiveCommon implements ComponentHost
         setValidatonStrategy ( ValidationStrategy.GRANT_ALL );
 
         setRootFolder ( this.rootFolder );
-
     }
 
     @Override
@@ -138,7 +137,7 @@ public class Hive extends HiveCommon implements ComponentHost
         {
             synchronized ( this )
             {
-                return processRegisterComponent ( prefix, folder, component );
+                return performRegisterComponent ( prefix, folder, component );
             }
         }
         catch ( final Exception e )
@@ -148,7 +147,7 @@ public class Hive extends HiveCommon implements ComponentHost
         }
     }
 
-    private synchronized ComponentHandle processRegisterComponent ( final String[] prefix, final ComponentFolder folder, final Component component )
+    private synchronized ComponentHandle performRegisterComponent ( final String[] prefix, final ComponentFolder folder, final Component component )
     {
         this.rootNode.registerComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), folder, component );
         return new ComponentHandle () {
@@ -156,9 +155,15 @@ public class Hive extends HiveCommon implements ComponentHost
             @Override
             public void unregister ()
             {
-                Hive.this.rootNode.unregisterComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), component );
+                performUnregister ( prefix, component );
             }
+
         };
+    }
+
+    private synchronized void performUnregister ( final String[] prefix, final Component component )
+    {
+        this.rootNode.unregisterComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), component );
     }
 
     @Override
@@ -182,7 +187,7 @@ public class Hive extends HiveCommon implements ComponentHost
     @Override
     public String getHiveId ()
     {
-        return "org.eclipse.scada.da.server.component";
+        return "org.eclipse.scada.da.server.component"; //$NON-NLS-1$
     }
 
 }
