@@ -19,11 +19,10 @@ import org.eclipse.scada.base.extractor.extract.ItemValue;
 import org.eclipse.scada.base.extractor.extract.pattern.FieldSpec;
 import org.eclipse.scada.base.extractor.extract.pattern.MainFieldSpec;
 import org.eclipse.scada.base.extractor.extract.pattern.MultiPatternExtractor;
+import org.eclipse.scada.base.extractor.extract.pattern.MultiPatternExtractor.Fields;
 import org.eclipse.scada.base.extractor.extract.pattern.NumberFieldSpec;
 import org.eclipse.scada.base.extractor.extract.pattern.SinglePatternExtractor;
 import org.eclipse.scada.base.extractor.extract.pattern.ValueFieldDescriptor;
-import org.eclipse.scada.base.extractor.extract.pattern.MultiPatternExtractor.Fields;
-import org.eclipse.scada.base.extractor.input.Data;
 import org.eclipse.scada.base.extractor.input.utils.AbstractExtractTest;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.VariantType;
@@ -154,7 +153,7 @@ public class ExtractTest extends AbstractExtractTest
         expectValue ( values, "value4", Variant.valueOf ( 123.0 ) );
         expectValue ( values, "value5", Variant.TRUE );
 
-        expectMatchState ( values, 1 );
+        expectMatchState ( values, 0 );
 
         test ( ex.processData ( new Data ( "123", null ) ), values, null );
     }
