@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH Corporation and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -10,13 +10,14 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.ui.server.internal.app;
 
+import java.util.Set;
+
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeansObservables;
-import org.eclipse.core.databinding.observable.map.IObservableMap;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.viewers.ObservableListTreeContentProvider;
-import org.eclipse.jface.databinding.viewers.ObservableMapLabelProvider;
-import org.eclipse.jface.viewers.IFontProvider;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -25,16 +26,22 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.rap.rwt.RWT;
 import org.eclipse.rap.rwt.application.AbstractEntryPoint;
 import org.eclipse.rap.rwt.service.ServerPushSession;
+import org.eclipse.scada.ui.utils.status.StatusHelper;
+import org.eclipse.scada.utils.osgi.SingleServiceListener;
+import org.eclipse.scada.utils.osgi.SingleServiceTracker;
 import org.eclipse.scada.utils.ui.server.internal.FactoryImpl;
 import org.eclipse.scada.utils.ui.server.internal.PageManager;
 import org.eclipse.scada.utils.ui.server.internal.Properties;
+import org.eclipse.scada.utils.ui.server.internal.SecurityProvider;
+import org.eclipse.scada.utils.ui.server.internal.Session;
+import org.eclipse.scada.utils.ui.server.internal.SessionListener;
 import org.eclipse.scada.utils.ui.server.internal.TreeNode;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
-import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -42,66 +49,16 @@ import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.ServiceReference;
 
 public class MainEntryPoint extends AbstractEntryPoint
 {
-    private final static class LabelProviderImpl extends ObservableMapLabelProvider implements IFontProvider
-    {
-        private static final long serialVersionUID = 1L;
-
-        private final TreeViewer viewer;
-
-        private final Font font;
-
-        private final Font defaultFont;
-
-        public LabelProviderImpl ( final TreeViewer viewer, final IObservableMap... attributeMaps )
-        {
-            super ( attributeMaps );
-            this.viewer = viewer;
-
-            this.defaultFont = viewer.getControl ().getFont ();
-
-            final FontData[] fds = this.viewer.getControl ().getFont ().getFontData ();
-            for ( final FontData fd : fds )
-            {
-                fd.setStyle ( SWT.ITALIC );
-            }
-            this.font = new Font ( this.viewer.getControl ().getDisplay (), fds );
-        }
-
-        @Override
-        public Font getFont ( final Object element )
-        {
-            final TreeNode node = (TreeNode)element;
-            if ( node.isProviderSet () )
-            {
-                return this.defaultFont;
-            }
-            else
-            {
-                return this.font;
-            }
-        }
-
-        @Override
-        public String getText ( final Object element )
-        {
-            final TreeNode node = (TreeNode)element;
-            return node.getName ();
-        }
-
-        @Override
-        public void dispose ()
-        {
-            super.dispose ();
-            this.font.dispose ();
-        }
-
-    }
+    protected static final String PLUGIN_ID = "org.eclipse.scada.utils.ui.server";
 
     private ObservableListTreeContentProvider treeContentProvider;
 
@@ -116,6 +73,8 @@ public class MainEntryPoint extends AbstractEntryPoint
         }
     };
 
+    private Display display;
+
     private PageManager manager;
 
     private ServerPushSession session;
@@ -128,14 +87,35 @@ public class MainEntryPoint extends AbstractEntryPoint
 
     private boolean handlingEvent;
 
-    @SuppressWarnings ( "unused" )
+    private final SingleServiceListener<SecurityProvider> securityProviderListener = new SingleServiceListener<SecurityProvider> () {
+
+        @Override
+        public void serviceChange ( final ServiceReference<SecurityProvider> reference, final SecurityProvider service )
+        {
+            setSecurityService ( service );
+        }
+    };
+
+    private SingleServiceTracker<SecurityProvider> serviceTracker;
+
+    private SecurityProvider securityProvider;
+
+    private Button logonButton;
+
+    private Button logoutButton;
+
+    private Session userSession;
+
     @Override
     protected void createContents ( final Composite parent )
     {
-        this.dbc = new DataBindingContext ( SWTObservables.getRealm ( parent.getDisplay () ) );
+        this.display = parent.getDisplay ();
+        this.dbc = new DataBindingContext ( SWTObservables.getRealm ( this.display ) );
 
         this.session = new ServerPushSession ();
         this.session.start ();
+
+        this.serviceTracker = new SingleServiceTracker<SecurityProvider> ( FrameworkUtil.getBundle ( MainEntryPoint.class ).getBundleContext (), SecurityProvider.class, this.securityProviderListener );
 
         this.manager = new PageManager ( SWTObservables.getRealm ( parent.getDisplay () ), FrameworkUtil.getBundle ( MainEntryPoint.class ).getBundleContext () );
 
@@ -143,11 +123,10 @@ public class MainEntryPoint extends AbstractEntryPoint
         parent.setLayout ( layout );
 
         final Composite header = createHeader ( parent );
-
         final Composite footer = createFooter ( parent );
 
         final SashForm sash = new SashForm ( parent, SWT.HORIZONTAL );
-        final Composite menu = createMenu ( sash );
+        createMenu ( sash );
         final Composite main = createMain ( sash );
         sash.setWeights ( new int[] { 10, 90 } );
 
@@ -181,6 +160,35 @@ public class MainEntryPoint extends AbstractEntryPoint
         this.manager.setMainArea ( main );
 
         parent.addDisposeListener ( this.disposeListener );
+
+        this.serviceTracker.open ();
+    }
+
+    protected void setSecurityService ( final SecurityProvider service )
+    {
+        if ( this.display.isDisposed () )
+        {
+            return;
+        }
+
+        this.display.asyncExec ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                if ( !MainEntryPoint.this.display.isDisposed () )
+                {
+                    handleSetSecurityService ( service );
+                }
+            }
+        } );
+    }
+
+    protected void handleSetSecurityService ( final SecurityProvider service )
+    {
+        this.securityProvider = service;
+        this.logonButton.setVisible ( this.securityProvider != null );
+        this.logoutButton.setVisible ( this.securityProvider != null );
     }
 
     private Composite createMain ( final Composite parent )
@@ -191,6 +199,11 @@ public class MainEntryPoint extends AbstractEntryPoint
 
     protected void handleDispose ()
     {
+        if ( this.serviceTracker != null )
+        {
+            this.serviceTracker.close ();
+            this.serviceTracker = null;
+        }
         if ( this.session != null )
         {
             this.session.stop ();
@@ -200,6 +213,11 @@ public class MainEntryPoint extends AbstractEntryPoint
         {
             this.manager.dispose ();
             this.manager = null;
+        }
+        if ( this.dbc != null )
+        {
+            this.dbc.dispose ();
+            this.dbc = null;
         }
     }
 
@@ -214,7 +232,7 @@ public class MainEntryPoint extends AbstractEntryPoint
         this.treeContentProvider = new ObservableListTreeContentProvider ( new FactoryImpl (), null );
         this.viewer.setContentProvider ( this.treeContentProvider );
 
-        this.viewer.setLabelProvider ( new LabelProviderImpl ( this.viewer,
+        this.viewer.setLabelProvider ( new TreeNodeLabelProvider ( this.viewer,
                 BeansObservables.observeMap ( this.treeContentProvider.getRealizedElements (), TreeNode.PROP_NAME ),
                 BeansObservables.observeMap ( this.treeContentProvider.getRealizedElements (), TreeNode.PROP_PROVIDER_SET )
                 ) );
@@ -261,18 +279,116 @@ public class MainEntryPoint extends AbstractEntryPoint
     {
         final Composite header = new Composite ( parent, SWT.NONE );
 
-        header.setLayout ( new GridLayout () );
+        header.setLayout ( new GridLayout ( 2, false ) );
 
-        header.setData ( RWT.CUSTOM_VARIANT, "header" );
+        header.setData ( RWT.CUSTOM_VARIANT, "header" ); //$NON-NLS-1$
         header.setBackgroundMode ( SWT.INHERIT_DEFAULT );
 
         this.headerLabel = new Label ( header, SWT.NONE );
         this.headerLabel.setLayoutData ( new GridData ( SWT.FILL, SWT.CENTER, true, true ) );
-        this.headerLabel.setData ( RWT.CUSTOM_VARIANT, "headerLabel" );
+        this.headerLabel.setData ( RWT.CUSTOM_VARIANT, "headerLabel" ); //$NON-NLS-1$
 
         this.dbc.bindValue ( SWTObservables.observeText ( this.headerLabel ), this.manager.getPageName () );
 
+        this.logonButton = new Button ( header, SWT.PUSH );
+        this.logonButton.setVisible ( false );
+        this.logonButton.setText ( "Logon" );
+        this.logonButton.addSelectionListener ( new SelectionAdapter () {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public void widgetSelected ( final SelectionEvent e )
+            {
+                handleLogon ();
+            }
+        } );
+
+        this.logoutButton = new Button ( header, SWT.PUSH );
+        this.logoutButton.setVisible ( false );
+        this.logoutButton.setText ( "Logout" );
+        this.logoutButton.addSelectionListener ( new SelectionAdapter () {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public void widgetSelected ( final SelectionEvent e )
+            {
+                handleLogout ();
+            }
+        } );
+
         return header;
+    }
+
+    protected void handleLogout ()
+    {
+        if ( this.userSession != null )
+        {
+            this.userSession.close ();
+            this.userSession = null;
+        }
+    }
+
+    protected void setSession ( final Session session )
+    {
+        this.userSession = session;
+        this.logonButton.setEnabled ( session == null );
+        this.logoutButton.setEnabled ( session != null );
+    }
+
+    protected void handleLogon ()
+    {
+        this.logonButton.setEnabled ( false );
+
+        this.securityProvider.startLogon ( new SessionListener () {
+
+            @Override
+            public void opened ( final Session session )
+            {
+                if ( !MainEntryPoint.this.display.isDisposed () )
+                {
+                    MainEntryPoint.this.display.asyncExec ( new Runnable () {
+                        @Override
+                        public void run ()
+                        {
+                            setSession ( session );
+                        };
+                    } );
+                }
+            }
+
+            @Override
+            public void permissionsChanged ( final Set<String> added, final Set<String> removed )
+            {
+                // forward to page manager
+            }
+
+            @Override
+            public void closed ( final Throwable e )
+            {
+                if ( !MainEntryPoint.this.display.isDisposed () )
+                {
+                    MainEntryPoint.this.display.asyncExec ( new Runnable () {
+                        @Override
+                        public void run ()
+                        {
+                            sessionClosed ( e );
+                        }
+
+                    } );
+                }
+                // forward to page manager                
+            }
+        } );
+    }
+
+    private void sessionClosed ( final Throwable e )
+    {
+        setSession ( null );
+        if ( e != null )
+        {
+            final IStatus status = StatusHelper.convertStatus ( PLUGIN_ID, e );
+            ErrorDialog.openError ( getShell (), "Session", null, status );
+        }
     }
 
     private Composite createFooter ( final Composite parent )

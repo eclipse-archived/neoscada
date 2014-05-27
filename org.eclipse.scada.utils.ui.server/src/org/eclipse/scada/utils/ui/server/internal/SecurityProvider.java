@@ -10,20 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.ui.server.internal;
 
-import org.eclipse.core.databinding.observable.IObservable;
-import org.eclipse.core.databinding.observable.Observables;
-import org.eclipse.core.databinding.observable.masterdetail.IObservableFactory;
-
-public class FactoryImpl implements IObservableFactory
+public interface SecurityProvider
 {
-
-    @Override
-    public IObservable createObservable ( final Object target )
-    {
-        if ( target instanceof TreeNode )
-        {
-            return Observables.proxyObservableList ( ( (TreeNode)target ).getItems () );
-        }
-        return null;
-    }
+    public void startLogon ( SessionListener listener );
 }
