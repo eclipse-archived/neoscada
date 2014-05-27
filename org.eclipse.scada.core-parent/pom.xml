@@ -149,6 +149,8 @@
 		<module>../org.eclipse.scada.da.server.component</module>
 		<module>../org.eclipse.scada.da.server.component.linux</module>
 		<module>../org.eclipse.scada.da.server.component.parser</module>
+		<module>../org.eclipse.scada.da.server.component.parser.factory</module>
+		<module>../org.eclipse.scada.da.server.component.parser.factory.edit</module>
 		<module>../org.eclipse.scada.da.server.dave</module>
 		<module>../org.eclipse.scada.da.server.exec</module>
 		<module>../org.eclipse.scada.da.server.exec.edit</module>
