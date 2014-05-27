@@ -16,9 +16,6 @@ Export-Package: org.eclipse.scada.base.extractor.extract;version="0.2.0";uses:="
  org.eclipse.scada.base.extractor.transform;version="0.2.0";uses:="org.eclipse.scada.base.extractor.input"
 Import-Package: com.google.common.io;version="12.0.0",
  org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.da.core;version="0.1.0",
- org.eclipse.scada.da.data;version="0.1.0",
  org.eclipse.scada.sec;version="0.1.0",
  org.eclipse.scada.utils;version="0.1.0",
  org.eclipse.scada.utils.concurrent;version="0.1.0",
