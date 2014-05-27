@@ -12,6 +12,8 @@ package org.eclipse.scada.da.server.component.linux;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -20,11 +22,14 @@ import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
+import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator
 {
 
     private ScheduledExecutorService executor;
+
+    private final List<ServiceRegistration<?>> regs = new LinkedList<> ();
 
     @Override
     public void start ( final BundleContext context ) throws Exception
@@ -36,14 +41,21 @@ public class Activator implements BundleActivator
 
     private void addFactory ( final BundleContext context, final ComponentFactory componentFactory )
     {
-        final Dictionary<String, Object> properties = new Hashtable<> ();
+        final Dictionary<String, Object> properties = new Hashtable<> ( 1 );
         properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" ); //$NON-NLS-1$
-        context.registerService ( ComponentFactory.class, componentFactory, properties );
+        this.regs.add ( context.registerService ( ComponentFactory.class, componentFactory, properties ) );
     }
 
     @Override
     public void stop ( final BundleContext context ) throws Exception
     {
+        for ( final ServiceRegistration<?> reg : this.regs )
+        {
+            reg.unregister ();
+        }
+        this.regs.clear ();
+
+        // now shutdown
         this.executor.shutdown ();
     }
 
