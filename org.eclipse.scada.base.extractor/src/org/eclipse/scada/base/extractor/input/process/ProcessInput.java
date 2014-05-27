@@ -48,8 +48,8 @@ public class ProcessInput extends AbstractScheduledInput
         {
             close ( p.getOutputStream () );
 
-            final ReaderThread inputReader = new ReaderThread ( p.getInputStream () );
-            final ReaderThread errorReader = new ReaderThread ( p.getErrorStream () );
+            final CaptureOutputThread inputReader = new CaptureOutputThread ( p.getInputStream () );
+            final CaptureOutputThread errorReader = new CaptureOutputThread ( p.getErrorStream () );
 
             logger.trace ( "Starting readers" );
 

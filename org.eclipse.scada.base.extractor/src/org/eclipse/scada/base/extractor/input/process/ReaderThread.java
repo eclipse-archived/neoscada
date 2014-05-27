@@ -10,17 +10,21 @@
  *******************************************************************************/
 package org.eclipse.scada.base.extractor.input.process;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ReaderThread extends Thread
+/**
+ * A thread that reads content from an input stream
+ */
+public abstract class ReaderThread extends Thread
 {
     private final InputStream stream;
 
-    private ByteArrayOutputStream bos;
+    protected abstract void handleError ( final IOException e );
 
-    private IOException error;
+    protected abstract void handleData ( final byte[] buffer, final int len );
+
+    protected abstract void handleComplete ();
 
     public ReaderThread ( final InputStream stream )
     {
@@ -30,8 +34,6 @@ public class ReaderThread extends Thread
     @Override
     public void run ()
     {
-        this.bos = new ByteArrayOutputStream ();
-
         final byte[] buffer = new byte[4096];
 
         int rc;
@@ -39,12 +41,12 @@ public class ReaderThread extends Thread
         {
             while ( ( rc = this.stream.read ( buffer ) ) > 0 )
             {
-                this.bos.write ( buffer, 0, rc );
+                handleData ( buffer, rc );
             }
         }
         catch ( final IOException e )
         {
-            this.error = e;
+            handleError ( e );
         }
         finally
         {
@@ -57,31 +59,7 @@ public class ReaderThread extends Thread
                 // we don't care much here
             }
         }
-        try
-        {
-            this.bos.close ();
-        }
-        catch ( final IOException e )
-        {
-            // this should never ever happen
-            this.error = e;
-        }
+        handleComplete ();
     }
 
-    public IOException getError ()
-    {
-        return this.error;
-    }
-
-    public byte[] getData ()
-    {
-        if ( this.error == null && this.bos != null )
-        {
-            return this.bos.toByteArray ();
-        }
-        else
-        {
-            return null;
-        }
-    }
 }
