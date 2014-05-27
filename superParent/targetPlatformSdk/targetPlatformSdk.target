@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="1401199868">
+<target name="Eclipse SCADA Target Platform (SDK)" sequenceNumber="1401200591">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
@@ -76,7 +76,17 @@
       <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.scada.sdk" version="0.0.0.0--cLW4VL"/>
+      <unit id="org.eclipse.scada.external.wrapper.feature.group" version="0.2.0.v20140519-1034"/>
+      <unit id="org.eclipse.scada.external.sdk.feature.group" version="0.2.0.v20140519-1028"/>
+      <unit id="org.eclipse.scada.base.sdk.feature.group" version="0.2.0.v20140527-1240"/>
+      <unit id="org.eclipse.scada.protocols.sdk.feature.group" version="0.2.0.v20140513-1552"/>
+      <unit id="org.eclipse.scada.configuration.sdk.feature.group" version="0.2.0.v20140521-1302"/>
+      <unit id="org.eclipse.scada.external.orbit.feature.group" version="0.2.0.v20140527-0923"/>
+      <unit id="org.eclipse.scada.chart.sdk.feature.group" version="0.2.0.v20140507-1102"/>
+      <unit id="org.eclipse.scada.hmi.sdk.feature.group" version="0.2.0.v20140527-1242"/>
+      <unit id="org.eclipse.scada.utils.sdk.feature.group" version="0.2.0.v20140527-1213"/>
+      <unit id="org.eclipse.scada.core.sdk.feature.group" version="0.2.0.v20140527-1240"/>
+      <unit id="org.eclipse.scada.external.feature.group" version="0.2.0.v20140519-1028"/>
       <repository location="http://download.eclipse.org/eclipsescada/updates/nightly/0.2"/>
     </location>
   </locations>
