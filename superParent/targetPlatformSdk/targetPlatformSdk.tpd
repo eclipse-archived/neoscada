@@ -1,0 +1,9 @@
+target "Eclipse SCADA Target Platform (SDK)"
+
+include "../targetPlatform/targetPlatform.tpd"
+
+with source, allEnvironments
+
+location "http://download.eclipse.org/eclipsescada/update/nightly/0.2" {
+	org.eclipse.scada.sdk
+}
