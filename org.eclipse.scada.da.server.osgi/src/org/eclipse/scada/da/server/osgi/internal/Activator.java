@@ -62,6 +62,7 @@ public class Activator implements BundleActivator
 
         properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
         properties.put ( Constants.SERVICE_DESCRIPTION, "A common generic OSGi DA Hive" );
+        properties.put ( "hive.id", this.service.getHiveId () );
 
         this.handle = context.registerService ( Hive.class, this.service, properties );
 

@@ -18,6 +18,7 @@ import org.eclipse.scada.da.server.component.Hive;
 import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator
@@ -38,6 +39,8 @@ public class Activator implements BundleActivator
 
         this.hive.start ();
         final Dictionary<String, Object> properties = new Hashtable<> ();
+        properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
+        properties.put ( "hive.id", this.hive.getHiveId () ); //$NON-NLS-1$
         this.handle = context.registerService ( org.eclipse.scada.da.core.server.Hive.class, this.hive, properties );
     }
 
