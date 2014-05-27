@@ -70,15 +70,3 @@ by <a href="[relative(fileName,authorFile(author))/]" rel="author">[entry.author
 </article>
 [/template]
 
-[query public absolutePermaLink(news:NewsEntry) : String = 
-toAbsolute(permaLink(news))
-/]
-
-[query public permaLink(news : NewsEntry) : String =
-'news/' +
-invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { 'yyyy/MM/dd', news.date })
-+ '/' +
- invoke( 'org.eclipse.scada.web.generator.service.Helper', 'permaEncode(java.lang.String)', Sequence { news.title })
-+ '.html'
-/]
-
