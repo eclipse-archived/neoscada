@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="configuration" nsURI="http://eclipse.org/SCADA/DA/Server/Parser"
+    nsPrefix="parser">
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extractors" upperBound="-1"
+        eType="#//ExtractorDefinition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputDefinition" abstract="true" interface="true">
+    <eOperations name="createInput" lowerBound="1" eType="#//Input">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Input" instanceClassName="org.eclipse.scada.base.extractor.input.Input"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="CreationContext" instanceClassName="org.eclipse.scada.da.server.component.parser.factory.CreationContext"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FileInput" eSuperTypes="#//InputDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExtractorDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createExtractor" lowerBound="1" eType="#//Extractor">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PlainText" eSuperTypes="#//ExtractorDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Extractor" instanceClassName="org.eclipse.scada.base.extractor.extract.Extractor"
+      serializable="false"/>
+</ecore:EPackage>
