@@ -235,6 +235,26 @@
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onDoubleClick"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Dz6A8cmGEeCWJO2tEYL8Sg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_3KJhwOWEEeOFHa_eJ-ipYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onMouseIn"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3KJhweWEEeOFHa_eJ-ipYg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_4UOIMOWEEeOFHa_eJ-ipYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onMouseOut"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_4UOIMeWEEeOFHa_eJ-ipYg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_5CnfQOWEEeOFHa_eJ-ipYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onMouseMove"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_5CnfQeWEEeOFHa_eJ-ipYg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_55p08OWEEeOFHa_eJ-ipYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onMouseHover"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_55p08eWEEeOFHa_eJ-ipYg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_6hbmoOWEEeOFHa_eJ-ipYg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/onMouseDrag"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6hbmoeWEEeOFHa_eJ-ipYg"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_fse_cMmIEeCWJO2tEYL8Sg" type="2001">
         <element xmi:type="ecore:EAttribute" href="VisualInterface.ecore#//Figure/visible"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fse_ccmIEeCWJO2tEYL8Sg"/>

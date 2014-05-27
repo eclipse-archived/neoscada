@@ -74,6 +74,11 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
             addBorderPropertyDescriptor ( object );
             addOpaquePropertyDescriptor ( object );
             addToolTipPropertyDescriptor ( object );
+            addOnMouseInPropertyDescriptor ( object );
+            addOnMouseOutPropertyDescriptor ( object );
+            addOnMouseMovePropertyDescriptor ( object );
+            addOnMouseHoverPropertyDescriptor ( object );
+            addOnMouseDragPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -309,6 +314,121 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
     }
 
     /**
+     * This adds a property descriptor for the On Mouse In feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnMouseInPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Figure_onMouseIn_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseIn_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_IN,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the On Mouse Out feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnMouseOutPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Figure_onMouseOut_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseOut_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_OUT,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the On Mouse Move feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnMouseMovePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Figure_onMouseMove_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseMove_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_MOVE,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the On Mouse Hover feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnMouseHoverPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Figure_onMouseHover_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseHover_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_HOVER,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the On Mouse Drag feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addOnMouseDragPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Figure_onMouseDrag_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Figure_onMouseDrag_feature", "_UI_Figure_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        VisualInterfacePackage.Literals.FIGURE__ON_MOUSE_DRAG,
+                        true,
+                        true,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        getString ( "_UI_handlerPropertyCategory" ), //$NON-NLS-1$
+                        null ) );
+    }
+
+    /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
      * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -391,6 +511,11 @@ public class FigureItemProvider extends ItemProviderAdapter implements IEditingD
             case VisualInterfacePackage.FIGURE__BORDER:
             case VisualInterfacePackage.FIGURE__OPAQUE:
             case VisualInterfacePackage.FIGURE__TOOL_TIP:
+            case VisualInterfacePackage.FIGURE__ON_MOUSE_IN:
+            case VisualInterfacePackage.FIGURE__ON_MOUSE_OUT:
+            case VisualInterfacePackage.FIGURE__ON_MOUSE_MOVE:
+            case VisualInterfacePackage.FIGURE__ON_MOUSE_HOVER:
+            case VisualInterfacePackage.FIGURE__ON_MOUSE_DRAG:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case VisualInterfacePackage.FIGURE__SIZE:
