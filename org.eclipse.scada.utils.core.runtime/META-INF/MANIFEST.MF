@@ -5,5 +5,5 @@ Bundle-SymbolicName: org.eclipse.scada.utils.core.runtime
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: org.eclipse.core.runtime;version="3.4.0"
+Import-Package: org.eclipse.core.runtime
 Export-Package: org.eclipse.scada.utils.core.runtime;version="0.2.0"
