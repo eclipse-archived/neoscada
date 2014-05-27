@@ -23,7 +23,6 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator
 {
-
     private Hive hive;
 
     private ServiceRegistration<org.eclipse.scada.da.core.server.Hive> handle;
@@ -33,7 +32,7 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.executor = new ExportedExecutorService ( "org.eclipse.scada.da.server.component", 1, 1, 1, TimeUnit.MINUTES );
+        this.executor = new ExportedExecutorService ( "org.eclipse.scada.da.server.component", 1, 1, 1, TimeUnit.MINUTES ); //$NON-NLS-1$
 
         this.hive = new Hive ( context, this.executor );
 
