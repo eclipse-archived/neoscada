@@ -24,7 +24,7 @@ public abstract class AbstractServiceConfigurationFactory<T> implements Configur
 
     private final Map<String, Entry<T>> services = new HashMap<String, Entry<T>> ();
 
-    private final BundleContext context;
+    protected final BundleContext context;
 
     private final boolean canOnlyRecreate;
 
@@ -95,8 +95,8 @@ public abstract class AbstractServiceConfigurationFactory<T> implements Configur
     {
         for ( final Entry<T> entry : this.services.values () )
         {
-            disposeService ( null, entry.getId (), entry.getService () );
             unregisterService ( entry );
+            disposeService ( null, entry.getId (), entry.getService () );
         }
         this.services.clear ();
     }
@@ -122,8 +122,8 @@ public abstract class AbstractServiceConfigurationFactory<T> implements Configur
         final Entry<T> entry = this.services.remove ( configurationId );
         if ( entry != null )
         {
-            disposeService ( userInformation, configurationId, entry.getService () );
             unregisterService ( entry );
+            disposeService ( userInformation, configurationId, entry.getService () );
         }
     }
 
@@ -143,8 +143,8 @@ public abstract class AbstractServiceConfigurationFactory<T> implements Configur
             if ( newEntry != null && newEntry != entry )
             {
                 // replace with the new entry
-                disposeService ( userInformation, configurationId, entry.getService () );
                 unregisterService ( entry );
+                disposeService ( userInformation, configurationId, entry.getService () );
                 this.services.put ( configurationId, newEntry );
             }
         }
