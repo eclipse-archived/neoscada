@@ -11,12 +11,12 @@
 package org.eclipse.scada.da.server.component;
 
 import java.util.EnumSet;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.data.IODirection;
+import org.eclipse.scada.da.server.browser.common.query.ItemDescriptor;
 import org.eclipse.scada.da.server.browser.common.query.ItemStorage;
 import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
@@ -30,7 +30,7 @@ public class ComponentItemFactory
 
     private final String prefix;
 
-    private final Set<org.eclipse.scada.da.server.browser.common.query.ItemDescriptor> items = new HashSet<> ();
+    private final Map<String, org.eclipse.scada.da.server.browser.common.query.ItemDescriptor> items = new HashMap<> ();
 
     public ComponentItemFactory ( final Hive hive, final ItemStorage storage, final String prefix )
     {
@@ -41,7 +41,7 @@ public class ComponentItemFactory
 
     public void dispose ()
     {
-        for ( final org.eclipse.scada.da.server.browser.common.query.ItemDescriptor desc : this.items )
+        for ( final org.eclipse.scada.da.server.browser.common.query.ItemDescriptor desc : this.items.values () )
         {
             this.storage.removed ( desc );
             this.hive.unregisterItem ( desc.getItem () );
@@ -57,7 +57,7 @@ public class ComponentItemFactory
         this.hive.registerItem ( item );
         this.storage.added ( desc );
 
-        this.items.add ( desc );
+        this.items.put ( localId, desc );
 
         return item;
     }
@@ -65,5 +65,17 @@ public class ComponentItemFactory
     private String makeId ( final String id )
     {
         return this.prefix + "." + id;
+    }
+
+    public void disposeItem ( final String localId )
+    {
+        final ItemDescriptor desc = this.items.remove ( localId );
+        if ( desc == null )
+        {
+            return;
+        }
+
+        this.hive.unregisterItem ( desc.getItem () );
+        this.storage.removed ( desc );
     }
 }

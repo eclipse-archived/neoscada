@@ -18,12 +18,13 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 
 import org.eclipse.scada.base.extractor.extract.Extractor;
+import org.eclipse.scada.base.extractor.extract.Extractor.Result;
 import org.eclipse.scada.base.extractor.extract.ItemDescriptor;
 import org.eclipse.scada.base.extractor.extract.ItemValue;
-import org.eclipse.scada.base.extractor.extract.Extractor.Result;
 import org.eclipse.scada.base.extractor.input.Data;
 import org.eclipse.scada.base.extractor.input.Input;
 import org.eclipse.scada.base.extractor.input.Input.Listener;
+import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.browser.common.query.GroupFolder;
 import org.eclipse.scada.da.server.browser.common.query.IDNameProvider;
@@ -35,6 +36,7 @@ import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.component.Component;
 import org.eclipse.scada.da.server.component.ComponentItemFactory;
 import org.eclipse.scada.da.server.component.Hive;
+import org.eclipse.scada.utils.ExceptionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -80,7 +82,7 @@ public abstract class ParserComponent extends Component
         } );
     }
 
-    protected void processResult ( final Result result, final String prefix )
+    protected synchronized void processResult ( final Result result, final String prefix )
     {
         if ( result.getError () != null || result.getItemValues () == null )
         {
@@ -96,11 +98,21 @@ public abstract class ParserComponent extends Component
 
     private void setError ( final String prefix, final Throwable throwable )
     {
-        // setItem = ExceptionHelper.formatted ( throwable );
+        final Map<String, Variant> attributes = new HashMap<> ();
+        attributes.put ( "parser.error", Variant.TRUE );
+        attributes.put ( "parser.error.message", Variant.valueOf ( ExceptionHelper.extractMessage ( throwable ) ) );
+        attributes.put ( "timestamp", Variant.valueOf ( System.currentTimeMillis () ) );
+
+        for ( final DataItemInputChained item : this.itemCache.values () )
+        {
+            item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
+        }
     }
 
     private void setValues ( final String prefix, final Map<ItemDescriptor, ItemValue> itemValues )
     {
+        final Set<String> keys = new HashSet<> ( this.itemCache.keySet () );
+
         for ( final Map.Entry<ItemDescriptor, ItemValue> entry : itemValues.entrySet () )
         {
             final String localId = makeId ( prefix, entry.getKey ().getLocalId () );
@@ -109,8 +121,30 @@ public abstract class ParserComponent extends Component
             {
                 item = createItem ( prefix, entry.getKey () );
             }
+            else
+            {
+                keys.remove ( localId );
+            }
             item.updateData ( entry.getValue ().getValue (), entry.getValue ().getAttributes (), AttributeMode.SET );
         }
+
+        // remove remaining items
+        for ( final String remove : keys )
+        {
+            disposeItem ( remove );
+        }
+    }
+
+    private void disposeItem ( final String localId )
+    {
+        final DataItemInputChained item = this.itemCache.remove ( localId );
+        if ( item == null )
+        {
+            return;
+        }
+
+        this.storage.removed ( new org.eclipse.scada.da.server.browser.common.query.ItemDescriptor ( item, null ) );
+        this.itemFactory.disposeItem ( localId );
     }
 
     private DataItemInputChained createItem ( final String prefix, final ItemDescriptor descriptor )
