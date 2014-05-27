@@ -1397,16 +1397,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__SHORT_DESCRIPTION = WorldPackage.NAMED_DOCUMENTABLE__SHORT_DESCRIPTION;
-
-    /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int MAPPED_SOURCE_VALUE__NAME = WorldPackage.NAMED_DOCUMENTABLE__NAME;
+    int MAPPED_SOURCE_VALUE__SHORT_DESCRIPTION = SINGLE_VALUE__SHORT_DESCRIPTION;
 
     /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
@@ -1415,7 +1406,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__LEVEL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 0;
+    int MAPPED_SOURCE_VALUE__LEVEL = SINGLE_VALUE__LEVEL;
 
     /**
      * The feature id for the '<em><b>Customization Pipeline</b></em>' reference.
@@ -1424,7 +1415,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_PIPELINE = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
+    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_PIPELINE = SINGLE_VALUE__CUSTOMIZATION_PIPELINE;
 
     /**
      * The feature id for the '<em><b>Archive Selector</b></em>' reference.
@@ -1433,7 +1424,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
+    int MAPPED_SOURCE_VALUE__ARCHIVE_SELECTOR = SINGLE_VALUE__ARCHIVE_SELECTOR;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -1442,7 +1433,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__PROPERTIES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+    int MAPPED_SOURCE_VALUE__PROPERTIES = SINGLE_VALUE__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -1451,25 +1442,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
+    int MAPPED_SOURCE_VALUE__MASTER_ON = SINGLE_VALUE__MASTER_ON;
 
     /**
-     * The feature id for the '<em><b>Mapper</b></em>' reference.
+     * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__MAPPER = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+    int MAPPED_SOURCE_VALUE__NAME = SINGLE_VALUE__NAME;
 
     /**
-     * The feature id for the '<em><b>Input</b></em>' containment reference.
+     * The feature id for the '<em><b>Data Type</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__INPUT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 6;
+    int MAPPED_SOURCE_VALUE__DATA_TYPE = SINGLE_VALUE__DATA_TYPE;
 
     /**
      * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
@@ -1478,7 +1469,25 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 7;
+    int MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = SINGLE_VALUE__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Mapper</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__MAPPER = SINGLE_VALUE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Input</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPED_SOURCE_VALUE__INPUT = SINGLE_VALUE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Mapped Source Value</em>' class.
@@ -1487,7 +1496,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 8;
+    int MAPPED_SOURCE_VALUE_FEATURE_COUNT = SINGLE_VALUE_FEATURE_COUNT + 2;
 
     /**
      * The operation id for the '<em>Get Master On</em>' operation.
@@ -1496,7 +1505,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE___GET_MASTER_ON = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 0;
+    int MAPPED_SOURCE_VALUE___GET_MASTER_ON = SINGLE_VALUE___GET_MASTER_ON;
 
     /**
      * The number of operations of the '<em>Mapped Source Value</em>' class.
@@ -1505,7 +1514,7 @@ public interface ComponentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MAPPED_SOURCE_VALUE_OPERATION_COUNT = WorldPackage.NAMED_DOCUMENTABLE_OPERATION_COUNT + 1;
+    int MAPPED_SOURCE_VALUE_OPERATION_COUNT = SINGLE_VALUE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl <em>Calculation Component</em>}' class.
@@ -3884,17 +3893,6 @@ public interface ComponentPackage extends EPackage
     EReference getMappedSourceValue_Input ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.component.MappedSourceValue#getCustomizationTags <em>Customization Tags</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Customization Tags</em>'.
-     * @see org.eclipse.scada.configuration.component.MappedSourceValue#getCustomizationTags()
-     * @see #getMappedSourceValue()
-     * @generated
-     */
-    EAttribute getMappedSourceValue_CustomizationTags ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.CalculationComponent <em>Calculation Component</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5263,14 +5261,6 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EReference MAPPED_SOURCE_VALUE__INPUT = eINSTANCE.getMappedSourceValue_Input ();
-
-        /**
-         * The meta object literal for the '<em><b>Customization Tags</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS = eINSTANCE.getMappedSourceValue_CustomizationTags ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.CalculationComponentImpl <em>Calculation Component</em>}' class.

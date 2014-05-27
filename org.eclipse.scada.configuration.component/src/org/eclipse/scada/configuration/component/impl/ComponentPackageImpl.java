@@ -889,16 +889,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getMappedSourceValue_CustomizationTags ()
-    {
-        return (EAttribute)mappedSourceValueEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EClass getCalculationComponent ()
     {
         return calculationComponentEClass;
@@ -1884,7 +1874,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         mappedSourceValueEClass = createEClass ( MAPPED_SOURCE_VALUE );
         createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__MAPPER );
         createEReference ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__INPUT );
-        createEAttribute ( mappedSourceValueEClass, MAPPED_SOURCE_VALUE__CUSTOMIZATION_TAGS );
 
         calculationComponentEClass = createEClass ( CALCULATION_COMPONENT );
         createEReference ( calculationComponentEClass, CALCULATION_COMPONENT__IMPLEMENTATION );
@@ -2053,8 +2042,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         singleValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
         dataMapperAnalyzerEClass.getESuperTypes ().add ( this.getMasterComponent () );
         dataMapperServiceEClass.getESuperTypes ().add ( this.getService () );
-        mappedSourceValueEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
-        mappedSourceValueEClass.getESuperTypes ().add ( this.getMasterComponent () );
+        mappedSourceValueEClass.getESuperTypes ().add ( this.getSingleValue () );
         calculationComponentEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         calculationComponentEClass.getESuperTypes ().add ( this.getMasterComponent () );
         calculationModuleEClass.getESuperTypes ().add ( this.getService () );
@@ -2139,7 +2127,6 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEClass ( mappedSourceValueEClass, MappedSourceValue.class, "MappedSourceValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getMappedSourceValue_Mapper (), this.getDataMapperService (), null, "mapper", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getMappedSourceValue_Input (), this.getInputDefinition (), null, "input", null, 1, 1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getMappedSourceValue_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, MappedSourceValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( calculationComponentEClass, CalculationComponent.class, "CalculationComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCalculationComponent_Implementation (), this.getCalculationModule (), null, "implementation", null, 1, 1, CalculationComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

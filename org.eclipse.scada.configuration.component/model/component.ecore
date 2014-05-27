@@ -78,13 +78,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="masterOn" upperBound="-1"
         eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//MasterComponent">
+  <eClassifiers xsi:type="ecore:EClass" name="MappedSourceValue" eSuperTypes="#//SingleValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapper" lowerBound="1"
         eType="#//DataMapperService"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//InputDefinition"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="customizationTags" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalculationComponent" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable #//MasterComponent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"

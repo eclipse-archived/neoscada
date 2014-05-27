@@ -11,10 +11,7 @@
  */
 package org.eclipse.scada.configuration.component.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
-
 import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 
@@ -24,16 +21,8 @@ import org.eclipse.scada.configuration.component.MappedSourceValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MappedSourceValueTest extends TestCase
+public class MappedSourceValueTest extends SingleValueTest
 {
-
-    /**
-     * The fixture for this Mapped Source Value test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected MappedSourceValue fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -57,25 +46,15 @@ public class MappedSourceValueTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Mapped Source Value test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( MappedSourceValue fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Mapped Source Value test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected MappedSourceValue getFixture ()
     {
-        return fixture;
+        return (MappedSourceValue)fixture;
     }
 
     /**

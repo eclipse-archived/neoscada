@@ -305,7 +305,7 @@ public class ComponentSwitch<T> extends Switch<T>
                 MappedSourceValue mappedSourceValue = (MappedSourceValue)theEObject;
                 T result = caseMappedSourceValue ( mappedSourceValue );
                 if ( result == null )
-                    result = caseNamedDocumentable ( mappedSourceValue );
+                    result = caseSingleValue ( mappedSourceValue );
                 if ( result == null )
                     result = caseMasterComponent ( mappedSourceValue );
                 if ( result == null )
