@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Parser Server Unit Tests (Incubation)
-Bundle-SymbolicName: org.eclipse.scada.base.extractor.tests
+Bundle-SymbolicName: org.eclipse.scada.base.extractor.test
 Bundle-Version: 0.2.0.qualifier
 Fragment-Host: org.eclipse.scada.base.extractor;bundle-version="0.2.0.qualifier"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
