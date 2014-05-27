@@ -43,6 +43,9 @@
 		<module>../org.eclipse.scada.ui.utils.feature</module>
 
 		<module>../org.eclipse.scada.utils</module>
+		
+		<module>../org.eclipse.scada.utils.core.runtime</module>
+		
 		<module>../org.eclipse.scada.utils.filter</module>
 		<module>../org.eclipse.scada.utils.osgi</module>
 		<module>../org.eclipse.scada.utils.osgi.autostart</module>

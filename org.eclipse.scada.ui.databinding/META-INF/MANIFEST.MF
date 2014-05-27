@@ -2,19 +2,39 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.ui.databinding
-Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.eclipse.scada.ui.databinding.Activator
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: %Bundle-Vendor
-Export-Package: org.eclipse.scada.ui.databinding;version="0.1.0",
- org.eclipse.scada.ui.databinding.cell;version="0.1.0",
- org.eclipse.scada.ui.databinding.observable;version="0.1.0"
+Export-Package: org.eclipse.scada.ui.databinding;version="0.2.0";
+  uses:="org.eclipse.ui.navigator,
+   org.eclipse.ui,
+   org.eclipse.ui.plugin,
+   org.eclipse.core.commands,
+   org.eclipse.core.databinding.observable.set,
+   org.eclipse.core.databinding.property.value,
+   org.eclipse.core.databinding.observable.map,
+   org.eclipse.swt.graphics,
+   org.eclipse.jface.viewers,
+   org.osgi.framework,
+   org.eclipse.swt.widgets",
+ org.eclipse.scada.ui.databinding.cell;version="0.2.0";
+  uses:="org.eclipse.core.databinding,
+   org.eclipse.core.databinding.property.value,
+   org.eclipse.core.databinding.observable.value,
+   org.eclipse.jface.viewers,
+   org.eclipse.jface.databinding.viewers",
+ org.eclipse.scada.ui.databinding.observable;version="0.2.0";
+  uses:="org.eclipse.core.databinding.observable.map,
+   org.eclipse.core.databinding.observable.value,
+   org.eclipse.jface.viewers,
+   org.eclipse.core.databinding.observable.list"
 Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
  org.eclipse.core.runtime;bundle-version="3.5.0",
  org.eclipse.core.databinding;bundle-version="1.2.0",
  org.eclipse.ui.navigator;bundle-version="3.4.0",
  org.eclipse.jface.databinding;bundle-version="1.3.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.core.databinding.property.value,
+ org.eclipse.scada.utils.core.runtime;version="0.2.0",
  org.eclipse.scada.utils.str;version="0.1.0",
  org.slf4j;version="1.5.0"
 Bundle-ActivationPolicy: lazy

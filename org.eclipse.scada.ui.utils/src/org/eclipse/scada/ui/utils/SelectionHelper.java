@@ -7,9 +7,9 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - move to org.eclipse.scada.ui.utils
+ *     IBH SYSTEMS GmbH - move to org.eclipse.scada.ui.utils 
  *******************************************************************************/
-package org.eclipse.scada.ui.databinding;
+package org.eclipse.scada.ui.utils;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,12 +19,12 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
-/**
- * @deprecated Use {@link org.eclipse.scada.ui.utils.SelectionHelper} instead.
- */
-@Deprecated
-public class SelectionHelper
+public final class SelectionHelper
 {
+
+    private SelectionHelper ()
+    {
+    }
 
     /**
      * Create an iterator that iterates only over objects in the selection of

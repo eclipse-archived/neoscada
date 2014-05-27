@@ -7,22 +7,21 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - deprecated and moved to
- *          org.eclipse.scada.utils.core.runtime
+ *     IBH SYSTEMS GmbG - moved to org.eclipse.scada.utils.core.runtime
  *******************************************************************************/
-package org.eclipse.scada.ui.databinding;
+package org.eclipse.scada.utils.core.runtime;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IAdapterManager;
 import org.eclipse.core.runtime.Platform;
 
-/**
- * @deprecated use {@link org.eclipse.scada.utils.core.runtime.AdapterHelper}
- *             instead.
- */
-@Deprecated
-public class AdapterHelper
+public final class AdapterHelper
 {
+
+    private AdapterHelper ()
+    {
+    }
+
     /**
      * Adapt an object to the requested target class if possible
      * <p>
@@ -60,7 +59,6 @@ public class AdapterHelper
      * <q>load</q> is <code>true</code></li>
      * </p>
      * 
-     * @since 1.2
      * @param target
      *            the object to convert
      * @param adapterClass
