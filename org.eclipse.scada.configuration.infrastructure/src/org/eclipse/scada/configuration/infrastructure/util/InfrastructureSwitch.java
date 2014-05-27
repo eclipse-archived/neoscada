@@ -402,6 +402,16 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.GENERIC_VM_SETTINGS:
+            {
+                GenericVMSettings genericVMSettings = (GenericVMSettings)theEObject;
+                T result = caseGenericVMSettings ( genericVMSettings );
+                if ( result == null )
+                    result = caseModule ( genericVMSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -867,6 +877,22 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseOracleVMSettings ( OracleVMSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic VM Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic VM Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericVMSettings ( GenericVMSettings object )
     {
         return null;
     }

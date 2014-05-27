@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
 import org.eclipse.scada.configuration.infrastructure.ExternalNode;
+import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
 import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
@@ -265,6 +266,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass oracleVMSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass genericVMSettingsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1437,6 +1445,26 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getGenericVMSettings ()
+    {
+        return genericVMSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGenericVMSettings_Arguments ()
+    {
+        return (EAttribute)genericVMSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getSlaveStorageLayout ()
     {
@@ -1604,6 +1632,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEAttribute ( oracleVMSettingsEClass, ORACLE_VM_SETTINGS__INITIAL_HEAP_SIZE );
         createEAttribute ( oracleVMSettingsEClass, ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE );
 
+        genericVMSettingsEClass = createEClass ( GENERIC_VM_SETTINGS );
+        createEAttribute ( genericVMSettingsEClass, GENERIC_VM_SETTINGS__ARGUMENTS );
+
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
     }
@@ -1665,6 +1696,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         valueArchiveSlaveEClass.getESuperTypes ().add ( this.getEquinoxApplication () );
         webAdminConsoleEClass.getESuperTypes ().add ( this.getModule () );
         oracleVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
+        genericVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1795,6 +1827,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEClass ( oracleVMSettingsEClass, OracleVMSettings.class, "OracleVMSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getOracleVMSettings_InitialHeapSize (), ecorePackage.getEString (), "initialHeapSize", null, 0, 1, OracleVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getOracleVMSettings_MaximumHeapSize (), ecorePackage.getEString (), "maximumHeapSize", null, 0, 1, OracleVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( genericVMSettingsEClass, GenericVMSettings.class, "GenericVMSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getGenericVMSettings_Arguments (), ecorePackage.getEString (), "arguments", null, 0, -1, GenericVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$

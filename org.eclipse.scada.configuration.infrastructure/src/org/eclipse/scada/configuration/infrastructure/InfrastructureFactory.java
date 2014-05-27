@@ -220,6 +220,15 @@ public interface InfrastructureFactory extends EFactory
     OracleVMSettings createOracleVMSettings ();
 
     /**
+     * Returns a new object of class '<em>Generic VM Settings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Generic VM Settings</em>'.
+     * @generated
+     */
+    GenericVMSettings createGenericVMSettings ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

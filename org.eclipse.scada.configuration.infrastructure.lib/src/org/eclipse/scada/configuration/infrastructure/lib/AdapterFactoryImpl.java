@@ -11,10 +11,12 @@
 package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.core.runtime.IAdapterFactory;
+import org.eclipse.scada.configuration.infrastructure.GenericVMSettings;
 import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.OracleVMSettings;
 import org.eclipse.scada.configuration.infrastructure.RestExporterModule;
 import org.eclipse.scada.configuration.infrastructure.WebAdminConsole;
+import org.eclipse.scada.configuration.infrastructure.lib.internal.GenericVMSettingsModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.HttpServiceModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.OracleVMSettingsModuleHandler;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.RestExporterModuleHandler;
@@ -47,6 +49,10 @@ public class AdapterFactoryImpl implements IAdapterFactory
         else if ( adaptableObject instanceof OracleVMSettings )
         {
             return new OracleVMSettingsModuleHandler ();
+        }
+        else if ( adaptableObject instanceof GenericVMSettings )
+        {
+            return new GenericVMSettingsModuleHandler ();
         }
         return null;
     }

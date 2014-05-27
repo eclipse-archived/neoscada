@@ -1950,6 +1950,43 @@ public interface InfrastructurePackage extends EPackage
     int ORACLE_VM_SETTINGS_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.GenericVMSettingsImpl <em>Generic VM Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.infrastructure.impl.GenericVMSettingsImpl
+     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getGenericVMSettings()
+     * @generated
+     */
+    int GENERIC_VM_SETTINGS = 29;
+
+    /**
+     * The feature id for the '<em><b>Arguments</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_VM_SETTINGS__ARGUMENTS = MODULE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Generic VM Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_VM_SETTINGS_FEATURE_COUNT = MODULE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Generic VM Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_VM_SETTINGS_OPERATION_COUNT = MODULE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1957,7 +1994,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
      * @generated
      */
-    int SLAVE_STORAGE_LAYOUT = 29;
+    int SLAVE_STORAGE_LAYOUT = 30;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -3031,6 +3068,27 @@ public interface InfrastructurePackage extends EPackage
     EAttribute getOracleVMSettings_MaximumHeapSize ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.GenericVMSettings <em>Generic VM Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Generic VM Settings</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.GenericVMSettings
+     * @generated
+     */
+    EClass getGenericVMSettings ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.infrastructure.GenericVMSettings#getArguments <em>Arguments</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Arguments</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.GenericVMSettings#getArguments()
+     * @see #getGenericVMSettings()
+     * @generated
+     */
+    EAttribute getGenericVMSettings_Arguments ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3921,6 +3979,24 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EAttribute ORACLE_VM_SETTINGS__MAXIMUM_HEAP_SIZE = eINSTANCE.getOracleVMSettings_MaximumHeapSize ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.GenericVMSettingsImpl <em>Generic VM Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.infrastructure.impl.GenericVMSettingsImpl
+         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getGenericVMSettings()
+         * @generated
+         */
+        EClass GENERIC_VM_SETTINGS = eINSTANCE.getGenericVMSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Arguments</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERIC_VM_SETTINGS__ARGUMENTS = eINSTANCE.getGenericVMSettings_Arguments ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.SlaveStorageLayout <em>Slave Storage Layout</em>}' enum.

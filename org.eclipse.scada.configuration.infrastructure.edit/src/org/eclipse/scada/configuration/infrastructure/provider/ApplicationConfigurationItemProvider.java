@@ -247,6 +247,11 @@ public class ApplicationConfigurationItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__MODULES,
+                        InfrastructureFactory.eINSTANCE.createGenericVMSettings () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createEventStorageJdbc () ) );
 

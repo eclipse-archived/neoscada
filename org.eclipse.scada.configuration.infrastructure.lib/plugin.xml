@@ -32,6 +32,13 @@
                type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
          </adapter>
       </factory>
+      <factory
+            adaptableType="org.eclipse.scada.configuration.infrastructure.GenericVMSettings"
+            class="org.eclipse.scada.configuration.infrastructure.lib.AdapterFactoryImpl">
+         <adapter
+               type="org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler">
+         </adapter>
+      </factory>
    </extension>
 
 </plugin>
