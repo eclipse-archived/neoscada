@@ -2,23 +2,23 @@
 <aggregator:Aggregation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:aggregator="http://www.eclipse.org/b3/2011/aggregator/1.1.0" buildmaster="//@contacts[email='jens.reimann@ibh-systems.com']" label="Eclipse SCADA @version@ @buildTypeLong@ Repository (Incubation)" allowLegacySites="false">
   <validationSets label="Validation Set">
     <contributions label="Eclipse SCADA" contacts="//@contacts[email='jens.reimann@ibh-systems.com']">
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.external-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.external.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.external.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.external.orbit.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.external.wrapper.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.utils-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.license.feature.group"/>
         <features name="org.eclipse.scada.utils.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.utils.feature.group"/>
         <features name="org.eclipse.scada.ui.utils.feature.group"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.base-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.base.feature.group"/>
         <features name="org.eclipse.scada.base.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.core-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.core.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.core.common.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
         <features name="org.eclipse.scada.core.client.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
@@ -27,16 +27,16 @@
         <features name="org.eclipse.scada.core.protocols.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
         <features name="org.eclipse.scada.core.feature.group"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.chart-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.chart-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.chart.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.chart.feature.group"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.hmi-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.hmi.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.hmi.feature.group"/>
         <features name="org.eclipse.scada.vi.editors.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.ide']"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.ide-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.ide-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.configuration.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.ide.protocol.ngp.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.dev']"/>
         <features name="org.eclipse.scada.ide.da.server.ui.feature.group"/>
@@ -45,12 +45,12 @@
         <features name="org.eclipse.scada.configuration.doc.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.ide']"/>
         <features name="org.eclipse.scada.configuration.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.ide']"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.protocols-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.protocols.sdk.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.sdk']"/>
         <features name="org.eclipse.scada.protocols.editors.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.dev']"/>
         <features name="org.eclipse.scada.protocols.feature.group"/>
       </repositories>
-      <repositories location="https://hudson.eclipse.org/scada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/p2/">
+      <repositories location="https://hudson.eclipse.org/eclipsescada/job/org.eclipse.scada.deploy-master/lastSuccessfulBuild/artifact/output/p2/">
         <features name="org.eclipse.scada.deploy.console.feature.group" categories="//@customCategories[identifier='org.eclipse.scada.server.runtime']"/>
       </repositories>
     </contributions>
