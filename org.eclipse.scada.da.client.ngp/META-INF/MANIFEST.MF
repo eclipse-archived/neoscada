@@ -5,7 +5,21 @@ Bundle-SymbolicName: org.eclipse.scada.da.client.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.client.ngp.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.da.client.ngp;version="0.1.0"
+Export-Package: org.eclipse.scada.da.client.ngp;version="0.2.0";
+  uses:="org.eclipse.scada.utils.concurrent,
+   org.eclipse.scada.core.client.ngp,
+   org.eclipse.scada.core,
+   org.eclipse.scada.sec.callback,
+   org.eclipse.scada.da.client,
+   org.eclipse.scada.core.client,
+   org.apache.mina.transport.socket,
+   org.eclipse.scada.core.data,
+   org.eclipse.scada.da.core",
+ org.eclipse.scada.da.client.ngp.internal;version="0.2.0";
+  uses:="org.eclipse.scada.da.data,
+   org.eclipse.scada.da.core.browser,
+   org.osgi.framework,
+   org.eclipse.scada.core.client";x-friends:="org.eclipse.scada.da.ui.connection.creator.ngp"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
  org.apache.mina.core.service;version="[2.0.7,3.0.0)",

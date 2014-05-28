@@ -15,6 +15,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
+import org.eclipse.scada.core.client.DriverFactory;
 import org.eclipse.scada.da.client.ngp.DriverFactoryImpl;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -28,6 +29,8 @@ import org.osgi.framework.ServiceRegistration;
  */
 public class Activator implements BundleActivator
 {
+    private static Activator instance;
+
     private org.eclipse.scada.core.client.DriverFactory factory;
 
     private ServiceRegistration<org.eclipse.scada.core.client.DriverFactory> handle;
@@ -37,6 +40,8 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
+        Activator.instance = this;
+
         if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedConnector" ) )
         {
             this.connector = new NioSocketConnector ();
@@ -51,6 +56,11 @@ public class Activator implements BundleActivator
         this.handle = context.registerService ( org.eclipse.scada.core.client.DriverFactory.class, this.factory, properties );
     }
 
+    public static DriverFactory getDriverFactory ()
+    {
+        return Activator.instance.factory;
+    }
+
     @Override
     public void stop ( final BundleContext context ) throws Exception
     {
@@ -60,6 +70,7 @@ public class Activator implements BundleActivator
             this.connector.dispose ();
         }
         this.factory = null;
+        Activator.instance = null;
     }
 
 }

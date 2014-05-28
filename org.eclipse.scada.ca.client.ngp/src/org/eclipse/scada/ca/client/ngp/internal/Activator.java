@@ -24,12 +24,7 @@ import org.osgi.framework.ServiceRegistration;
 
 public class Activator implements BundleActivator
 {
-    private static BundleContext context;
-
-    static BundleContext getContext ()
-    {
-        return context;
-    }
+    private static Activator instance;
 
     private org.eclipse.scada.ca.client.ngp.DriverFactoryImpl factory;
 
@@ -42,9 +37,9 @@ public class Activator implements BundleActivator
      * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
      */
     @Override
-    public void start ( final BundleContext bundleContext ) throws Exception
+    public void start ( final BundleContext context ) throws Exception
     {
-        Activator.context = bundleContext;
+        Activator.instance = this;
 
         if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedConnector" ) )
         {
@@ -61,6 +56,11 @@ public class Activator implements BundleActivator
 
     }
 
+    public static DriverFactory getDriverFactory ()
+    {
+        return Activator.instance.factory;
+    }
+
     /*
      * (non-Javadoc)
      * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
@@ -73,6 +73,6 @@ public class Activator implements BundleActivator
         {
             this.connector.dispose ();
         }
-        Activator.context = null;
+        Activator.instance = null;
     }
 }

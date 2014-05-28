@@ -47,7 +47,7 @@ public class DriverFactoryImpl implements org.eclipse.scada.core.client.DriverFa
             return null;
         }
 
-        return new org.eclipse.scada.hd.client.ngp.DriverInformationImpl ();
+        return new org.eclipse.scada.hd.client.ngp.DriverInformationImpl ( this.socketConnector );
     }
 
     public static void registerDriver ()
