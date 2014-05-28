@@ -11,17 +11,14 @@
 package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.scada.base.extractor.extract.Extractor;
-import org.eclipse.scada.base.extractor.extract.ItemDescriptor;
 import org.eclipse.scada.base.extractor.extract.PlainTextExtractor;
-import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
@@ -34,8 +31,6 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainT
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#isTrim <em>Trim</em>}</li>
  * </ul>
  * </p>
@@ -63,46 +58,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * @ordered
      */
     protected String prefix = PREFIX_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected static final String NAME_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
-    protected String name = NAME_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDescription()
-     * @generated
-     * @ordered
-     */
-    protected static final String DESCRIPTION_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getDescription()
-     * @generated
-     * @ordered
-     */
-    protected String description = DESCRIPTION_EDEFAULT;
 
     /**
      * The default value of the '{@link #isTrim() <em>Trim</em>}' attribute.
@@ -150,6 +105,7 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getPrefix ()
     {
         return prefix;
@@ -160,62 +116,13 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPrefix ( String newPrefix )
     {
         String oldPrefix = prefix;
         prefix = newPrefix;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__PREFIX, oldPrefix, prefix ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getName ()
-    {
-        return name;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setName ( String newName )
-    {
-        String oldName = name;
-        name = newName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__NAME, oldName, name ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public String getDescription ()
-    {
-        return description;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setDescription ( String newDescription )
-    {
-        String oldDescription = description;
-        description = newDescription;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__DESCRIPTION, oldDescription, description ) );
     }
 
     /**
@@ -252,12 +159,7 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     @Override
     public Extractor createExtractor ( final CreationContext creationContext )
     {
-        final Map<String, Variant> attributes = new HashMap<> ();
-        if ( getDescription () != null )
-        {
-            attributes.put ( "description", Variant.valueOf ( getDescription () ) );
-        }
-        return new PlainTextExtractor ( new ItemDescriptor ( getName (), attributes ), isTrim () );
+        return new PlainTextExtractor ( isTrim () );
     }
 
     /**
@@ -272,10 +174,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
         {
             case ParserPackage.PLAIN_TEXT__PREFIX:
                 return getPrefix ();
-            case ParserPackage.PLAIN_TEXT__NAME:
-                return getName ();
-            case ParserPackage.PLAIN_TEXT__DESCRIPTION:
-                return getDescription ();
             case ParserPackage.PLAIN_TEXT__TRIM:
                 return isTrim ();
         }
@@ -294,12 +192,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
         {
             case ParserPackage.PLAIN_TEXT__PREFIX:
                 setPrefix ( (String)newValue );
-                return;
-            case ParserPackage.PLAIN_TEXT__NAME:
-                setName ( (String)newValue );
-                return;
-            case ParserPackage.PLAIN_TEXT__DESCRIPTION:
-                setDescription ( (String)newValue );
                 return;
             case ParserPackage.PLAIN_TEXT__TRIM:
                 setTrim ( (Boolean)newValue );
@@ -321,12 +213,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
             case ParserPackage.PLAIN_TEXT__PREFIX:
                 setPrefix ( PREFIX_EDEFAULT );
                 return;
-            case ParserPackage.PLAIN_TEXT__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case ParserPackage.PLAIN_TEXT__DESCRIPTION:
-                setDescription ( DESCRIPTION_EDEFAULT );
-                return;
             case ParserPackage.PLAIN_TEXT__TRIM:
                 setTrim ( TRIM_EDEFAULT );
                 return;
@@ -346,10 +232,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
         {
             case ParserPackage.PLAIN_TEXT__PREFIX:
                 return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
-            case ParserPackage.PLAIN_TEXT__NAME:
-                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
-            case ParserPackage.PLAIN_TEXT__DESCRIPTION:
-                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
             case ParserPackage.PLAIN_TEXT__TRIM:
                 return trim != TRIM_EDEFAULT;
         }
@@ -386,10 +268,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (prefix: " ); //$NON-NLS-1$
         result.append ( prefix );
-        result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( name );
-        result.append ( ", description: " ); //$NON-NLS-1$
-        result.append ( description );
         result.append ( ", trim: " ); //$NON-NLS-1$
         result.append ( trim );
         result.append ( ')' );

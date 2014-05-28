@@ -67,6 +67,60 @@ public interface ParserFactory extends EFactory
     UrlInput createUrlInput ();
 
     /**
+     * Returns a new object of class '<em>Single Pattern</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Single Pattern</em>'.
+     * @generated
+     */
+    SinglePattern createSinglePattern ();
+
+    /**
+     * Returns a new object of class '<em>Value Descriptor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Value Descriptor</em>'.
+     * @generated
+     */
+    ValueDescriptor createValueDescriptor ();
+
+    /**
+     * Returns a new object of class '<em>Attribute Value</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Attribute Value</em>'.
+     * @generated
+     */
+    AttributeValue createAttributeValue ();
+
+    /**
+     * Returns a new object of class '<em>Main Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Main Group Field</em>'.
+     * @generated
+     */
+    MainGroupField createMainGroupField ();
+
+    /**
+     * Returns a new object of class '<em>String Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>String Group Field</em>'.
+     * @generated
+     */
+    StringGroupField createStringGroupField ();
+
+    /**
+     * Returns a new object of class '<em>Numeric Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Numeric Group Field</em>'.
+     * @generated
+     */
+    NumericGroupField createNumericGroupField ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -12,31 +12,32 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration.provi
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PlainTextItemProvider
-        extends ItemProviderAdapter
+public class NumericGroupFieldItemProvider
+        extends FieldItemProvider
         implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -50,7 +51,7 @@ public class PlainTextItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public PlainTextItemProvider ( AdapterFactory adapterFactory )
+    public NumericGroupFieldItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -68,60 +69,36 @@ public class PlainTextItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addPrefixPropertyDescriptor ( object );
-            addTrimPropertyDescriptor ( object );
+            addGroupNumberPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Prefix feature.
+     * This adds a property descriptor for the Group Number feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addPrefixPropertyDescriptor ( Object object )
+    protected void addGroupNumberPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ExtractorDefinition_prefix_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExtractorDefinition_prefix_feature", "_UI_ExtractorDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.EXTRACTOR_DEFINITION__PREFIX,
+                        getString ( "_UI_NumericGroupField_groupNumber_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_NumericGroupField_groupNumber_feature", "_UI_NumericGroupField_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.NUMERIC_GROUP_FIELD__GROUP_NUMBER,
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Trim feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addTrimPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PlainText_trim_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PlainText_trim_feature", "_UI_PlainText_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.PLAIN_TEXT__TRIM,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This returns PlainText.gif.
+     * This returns NumericGroupField.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -129,7 +106,7 @@ public class PlainTextItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PlainText" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/NumericGroupField" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -141,10 +118,11 @@ public class PlainTextItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (PlainText)object ).getPrefix ();
+        VariantType labelValue = ( (NumericGroupField)object ).getType ();
+        String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_PlainText_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PlainText_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_NumericGroupField_type" ) : //$NON-NLS-1$
+                getString ( "_UI_NumericGroupField_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -159,10 +137,9 @@ public class PlainTextItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( PlainText.class ) )
+        switch ( notification.getFeatureID ( NumericGroupField.class ) )
         {
-            case ParserPackage.PLAIN_TEXT__PREFIX:
-            case ParserPackage.PLAIN_TEXT__TRIM:
+            case ParserPackage.NUMERIC_GROUP_FIELD__GROUP_NUMBER:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -180,18 +157,6 @@ public class PlainTextItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator ()
-    {
-        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

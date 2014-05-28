@@ -199,6 +199,156 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SinglePatternItemProvider singlePatternItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSinglePatternAdapter ()
+    {
+        if ( singlePatternItemProvider == null )
+        {
+            singlePatternItemProvider = new SinglePatternItemProvider ( this );
+        }
+
+        return singlePatternItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ValueDescriptorItemProvider valueDescriptorItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createValueDescriptorAdapter ()
+    {
+        if ( valueDescriptorItemProvider == null )
+        {
+            valueDescriptorItemProvider = new ValueDescriptorItemProvider ( this );
+        }
+
+        return valueDescriptorItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected AttributeValueItemProvider attributeValueItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createAttributeValueAdapter ()
+    {
+        if ( attributeValueItemProvider == null )
+        {
+            attributeValueItemProvider = new AttributeValueItemProvider ( this );
+        }
+
+        return attributeValueItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MainGroupFieldItemProvider mainGroupFieldItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMainGroupFieldAdapter ()
+    {
+        if ( mainGroupFieldItemProvider == null )
+        {
+            mainGroupFieldItemProvider = new MainGroupFieldItemProvider ( this );
+        }
+
+        return mainGroupFieldItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StringGroupFieldItemProvider stringGroupFieldItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createStringGroupFieldAdapter ()
+    {
+        if ( stringGroupFieldItemProvider == null )
+        {
+            stringGroupFieldItemProvider = new StringGroupFieldItemProvider ( this );
+        }
+
+        return stringGroupFieldItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected NumericGroupFieldItemProvider numericGroupFieldItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createNumericGroupFieldAdapter ()
+    {
+        if ( numericGroupFieldItemProvider == null )
+        {
+            numericGroupFieldItemProvider = new NumericGroupFieldItemProvider ( this );
+        }
+
+        return numericGroupFieldItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -347,6 +497,18 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             plainTextItemProvider.dispose ();
         if ( urlInputItemProvider != null )
             urlInputItemProvider.dispose ();
+        if ( singlePatternItemProvider != null )
+            singlePatternItemProvider.dispose ();
+        if ( valueDescriptorItemProvider != null )
+            valueDescriptorItemProvider.dispose ();
+        if ( attributeValueItemProvider != null )
+            attributeValueItemProvider.dispose ();
+        if ( mainGroupFieldItemProvider != null )
+            mainGroupFieldItemProvider.dispose ();
+        if ( stringGroupFieldItemProvider != null )
+            stringGroupFieldItemProvider.dispose ();
+        if ( numericGroupFieldItemProvider != null )
+            numericGroupFieldItemProvider.dispose ();
     }
 
 }

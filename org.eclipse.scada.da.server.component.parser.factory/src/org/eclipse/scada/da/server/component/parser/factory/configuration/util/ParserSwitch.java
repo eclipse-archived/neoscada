@@ -148,6 +148,70 @@ public class ParserSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ParserPackage.SINGLE_PATTERN:
+            {
+                SinglePattern singlePattern = (SinglePattern)theEObject;
+                T result = caseSinglePattern ( singlePattern );
+                if ( result == null )
+                    result = caseExtractorDefinition ( singlePattern );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.VALUE_DESCRIPTOR:
+            {
+                ValueDescriptor valueDescriptor = (ValueDescriptor)theEObject;
+                T result = caseValueDescriptor ( valueDescriptor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.FIELD:
+            {
+                Field field = (Field)theEObject;
+                T result = caseField ( field );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.ATTRIBUTE_VALUE:
+            {
+                AttributeValue attributeValue = (AttributeValue)theEObject;
+                T result = caseAttributeValue ( attributeValue );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.MAIN_GROUP_FIELD:
+            {
+                MainGroupField mainGroupField = (MainGroupField)theEObject;
+                T result = caseMainGroupField ( mainGroupField );
+                if ( result == null )
+                    result = caseField ( mainGroupField );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.STRING_GROUP_FIELD:
+            {
+                StringGroupField stringGroupField = (StringGroupField)theEObject;
+                T result = caseStringGroupField ( stringGroupField );
+                if ( result == null )
+                    result = caseField ( stringGroupField );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.NUMERIC_GROUP_FIELD:
+            {
+                NumericGroupField numericGroupField = (NumericGroupField)theEObject;
+                T result = caseNumericGroupField ( numericGroupField );
+                if ( result == null )
+                    result = caseField ( numericGroupField );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -261,6 +325,118 @@ public class ParserSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseUrlInput ( UrlInput object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Single Pattern</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Single Pattern</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSinglePattern ( SinglePattern object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Value Descriptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Value Descriptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseValueDescriptor ( ValueDescriptor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Field</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseField ( Field object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Attribute Value</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAttributeValue ( AttributeValue object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Main Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Main Group Field</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMainGroupField ( MainGroupField object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>String Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>String Group Field</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStringGroupField ( StringGroupField object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Numeric Group Field</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Numeric Group Field</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNumericGroupField ( NumericGroupField object )
     {
         return null;
     }

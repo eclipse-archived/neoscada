@@ -10,9 +10,11 @@
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 
+import java.util.regex.Pattern;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -21,14 +23,22 @@ import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.input.Input;
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ExtractorDefinition;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.Field;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,6 +102,62 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass singlePatternEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass valueDescriptorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass fieldEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass attributeValueEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass mainGroupFieldEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stringGroupFieldEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass numericGroupFieldEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EEnum variantTypeEEnum = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EDataType inputEDataType = null;
 
     /**
@@ -107,6 +173,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EDataType extractorEDataType = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType patternEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -296,29 +369,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getPlainText_Name ()
-    {
-        return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EAttribute getPlainText_Description ()
-    {
-        return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getPlainText_Trim ()
     {
-        return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -386,6 +439,176 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSinglePattern ()
+    {
+        return singlePatternEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSinglePattern_Pattern ()
+    {
+        return (EAttribute)singlePatternEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSinglePattern_FullMatch ()
+    {
+        return (EAttribute)singlePatternEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getValueDescriptor ()
+    {
+        return valueDescriptorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getValueDescriptor_PrimaryValue ()
+    {
+        return (EReference)valueDescriptorEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getValueDescriptor_Attributes ()
+    {
+        return (EReference)valueDescriptorEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getField ()
+    {
+        return fieldEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getField_Type ()
+    {
+        return (EAttribute)fieldEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAttributeValue ()
+    {
+        return attributeValueEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAttributeValue_Name ()
+    {
+        return (EAttribute)attributeValueEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAttributeValue_Field ()
+    {
+        return (EReference)attributeValueEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMainGroupField ()
+    {
+        return mainGroupFieldEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getStringGroupField ()
+    {
+        return stringGroupFieldEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getStringGroupField_GroupName ()
+    {
+        return (EAttribute)stringGroupFieldEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getNumericGroupField ()
+    {
+        return numericGroupFieldEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getNumericGroupField_GroupNumber ()
+    {
+        return (EAttribute)numericGroupFieldEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EEnum getVariantType ()
+    {
+        return variantTypeEEnum;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getInput ()
     {
         return inputEDataType;
@@ -409,6 +632,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     public EDataType getExtractor ()
     {
         return extractorEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EDataType getPattern ()
+    {
+        return patternEDataType;
     }
 
     /**
@@ -458,8 +691,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEOperation ( extractorDefinitionEClass, EXTRACTOR_DEFINITION___CREATE_EXTRACTOR__CREATIONCONTEXT );
 
         plainTextEClass = createEClass ( PLAIN_TEXT );
-        createEAttribute ( plainTextEClass, PLAIN_TEXT__NAME );
-        createEAttribute ( plainTextEClass, PLAIN_TEXT__DESCRIPTION );
         createEAttribute ( plainTextEClass, PLAIN_TEXT__TRIM );
 
         abstractPeriodInputEClass = createEClass ( ABSTRACT_PERIOD_INPUT );
@@ -470,10 +701,37 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEAttribute ( urlInputEClass, URL_INPUT__PROBE_CHARACTER_SET );
         createEAttribute ( urlInputEClass, URL_INPUT__CHARSET );
 
+        singlePatternEClass = createEClass ( SINGLE_PATTERN );
+        createEAttribute ( singlePatternEClass, SINGLE_PATTERN__PATTERN );
+        createEAttribute ( singlePatternEClass, SINGLE_PATTERN__FULL_MATCH );
+
+        valueDescriptorEClass = createEClass ( VALUE_DESCRIPTOR );
+        createEReference ( valueDescriptorEClass, VALUE_DESCRIPTOR__PRIMARY_VALUE );
+        createEReference ( valueDescriptorEClass, VALUE_DESCRIPTOR__ATTRIBUTES );
+
+        fieldEClass = createEClass ( FIELD );
+        createEAttribute ( fieldEClass, FIELD__TYPE );
+
+        attributeValueEClass = createEClass ( ATTRIBUTE_VALUE );
+        createEAttribute ( attributeValueEClass, ATTRIBUTE_VALUE__NAME );
+        createEReference ( attributeValueEClass, ATTRIBUTE_VALUE__FIELD );
+
+        mainGroupFieldEClass = createEClass ( MAIN_GROUP_FIELD );
+
+        stringGroupFieldEClass = createEClass ( STRING_GROUP_FIELD );
+        createEAttribute ( stringGroupFieldEClass, STRING_GROUP_FIELD__GROUP_NAME );
+
+        numericGroupFieldEClass = createEClass ( NUMERIC_GROUP_FIELD );
+        createEAttribute ( numericGroupFieldEClass, NUMERIC_GROUP_FIELD__GROUP_NUMBER );
+
+        // Create enums
+        variantTypeEEnum = createEEnum ( VARIANT_TYPE );
+
         // Create data types
         inputEDataType = createEDataType ( INPUT );
         creationContextEDataType = createEDataType ( CREATION_CONTEXT );
         extractorEDataType = createEDataType ( EXTRACTOR );
+        patternEDataType = createEDataType ( PATTERN );
     }
 
     /**
@@ -510,6 +768,10 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         plainTextEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
         abstractPeriodInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
         urlInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
+        singlePatternEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
+        mainGroupFieldEClass.getESuperTypes ().add ( this.getField () );
+        stringGroupFieldEClass.getESuperTypes ().add ( this.getField () );
+        numericGroupFieldEClass.getESuperTypes ().add ( this.getField () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -532,8 +794,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         addEParameter ( op, this.getCreationContext (), "creationContext", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( plainTextEClass, PlainText.class, "PlainText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getPlainText_Name (), ecorePackage.getEString (), "name", null, 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getPlainText_Description (), ecorePackage.getEString (), "description", null, 0, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Trim (), ecorePackage.getEBoolean (), "trim", "true", 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( abstractPeriodInputEClass, AbstractPeriodInput.class, "AbstractPeriodInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -544,10 +804,43 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEAttribute ( getUrlInput_ProbeCharacterSet (), ecorePackage.getEBoolean (), "probeCharacterSet", "true", 1, 1, UrlInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getUrlInput_Charset (), ecorePackage.getEString (), "charset", null, 0, 1, UrlInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEClass ( singlePatternEClass, SinglePattern.class, "SinglePattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSinglePattern_Pattern (), this.getPattern (), "pattern", null, 1, 1, SinglePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSinglePattern_FullMatch (), ecorePackage.getEBoolean (), "fullMatch", null, 1, 1, SinglePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( valueDescriptorEClass, ValueDescriptor.class, "ValueDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getValueDescriptor_PrimaryValue (), this.getField (), null, "primaryValue", null, 0, 1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getValueDescriptor_Attributes (), this.getAttributeValue (), null, "attributes", null, 0, -1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( fieldEClass, Field.class, "Field", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getField_Type (), this.getVariantType (), "type", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( attributeValueEClass, AttributeValue.class, "AttributeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAttributeValue_Name (), ecorePackage.getEString (), "name", null, 1, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAttributeValue_Field (), this.getField (), null, "field", null, 0, 1, AttributeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( mainGroupFieldEClass, MainGroupField.class, "MainGroupField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( stringGroupFieldEClass, StringGroupField.class, "StringGroupField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getStringGroupField_GroupName (), ecorePackage.getEString (), "groupName", null, 1, 1, StringGroupField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( numericGroupFieldEClass, NumericGroupField.class, "NumericGroupField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getNumericGroupField_GroupNumber (), ecorePackage.getEInt (), "groupNumber", null, 1, 1, NumericGroupField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        // Initialize enums and add enum literals
+        initEEnum ( variantTypeEEnum, VariantType.class, "VariantType" ); //$NON-NLS-1$
+        addEEnumLiteral ( variantTypeEEnum, VariantType.DEFAULT );
+        addEEnumLiteral ( variantTypeEEnum, VariantType.STRING );
+        addEEnumLiteral ( variantTypeEEnum, VariantType.INT32 );
+        addEEnumLiteral ( variantTypeEEnum, VariantType.INT64 );
+        addEEnumLiteral ( variantTypeEEnum, VariantType.DOUBLE );
+        addEEnumLiteral ( variantTypeEEnum, VariantType.BOOLEAN );
+
         // Initialize data types
         initEDataType ( inputEDataType, Input.class, "Input", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( creationContextEDataType, CreationContext.class, "CreationContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( extractorEDataType, Extractor.class, "Extractor", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

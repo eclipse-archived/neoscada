@@ -125,6 +125,48 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseSinglePattern ( SinglePattern object )
+                {
+                    return createSinglePatternAdapter ();
+                }
+
+                @Override
+                public Adapter caseValueDescriptor ( ValueDescriptor object )
+                {
+                    return createValueDescriptorAdapter ();
+                }
+
+                @Override
+                public Adapter caseField ( Field object )
+                {
+                    return createFieldAdapter ();
+                }
+
+                @Override
+                public Adapter caseAttributeValue ( AttributeValue object )
+                {
+                    return createAttributeValueAdapter ();
+                }
+
+                @Override
+                public Adapter caseMainGroupField ( MainGroupField object )
+                {
+                    return createMainGroupFieldAdapter ();
+                }
+
+                @Override
+                public Adapter caseStringGroupField ( StringGroupField object )
+                {
+                    return createStringGroupFieldAdapter ();
+                }
+
+                @Override
+                public Adapter caseNumericGroupField ( NumericGroupField object )
+                {
+                    return createNumericGroupFieldAdapter ();
+                }
+
+                @Override
                 public Adapter defaultCase ( EObject object )
                 {
                     return createEObjectAdapter ();
@@ -246,6 +288,111 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createUrlInputAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern <em>Single Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern
+     * @generated
+     */
+    public Adapter createSinglePatternAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor <em>Value Descriptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor
+     * @generated
+     */
+    public Adapter createValueDescriptorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Field <em>Field</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.Field
+     * @generated
+     */
+    public Adapter createFieldAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue <em>Attribute Value</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue
+     * @generated
+     */
+    public Adapter createAttributeValueAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField <em>Main Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField
+     * @generated
+     */
+    public Adapter createMainGroupFieldAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField <em>String Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField
+     * @generated
+     */
+    public Adapter createStringGroupFieldAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField <em>Numeric Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField
+     * @generated
+     */
+    public Adapter createNumericGroupFieldAdapter ()
     {
         return null;
     }

@@ -13,6 +13,7 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -326,31 +327,13 @@ public interface ParserPackage extends EPackage
     int PLAIN_TEXT__PREFIX = EXTRACTOR_DEFINITION__PREFIX;
 
     /**
-     * The feature id for the '<em><b>Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PLAIN_TEXT__NAME = EXTRACTOR_DEFINITION_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Description</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PLAIN_TEXT__DESCRIPTION = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Trim</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PLAIN_TEXT__TRIM = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+    int PLAIN_TEXT__TRIM = EXTRACTOR_DEFINITION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Plain Text</em>' class.
@@ -359,7 +342,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PLAIN_TEXT_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 3;
+    int PLAIN_TEXT_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
 
     /**
      * The operation id for the '<em>Create Extractor</em>' operation.
@@ -453,6 +436,338 @@ public interface ParserPackage extends EPackage
     int URL_INPUT_OPERATION_COUNT = ABSTRACT_PERIOD_INPUT_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl <em>Single Pattern</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getSinglePattern()
+     * @generated
+     */
+    int SINGLE_PATTERN = 7;
+
+    /**
+     * The feature id for the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN__PREFIX = EXTRACTOR_DEFINITION__PREFIX;
+
+    /**
+     * The feature id for the '<em><b>Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN__PATTERN = EXTRACTOR_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Full Match</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN__FULL_MATCH = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Single Pattern</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Create Extractor</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN___CREATE_EXTRACTOR__CREATIONCONTEXT = EXTRACTOR_DEFINITION___CREATE_EXTRACTOR__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Single Pattern</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN_OPERATION_COUNT = EXTRACTOR_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ValueDescriptorImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getValueDescriptor()
+     * @generated
+     */
+    int VALUE_DESCRIPTOR = 8;
+
+    /**
+     * The feature id for the '<em><b>Primary Value</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_DESCRIPTOR__PRIMARY_VALUE = 0;
+
+    /**
+     * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_DESCRIPTOR__ATTRIBUTES = 1;
+
+    /**
+     * The number of structural features of the '<em>Value Descriptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_DESCRIPTOR_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Value Descriptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_DESCRIPTOR_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FieldImpl <em>Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FieldImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getField()
+     * @generated
+     */
+    int FIELD = 9;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIELD__TYPE = 0;
+
+    /**
+     * The number of structural features of the '<em>Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIELD_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FIELD_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AttributeValueImpl <em>Attribute Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AttributeValueImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAttributeValue()
+     * @generated
+     */
+    int ATTRIBUTE_VALUE = 10;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATTRIBUTE_VALUE__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Field</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATTRIBUTE_VALUE__FIELD = 1;
+
+    /**
+     * The number of structural features of the '<em>Attribute Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATTRIBUTE_VALUE_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Attribute Value</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATTRIBUTE_VALUE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MainGroupFieldImpl <em>Main Group Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MainGroupFieldImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getMainGroupField()
+     * @generated
+     */
+    int MAIN_GROUP_FIELD = 11;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAIN_GROUP_FIELD__TYPE = FIELD__TYPE;
+
+    /**
+     * The number of structural features of the '<em>Main Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAIN_GROUP_FIELD_FEATURE_COUNT = FIELD_FEATURE_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Main Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAIN_GROUP_FIELD_OPERATION_COUNT = FIELD_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringGroupFieldImpl <em>String Group Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringGroupFieldImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getStringGroupField()
+     * @generated
+     */
+    int STRING_GROUP_FIELD = 12;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_GROUP_FIELD__TYPE = FIELD__TYPE;
+
+    /**
+     * The feature id for the '<em><b>Group Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_GROUP_FIELD__GROUP_NAME = FIELD_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>String Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_GROUP_FIELD_FEATURE_COUNT = FIELD_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>String Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_GROUP_FIELD_OPERATION_COUNT = FIELD_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.NumericGroupFieldImpl <em>Numeric Group Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.NumericGroupFieldImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getNumericGroupField()
+     * @generated
+     */
+    int NUMERIC_GROUP_FIELD = 13;
+
+    /**
+     * The feature id for the '<em><b>Type</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NUMERIC_GROUP_FIELD__TYPE = FIELD__TYPE;
+
+    /**
+     * The feature id for the '<em><b>Group Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NUMERIC_GROUP_FIELD__GROUP_NUMBER = FIELD_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Numeric Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NUMERIC_GROUP_FIELD_FEATURE_COUNT = FIELD_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Numeric Group Field</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NUMERIC_GROUP_FIELD_OPERATION_COUNT = FIELD_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getVariantType()
+     * @generated
+     */
+    int VARIANT_TYPE = 14;
+
+    /**
      * The meta object id for the '<em>Input</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -460,7 +775,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getInput()
      * @generated
      */
-    int INPUT = 7;
+    int INPUT = 15;
 
     /**
      * The meta object id for the '<em>Creation Context</em>' data type.
@@ -470,7 +785,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getCreationContext()
      * @generated
      */
-    int CREATION_CONTEXT = 8;
+    int CREATION_CONTEXT = 16;
 
     /**
      * The meta object id for the '<em>Extractor</em>' data type.
@@ -480,7 +795,17 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getExtractor()
      * @generated
      */
-    int EXTRACTOR = 9;
+    int EXTRACTOR = 17;
+
+    /**
+     * The meta object id for the '<em>Pattern</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see java.util.regex.Pattern
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getPattern()
+     * @generated
+     */
+    int PATTERN = 18;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component <em>Component</em>}'.
@@ -608,28 +933,6 @@ public interface ParserPackage extends EPackage
     EClass getPlainText ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getName <em>Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Name</em>'.
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getName()
-     * @see #getPlainText()
-     * @generated
-     */
-    EAttribute getPlainText_Name ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getDescription <em>Description</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Description</em>'.
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getDescription()
-     * @see #getPlainText()
-     * @generated
-     */
-    EAttribute getPlainText_Description ();
-
-    /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#isTrim <em>Trim</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -705,6 +1008,185 @@ public interface ParserPackage extends EPackage
     EAttribute getUrlInput_Charset ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern <em>Single Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Single Pattern</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern
+     * @generated
+     */
+    EClass getSinglePattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#getPattern <em>Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Pattern</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#getPattern()
+     * @see #getSinglePattern()
+     * @generated
+     */
+    EAttribute getSinglePattern_Pattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#isFullMatch <em>Full Match</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Full Match</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#isFullMatch()
+     * @see #getSinglePattern()
+     * @generated
+     */
+    EAttribute getSinglePattern_FullMatch ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor <em>Value Descriptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Value Descriptor</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor
+     * @generated
+     */
+    EClass getValueDescriptor ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor#getPrimaryValue <em>Primary Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Primary Value</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor#getPrimaryValue()
+     * @see #getValueDescriptor()
+     * @generated
+     */
+    EReference getValueDescriptor_PrimaryValue ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor#getAttributes <em>Attributes</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Attributes</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor#getAttributes()
+     * @see #getValueDescriptor()
+     * @generated
+     */
+    EReference getValueDescriptor_Attributes ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Field <em>Field</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Field</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.Field
+     * @generated
+     */
+    EClass getField ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Field#getType <em>Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Type</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.Field#getType()
+     * @see #getField()
+     * @generated
+     */
+    EAttribute getField_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue <em>Attribute Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Attribute Value</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue
+     * @generated
+     */
+    EClass getAttributeValue ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue#getName()
+     * @see #getAttributeValue()
+     * @generated
+     */
+    EAttribute getAttributeValue_Name ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue#getField <em>Field</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Field</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue#getField()
+     * @see #getAttributeValue()
+     * @generated
+     */
+    EReference getAttributeValue_Field ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField <em>Main Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Main Group Field</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField
+     * @generated
+     */
+    EClass getMainGroupField ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField <em>String Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>String Group Field</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField
+     * @generated
+     */
+    EClass getStringGroupField ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField#getGroupName <em>Group Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Group Name</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField#getGroupName()
+     * @see #getStringGroupField()
+     * @generated
+     */
+    EAttribute getStringGroupField_GroupName ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField <em>Numeric Group Field</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Numeric Group Field</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField
+     * @generated
+     */
+    EClass getNumericGroupField ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField#getGroupNumber <em>Group Number</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Group Number</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField#getGroupNumber()
+     * @see #getNumericGroupField()
+     * @generated
+     */
+    EAttribute getNumericGroupField_GroupNumber ();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Variant Type</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType
+     * @generated
+     */
+    EEnum getVariantType ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.base.extractor.input.Input <em>Input</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -736,6 +1218,17 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EDataType getExtractor ();
+
+    /**
+     * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Pattern</em>'.
+     * @see java.util.regex.Pattern
+     * @model instanceClass="java.util.regex.Pattern"
+     * @generated
+     */
+    EDataType getPattern ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -868,22 +1361,6 @@ public interface ParserPackage extends EPackage
         EClass PLAIN_TEXT = eINSTANCE.getPlainText ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PLAIN_TEXT__NAME = eINSTANCE.getPlainText_Name ();
-
-        /**
-         * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PLAIN_TEXT__DESCRIPTION = eINSTANCE.getPlainText_Description ();
-
-        /**
          * The meta object literal for the '<em><b>Trim</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -944,6 +1421,158 @@ public interface ParserPackage extends EPackage
         EAttribute URL_INPUT__CHARSET = eINSTANCE.getUrlInput_Charset ();
 
         /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl <em>Single Pattern</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getSinglePattern()
+         * @generated
+         */
+        EClass SINGLE_PATTERN = eINSTANCE.getSinglePattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SINGLE_PATTERN__PATTERN = eINSTANCE.getSinglePattern_Pattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Full Match</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SINGLE_PATTERN__FULL_MATCH = eINSTANCE.getSinglePattern_FullMatch ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ValueDescriptorImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getValueDescriptor()
+         * @generated
+         */
+        EClass VALUE_DESCRIPTOR = eINSTANCE.getValueDescriptor ();
+
+        /**
+         * The meta object literal for the '<em><b>Primary Value</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VALUE_DESCRIPTOR__PRIMARY_VALUE = eINSTANCE.getValueDescriptor_PrimaryValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference VALUE_DESCRIPTOR__ATTRIBUTES = eINSTANCE.getValueDescriptor_Attributes ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FieldImpl <em>Field</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FieldImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getField()
+         * @generated
+         */
+        EClass FIELD = eINSTANCE.getField ();
+
+        /**
+         * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute FIELD__TYPE = eINSTANCE.getField_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AttributeValueImpl <em>Attribute Value</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AttributeValueImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAttributeValue()
+         * @generated
+         */
+        EClass ATTRIBUTE_VALUE = eINSTANCE.getAttributeValue ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ATTRIBUTE_VALUE__NAME = eINSTANCE.getAttributeValue_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ATTRIBUTE_VALUE__FIELD = eINSTANCE.getAttributeValue_Field ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MainGroupFieldImpl <em>Main Group Field</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MainGroupFieldImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getMainGroupField()
+         * @generated
+         */
+        EClass MAIN_GROUP_FIELD = eINSTANCE.getMainGroupField ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringGroupFieldImpl <em>String Group Field</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringGroupFieldImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getStringGroupField()
+         * @generated
+         */
+        EClass STRING_GROUP_FIELD = eINSTANCE.getStringGroupField ();
+
+        /**
+         * The meta object literal for the '<em><b>Group Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STRING_GROUP_FIELD__GROUP_NAME = eINSTANCE.getStringGroupField_GroupName ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.NumericGroupFieldImpl <em>Numeric Group Field</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.NumericGroupFieldImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getNumericGroupField()
+         * @generated
+         */
+        EClass NUMERIC_GROUP_FIELD = eINSTANCE.getNumericGroupField ();
+
+        /**
+         * The meta object literal for the '<em><b>Group Number</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute NUMERIC_GROUP_FIELD__GROUP_NUMBER = eINSTANCE.getNumericGroupField_GroupNumber ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getVariantType()
+         * @generated
+         */
+        EEnum VARIANT_TYPE = eINSTANCE.getVariantType ();
+
+        /**
          * The meta object literal for the '<em>Input</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -972,6 +1601,16 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EDataType EXTRACTOR = eINSTANCE.getExtractor ();
+
+        /**
+         * The meta object literal for the '<em>Pattern</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see java.util.regex.Pattern
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getPattern()
+         * @generated
+         */
+        EDataType PATTERN = eINSTANCE.getPattern ();
 
     }
 

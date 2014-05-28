@@ -18,8 +18,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -32,17 +30,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentItemProvider
+public class AttributeValueItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +54,7 @@ public class ComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComponentItemProvider ( AdapterFactory adapterFactory )
+    public AttributeValueItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,26 +72,27 @@ public class ComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
+            addNamePropertyDescriptor ( object );
+            addFieldPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Name feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addNamePropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Component_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_id_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.COMPONENT__ID,
+                        getString ( "_UI_AttributeValue_name_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_AttributeValue_name_feature", "_UI_AttributeValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.ATTRIBUTE_VALUE__NAME,
                         true,
                         false,
                         false,
@@ -104,41 +102,30 @@ public class ComponentItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+     * This adds a property descriptor for the Field feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
+    protected void addFieldPropertyDescriptor ( Object object )
     {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__INPUT );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__EXTRACTORS );
-        }
-        return childrenFeatures;
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_AttributeValue_field_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_AttributeValue_field_feature", "_UI_AttributeValue_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.ATTRIBUTE_VALUE__FIELD,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns Component.gif.
+     * This returns AttributeValue.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -146,7 +133,7 @@ public class ComponentItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Component" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/AttributeValue" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -158,10 +145,10 @@ public class ComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Component)object ).getId ();
+        String label = ( (AttributeValue)object ).getName ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_Component_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Component_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_AttributeValue_type" ) : //$NON-NLS-1$
+                getString ( "_UI_AttributeValue_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -176,14 +163,10 @@ public class ComponentItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Component.class ) )
+        switch ( notification.getFeatureID ( AttributeValue.class ) )
         {
-            case ParserPackage.COMPONENT__ID:
+            case ParserPackage.ATTRIBUTE_VALUE__NAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ParserPackage.COMPONENT__INPUT:
-            case ParserPackage.COMPONENT__EXTRACTORS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -200,26 +183,6 @@ public class ComponentItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createFileInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createUrlInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createPlainText () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSinglePattern () ) );
     }
 
     /**

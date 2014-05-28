@@ -86,11 +86,9 @@ public abstract class ParserComponent extends Component
         if ( result.getError () != null || result.getItemValues () == null )
         {
             setError ( prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
-            // setValues ( prefix, Collections.<ItemDescriptor, ItemValue> emptyMap () );
         }
         else
         {
-            // setError ( prefix, null );
             setValues ( prefix, result.getItemValues () );
         }
     }

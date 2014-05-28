@@ -28,18 +28,12 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInp
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#getUrl
- * <em>Url</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#isProbeCharacterSet
- * <em>Probe Character Set</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#getCharset
- * <em>Charset</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#isProbeCharacterSet <em>Probe Character Set</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl#getCharset <em>Charset</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
@@ -48,7 +42,6 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
      * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getUrl()
      * @generated
      * @ordered
@@ -59,7 +52,6 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
      * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getUrl()
      * @generated
      * @ordered
@@ -67,11 +59,9 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     protected String url = URL_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isProbeCharacterSet()
-     * <em>Probe Character Set</em>}' attribute.
+     * The default value of the '{@link #isProbeCharacterSet() <em>Probe Character Set</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isProbeCharacterSet()
      * @generated
      * @ordered
@@ -79,11 +69,9 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     protected static final boolean PROBE_CHARACTER_SET_EDEFAULT = true;
 
     /**
-     * The cached value of the '{@link #isProbeCharacterSet()
-     * <em>Probe Character Set</em>}' attribute.
+     * The cached value of the '{@link #isProbeCharacterSet() <em>Probe Character Set</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isProbeCharacterSet()
      * @generated
      * @ordered
@@ -91,11 +79,9 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     protected boolean probeCharacterSet = PROBE_CHARACTER_SET_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getCharset() <em>Charset</em>}'
-     * attribute.
+     * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCharset()
      * @generated
      * @ordered
@@ -103,11 +89,9 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     protected static final String CHARSET_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getCharset() <em>Charset</em>}'
-     * attribute.
+     * The cached value of the '{@link #getCharset() <em>Charset</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCharset()
      * @generated
      * @ordered
@@ -117,7 +101,6 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected UrlInputImpl ()
@@ -128,7 +111,6 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -140,98 +122,85 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getUrl ()
     {
-        return this.url;
+        return url;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setUrl ( final String newUrl )
+    public void setUrl ( String newUrl )
     {
-        final String oldUrl = this.url;
-        this.url = newUrl;
+        String oldUrl = url;
+        url = newUrl;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__URL, oldUrl, this.url ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__URL, oldUrl, url ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isProbeCharacterSet ()
     {
-        return this.probeCharacterSet;
+        return probeCharacterSet;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setProbeCharacterSet ( final boolean newProbeCharacterSet )
+    public void setProbeCharacterSet ( boolean newProbeCharacterSet )
     {
-        final boolean oldProbeCharacterSet = this.probeCharacterSet;
-        this.probeCharacterSet = newProbeCharacterSet;
+        boolean oldProbeCharacterSet = probeCharacterSet;
+        probeCharacterSet = newProbeCharacterSet;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__PROBE_CHARACTER_SET, oldProbeCharacterSet, this.probeCharacterSet ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__PROBE_CHARACTER_SET, oldProbeCharacterSet, probeCharacterSet ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getCharset ()
     {
-        return this.charset;
+        return charset;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCharset ( final String newCharset )
+    public void setCharset ( String newCharset )
     {
-        final String oldCharset = this.charset;
-        this.charset = newCharset;
+        String oldCharset = charset;
+        charset = newCharset;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__CHARSET, oldCharset, this.charset ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.URL_INPUT__CHARSET, oldCharset, charset ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -248,11 +217,10 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -272,11 +240,10 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -296,20 +263,19 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ParserPackage.URL_INPUT__URL:
-                return URL_EDEFAULT == null ? this.url != null : !URL_EDEFAULT.equals ( this.url );
+                return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals ( url );
             case ParserPackage.URL_INPUT__PROBE_CHARACTER_SET:
-                return this.probeCharacterSet != PROBE_CHARACTER_SET_EDEFAULT;
+                return probeCharacterSet != PROBE_CHARACTER_SET_EDEFAULT;
             case ParserPackage.URL_INPUT__CHARSET:
-                return CHARSET_EDEFAULT == null ? this.charset != null : !CHARSET_EDEFAULT.equals ( this.charset );
+                return CHARSET_EDEFAULT == null ? charset != null : !CHARSET_EDEFAULT.equals ( charset );
         }
         return super.eIsSet ( featureID );
     }
@@ -317,24 +283,21 @@ public class UrlInputImpl extends AbstractPeriodInputImpl implements UrlInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (url: " ); //$NON-NLS-1$
-        result.append ( this.url );
+        result.append ( url );
         result.append ( ", probeCharacterSet: " ); //$NON-NLS-1$
-        result.append ( this.probeCharacterSet );
+        result.append ( probeCharacterSet );
         result.append ( ", charset: " ); //$NON-NLS-1$
-        result.append ( this.charset );
+        result.append ( charset );
         result.append ( ')' );
         return result.toString ();
     }
