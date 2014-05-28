@@ -16,9 +16,12 @@ import java.util.LinkedList;
 import java.util.Map;
 
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ComponentNode
 {
+    private final static Logger logger = LoggerFactory.getLogger ( ComponentNode.class );
 
     private final Map<String, ComponentNode> nodes = new HashMap<> ();
 
@@ -99,10 +102,13 @@ public class ComponentNode
         {
             throw new IllegalStateException ( "Namespace is blocked by other component" );
         }
+        this.components.put ( name, component );
     }
 
     private void remove ( final String name, final Component component )
     {
+        logger.debug ( "Removing - name: {}, component: {}", name, component );
+
         final Component c = this.components.get ( name );
         if ( c == component )
         {

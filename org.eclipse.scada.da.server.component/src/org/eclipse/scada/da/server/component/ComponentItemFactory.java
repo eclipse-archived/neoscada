@@ -20,9 +20,12 @@ import org.eclipse.scada.da.server.browser.common.query.ItemDescriptor;
 import org.eclipse.scada.da.server.browser.common.query.ItemStorage;
 import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ComponentItemFactory
 {
+    private final static Logger logger = LoggerFactory.getLogger ( ComponentItemFactory.class );
 
     private final Hive hive;
 
@@ -69,9 +72,12 @@ public class ComponentItemFactory
 
     public void disposeItem ( final String localId )
     {
+        logger.debug ( "Dispose item: {}", localId );
+
         final ItemDescriptor desc = this.items.remove ( localId );
         if ( desc == null )
         {
+            logger.debug ( "Item not found" );
             return;
         }
 

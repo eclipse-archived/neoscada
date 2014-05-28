@@ -32,9 +32,13 @@ import org.eclipse.scada.sec.osgi.TrackingAuthorizationImplementation;
 import org.eclipse.scada.sec.osgi.TrackingAuthorizationTracker;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Hive extends HiveCommon implements ComponentHost
 {
+    private final static Logger logger = LoggerFactory.getLogger ( Hive.class );
+
     private final FolderCommon rootFolder = new FolderCommon ();
 
     private final TrackingAuthenticationImplementation authenticationImplementation;
@@ -126,6 +130,8 @@ public class Hive extends HiveCommon implements ComponentHost
     @Override
     public ComponentHandle registerComponent ( final ComponentFactory componentFactory ) throws Exception
     {
+        logger.debug ( "Register component: {}", componentFactory );
+
         final String[] prefix = componentFactory.getPrefix ();
 
         final ComponentFolder folder = new ComponentFolder ();
@@ -142,6 +148,7 @@ public class Hive extends HiveCommon implements ComponentHost
         }
         catch ( final Exception e )
         {
+            logger.info ( "Failed to register new component", e );
             component.dispose ();
             throw e;
         }
@@ -149,6 +156,8 @@ public class Hive extends HiveCommon implements ComponentHost
 
     private synchronized ComponentHandle performRegisterComponent ( final String[] prefix, final ComponentFolder folder, final Component component )
     {
+        logger.debug ( "Register new component - prefix: {}, folder: {}, component: {}", prefix, folder, component );
+
         this.rootNode.registerComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), folder, component );
         return new ComponentHandle () {
 
@@ -163,7 +172,16 @@ public class Hive extends HiveCommon implements ComponentHost
 
     private synchronized void performUnregister ( final String[] prefix, final Component component )
     {
-        this.rootNode.unregisterComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), component );
+        logger.debug ( "Perform unregister component - prefix: {}, component: {}", prefix, component );
+
+        try
+        {
+            this.rootNode.unregisterComponent ( new LinkedList<> ( Arrays.asList ( prefix ) ), component );
+        }
+        finally
+        {
+            component.dispose ();
+        }
     }
 
     @Override

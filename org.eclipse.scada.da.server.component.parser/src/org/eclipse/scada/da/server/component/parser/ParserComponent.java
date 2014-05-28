@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.component.parser;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -87,11 +86,11 @@ public abstract class ParserComponent extends Component
         if ( result.getError () != null || result.getItemValues () == null )
         {
             setError ( prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
-            setValues ( prefix, Collections.<ItemDescriptor, ItemValue> emptyMap () );
+            // setValues ( prefix, Collections.<ItemDescriptor, ItemValue> emptyMap () );
         }
         else
         {
-            setError ( prefix, null );
+            // setError ( prefix, null );
             setValues ( prefix, result.getItemValues () );
         }
     }
@@ -137,9 +136,12 @@ public abstract class ParserComponent extends Component
 
     private void disposeItem ( final String localId )
     {
+        logger.debug ( "Dispose item: {}", localId );
+
         final DataItemInputChained item = this.itemCache.remove ( localId );
         if ( item == null )
         {
+            logger.debug ( "Item not found" );
             return;
         }
 

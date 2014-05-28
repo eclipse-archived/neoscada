@@ -76,6 +76,7 @@ public class FactoryImpl extends AbstractServiceConfigurationFactory<ComponentFa
     @Override
     protected void disposeService ( final UserInformation userInformation, final String configurationId, final ComponentFactory service )
     {
+        // nothing to do ... unregistration is automatic
     }
 
     @Override
