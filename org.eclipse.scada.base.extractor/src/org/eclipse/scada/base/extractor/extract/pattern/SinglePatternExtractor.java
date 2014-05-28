@@ -19,6 +19,9 @@ import org.eclipse.scada.base.extractor.extract.ItemDescriptor;
 import org.eclipse.scada.base.extractor.extract.ItemValue;
 import org.eclipse.scada.core.Variant;
 
+/**
+ * Execute one pattern and build one value from it
+ */
 public class SinglePatternExtractor extends AbstractPatternExtractor
 {
     private final Pattern pattern;

@@ -11,6 +11,7 @@
 package org.eclipse.scada.base.extractor.extract;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.scada.core.Variant;
@@ -20,20 +21,26 @@ import org.eclipse.scada.core.Variant;
  */
 public class PlainTextExtractor extends AbstractStringExtractor
 {
-    private final ItemDescriptor value;
+    private static final ItemDescriptor DESC_VALUE;
+
+    static
+    {
+        final Map<String, Variant> attributes = new HashMap<> ( 1 );
+        attributes.put ( "description", Variant.valueOf ( "Plain text value" ) );
+        DESC_VALUE = new ItemDescriptor ( "text", attributes );
+    }
 
     private final boolean trim;
 
-    public PlainTextExtractor ( final ItemDescriptor value, final boolean trim )
+    public PlainTextExtractor ( final boolean trim )
     {
-        this.value = value;
         this.trim = trim;
     }
 
     @Override
     protected Map<ItemDescriptor, ItemValue> processData ( final String data ) throws Exception
     {
-        return Collections.singletonMap ( this.value, new ItemValue ( Variant.valueOf ( this.trim ? data.trim () : data ), null ) );
+        return Collections.singletonMap ( DESC_VALUE, new ItemValue ( Variant.valueOf ( this.trim ? data.trim () : data ), null ) );
     }
 
 }
