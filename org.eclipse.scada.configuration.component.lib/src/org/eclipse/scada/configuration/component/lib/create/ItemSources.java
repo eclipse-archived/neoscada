@@ -16,7 +16,7 @@ import java.util.Set;
 import org.eclipse.scada.configuration.component.Component;
 import org.eclipse.scada.configuration.generator.Generator;
 import org.eclipse.scada.configuration.generator.GeneratorPlugin;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public final class ItemSources
 {

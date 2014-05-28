@@ -37,7 +37,7 @@ public final class Helper
         {
             final String nodeName = Nodes.makeName ( Nodes.fromApp ( master ) );
 
-            throw new IllegalStateException ( String.format ( "Master %s on node %s does not have a connection to endpoints %s", master.getName (), nodeName, StringHelper.join ( endpoints, ", " ) ) );
+            throw new IllegalStateException ( String.format ( "Master '%s' on node '%s' does not have a connection to endpoints %s", master.getName (), nodeName, StringHelper.join ( endpoints, ", " ) ) );
         }
 
         if ( ! ( connection instanceof DataAccessConnection ) )
