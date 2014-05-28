@@ -9,7 +9,7 @@
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
  * 
  */
-package org.eclipse.scada.configuration.dave.impl;
+package org.eclipse.scada.configuration.driver.parser.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -28,12 +28,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.scada.configuration.dave.DaveCommunicationProcessor;
-import org.eclipse.scada.configuration.dave.DaveDriver;
-import org.eclipse.scada.configuration.dave.DavePackage;
+import org.eclipse.scada.configuration.driver.parser.ParserDriver;
+import org.eclipse.scada.configuration.driver.parser.ParserPackage;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
@@ -43,6 +41,7 @@ import org.eclipse.scada.configuration.world.osgi.Exporter;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,34 +51,36 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * The following features are implemented:
  * <ul>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getShortDescription
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getShortDescription
  * <em>Short Description</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getName
+ * <li>
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getName
  * <em>Name</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getConnections
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getConnections
  * <em>Connections</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getExporter
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getExporter
  * <em>Exporter</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getCustomizationProfile
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getCustomizationProfile
  * <em>Customization Profile</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getSecurityConfiguration
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getSecurityConfiguration
  * <em>Security Configuration</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getModules
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getModules
  * <em>Modules</em>}</li>
  * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getDevices
- * <em>Devices</em>}</li>
+ * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl#getComponents
+ * <em>Components</em>}</li>
  * </ul>
  * </p>
  * 
  * @generated
  */
-public class DaveDriverImpl extends MinimalEObjectImpl.Container implements DaveDriver
+public class ParserDriverImpl extends MinimalEObjectImpl.Container implements
+        ParserDriver
 {
     /**
      * The default value of the '{@link #getShortDescription()
@@ -188,16 +189,16 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected EList<ApplicationModule> modules;
 
     /**
-     * The cached value of the '{@link #getDevices() <em>Devices</em>}'
-     * reference list.
+     * The cached value of the '{@link #getComponents() <em>Components</em>}'
+     * containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
-     * @see #getDevices()
+     * @see #getComponents()
      * @generated
      * @ordered
      */
-    protected EList<DaveCommunicationProcessor> devices;
+    protected EList<Component> components;
 
     /**
      * <!-- begin-user-doc -->
@@ -205,7 +206,7 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
      * 
      * @generated
      */
-    protected DaveDriverImpl ()
+    protected ParserDriverImpl ()
     {
         super ();
     }
@@ -219,7 +220,7 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     @Override
     protected EClass eStaticClass ()
     {
-        return DavePackage.Literals.DAVE_DRIVER;
+        return ParserPackage.Literals.PARSER_DRIVER;
     }
 
     /**
@@ -247,7 +248,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
         this.shortDescription = newShortDescription;
         if ( eNotificationRequired () )
         {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET,
+                    ParserPackage.PARSER_DRIVER__SHORT_DESCRIPTION,
+                    oldShortDescription, this.shortDescription ) );
         }
     }
 
@@ -276,7 +279,8 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
         this.name = newName;
         if ( eNotificationRequired () )
         {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__NAME, oldName, this.name ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET,
+                    ParserPackage.PARSER_DRIVER__NAME, oldName, this.name ) );
         }
     }
 
@@ -291,7 +295,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     {
         if ( this.connections == null )
         {
-            this.connections = new EObjectContainmentEList.Resolving<Connection> ( Connection.class, this, DavePackage.DAVE_DRIVER__CONNECTIONS );
+            this.connections = new EObjectContainmentEList.Resolving<Connection> (
+                    Connection.class, this,
+                    ParserPackage.PARSER_DRIVER__CONNECTIONS );
         }
         return this.connections;
     }
@@ -307,7 +313,8 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     {
         if ( this.exporter == null )
         {
-            this.exporter = new EObjectContainmentEList.Resolving<Exporter> ( Exporter.class, this, DavePackage.DAVE_DRIVER__EXPORTER );
+            this.exporter = new EObjectContainmentEList.Resolving<Exporter> (
+                    Exporter.class, this, ParserPackage.PARSER_DRIVER__EXPORTER );
         }
         return this.exporter;
     }
@@ -328,10 +335,20 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
             if ( this.customizationProfile != oldCustomizationProfile )
             {
                 final InternalEObject newCustomizationProfile = (InternalEObject)this.customizationProfile;
-                NotificationChain msgs = oldCustomizationProfile.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, null );
+                NotificationChain msgs = oldCustomizationProfile
+                        .eInverseRemove (
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                                null, null );
                 if ( newCustomizationProfile.eInternalContainer () == null )
                 {
-                    msgs = newCustomizationProfile.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+                    msgs = newCustomizationProfile
+                            .eInverseAdd (
+                                    this,
+                                    EOPPOSITE_FEATURE_BASE
+                                            - ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                                    null, msgs );
                 }
                 if ( msgs != null )
                 {
@@ -339,7 +356,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
                 }
                 if ( eNotificationRequired () )
                 {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, this.customizationProfile ) );
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE,
+                            ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                            oldCustomizationProfile, this.customizationProfile ) );
                 }
             }
         }
@@ -363,13 +382,17 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
      * 
      * @generated
      */
-    public NotificationChain basicSetCustomizationProfile ( final Profile newCustomizationProfile, NotificationChain msgs )
+    public NotificationChain basicSetCustomizationProfile (
+            final Profile newCustomizationProfile, NotificationChain msgs )
     {
         final Profile oldCustomizationProfile = this.customizationProfile;
         this.customizationProfile = newCustomizationProfile;
         if ( eNotificationRequired () )
         {
-            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, newCustomizationProfile );
+            final ENotificationImpl notification = new ENotificationImpl ( this,
+                    Notification.SET,
+                    ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                    oldCustomizationProfile, newCustomizationProfile );
             if ( msgs == null )
             {
                 msgs = notification;
@@ -396,11 +419,21 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
             NotificationChain msgs = null;
             if ( this.customizationProfile != null )
             {
-                msgs = ( (InternalEObject)this.customizationProfile ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+                msgs = ( (InternalEObject)this.customizationProfile )
+                        .eInverseRemove (
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                                null, msgs );
             }
             if ( newCustomizationProfile != null )
             {
-                msgs = ( (InternalEObject)newCustomizationProfile ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
+                msgs = ( (InternalEObject)newCustomizationProfile )
+                        .eInverseAdd (
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                                null, msgs );
             }
             msgs = basicSetCustomizationProfile ( newCustomizationProfile, msgs );
             if ( msgs != null )
@@ -410,7 +443,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
         }
         else if ( eNotificationRequired () )
         {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, newCustomizationProfile, newCustomizationProfile ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET,
+                    ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE,
+                    newCustomizationProfile, newCustomizationProfile ) );
         }
     }
 
@@ -431,7 +466,11 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
             {
                 if ( eNotificationRequired () )
                 {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+                    eNotify ( new ENotificationImpl (
+                            this,
+                            Notification.RESOLVE,
+                            ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION,
+                            oldSecurityConfiguration, this.securityConfiguration ) );
                 }
             }
         }
@@ -462,7 +501,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
         this.securityConfiguration = newSecurityConfiguration;
         if ( eNotificationRequired () )
         {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET,
+                    ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION,
+                    oldSecurityConfiguration, this.securityConfiguration ) );
         }
     }
 
@@ -477,7 +518,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     {
         if ( this.modules == null )
         {
-            this.modules = new EObjectContainmentEList.Resolving<ApplicationModule> ( ApplicationModule.class, this, DavePackage.DAVE_DRIVER__MODULES );
+            this.modules = new EObjectContainmentEList.Resolving<ApplicationModule> (
+                    ApplicationModule.class, this,
+                    ParserPackage.PARSER_DRIVER__MODULES );
         }
         return this.modules;
     }
@@ -489,19 +532,350 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
      * @generated
      */
     @Override
-    public EList<DaveCommunicationProcessor> getDevices ()
+    public EList<Component> getComponents ()
     {
-        if ( this.devices == null )
+        if ( this.components == null )
         {
-            this.devices = new EObjectResolvingEList<DaveCommunicationProcessor> ( DaveCommunicationProcessor.class, this, DavePackage.DAVE_DRIVER__DEVICES );
+            this.components = new EObjectContainmentEList.Resolving<Component> (
+                    Component.class, this,
+                    ParserPackage.PARSER_DRIVER__COMPONENTS );
         }
-        return this.devices;
+        return this.components;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public EList<Endpoint> getEndpoints ()
+    {
+        final EList<Endpoint> result = ECollections.newBasicEList ();
+        for ( final Exporter exporter : getExporter () )
+        {
+            result.addAll ( exporter.getEndpoints () );
+        }
+        return result;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd,
+            final int featureID, final NotificationChain msgs )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                return ( (InternalEList<?>)getConnections () ).basicRemove ( otherEnd,
+                        msgs );
+            case ParserPackage.PARSER_DRIVER__EXPORTER:
+                return ( (InternalEList<?>)getExporter () ).basicRemove ( otherEnd,
+                        msgs );
+            case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                return basicSetCustomizationProfile ( null, msgs );
+            case ParserPackage.PARSER_DRIVER__MODULES:
+                return ( (InternalEList<?>)getModules () )
+                        .basicRemove ( otherEnd, msgs );
+            case ParserPackage.PARSER_DRIVER__COMPONENTS:
+                return ( (InternalEList<?>)getComponents () ).basicRemove ( otherEnd,
+                        msgs );
+        }
+        return super.eInverseRemove ( otherEnd, featureID, msgs );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PARSER_DRIVER__SHORT_DESCRIPTION:
+                return getShortDescription ();
+            case ParserPackage.PARSER_DRIVER__NAME:
+                return getName ();
+            case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                return getConnections ();
+            case ParserPackage.PARSER_DRIVER__EXPORTER:
+                return getExporter ();
+            case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                if ( resolve )
+                {
+                    return getCustomizationProfile ();
+                }
+                return basicGetCustomizationProfile ();
+            case ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION:
+                if ( resolve )
+                {
+                    return getSecurityConfiguration ();
+                }
+                return basicGetSecurityConfiguration ();
+            case ParserPackage.PARSER_DRIVER__MODULES:
+                return getModules ();
+            case ParserPackage.PARSER_DRIVER__COMPONENTS:
+                return getComponents ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @SuppressWarnings ( "unchecked" )
+    @Override
+    public void eSet ( final int featureID, final Object newValue )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PARSER_DRIVER__SHORT_DESCRIPTION:
+                setShortDescription ( (String)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__NAME:
+                setName ( (String)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                getConnections ().clear ();
+                getConnections ()
+                        .addAll ( (Collection<? extends Connection>)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__EXPORTER:
+                getExporter ().clear ();
+                getExporter ().addAll ( (Collection<? extends Exporter>)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                setCustomizationProfile ( (Profile)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION:
+                setSecurityConfiguration ( (Configuration)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__MODULES:
+                getModules ().clear ();
+                getModules ().addAll (
+                        (Collection<? extends ApplicationModule>)newValue );
+                return;
+            case ParserPackage.PARSER_DRIVER__COMPONENTS:
+                getComponents ().clear ();
+                getComponents ().addAll ( (Collection<? extends Component>)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void eUnset ( final int featureID )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PARSER_DRIVER__SHORT_DESCRIPTION:
+                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
+                return;
+            case ParserPackage.PARSER_DRIVER__NAME:
+                setName ( NAME_EDEFAULT );
+                return;
+            case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                getConnections ().clear ();
+                return;
+            case ParserPackage.PARSER_DRIVER__EXPORTER:
+                getExporter ().clear ();
+                return;
+            case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                setCustomizationProfile ( (Profile)null );
+                return;
+            case ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION:
+                setSecurityConfiguration ( (Configuration)null );
+                return;
+            case ParserPackage.PARSER_DRIVER__MODULES:
+                getModules ().clear ();
+                return;
+            case ParserPackage.PARSER_DRIVER__COMPONENTS:
+                getComponents ().clear ();
+                return;
+        }
+        super.eUnset ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( final int featureID )
+    {
+        switch ( featureID )
+        {
+            case ParserPackage.PARSER_DRIVER__SHORT_DESCRIPTION:
+                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null
+                        : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
+            case ParserPackage.PARSER_DRIVER__NAME:
+                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT
+                        .equals ( this.name );
+            case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                return this.connections != null && !this.connections.isEmpty ();
+            case ParserPackage.PARSER_DRIVER__EXPORTER:
+                return this.exporter != null && !this.exporter.isEmpty ();
+            case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                return this.customizationProfile != null;
+            case ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION:
+                return this.securityConfiguration != null;
+            case ParserPackage.PARSER_DRIVER__MODULES:
+                return this.modules != null && !this.modules.isEmpty ();
+            case ParserPackage.PARSER_DRIVER__COMPONENTS:
+                return this.components != null && !this.components.isEmpty ();
+        }
+        return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
+    {
+        if ( baseClass == EquinoxApplication.class )
+        {
+            switch ( derivedFeatureID )
+            {
+                case ParserPackage.PARSER_DRIVER__CONNECTIONS:
+                    return OsgiPackage.EQUINOX_APPLICATION__CONNECTIONS;
+                case ParserPackage.PARSER_DRIVER__EXPORTER:
+                    return OsgiPackage.EQUINOX_APPLICATION__EXPORTER;
+                case ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE:
+                    return OsgiPackage.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE;
+                case ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION:
+                    return OsgiPackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
+                case ParserPackage.PARSER_DRIVER__MODULES:
+                    return OsgiPackage.EQUINOX_APPLICATION__MODULES;
+                default:
+                    return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
+    {
+        if ( baseClass == EquinoxApplication.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case OsgiPackage.EQUINOX_APPLICATION__CONNECTIONS:
+                    return ParserPackage.PARSER_DRIVER__CONNECTIONS;
+                case OsgiPackage.EQUINOX_APPLICATION__EXPORTER:
+                    return ParserPackage.PARSER_DRIVER__EXPORTER;
+                case OsgiPackage.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE:
+                    return ParserPackage.PARSER_DRIVER__CUSTOMIZATION_PROFILE;
+                case OsgiPackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION:
+                    return ParserPackage.PARSER_DRIVER__SECURITY_CONFIGURATION;
+                case OsgiPackage.EQUINOX_APPLICATION__MODULES:
+                    return ParserPackage.PARSER_DRIVER__MODULES;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public int eDerivedOperationID ( final int baseOperationID, final Class<?> baseClass )
+    {
+        if ( baseClass == EquinoxApplication.class )
+        {
+            switch ( baseOperationID )
+            {
+                case OsgiPackage.EQUINOX_APPLICATION___GET_PROFILE:
+                    return ParserPackage.PARSER_DRIVER___GET_PROFILE;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedOperationID ( baseOperationID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( final int operationID, final EList<?> arguments )
+            throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case ParserPackage.PARSER_DRIVER___GET_PROFILE:
+                return getProfile ();
+            case ParserPackage.PARSER_DRIVER___GET_ENDPOINTS:
+                return getEndpoints ();
+        }
+        return super.eInvoke ( operationID, arguments );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+        {
+            return super.toString ();
+        }
+
+        final StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (shortDescription: " ); //$NON-NLS-1$
+        result.append ( this.shortDescription );
+        result.append ( ", name: " ); //$NON-NLS-1$
+        result.append ( this.name );
+        result.append ( ')' );
+        return result.toString ();
     }
 
     /**
      * @generated NOT
      */
-    private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.dave/model/default.dave.xml#/";
+    private static final String DEFAULT_URI = "platform:/plugin/org.eclipse.scada.configuration.driver.parser/model/default.parser.xml#/";
 
     /**
      * @generated NOT
@@ -536,321 +910,4 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
         return this.profile;
     }
 
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated NOT
-     */
-    @Override
-    public EList<Endpoint> getEndpoints ()
-    {
-        final EList<Endpoint> result = ECollections.newBasicEList ();
-        for ( final Exporter exporter : getExporter () )
-        {
-            result.addAll ( exporter.getEndpoints () );
-        }
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
-    {
-        switch ( featureID )
-        {
-            case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                return ( (InternalEList<?>)getConnections () ).basicRemove ( otherEnd, msgs );
-            case DavePackage.DAVE_DRIVER__EXPORTER:
-                return ( (InternalEList<?>)getExporter () ).basicRemove ( otherEnd, msgs );
-            case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                return basicSetCustomizationProfile ( null, msgs );
-            case DavePackage.DAVE_DRIVER__MODULES:
-                return ( (InternalEList<?>)getModules () ).basicRemove ( otherEnd, msgs );
-        }
-        return super.eInverseRemove ( otherEnd, featureID, msgs );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
-    {
-        switch ( featureID )
-        {
-            case DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION:
-                return getShortDescription ();
-            case DavePackage.DAVE_DRIVER__NAME:
-                return getName ();
-            case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                return getConnections ();
-            case DavePackage.DAVE_DRIVER__EXPORTER:
-                return getExporter ();
-            case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                if ( resolve )
-                {
-                    return getCustomizationProfile ();
-                }
-                return basicGetCustomizationProfile ();
-            case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                if ( resolve )
-                {
-                    return getSecurityConfiguration ();
-                }
-                return basicGetSecurityConfiguration ();
-            case DavePackage.DAVE_DRIVER__MODULES:
-                return getModules ();
-            case DavePackage.DAVE_DRIVER__DEVICES:
-                return getDevices ();
-        }
-        return super.eGet ( featureID, resolve, coreType );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @SuppressWarnings ( "unchecked" )
-    @Override
-    public void eSet ( final int featureID, final Object newValue )
-    {
-        switch ( featureID )
-        {
-            case DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION:
-                setShortDescription ( (String)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__NAME:
-                setName ( (String)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                getConnections ().clear ();
-                getConnections ().addAll ( (Collection<? extends Connection>)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__EXPORTER:
-                getExporter ().clear ();
-                getExporter ().addAll ( (Collection<? extends Exporter>)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                setCustomizationProfile ( (Profile)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                setSecurityConfiguration ( (Configuration)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__MODULES:
-                getModules ().clear ();
-                getModules ().addAll ( (Collection<? extends ApplicationModule>)newValue );
-                return;
-            case DavePackage.DAVE_DRIVER__DEVICES:
-                getDevices ().clear ();
-                getDevices ().addAll ( (Collection<? extends DaveCommunicationProcessor>)newValue );
-                return;
-        }
-        super.eSet ( featureID, newValue );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void eUnset ( final int featureID )
-    {
-        switch ( featureID )
-        {
-            case DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION:
-                setShortDescription ( SHORT_DESCRIPTION_EDEFAULT );
-                return;
-            case DavePackage.DAVE_DRIVER__NAME:
-                setName ( NAME_EDEFAULT );
-                return;
-            case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                getConnections ().clear ();
-                return;
-            case DavePackage.DAVE_DRIVER__EXPORTER:
-                getExporter ().clear ();
-                return;
-            case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                setCustomizationProfile ( (Profile)null );
-                return;
-            case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                setSecurityConfiguration ( (Configuration)null );
-                return;
-            case DavePackage.DAVE_DRIVER__MODULES:
-                getModules ().clear ();
-                return;
-            case DavePackage.DAVE_DRIVER__DEVICES:
-                getDevices ().clear ();
-                return;
-        }
-        super.eUnset ( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public boolean eIsSet ( final int featureID )
-    {
-        switch ( featureID )
-        {
-            case DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
-            case DavePackage.DAVE_DRIVER__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
-            case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                return this.connections != null && !this.connections.isEmpty ();
-            case DavePackage.DAVE_DRIVER__EXPORTER:
-                return this.exporter != null && !this.exporter.isEmpty ();
-            case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                return this.customizationProfile != null;
-            case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                return this.securityConfiguration != null;
-            case DavePackage.DAVE_DRIVER__MODULES:
-                return this.modules != null && !this.modules.isEmpty ();
-            case DavePackage.DAVE_DRIVER__DEVICES:
-                return this.devices != null && !this.devices.isEmpty ();
-        }
-        return super.eIsSet ( featureID );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
-    {
-        if ( baseClass == EquinoxApplication.class )
-        {
-            switch ( derivedFeatureID )
-            {
-                case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                    return OsgiPackage.EQUINOX_APPLICATION__CONNECTIONS;
-                case DavePackage.DAVE_DRIVER__EXPORTER:
-                    return OsgiPackage.EQUINOX_APPLICATION__EXPORTER;
-                case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                    return OsgiPackage.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE;
-                case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                    return OsgiPackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION;
-                case DavePackage.DAVE_DRIVER__MODULES:
-                    return OsgiPackage.EQUINOX_APPLICATION__MODULES;
-                default:
-                    return -1;
-            }
-        }
-        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
-    {
-        if ( baseClass == EquinoxApplication.class )
-        {
-            switch ( baseFeatureID )
-            {
-                case OsgiPackage.EQUINOX_APPLICATION__CONNECTIONS:
-                    return DavePackage.DAVE_DRIVER__CONNECTIONS;
-                case OsgiPackage.EQUINOX_APPLICATION__EXPORTER:
-                    return DavePackage.DAVE_DRIVER__EXPORTER;
-                case OsgiPackage.EQUINOX_APPLICATION__CUSTOMIZATION_PROFILE:
-                    return DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE;
-                case OsgiPackage.EQUINOX_APPLICATION__SECURITY_CONFIGURATION:
-                    return DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION;
-                case OsgiPackage.EQUINOX_APPLICATION__MODULES:
-                    return DavePackage.DAVE_DRIVER__MODULES;
-                default:
-                    return -1;
-            }
-        }
-        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public int eDerivedOperationID ( final int baseOperationID, final Class<?> baseClass )
-    {
-        if ( baseClass == EquinoxApplication.class )
-        {
-            switch ( baseOperationID )
-            {
-                case OsgiPackage.EQUINOX_APPLICATION___GET_PROFILE:
-                    return DavePackage.DAVE_DRIVER___GET_PROFILE;
-                default:
-                    return -1;
-            }
-        }
-        return super.eDerivedOperationID ( baseOperationID, baseClass );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
-    {
-        switch ( operationID )
-        {
-            case DavePackage.DAVE_DRIVER___GET_PROFILE:
-                return getProfile ();
-            case DavePackage.DAVE_DRIVER___GET_ENDPOINTS:
-                return getEndpoints ();
-        }
-        return super.eInvoke ( operationID, arguments );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String toString ()
-    {
-        if ( eIsProxy () )
-        {
-            return super.toString ();
-        }
-
-        final StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( this.shortDescription );
-        result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( this.name );
-        result.append ( ')' );
-        return result.toString ();
-    }
-
-} //DaveDriverImpl
+} //ParserDriverImpl

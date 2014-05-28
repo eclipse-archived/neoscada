@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <nodeElementProcessor
+            factoryClass="org.eclipse.scada.configuration.driver.parser.lib.ParserDriverProcessorFactory"
+            forClass="org.eclipse.scada.configuration.driver.parser.ParserDriver">
+      </nodeElementProcessor>
+   </extension>
+</plugin>

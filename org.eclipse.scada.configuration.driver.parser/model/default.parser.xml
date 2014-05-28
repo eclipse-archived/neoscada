@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
+	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
+	includes="../../../plugin/org.eclipse.scada.configuration.lib/model/fragments/ca.file.profile.xml#/ ../../../plugin/org.eclipse.scada.configuration.lib/model/driver.base.profile.xml#/"
+	name="Parser Component Driver">
+	<start>org.eclipse.scada.da.server.component</start>
+	<start>org.eclipse.scada.da.server.component.parser.factory</start>
+</profile:profile>
