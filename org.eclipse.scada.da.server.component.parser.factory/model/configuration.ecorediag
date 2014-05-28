@@ -101,6 +101,10 @@
   <children xmi:type="notation:Node" xmi:id="_sL8jcOWzEeOX_qUWn78yDw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_sL9KgOWzEeOX_qUWn78yDw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_sL9xkOWzEeOX_qUWn78yDw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_8EUQoOZ_EeOX_qUWn78yDw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//PlainText/trim"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8EUQoeZ_EeOX_qUWn78yDw"/>
+      </children>
       <children xmi:type="notation:Node" xmi:id="_AAG1AOW1EeOX_qUWn78yDw" type="2001">
         <element xmi:type="ecore:EAttribute" href="configuration.ecore#//PlainText/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AAG1AeW1EeOX_qUWn78yDw"/>

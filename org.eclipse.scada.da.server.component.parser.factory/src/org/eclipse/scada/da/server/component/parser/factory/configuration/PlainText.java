@@ -20,6 +20,7 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration;
  * <ul>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#isTrim <em>Trim</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,4 +82,31 @@ public interface PlainText extends ExtractorDefinition
      * @generated
      */
     void setDescription ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Trim</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Trim</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Trim</em>' attribute.
+     * @see #setTrim(boolean)
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getPlainText_Trim()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isTrim ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#isTrim <em>Trim</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Trim</em>' attribute.
+     * @see #isTrim()
+     * @generated
+     */
+    void setTrim ( boolean value );
 } // PlainText

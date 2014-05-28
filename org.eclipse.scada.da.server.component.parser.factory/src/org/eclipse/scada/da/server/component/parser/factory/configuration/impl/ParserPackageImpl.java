@@ -303,6 +303,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getPlainText_Trim ()
+    {
+        return (EAttribute)plainTextEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getInput ()
     {
         return inputEDataType;
@@ -377,6 +387,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         plainTextEClass = createEClass ( PLAIN_TEXT );
         createEAttribute ( plainTextEClass, PLAIN_TEXT__NAME );
         createEAttribute ( plainTextEClass, PLAIN_TEXT__DESCRIPTION );
+        createEAttribute ( plainTextEClass, PLAIN_TEXT__TRIM );
 
         // Create data types
         inputEDataType = createEDataType ( INPUT );
@@ -440,6 +451,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEClass ( plainTextEClass, PlainText.class, "PlainText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Name (), ecorePackage.getEString (), "name", null, 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Description (), ecorePackage.getEString (), "description", null, 0, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPlainText_Trim (), ecorePackage.getEBoolean (), "trim", "true", 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize data types
         initEDataType ( inputEDataType, Input.class, "Input", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

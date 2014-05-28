@@ -289,13 +289,22 @@ public interface ParserPackage extends EPackage
     int PLAIN_TEXT__DESCRIPTION = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Trim</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PLAIN_TEXT__TRIM = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Plain Text</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PLAIN_TEXT_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+    int PLAIN_TEXT_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 3;
 
     /**
      * The operation id for the '<em>Create Extractor</em>' operation.
@@ -493,6 +502,17 @@ public interface ParserPackage extends EPackage
     EAttribute getPlainText_Description ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#isTrim <em>Trim</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Trim</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText#isTrim()
+     * @see #getPlainText()
+     * @generated
+     */
+    EAttribute getPlainText_Trim ();
+
+    /**
      * Returns the meta object for data type '{@link org.eclipse.scada.base.extractor.input.Input <em>Input</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -670,6 +690,14 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EAttribute PLAIN_TEXT__DESCRIPTION = eINSTANCE.getPlainText_Description ();
+
+        /**
+         * The meta object literal for the '<em><b>Trim</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PLAIN_TEXT__TRIM = eINSTANCE.getPlainText_Trim ();
 
         /**
          * The meta object literal for the '<em>Input</em>' data type.

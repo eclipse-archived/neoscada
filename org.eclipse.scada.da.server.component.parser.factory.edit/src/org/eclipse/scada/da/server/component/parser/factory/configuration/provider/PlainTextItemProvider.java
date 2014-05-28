@@ -75,6 +75,7 @@ public class PlainTextItemProvider
             addPrefixPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
             addDescriptionPropertyDescriptor ( object );
+            addTrimPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -149,6 +150,29 @@ public class PlainTextItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Trim feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTrimPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_PlainText_trim_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_PlainText_trim_feature", "_UI_PlainText_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.PLAIN_TEXT__TRIM,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns PlainText.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -192,6 +216,7 @@ public class PlainTextItemProvider
             case ParserPackage.PLAIN_TEXT__PREFIX:
             case ParserPackage.PLAIN_TEXT__NAME:
             case ParserPackage.PLAIN_TEXT__DESCRIPTION:
+            case ParserPackage.PLAIN_TEXT__TRIM:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
