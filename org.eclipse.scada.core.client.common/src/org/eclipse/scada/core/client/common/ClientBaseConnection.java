@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTESM GmbH - add dispose to filter chain
+ *     IBH SYSTESM GmbH - add dispose to filter chain, add address cache flag
  *******************************************************************************/
 package org.eclipse.scada.core.client.common;
 
@@ -43,6 +43,8 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( ClientBaseConnection.class );
+
+    private static final Object STATS_CACHE_ADDRESS = new Object ();
 
     private static final Object STATS_CURRENT_STATE = new Object ();
 
@@ -88,6 +90,8 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private volatile boolean disposed;
 
+    private final boolean cacheAddress = Boolean.getBoolean ( "org.eclipse.scada.core.client.common.cacheAddress" );
+
     public ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation ) throws Exception
     {
         super ( connectionInformation );
@@ -103,6 +107,9 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
         this.connector.setFilterChainBuilder ( this.chainBuilder );
         this.connector.setHandler ( this.handler );
+
+        this.statistics.setLabel ( STATS_CACHE_ADDRESS, "Flag if the IP address gets cached" );
+        this.statistics.setCurrentValue ( STATS_CACHE_ADDRESS, this.cacheAddress ? 1.0 : 0.0 );
 
         this.statistics.setLabel ( STATS_CURRENT_STATE, "Numeric connection state" );
         this.statistics.setLabel ( STATS_CONNECT_CALLS, "Calls to connect" );
@@ -444,7 +451,10 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
         if ( address != null )
         {
-            this.address = address;
+            if ( this.cacheAddress )
+            {
+                this.address = address;
+            }
             // trigger connect
             startConnect ();
         }
