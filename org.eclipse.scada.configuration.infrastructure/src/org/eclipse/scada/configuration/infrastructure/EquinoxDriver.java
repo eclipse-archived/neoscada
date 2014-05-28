@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure;
 
-import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.world.Credentials;
 
 /**
@@ -21,10 +20,7 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getUserService <em>User Service</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getInstanceNumber <em>Instance Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getAccessCredentials <em>Access Credentials</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getSecurityConfiguration <em>Security Configuration</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,60 +28,8 @@ import org.eclipse.scada.configuration.world.Credentials;
  * @model
  * @generated
  */
-public interface EquinoxDriver extends AbstractFactoryDriver
+public interface EquinoxDriver extends AbstractFactoryDriver, EquinoxBase
 {
-    /**
-     * Returns the value of the '<em><b>User Service</b></em>' containment reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>User Service</em>' containment reference isn't
-     * clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>User Service</em>' containment reference.
-     * @see #setUserService(UserService)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxDriver_UserService()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    UserService getUserService ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getUserService <em>User Service</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>User Service</em>' containment reference.
-     * @see #getUserService()
-     * @generated
-     */
-    void setUserService ( UserService value );
-
-    /**
-     * Returns the value of the '<em><b>Instance Number</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Instance Number</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Instance Number</em>' attribute.
-     * @see #setInstanceNumber(int)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxDriver_InstanceNumber()
-     * @model required="true"
-     * @generated
-     */
-    int getInstanceNumber ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getInstanceNumber <em>Instance Number</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Instance Number</em>' attribute.
-     * @see #getInstanceNumber()
-     * @generated
-     */
-    void setInstanceNumber ( int value );
-
     /**
      * Returns the value of the '<em><b>Access Credentials</b></em>' containment reference.
      * <!-- begin-user-doc -->
@@ -111,31 +55,5 @@ public interface EquinoxDriver extends AbstractFactoryDriver
      * @generated
      */
     void setAccessCredentials ( Credentials value );
-
-    /**
-     * Returns the value of the '<em><b>Security Configuration</b></em>' reference.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Security Configuration</em>' reference isn't
-     * clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Security Configuration</em>' reference.
-     * @see #setSecurityConfiguration(Configuration)
-     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getEquinoxDriver_SecurityConfiguration()
-     * @model
-     * @generated
-     */
-    Configuration getSecurityConfiguration ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.EquinoxDriver#getSecurityConfiguration <em>Security Configuration</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Security Configuration</em>' reference.
-     * @see #getSecurityConfiguration()
-     * @generated
-     */
-    void setSecurityConfiguration ( Configuration value );
 
 } // EquinoxDriver

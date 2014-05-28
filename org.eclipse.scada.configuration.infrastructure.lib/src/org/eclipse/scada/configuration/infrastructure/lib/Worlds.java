@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Driver;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.MasterImport;
@@ -23,9 +24,11 @@ import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserService;
+import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.SystemPropertiesUserServiceProcessor;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.lib.Properties;
+import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Endpoint;
@@ -186,15 +189,54 @@ public final class Worlds
         {
             return Endpoints.createEndpoint ( ( (CommonDriver)driver ).getPortNumber (), "CommonDriver Endpoint: " + driver.getName () );
         }
-        else if ( driver instanceof EquinoxDriver )
+        else if ( driver instanceof EquinoxBase )
         {
-            return Endpoints.createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxDriver)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
+            return Endpoints.createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxBase)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
         }
         else if ( driver instanceof ExternalDriver )
         {
             return Endpoints.createEndpoint ( ( (ExternalDriver)driver ).getPortNumber (), "ExternalDriver Endpoint: " + driver.getName () );
         }
         throw new IllegalStateException ( String.format ( "Unable to create DA endpoint for driver type: %s", driver.getClass ().getName () ) );
+    }
+
+    public static Configuration findSecurityConfiguration ( final EquinoxBase eDriver )
+    {
+        final World world = Containers.findContainer ( eDriver, World.class );
+
+        if ( eDriver.getSecurityConfiguration () != null )
+        {
+            return eDriver.getSecurityConfiguration ();
+        }
+        else if ( world != null )
+        {
+            return world.getDefaultSecurityConfiguration ();
+        }
+        return null;
+    }
+
+    public static UserService findUserService ( final EquinoxBase app )
+    {
+        if ( app.getUserService () != null )
+        {
+            return app.getUserService ();
+        }
+
+        final World world = Containers.findContainer ( app, World.class );
+        final Options options = world.getOptions ();
+
+        if ( options != null && options.getDefaultUserService () != null )
+        {
+            return options.getDefaultUserService ();
+        }
+
+        return null;
+    }
+
+    public static void addUserService ( final EquinoxApplication application, final EquinoxBase driver )
+    {
+        final World world = Containers.findContainer ( driver, World.class );
+        addUserService ( application, findUserService ( driver ), world.getOptions () );
     }
 
     public static void addUserService ( final EquinoxApplication application, UserService userService, final Options options )

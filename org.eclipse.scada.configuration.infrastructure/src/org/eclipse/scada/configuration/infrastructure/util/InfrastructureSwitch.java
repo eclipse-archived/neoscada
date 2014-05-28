@@ -277,6 +277,8 @@ public class InfrastructureSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseAbstractFactoryDriver ( equinoxDriver );
                 if ( result == null )
+                    result = caseEquinoxBase ( equinoxDriver );
+                if ( result == null )
                     result = caseDriver ( equinoxDriver );
                 if ( result == null )
                     result = defaultCase ( theEObject );
@@ -408,6 +410,26 @@ public class InfrastructureSwitch<T> extends Switch<T>
                 T result = caseGenericVMSettings ( genericVMSettings );
                 if ( result == null )
                     result = caseModule ( genericVMSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER:
+            {
+                AbstractEquinoxDriver abstractEquinoxDriver = (AbstractEquinoxDriver)theEObject;
+                T result = caseAbstractEquinoxDriver ( abstractEquinoxDriver );
+                if ( result == null )
+                    result = caseDriver ( abstractEquinoxDriver );
+                if ( result == null )
+                    result = caseEquinoxBase ( abstractEquinoxDriver );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.EQUINOX_BASE:
+            {
+                EquinoxBase equinoxBase = (EquinoxBase)theEObject;
+                T result = caseEquinoxBase ( equinoxBase );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -893,6 +915,38 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseGenericVMSettings ( GenericVMSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Base</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Base</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEquinoxBase ( EquinoxBase object )
     {
         return null;
     }

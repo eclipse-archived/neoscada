@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
@@ -29,7 +30,6 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.driver.parser.ParserFactory
  * @model kind="package"
  * @generated
@@ -40,7 +40,6 @@ public interface ParserPackage extends EPackage
      * The package name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNAME = "parser"; //$NON-NLS-1$
@@ -49,7 +48,6 @@ public interface ParserPackage extends EPackage
      * The package namespace URI.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_URI = "http://eclipse.org/SCADA/Configuration/Driver/Parser"; //$NON-NLS-1$
@@ -58,7 +56,6 @@ public interface ParserPackage extends EPackage
      * The package namespace name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     String eNS_PREFIX = "parserDriver"; //$NON-NLS-1$
@@ -67,19 +64,14 @@ public interface ParserPackage extends EPackage
      * The singleton instance of the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    ParserPackage eINSTANCE = org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl
-            .init ();
+    ParserPackage eINSTANCE = org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl.init ();
 
     /**
-     * The meta object id for the '
-     * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl
-     * <em>Driver</em>}' class.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl <em>Driver</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl
      * @see org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl#getParserDriver()
      * @generated
@@ -90,7 +82,6 @@ public interface ParserPackage extends EPackage
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -100,73 +91,60 @@ public interface ParserPackage extends EPackage
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__NAME = WorldPackage.DRIVER__NAME;
 
     /**
-     * The feature id for the '<em><b>Connections</b></em>' containment
-     * reference list.
+     * The feature id for the '<em><b>Connections</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__CONNECTIONS = WorldPackage.DRIVER_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Exporter</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Exporter</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__EXPORTER = WorldPackage.DRIVER_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Customization Profile</b></em>'
-     * containment reference.
+     * The feature id for the '<em><b>Customization Profile</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__CUSTOMIZATION_PROFILE = WorldPackage.DRIVER_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Security Configuration</b></em>'
-     * reference.
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__SECURITY_CONFIGURATION = WorldPackage.DRIVER_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Modules</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER__MODULES = WorldPackage.DRIVER_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Components</b></em>' containment reference
-     * list.
+     * The feature id for the '<em><b>Components</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -176,7 +154,6 @@ public interface ParserPackage extends EPackage
      * The number of structural features of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -186,7 +163,6 @@ public interface ParserPackage extends EPackage
      * The operation id for the '<em>Get Endpoints</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -196,7 +172,6 @@ public interface ParserPackage extends EPackage
      * The operation id for the '<em>Get Profile</em>' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
@@ -206,19 +181,88 @@ public interface ParserPackage extends EPackage
      * The number of operations of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      * @ordered
      */
     int PARSER_DRIVER_OPERATION_COUNT = WorldPackage.DRIVER_OPERATION_COUNT + 1;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.eclipse.scada.configuration.driver.parser.ParserDriver
-     * <em>Driver</em>}'.
+     * The meta object id for the '{@link org.eclipse.scada.configuration.driver.parser.impl.ParserComponentHostImpl <em>Component Host</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @see org.eclipse.scada.configuration.driver.parser.impl.ParserComponentHostImpl
+     * @see org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl#getParserComponentHost()
+     * @generated
+     */
+    int PARSER_COMPONENT_HOST = 1;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST__NAME = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Node</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST__NODE = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST__SECURITY_CONFIGURATION = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION;
+
+    /**
+     * The feature id for the '<em><b>User Service</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST__USER_SERVICE = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE;
+
+    /**
+     * The feature id for the '<em><b>Components</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST__COMPONENTS = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Component Host</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST_FEATURE_COUNT = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Component Host</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARSER_COMPONENT_HOST_OPERATION_COUNT = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_OPERATION_COUNT + 0;
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.driver.parser.ParserDriver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for class '<em>Driver</em>'.
      * @see org.eclipse.scada.configuration.driver.parser.ParserDriver
      * @generated
@@ -226,14 +270,10 @@ public interface ParserPackage extends EPackage
     EClass getParserDriver ();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.eclipse.scada.configuration.driver.parser.ParserDriver#getComponents
-     * <em>Components</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.driver.parser.ParserDriver#getComponents <em>Components</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the meta object for the containment reference list '
-     *         <em>Components</em>'.
+     * @return the meta object for the containment reference list '<em>Components</em>'.
      * @see org.eclipse.scada.configuration.driver.parser.ParserDriver#getComponents()
      * @see #getParserDriver()
      * @generated
@@ -241,10 +281,30 @@ public interface ParserPackage extends EPackage
     EReference getParserDriver_Components ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.driver.parser.ParserComponentHost <em>Component Host</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Component Host</em>'.
+     * @see org.eclipse.scada.configuration.driver.parser.ParserComponentHost
+     * @generated
+     */
+    EClass getParserComponentHost ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.driver.parser.ParserComponentHost#getComponents <em>Components</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Components</em>'.
+     * @see org.eclipse.scada.configuration.driver.parser.ParserComponentHost#getComponents()
+     * @see #getParserComponentHost()
+     * @generated
+     */
+    EReference getParserComponentHost_Components ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -261,18 +321,14 @@ public interface ParserPackage extends EPackage
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     interface Literals
     {
         /**
-         * The meta object literal for the '
-         * {@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl
-         * <em>Driver</em>}' class.
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl <em>Driver</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @see org.eclipse.scada.configuration.driver.parser.impl.ParserDriverImpl
          * @see org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl#getParserDriver()
          * @generated
@@ -280,15 +336,30 @@ public interface ParserPackage extends EPackage
         EClass PARSER_DRIVER = eINSTANCE.getParserDriver ();
 
         /**
-         * The meta object literal for the '<em><b>Components</b></em>'
-         * containment reference list feature.
+         * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
          * @generated
          */
-        EReference PARSER_DRIVER__COMPONENTS = eINSTANCE
-                .getParserDriver_Components ();
+        EReference PARSER_DRIVER__COMPONENTS = eINSTANCE.getParserDriver_Components ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.driver.parser.impl.ParserComponentHostImpl <em>Component Host</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.driver.parser.impl.ParserComponentHostImpl
+         * @see org.eclipse.scada.configuration.driver.parser.impl.ParserPackageImpl#getParserComponentHost()
+         * @generated
+         */
+        EClass PARSER_COMPONENT_HOST = eINSTANCE.getParserComponentHost ();
+
+        /**
+         * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PARSER_COMPONENT_HOST__COMPONENTS = eINSTANCE.getParserComponentHost_Components ();
 
     }
 

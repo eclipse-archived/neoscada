@@ -458,7 +458,16 @@ public class WorldGenerator
 
     private Driver createDriver ( final org.eclipse.scada.configuration.infrastructure.Driver driver, final Map<org.eclipse.scada.configuration.infrastructure.Node, Node> nodes, final ApplicationNode node )
     {
-        if ( driver instanceof org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver )
+        final DriverHandler driverHandler = AdapterHelper.adapt ( driver, DriverHandler.class, true );
+        if ( driverHandler != null )
+        {
+            final Driver result = driverHandler.process ( driver );
+
+            finishDriver ( result, driver, node, true );
+
+            return result;
+        }
+        else if ( driver instanceof org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver )
         {
             final DriverFactory factory = Activator.findDriverFactory ( ( (AbstractFactoryDriver)driver ).getDriverTypeId () );
             if ( factory == null )

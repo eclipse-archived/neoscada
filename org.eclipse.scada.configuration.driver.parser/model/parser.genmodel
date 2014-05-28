@@ -5,7 +5,7 @@
     modelPluginID="org.eclipse.scada.configuration.driver.parser" modelName="Parser"
     nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.component.parser.factory/model/configuration.genmodel#//configuration ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.scada.da.server.component.parser.factory/model/configuration.genmodel#//configuration ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
     operationReflection="true" importOrganizing="true" decoration="Live">
   <foreignModel>parser.ecore</foreignModel>
   <genPackages prefix="Parser" basePackage="org.eclipse.scada.configuration.driver"
@@ -13,6 +13,9 @@
       ecorePackage="parser.ecore#/">
     <genClasses ecoreClass="parser.ecore#//ParserDriver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parser.ecore#//ParserDriver/components"/>
+    </genClasses>
+    <genClasses ecoreClass="parser.ecore#//ParserComponentHost">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference parser.ecore#//ParserComponentHost/components"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.infrastructure.UserService;
@@ -28,10 +29,10 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getUserService <em>User Service</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getInstanceNumber <em>Instance Number</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getUserService <em>User Service</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.EquinoxDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,16 +40,6 @@ import org.eclipse.scada.configuration.world.Credentials;
  */
 public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements EquinoxDriver
 {
-    /**
-     * The cached value of the '{@link #getUserService() <em>User Service</em>}' containment reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getUserService()
-     * @generated
-     * @ordered
-     */
-    protected UserService userService;
-
     /**
      * The default value of the '{@link #getInstanceNumber() <em>Instance Number</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -70,14 +61,14 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
     protected int instanceNumber = INSTANCE_NUMBER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getAccessCredentials() <em>Access Credentials</em>}' containment reference.
+     * The cached value of the '{@link #getUserService() <em>User Service</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getAccessCredentials()
+     * @see #getUserService()
      * @generated
      * @ordered
      */
-    protected Credentials accessCredentials;
+    protected UserService userService;
 
     /**
      * The cached value of the '{@link #getSecurityConfiguration() <em>Security Configuration</em>}' reference.
@@ -88,6 +79,16 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
      * @ordered
      */
     protected Configuration securityConfiguration;
+
+    /**
+     * The cached value of the '{@link #getAccessCredentials() <em>Access Credentials</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getAccessCredentials()
+     * @generated
+     * @ordered
+     */
+    protected Credentials accessCredentials;
 
     /**
      * <!-- begin-user-doc -->
@@ -364,20 +365,20 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
     {
         switch ( featureID )
         {
+            case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
+                return getInstanceNumber ();
             case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
                 if ( resolve )
                     return getUserService ();
                 return basicGetUserService ();
-            case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
-                return getInstanceNumber ();
-            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
-                if ( resolve )
-                    return getAccessCredentials ();
-                return basicGetAccessCredentials ();
             case InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 if ( resolve )
                     return getSecurityConfiguration ();
                 return basicGetSecurityConfiguration ();
+            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
+                if ( resolve )
+                    return getAccessCredentials ();
+                return basicGetAccessCredentials ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -392,17 +393,17 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
-                setUserService ( (UserService)newValue );
-                return;
             case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
                 setInstanceNumber ( (Integer)newValue );
                 return;
-            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
-                setAccessCredentials ( (Credentials)newValue );
+            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
+                setUserService ( (UserService)newValue );
                 return;
             case InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 setSecurityConfiguration ( (Configuration)newValue );
+                return;
+            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
+                setAccessCredentials ( (Credentials)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -418,17 +419,17 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
-                setUserService ( (UserService)null );
-                return;
             case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
                 setInstanceNumber ( INSTANCE_NUMBER_EDEFAULT );
                 return;
-            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
-                setAccessCredentials ( (Credentials)null );
+            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
+                setUserService ( (UserService)null );
                 return;
             case InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 setSecurityConfiguration ( (Configuration)null );
+                return;
+            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
+                setAccessCredentials ( (Credentials)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -444,16 +445,66 @@ public class EquinoxDriverImpl extends AbstractFactoryDriverImpl implements Equi
     {
         switch ( featureID )
         {
-            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
-                return userService != null;
             case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
                 return instanceNumber != INSTANCE_NUMBER_EDEFAULT;
-            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
-                return accessCredentials != null;
+            case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
+                return userService != null;
             case InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION:
                 return securityConfiguration != null;
+            case InfrastructurePackage.EQUINOX_DRIVER__ACCESS_CREDENTIALS:
+                return accessCredentials != null;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == EquinoxBase.class )
+        {
+            switch ( derivedFeatureID )
+            {
+                case InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER:
+                    return InfrastructurePackage.EQUINOX_BASE__INSTANCE_NUMBER;
+                case InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE:
+                    return InfrastructurePackage.EQUINOX_BASE__USER_SERVICE;
+                case InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION:
+                    return InfrastructurePackage.EQUINOX_BASE__SECURITY_CONFIGURATION;
+                default:
+                    return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID ( derivedFeatureID, baseClass );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
+    {
+        if ( baseClass == EquinoxBase.class )
+        {
+            switch ( baseFeatureID )
+            {
+                case InfrastructurePackage.EQUINOX_BASE__INSTANCE_NUMBER:
+                    return InfrastructurePackage.EQUINOX_DRIVER__INSTANCE_NUMBER;
+                case InfrastructurePackage.EQUINOX_BASE__USER_SERVICE:
+                    return InfrastructurePackage.EQUINOX_DRIVER__USER_SERVICE;
+                case InfrastructurePackage.EQUINOX_BASE__SECURITY_CONFIGURATION:
+                    return InfrastructurePackage.EQUINOX_DRIVER__SECURITY_CONFIGURATION;
+                default:
+                    return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID ( baseFeatureID, baseClass );
     }
 
     /**

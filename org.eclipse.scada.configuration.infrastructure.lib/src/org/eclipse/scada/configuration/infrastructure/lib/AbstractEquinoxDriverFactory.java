@@ -22,11 +22,8 @@ import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
-import org.eclipse.scada.configuration.infrastructure.Options;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.lib.Endpoints;
-import org.eclipse.scada.configuration.security.Configuration;
-import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.osgi.ConfigurationAdministratorExporter;
 import org.eclipse.scada.configuration.world.osgi.DataAccessExporter;
@@ -48,14 +45,11 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
             @Override
             public void validate ( final IValidationContext ctx, final EquinoxDriver driver, final Collection<IStatus> result )
             {
-                final World world = Containers.findContainer ( driver, World.class );
-                final Options options = world.getOptions ();
-
-                if ( driver.getUserService () == null && options == null || options.getDefaultUserService () == null )
+                if ( Worlds.findUserService ( driver ) == null )
                 {
                     result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( driver ), IStatus.WARNING, 0, "Neither the driver has set a user service nor is there a default in the global options" ) );
                 }
-                if ( findConfiguration ( driver, world ) == null )
+                if ( Worlds.findSecurityConfiguration ( driver ) == null )
                 {
                     result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( driver ), IStatus.WARNING, 1, "Neither the driver has set a security policy nor is there a default in the root" ) );
                 }
@@ -85,26 +79,13 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
         caExporter.getEndpoints ().add ( Endpoints.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), "CA Exporter" ) );
         result.getExporter ().add ( caExporter );
 
-        Worlds.addUserService ( result, eDriver.getUserService (), world.getOptions () );
+        Worlds.addUserService ( result, eDriver );
 
-        result.setSecurityConfiguration ( findConfiguration ( eDriver, world ) );
+        result.setSecurityConfiguration ( Worlds.findSecurityConfiguration ( eDriver ) );
 
         configureDriver ( driver, result, nodes );
 
         return result;
-    }
-
-    private Configuration findConfiguration ( final EquinoxDriver eDriver, final World world )
-    {
-        if ( eDriver.getSecurityConfiguration () != null )
-        {
-            return eDriver.getSecurityConfiguration ();
-        }
-        else if ( world != null )
-        {
-            return world.getDefaultSecurityConfiguration ();
-        }
-        return null;
     }
 
     @Override

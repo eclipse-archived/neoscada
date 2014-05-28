@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import org.eclipse.scada.configuration.driver.parser.*;
 
+import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
@@ -35,7 +36,6 @@ import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.configuration.driver.parser.ParserPackage
  * @generated
  */
@@ -45,7 +45,6 @@ public class ParserSwitch<T> extends Switch<T>
      * The cached model package
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static ParserPackage modelPackage;
@@ -54,7 +53,6 @@ public class ParserSwitch<T> extends Switch<T>
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ParserSwitch ()
@@ -69,7 +67,6 @@ public class ParserSwitch<T> extends Switch<T>
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @parameter ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
@@ -81,13 +78,10 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns
-     * a non null result; it yields that result.
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @return the first non-null result returned by a <code>caseXXX</code>
-     *         call.
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
     @Override
@@ -113,23 +107,31 @@ public class ParserSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ParserPackage.PARSER_COMPONENT_HOST:
+            {
+                ParserComponentHost parserComponentHost = (ParserComponentHost)theEObject;
+                T result = caseParserComponentHost ( parserComponentHost );
+                if ( result == null )
+                    result = caseAbstractEquinoxDriver ( parserComponentHost );
+                if ( result == null )
+                    result = caseInfrastructure_Driver ( parserComponentHost );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Driver</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Driver</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -139,17 +141,29 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Documentable</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Component Host</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Documentable</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Component Host</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseParserComponentHost ( ParserComponentHost object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Documentable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -159,17 +173,13 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Named Documentable</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Named Documentable</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -179,17 +189,13 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Application</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Application</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -199,17 +205,13 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Driver</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Driver</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -219,17 +221,13 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Equinox Application</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Equinox Application</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -239,18 +237,46 @@ public class ParserSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>EObject</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInfrastructure_Driver ( org.eclipse.scada.configuration.infrastructure.Driver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch, but this is the
      * last case anyway.
      * <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>EObject</em>'.
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */

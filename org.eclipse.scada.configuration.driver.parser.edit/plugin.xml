@@ -31,6 +31,9 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <!-- @generated parser -->
       <extender
+            uri="http://eclipse.org/SCADA/Configuration/Infrastructure"
+            class="org.eclipse.scada.configuration.driver.parser.provider.ParserItemProviderAdapterFactory$InfrastructureChildCreationExtender"/>
+      <extender
             uri="http://eclipse.org/SCADA/Configuration/World"
             class="org.eclipse.scada.configuration.driver.parser.provider.ParserItemProviderAdapterFactory$WorldChildCreationExtender"/>
    </extension>

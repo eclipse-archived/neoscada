@@ -291,6 +291,18 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+        {
+            return createAbstractEquinoxDriverAdapter ();
+        }
+
+        @Override
+        public Adapter caseEquinoxBase ( EquinoxBase object )
+        {
+            return createEquinoxBaseAdapter ();
+        }
+
+        @Override
         public Adapter caseDocumentable ( Documentable object )
         {
             return createDocumentableAdapter ();
@@ -833,6 +845,36 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createGenericVMSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver <em>Abstract Equinox Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver
+     * @generated
+     */
+    public Adapter createAbstractEquinoxDriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.EquinoxBase <em>Equinox Base</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.EquinoxBase
+     * @generated
+     */
+    public Adapter createEquinoxBaseAdapter ()
     {
         return null;
     }

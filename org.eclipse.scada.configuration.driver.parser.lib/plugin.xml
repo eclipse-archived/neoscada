@@ -8,4 +8,14 @@
             forClass="org.eclipse.scada.configuration.driver.parser.ParserDriver">
       </nodeElementProcessor>
    </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+     <factory
+           adaptableType="org.eclipse.scada.configuration.driver.parser.ParserComponentHost"
+           class="org.eclipse.scada.configuration.driver.parser.lib.AdapterFactoryImpl">
+        <adapter
+              type="org.eclipse.scada.configuration.infrastructure.lib.DriverHandler">
+        </adapter>
+     </factory>
+  </extension>
 </plugin>

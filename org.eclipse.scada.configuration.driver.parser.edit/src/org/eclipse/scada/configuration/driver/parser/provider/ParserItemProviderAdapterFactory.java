@@ -46,6 +46,9 @@ import org.eclipse.scada.configuration.driver.parser.ParserPackage;
 
 import org.eclipse.scada.configuration.driver.parser.util.ParserAdapterFactory;
 
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.SystemNode;
+import org.eclipse.scada.configuration.infrastructure.util.InfrastructureSwitch;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
@@ -132,6 +135,31 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
         }
 
         return parserDriverItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.driver.parser.ParserComponentHost} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ParserComponentHostItemProvider parserComponentHostItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.driver.parser.ParserComponentHost}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createParserComponentHostAdapter ()
+    {
+        if ( parserComponentHostItemProvider == null )
+        {
+            parserComponentHostItemProvider = new ParserComponentHostItemProvider ( this );
+        }
+
+        return parserComponentHostItemProvider;
     }
 
     /**
@@ -277,6 +305,103 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     {
         if ( parserDriverItemProvider != null )
             parserDriverItemProvider.dispose ();
+        if ( parserComponentHostItemProvider != null )
+            parserComponentHostItemProvider.dispose ();
+    }
+
+    /**
+     * A child creation extender for the {@link InfrastructurePackage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static class InfrastructureChildCreationExtender implements IChildCreationExtender
+    {
+        /**
+         * The switch for creating child descriptors specific to each extended class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected static class CreationSwitch extends InfrastructureSwitch<Object>
+        {
+            /**
+             * The child descriptors being populated.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            CreationSwitch ( List<Object> newChildDescriptors, EditingDomain editingDomain )
+            {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseSystemNode ( SystemNode object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
+                                ParserFactory.eINSTANCE.createParserComponentHost () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected CommandParameter createChildParameter ( Object feature, Object child )
+            {
+                return new CommandParameter ( null, feature, child );
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
+        {
+            ArrayList<Object> result = new ArrayList<Object> ();
+            new CreationSwitch ( result, editingDomain ).doSwitch ( (EObject)object );
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ResourceLocator getResourceLocator ()
+        {
+            return ParserEditPlugin.INSTANCE;
+        }
     }
 
     /**

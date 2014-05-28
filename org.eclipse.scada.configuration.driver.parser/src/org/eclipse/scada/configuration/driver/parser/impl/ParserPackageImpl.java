@@ -15,9 +15,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.scada.configuration.driver.parser.ParserComponentHost;
 import org.eclipse.scada.configuration.driver.parser.ParserDriver;
 import org.eclipse.scada.configuration.driver.parser.ParserFactory;
 import org.eclipse.scada.configuration.driver.parser.ParserPackage;
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
@@ -25,7 +27,6 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ParserPackageImpl extends EPackageImpl implements ParserPackage
@@ -33,10 +34,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass parserDriverEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass parserComponentHostEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -62,7 +69,6 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -84,22 +90,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     public static ParserPackage init ()
     {
         if ( isInited )
-        {
-            return (ParserPackage)EPackage.Registry.INSTANCE
-                    .getEPackage ( ParserPackage.eNS_URI );
-        }
+            return (ParserPackage)EPackage.Registry.INSTANCE.getEPackage ( ParserPackage.eNS_URI );
 
         // Obtain or create and register package
-        final ParserPackageImpl theParserPackage = (ParserPackageImpl) ( EPackage.Registry.INSTANCE
-                .get ( eNS_URI ) instanceof ParserPackageImpl ? EPackage.Registry.INSTANCE
-                .get ( eNS_URI ) : new ParserPackageImpl () );
+        ParserPackageImpl theParserPackage = (ParserPackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof ParserPackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new ParserPackageImpl () );
 
         isInited = true;
 
         // Initialize simple dependencies
-        org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage.eINSTANCE
-                .eClass ();
-        WorldPackage.eINSTANCE.eClass ();
+        org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage.eINSTANCE.eClass ();
+        InfrastructurePackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theParserPackage.createPackageContents ();
@@ -118,31 +118,48 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getParserDriver ()
     {
-        return this.parserDriverEClass;
+        return parserDriverEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getParserDriver_Components ()
     {
-        return (EReference)this.parserDriverEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)parserDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    public EClass getParserComponentHost ()
+    {
+        return parserComponentHostEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getParserComponentHost_Components ()
+    {
+        return (EReference)parserComponentHostEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -154,55 +171,50 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.parserDriverEClass = createEClass ( PARSER_DRIVER );
-        createEReference ( this.parserDriverEClass, PARSER_DRIVER__COMPONENTS );
+        parserDriverEClass = createEClass ( PARSER_DRIVER );
+        createEReference ( parserDriverEClass, PARSER_DRIVER__COMPONENTS );
+
+        parserComponentHostEClass = createEClass ( PARSER_COMPONENT_HOST );
+        createEReference ( parserComponentHostEClass, PARSER_COMPONENT_HOST__COMPONENTS );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -210,30 +222,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         setNsURI ( eNS_URI );
 
         // Obtain other dependent packages
-        final WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE
-                .getEPackage ( WorldPackage.eNS_URI );
-        final OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE
-                .getEPackage ( OsgiPackage.eNS_URI );
-        final org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage theParserPackage_1 = (org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage)EPackage.Registry.INSTANCE
-                .getEPackage ( org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage.eNS_URI );
+        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage theParserPackage_1 = (org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage)EPackage.Registry.INSTANCE.getEPackage ( org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage.eNS_URI );
+        InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.parserDriverEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
-        this.parserDriverEClass.getESuperTypes ().add (
-                theOsgiPackage.getEquinoxApplication () );
+        parserDriverEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
+        parserDriverEClass.getESuperTypes ().add ( theOsgiPackage.getEquinoxApplication () );
+        parserComponentHostEClass.getESuperTypes ().add ( theInfrastructurePackage.getAbstractEquinoxDriver () );
 
         // Initialize classes, features, and operations; add parameters
-        initEClass (
-                this.parserDriverEClass,
-                ParserDriver.class, "ParserDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference (
-                getParserDriver_Components (),
-                theParserPackage_1.getComponent (),
-                null, "components", null, 0, -1, ParserDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( parserDriverEClass, ParserDriver.class, "ParserDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getParserDriver_Components (), theParserPackage_1.getComponent (), null, "components", null, 0, -1, ParserDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( parserComponentHostEClass, ParserComponentHost.class, "ParserComponentHost", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getParserComponentHost_Components (), theParserPackage_1.getComponent (), null, "components", null, 0, -1, ParserComponentHost.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

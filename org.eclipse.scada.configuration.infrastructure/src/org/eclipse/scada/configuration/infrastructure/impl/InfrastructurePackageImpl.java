@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.globalization.GlobalizePackage;
+import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
@@ -24,6 +25,7 @@ import org.eclipse.scada.configuration.infrastructure.Configurations;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.EquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriver;
 import org.eclipse.scada.configuration.infrastructure.ExternalDriverPlaceholder;
@@ -273,6 +275,20 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass genericVMSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractEquinoxDriverEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass equinoxBaseEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1102,42 +1118,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     @Override
-    public EReference getEquinoxDriver_UserService ()
-    {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getEquinoxDriver_InstanceNumber ()
-    {
-        return (EAttribute)equinoxDriverEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EReference getEquinoxDriver_AccessCredentials ()
     {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EReference getEquinoxDriver_SecurityConfiguration ()
-    {
-        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)equinoxDriverEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -1465,6 +1448,56 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getAbstractEquinoxDriver ()
+    {
+        return abstractEquinoxDriverEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getEquinoxBase ()
+    {
+        return equinoxBaseEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getEquinoxBase_InstanceNumber ()
+    {
+        return (EAttribute)equinoxBaseEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEquinoxBase_UserService ()
+    {
+        return (EReference)equinoxBaseEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEquinoxBase_SecurityConfiguration ()
+    {
+        return (EReference)equinoxBaseEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getSlaveStorageLayout ()
     {
@@ -1587,10 +1620,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEReference ( deviceEClass, DEVICE__NODE );
 
         equinoxDriverEClass = createEClass ( EQUINOX_DRIVER );
-        createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__USER_SERVICE );
-        createEAttribute ( equinoxDriverEClass, EQUINOX_DRIVER__INSTANCE_NUMBER );
         createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__ACCESS_CREDENTIALS );
-        createEReference ( equinoxDriverEClass, EQUINOX_DRIVER__SECURITY_CONFIGURATION );
 
         externalDriverEClass = createEClass ( EXTERNAL_DRIVER );
         createEAttribute ( externalDriverEClass, EXTERNAL_DRIVER__PORT_NUMBER );
@@ -1634,6 +1664,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         genericVMSettingsEClass = createEClass ( GENERIC_VM_SETTINGS );
         createEAttribute ( genericVMSettingsEClass, GENERIC_VM_SETTINGS__ARGUMENTS );
+
+        abstractEquinoxDriverEClass = createEClass ( ABSTRACT_EQUINOX_DRIVER );
+
+        equinoxBaseEClass = createEClass ( EQUINOX_BASE );
+        createEAttribute ( equinoxBaseEClass, EQUINOX_BASE__INSTANCE_NUMBER );
+        createEReference ( equinoxBaseEClass, EQUINOX_BASE__USER_SERVICE );
+        createEReference ( equinoxBaseEClass, EQUINOX_BASE__SECURITY_CONFIGURATION );
 
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
@@ -1688,6 +1725,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         abstractFactoryDriverEClass.getESuperTypes ().add ( this.getDriver () );
         deviceEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         equinoxDriverEClass.getESuperTypes ().add ( this.getAbstractFactoryDriver () );
+        equinoxDriverEClass.getESuperTypes ().add ( this.getEquinoxBase () );
         externalDriverEClass.getESuperTypes ().add ( this.getDriver () );
         externalDriverPlaceholderEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
         applicationConfigurationEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
@@ -1697,6 +1735,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         webAdminConsoleEClass.getESuperTypes ().add ( this.getModule () );
         oracleVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
         genericVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
+        abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getDriver () );
+        abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getEquinoxBase () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1783,10 +1823,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getDevice_Node (), this.getNode (), this.getNode_Devices (), "node", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( equinoxDriverEClass, EquinoxDriver.class, "EquinoxDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getEquinoxDriver_UserService (), this.getUserService (), null, "userService", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEquinoxDriver_InstanceNumber (), ecorePackage.getEInt (), "instanceNumber", null, 1, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getEquinoxDriver_SecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "securityConfiguration", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( externalDriverEClass, ExternalDriver.class, "ExternalDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getExternalDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -1830,6 +1867,13 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( genericVMSettingsEClass, GenericVMSettings.class, "GenericVMSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getGenericVMSettings_Arguments (), ecorePackage.getEString (), "arguments", null, 0, -1, GenericVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( abstractEquinoxDriverEClass, AbstractEquinoxDriver.class, "AbstractEquinoxDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( equinoxBaseEClass, EquinoxBase.class, "EquinoxBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getEquinoxBase_InstanceNumber (), ecorePackage.getEInt (), "instanceNumber", null, 1, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEquinoxBase_UserService (), this.getUserService (), null, "userService", null, 0, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEquinoxBase_SecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "securityConfiguration", null, 0, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$

@@ -17,6 +17,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.scada.configuration.driver.parser.ParserDriver;
 import org.eclipse.scada.configuration.world.lib.oscar.EquinoxApplicationProcessor;
@@ -47,6 +48,7 @@ public class ParserDriverProcessor extends EquinoxApplicationProcessor
         final Map<String, String> data = new HashMap<> ();
 
         final String id = component.getId ();
+
         final String xml = makeXml ( component );
 
         data.put ( "configuration", xml );
@@ -58,7 +60,7 @@ public class ParserDriverProcessor extends EquinoxApplicationProcessor
     private String makeXml ( final Component component ) throws IOException
     {
         final XMIResourceImpl xmi = new XMIResourceImpl ();
-        xmi.getContents ().add ( component );
+        xmi.getContents ().add ( EcoreUtil.copy ( component ) );
 
         final StringWriter writer = new StringWriter ();
         xmi.save ( writer, null );

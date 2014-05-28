@@ -196,15 +196,9 @@
       eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//NamedDocumentable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node" eOpposite="#//Node/devices"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EquinoxDriver" eSuperTypes="#//AbstractFactoryDriver">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="userService" eType="#//UserService"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceNumber" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EquinoxDriver" eSuperTypes="#//AbstractFactoryDriver #//EquinoxBase">
     <eStructuralFeatures xsi:type="ecore:EReference" name="accessCredentials" eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Credentials"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityConfiguration"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.security/model/sec.ecore#//Configuration"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExternalDriver" eSuperTypes="#//Driver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
@@ -278,5 +272,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="GenericVMSettings" eSuperTypes="#//Module">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="arguments" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractEquinoxDriver" abstract="true"
+      eSuperTypes="#//Driver #//EquinoxBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EquinoxBase" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="userService" eType="#//UserService"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityConfiguration"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.security/model/sec.ecore#//Configuration"/>
   </eClassifiers>
 </ecore:EPackage>

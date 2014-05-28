@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.configuration.driver.parser.*;
 import org.eclipse.scada.configuration.driver.parser.ParserDriver;
 import org.eclipse.scada.configuration.driver.parser.ParserFactory;
 import org.eclipse.scada.configuration.driver.parser.ParserPackage;
@@ -24,7 +25,6 @@ import org.eclipse.scada.configuration.driver.parser.ParserPackage;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
@@ -33,21 +33,19 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static ParserFactory init ()
     {
         try
         {
-            final ParserFactory theParserFactory = (ParserFactory)EPackage.Registry.INSTANCE
-                    .getEFactory ( ParserPackage.eNS_URI );
+            ParserFactory theParserFactory = (ParserFactory)EPackage.Registry.INSTANCE.getEFactory ( ParserPackage.eNS_URI );
             if ( theParserFactory != null )
             {
                 return theParserFactory;
             }
         }
-        catch ( final Exception exception )
+        catch ( Exception exception )
         {
             EcorePlugin.INSTANCE.log ( exception );
         }
@@ -58,7 +56,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ParserFactoryImpl ()
@@ -69,39 +66,48 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
             case ParserPackage.PARSER_DRIVER:
                 return createParserDriver ();
+            case ParserPackage.PARSER_COMPONENT_HOST:
+                return createParserComponentHost ();
             default:
-                throw new IllegalArgumentException (
-                        "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public ParserDriver createParserDriver ()
     {
-        final ParserDriverImpl parserDriver = new ParserDriverImpl ();
+        ParserDriverImpl parserDriver = new ParserDriverImpl ();
         return parserDriver;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    public ParserComponentHost createParserComponentHost ()
+    {
+        ParserComponentHostImpl parserComponentHost = new ParserComponentHostImpl ();
+        return parserComponentHost;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     @Override
@@ -113,7 +119,6 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

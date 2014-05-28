@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.eclipse.scada.configuration.driver.parser.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.driver.parser.provider.ParserEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -16,6 +16,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.da.server.component.parser.factory.edit;visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
  org.eclipse.scada.da.server.exec.edit;visibility:=reexport,
+ org.eclipse.scada.configuration.globalization;visibility:=reexport,
+ org.eclipse.scada.configuration.globalization.edit;visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure.edit;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.security.edit;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport,
