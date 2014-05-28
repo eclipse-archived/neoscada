@@ -57,6 +57,8 @@ public abstract class ParserComponent extends Component
 
     private ComponentItemFactory itemFactory;
 
+    private Variant lastError;
+
     public ParserComponent ( final Executor executor, final Hive hive, final FolderCommon folder, final String activationPrefix )
     {
         super ( executor, hive, activationPrefix );
@@ -83,22 +85,34 @@ public abstract class ParserComponent extends Component
 
     protected synchronized void processResult ( final Result result, final String prefix )
     {
-        if ( result.getError () != null || result.getItemValues () == null )
+        try
         {
-            setError ( prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
+            if ( result.getError () != null || result.getItemValues () == null )
+            {
+                setError ( prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
+            }
+            else
+            {
+                setValues ( prefix, result.getItemValues () );
+            }
         }
-        else
+        catch ( final Exception e )
         {
-            setValues ( prefix, result.getItemValues () );
+            logger.warn ( "Failed process result", e );
         }
     }
 
     private void setError ( final String prefix, final Throwable throwable )
     {
+        if ( this.lastError == null )
+        {
+            this.lastError = Variant.valueOf ( System.currentTimeMillis () );
+        }
+
         final Map<String, Variant> attributes = new HashMap<> ();
         attributes.put ( "parser.error", Variant.TRUE );
         attributes.put ( "parser.error.message", Variant.valueOf ( ExceptionHelper.extractMessage ( throwable ) ) );
-        attributes.put ( "timestamp", Variant.valueOf ( System.currentTimeMillis () ) );
+        attributes.put ( "timestamp", this.lastError );
 
         for ( final DataItemInputChained item : this.itemCache.values () )
         {
@@ -108,6 +122,8 @@ public abstract class ParserComponent extends Component
 
     private void setValues ( final String prefix, final Map<ItemDescriptor, ItemValue> itemValues )
     {
+        this.lastError = null;
+
         final Set<String> keys = new HashSet<> ( this.itemCache.keySet () );
 
         for ( final Map.Entry<ItemDescriptor, ItemValue> entry : itemValues.entrySet () )

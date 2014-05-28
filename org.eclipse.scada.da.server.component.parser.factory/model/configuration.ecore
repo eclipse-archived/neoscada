@@ -52,6 +52,8 @@
         eType="#//Pattern"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullMatch" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//ValueDescriptor"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Pattern" instanceClassName="java.util.regex.Pattern"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValueDescriptor">

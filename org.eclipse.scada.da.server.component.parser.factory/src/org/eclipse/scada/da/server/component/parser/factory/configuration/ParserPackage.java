@@ -473,13 +473,22 @@ public interface ParserPackage extends EPackage
     int SINGLE_PATTERN__FULL_MATCH = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Value</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SINGLE_PATTERN__VALUE = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Single Pattern</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SINGLE_PATTERN_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+    int SINGLE_PATTERN_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 3;
 
     /**
      * The operation id for the '<em>Create Extractor</em>' operation.
@@ -1040,6 +1049,17 @@ public interface ParserPackage extends EPackage
     EAttribute getSinglePattern_FullMatch ();
 
     /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#getValue <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Value</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern#getValue()
+     * @see #getSinglePattern()
+     * @generated
+     */
+    EReference getSinglePattern_Value ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor <em>Value Descriptor</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1445,6 +1465,14 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EAttribute SINGLE_PATTERN__FULL_MATCH = eINSTANCE.getSinglePattern_FullMatch ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference SINGLE_PATTERN__VALUE = eINSTANCE.getSinglePattern_Value ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ValueDescriptorImpl <em>Value Descriptor</em>}' class.

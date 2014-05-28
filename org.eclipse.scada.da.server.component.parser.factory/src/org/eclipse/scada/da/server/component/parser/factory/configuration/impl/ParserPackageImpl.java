@@ -469,6 +469,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getSinglePattern_Value ()
+    {
+        return (EReference)singlePatternEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getValueDescriptor ()
     {
         return valueDescriptorEClass;
@@ -704,6 +714,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         singlePatternEClass = createEClass ( SINGLE_PATTERN );
         createEAttribute ( singlePatternEClass, SINGLE_PATTERN__PATTERN );
         createEAttribute ( singlePatternEClass, SINGLE_PATTERN__FULL_MATCH );
+        createEReference ( singlePatternEClass, SINGLE_PATTERN__VALUE );
 
         valueDescriptorEClass = createEClass ( VALUE_DESCRIPTOR );
         createEReference ( valueDescriptorEClass, VALUE_DESCRIPTOR__PRIMARY_VALUE );
@@ -807,6 +818,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEClass ( singlePatternEClass, SinglePattern.class, "SinglePattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getSinglePattern_Pattern (), this.getPattern (), "pattern", null, 1, 1, SinglePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSinglePattern_FullMatch (), ecorePackage.getEBoolean (), "fullMatch", null, 1, 1, SinglePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSinglePattern_Value (), this.getValueDescriptor (), null, "value", null, 1, 1, SinglePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( valueDescriptorEClass, ValueDescriptor.class, "ValueDescriptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getValueDescriptor_PrimaryValue (), this.getField (), null, "primaryValue", null, 0, 1, ValueDescriptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

@@ -464,4 +464,16 @@
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_e68Fs-aKEeOX_qUWn78yDw" points="[72, 4, -85, 276]$[121, 4, -36, 276]$[121, -247, -36, 25]"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_7rKyAOaZEeOX_qUWn78yDw" type="3002" source="_Y7SpsOaFEeOX_qUWn78yDw" target="_JSl5sOaJEeOX_qUWn78yDw">
+    <children xmi:type="notation:Node" xmi:id="_7rMAIOaZEeOX_qUWn78yDw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_7rMAIeaZEeOX_qUWn78yDw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_7rMAIuaZEeOX_qUWn78yDw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_7rMAI-aZEeOX_qUWn78yDw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_7rKyAeaZEeOX_qUWn78yDw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_7rKyAuaZEeOX_qUWn78yDw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="configuration.ecore#//SinglePattern/value"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7rKyA-aZEeOX_qUWn78yDw" points="[10, 33, -18, -86]$[89, 119, 61, 0]"/>
+  </edges>
 </notation:Diagram>

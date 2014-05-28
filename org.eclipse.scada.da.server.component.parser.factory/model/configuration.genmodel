@@ -11,9 +11,18 @@
   <genPackages prefix="Parser" basePackage="org.eclipse.scada.da.server.component.parser.factory"
       disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
       ecorePackage="configuration.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//VariantType">
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/INT32"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/INT64"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//VariantType/BOOLEAN"/>
+    </genEnums>
     <genDataTypes ecoreDataType="configuration.ecore#//Input"/>
     <genDataTypes ecoreDataType="configuration.ecore#//CreationContext"/>
     <genDataTypes ecoreDataType="configuration.ecore#//Extractor"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//Pattern"/>
     <genClasses ecoreClass="configuration.ecore#//Component">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Component/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Component/input"/>
@@ -34,8 +43,37 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//PlainText">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PlainText/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PlainText/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PlainText/trim"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractPeriodInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractPeriodInput/period"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//UrlInput" labelFeature="#//configuration/UrlInput/url">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/probeCharacterSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UrlInput/charset"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SinglePattern">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/pattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/fullMatch"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ValueDescriptor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ValueDescriptor/primaryValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ValueDescriptor/attributes"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Field/type"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//AttributeValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AttributeValue/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//AttributeValue/field"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MainGroupField"/>
+    <genClasses ecoreClass="configuration.ecore#//StringGroupField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//StringGroupField/groupName"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//NumericGroupField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NumericGroupField/groupNumber"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

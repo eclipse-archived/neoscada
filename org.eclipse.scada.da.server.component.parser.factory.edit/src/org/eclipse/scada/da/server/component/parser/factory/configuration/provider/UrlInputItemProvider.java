@@ -165,8 +165,10 @@ public class UrlInputItemProvider
     @Override
     public String getText ( Object object )
     {
-        UrlInput urlInput = (UrlInput)object;
-        return getString ( "_UI_UrlInput_type" ) + " " + urlInput.getPeriod (); //$NON-NLS-1$ //$NON-NLS-2$
+        String label = ( (UrlInput)object ).getUrl ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_UrlInput_type" ) : //$NON-NLS-1$
+                getString ( "_UI_UrlInput_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
