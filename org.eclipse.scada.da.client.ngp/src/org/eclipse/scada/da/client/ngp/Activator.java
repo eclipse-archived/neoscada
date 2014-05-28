@@ -22,7 +22,6 @@ import org.osgi.framework.ServiceRegistration;
  * An OSGi bundle activator which registers the DriverAdapter with OSGi
  * 
  * @author Jens Reimann
- * @since 1.0.0
  */
 public class Activator implements BundleActivator
 {
