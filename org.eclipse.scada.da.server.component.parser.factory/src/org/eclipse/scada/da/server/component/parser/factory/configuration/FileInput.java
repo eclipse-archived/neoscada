@@ -26,7 +26,7 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration;
  * @model
  * @generated
  */
-public interface FileInput extends InputDefinition
+public interface FileInput extends AbstractPeriodInput
 {
     /**
      * Returns the value of the '<em><b>File Name</b></em>' attribute.

@@ -10,56 +10,65 @@
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 
-import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.scada.base.extractor.input.Input;
+
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
+
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>File Input</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Period Input</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FileInputImpl#getFileName <em>File Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl#getPeriod <em>Period</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
+public abstract class AbstractPeriodInputImpl extends MinimalEObjectImpl.Container implements AbstractPeriodInput
 {
     /**
-     * The default value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+     * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFileName()
+     * @see #getPeriod()
      * @generated
      * @ordered
      */
-    protected static final String FILE_NAME_EDEFAULT = null;
+    protected static final long PERIOD_EDEFAULT = 1000L;
 
     /**
-     * The cached value of the '{@link #getFileName() <em>File Name</em>}' attribute.
+     * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFileName()
+     * @see #getPeriod()
      * @generated
      * @ordered
      */
-    protected String fileName = FILE_NAME_EDEFAULT;
+    protected long period = PERIOD_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected FileInputImpl ()
+    protected AbstractPeriodInputImpl ()
     {
         super ();
     }
@@ -72,7 +81,7 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     @Override
     protected EClass eStaticClass ()
     {
-        return ParserPackage.Literals.FILE_INPUT;
+        return ParserPackage.Literals.ABSTRACT_PERIOD_INPUT;
     }
 
     /**
@@ -80,10 +89,9 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public String getFileName ()
+    public long getPeriod ()
     {
-        return fileName;
+        return period;
     }
 
     /**
@@ -91,25 +99,24 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void setFileName ( String newFileName )
+    public void setPeriod ( long newPeriod )
     {
-        String oldFileName = fileName;
-        fileName = newFileName;
+        long oldPeriod = period;
+        period = newPeriod;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.FILE_INPUT__FILE_NAME, oldFileName, fileName ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD, oldPeriod, period ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated NOT
+     * @generated
      */
-    @Override
-    public Input createInput ( final CreationContext creationContext )
+    public Input createInput ( CreationContext creationContext )
     {
-        return new org.eclipse.scada.base.extractor.input.file.FileInput ( creationContext.getExecutor (), new File ( getFileName () ), getPeriod () );
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
     }
 
     /**
@@ -122,8 +129,8 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     {
         switch ( featureID )
         {
-            case ParserPackage.FILE_INPUT__FILE_NAME:
-                return getFileName ();
+            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
+                return getPeriod ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -138,8 +145,8 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     {
         switch ( featureID )
         {
-            case ParserPackage.FILE_INPUT__FILE_NAME:
-                setFileName ( (String)newValue );
+            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
+                setPeriod ( (Long)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -155,8 +162,8 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     {
         switch ( featureID )
         {
-            case ParserPackage.FILE_INPUT__FILE_NAME:
-                setFileName ( FILE_NAME_EDEFAULT );
+            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
+                setPeriod ( PERIOD_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -172,10 +179,26 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     {
         switch ( featureID )
         {
-            case ParserPackage.FILE_INPUT__FILE_NAME:
-                return FILE_NAME_EDEFAULT == null ? fileName != null : !FILE_NAME_EDEFAULT.equals ( fileName );
+            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
+                return period != PERIOD_EDEFAULT;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case ParserPackage.ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT:
+                return createInput ( (CreationContext)arguments.get ( 0 ) );
+        }
+        return super.eInvoke ( operationID, arguments );
     }
 
     /**
@@ -190,10 +213,10 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (fileName: " ); //$NON-NLS-1$
-        result.append ( fileName );
+        result.append ( " (period: " ); //$NON-NLS-1$
+        result.append ( period );
         result.append ( ')' );
         return result.toString ();
     }
 
-} //FileInputImpl
+} //AbstractPeriodInputImpl

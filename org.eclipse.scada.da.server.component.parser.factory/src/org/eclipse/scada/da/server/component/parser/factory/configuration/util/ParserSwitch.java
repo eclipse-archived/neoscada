@@ -101,6 +101,8 @@ public class ParserSwitch<T> extends Switch<T>
                 FileInput fileInput = (FileInput)theEObject;
                 T result = caseFileInput ( fileInput );
                 if ( result == null )
+                    result = caseAbstractPeriodInput ( fileInput );
+                if ( result == null )
                     result = caseInputDefinition ( fileInput );
                 if ( result == null )
                     result = defaultCase ( theEObject );
@@ -120,6 +122,16 @@ public class ParserSwitch<T> extends Switch<T>
                 T result = casePlainText ( plainText );
                 if ( result == null )
                     result = caseExtractorDefinition ( plainText );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case ParserPackage.ABSTRACT_PERIOD_INPUT:
+            {
+                AbstractPeriodInput abstractPeriodInput = (AbstractPeriodInput)theEObject;
+                T result = caseAbstractPeriodInput ( abstractPeriodInput );
+                if ( result == null )
+                    result = caseInputDefinition ( abstractPeriodInput );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -205,6 +217,22 @@ public class ParserSwitch<T> extends Switch<T>
      * @generated
      */
     public T casePlainText ( PlainText object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Period Input</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Period Input</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractPeriodInput ( AbstractPeriodInput object )
     {
         return null;
     }

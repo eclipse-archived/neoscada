@@ -160,6 +160,52 @@ public interface ParserPackage extends EPackage
     int INPUT_DEFINITION_OPERATION_COUNT = 1;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl <em>Abstract Period Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAbstractPeriodInput()
+     * @generated
+     */
+    int ABSTRACT_PERIOD_INPUT = 5;
+
+    /**
+     * The feature id for the '<em><b>Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_PERIOD_INPUT__PERIOD = INPUT_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Abstract Period Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_PERIOD_INPUT_FEATURE_COUNT = INPUT_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Create Input</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT = INPUT_DEFINITION___CREATE_INPUT__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Abstract Period Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_PERIOD_INPUT_OPERATION_COUNT = INPUT_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FileInputImpl <em>File Input</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -170,13 +216,22 @@ public interface ParserPackage extends EPackage
     int FILE_INPUT = 2;
 
     /**
+     * The feature id for the '<em><b>Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FILE_INPUT__PERIOD = ABSTRACT_PERIOD_INPUT__PERIOD;
+
+    /**
      * The feature id for the '<em><b>File Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int FILE_INPUT__FILE_NAME = INPUT_DEFINITION_FEATURE_COUNT + 0;
+    int FILE_INPUT__FILE_NAME = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>File Input</em>' class.
@@ -185,7 +240,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int FILE_INPUT_FEATURE_COUNT = INPUT_DEFINITION_FEATURE_COUNT + 1;
+    int FILE_INPUT_FEATURE_COUNT = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 1;
 
     /**
      * The operation id for the '<em>Create Input</em>' operation.
@@ -194,7 +249,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int FILE_INPUT___CREATE_INPUT__CREATIONCONTEXT = INPUT_DEFINITION___CREATE_INPUT__CREATIONCONTEXT;
+    int FILE_INPUT___CREATE_INPUT__CREATIONCONTEXT = ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT;
 
     /**
      * The number of operations of the '<em>File Input</em>' class.
@@ -203,7 +258,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int FILE_INPUT_OPERATION_COUNT = INPUT_DEFINITION_OPERATION_COUNT + 0;
+    int FILE_INPUT_OPERATION_COUNT = ABSTRACT_PERIOD_INPUT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.ExtractorDefinition <em>Extractor Definition</em>}' class.
@@ -332,7 +387,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getInput()
      * @generated
      */
-    int INPUT = 5;
+    int INPUT = 6;
 
     /**
      * The meta object id for the '<em>Creation Context</em>' data type.
@@ -342,7 +397,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getCreationContext()
      * @generated
      */
-    int CREATION_CONTEXT = 6;
+    int CREATION_CONTEXT = 7;
 
     /**
      * The meta object id for the '<em>Extractor</em>' data type.
@@ -352,7 +407,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getExtractor()
      * @generated
      */
-    int EXTRACTOR = 7;
+    int EXTRACTOR = 8;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component <em>Component</em>}'.
@@ -511,6 +566,27 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute getPlainText_Trim ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput <em>Abstract Period Input</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Abstract Period Input</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput
+     * @generated
+     */
+    EClass getAbstractPeriodInput ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput#getPeriod <em>Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Period</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput#getPeriod()
+     * @see #getAbstractPeriodInput()
+     * @generated
+     */
+    EAttribute getAbstractPeriodInput_Period ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.scada.base.extractor.input.Input <em>Input</em>}'.
@@ -698,6 +774,24 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EAttribute PLAIN_TEXT__TRIM = eINSTANCE.getPlainText_Trim ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl <em>Abstract Period Input</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAbstractPeriodInput()
+         * @generated
+         */
+        EClass ABSTRACT_PERIOD_INPUT = eINSTANCE.getAbstractPeriodInput ();
+
+        /**
+         * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_PERIOD_INPUT__PERIOD = eINSTANCE.getAbstractPeriodInput_Period ();
 
         /**
          * The meta object literal for the '<em>Input</em>' data type.

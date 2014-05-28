@@ -13,7 +13,6 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -34,31 +33,21 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainT
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getPrefix
- * <em>Prefix</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getDescription
- * <em>Description</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#isTrim
- * <em>Trim</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getPrefix <em>Prefix</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.PlainTextImpl#isTrim <em>Trim</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PlainTextImpl extends MinimalEObjectImpl.Container implements PlainText
 {
     /**
-     * The default value of the '{@link #getPrefix() <em>Prefix</em>}'
-     * attribute.
+     * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -69,7 +58,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -80,7 +68,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -91,7 +78,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -99,11 +85,9 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getDescription() <em>Description</em>}'
-     * attribute.
+     * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getDescription()
      * @generated
      * @ordered
@@ -111,11 +95,9 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     protected static final String DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getDescription() <em>Description</em>}'
-     * attribute.
+     * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getDescription()
      * @generated
      * @ordered
@@ -126,7 +108,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * The default value of the '{@link #isTrim() <em>Trim</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isTrim()
      * @generated
      * @ordered
@@ -137,7 +118,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
      * The cached value of the '{@link #isTrim() <em>Trim</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #isTrim()
      * @generated
      * @ordered
@@ -147,7 +127,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected PlainTextImpl ()
@@ -158,7 +137,6 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -170,117 +148,99 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    @Override
     public String getPrefix ()
     {
-        return this.prefix;
+        return prefix;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    @Override
-    public void setPrefix ( final String newPrefix )
+    public void setPrefix ( String newPrefix )
     {
-        final String oldPrefix = this.prefix;
-        this.prefix = newPrefix;
+        String oldPrefix = prefix;
+        prefix = newPrefix;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__PREFIX, oldPrefix, this.prefix ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__PREFIX, oldPrefix, prefix ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getDescription ()
     {
-        return this.description;
+        return description;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setDescription ( final String newDescription )
+    public void setDescription ( String newDescription )
     {
-        final String oldDescription = this.description;
-        this.description = newDescription;
+        String oldDescription = description;
+        description = newDescription;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__DESCRIPTION, oldDescription, this.description ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__DESCRIPTION, oldDescription, description ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public boolean isTrim ()
     {
-        return this.trim;
+        return trim;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setTrim ( final boolean newTrim )
+    public void setTrim ( boolean newTrim )
     {
-        final boolean oldTrim = this.trim;
-        this.trim = newTrim;
+        boolean oldTrim = trim;
+        trim = newTrim;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__TRIM, oldTrim, this.trim ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.PLAIN_TEXT__TRIM, oldTrim, trim ) );
     }
 
     /**
@@ -303,11 +263,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -326,11 +285,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -353,11 +311,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -380,22 +337,21 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ParserPackage.PLAIN_TEXT__PREFIX:
-                return PREFIX_EDEFAULT == null ? this.prefix != null : !PREFIX_EDEFAULT.equals ( this.prefix );
+                return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
             case ParserPackage.PLAIN_TEXT__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case ParserPackage.PLAIN_TEXT__DESCRIPTION:
-                return DESCRIPTION_EDEFAULT == null ? this.description != null : !DESCRIPTION_EDEFAULT.equals ( this.description );
+                return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals ( description );
             case ParserPackage.PLAIN_TEXT__TRIM:
-                return this.trim != TRIM_EDEFAULT;
+                return trim != TRIM_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -403,11 +359,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -420,26 +375,23 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (prefix: " ); //$NON-NLS-1$
-        result.append ( this.prefix );
+        result.append ( prefix );
         result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( this.name );
+        result.append ( name );
         result.append ( ", description: " ); //$NON-NLS-1$
-        result.append ( this.description );
+        result.append ( description );
         result.append ( ", trim: " ); //$NON-NLS-1$
-        result.append ( this.trim );
+        result.append ( trim );
         result.append ( ')' );
         return result.toString ();
     }

@@ -33,7 +33,7 @@ public class CpuInfoComponent extends ParserComponent
         super ( executor, hive, folder, activationPrefix );
         this.executor = executor;
 
-        this.input = new FileInput ( this.executor, new File ( "/proc/cpuinfo" ) ); //$NON-NLS-1$
+        this.input = new FileInput ( this.executor, new File ( "/proc/cpuinfo" ), 1000 ); //$NON-NLS-1$
 
         final Extractor extractor = new SplitExtractor ( "\n\n", new VariableFieldPatternExtractor ( Pattern.compile ( "^(.*?)\\s+: (.*)$", Pattern.MULTILINE ), 1, 2 ) ); //$NON-NLS-1$ //$NON-NLS-2$
         bindInput ( this.input, extractor, "prefix" ); //$NON-NLS-1$

@@ -16,13 +16,11 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.input.Input;
-
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ExtractorDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
@@ -73,6 +71,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EClass plainTextEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractPeriodInputEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -313,6 +318,26 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getAbstractPeriodInput ()
+    {
+        return abstractPeriodInputEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractPeriodInput_Period ()
+    {
+        return (EAttribute)abstractPeriodInputEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getInput ()
     {
         return inputEDataType;
@@ -389,6 +414,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEAttribute ( plainTextEClass, PLAIN_TEXT__DESCRIPTION );
         createEAttribute ( plainTextEClass, PLAIN_TEXT__TRIM );
 
+        abstractPeriodInputEClass = createEClass ( ABSTRACT_PERIOD_INPUT );
+        createEAttribute ( abstractPeriodInputEClass, ABSTRACT_PERIOD_INPUT__PERIOD );
+
         // Create data types
         inputEDataType = createEDataType ( INPUT );
         creationContextEDataType = createEDataType ( CREATION_CONTEXT );
@@ -425,8 +453,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        fileInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        fileInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
         plainTextEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
+        abstractPeriodInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -452,6 +481,9 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEAttribute ( getPlainText_Name (), ecorePackage.getEString (), "name", null, 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Description (), ecorePackage.getEString (), "description", null, 0, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPlainText_Trim (), ecorePackage.getEBoolean (), "trim", "true", 1, 1, PlainText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( abstractPeriodInputEClass, AbstractPeriodInput.class, "AbstractPeriodInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAbstractPeriodInput_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, AbstractPeriodInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize data types
         initEDataType ( inputEDataType, Input.class, "Input", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

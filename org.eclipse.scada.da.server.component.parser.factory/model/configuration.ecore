@@ -19,7 +19,7 @@
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CreationContext" instanceClassName="org.eclipse.scada.da.server.component.parser.factory.CreationContext"
       serializable="false"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FileInput" eSuperTypes="#//InputDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="FileInput" eSuperTypes="#//AbstractPeriodInput">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -38,4 +38,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Extractor" instanceClassName="org.eclipse.scada.base.extractor.extract.Extractor"
       serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPeriodInput" abstract="true"
+      eSuperTypes="#//InputDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
+  </eClassifiers>
 </ecore:EPackage>

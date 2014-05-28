@@ -12,9 +12,14 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration.provi
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -22,18 +27,20 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
+
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FileInputItemProvider
-        extends AbstractPeriodInputItemProvider
+public class AbstractPeriodInputItemProvider
+        extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
         IStructuredItemContentProvider,
@@ -47,7 +54,7 @@ public class FileInputItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public FileInputItemProvider ( AdapterFactory adapterFactory )
+    public AbstractPeriodInputItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -65,44 +72,32 @@ public class FileInputItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addFileNamePropertyDescriptor ( object );
+            addPeriodPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the File Name feature.
+     * This adds a property descriptor for the Period feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addFileNamePropertyDescriptor ( Object object )
+    protected void addPeriodPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_FileInput_fileName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_FileInput_fileName_feature", "_UI_FileInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.FILE_INPUT__FILE_NAME,
+                        getString ( "_UI_AbstractPeriodInput_period_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_AbstractPeriodInput_period_feature", "_UI_AbstractPeriodInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.ABSTRACT_PERIOD_INPUT__PERIOD,
                         true,
                         false,
                         false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
-    }
-
-    /**
-     * This returns FileInput.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object getImage ( Object object )
-    {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/FileInput" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -114,10 +109,8 @@ public class FileInputItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (FileInput)object ).getFileName ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_FileInput_type" ) : //$NON-NLS-1$
-                getString ( "_UI_FileInput_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        AbstractPeriodInput abstractPeriodInput = (AbstractPeriodInput)object;
+        return getString ( "_UI_AbstractPeriodInput_type" ) + " " + abstractPeriodInput.getPeriod (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -132,9 +125,9 @@ public class FileInputItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( FileInput.class ) )
+        switch ( notification.getFeatureID ( AbstractPeriodInput.class ) )
         {
-            case ParserPackage.FILE_INPUT__FILE_NAME:
+            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -152,6 +145,18 @@ public class FileInputItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator ()
+    {
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }
