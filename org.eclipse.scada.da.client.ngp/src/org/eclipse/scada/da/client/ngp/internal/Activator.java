@@ -37,7 +37,10 @@ public class Activator implements BundleActivator
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
-        this.connector = new NioSocketConnector ();
+        if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedConnector" ) )
+        {
+            this.connector = new NioSocketConnector ();
+        }
         this.factory = new DriverFactoryImpl ( this.connector );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ();
@@ -52,7 +55,10 @@ public class Activator implements BundleActivator
     public void stop ( final BundleContext context ) throws Exception
     {
         this.handle.unregister ();
-        this.connector.dispose ();
+        if ( this.connector != null )
+        {
+            this.connector.dispose ();
+        }
         this.factory = null;
     }
 

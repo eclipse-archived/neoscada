@@ -46,7 +46,10 @@ public class Activator implements BundleActivator
     {
         Activator.context = bundleContext;
 
-        this.connector = new NioSocketConnector ();
+        if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedConnector" ) )
+        {
+            this.connector = new NioSocketConnector ();
+        }
         this.factory = new DriverFactoryImpl ( this.connector );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ();
@@ -55,7 +58,6 @@ public class Activator implements BundleActivator
         properties.put ( Constants.SERVICE_DESCRIPTION, "Eclipse SCADA AE NGP Adapter" );
         properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
         this.handle = context.registerService ( org.eclipse.scada.core.client.DriverFactory.class, this.factory, properties );
-
     }
 
     /*
@@ -66,7 +68,10 @@ public class Activator implements BundleActivator
     public void stop ( final BundleContext bundleContext ) throws Exception
     {
         this.handle.unregister ();
-        this.connector.dispose ();
+        if ( this.connector != null )
+        {
+            this.connector.dispose ();
+        }
         Activator.context = null;
     }
 
