@@ -22,15 +22,18 @@ public class PlainTextExtractor extends AbstractStringExtractor
 {
     private final ItemDescriptor value;
 
-    public PlainTextExtractor ( final ItemDescriptor value )
+    private final boolean trim;
+
+    public PlainTextExtractor ( final ItemDescriptor value, final boolean trim )
     {
         this.value = value;
+        this.trim = trim;
     }
 
     @Override
     protected Map<ItemDescriptor, ItemValue> processData ( final String data ) throws Exception
     {
-        return Collections.singletonMap ( this.value, new ItemValue ( Variant.valueOf ( data ), null ) );
+        return Collections.singletonMap ( this.value, new ItemValue ( Variant.valueOf ( this.trim ? data.trim () : data ), null ) );
     }
 
 }
