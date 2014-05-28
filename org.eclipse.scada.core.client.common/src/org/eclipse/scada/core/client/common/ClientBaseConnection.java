@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTESM GmbH - add dispose to filter chain, add address cache flag
+ *     IBH SYSTEMS GmbH - add dispose to filter chain, add address cache flag
  *******************************************************************************/
 package org.eclipse.scada.core.client.common;
 
@@ -25,6 +25,7 @@ import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.core.service.IoHandler;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.ssl.SslFilter;
+import org.apache.mina.transport.socket.SocketConnector;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.Connection;
@@ -62,7 +63,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private static final Object STATS_LAST_BOUND_TIMESTAMP = new Object ();
 
-    private final NioSocketConnector connector;
+    private final SocketConnector connector;
 
     private volatile ConnectionState connectionState = ConnectionState.CLOSED;
 
@@ -92,7 +93,19 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private final boolean cacheAddress = Boolean.getBoolean ( "org.eclipse.scada.core.client.common.cacheAddress" );
 
+    private final boolean disposeConnector;
+
     public ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation ) throws Exception
+    {
+        this ( handlerFactory, chainBuilder, connectionInformation, new NioSocketConnector (), true );
+    }
+
+    public ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
+    {
+        this ( handlerFactory, chainBuilder, connectionInformation, socketConnector != null ? socketConnector : new NioSocketConnector (), socketConnector == null );
+    }
+
+    protected ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation, final SocketConnector socketConnector, final boolean disposeConnector ) throws Exception
     {
         super ( connectionInformation );
 
@@ -100,7 +113,8 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
         this.handler = handlerFactory.create ( this );
 
-        this.connector = new NioSocketConnector ();
+        this.connector = socketConnector;
+        this.disposeConnector = disposeConnector;
 
         this.chainBuilder = chainBuilder;
         this.chainBuilder.setLoggerName ( ClientBaseConnection.class.getName () + ".protocol" );
@@ -479,7 +493,11 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
         // no state notifications after this call
         this.stateNotifier.dispose ();
 
-        this.connector.dispose ();
+        if ( this.disposeConnector )
+        {
+            this.connector.dispose ();
+        }
+
         super.dispose ();
 
         this.chainBuilder.dispose ();

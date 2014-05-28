@@ -3,11 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA NextGenerationProtocol AE Client (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.client.ngp
 Bundle-Version: 0.2.0.qualifier
-Bundle-Activator: org.eclipse.scada.ae.client.ngp.Activator
+Bundle-Activator: org.eclipse.scada.ae.client.ngp.internal.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.ae.client.ngp;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.scada.ae.client.ngp;version="0.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
+ org.apache.mina.core.service;version="2.0.7",
+ org.apache.mina.transport.socket;version="[2.0.2,3.0.0)",
+ org.apache.mina.transport.socket.nio;version="[2.0.7,3.0.0)",
  org.eclipse.scada.ae;version="0.1.0",
  org.eclipse.scada.ae.client;version="0.1.0",
  org.eclipse.scada.ae.common.ngp;version="0.1.0",
@@ -16,7 +19,7 @@ Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
  org.eclipse.scada.ae.protocol.ngp.codec;version="0.1.0",
  org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.client;version="0.1.0",
- org.eclipse.scada.core.client.common;version="0.1.0",
+ org.eclipse.scada.core.client.common;version="0.2.0",
  org.eclipse.scada.core.client.ngp;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.data.message;version="0.1.0",

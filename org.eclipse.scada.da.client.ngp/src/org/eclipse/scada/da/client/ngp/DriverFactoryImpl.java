@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,15 +7,29 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow shared socket connectors
  *******************************************************************************/
 package org.eclipse.scada.da.client.ngp;
 
+import org.apache.mina.transport.socket.SocketConnector;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.ConnectionFactory;
 import org.eclipse.scada.core.client.DriverInformation;
 
 public class DriverFactoryImpl implements org.eclipse.scada.core.client.DriverFactory
 {
+    private final SocketConnector socketConnector;
+
+    public DriverFactoryImpl ()
+    {
+        this ( null );
+    }
+
+    public DriverFactoryImpl ( final SocketConnector socketConnector )
+    {
+        this.socketConnector = socketConnector;
+    }
+
     @Override
     public DriverInformation getDriverInformation ( final ConnectionInformation connectionInformation )
     {
@@ -33,7 +47,7 @@ public class DriverFactoryImpl implements org.eclipse.scada.core.client.DriverFa
             return null;
         }
 
-        return new org.eclipse.scada.da.client.ngp.DriverInformation ();
+        return new org.eclipse.scada.da.client.ngp.DriverInformation ( this.socketConnector );
     }
 
     public static void registerDriver ()

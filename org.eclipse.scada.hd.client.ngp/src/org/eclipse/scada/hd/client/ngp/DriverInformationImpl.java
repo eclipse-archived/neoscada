@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,9 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow shared socket connectors
  *******************************************************************************/
 package org.eclipse.scada.hd.client.ngp;
 
+import org.apache.mina.transport.socket.SocketConnector;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.Connection;
 import org.slf4j.Logger;
@@ -19,6 +21,18 @@ public class DriverInformationImpl implements org.eclipse.scada.core.client.Driv
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( DriverInformationImpl.class );
+
+    private final SocketConnector socketConnector;
+
+    public DriverInformationImpl ()
+    {
+        this ( null );
+    }
+
+    public DriverInformationImpl ( final SocketConnector socketConnector )
+    {
+        this.socketConnector = socketConnector;
+    }
 
     @Override
     public Connection create ( final ConnectionInformation connectionInformation )
@@ -30,7 +44,7 @@ public class DriverInformationImpl implements org.eclipse.scada.core.client.Driv
 
         try
         {
-            return new org.eclipse.scada.hd.client.ngp.ConnectionImpl ( connectionInformation );
+            return new org.eclipse.scada.hd.client.ngp.ConnectionImpl ( connectionInformation, this.socketConnector );
         }
         catch ( final Exception e )
         {

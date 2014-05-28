@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow shared socket connectors
  *******************************************************************************/
 package org.eclipse.scada.ca.client.ngp;
 
@@ -16,6 +17,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 
+import org.apache.mina.transport.socket.SocketConnector;
 import org.eclipse.scada.ca.client.Connection;
 import org.eclipse.scada.ca.client.FactoriesListener;
 import org.eclipse.scada.ca.common.ngp.ProtocolConfigurationFactoryImpl;
@@ -92,7 +94,23 @@ public class ConnectionImpl extends ConnectionBaseImpl implements Connection
 
     public ConnectionImpl ( final ConnectionInformation connectionInformation ) throws Exception
     {
-        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation );
+        this ( connectionInformation, null );
+    }
+
+    /**
+     * Create a new connection <br/>
+     * 
+     * @param connectionInformation
+     *            the information where to connect to
+     * @param socketConnector
+     *            the socket connector, may be <code>null</code> to use the
+     *            default
+     * @throws Exception
+     *             if anything goes wrong
+     */
+    public ConnectionImpl ( final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
+    {
+        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation, socketConnector );
     }
 
     @Override

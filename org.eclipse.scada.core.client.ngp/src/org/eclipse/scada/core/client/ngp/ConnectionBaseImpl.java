@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
+import org.apache.mina.transport.socket.SocketConnector;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.common.ClientBaseConnection;
@@ -73,7 +74,7 @@ public class ConnectionBaseImpl extends ClientBaseConnection
 
     private final OpenCallbacksManager callbackManager;
 
-    public ConnectionBaseImpl ( final ProtocolConfigurationFactory protocolConfigurationFactory, final ConnectionInformation connectionInformation ) throws Exception
+    public ConnectionBaseImpl ( final ProtocolConfigurationFactory protocolConfigurationFactory, final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
     {
         super ( new ProtocolIoHandlerFactory ( protocolConfigurationFactory ), new FilterChainBuilder ( true ), connectionInformation );
         this.responseManager = new ResponseManager ( this.statistics, this.messageSender, this.executor );

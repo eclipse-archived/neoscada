@@ -4,18 +4,19 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.client.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.core.client.ngp;version="0.1.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.scada.core.client.ngp;version="0.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
  org.apache.mina.core.future;version="[2.0.2,3.0.0)",
  org.apache.mina.core.service;version="[2.0.2,3.0.0)",
  org.apache.mina.core.session;version="[2.0.2,3.0.0)",
  org.apache.mina.filter.compression;version="[2.0.2,3.0.0)",
  org.apache.mina.filter.ssl;version="[2.0.2,3.0.0)",
+ org.apache.mina.transport.socket;version="[2.0.7,3.0.0)",
  org.apache.mina.transport.socket.nio;version="[2.0.2,3.0.0)",
  org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.client;version="0.1.0",
- org.eclipse.scada.core.client.common;version="0.1.0",
+ org.eclipse.scada.core.client.common;version="0.2.0",
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.data.message;version="0.1.0",
  org.eclipse.scada.core.ngp;version="0.1.0",
