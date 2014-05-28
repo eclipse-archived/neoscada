@@ -293,7 +293,10 @@ public class PlainTextImpl extends MinimalEObjectImpl.Container implements Plain
     public Extractor createExtractor ( final CreationContext creationContext )
     {
         final Map<String, Variant> attributes = new HashMap<> ();
-        attributes.put ( "description", Variant.valueOf ( getDescription () ) );
+        if ( getDescription () != null )
+        {
+            attributes.put ( "description", Variant.valueOf ( getDescription () ) );
+        }
         return new PlainTextExtractor ( new ItemDescriptor ( getName (), attributes ), isTrim () );
     }
 
