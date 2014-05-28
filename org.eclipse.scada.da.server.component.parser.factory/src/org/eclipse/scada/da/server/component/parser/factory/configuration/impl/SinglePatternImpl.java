@@ -35,21 +35,31 @@ import org.eclipse.scada.da.server.component.parser.factory.internal.Descriptors
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getPrefix <em>Prefix</em>}</li>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#isFullMatch <em>Full Match</em>}</li>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getValue <em>Value</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getPrefix
+ * <em>Prefix</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getPattern
+ * <em>Pattern</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#isFullMatch
+ * <em>Full Match</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SinglePatternImpl#getValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SinglePatternImpl extends MinimalEObjectImpl.Container implements SinglePattern
 {
     /**
-     * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+     * The default value of the '{@link #getPrefix() <em>Prefix</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -60,6 +70,7 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
      * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPrefix()
      * @generated
      * @ordered
@@ -67,9 +78,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     protected String prefix = PREFIX_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+     * The default value of the '{@link #getPattern() <em>Pattern</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -77,9 +90,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     protected static final Pattern PATTERN_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+     * The cached value of the '{@link #getPattern() <em>Pattern</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -87,9 +102,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     protected Pattern pattern = PATTERN_EDEFAULT;
 
     /**
-     * The default value of the '{@link #isFullMatch() <em>Full Match</em>}' attribute.
+     * The default value of the '{@link #isFullMatch() <em>Full Match</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #isFullMatch()
      * @generated
      * @ordered
@@ -97,9 +114,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     protected static final boolean FULL_MATCH_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isFullMatch() <em>Full Match</em>}' attribute.
+     * The cached value of the '{@link #isFullMatch() <em>Full Match</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #isFullMatch()
      * @generated
      * @ordered
@@ -107,9 +126,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     protected boolean fullMatch = FULL_MATCH_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+     * The cached value of the '{@link #getValue() <em>Value</em>}' containment
+     * reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getValue()
      * @generated
      * @ordered
@@ -119,6 +140,7 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SinglePatternImpl ()
@@ -129,6 +151,7 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -140,132 +163,156 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getPrefix ()
     {
-        return prefix;
+        return this.prefix;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setPrefix ( String newPrefix )
+    public void setPrefix ( final String newPrefix )
     {
-        String oldPrefix = prefix;
-        prefix = newPrefix;
+        final String oldPrefix = this.prefix;
+        this.prefix = newPrefix;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__PREFIX, oldPrefix, prefix ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__PREFIX, oldPrefix, this.prefix ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Pattern getPattern ()
     {
-        return pattern;
+        return this.pattern;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setPattern ( Pattern newPattern )
+    public void setPattern ( final Pattern newPattern )
     {
-        Pattern oldPattern = pattern;
-        pattern = newPattern;
+        final Pattern oldPattern = this.pattern;
+        this.pattern = newPattern;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__PATTERN, oldPattern, pattern ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__PATTERN, oldPattern, this.pattern ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean isFullMatch ()
     {
-        return fullMatch;
+        return this.fullMatch;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setFullMatch ( boolean newFullMatch )
+    public void setFullMatch ( final boolean newFullMatch )
     {
-        boolean oldFullMatch = fullMatch;
-        fullMatch = newFullMatch;
+        final boolean oldFullMatch = this.fullMatch;
+        this.fullMatch = newFullMatch;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__FULL_MATCH, oldFullMatch, fullMatch ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__FULL_MATCH, oldFullMatch, this.fullMatch ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
+    @Override
     public ValueDescriptor getValue ()
     {
-        if ( value != null && value.eIsProxy () )
+        if ( this.value != null && this.value.eIsProxy () )
         {
-            InternalEObject oldValue = (InternalEObject)value;
-            value = (ValueDescriptor)eResolveProxy ( oldValue );
-            if ( value != oldValue )
+            final InternalEObject oldValue = (InternalEObject)this.value;
+            this.value = (ValueDescriptor)eResolveProxy ( oldValue );
+            if ( this.value != oldValue )
             {
-                InternalEObject newValue = (InternalEObject)value;
+                final InternalEObject newValue = (InternalEObject)this.value;
                 NotificationChain msgs = oldValue.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SINGLE_PATTERN__VALUE, null, null );
                 if ( newValue.eInternalContainer () == null )
                 {
                     msgs = newValue.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SINGLE_PATTERN__VALUE, null, msgs );
                 }
                 if ( msgs != null )
+                {
                     msgs.dispatch ();
+                }
                 if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ParserPackage.SINGLE_PATTERN__VALUE, oldValue, value ) );
+                {
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ParserPackage.SINGLE_PATTERN__VALUE, oldValue, this.value ) );
+                }
             }
         }
-        return value;
+        return this.value;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ValueDescriptor basicGetValue ()
     {
-        return value;
+        return this.value;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public NotificationChain basicSetValue ( ValueDescriptor newValue, NotificationChain msgs )
+    public NotificationChain basicSetValue ( final ValueDescriptor newValue, NotificationChain msgs )
     {
-        ValueDescriptor oldValue = value;
-        value = newValue;
+        final ValueDescriptor oldValue = this.value;
+        this.value = newValue;
         if ( eNotificationRequired () )
         {
-            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__VALUE, oldValue, newValue );
+            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__VALUE, oldValue, newValue );
             if ( msgs == null )
+            {
                 msgs = notification;
+            }
             else
+            {
                 msgs.add ( notification );
+            }
         }
         return msgs;
     }
@@ -273,23 +320,33 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public void setValue ( ValueDescriptor newValue )
+    @Override
+    public void setValue ( final ValueDescriptor newValue )
     {
-        if ( newValue != value )
+        if ( newValue != this.value )
         {
             NotificationChain msgs = null;
-            if ( value != null )
-                msgs = ( (InternalEObject)value ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SINGLE_PATTERN__VALUE, null, msgs );
+            if ( this.value != null )
+            {
+                msgs = ( (InternalEObject)this.value ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SINGLE_PATTERN__VALUE, null, msgs );
+            }
             if ( newValue != null )
+            {
                 msgs = ( (InternalEObject)newValue ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - ParserPackage.SINGLE_PATTERN__VALUE, null, msgs );
+            }
             msgs = basicSetValue ( newValue, msgs );
             if ( msgs != null )
+            {
                 msgs.dispatch ();
+            }
         }
         else if ( eNotificationRequired () )
+        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.SINGLE_PATTERN__VALUE, newValue, newValue ) );
+        }
     }
 
     /**
@@ -301,16 +358,17 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     @Override
     public Extractor createExtractor ( final CreationContext creationContext )
     {
-        return new SinglePatternExtractor ( getPattern (), isFullMatch (), Descriptors.convert ( null ) );
+        return new SinglePatternExtractor ( getPattern (), isFullMatch (), Descriptors.convert ( getValue () ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -323,10 +381,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -338,7 +397,9 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
                 return isFullMatch ();
             case ParserPackage.SINGLE_PATTERN__VALUE:
                 if ( resolve )
+                {
                     return getValue ();
+                }
                 return basicGetValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
@@ -347,10 +408,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -373,10 +435,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -399,21 +462,22 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case ParserPackage.SINGLE_PATTERN__PREFIX:
-                return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals ( prefix );
+                return PREFIX_EDEFAULT == null ? this.prefix != null : !PREFIX_EDEFAULT.equals ( this.prefix );
             case ParserPackage.SINGLE_PATTERN__PATTERN:
-                return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals ( pattern );
+                return PATTERN_EDEFAULT == null ? this.pattern != null : !PATTERN_EDEFAULT.equals ( this.pattern );
             case ParserPackage.SINGLE_PATTERN__FULL_MATCH:
-                return fullMatch != FULL_MATCH_EDEFAULT;
+                return this.fullMatch != FULL_MATCH_EDEFAULT;
             case ParserPackage.SINGLE_PATTERN__VALUE:
-                return value != null;
+                return this.value != null;
         }
         return super.eIsSet ( featureID );
     }
@@ -421,10 +485,11 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -437,21 +502,24 @@ public class SinglePatternImpl extends MinimalEObjectImpl.Container implements S
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (prefix: " ); //$NON-NLS-1$
-        result.append ( prefix );
+        result.append ( this.prefix );
         result.append ( ", pattern: " ); //$NON-NLS-1$
-        result.append ( pattern );
+        result.append ( this.pattern );
         result.append ( ", fullMatch: " ); //$NON-NLS-1$
-        result.append ( fullMatch );
+        result.append ( this.fullMatch );
         result.append ( ')' );
         return result.toString ();
     }
