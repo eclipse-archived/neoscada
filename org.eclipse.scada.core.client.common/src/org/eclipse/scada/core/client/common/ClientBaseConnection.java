@@ -360,14 +360,14 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
         }
         else
         {
-            startConnect ();
+            startConnect ( this.address );
         }
     }
 
-    private synchronized void startConnect ()
+    private synchronized void startConnect ( final InetAddress address )
     {
         setState ( ConnectionState.CONNECTING, null );
-        this.connectFuture = this.connector.connect ( new InetSocketAddress ( this.address, this.connectionInformation.getSecondaryTarget () ) );
+        this.connectFuture = this.connector.connect ( new InetSocketAddress ( address, this.connectionInformation.getSecondaryTarget () ) );
         this.connectFuture.addListener ( new IoFutureListener<ConnectFuture> () {
 
             @Override
@@ -470,7 +470,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
                 this.address = address;
             }
             // trigger connect
-            startConnect ();
+            startConnect ( address );
         }
         else
         {
