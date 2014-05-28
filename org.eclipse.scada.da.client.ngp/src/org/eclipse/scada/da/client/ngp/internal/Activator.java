@@ -14,7 +14,10 @@ package org.eclipse.scada.da.client.ngp.internal;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import org.apache.mina.transport.socket.nio.NioSocketConnector;
+import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.core.service.SimpleIoProcessorPool;
+import org.apache.mina.transport.socket.nio.NioProcessor;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.core.client.DriverFactory;
 import org.eclipse.scada.da.client.ngp.DriverFactoryImpl;
 import org.osgi.framework.BundleActivator;
@@ -35,18 +38,18 @@ public class Activator implements BundleActivator
 
     private ServiceRegistration<org.eclipse.scada.core.client.DriverFactory> handle;
 
-    private NioSocketConnector connector;
+    private IoProcessor<NioSession> processor;
 
     @Override
     public void start ( final BundleContext context ) throws Exception
     {
         Activator.instance = this;
 
-        if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedConnector" ) )
+        if ( !Boolean.getBoolean ( "org.eclipse.scada.core.client.ngp.disableSharedProcessor" ) )
         {
-            this.connector = new NioSocketConnector ();
+            this.processor = new SimpleIoProcessorPool<> ( NioProcessor.class );
         }
-        this.factory = new DriverFactoryImpl ( this.connector );
+        this.factory = new DriverFactoryImpl ( this.processor );
 
         final Dictionary<String, String> properties = new Hashtable<String, String> ();
         properties.put ( org.eclipse.scada.core.client.DriverFactory.INTERFACE_NAME, "da" );
@@ -65,9 +68,9 @@ public class Activator implements BundleActivator
     public void stop ( final BundleContext context ) throws Exception
     {
         this.handle.unregister ();
-        if ( this.connector != null )
+        if ( this.processor != null )
         {
-            this.connector.dispose ();
+            this.processor.dispose ();
         }
         this.factory = null;
         Activator.instance = null;

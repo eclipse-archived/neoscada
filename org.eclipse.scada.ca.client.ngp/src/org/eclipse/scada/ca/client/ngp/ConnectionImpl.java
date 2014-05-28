@@ -17,7 +17,8 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 
-import org.apache.mina.transport.socket.SocketConnector;
+import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.ca.client.Connection;
 import org.eclipse.scada.ca.client.FactoriesListener;
 import org.eclipse.scada.ca.common.ngp.ProtocolConfigurationFactoryImpl;
@@ -102,15 +103,15 @@ public class ConnectionImpl extends ConnectionBaseImpl implements Connection
      * 
      * @param connectionInformation
      *            the information where to connect to
-     * @param socketConnector
-     *            the socket connector, may be <code>null</code> to use the
+     * @param processor
+     *            the socket processor, may be <code>null</code> to use the
      *            default
      * @throws Exception
      *             if anything goes wrong
      */
-    public ConnectionImpl ( final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
+    public ConnectionImpl ( final ConnectionInformation connectionInformation, final IoProcessor<NioSession> processor ) throws Exception
     {
-        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation, socketConnector );
+        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation, processor );
     }
 
     @Override

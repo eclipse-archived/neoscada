@@ -18,7 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.mina.transport.socket.SocketConnector;
+import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.client.ngp.ConnectionBaseImpl;
@@ -63,15 +64,15 @@ public class ConnectionImpl extends ConnectionBaseImpl implements Connection
      * 
      * @param connectionInformation
      *            the information where to connect to
-     * @param socketConnector
-     *            the socket connector, may be <code>null</code> to use the
+     * @param processor
+     *            the socket processor, may be <code>null</code> to use the
      *            default
      * @throws Exception
      *             if anything goes wrong
      */
-    public ConnectionImpl ( final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
+    public ConnectionImpl ( final ConnectionInformation connectionInformation, final IoProcessor<NioSession> processor ) throws Exception
     {
-        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation, socketConnector );
+        super ( new ProtocolConfigurationFactoryImpl ( connectionInformation ), connectionInformation, processor );
         this.itemManager = new ItemManager ( this.executor, this );
 
         this.statistics.setLabel ( STATS_OPEN_QUERIES, "Open queries" );

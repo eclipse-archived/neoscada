@@ -11,7 +11,8 @@
  *******************************************************************************/
 package org.eclipse.scada.hd.client.ngp;
 
-import org.apache.mina.transport.socket.SocketConnector;
+import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.Connection;
 import org.slf4j.Logger;
@@ -22,16 +23,16 @@ public class DriverInformationImpl implements org.eclipse.scada.core.client.Driv
 
     private final static Logger logger = LoggerFactory.getLogger ( DriverInformationImpl.class );
 
-    private final SocketConnector socketConnector;
+    private final IoProcessor<NioSession> processor;
 
     public DriverInformationImpl ()
     {
         this ( null );
     }
 
-    public DriverInformationImpl ( final SocketConnector socketConnector )
+    public DriverInformationImpl ( final IoProcessor<NioSession> processor )
     {
-        this.socketConnector = socketConnector;
+        this.processor = processor;
     }
 
     @Override
@@ -44,7 +45,7 @@ public class DriverInformationImpl implements org.eclipse.scada.core.client.Driv
 
         try
         {
-            return new org.eclipse.scada.hd.client.ngp.ConnectionImpl ( connectionInformation, this.socketConnector );
+            return new org.eclipse.scada.hd.client.ngp.ConnectionImpl ( connectionInformation, this.processor );
         }
         catch ( final Exception e )
         {

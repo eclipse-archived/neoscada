@@ -23,9 +23,11 @@ import javax.net.ssl.SSLSession;
 import org.apache.mina.core.future.ConnectFuture;
 import org.apache.mina.core.future.IoFutureListener;
 import org.apache.mina.core.service.IoHandler;
+import org.apache.mina.core.service.IoProcessor;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.ssl.SslFilter;
 import org.apache.mina.transport.socket.SocketConnector;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.Connection;
@@ -67,7 +69,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private volatile ConnectionState connectionState = ConnectionState.CLOSED;
 
-    private InetAddress address;
+    private InetAddress addressCache;
 
     private ConnectFuture connectFuture;
 
@@ -93,19 +95,12 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private final boolean cacheAddress = Boolean.getBoolean ( "org.eclipse.scada.core.client.common.cacheAddress" );
 
-    private final boolean disposeConnector;
-
     public ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation ) throws Exception
     {
-        this ( handlerFactory, chainBuilder, connectionInformation, new NioSocketConnector (), true );
+        this ( handlerFactory, chainBuilder, connectionInformation, null );
     }
 
-    public ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
-    {
-        this ( handlerFactory, chainBuilder, connectionInformation, socketConnector != null ? socketConnector : new NioSocketConnector (), socketConnector == null );
-    }
-
-    protected ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation, final SocketConnector socketConnector, final boolean disposeConnector ) throws Exception
+    protected ClientBaseConnection ( final IoHandlerFactory handlerFactory, final IoLoggerFilterChainBuilder chainBuilder, final ConnectionInformation connectionInformation, final IoProcessor<NioSession> processor ) throws Exception
     {
         super ( connectionInformation );
 
@@ -113,8 +108,14 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
         this.handler = handlerFactory.create ( this );
 
-        this.connector = socketConnector;
-        this.disposeConnector = disposeConnector;
+        if ( processor != null )
+        {
+            this.connector = new NioSocketConnector ( processor );
+        }
+        else
+        {
+            this.connector = new NioSocketConnector ();
+        }
 
         this.chainBuilder = chainBuilder;
         this.chainBuilder.setLoggerName ( ClientBaseConnection.class.getName () + ".protocol" );
@@ -330,10 +331,13 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     protected synchronized void performDisconnected ( final Throwable error )
     {
+        logger.debug ( "Perform disconnected", error );
+
         this.connectCallbackHandler = null;
 
         if ( this.session != null )
         {
+            logger.debug ( "Clear session" );
             this.session.close ( true );
             this.session.removeAttribute ( StatisticsFilter.STATS_KEY );
             this.session = null;
@@ -354,20 +358,23 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
 
     private void initConnect ()
     {
-        if ( this.address == null )
+        if ( this.addressCache == null )
         {
             beginLookup ();
         }
         else
         {
-            startConnect ( this.address );
+            startConnect ( this.addressCache );
         }
     }
 
     private synchronized void startConnect ( final InetAddress address )
     {
+        logger.debug ( "Start connection to {}", address );
+
         setState ( ConnectionState.CONNECTING, null );
         this.connectFuture = this.connector.connect ( new InetSocketAddress ( address, this.connectionInformation.getSecondaryTarget () ) );
+        logger.trace ( "Returned from connect call" );
         this.connectFuture.addListener ( new IoFutureListener<ConnectFuture> () {
 
             @Override
@@ -376,10 +383,13 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
                 handleConnectComplete ( future );
             }
         } );
+        logger.trace ( "Future listener registered" );
     }
 
     protected synchronized void handleConnectComplete ( final ConnectFuture future )
     {
+        logger.debug ( "Connection attempt complete: {}", future );
+
         if ( this.connectFuture != future )
         {
             logger.warn ( "handleConnectComplete got called with wrong future - current: {}, called: {}", this.connectFuture, future );
@@ -403,10 +413,14 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
         {
             setState ( ConnectionState.CLOSED, e );
         }
+
+        logger.debug ( "Connection established" );
     }
 
     private void setSession ( final IoSession session )
     {
+        logger.debug ( "Setting session: {}", session );
+
         if ( this.session != null )
         {
             logger.warn ( "Failed to set session ... there is still one set" );
@@ -467,7 +481,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
         {
             if ( this.cacheAddress )
             {
-                this.address = address;
+                this.addressCache = address;
             }
             // trigger connect
             startConnect ( address );
@@ -493,10 +507,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
         // no state notifications after this call
         this.stateNotifier.dispose ();
 
-        if ( this.disposeConnector )
-        {
-            this.connector.dispose ();
-        }
+        this.connector.dispose ();
 
         super.dispose ();
 
@@ -555,7 +566,7 @@ public abstract class ClientBaseConnection extends BaseConnection implements Con
     {
         if ( this.session != session )
         {
-            logger.warn ( "Received 'opened' from wrong session" );
+            logger.warn ( "Received 'opened' from wrong session (ours: {}, theirs: {})", this.session, session );
             return;
         }
         switchState ( ConnectionState.CONNECTED, null );

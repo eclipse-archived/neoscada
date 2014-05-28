@@ -11,23 +11,24 @@
  *******************************************************************************/
 package org.eclipse.scada.da.client.ngp;
 
-import org.apache.mina.transport.socket.SocketConnector;
+import org.apache.mina.core.service.IoProcessor;
+import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.client.ConnectionFactory;
 import org.eclipse.scada.core.client.DriverInformation;
 
 public class DriverFactoryImpl implements org.eclipse.scada.core.client.DriverFactory
 {
-    private final SocketConnector socketConnector;
+    private final IoProcessor<NioSession> processor;
 
     public DriverFactoryImpl ()
     {
         this ( null );
     }
 
-    public DriverFactoryImpl ( final SocketConnector socketConnector )
+    public DriverFactoryImpl ( final IoProcessor<NioSession> processor )
     {
-        this.socketConnector = socketConnector;
+        this.processor = processor;
     }
 
     @Override
@@ -47,7 +48,7 @@ public class DriverFactoryImpl implements org.eclipse.scada.core.client.DriverFa
             return null;
         }
 
-        return new org.eclipse.scada.da.client.ngp.DriverInformation ( this.socketConnector );
+        return new org.eclipse.scada.da.client.ngp.DriverInformation ( this.processor );
     }
 
     public static void registerDriver ()
