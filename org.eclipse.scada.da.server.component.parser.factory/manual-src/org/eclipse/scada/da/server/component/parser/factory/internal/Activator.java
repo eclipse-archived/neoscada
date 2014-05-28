@@ -35,7 +35,7 @@ public class Activator implements BundleActivator
         final Dictionary<String, Object> properties = new Hashtable<> ();
         properties.put ( Constants.SERVICE_DESCRIPTION, "A factory for parser components" );
         properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
-        properties.put ( ConfigurationAdministrator.FACTORY_ID, "org.eclipse.scada.da.server.component.parser.factory" ); //$NON-NLS-1$
+        properties.put ( ConfigurationAdministrator.FACTORY_ID, org.eclipse.scada.da.server.component.parser.factory.Constants.FACTORY_ID );
 
         this.handle = context.registerService ( ConfigurationFactory.class, this.service, properties );
     }
