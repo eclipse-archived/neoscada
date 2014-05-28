@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - add filter chain lifecycle
+ *          add shared socket connectors
  *******************************************************************************/
 package org.eclipse.scada.core.client.ngp;
 
@@ -76,7 +77,7 @@ public class ConnectionBaseImpl extends ClientBaseConnection
 
     public ConnectionBaseImpl ( final ProtocolConfigurationFactory protocolConfigurationFactory, final ConnectionInformation connectionInformation, final SocketConnector socketConnector ) throws Exception
     {
-        super ( new ProtocolIoHandlerFactory ( protocolConfigurationFactory ), new FilterChainBuilder ( true ), connectionInformation );
+        super ( new ProtocolIoHandlerFactory ( protocolConfigurationFactory ), new FilterChainBuilder ( true ), connectionInformation, socketConnector );
         this.responseManager = new ResponseManager ( this.statistics, this.messageSender, this.executor );
         this.callbackHandlerManager = new CallbackHandlerManager ( this.statistics );
         this.callbackManager = new OpenCallbacksManager ( this, this.statistics, this.executor );
