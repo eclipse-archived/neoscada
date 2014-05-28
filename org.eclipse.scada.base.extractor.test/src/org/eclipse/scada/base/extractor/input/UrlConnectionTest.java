@@ -15,8 +15,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.scada.base.extractor.input.Data;
-import org.eclipse.scada.base.extractor.input.Input;
 import org.eclipse.scada.base.extractor.input.url.UrlConnectionInput;
 import org.eclipse.scada.base.extractor.input.utils.TestListener;
 import org.junit.Test;
@@ -28,7 +26,7 @@ public class UrlConnectionTest
     {
         final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor ();
 
-        final Input input = new UrlConnectionInput ( executor, new URL ( "http://google.com" ), true );
+        final Input input = new UrlConnectionInput ( executor, new URL ( "http://google.com" ), true, 100 );
 
         final TestListener listener = new TestListener ();
 

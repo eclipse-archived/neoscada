@@ -28,9 +28,9 @@ public class ProcessInput extends AbstractScheduledInput
 
     private final Charset charset;
 
-    public ProcessInput ( final ScheduledExecutorService executor, final ProcessBuilder processBuilder, final Charset charset )
+    public ProcessInput ( final ScheduledExecutorService executor, final ProcessBuilder processBuilder, final Charset charset, final long period )
     {
-        super ( executor );
+        super ( executor, period );
 
         this.charset = charset;
 

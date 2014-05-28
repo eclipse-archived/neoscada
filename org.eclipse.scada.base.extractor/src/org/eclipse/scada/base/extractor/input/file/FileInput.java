@@ -22,9 +22,9 @@ public class FileInput extends AbstractScheduledInput
 
     private final File file;
 
-    public FileInput ( final ScheduledExecutorService executor, final File file )
+    public FileInput ( final ScheduledExecutorService executor, final File file, final long period )
     {
-        super ( executor );
+        super ( executor, period );
         this.file = file;
     }
 

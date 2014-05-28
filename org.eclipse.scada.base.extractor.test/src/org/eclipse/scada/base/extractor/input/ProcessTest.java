@@ -15,8 +15,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.eclipse.scada.base.extractor.input.AbstractScheduledInput;
-import org.eclipse.scada.base.extractor.input.Data;
 import org.eclipse.scada.base.extractor.input.process.ProcessInput;
 import org.eclipse.scada.base.extractor.input.utils.TestListener;
 import org.junit.Test;
@@ -34,7 +32,7 @@ public class ProcessTest
         final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor ();
 
         final ProcessBuilder pb = new ProcessBuilder ( "date" ); // FIXME: works only on unix
-        final AbstractScheduledInput input = new ProcessInput ( executor, pb, Charset.forName ( "UTF-8" ) );
+        final AbstractScheduledInput input = new ProcessInput ( executor, pb, Charset.forName ( "UTF-8" ), 1000 );
 
         final TestListener listener = new TestListener ();
 
@@ -59,7 +57,7 @@ public class ProcessTest
         final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor ();
 
         final ProcessBuilder pb = new ProcessBuilder ( "sleep", "3" ); // FIXME: works only on unix
-        final AbstractScheduledInput input = new ProcessInput ( executor, pb, Charset.forName ( "UTF-8" ) );
+        final AbstractScheduledInput input = new ProcessInput ( executor, pb, Charset.forName ( "UTF-8" ), 1000 );
 
         final TestListener listener = new TestListener ();
 

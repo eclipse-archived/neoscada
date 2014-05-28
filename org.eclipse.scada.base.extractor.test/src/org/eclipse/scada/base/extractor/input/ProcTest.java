@@ -50,7 +50,7 @@ public class ProcTest extends AbstractExtractTest
     @Test
     public void cpuInfo () throws InterruptedException
     {
-        final FileInput input = new FileInput ( this.executor, new File ( "/proc/cpuinfo" ) );
+        final FileInput input = new FileInput ( this.executor, new File ( "/proc/cpuinfo" ), 100 );
 
         final Map<String, Extractor> subExtractors = new HashMap<String, Extractor> ();
 
@@ -66,7 +66,7 @@ public class ProcTest extends AbstractExtractTest
     @Test
     public void swaps () throws InterruptedException
     {
-        final FileInput input = new FileInput ( this.executor, new File ( "/proc/swaps" ) );
+        final FileInput input = new FileInput ( this.executor, new File ( "/proc/swaps" ), 100 );
         final SplitTableExtractor extractor = new SplitTableExtractor ( "\n", "\\s+", 0 );
 
         process ( input, extractor );
@@ -75,7 +75,7 @@ public class ProcTest extends AbstractExtractTest
     @Test
     public void mounts () throws InterruptedException
     {
-        final FileInput input = new FileInput ( this.executor, new File ( "/proc/mounts" ) );
+        final FileInput input = new FileInput ( this.executor, new File ( "/proc/mounts" ), 100 );
         final SplitTableExtractor extractor = new SplitTableExtractor ( "\n", "\\s+", 1, new String[] { "target", "mountPoint", "fsType", "options", "flags1", "flags2" } );
 
         process ( input, extractor );

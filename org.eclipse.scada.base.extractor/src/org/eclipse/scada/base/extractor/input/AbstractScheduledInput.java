@@ -26,12 +26,12 @@ public abstract class AbstractScheduledInput extends AbstractInput
         {
             return null;
         }
-    
+
         if ( charset == null )
         {
             return data;
         }
-    
+
         final CharBuffer cb = charset.decode ( ByteBuffer.wrap ( data ) );
         return cb.toString ();
     }
@@ -51,10 +51,13 @@ public abstract class AbstractScheduledInput extends AbstractInput
 
     private boolean running;
 
-    public AbstractScheduledInput ( final ScheduledExecutorService executor )
+    private final long period;
+
+    public AbstractScheduledInput ( final ScheduledExecutorService executor, final long period )
     {
         super ( executor );
         this.executor = executor;
+        this.period = period;
     }
 
     @Override
@@ -62,7 +65,7 @@ public abstract class AbstractScheduledInput extends AbstractInput
     {
         if ( this.job == null )
         {
-            this.job = this.executor.scheduleWithFixedDelay ( this.command, 0, 1000, TimeUnit.MILLISECONDS );
+            this.job = this.executor.scheduleAtFixedRate ( this.command, 0, this.period, TimeUnit.MILLISECONDS );
         }
     }
 

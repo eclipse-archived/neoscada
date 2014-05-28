@@ -35,17 +35,17 @@ public class UrlConnectionInput extends AbstractScheduledInput
 
     private final Charset charset;
 
-    public UrlConnectionInput ( final ScheduledExecutorService executor, final URL url, final boolean probeCharset )
+    public UrlConnectionInput ( final ScheduledExecutorService executor, final URL url, final boolean probeCharset, final long period )
     {
-        super ( executor );
+        super ( executor, period );
         this.url = url;
         this.probeCharset = probeCharset;
         this.charset = null;
     }
 
-    public UrlConnectionInput ( final ScheduledExecutorService executor, final URL url, final Charset charset )
+    public UrlConnectionInput ( final ScheduledExecutorService executor, final URL url, final Charset charset, final long period )
     {
-        super ( executor );
+        super ( executor, period );
         this.url = url;
         this.probeCharset = false;
         this.charset = charset;
