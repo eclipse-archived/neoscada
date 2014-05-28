@@ -58,6 +58,15 @@ public interface ParserFactory extends EFactory
     PlainText createPlainText ();
 
     /**
+     * Returns a new object of class '<em>Url Input</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Url Input</em>'.
+     * @generated
+     */
+    UrlInput createUrlInput ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

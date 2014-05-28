@@ -380,6 +380,79 @@ public interface ParserPackage extends EPackage
     int PLAIN_TEXT_OPERATION_COUNT = EXTRACTOR_DEFINITION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl <em>Url Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getUrlInput()
+     * @generated
+     */
+    int URL_INPUT = 6;
+
+    /**
+     * The feature id for the '<em><b>Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT__PERIOD = ABSTRACT_PERIOD_INPUT__PERIOD;
+
+    /**
+     * The feature id for the '<em><b>Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT__URL = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Probe Character Set</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT__PROBE_CHARACTER_SET = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Charset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT__CHARSET = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Url Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT_FEATURE_COUNT = ABSTRACT_PERIOD_INPUT_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>Create Input</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT___CREATE_INPUT__CREATIONCONTEXT = ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Url Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT_OPERATION_COUNT = ABSTRACT_PERIOD_INPUT_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Input</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -387,7 +460,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getInput()
      * @generated
      */
-    int INPUT = 6;
+    int INPUT = 7;
 
     /**
      * The meta object id for the '<em>Creation Context</em>' data type.
@@ -397,7 +470,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getCreationContext()
      * @generated
      */
-    int CREATION_CONTEXT = 7;
+    int CREATION_CONTEXT = 8;
 
     /**
      * The meta object id for the '<em>Extractor</em>' data type.
@@ -407,7 +480,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getExtractor()
      * @generated
      */
-    int EXTRACTOR = 8;
+    int EXTRACTOR = 9;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component <em>Component</em>}'.
@@ -587,6 +660,49 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute getAbstractPeriodInput_Period ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput <em>Url Input</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Url Input</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput
+     * @generated
+     */
+    EClass getUrlInput ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#getUrl <em>Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Url</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#getUrl()
+     * @see #getUrlInput()
+     * @generated
+     */
+    EAttribute getUrlInput_Url ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#isProbeCharacterSet <em>Probe Character Set</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Probe Character Set</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#isProbeCharacterSet()
+     * @see #getUrlInput()
+     * @generated
+     */
+    EAttribute getUrlInput_ProbeCharacterSet ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#getCharset <em>Charset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Charset</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput#getCharset()
+     * @see #getUrlInput()
+     * @generated
+     */
+    EAttribute getUrlInput_Charset ();
 
     /**
      * Returns the meta object for data type '{@link org.eclipse.scada.base.extractor.input.Input <em>Input</em>}'.
@@ -792,6 +908,40 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EAttribute ABSTRACT_PERIOD_INPUT__PERIOD = eINSTANCE.getAbstractPeriodInput_Period ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl <em>Url Input</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.UrlInputImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getUrlInput()
+         * @generated
+         */
+        EClass URL_INPUT = eINSTANCE.getUrlInput ();
+
+        /**
+         * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute URL_INPUT__URL = eINSTANCE.getUrlInput_Url ();
+
+        /**
+         * The meta object literal for the '<em><b>Probe Character Set</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute URL_INPUT__PROBE_CHARACTER_SET = eINSTANCE.getUrlInput_ProbeCharacterSet ();
+
+        /**
+         * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute URL_INPUT__CHARSET = eINSTANCE.getUrlInput_Charset ();
 
         /**
          * The meta object literal for the '<em>Input</em>' data type.

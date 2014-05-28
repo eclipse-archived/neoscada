@@ -174,6 +174,31 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected UrlInputItemProvider urlInputItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createUrlInputAdapter ()
+    {
+        if ( urlInputItemProvider == null )
+        {
+            urlInputItemProvider = new UrlInputItemProvider ( this );
+        }
+
+        return urlInputItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -320,6 +345,8 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             fileInputItemProvider.dispose ();
         if ( plainTextItemProvider != null )
             plainTextItemProvider.dispose ();
+        if ( urlInputItemProvider != null )
+            urlInputItemProvider.dispose ();
     }
 
 }

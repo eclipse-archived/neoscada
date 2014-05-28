@@ -28,6 +28,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.InputD
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput;
 
 /**
  * <!-- begin-user-doc -->
@@ -78,6 +79,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EClass abstractPeriodInputEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass urlInputEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -338,6 +346,46 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getUrlInput ()
+    {
+        return urlInputEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getUrlInput_Url ()
+    {
+        return (EAttribute)urlInputEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getUrlInput_ProbeCharacterSet ()
+    {
+        return (EAttribute)urlInputEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getUrlInput_Charset ()
+    {
+        return (EAttribute)urlInputEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getInput ()
     {
         return inputEDataType;
@@ -417,6 +465,11 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         abstractPeriodInputEClass = createEClass ( ABSTRACT_PERIOD_INPUT );
         createEAttribute ( abstractPeriodInputEClass, ABSTRACT_PERIOD_INPUT__PERIOD );
 
+        urlInputEClass = createEClass ( URL_INPUT );
+        createEAttribute ( urlInputEClass, URL_INPUT__URL );
+        createEAttribute ( urlInputEClass, URL_INPUT__PROBE_CHARACTER_SET );
+        createEAttribute ( urlInputEClass, URL_INPUT__CHARSET );
+
         // Create data types
         inputEDataType = createEDataType ( INPUT );
         creationContextEDataType = createEDataType ( CREATION_CONTEXT );
@@ -456,6 +509,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         fileInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
         plainTextEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
         abstractPeriodInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        urlInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -484,6 +538,11 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         initEClass ( abstractPeriodInputEClass, AbstractPeriodInput.class, "AbstractPeriodInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getAbstractPeriodInput_Period (), ecorePackage.getELong (), "period", "1000", 1, 1, AbstractPeriodInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( urlInputEClass, UrlInput.class, "UrlInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getUrlInput_Url (), ecorePackage.getEString (), "url", null, 1, 1, UrlInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getUrlInput_ProbeCharacterSet (), ecorePackage.getEBoolean (), "probeCharacterSet", "true", 1, 1, UrlInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getUrlInput_Charset (), ecorePackage.getEString (), "charset", null, 0, 1, UrlInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( inputEDataType, Input.class, "Input", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

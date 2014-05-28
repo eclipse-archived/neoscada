@@ -136,6 +136,18 @@ public class ParserSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ParserPackage.URL_INPUT:
+            {
+                UrlInput urlInput = (UrlInput)theEObject;
+                T result = caseUrlInput ( urlInput );
+                if ( result == null )
+                    result = caseAbstractPeriodInput ( urlInput );
+                if ( result == null )
+                    result = caseInputDefinition ( urlInput );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -233,6 +245,22 @@ public class ParserSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseAbstractPeriodInput ( AbstractPeriodInput object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Url Input</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Url Input</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseUrlInput ( UrlInput object )
     {
         return null;
     }

@@ -153,6 +153,34 @@
     <element xmi:type="ecore:EClass" href="configuration.ecore#//AbstractPeriodInput"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rG4NMuaBEeOX_qUWn78yDw" x="216" y="372"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_ekrmAOaDEeOX_qUWn78yDw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_eksNEOaDEeOX_qUWn78yDw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_eksNEeaDEeOX_qUWn78yDw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_gmMx0OaDEeOX_qUWn78yDw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//UrlInput/url"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_gmMx0eaDEeOX_qUWn78yDw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_cyBgIOaEEeOX_qUWn78yDw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//UrlInput/charset"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cyBgIeaEEeOX_qUWn78yDw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_AgKNAOaEEeOX_qUWn78yDw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="configuration.ecore#//UrlInput/probeCharacterSet"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AgKNAeaEEeOX_qUWn78yDw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_eksNEuaDEeOX_qUWn78yDw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_eksNE-aDEeOX_qUWn78yDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_eksNFOaDEeOX_qUWn78yDw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_eks0IOaDEeOX_qUWn78yDw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_eks0IeaDEeOX_qUWn78yDw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_eks0IuaDEeOX_qUWn78yDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_eks0I-aDEeOX_qUWn78yDw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ekrmAeaDEeOX_qUWn78yDw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//UrlInput"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ekrmAuaDEeOX_qUWn78yDw" x="360" y="588"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ERgLAeWwEeOX_qUWn78yDw"/>
   <element xmi:type="ecore:EPackage" href="configuration.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_PP1g0OWwEeOX_qUWn78yDw" type="3002" source="_ERvbkOWwEeOX_qUWn78yDw" target="_OhtPgOWwEeOX_qUWn78yDw">
@@ -198,5 +226,11 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_tvRy0uaBEeOX_qUWn78yDw" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tvRy0-aBEeOX_qUWn78yDw" points="[4, -20, -14, 92]$[4, -83, -14, 29]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_gS7QgOaDEeOX_qUWn78yDw" type="3003" source="_ekrmAOaDEeOX_qUWn78yDw" target="_rG4NMOaBEeOX_qUWn78yDw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_gS73kOaDEeOX_qUWn78yDw" routing="Rectilinear" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_gS73keaDEeOX_qUWn78yDw" fontName="Sans"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gS73kuaDEeOX_qUWn78yDw" points="[-14, -20, 129, 192]$[-147, -236, -4, -24]"/>
   </edges>
 </notation:Diagram>

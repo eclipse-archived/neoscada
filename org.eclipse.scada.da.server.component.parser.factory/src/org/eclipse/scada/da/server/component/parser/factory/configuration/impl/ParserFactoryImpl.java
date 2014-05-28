@@ -76,6 +76,8 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
                 return createFileInput ();
             case ParserPackage.PLAIN_TEXT:
                 return createPlainText ();
+            case ParserPackage.URL_INPUT:
+                return createUrlInput ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -142,6 +144,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
     {
         PlainTextImpl plainText = new PlainTextImpl ();
         return plainText;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public UrlInput createUrlInput ()
+    {
+        UrlInputImpl urlInput = new UrlInputImpl ();
+        return urlInput;
     }
 
     /**
