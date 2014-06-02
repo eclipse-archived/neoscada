@@ -18,7 +18,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.scada.da.ui.client.test.console.DataItemConsole;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
@@ -29,7 +29,6 @@ public class StartItemTrace extends AbstractSelectionHandler
     @Override
     public Object execute ( final ExecutionEvent event ) throws ExecutionException
     {
-
         final List<IConsole> consoles = new ArrayList<IConsole> ();
 
         for ( final Item item : SelectionHelper.iterable ( getSelection (), Item.class ) )
