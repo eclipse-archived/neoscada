@@ -79,12 +79,10 @@ public class MultiPatternExtractor extends AbstractPatternExtractor
         }
         else
         {
-            final Map<String, Variant> attributes = new HashMap<String, Variant> ( 1 );
-            attributes.put ( "nomatch.error", Variant.TRUE );
-            result.put ( DESC_VALUE, new ItemValue ( Variant.NULL, attributes ) );
+            result.put ( DESC_VALUE, new ItemValue ( Variant.NULL, NO_MATCH_ATTRIBUTES ) );
         }
 
-        result.put ( DESC_STATE, makeState ( m, match ) );
+        result.put ( DESC_STATE, makeState ( m, match, true, data ) );
 
         return result;
     }

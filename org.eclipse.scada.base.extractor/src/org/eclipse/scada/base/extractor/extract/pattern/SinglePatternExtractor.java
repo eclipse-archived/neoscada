@@ -35,8 +35,8 @@ public class SinglePatternExtractor extends AbstractPatternExtractor
     static
     {
         final Map<String, Variant> attributes = new HashMap<String, Variant> ( 1 );
-        attributes.put ( "description", Variant.valueOf ( "Result value" ) );
-        DESC_VALUE = new ItemDescriptor ( "value", attributes );
+        attributes.put ( "description", Variant.valueOf ( "Result value" ) ); //$NON-NLS-1$
+        DESC_VALUE = new ItemDescriptor ( "value", attributes ); //$NON-NLS-1$
     }
 
     public SinglePatternExtractor ( final Pattern pattern, final boolean fullMatch, final ValueFieldDescriptor fieldDescriptor )
@@ -75,12 +75,10 @@ public class SinglePatternExtractor extends AbstractPatternExtractor
         }
         else
         {
-            final Map<String, Variant> attributes = new HashMap<String, Variant> ( 1 );
-            attributes.put ( "nomatch.error", Variant.TRUE );
-            result.put ( DESC_VALUE, new ItemValue ( Variant.NULL, attributes ) );
+            result.put ( DESC_VALUE, new ItemValue ( Variant.NULL, NO_MATCH_ATTRIBUTES ) );
         }
 
-        result.put ( DESC_STATE, makeState ( m, match ) );
+        result.put ( DESC_STATE, makeState ( m, match, this.fullMatch, data ) );
 
         return result;
     }

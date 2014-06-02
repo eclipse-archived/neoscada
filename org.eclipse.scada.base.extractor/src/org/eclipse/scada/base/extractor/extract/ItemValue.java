@@ -36,4 +36,15 @@ public class ItemValue
     {
         return this.attributes;
     }
+
+    @Override
+    public String toString ()
+    {
+        final StringBuilder sb = new StringBuilder ();
+
+        sb.append ( "[" ).append ( this.value ).append ( "]" );
+
+        return sb.toString ();
+    }
+
 }
