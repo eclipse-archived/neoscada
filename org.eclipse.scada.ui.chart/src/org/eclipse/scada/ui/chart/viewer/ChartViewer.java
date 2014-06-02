@@ -46,6 +46,7 @@ import org.eclipse.scada.chart.swt.DisposeListener;
 import org.eclipse.scada.chart.swt.controller.MouseHover;
 import org.eclipse.scada.chart.swt.controller.MouseHover.Listener;
 import org.eclipse.scada.chart.swt.render.CurrentTimeRuler;
+import org.eclipse.scada.chart.swt.render.TitleRenderer;
 import org.eclipse.scada.da.ui.connection.data.Item;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Chart;
@@ -144,6 +145,8 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private final ChartContext chartContext;
 
+    private TitleRenderer titleRenderer;
+
     public ChartViewer ( final ChartRenderer chartRenderer, final Chart chart, final ExtensionSpaceProvider extensionSpaceProvider, final ResetHandler resetHandler )
     {
         this.chart = chart;
@@ -184,6 +187,9 @@ public class ChartViewer extends AbstractSelectionProvider
 
         this.manager.createDropTarget ( new Transfer[] { LocalSelectionTransfer.getTransfer () }, createDropTarget () );
 
+        this.titleRenderer = new TitleRenderer ( this.manager );
+        this.manager.addRenderer ( this.titleRenderer, -100 );
+
         this.leftManager = new YAxisManager ( this.ctx, this.manager, true );
         this.ctx.bindList ( this.leftManager.getList (), EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__LEFT ) );
         this.rightManager = new YAxisManager ( this.ctx, this.manager, false );
@@ -200,7 +206,8 @@ public class ChartViewer extends AbstractSelectionProvider
         this.inputManager = new InputManager ( this.ctx, this, this.resourceManager, this.xLocator, this.yLocator );
         this.ctx.bindList ( this.inputManager.getList (), EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__INPUTS ) );
 
-        this.ctx.bindValue ( PojoObservables.observeValue ( this.manager, "title" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__TITLE ) ); //$NON-NLS-1$
+        this.ctx.bindValue ( PojoObservables.observeValue ( this.titleRenderer, "title" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__TITLE ) ); //$NON-NLS-1$
+
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "showCurrentTimeRuler" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__SHOW_CURRENT_TIME_RULER ) ); //$NON-NLS-1$
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "mutable" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__MUTABLE ) ); //$NON-NLS-1$
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "hoverable" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__HOVERABLE ) ); //$NON-NLS-1$

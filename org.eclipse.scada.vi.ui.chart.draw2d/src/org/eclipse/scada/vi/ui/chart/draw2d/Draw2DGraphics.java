@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Display;
 
 public class Draw2DGraphics implements Graphics
 {
-
     private final org.eclipse.draw2d.Graphics g;
 
     public Draw2DGraphics ( final org.eclipse.draw2d.Graphics g )
