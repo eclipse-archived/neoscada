@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,8 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup property handling
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
+
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.swt.SWT;
@@ -22,18 +26,42 @@ public abstract class AbstractRenderer implements Renderer
 
     private final ChartRenderer chart;
 
+    protected PropertyChangeListener propertyChangeListener;
+
     public AbstractRenderer ( final ChartRenderer chart )
     {
         this.chart = chart;
         this.display = chart.getDisplay ();
+
+        this.propertyChangeListener = new PropertyChangeListener () {
+
+            @Override
+            public void propertyChange ( final PropertyChangeEvent evt )
+            {
+                handlePropertyChange ( evt );
+            }
+        };
+    }
+
+    protected void handlePropertyChange ( final PropertyChangeEvent evt )
+    {
+        relayoutParent ();
+    }
+
+    protected void relayoutParent ()
+    {
+        checkWidget ();
+        this.chart.relayout ();
+        this.chart.redraw ();
     }
 
     public void dispose ()
     {
         if ( !this.disposed )
         {
-            this.disposed = true;
             this.chart.removeRenderer ( this );
+            relayoutParent ();
+            this.disposed = true;
         }
     }
 

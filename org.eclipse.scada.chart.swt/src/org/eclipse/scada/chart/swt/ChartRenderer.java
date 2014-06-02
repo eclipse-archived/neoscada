@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow re-layouting
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
@@ -99,24 +100,38 @@ public abstract class ChartRenderer
 
     private final SizeRenderProxy clientAreaProxy;
 
+    private Rectangle clientRectangle;
+
     public ChartRenderer ()
     {
         this.clientAreaProxy = new SizeRenderProxy ();
         this.renderers.add ( new RendererEntry ( this.clientAreaProxy, 0 ) );
     }
 
-    public void resizeAll ( Rectangle clientRectangle )
+    public void relayout ()
     {
+        if ( this.stale )
+        {
+            this.updatePending = true;
+            return;
+        }
+
+        Rectangle current = this.clientRectangle;
         for ( final RendererEntry renderer : this.renderers )
         {
-            renderer.setBounds ( clientRectangle );
-            final Rectangle newBounds = renderer.getRenderer ().resize ( clientRectangle );
+            renderer.setBounds ( current );
+            final Rectangle newBounds = renderer.getRenderer ().resize ( current );
             if ( newBounds != null )
             {
-                clientRectangle = newBounds;
+                current = newBounds;
             }
-
         }
+    }
+
+    public void resizeAll ( final Rectangle clientRectangle )
+    {
+        this.clientRectangle = clientRectangle;
+        relayout ();
     }
 
     protected void checkWidget ()
@@ -211,7 +226,7 @@ public abstract class ChartRenderer
         if ( !stale && ( this.updatePending || forceUpdate ) )
         {
             this.updatePending = false;
-            redraw ();
+            relayout ();
         }
     }
 

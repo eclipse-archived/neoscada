@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,10 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup property handling, fix label rendering
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.List;
 
 import org.eclipse.jface.resource.JFaceResources;
@@ -38,8 +37,6 @@ public class YAxisDynamicRenderer extends AbstractRenderer
     private Color color;
 
     private boolean left;
-
-    private final PropertyChangeListener propertyChangeListener;
 
     private Rectangle rect;
 
@@ -69,21 +66,12 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
         this.color = this.resourceManager.createColor ( new RGB ( 0, 0, 0 ) );
         this.lineAttributes = new LineAttributes ( 1.0f, SWT.CAP_FLAT, SWT.JOIN_BEVEL, SWT.LINE_SOLID, new float[0], 0.0f, 0.0f );
-
-        this.propertyChangeListener = new PropertyChangeListener () {
-
-            @Override
-            public void propertyChange ( final PropertyChangeEvent evt )
-            {
-                handlePropertyChange ( evt );
-            }
-        };
     }
 
     public void setFormat ( final String format )
     {
         this.format = format;
-        redraw ();
+        relayoutParent ();
     }
 
     public String getFormat ()
@@ -94,7 +82,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
     public void setShowLabels ( final boolean showLabels )
     {
         this.showLabels = showLabels;
-        redraw ();
+        relayoutParent ();
     }
 
     public boolean isShowLabels ()
@@ -105,11 +93,13 @@ public class YAxisDynamicRenderer extends AbstractRenderer
     public void setLabelSpacing ( final int labelSpacing )
     {
         this.labelSpacing = labelSpacing;
+        relayoutParent ();
     }
 
     public void setWidth ( final int width )
     {
         this.width = width;
+        relayoutParent ();
     }
 
     public int getWidth ()
@@ -120,6 +110,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
     public void setTextPadding ( final int textPadding )
     {
         this.textPadding = textPadding;
+        relayoutParent ();
     }
 
     public int getTextPadding ()
@@ -127,20 +118,16 @@ public class YAxisDynamicRenderer extends AbstractRenderer
         return this.textPadding;
     }
 
-    protected void handlePropertyChange ( final PropertyChangeEvent evt )
-    {
-        redraw ();
-    }
-
     public void setAlign ( final int alignment )
     {
         this.left = ( alignment & SWT.RIGHT ) != SWT.RIGHT;
-        redraw ();
+        relayoutParent ();
     }
 
     public void setColor ( final RGB color )
     {
         this.color = this.resourceManager.createColor ( color );
+        redraw ();
     }
 
     public RGB getColor ()
@@ -163,21 +150,23 @@ public class YAxisDynamicRenderer extends AbstractRenderer
         if ( this.axis != null )
         {
             this.axis.addPropertyChangeListener ( this.propertyChangeListener );
-            redraw ();
         }
+
+        relayoutParent ();
     }
 
     @Override
     public void render ( final Graphics g, final Rectangle clientRectangle )
     {
-        if ( this.rect.width == 0 || this.rect.height == 0 )
+        if ( this.rect.width == 0 || this.rect.height == 0 || this.axis == null )
         {
             return;
         }
 
         final Rectangle chartRect = this.chart.getClientAreaProxy ().getClientRectangle ();
 
-        g.setClipping ( this.rect );
+        final Rectangle clippingRect = new Rectangle ( this.rect.x, this.rect.y - 10, this.rect.width, this.rect.height + 20 );
+        g.setClipping ( clippingRect );
 
         g.setLineAttributes ( this.lineAttributes );
         g.setForeground ( this.color );
@@ -193,7 +182,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             for ( final Entry<Double> marker : markers )
             {
                 final Point labelSize = g.textExtent ( marker.label );
-                final int y = marker.position;
+                final int y = marker.position + this.rect.y;
                 g.drawText ( marker.label, this.left ? x - ( labelSize.x + this.textPadding + this.markerSize ) : x + this.textPadding, y - labelSize.y / 2, null );
                 g.drawLine ( x, y, x + ( this.left ? -1 : 1 ) * this.markerSize, y );
             }
@@ -203,8 +192,20 @@ public class YAxisDynamicRenderer extends AbstractRenderer
         if ( label != null )
         {
             final Point size = g.textExtent ( label );
-            g.drawText ( label, -this.rect.height + this.rect.height / 2 - size.x / 2, !this.left ? this.rect.width - size.y : 0, -90.0f );
+
+            final int tx;
+            if ( this.left )
+            {
+                tx = this.rect.x + this.textPadding;
+            }
+            else
+            {
+                tx = this.rect.x + this.textPadding + this.rect.width - size.x;
+            }
+            final int ty = this.rect.y + this.rect.height - this.rect.height / 2 + size.x / 2;
+            g.drawText ( label, -ty, tx, -90.0f );
         }
+
         g.setClipping ( clientRectangle );
     }
 
@@ -265,7 +266,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             gc.dispose ();
         }
 
-        return maxTextWidth + ( this.showLabels ? 2 * this.textPadding + this.markerSize : 0 ) + axisLabelSize.y + 1;
+        return maxTextWidth + ( this.showLabels ? 2 * this.textPadding + this.markerSize : 0 ) + axisLabelSize.y + this.textPadding + 1;
     }
 
     @Override

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,10 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - cleanup property handling
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,8 +30,6 @@ import org.eclipse.swt.widgets.Display;
 
 public class XAxisDynamicRenderer extends AbstractRenderer
 {
-
-    protected PropertyChangeListener propertyChangeListener;
 
     protected final LineAttributes lineAttributes;
 
@@ -67,38 +64,24 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
         this.lineAttributes = new LineAttributes ( 1.0f, SWT.CAP_FLAT, SWT.JOIN_BEVEL, SWT.LINE_SOLID, new float[0], 0.0f, 0.0f );
         this.labelSpacing = 20;
-
-        this.propertyChangeListener = new PropertyChangeListener () {
-
-            @Override
-            public void propertyChange ( final PropertyChangeEvent evt )
-            {
-                handlePropertyChange ( evt );
-            }
-        };
-    }
-
-    protected void handlePropertyChange ( final PropertyChangeEvent evt )
-    {
-        redraw ();
     }
 
     public void setAlign ( final int alignment )
     {
         this.bottom = ( alignment & SWT.TOP ) != SWT.TOP;
-        redraw ();
+        relayoutParent ();
     }
 
     public void setHeight ( final int height )
     {
         this.height = height;
-        redraw ();
+        relayoutParent ();
     }
 
     public void setFormat ( final String format )
     {
         this.format = format;
-        redraw ();
+        relayoutParent ();
     }
 
     public String getFormat ()
@@ -109,7 +92,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     public void setShowLabels ( final boolean showLabels )
     {
         this.showLabels = showLabels;
-        redraw ();
+        relayoutParent ();
     }
 
     public boolean isShowLabels ()
@@ -125,6 +108,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     public void setTextPadding ( final int textPadding )
     {
         this.textPadding = textPadding;
+        relayoutParent ();
     }
 
     public int getTextPadding ()
@@ -135,7 +119,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     public void setStep ( final Long step )
     {
         this.step = step;
-        redraw ();
+        relayoutParent ();
     }
 
     public Long getStep ()
@@ -163,15 +147,17 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         if ( this.axis != null )
         {
             this.axis.addPropertyChangeListener ( this.propertyChangeListener );
-            redraw ();
         }
+
+        relayoutParent ();
     }
 
     @Override
     public void render ( final Graphics g, final Rectangle clientRectangle )
     {
-        if ( this.rect.width == 0 || this.rect.height == 0 )
+        if ( this.rect.width == 0 || this.rect.height == 0 || this.axis == null )
         {
+            // nothing to draw
             return;
         }
 
@@ -183,14 +169,12 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
         // drawLabel
 
+        final String label = this.axis.getLabel ();
+        if ( label != null )
         {
-            final String label = this.axis.getLabel ();
-            if ( label != null )
-            {
-                final Point size = g.textExtent ( label );
-                final int labelX = this.rect.x + this.rect.width / 2 - size.x / 2;
-                g.drawText ( label, labelX, this.bottom ? this.rect.y + this.rect.height - ( size.y + this.textPadding ) : this.rect.y + this.textPadding, null );
-            }
+            final Point size = g.textExtent ( label );
+            final int labelX = this.rect.x + this.rect.width / 2 - size.x / 2;
+            g.drawText ( label, labelX, this.bottom ? this.rect.y + this.rect.height - ( size.y + this.textPadding ) : this.rect.y + this.textPadding, null );
         }
 
         // draw line
@@ -250,6 +234,11 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
     private int calcHeight ()
     {
+        if ( this.axis == null )
+        {
+            return 0;
+        }
+
         final GC gc = new GC ( Display.getCurrent () );
         try
         {
