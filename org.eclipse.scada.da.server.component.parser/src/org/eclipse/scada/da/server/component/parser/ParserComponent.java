@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.component.parser;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -85,15 +86,17 @@ public abstract class ParserComponent extends Component
 
     protected synchronized void processResult ( final Extractor extractor, final Result result, final String prefix )
     {
+        logger.trace ( "Process result: {} from: {} ({})", result, extractor, prefix );
+
         try
         {
-            if ( result.getError () != null || result.getItemValues () == null )
+            if ( result.getError () != null )
             {
-                setError ( extractor, prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
+                setError ( extractor, prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ), result.getItemValues () );
             }
             else
             {
-                setValues ( extractor, prefix, result.getItemValues () );
+                setValues ( extractor, prefix, result.getItemValues () != null ? result.getItemValues () : Collections.<ItemDescriptor, ItemValue> emptyMap () );
             }
         }
         catch ( final Exception e )
@@ -102,17 +105,29 @@ public abstract class ParserComponent extends Component
         }
     }
 
-    private void setError ( final Extractor extractor, final String prefix, final Throwable throwable )
+    private void setError ( final Extractor extractor, final String prefix, final Throwable throwable, final Map<ItemDescriptor, ItemValue> items )
     {
         if ( this.lastError == null )
         {
             this.lastError = Variant.valueOf ( System.currentTimeMillis () );
         }
 
-        final Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
-        if ( cache == null || cache.isEmpty () )
+        Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
+
+        if ( cache == null )
         {
-            return;
+            cache = new HashMap<> ();
+            this.itemCache.put ( extractor, cache );
+        }
+
+        // if this is the first error we might need to create the items first
+        if ( items != null )
+        {
+            for ( final ItemDescriptor descriptor : items.keySet () )
+            {
+                final String localId = makeId ( prefix, descriptor.getLocalId () );
+                getOrCreateItem ( extractor, prefix, cache, descriptor, localId );
+            }
         }
 
         final Map<String, Variant> attributes = new HashMap<> ();
@@ -120,6 +135,7 @@ public abstract class ParserComponent extends Component
         attributes.put ( "parser.error.message", Variant.valueOf ( ExceptionHelper.extractMessage ( throwable ) ) );
         attributes.put ( "timestamp", this.lastError );
 
+        // we iterate over all items now, recently created and old ones
         for ( final DataItemInputChained item : cache.values () )
         {
             item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
@@ -143,15 +159,8 @@ public abstract class ParserComponent extends Component
         {
             final String localId = makeId ( prefix, entry.getKey ().getLocalId () );
 
-            DataItemInputChained item = cache.get ( localId );
-            if ( item == null )
-            {
-                item = createItem ( extractor, prefix, entry.getKey () );
-            }
-            else
-            {
-                keys.remove ( localId );
-            }
+            final DataItemInputChained item = getOrCreateItem ( extractor, prefix, cache, entry.getKey (), localId );
+            keys.remove ( localId );
             item.updateData ( entry.getValue ().getValue (), entry.getValue ().getAttributes (), AttributeMode.SET );
         }
 
@@ -160,6 +169,16 @@ public abstract class ParserComponent extends Component
         {
             disposeItem ( extractor, remove );
         }
+    }
+
+    private DataItemInputChained getOrCreateItem ( final Extractor extractor, final String prefix, final Map<String, DataItemInputChained> cache, final ItemDescriptor descriptor, final String localId )
+    {
+        DataItemInputChained item = cache.get ( localId );
+        if ( item == null )
+        {
+            item = createItem ( extractor, prefix, descriptor );
+        }
+        return item;
     }
 
     private void disposeItem ( final Extractor extractor, final String localId )
