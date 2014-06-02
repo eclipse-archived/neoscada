@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ItemTransfer extends ByteArrayTransfer
 {
-    private static ItemTransfer instance = new ItemTransfer ();
+    private static final ItemTransfer instance = new ItemTransfer ();
 
     private static final String TYPE_NAME = "eclipse-scada-hd-item-transfer-format"; //$NON-NLS-1$
 
