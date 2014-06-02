@@ -50,6 +50,14 @@
                relationship="right"
                relative="org.eclipse.ui.editorss"
                visible="true">
+         </view>
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               minimized="false"
+               ratio="0.75"
+               relationship="bottom"
+               relative="org.eclipse.scada.da.test.views.RealTimeList"
+               visible="true">
          </view>         
       </perspectiveExtension>
    </extension>
