@@ -89,7 +89,10 @@ public class ExtractTest extends AbstractExtractTest
     @Test
     public void test3 ()
     {
-        final SinglePatternExtractor ex = new SinglePatternExtractor ( Pattern.compile ( "a" ), true, new MainFieldSpec ( VariantType.STRING ), null );
+        final String pattern = "a";
+        final String data = "test";
+
+        final SinglePatternExtractor ex = new SinglePatternExtractor ( Pattern.compile ( pattern ), true, new MainFieldSpec ( VariantType.STRING ), null );
 
         final Map<String, ItemValue> values = new HashMap<> ();
         {
@@ -101,10 +104,13 @@ public class ExtractTest extends AbstractExtractTest
         {
             final Map<String, Variant> attributes = new HashMap<> ();
             attributes.put ( "matcher.matches", Variant.FALSE );
+            attributes.put ( "matcher.pattern", Variant.valueOf ( pattern ) );
+            attributes.put ( "matcher.fullMatch", Variant.TRUE );
+            attributes.put ( "matcher.input.data", Variant.valueOf ( data ) );
             values.put ( "state", new ItemValue ( Variant.valueOf ( "NO-MATCH" ), attributes ) );
         }
 
-        test ( ex.processData ( new Data ( "test", null ) ), values, null );
+        test ( ex.processData ( new Data ( data, null ) ), values, null );
     }
 
     @Test
