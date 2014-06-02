@@ -27,7 +27,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.hd;bundle-version="0.1.0",
  org.eclipse.scada.hd.ui;bundle-version="0.1.0",
  org.eclipse.ui.views.properties.tabbed;bundle-version="3.5.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.subscription;version="0.1.0",

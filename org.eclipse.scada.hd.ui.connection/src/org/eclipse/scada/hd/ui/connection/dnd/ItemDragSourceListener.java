@@ -31,7 +31,6 @@ public class ItemDragSourceListener implements DragSourceListener
 
     public ItemDragSourceListener ( final Viewer viewer )
     {
-        super ();
         this.viewer = viewer;
     }
 

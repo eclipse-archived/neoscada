@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow getting the descriptor
  *******************************************************************************/
 package org.eclipse.scada.hd.ui.connection.internal;
 
@@ -14,8 +15,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import org.eclipse.core.databinding.observable.set.WritableSet;
-import org.eclipse.scada.hd.connection.provider.ConnectionService;
+import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
+import org.eclipse.scada.hd.connection.provider.ConnectionService;
 
 public class ConnectionWrapper extends WritableSet implements PropertyChangeListener
 {
@@ -103,6 +105,11 @@ public class ConnectionWrapper extends WritableSet implements PropertyChangeList
     public ConnectionService getService ()
     {
         return this.service;
+    }
+
+    public ConnectionDescriptor getDescriptor ()
+    {
+        return this.holder.getConnectionInformation ();
     }
 
 }

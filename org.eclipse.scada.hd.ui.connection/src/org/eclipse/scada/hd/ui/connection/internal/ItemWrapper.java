@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - allow dragging items with type ID
  *******************************************************************************/
 package org.eclipse.scada.hd.ui.connection.internal;
 
@@ -55,8 +56,21 @@ public class ItemWrapper extends PlatformObject implements IAdaptable
         }
         else if ( adapter == Item.class )
         {
-            return new Item ( this.connection.getService ().getConnection ().getConnectionInformation ().toString (), this.itemInformation.getItemId (), Type.URI );
+            return makeItem ();
         }
         return super.getAdapter ( adapter );
+    }
+
+    protected Item makeItem ()
+    {
+        final String serviceId = this.connection.getDescriptor ().getServiceId ();
+        if ( serviceId != null )
+        {
+            return new Item ( serviceId, this.itemInformation.getItemId (), Type.ID );
+        }
+        else
+        {
+            return new Item ( this.connection.getService ().getConnection ().getConnectionInformation ().toString (), this.itemInformation.getItemId (), Type.URI );
+        }
     }
 }
