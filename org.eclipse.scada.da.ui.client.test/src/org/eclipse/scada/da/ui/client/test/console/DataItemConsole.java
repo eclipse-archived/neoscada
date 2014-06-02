@@ -125,7 +125,7 @@ public class DataItemConsole
     {
         this.item = item;
         this.console = new ItemTraceIOConsole ( this.trace, item.toLabel (), "org.eclipse.scada.da.item.trace", Activator.getImageDescriptor ( "icons/16x16/item_trace.gif" ), "UTF-8", true );
-        this.console.setWaterMarks ( 10_1000, 100_000 );
+        this.console.setWaterMarks ( 10_000, 100_000 );
         ConsolePlugin.getDefault ().getConsoleManager ().addConsoleListener ( this.consoleListener );
         this.running = true;
     }
