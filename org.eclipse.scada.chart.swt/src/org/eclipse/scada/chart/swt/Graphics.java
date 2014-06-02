@@ -23,7 +23,6 @@ import org.eclipse.swt.graphics.Rectangle;
  */
 public interface Graphics
 {
-
     public void setAlpha ( int alpha );
 
     public void setLineAttributes ( LineAttributes lineAttributes );
@@ -57,5 +56,4 @@ public interface Graphics
     public void setAntialias ( boolean state );
 
     public FontMetrics getFontMetrics ();
-
 }

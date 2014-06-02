@@ -257,8 +257,6 @@ public abstract class ChartRenderer
 
     private Color background;
 
-    private String title;
-
     public void addDisposeListener ( final DisposeListener disposeListener )
     {
         checkWidget ();
@@ -297,15 +295,4 @@ public abstract class ChartRenderer
     {
         return null;
     }
-
-    public void setTitle ( final String title )
-    {
-        this.title = title;
-    }
-
-    public String getTitle ()
-    {
-        return this.title;
-    }
-
 }

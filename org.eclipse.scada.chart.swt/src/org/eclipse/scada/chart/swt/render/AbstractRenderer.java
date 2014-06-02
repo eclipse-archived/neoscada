@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Display;
 
 public abstract class AbstractRenderer implements Renderer
 {
-    private final Display display;
+    protected final Display display;
 
     private boolean disposed = false;
 

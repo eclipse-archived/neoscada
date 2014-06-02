@@ -28,7 +28,6 @@ import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 
 public class YAxisDynamicRenderer extends AbstractRenderer
 {
@@ -235,7 +234,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             return 0;
         }
 
-        final GC gc = new GC ( Display.getCurrent () );
+        final GC gc = new GC ( this.display );
 
         final Point axisLabelSize;
         try

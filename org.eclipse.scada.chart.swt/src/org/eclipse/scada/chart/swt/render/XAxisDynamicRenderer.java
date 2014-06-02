@@ -26,7 +26,6 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 
 public class XAxisDynamicRenderer extends AbstractRenderer
 {
@@ -239,7 +238,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
             return 0;
         }
 
-        final GC gc = new GC ( Display.getCurrent () );
+        final GC gc = new GC ( this.display );
         try
         {
             final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
