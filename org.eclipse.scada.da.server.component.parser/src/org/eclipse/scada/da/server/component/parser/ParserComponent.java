@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2014 IBH SYSTEMS GmbH Corporation and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -66,7 +66,7 @@ public abstract class ParserComponent extends Component
         this.prefix = activationPrefix;
         this.storage = new InvisibleStorage ();
 
-        this.groupFolder = new GroupFolder ( new SplitGroupProvider ( new IDNameProvider (), "\\.", 2, 1 ), new SplitNameProvider ( new IDNameProvider (), "\\.", 0, 1, "." ), folder );
+        this.groupFolder = new GroupFolder ( new SplitGroupProvider ( new IDNameProvider (), "\\.", 1, 1 ), new SplitNameProvider ( new IDNameProvider (), "\\.", 0, 1, "." ), folder );
         this.storage.addChild ( this.groupFolder );
     }
 
