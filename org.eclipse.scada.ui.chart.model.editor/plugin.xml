@@ -4,7 +4,6 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated Chart -->
       <category
             id="org.eclipse.scada.ui.chart.model"
             name="%_UI_Wizard_category"/>
@@ -12,7 +11,7 @@
             id="org.eclipse.scada.ui.chart.model.presentation.ChartModelWizardID"
             name="%_UI_ChartModelWizard_label"
             class="org.eclipse.scada.ui.chart.model.presentation.ChartModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.eclipse.scada.ui.chart.model"
             icon="icons/full/obj16/ChartModelFile.gif">
          <description>%_UI_ChartModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
