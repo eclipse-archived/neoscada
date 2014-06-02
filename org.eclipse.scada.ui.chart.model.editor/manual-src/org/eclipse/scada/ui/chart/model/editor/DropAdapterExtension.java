@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -34,20 +34,14 @@ public class DropAdapterExtension extends EditingDomainViewerDropAdapter
     @Override
     protected Collection<?> getDragSource ( final DropTargetEvent event )
     {
-        // Check whether the current data type can be transfered locally.
-        //
         final ItemTransfer itemTransfer = ItemTransfer.getInstance ();
         if ( itemTransfer.isSupportedType ( event.currentDataType ) )
         {
-            // Motif kludge: we would get something random instead of null.
-            //
             if ( IS_MOTIF )
             {
                 return null;
             }
 
-            // Transfer the data and, if non-null, extract it.
-            //
             final Object object = itemTransfer.nativeToJava ( event.currentDataType );
             return object == null ? null : extractDragSource ( object );
         }

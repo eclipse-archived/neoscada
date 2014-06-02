@@ -14,7 +14,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.hd.ui.connection.data;version="0.1.0",
- org.eclipse.scada.hd.ui.connection.dnd;version="0.1.0"
+Import-Package: org.eclipse.scada.chart.swt;version="0.2.0",
+ org.eclipse.scada.hd.ui.connection.data;version="0.1.0",
+ org.eclipse.scada.hd.ui.connection.dnd;version="0.1.0",
+ org.eclipse.scada.ui.chart.viewer;version="0.2.0",
+ org.eclipse.scada.ui.utils;version="0.1.0",
+ org.eclipse.scada.ui.utils.layout;version="0.1.0"

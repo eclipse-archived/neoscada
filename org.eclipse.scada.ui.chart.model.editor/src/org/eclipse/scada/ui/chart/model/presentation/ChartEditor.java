@@ -92,6 +92,9 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.scada.hd.ui.connection.dnd.ItemTransfer;
+import org.eclipse.scada.ui.chart.model.Chart;
+import org.eclipse.scada.ui.chart.model.ChartPackage;
+import org.eclipse.scada.ui.chart.model.editor.ChartViewerPane;
 import org.eclipse.scada.ui.chart.model.editor.DropAdapterExtension;
 import org.eclipse.scada.ui.chart.model.provider.ChartItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
@@ -1195,7 +1198,7 @@ public class ChartEditor extends MultiPageEditorPart implements
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated NOT
      */
     @Override
     public void createPages ()
@@ -1450,6 +1453,17 @@ public class ChartEditor extends MultiPageEditorPart implements
                 final int pageIndex = addPage ( viewerPane.getControl () );
                 setPageText ( pageIndex,
                         getString ( "_UI_TreeWithColumnsPage_label" ) ); //$NON-NLS-1$
+            }
+
+            {
+                final URI resourceURI = EditUIUtil.getURI ( getEditorInput () );
+                final Resource r = this.editingDomain.getResourceSet ().getResource ( resourceURI, false );
+                final Chart chart = (Chart)EcoreUtil.getObjectByType ( r.getContents (), ChartPackage.Literals.CHART );
+                final ChartViewerPane viewerPane = new ChartViewerPane ( getSite ().getPage (), chart );
+                viewerPane.createControl ( getContainer () );
+
+                final int pageIndex = addPage ( viewerPane.getControl () );
+                setPageText ( pageIndex, "Preview" );
             }
 
             getSite ().getShell ().getDisplay ().asyncExec ( new Runnable () {
