@@ -33,7 +33,7 @@ import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.CompositeExtensionSpace;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.GC;
@@ -266,7 +266,6 @@ public abstract class AbstractChartView extends ViewPart
         contributionManager.add ( new Separator () );
 
         contributionManager.add ( new HelpAction () );
-
     }
 
     @Override
