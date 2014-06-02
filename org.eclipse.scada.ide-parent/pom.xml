@@ -157,6 +157,7 @@
 		<module>../org.eclipse.scada.configuration.dave.lib</module>
 		
 		<module>../org.eclipse.scada.ide.hd.hdsspy</module>
+		<module>../org.eclipse.scada.ide.pde</module>
 		
 		<!--
 		fails with some strange error: 

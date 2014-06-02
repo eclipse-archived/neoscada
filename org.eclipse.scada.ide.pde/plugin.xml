@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.pde.core.targets">
+      <target
+            definition="targets/es012.target"
+            id="org.eclipse.scada.configuration.ui.pde.target.es012"
+            name="Eclipse SCADA 0.1.2 Server Runtime">
+      </target>
+   </extension>
+
+</plugin>
