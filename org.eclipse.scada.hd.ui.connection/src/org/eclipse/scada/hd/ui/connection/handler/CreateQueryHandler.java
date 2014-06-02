@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new AdapterHelper
  *******************************************************************************/
 package org.eclipse.scada.hd.ui.connection.handler;
 
@@ -19,7 +20,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.hd.ui.connection.internal.ItemWrapper;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public class CreateQueryHandler extends AbstractSelectionHandler
 {
