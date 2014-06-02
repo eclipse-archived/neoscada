@@ -53,7 +53,7 @@ public abstract class ParserComponent extends Component
 
     private final GroupFolder groupFolder;
 
-    private final Map<String, DataItemInputChained> itemCache = new HashMap<> ();
+    private final Map<Extractor, Map<String, DataItemInputChained>> itemCache = new HashMap<> ();
 
     private ComponentItemFactory itemFactory;
 
@@ -78,22 +78,22 @@ public abstract class ParserComponent extends Component
             @Override
             public void processInput ( final Data data )
             {
-                processResult ( extractor.processData ( data ), prefix );
+                processResult ( extractor, extractor.processData ( data ), prefix );
             }
         } );
     }
 
-    protected synchronized void processResult ( final Result result, final String prefix )
+    protected synchronized void processResult ( final Extractor extractor, final Result result, final String prefix )
     {
         try
         {
             if ( result.getError () != null || result.getItemValues () == null )
             {
-                setError ( prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
+                setError ( extractor, prefix, result.getError () != null ? result.getError () : new IllegalStateException ( "No data" ) );
             }
             else
             {
-                setValues ( prefix, result.getItemValues () );
+                setValues ( extractor, prefix, result.getItemValues () );
             }
         }
         catch ( final Exception e )
@@ -102,11 +102,17 @@ public abstract class ParserComponent extends Component
         }
     }
 
-    private void setError ( final String prefix, final Throwable throwable )
+    private void setError ( final Extractor extractor, final String prefix, final Throwable throwable )
     {
         if ( this.lastError == null )
         {
             this.lastError = Variant.valueOf ( System.currentTimeMillis () );
+        }
+
+        final Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
+        if ( cache == null || cache.isEmpty () )
+        {
+            return;
         }
 
         final Map<String, Variant> attributes = new HashMap<> ();
@@ -114,25 +120,33 @@ public abstract class ParserComponent extends Component
         attributes.put ( "parser.error.message", Variant.valueOf ( ExceptionHelper.extractMessage ( throwable ) ) );
         attributes.put ( "timestamp", this.lastError );
 
-        for ( final DataItemInputChained item : this.itemCache.values () )
+        for ( final DataItemInputChained item : cache.values () )
         {
             item.updateData ( Variant.NULL, attributes, AttributeMode.SET );
         }
     }
 
-    private void setValues ( final String prefix, final Map<ItemDescriptor, ItemValue> itemValues )
+    private void setValues ( final Extractor extractor, final String prefix, final Map<ItemDescriptor, ItemValue> itemValues )
     {
         this.lastError = null;
 
-        final Set<String> keys = new HashSet<> ( this.itemCache.keySet () );
+        Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
+        if ( cache == null )
+        {
+            cache = new HashMap<> ();
+            this.itemCache.put ( extractor, cache );
+        }
+
+        final Set<String> keys = new HashSet<> ( cache.keySet () );
 
         for ( final Map.Entry<ItemDescriptor, ItemValue> entry : itemValues.entrySet () )
         {
             final String localId = makeId ( prefix, entry.getKey ().getLocalId () );
-            DataItemInputChained item = this.itemCache.get ( localId );
+
+            DataItemInputChained item = cache.get ( localId );
             if ( item == null )
             {
-                item = createItem ( prefix, entry.getKey () );
+                item = createItem ( extractor, prefix, entry.getKey () );
             }
             else
             {
@@ -144,15 +158,16 @@ public abstract class ParserComponent extends Component
         // remove remaining items
         for ( final String remove : keys )
         {
-            disposeItem ( remove );
+            disposeItem ( extractor, remove );
         }
     }
 
-    private void disposeItem ( final String localId )
+    private void disposeItem ( final Extractor extractor, final String localId )
     {
         logger.debug ( "Dispose item: {}", localId );
 
-        final DataItemInputChained item = this.itemCache.remove ( localId );
+        final Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
+        final DataItemInputChained item = cache.remove ( localId );
         if ( item == null )
         {
             logger.debug ( "Item not found" );
@@ -163,11 +178,19 @@ public abstract class ParserComponent extends Component
         this.itemFactory.disposeItem ( localId );
     }
 
-    private DataItemInputChained createItem ( final String prefix, final ItemDescriptor descriptor )
+    private DataItemInputChained createItem ( final Extractor extractor, final String prefix, final ItemDescriptor descriptor )
     {
         final String localId = makeId ( prefix, descriptor.getLocalId () );
         final DataItemInputChained item = this.itemFactory.createInput ( localId, descriptor.getAttributes () );
-        this.itemCache.put ( localId, item );
+
+        Map<String, DataItemInputChained> cache = this.itemCache.get ( extractor );
+        if ( cache == null )
+        {
+            cache = new HashMap<> ();
+            this.itemCache.put ( extractor, cache );
+        }
+
+        cache.put ( localId, item );
         this.storage.added ( new org.eclipse.scada.da.server.browser.common.query.ItemDescriptor ( item, descriptor.getAttributes () ) );
         return item;
     }
