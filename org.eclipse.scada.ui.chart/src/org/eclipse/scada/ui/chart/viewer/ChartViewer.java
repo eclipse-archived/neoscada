@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - additional work, stale initial update
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -47,6 +47,15 @@ import org.eclipse.scada.chart.swt.controller.MouseHover;
 import org.eclipse.scada.chart.swt.controller.MouseHover.Listener;
 import org.eclipse.scada.chart.swt.render.CurrentTimeRuler;
 import org.eclipse.scada.da.ui.connection.data.Item;
+import org.eclipse.scada.ui.chart.model.ArchiveSeries;
+import org.eclipse.scada.ui.chart.model.Chart;
+import org.eclipse.scada.ui.chart.model.ChartFactory;
+import org.eclipse.scada.ui.chart.model.ChartPackage;
+import org.eclipse.scada.ui.chart.model.DataItemSeries;
+import org.eclipse.scada.ui.chart.model.IdItem;
+import org.eclipse.scada.ui.chart.model.UriItem;
+import org.eclipse.scada.ui.chart.model.XAxis;
+import org.eclipse.scada.ui.chart.model.YAxis;
 import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
 import org.eclipse.scada.ui.chart.viewer.profile.ProfileManager;
@@ -60,15 +69,6 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.scada.ui.chart.model.ArchiveSeries;
-import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.ChartFactory;
-import org.eclipse.scada.ui.chart.model.ChartPackage;
-import org.eclipse.scada.ui.chart.model.DataItemSeries;
-import org.eclipse.scada.ui.chart.model.IdItem;
-import org.eclipse.scada.ui.chart.model.UriItem;
-import org.eclipse.scada.ui.chart.model.XAxis;
-import org.eclipse.scada.ui.chart.model.YAxis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -178,6 +178,8 @@ public class ChartViewer extends AbstractSelectionProvider
         // create content
 
         this.manager = chartRenderer;
+
+        this.manager.setStale ( true );
         this.realm = new DisplayRealm ( this.display );
 
         this.manager.createDropTarget ( new Transfer[] { LocalSelectionTransfer.getTransfer () }, createDropTarget () );
@@ -216,6 +218,8 @@ public class ChartViewer extends AbstractSelectionProvider
         this.ctx.bindList ( this.profileManager.getList (), EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__PROFILES ) );
         this.ctx.bindValue ( PojoObservables.observeValue ( this.profileManager, "type" ), EMFObservables.observeValue ( chart, ChartPackage.Literals.CHART__PROFILE_SWITCHER_TYPE ) ); //$NON-NLS-1$
         this.ctx.bindValue ( PojoObservables.observeValue ( this.profileManager, "activeProfile" ), EMFObservables.observeValue ( chart, ChartPackage.Literals.CHART__ACTIVE_PROFILE ) ); //$NON-NLS-1$
+
+        this.manager.setStale ( false );
 
         startTimer ();
 

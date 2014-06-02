@@ -2,14 +2,61 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA DA Client Chart (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ui.chart;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ui.chart.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.ui.chart.selector;version="0.1.0",
- org.eclipse.scada.ui.chart.viewer;version="0.1.0",
- org.eclipse.scada.ui.chart.viewer.controller;version="0.1.0",
- org.eclipse.scada.ui.chart.viewer.input;version="0.1.0",
- org.eclipse.scada.ui.chart.viewer.input.composite;version="0.1.0"
+Export-Package: org.eclipse.scada.ui.chart.selector;version="0.2.0";
+  uses:="org.eclipse.osgi.util,
+   org.eclipse.swt.widgets,
+   org.eclipse.scada.ui.chart.viewer,
+   org.eclipse.scada.ui.chart.model",
+ org.eclipse.scada.ui.chart.viewer;version="0.2.0";
+  uses:="org.eclipse.core.databinding.observable,
+   org.eclipse.core.databinding,
+   org.eclipse.jface.resource,
+   org.eclipse.swt.events,
+   org.eclipse.scada.hd.ui.connection.data,
+   org.eclipse.scada.ui.chart.viewer.input.composite,
+   org.eclipse.scada.da.ui.connection.data,
+   org.eclipse.scada.ui.utils,
+   org.eclipse.scada.ui.chart.model,
+   org.eclipse.scada.utils.beans,
+   org.eclipse.osgi.util,
+   org.eclipse.scada.ui.chart.viewer.input,
+   org.eclipse.scada.chart,
+   org.eclipse.scada.chart.swt,
+   org.eclipse.core.databinding.observable.value,
+   org.eclipse.swt.graphics,
+   org.eclipse.swt.widgets,
+   org.eclipse.core.databinding.observable.list",
+ org.eclipse.scada.ui.chart.viewer.controller;version="0.2.0";
+  uses:="org.eclipse.core.databinding.observable,
+   org.eclipse.core.databinding,
+   org.eclipse.core.databinding.observable.list,
+   org.eclipse.scada.ui.chart.viewer,
+   org.eclipse.scada.ui.chart.model",
+ org.eclipse.scada.ui.chart.viewer.input;version="0.2.0";
+  uses:="org.eclipse.jface.resource,
+   org.eclipse.scada.chart.swt.render,
+   org.eclipse.scada.hd.ui.connection.data,
+   org.eclipse.scada.da.client,
+   org.eclipse.scada.da.ui.connection.data,
+   org.eclipse.scada.utils.beans,
+   org.eclipse.scada.chart,
+   org.eclipse.osgi.util,
+   org.eclipse.scada.chart.swt,
+   org.eclipse.swt.graphics,
+   org.eclipse.swt.widgets,
+   org.eclipse.scada.hd.ui.data,
+   org.eclipse.scada.ui.chart.viewer",
+ org.eclipse.scada.ui.chart.viewer.input.composite;version="0.2.0";
+  uses:="org.eclipse.osgi.util,
+   org.eclipse.scada.ui.chart.viewer.input,
+   org.eclipse.scada.chart,
+   org.eclipse.scada.chart.swt,
+   org.eclipse.swt.graphics,
+   org.eclipse.core.databinding.observable.list,
+   org.eclipse.scada.ui.chart.viewer"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.scada.core.client;bundle-version="0.1.0",
@@ -39,11 +86,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.scada.ui.chart.model.edit;bundle-version="0.1.0",
  org.eclipse.emf.edit.ui;bundle-version="2.7.0",
  org.eclipse.core.databinding.property;bundle-version="1.4.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.subscription;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",
  org.eclipse.scada.utils.beans;version="0.1.0",
+ org.eclipse.scada.utils.core.runtime;version="0.2.0",
  org.eclipse.scada.utils.script;version="0.1.0",
  org.slf4j;version="1.5.0",
  org.slf4j.profiler;version="1.6.0"

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new AdapterHelper
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.controller;
 
@@ -20,9 +21,9 @@ import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiff;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
-import org.eclipse.scada.ui.chart.viewer.ChartContext;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.eclipse.scada.ui.chart.model.Controller;
+import org.eclipse.scada.ui.chart.viewer.ChartContext;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public class ControllerManager
 {

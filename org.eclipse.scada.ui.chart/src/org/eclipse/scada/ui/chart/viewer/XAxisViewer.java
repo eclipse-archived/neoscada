@@ -17,9 +17,9 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.render.XAxisDynamicRenderer;
-import org.eclipse.swt.SWT;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.XAxis;
+import org.eclipse.swt.SWT;
 
 public class XAxisViewer extends AbstractAxisViewer
 {
