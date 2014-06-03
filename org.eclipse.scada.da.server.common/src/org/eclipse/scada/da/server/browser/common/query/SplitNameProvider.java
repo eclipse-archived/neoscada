@@ -29,6 +29,24 @@ public class SplitNameProvider implements NameProvider
 
     private final String delimiter;
 
+    /**
+     * Create a new split name provider <br/>
+     * <p>
+     * The parameters fromStart and fromEnd actually define how much to take
+     * from the start and from the end.
+     * </p>
+     * 
+     * @param nameProvider
+     *            the provider of the name to split
+     * @param pattern
+     *            the pattern
+     * @param fromStart
+     *            the number of tokens to take from the start
+     * @param fromEnd
+     *            the number of tokens to take from the end
+     * @param delimiter
+     *            the delimiter
+     */
     public SplitNameProvider ( final NameProvider nameProvider, final Pattern pattern, final int fromStart, final int fromEnd, final String delimiter )
     {
         this.nameProvider = nameProvider;
@@ -38,11 +56,29 @@ public class SplitNameProvider implements NameProvider
         this.delimiter = delimiter;
     }
 
+    /**
+     * Create a new split name provider <br/>
+     * Actually calls
+     * {@link #SplitNameProvider(NameProvider, Pattern, int, int, String)} with
+     * {@link Pattern#compile(String)}
+     * 
+     * @param nameProvider
+     *            the provider of the name to split
+     * @param pattern
+     *            the pattern
+     * @param fromStart
+     *            the number of tokens to take from the start
+     * @param fromEnd
+     *            the number of tokens to take from the end
+     * @param delimiter
+     *            the delimiter
+     */
     public SplitNameProvider ( final NameProvider nameProvider, final String pattern, final int fromStart, final int fromEnd, final String delimiter )
     {
         this ( nameProvider, Pattern.compile ( pattern ), fromStart, fromEnd, delimiter );
     }
 
+    @Override
     public String getName ( final ItemDescriptor descriptor )
     {
         final String name = this.nameProvider.getName ( descriptor );
