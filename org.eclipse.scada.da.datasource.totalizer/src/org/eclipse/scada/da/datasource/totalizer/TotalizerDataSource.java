@@ -126,6 +126,10 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
 
     private void updateTotal ( final DataItemValueRangeState dataItemValueRangeState )
     {
+        logger.trace ( "updateTotal" );
+        DataItemValueLight diLast = dataItemValueRangeState.getFirstValue ();
+        final long now = System.currentTimeMillis ();
+        logger.trace ( "{}", dataItemValueRangeState );
         for ( final DataItemValueLight di : dataItemValueRangeState.getValues () )
         {
             if ( di.getTimestamp () > lastTimestamp )
@@ -134,10 +138,21 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
                 final Long baseUnit = TimeUnit.MILLISECONDS.convert ( 1, unit );
                 final double factor = delta.doubleValue () / baseUnit.doubleValue ();
                 final double v = di.getValue ().asDouble ( 0.0 ) * factor;
-                logger.trace ( "update total, delta t = {}, baseUnit = {}, factor = {}, v = {}", delta, baseUnit, factor, v );
+                logger.trace ( "range: update total, delta t = {}, baseUnit = {}, factor = {}, v = {}", delta, baseUnit, factor, v );
                 total += v;
                 lastTimestamp = di.getTimestamp ();
             }
+            diLast = di;
+        }
+        if ( now > diLast.getTimestamp () )
+        {
+            final Long delta = now - lastTimestamp;
+            final Long baseUnit = TimeUnit.MILLISECONDS.convert ( 1, unit );
+            final double factor = delta.doubleValue () / baseUnit.doubleValue ();
+            final double v = diLast.getValue ().asDouble ( 0.0 ) * factor;
+            logger.trace ( "last: update total, delta t = {}, baseUnit = {}, factor = {}, v = {}", delta, baseUnit, factor, v );
+            total += v;
+            lastTimestamp = now;
         }
 
         final Map<String, Variant> attributes = new HashMap<> ();
