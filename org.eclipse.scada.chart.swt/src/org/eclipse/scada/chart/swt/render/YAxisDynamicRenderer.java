@@ -169,23 +169,31 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
         g.setLineAttributes ( this.lineAttributes );
         g.setForeground ( this.color );
+        g.setAntialias ( true );
 
         final int x = ( this.left ? this.rect.width - 1 : 0 ) + this.rect.x;
 
-        g.drawLine ( x, this.rect.y, x, this.rect.y + this.rect.height );
+        final List<Entry<Double>> markers;
+
+        // draw markers
 
         if ( this.showLabels )
         {
             final int fontHeight = g.getFontMetrics ().getHeight ();
-            final List<Entry<Double>> markers = Helper.chartValues ( this.axis.getMin (), this.axis.getMax (), chartRect.height, fontHeight + this.labelSpacing );
+            markers = Helper.chartValues ( this.axis.getMin (), this.axis.getMax (), chartRect.height, fontHeight + this.labelSpacing );
             for ( final Entry<Double> marker : markers )
             {
                 final Point labelSize = g.textExtent ( marker.label );
                 final int y = marker.position + this.rect.y;
                 g.drawText ( marker.label, this.left ? x - ( labelSize.x + this.textPadding + this.markerSize ) : x + this.textPadding, y - labelSize.y / 2, null );
-                g.drawLine ( x, y, x + ( this.left ? -1 : 1 ) * this.markerSize, y );
             }
         }
+        else
+        {
+            markers = null;
+        }
+
+        // draw axis title
 
         final String label = this.axis.getLabel ();
         if ( label != null )
@@ -204,6 +212,30 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             final int ty = this.rect.y + this.rect.height - this.rect.height / 2 + size.x / 2;
             g.drawText ( label, -ty, tx, -90.0f );
         }
+
+        // draw lines
+
+        g.setAntialias ( false );
+
+        if ( this.showLabels )
+        {
+            for ( final Entry<Double> marker : markers )
+            {
+                final int y = marker.position + this.rect.y;
+                g.drawLine ( x, y, x + ( this.left ? -1 : 1 ) * this.markerSize, y );
+            }
+        }
+
+        // draw main line
+
+        g.drawLine ( x, this.rect.y, x, this.rect.y + this.rect.height + 1 );
+
+        if ( this.showLabels )
+        {
+
+        }
+
+        g.setAntialias ( true );
 
         g.setClipping ( clientRectangle );
     }

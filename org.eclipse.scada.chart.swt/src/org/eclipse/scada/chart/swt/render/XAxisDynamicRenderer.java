@@ -161,6 +161,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         }
 
         g.setLineAttributes ( this.lineAttributes );
+        g.setAntialias ( true );
 
         final int y = this.bottom ? this.rect.y : this.rect.y + this.rect.height;
 
@@ -176,23 +177,50 @@ public class XAxisDynamicRenderer extends AbstractRenderer
             g.drawText ( label, labelX, this.bottom ? this.rect.y + this.rect.height - ( size.y + this.textPadding ) : this.rect.y + this.textPadding, null );
         }
 
-        // draw line
+        // draw markers
+
+        final List<Entry<Long>> markers;
+
+        if ( this.showLabels )
+        {
+            final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
+            final Point sampleLabelSize = g.textExtent ( format.format ( new Date () ) );
+            markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, (int)Math.round ( 1.5 * sampleLabelSize.x ) + this.markerSpacing, format );
+            for ( final Entry<Long> marker : markers )
+            {
+                final int x = chartRect.x + marker.position;
+                g.drawText ( marker.label, x, this.bottom ? this.rect.y + this.markerSize + this.textPadding : this.rect.y + this.rect.height - ( sampleLabelSize.y + this.textPadding ), null );
+            }
+        }
+        else
+        {
+            markers = null;
+        }
+
+        // draw lines
+
+        /*
+         * Lines get draw without anti-aliasing since this causes some artifacts at the line ends
+         */
+
+        g.setAntialias ( false );
+
+        // draw main line
 
         g.drawLine ( chartRect.x, y + ( this.bottom ? 0 : -1 ), chartRect.x + chartRect.width, y + ( this.bottom ? 0 : -1 ) );
 
-        // draw markers
+        // draw marker ticks
 
-        final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
-
-        final Point sampleLabelSize = g.textExtent ( format.format ( new Date () ) );
-
-        final List<Entry<Long>> markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, (int)Math.round ( 1.5 * sampleLabelSize.x ) + this.markerSpacing, format );
-        for ( final Entry<Long> marker : markers )
+        if ( this.showLabels )
         {
-            final int x = chartRect.x + marker.position;
-            g.drawText ( marker.label, x, this.bottom ? this.rect.y + this.markerSize + this.textPadding : this.rect.y + this.rect.height - ( sampleLabelSize.y + this.textPadding ), null );
-            g.drawLine ( x, y, x, this.bottom ? y + this.markerSize : y - this.markerSize );
+            for ( final Entry<Long> marker : markers )
+            {
+                final int x = chartRect.x + marker.position;
+                g.drawLine ( x, y, x, this.bottom ? y + this.markerSize : y - this.markerSize );
+            }
         }
+
+        g.setAntialias ( true );
     }
 
     @Override
