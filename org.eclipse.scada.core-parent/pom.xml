@@ -134,6 +134,7 @@
 		<module>../org.eclipse.scada.da.datasource.proxy</module>
 		<module>../org.eclipse.scada.da.datasource.script</module>
 		<module>../org.eclipse.scada.da.datasource.sum</module>
+		<module>../org.eclipse.scada.da.datasource.totalizer</module>
 		<module>../org.eclipse.scada.da.mapper</module>
 		<module>../org.eclipse.scada.da.mapper.osgi</module>
 		<module>../org.eclipse.scada.da.master</module>

@@ -1,5 +1,3 @@
-package org.eclipse.scada.da.datasource.totalizer;
-
 /*******************************************************************************
  * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
@@ -10,6 +8,7 @@ package org.eclipse.scada.da.datasource.totalizer;
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
+package org.eclipse.scada.da.datasource.totalizer;
 
 import java.util.Dictionary;
 import java.util.Hashtable;
