@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - fix case when the request was invalid
  *******************************************************************************/
 package org.eclipse.scada.chart;
 
@@ -15,7 +16,6 @@ import org.slf4j.LoggerFactory;
 
 public abstract class AbstractFunctionSeriesData extends AbstractSeriesData
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( AbstractFunctionSeriesData.class );
 
     protected static final class Request
@@ -52,7 +52,7 @@ public abstract class AbstractFunctionSeriesData extends AbstractSeriesData
         @Override
         public String toString ()
         {
-            return String.format ( "%s - >%s #%s", this.start, this.end, this.width );
+            return String.format ( "%s -> %s #%s", this.start, this.end, this.width );
         }
     }
 
@@ -67,8 +67,18 @@ public abstract class AbstractFunctionSeriesData extends AbstractSeriesData
     {
         final WritableSeriesData result = new WritableSeriesData ();
 
+        if ( request.getWidth () <= 0 )
+        {
+            return result;
+        }
+
         final long startTimestamp = request.getStart ();
         final long endTimestamp = request.getEnd ();
+
+        if ( endTimestamp <= startTimestamp )
+        {
+            return result;
+        }
 
         final double step = (double) ( endTimestamp - startTimestamp ) / (double)request.getWidth ();
 
@@ -98,7 +108,7 @@ public abstract class AbstractFunctionSeriesData extends AbstractSeriesData
 
     protected void setRequest ( final Request request )
     {
-        logger.debug ( "Setting request: {}", request );
+        logger.trace ( "Setting request: {}", request );
         this.request = request;
     }
 }
