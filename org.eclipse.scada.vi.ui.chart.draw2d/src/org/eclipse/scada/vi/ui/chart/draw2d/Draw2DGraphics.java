@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,18 +8,23 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and enhancements
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.chart.draw2d;
 
 import org.eclipse.draw2d.TextUtilities;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.jface.resource.DeviceResourceManager;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.swt.Graphics;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Device;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
@@ -27,9 +32,17 @@ public class Draw2DGraphics implements Graphics
 {
     private final org.eclipse.draw2d.Graphics g;
 
-    public Draw2DGraphics ( final org.eclipse.draw2d.Graphics g )
+    private final ResourceManager resourceManager;
+
+    public Draw2DGraphics ( final org.eclipse.draw2d.Graphics g, final Device device )
     {
         this.g = g;
+        this.resourceManager = new DeviceResourceManager ( device );
+    }
+
+    public void dispose ()
+    {
+        this.resourceManager.dispose ();
     }
 
     @Override
@@ -57,21 +70,15 @@ public class Draw2DGraphics implements Graphics
     }
 
     @Override
-    public Color getSystemColor ( final int color )
+    public void setForeground ( final RGB color )
     {
-        return Display.getCurrent ().getSystemColor ( color );
+        this.g.setForegroundColor ( this.resourceManager.createColor ( color ) );
     }
 
     @Override
-    public void setForeground ( final Color color )
+    public void setBackground ( final RGB color )
     {
-        this.g.setForegroundColor ( color );
-    }
-
-    @Override
-    public void setBackground ( final Color color )
-    {
-        this.g.setBackgroundColor ( color );
+        this.g.setBackgroundColor ( this.resourceManager.createColor ( color ) );
     }
 
     @Override
@@ -145,5 +152,17 @@ public class Draw2DGraphics implements Graphics
     public void setAntialias ( final boolean state )
     {
         this.g.setAntialias ( state ? SWT.ON : SWT.OFF );
+    }
+
+    @Override
+    public void setFont ( final Font font )
+    {
+        this.g.setFont ( font );
+    }
+
+    @Override
+    public ResourceManager getResourceManager ()
+    {
+        return this.resourceManager;
     }
 }

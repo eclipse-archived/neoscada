@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes and enhancements
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.chart.draw2d;
 
@@ -18,6 +19,7 @@ import org.eclipse.scada.vi.chart.model.ChartView;
 import org.eclipse.scada.vi.ui.draw2d.ErrorFigure;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.FigureController;
+import org.eclipse.swt.widgets.Display;
 
 public class ChartController extends FigureController
 {
@@ -48,7 +50,7 @@ public class ChartController extends FigureController
         };
 
         this.wrapperFigure.setOpaque ( false );
-        this.figure = new ChartFigure ();
+        this.figure = new ChartFigure ( Display.getCurrent (), resourceManager );
 
         this.wrapperFigure.setLayoutManager ( new StackLayout () );
         this.wrapperFigure.add ( this.figure );

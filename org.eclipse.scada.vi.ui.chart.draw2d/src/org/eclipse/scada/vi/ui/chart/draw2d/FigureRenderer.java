@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and enhancements
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.chart.draw2d;
 
@@ -18,10 +19,13 @@ import org.eclipse.draw2d.FigureListener;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseMotionListener;
+import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.scada.chart.Realm;
 import org.eclipse.scada.chart.swt.ChartMouseListener;
 import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.ChartMouseMoveListener;
 import org.eclipse.scada.chart.swt.ChartRenderer;
+import org.eclipse.scada.chart.swt.DisplayRealm;
 import org.eclipse.swt.events.MouseWheelListener;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
@@ -42,8 +46,14 @@ public class FigureRenderer extends ChartRenderer
 
     private final FigureListenerImpl figureListener;
 
-    public FigureRenderer ( final ChartFigure chartFigure )
+    private final Realm realm;
+
+    public FigureRenderer ( final ChartFigure chartFigure, final ResourceManager resourceManager )
     {
+        super ( resourceManager );
+
+        this.realm = new DisplayRealm ( Display.getCurrent () );
+
         this.chartFigure = chartFigure;
         this.figureListener = new FigureListenerImpl ();
         this.chartFigure.addFigureListener ( this.figureListener );
@@ -174,9 +184,9 @@ public class FigureRenderer extends ChartRenderer
     }
 
     @Override
-    public Display getDisplay ()
+    public Realm getRealm ()
     {
-        return Display.getCurrent ();
+        return this.realm;
     }
 
     private MouseState convertEvent ( final MouseEvent me )

@@ -49,7 +49,7 @@ public class ChartViewerPane
         extensionSpace.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
         this.chartArea = new ChartArea ( this.wrapper, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
-        this.viewer = new ChartViewer ( this.chartArea.getChartRenderer (), this.configuration, new CompositeExtensionSpace ( extensionSpace ), null );
+        this.viewer = new ChartViewer ( this.chartArea.getDisplay (), this.chartArea.getChartRenderer (), this.configuration, new CompositeExtensionSpace ( extensionSpace ), null );
 
         parent.addDisposeListener ( new DisposeListener () {
 

@@ -24,6 +24,8 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.resource.DeviceResourceManager;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.scada.chart.swt.ChartArea;
 import org.eclipse.scada.chart.swt.SWTGraphics;
@@ -214,7 +216,7 @@ public abstract class AbstractChartView extends ViewPart
         extensionSpace.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
         this.chartArea = new ChartArea ( this.wrapper, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
-        this.viewer = new ChartViewer ( this.chartArea.getChartRenderer (), configuration, new CompositeExtensionSpace ( extensionSpace ), null );
+        this.viewer = new ChartViewer ( this.chartArea.getDisplay (), this.chartArea.getChartRenderer (), configuration, new CompositeExtensionSpace ( extensionSpace ), null );
 
         getSite ().setSelectionProvider ( this.viewer );
 
@@ -306,6 +308,7 @@ public abstract class AbstractChartView extends ViewPart
         if ( pd != null )
         {
             final Printer printer = new Printer ( pd );
+            final ResourceManager rm = new DeviceResourceManager ( printer );
             try
             {
                 printer.startJob ( "Chart" );
@@ -314,7 +317,15 @@ public abstract class AbstractChartView extends ViewPart
                 final GC gc = new GC ( printer );
                 try
                 {
-                    this.viewer.getChartRenderer ().paint ( new SWTGraphics ( gc ) );
+                    final SWTGraphics g = new SWTGraphics ( gc, rm );
+                    try
+                    {
+                        this.viewer.getChartRenderer ().paint ( g );
+                    }
+                    finally
+                    {
+                        g.dispose ();
+                    }
                 }
                 finally
                 {
@@ -326,6 +337,7 @@ public abstract class AbstractChartView extends ViewPart
             }
             finally
             {
+                rm.dispose ();
                 printer.dispose ();
             }
         }
