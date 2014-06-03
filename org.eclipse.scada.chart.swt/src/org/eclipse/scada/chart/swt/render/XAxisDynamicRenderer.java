@@ -33,6 +33,8 @@ import org.eclipse.swt.graphics.Rectangle;
 public class XAxisDynamicRenderer extends AbstractRenderer
 {
 
+    private static final Point EMPTY_POINT = new Point ( 0, 0 );
+
     protected final LineAttributes lineAttributes;
 
     protected int labelSpacing;
@@ -60,6 +62,8 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     private final int markerSpacing = 0;
 
     private RGB color;
+
+    private DateFormat formatInstance;
 
     public XAxisDynamicRenderer ( final ChartRenderer chart )
     {
@@ -96,6 +100,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     public void setFormat ( final String format )
     {
         this.format = format;
+        this.formatInstance = null;
         relayoutParent ();
     }
 
@@ -268,7 +273,19 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
     private DateFormat makeFormat ( final long timeRange )
     {
-        if ( this.format != null && !this.format.isEmpty () )
+        if ( this.formatInstance != null || !hasFormat () )
+        {
+            return this.formatInstance;
+        }
+
+        this.formatInstance = createFormatInstance ( timeRange );
+
+        return this.formatInstance;
+    }
+
+    protected DateFormat createFormatInstance ( final long timeRange )
+    {
+        if ( hasFormat () )
         {
             try
             {
@@ -283,6 +300,11 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         {
             return Helper.makeFormat ( timeRange );
         }
+    }
+
+    protected boolean hasFormat ()
+    {
+        return this.format != null && !this.format.isEmpty ();
     }
 
     private int calcHeight ( final ResourceManager resourceManager )
@@ -326,7 +348,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     {
         if ( string == null || string.isEmpty () )
         {
-            return new Point ( 0, 0 );
+            return EMPTY_POINT;
         }
         else
         {
