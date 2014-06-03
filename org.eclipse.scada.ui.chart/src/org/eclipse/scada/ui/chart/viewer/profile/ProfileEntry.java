@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,16 +7,20 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - observe text label
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.profile;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.scada.ui.chart.viewer.ChartContext;
-import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.Profile;
+import org.eclipse.scada.ui.chart.viewer.ChartContext;
+import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +41,9 @@ public class ProfileEntry
 
     private final ChartContext chartContext;
 
-    private Binding binding;
+    private final Set<Binding> bindings = new HashSet<> ();
+
+    private Binding controllerBinding;
 
     public ProfileEntry ( final DataBindingContext ctx, final ProfileManager manager, final Profile profile, final ChartContext chartContext )
     {
@@ -59,7 +65,12 @@ public class ProfileEntry
         logger.info ( "Activate profile: {}", this.profile.getId () ); //$NON-NLS-1$
 
         this.controllerManager = new ControllerManager ( this.ctx, this.ctx.getValidationRealm (), this.chartContext );
-        this.binding = this.ctx.bindList ( this.controllerManager.getList (), EMFObservables.observeList ( this.profile, ChartPackage.Literals.PROFILE__CONTROLLERS ) );
+        this.controllerBinding = this.ctx.bindList ( this.controllerManager.getList (), EMFObservables.observeList ( this.profile, ChartPackage.Literals.PROFILE__CONTROLLERS ) );
+    }
+
+    protected void addBinding ( final Binding binding )
+    {
+        this.bindings.add ( binding );
     }
 
     public void deactivate ()
@@ -73,10 +84,10 @@ public class ProfileEntry
 
         logger.info ( "Deactivate profile: {}", this.profile.getId () ); //$NON-NLS-1$
 
-        if ( this.binding != null )
+        if ( this.controllerBinding != null )
         {
-            this.binding.dispose ();
-            this.binding = null;
+            this.controllerBinding.dispose ();
+            this.controllerBinding = null;
         }
 
         if ( this.controllerManager != null )
@@ -100,6 +111,11 @@ public class ProfileEntry
 
     public void dispose ()
     {
+        for ( final Binding b : this.bindings )
+        {
+            b.dispose ();
+        }
+        this.bindings.clear ();
     }
 
 }

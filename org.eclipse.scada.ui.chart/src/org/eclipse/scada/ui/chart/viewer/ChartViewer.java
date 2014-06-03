@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - additional work, stale initial update
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -61,13 +62,11 @@ import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
 import org.eclipse.scada.ui.chart.viewer.profile.ProfileManager;
 import org.eclipse.scada.ui.utils.AbstractSelectionProvider;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.slf4j.Logger;
@@ -84,8 +83,6 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private CurrentTimeRuler timeRuler;
 
-    private final Display display;
-
     private ChartInput selection;
 
     private final Chart chart;
@@ -93,8 +90,6 @@ public class ChartViewer extends AbstractSelectionProvider
     private final DataBindingContext ctx;
 
     private final ResourceManager resourceManager;
-
-    private Color chartBackground;
 
     private final YAxisManager leftManager;
 
@@ -110,7 +105,7 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private boolean showTimeRuler;
 
-    private final DisplayRealm realm;
+    private final Realm realm;
 
     private final SimpleAxisLocator<XAxis, XAxisViewer> xLocator;
 
@@ -147,11 +142,12 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private TitleRenderer titleRenderer;
 
-    public ChartViewer ( final ChartRenderer chartRenderer, final Chart chart, final ExtensionSpaceProvider extensionSpaceProvider, final ResetHandler resetHandler )
+    private Display display;
+
+    public ChartViewer ( final Display display, final ChartRenderer chartRenderer, final Chart chart, final ExtensionSpaceProvider extensionSpaceProvider, final ResetHandler resetHandler )
     {
         this.chart = chart;
-
-        this.display = chartRenderer.getDisplay ();
+        this.display = display;
 
         this.resourceManager = new LocalResourceManager ( JFaceResources.getResources ( this.display ) );
 
@@ -355,7 +351,7 @@ public class ChartViewer extends AbstractSelectionProvider
         if ( this.timeRuler == null && this.showTimeRuler && x != null )
         {
             this.timeRuler = new CurrentTimeRuler ( x );
-            this.timeRuler.setColor ( this.manager.getDisplay ().getSystemColor ( SWT.COLOR_BLUE ) );
+            this.timeRuler.setColor ( new RGB ( 0, 0, 255 ) );
             this.manager.addRenderer ( this.timeRuler, 100 );
         }
         else if ( this.timeRuler != null && !this.showTimeRuler || x == null )
@@ -419,35 +415,26 @@ public class ChartViewer extends AbstractSelectionProvider
 
     public void setChartBackground ( final RGB rgb )
     {
-        if ( this.chartBackground != null )
-        {
-            this.resourceManager.destroyColor ( rgb );
-        }
-        this.chartBackground = this.resourceManager.createColor ( rgb );
-        this.manager.setChartBackground ( this.chartBackground );
+        this.manager.setChartBackground ( rgb );
     }
 
     public RGB getChartBackground ()
     {
-        final Color background = this.chartBackground;
-        if ( background == null )
-        {
-            return null;
-        }
-        else
-        {
-            return background.getRGB ();
-        }
+        return this.manager.getChartBackground ();
     }
 
     protected void handleDispose ()
     {
+        this.titleRenderer.dispose ();
+
         this.inputManager.dispose ();
 
         this.topManager.dispose ();
         this.bottomManager.dispose ();
         this.leftManager.dispose ();
         this.rightManager.dispose ();
+
+        this.manager.dispose ();
 
         this.ctx.dispose ();
     }

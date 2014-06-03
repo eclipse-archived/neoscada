@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
@@ -28,10 +29,9 @@ import org.eclipse.swt.widgets.Display;
 
 public abstract class LineInput extends AbstractInput implements LinePropertiesSupporter
 {
-
     private final LocalResourceManager resourceManager;
 
-    private Color lineColor;
+    private RGB lineColor;
 
     private final Map<Point, Image> previews = new HashMap<Point, Image> ();
 
@@ -64,31 +64,15 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
     @Override
     public void setLineColor ( final RGB rgb )
     {
-        if ( this.lineColor != null )
-        {
-            this.resourceManager.destroyColor ( this.lineColor.getRGB () );
-            this.lineColor = null;
-        }
-        if ( rgb != null )
-        {
-            this.lineColor = this.resourceManager.createColor ( rgb );
-            getLineRenderer ().setLineColor ( this.lineColor );
-        }
+        this.lineColor = rgb;
+        getLineRenderer ().setLineColor ( rgb );
         fireUpdatePreviews ();
     }
 
     @Override
     public RGB getLineColor ()
     {
-        if ( this.lineColor == null )
-        {
-            return null;
-        }
-        if ( this.lineColor.isDisposed () )
-        {
-            return null;
-        }
-        return this.lineColor.getRGB ();
+        return this.lineColor;
     }
 
     @Override
@@ -127,7 +111,8 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
         final Image img = this.previews.get ( p );
         if ( img == null )
         {
-            final Image newImage = makePreview ( Display.getDefault (), getLineRenderer ().getLineAttributes (), getLineRenderer ().getLineColor (), p );
+            final Color color = this.resourceManager.createColor ( getLineRenderer ().getLineColor () );
+            final Image newImage = makePreview ( Display.getDefault (), getLineRenderer ().getLineAttributes (), color, p );
             this.previews.put ( p, newImage );
             return newImage;
         }

@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - use new AdapterHelper
+ *     IBH SYSTEMS GmbH - use new AdapterHelper, bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.controller;
 
@@ -79,6 +79,7 @@ public class ControllerManager
         {
             this.controllerMap.put ( controller, chartController );
         }
+        this.chartContext.relayoutExtensionSpace ();
     }
 
     protected void handleRemove ( final Controller controller )
@@ -88,6 +89,7 @@ public class ControllerManager
         {
             chartController.dispose ();
         }
+        this.chartContext.relayoutExtensionSpace ();
     }
 
     private ChartControllerFactory createFactory ( final Controller controller )

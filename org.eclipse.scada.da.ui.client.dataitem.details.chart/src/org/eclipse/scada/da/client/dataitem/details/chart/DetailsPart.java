@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - adapt to changed interfaces of chart
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details.chart;
 
@@ -16,6 +17,13 @@ import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.client.dataitem.details.VisibilityController;
 import org.eclipse.scada.da.ui.connection.data.DataItemHolder;
 import org.eclipse.scada.da.ui.connection.data.Item;
+import org.eclipse.scada.ui.chart.model.Chart;
+import org.eclipse.scada.ui.chart.model.ChartFactory;
+import org.eclipse.scada.ui.chart.model.DataItemSeries;
+import org.eclipse.scada.ui.chart.model.IdItem;
+import org.eclipse.scada.ui.chart.model.UriItem;
+import org.eclipse.scada.ui.chart.model.XAxis;
+import org.eclipse.scada.ui.chart.model.YAxis;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.CompositeExtensionSpace;
 import org.eclipse.scada.ui.utils.layout.GridLayoutFactory;
@@ -30,13 +38,6 @@ import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.ChartFactory;
-import org.eclipse.scada.ui.chart.model.DataItemSeries;
-import org.eclipse.scada.ui.chart.model.IdItem;
-import org.eclipse.scada.ui.chart.model.UriItem;
-import org.eclipse.scada.ui.chart.model.XAxis;
-import org.eclipse.scada.ui.chart.model.YAxis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -175,7 +176,7 @@ public class DetailsPart implements org.eclipse.scada.da.client.dataitem.details
         this.chartArea = new ChartArea ( this.wrapper, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
 
-        this.chart = new ChartViewer ( this.chartArea.getChartRenderer (), chartModel, new CompositeExtensionSpace ( this.extensionSpace ), null );
+        this.chart = new ChartViewer ( this.chartArea.getDisplay (), this.chartArea.getChartRenderer (), chartModel, new CompositeExtensionSpace ( this.extensionSpace ), null );
         this.wrapper.layout ();
     }
 

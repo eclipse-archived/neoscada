@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - minor cleanup
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -15,7 +16,6 @@ import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.da.ui.connection.data.Item.Type;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
@@ -45,7 +45,7 @@ public class DataItemSeriesViewer extends AbstractItemInputViewer
         this.inputObservable = BeansObservables.observeValue ( this, PROP_INPUT );
         this.linePropertiesObservable = EMFObservables.observeValue ( element, ChartPackage.Literals.DATA_ITEM_SERIES__LINE_PROPERTIES );
 
-        addBindings ( LinePropertiesBinder.bind ( SWTObservables.getRealm ( viewer.getChartRenderer ().getDisplay () ), dbc, this.inputObservable, this.linePropertiesObservable ) );
+        addBindings ( LinePropertiesBinder.bind ( dbc, this.inputObservable, this.linePropertiesObservable ) );
 
         setInputObserable ( this.inputObservable );
     }

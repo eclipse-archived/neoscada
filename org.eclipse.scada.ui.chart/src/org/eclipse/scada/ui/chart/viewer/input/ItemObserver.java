@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
@@ -36,7 +37,7 @@ import org.eclipse.scada.ui.chart.Activator;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.LineAttributes;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.graphics.RGB;
 
 public class ItemObserver extends LineInput implements DataSourceListener
 {
@@ -116,19 +117,19 @@ public class ItemObserver extends LineInput implements DataSourceListener
 
                 if ( !active )
                 {
-                    this.ruler.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GRAY ) );
+                    this.ruler.setColor ( new RGB ( 128, 128, 128 ) );
                 }
                 else if ( unsafe )
                 {
-                    this.ruler.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_MAGENTA ) );
+                    this.ruler.setColor ( new RGB ( 255, 0, 255 ) );
                 }
                 else if ( error || alarm )
                 {
-                    this.ruler.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_RED ) );
+                    this.ruler.setColor ( new RGB ( 255, 0, 0 ) );
                 }
                 else
                 {
-                    this.ruler.setColor ( Display.getDefault ().getSystemColor ( SWT.COLOR_GREEN ) );
+                    this.ruler.setColor ( new RGB ( 0, 255, 0 ) );
                 }
             }
         }

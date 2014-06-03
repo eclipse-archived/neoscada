@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -83,5 +84,14 @@ public class ChartContextImpl implements ChartContext
     public Chart getChart ()
     {
         return this.chart;
+    }
+
+    @Override
+    public void relayoutExtensionSpace ()
+    {
+        if ( this.extensionSpaceProvider != null )
+        {
+            this.extensionSpaceProvider.relayout ();
+        }
     }
 }

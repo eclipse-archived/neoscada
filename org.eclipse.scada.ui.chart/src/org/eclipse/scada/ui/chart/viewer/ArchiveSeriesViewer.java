@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -21,12 +22,8 @@ import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.hd.ui.connection.data.Item.Type;
-import org.eclipse.scada.ui.chart.viewer.input.ArchiveInput;
-import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
-import org.eclipse.scada.ui.chart.viewer.input.QuerySeriesData;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
@@ -35,6 +32,9 @@ import org.eclipse.scada.ui.chart.model.Item;
 import org.eclipse.scada.ui.chart.model.UriItem;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
+import org.eclipse.scada.ui.chart.viewer.input.ArchiveInput;
+import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
+import org.eclipse.scada.ui.chart.viewer.input.QuerySeriesData;
 
 public class ArchiveSeriesViewer extends AbstractItemInputViewer
 {
@@ -88,7 +88,7 @@ public class ArchiveSeriesViewer extends AbstractItemInputViewer
         this.inputObservable = BeansObservables.observeValue ( this, PROP_INPUT );
         this.linePropertiesObservable = EMFObservables.observeValue ( element, ChartPackage.Literals.ARCHIVE_SERIES__LINE_PROPERTIES );
 
-        addBindings ( LinePropertiesBinder.bind ( SWTObservables.getRealm ( viewer.getChartRenderer ().getDisplay () ), dbc, this.inputObservable, this.linePropertiesObservable ) );
+        addBindings ( LinePropertiesBinder.bind ( dbc, this.inputObservable, this.linePropertiesObservable ) );
 
         setInputObserable ( this.inputObservable );
     }

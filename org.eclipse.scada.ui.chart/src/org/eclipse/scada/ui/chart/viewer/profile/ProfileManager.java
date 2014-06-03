@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - observe text label
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.profile;
 
@@ -24,6 +25,8 @@ import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiff;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
 import org.eclipse.core.databinding.observable.list.WritableList;
+import org.eclipse.scada.ui.chart.model.Profile;
+import org.eclipse.scada.ui.chart.model.ProfileSwitcherType;
 import org.eclipse.scada.ui.chart.viewer.ChartContext;
 import org.eclipse.scada.ui.chart.viewer.ExtensionSpaceProvider;
 import org.eclipse.swt.SWT;
@@ -31,8 +34,6 @@ import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.scada.ui.chart.model.Profile;
-import org.eclipse.scada.ui.chart.model.ProfileSwitcherType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -203,7 +204,9 @@ public class ProfileManager
         }
 
         this.wrapper = new Composite ( extensionSpace, SWT.NONE );
-        this.wrapper.setLayout ( new RowLayout ( SWT.HORIZONTAL ) );
+        final RowLayout layout = new RowLayout ( SWT.HORIZONTAL );
+        layout.marginTop = layout.marginBottom = 0;
+        this.wrapper.setLayout ( layout );
 
         int i = 0;
         for ( final Profile profile : this.profiles )

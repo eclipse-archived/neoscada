@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -15,14 +16,13 @@ import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
-import org.eclipse.scada.ui.chart.viewer.input.ScriptInput;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.ScriptSeries;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
+import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
+import org.eclipse.scada.ui.chart.viewer.input.ScriptInput;
 
 public class ScriptSeriesViewer extends AbstractInputViewer implements InputViewer
 {
@@ -42,7 +42,7 @@ public class ScriptSeriesViewer extends AbstractInputViewer implements InputView
         this.linePropertiesObservable = EMFObservables.observeValue ( element, ChartPackage.Literals.SCRIPT_SERIES__LINE_PROPERTIES );
 
         addBinding ( dbc.bindValue ( PojoObservables.observeDetailValue ( this.inputObservable, "script", null ), EMFObservables.observeValue ( element, ChartPackage.Literals.SCRIPT_SERIES__SCRIPT ) ) ); //$NON-NLS-1$
-        addBindings ( LinePropertiesBinder.bind ( SWTObservables.getRealm ( viewer.getChartRenderer ().getDisplay () ), dbc, this.inputObservable, this.linePropertiesObservable ) );
+        addBindings ( LinePropertiesBinder.bind ( dbc, this.inputObservable, this.linePropertiesObservable ) );
 
         setInputObserable ( this.inputObservable );
     }

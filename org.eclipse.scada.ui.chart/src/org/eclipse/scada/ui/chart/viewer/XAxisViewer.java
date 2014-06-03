@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -49,6 +50,7 @@ public class XAxisViewer extends AbstractAxisViewer
         addBinding ( this.dbc.bindValue ( PojoObservables.observeValue ( this.renderer, "showLabels" ), EMFObservables.observeValue ( this.axis, ChartPackage.Literals.AXIS__LABEL_VISIBLE ) ) ); //$NON-NLS-1$
         addBinding ( this.dbc.bindValue ( PojoObservables.observeValue ( this.renderer, "format" ), EMFObservables.observeValue ( this.axis, ChartPackage.Literals.AXIS__FORMAT ) ) ); //$NON-NLS-1$
         addBinding ( this.dbc.bindValue ( PojoObservables.observeValue ( this.renderer, "textPadding" ), EMFObservables.observeValue ( this.axis, ChartPackage.Literals.AXIS__TEXT_PADDING ) ) ); //$NON-NLS-1$
+        addBinding ( this.dbc.bindValue ( PojoObservables.observeValue ( this.renderer, "color" ), EMFObservables.observeValue ( this.axis, ChartPackage.Literals.AXIS__COLOR ) ) ); //$NON-NLS-1$
     }
 
     public org.eclipse.scada.chart.XAxis getAxis ()

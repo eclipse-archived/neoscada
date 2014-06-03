@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes and extensions
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -15,13 +16,12 @@ import org.eclipse.core.databinding.beans.BeansObservables;
 import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFObservables;
-import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ResourceManager;
+import org.eclipse.scada.ui.chart.model.ArchiveChannel;
+import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.viewer.input.ArchiveChannelInput;
 import org.eclipse.scada.ui.chart.viewer.input.QueryChannelSeriesData;
 import org.eclipse.scada.ui.chart.viewer.input.QuerySeriesData;
-import org.eclipse.scada.ui.chart.model.ArchiveChannel;
-import org.eclipse.scada.ui.chart.model.ChartPackage;
 
 public class ArchiveChannelViewer extends AbstractObserver
 {
@@ -65,7 +65,8 @@ public class ArchiveChannelViewer extends AbstractObserver
         this.linePropertiesObservable = EMFObservables.observeValue ( element, ChartPackage.Literals.ARCHIVE_CHANNEL__LINE_PROPERTIES );
 
         addBinding ( dbc.bindValue ( PojoObservables.observeDetailValue ( this.inputObservable, "label", null ), EMFObservables.observeValue ( element, ChartPackage.Literals.ARCHIVE_CHANNEL__LABEL ) ) ); //$NON-NLS-1$
-        addBindings ( LinePropertiesBinder.bind ( SWTObservables.getRealm ( viewer.getChartRenderer ().getDisplay () ), dbc, this.inputObservable, this.linePropertiesObservable ) );
+
+        addBindings ( LinePropertiesBinder.bind ( dbc, this.inputObservable, this.linePropertiesObservable ) );
     }
 
     public void setChannelName ( final String channelName )
