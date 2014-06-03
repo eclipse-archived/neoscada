@@ -50,6 +50,11 @@ public abstract class AbstractRenderer implements Renderer
 
     protected void relayoutParent ()
     {
+        if ( this.chart.isDisposed () )
+        {
+            return;
+        }
+
         checkWidget ();
         this.chart.relayout ();
         this.chart.redraw ();
