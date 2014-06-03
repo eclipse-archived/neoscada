@@ -182,6 +182,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
         final int y = this.bottom ? this.rect.y : this.rect.y + this.rect.height;
 
+        // fetch the actual chart area
         final Rectangle chartRect = this.chart.getClientAreaProxy ().getClientRectangle ();
 
         // drawLabel
@@ -205,6 +206,10 @@ public class XAxisDynamicRenderer extends AbstractRenderer
             markers = Helper.chartTimes ( this.axis.getMin (), this.axis.getMax (), chartRect.width, (int)Math.round ( 1.5 * sampleLabelSize.x ) + this.markerSpacing, format );
             for ( final Entry<Long> marker : markers )
             {
+                if ( marker.position < 0 )
+                {
+                    continue;
+                }
                 final int x = chartRect.x + marker.position;
                 g.drawText ( marker.label, x, this.bottom ? this.rect.y + this.markerSize + this.textPadding : this.rect.y + this.rect.height - ( sampleLabelSize.y + this.textPadding ), null );
             }
@@ -232,6 +237,10 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         {
             for ( final Entry<Long> marker : markers )
             {
+                if ( marker.position < 0 )
+                {
+                    continue;
+                }
                 final int x = chartRect.x + marker.position;
                 g.drawLine ( x, y, x, this.bottom ? y + this.markerSize : y - this.markerSize );
             }
