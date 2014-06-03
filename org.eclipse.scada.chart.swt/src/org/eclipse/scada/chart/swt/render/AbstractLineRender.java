@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,17 +7,18 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
 import org.eclipse.scada.chart.SeriesData;
 import org.eclipse.scada.chart.swt.ChartRenderer;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.LineAttributes;
+import org.eclipse.swt.graphics.RGB;
 
 public abstract class AbstractLineRender extends AbstractDataSeriesRenderer
 {
-    protected Color lineColor;
+    protected RGB lineColor;
 
     protected LineAttributes lineAttributes;
 
@@ -42,12 +43,12 @@ public abstract class AbstractLineRender extends AbstractDataSeriesRenderer
         return this.lineAttributes.width;
     }
 
-    public void setLineColor ( final Color lineColor )
+    public void setLineColor ( final RGB lineColor )
     {
         this.lineColor = lineColor;
     }
 
-    public Color getLineColor ()
+    public RGB getLineColor ()
     {
         return this.lineColor;
     }

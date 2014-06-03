@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,14 +7,16 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.controller;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.XAxis;
+import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.ChartMouseMoveListener;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.DisposeListener;
-import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.render.AbstractPositionXRuler;
 import org.eclipse.swt.graphics.Rectangle;
 
@@ -84,10 +86,10 @@ public class MouseHover extends AbstractPositionXRuler implements ChartMouseMove
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
         this.clientRect = clientRectangle;
-        return super.resize ( clientRectangle );
+        return super.resize ( resourceManager, clientRectangle );
     }
 
 }

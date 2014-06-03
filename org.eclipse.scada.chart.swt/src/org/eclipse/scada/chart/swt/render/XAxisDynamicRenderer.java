@@ -16,15 +16,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.Graphics;
 import org.eclipse.scada.chart.swt.Helper;
 import org.eclipse.scada.chart.swt.Helper.Entry;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 
 public class XAxisDynamicRenderer extends AbstractRenderer
@@ -56,6 +59,8 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
     private final int markerSpacing = 0;
 
+    private RGB color;
+
     public XAxisDynamicRenderer ( final ChartRenderer chart )
     {
         super ( chart );
@@ -63,6 +68,17 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
         this.lineAttributes = new LineAttributes ( 1.0f, SWT.CAP_FLAT, SWT.JOIN_BEVEL, SWT.LINE_SOLID, new float[0], 0.0f, 0.0f );
         this.labelSpacing = 20;
+    }
+
+    public void setColor ( final RGB color )
+    {
+        this.color = color;
+        redraw ();
+    }
+
+    public RGB getColor ()
+    {
+        return this.color;
     }
 
     public void setAlign ( final int alignment )
@@ -161,6 +177,7 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         }
 
         g.setLineAttributes ( this.lineAttributes );
+        g.setForeground ( this.color );
         g.setAntialias ( true );
 
         final int y = this.bottom ? this.rect.y : this.rect.y + this.rect.height;
@@ -224,9 +241,9 @@ public class XAxisDynamicRenderer extends AbstractRenderer
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
-        final int height = this.height >= 0 ? this.height : calcHeight ();
+        final int height = this.height >= 0 ? this.height : calcHeight ( resourceManager );
 
         if ( this.bottom )
         {
@@ -259,16 +276,18 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         }
     }
 
-    private int calcHeight ()
+    private int calcHeight ( final ResourceManager resourceManager )
     {
         if ( this.axis == null )
         {
             return 0;
         }
 
-        final GC gc = new GC ( this.display );
+        final GC gc = new GC ( resourceManager.getDevice () );
         try
         {
+            gc.setFont ( makeFont ( resourceManager ) );
+
             final DateFormat format = makeFormat ( this.axis.getMax () - this.axis.getMin () );
 
             final Point markerSize = getExtent ( gc, format.format ( new Date () ) );
@@ -287,6 +306,11 @@ public class XAxisDynamicRenderer extends AbstractRenderer
         {
             gc.dispose ();
         }
+    }
+
+    private Font makeFont ( final ResourceManager resourceManager )
+    {
+        return null;
     }
 
     private Point getExtent ( final GC gc, final String string )

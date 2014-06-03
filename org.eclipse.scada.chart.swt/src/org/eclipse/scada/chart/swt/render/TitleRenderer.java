@@ -13,10 +13,13 @@ package org.eclipse.scada.chart.swt.render;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.jface.resource.FontDescriptor;
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.Graphics;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -86,7 +89,14 @@ public class TitleRenderer extends AbstractRenderer
     @Override
     public void render ( final Graphics g, final Rectangle clientRectangle )
     {
+        if ( this.title == null || this.title.isEmpty () )
+        {
+            return;
+        }
+
         g.setClipping ( this.rect );
+
+        g.setFont ( createFont ( g.getResourceManager () ) );
 
         final Point size = g.textExtent ( this.title );
 
@@ -98,15 +108,16 @@ public class TitleRenderer extends AbstractRenderer
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
         if ( this.title == null || this.title.isEmpty () )
         {
             return null;
         }
 
-        final GC gc = new GC ( this.display );
-        // gc.setFont ( makeFont ( this.display ) );
+        final GC gc = new GC ( resourceManager.getDevice () );
+        gc.setFont ( createFont ( resourceManager ) );
+
         try
         {
             final Point size = gc.textExtent ( this.title );
@@ -119,33 +130,28 @@ public class TitleRenderer extends AbstractRenderer
         }
     }
 
-    // TODO: provide a way to create Fonts with Draw2D
-    /*
-    private Font makeFont ( final Device device )
+    private Font createFont ( final ResourceManager resourceManager )
     {
-        Font font = this.fontCache.get ( device );
-        if ( font == null )
+        final Font defaultFont = resourceManager.getDevice ().getSystemFont ();
+
+        if ( defaultFont == null )
         {
-            font = createFont ( device );
-            this.fontCache.put ( device, font );
+            return null;
         }
 
-        return font;
-    }
-
-    private Font createFont ( final Device device )
-    {
-        final Font defaultFont = device.getSystemFont ();
-
-        final FontData[] ofd = defaultFont.getFontData ();
-
-        final FontData fd[] = new FontData[ofd.length];
-        for ( int i = 0; i < ofd.length; i++ )
+        final FontData fd[] = FontDescriptor.copy ( defaultFont.getFontData () );
+        if ( fd == null )
         {
-            fd[i] = new FontData ( ofd[i].getName (), ofd[i].getHeight (), ofd[i].getStyle () );
+            return null;
         }
 
-        return new Font ( device, fd );
+        for ( final FontData f : fd )
+        {
+            if ( this.fontSize > 0 )
+            {
+                f.setHeight ( this.fontSize );
+            }
+        }
+        return resourceManager.createFont ( FontDescriptor.createFrom ( fd ) );
     }
-    */
 }

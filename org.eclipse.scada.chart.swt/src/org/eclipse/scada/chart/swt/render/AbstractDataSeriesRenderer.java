@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,9 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.DataEntry;
 import org.eclipse.scada.chart.SeriesData;
 import org.eclipse.scada.chart.SeriesDataListener;
@@ -91,7 +93,7 @@ public abstract class AbstractDataSeriesRenderer implements Renderer
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
         this.seriesData.setRequestWidth ( clientRectangle.width );
         return null;

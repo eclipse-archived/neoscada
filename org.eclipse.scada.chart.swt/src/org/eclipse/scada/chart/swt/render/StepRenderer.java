@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
@@ -19,7 +20,6 @@ import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.DataPoint;
 import org.eclipse.scada.chart.swt.Graphics;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.graphics.Rectangle;
 import org.slf4j.Logger;
@@ -91,7 +91,7 @@ public class StepRenderer extends AbstractLineRender implements Renderer
 
             g.setAlpha ( 255 );
             g.setLineAttributes ( this.lineAttributes );
-            g.setForeground ( this.lineColor != null ? this.lineColor : g.getSystemColor ( SWT.COLOR_BLACK ) );
+            g.setForeground ( this.lineColor );
 
             g.setClipping ( clientRect );
             g.drawPath ( path );

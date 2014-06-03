@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,27 +7,37 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontMetrics;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Path;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.graphics.Transform;
 
 public class SWTGraphics implements Graphics
 {
-
     private final GC gc;
 
-    public SWTGraphics ( final GC gc )
+    private final ResourceManager resourceManager;
+
+    public SWTGraphics ( final GC gc, final ResourceManager resourceManager )
     {
         this.gc = gc;
+        this.resourceManager = resourceManager;
+    }
+
+    public void dispose ()
+    {
+        // we only dispose what we created ourself
     }
 
     @Override
@@ -55,27 +65,35 @@ public class SWTGraphics implements Graphics
     }
 
     @Override
-    public void setBackground ( final Color color )
+    public void setBackground ( final RGB color )
     {
-        this.gc.setBackground ( color );
+        if ( color != null )
+        {
+            this.gc.setBackground ( this.resourceManager.createColor ( color ) );
+        }
+        else
+        {
+            this.gc.setBackground ( this.gc.getDevice ().getSystemColor ( SWT.COLOR_WIDGET_BACKGROUND ) );
+        }
+    }
+
+    @Override
+    public void setForeground ( final RGB color )
+    {
+        if ( color != null )
+        {
+            this.gc.setForeground ( this.resourceManager.createColor ( color ) );
+        }
+        else
+        {
+            this.gc.setForeground ( this.gc.getDevice ().getSystemColor ( SWT.COLOR_WIDGET_FOREGROUND ) );
+        }
     }
 
     @Override
     public void setClipping ( final Rectangle rect )
     {
         this.gc.setClipping ( rect );
-    }
-
-    @Override
-    public void setForeground ( final Color color )
-    {
-        this.gc.setForeground ( color );
-    }
-
-    @Override
-    public Color getSystemColor ( final int color )
-    {
-        return this.gc.getDevice ().getSystemColor ( color );
     }
 
     @Override
@@ -149,5 +167,17 @@ public class SWTGraphics implements Graphics
     public FontMetrics getFontMetrics ()
     {
         return this.gc.getFontMetrics ();
+    }
+
+    @Override
+    public void setFont ( final Font font )
+    {
+        this.gc.setFont ( font );
+    }
+
+    @Override
+    public ResourceManager getResourceManager ()
+    {
+        return this.resourceManager;
     }
 }

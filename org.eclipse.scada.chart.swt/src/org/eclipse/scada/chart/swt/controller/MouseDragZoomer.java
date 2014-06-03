@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,19 +7,20 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.controller;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartMouseListener;
+import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.ChartMouseMoveListener;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.DisposeListener;
 import org.eclipse.scada.chart.swt.Graphics;
-import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.render.Renderer;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
@@ -141,14 +142,14 @@ public class MouseDragZoomer implements Renderer
             final Rectangle chartRect = this.chart.getClientAreaProxy ().getClientRectangle ();
 
             g.setLineAttributes ( new LineAttributes ( 1.0f ) );
-            g.setForeground ( g.getSystemColor ( SWT.COLOR_BLACK ) );
+            g.setForeground ( null );
 
             g.drawRectangle ( this.selection.x + chartRect.x, this.selection.y + chartRect.y, this.selection.width, this.selection.height );
         }
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
         // NO-OP
         return null;

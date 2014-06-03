@@ -14,24 +14,24 @@ package org.eclipse.scada.chart.swt.render;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+import org.eclipse.scada.chart.Realm;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
 
 public abstract class AbstractRenderer implements Renderer
 {
-    protected final Display display;
-
     private boolean disposed = false;
 
     private final ChartRenderer chart;
 
     protected PropertyChangeListener propertyChangeListener;
 
+    private final Realm realm;
+
     public AbstractRenderer ( final ChartRenderer chart )
     {
         this.chart = chart;
-        this.display = chart.getDisplay ();
+        this.realm = chart.getRealm ();
 
         this.propertyChangeListener = new PropertyChangeListener () {
 
@@ -45,9 +45,13 @@ public abstract class AbstractRenderer implements Renderer
 
     protected void handlePropertyChange ( final PropertyChangeEvent evt )
     {
+        // if something changes, relayout
         relayoutParent ();
     }
 
+    /**
+     * Relayout the whole chart area
+     */
     protected void relayoutParent ()
     {
         if ( this.chart.isDisposed () )
@@ -60,6 +64,10 @@ public abstract class AbstractRenderer implements Renderer
         this.chart.redraw ();
     }
 
+    /**
+     * Dispose the renderer <br/>
+     * If the renderer is already disposed the method does nothing
+     */
     public void dispose ()
     {
         if ( !this.disposed )
@@ -78,24 +86,14 @@ public abstract class AbstractRenderer implements Renderer
 
     protected void checkWidget ()
     {
-        final Display display = this.display;
-        if ( display == null )
+        try
         {
-            error ( SWT.ERROR_WIDGET_DISPOSED );
+            this.realm.checkRealm ();
         }
-        if ( display.getThread () != Thread.currentThread () )
+        catch ( final IllegalAccessException e )
         {
-            error ( SWT.ERROR_THREAD_INVALID_ACCESS );
+            SWT.error ( SWT.ERROR_THREAD_INVALID_ACCESS, e );
         }
-        if ( this.disposed )
-        {
-            error ( SWT.ERROR_WIDGET_DISPOSED );
-        }
-    }
-
-    private void error ( final int code )
-    {
-        SWT.error ( code );
     }
 
 }

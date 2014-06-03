@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
 import org.eclipse.scada.chart.XAxis;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.graphics.RGB;
 
 public class PositionXRuler extends AbstractPositionXRuler
 {
@@ -22,7 +22,7 @@ public class PositionXRuler extends AbstractPositionXRuler
     public PositionXRuler ( final XAxis axis )
     {
         super ( axis );
-        this.color = Display.getCurrent ().getSystemColor ( SWT.COLOR_BLACK );
+        this.color = new RGB ( 0, 0, 0 );
     }
 
     public void setPosition ( final long position )

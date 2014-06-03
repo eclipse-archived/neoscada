@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,16 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
+import org.eclipse.scada.chart.Realm;
 import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTarget;
@@ -24,22 +28,25 @@ import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.events.MouseWheelListener;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 
 public class ChartAreaRenderer extends ChartRenderer
 {
 
     private final Composite control;
 
+    private final DisplayRealm realm;
+
     public ChartAreaRenderer ( final Composite control )
     {
+        super ( new LocalResourceManager ( JFaceResources.getResources ( control.getDisplay () ), control ) );
+        this.realm = new DisplayRealm ( control.getDisplay () );
         this.control = control;
     }
 
     @Override
-    public Display getDisplay ()
+    public Realm getRealm ()
     {
-        return this.control.getDisplay ();
+        return this.realm;
     }
 
     @Override

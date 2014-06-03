@@ -13,8 +13,6 @@ package org.eclipse.scada.chart.swt.render;
 
 import java.util.List;
 
-import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartRenderer;
@@ -22,7 +20,6 @@ import org.eclipse.scada.chart.swt.Graphics;
 import org.eclipse.scada.chart.swt.Helper;
 import org.eclipse.scada.chart.swt.Helper.Entry;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.LineAttributes;
 import org.eclipse.swt.graphics.Point;
@@ -33,7 +30,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 {
     private YAxis axis;
 
-    private Color color;
+    private RGB color;
 
     private boolean left;
 
@@ -51,8 +48,6 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
     private final ChartRenderer chart;
 
-    protected final ResourceManager resourceManager;
-
     private boolean showLabels = true;
 
     private String format;
@@ -61,9 +56,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
     {
         super ( chart );
         this.chart = chart;
-        this.resourceManager = new LocalResourceManager ( JFaceResources.getResources ( chart.getDisplay () ) );
 
-        this.color = this.resourceManager.createColor ( new RGB ( 0, 0, 0 ) );
         this.lineAttributes = new LineAttributes ( 1.0f, SWT.CAP_FLAT, SWT.JOIN_BEVEL, SWT.LINE_SOLID, new float[0], 0.0f, 0.0f );
     }
 
@@ -125,13 +118,13 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
     public void setColor ( final RGB color )
     {
-        this.color = this.resourceManager.createColor ( color );
+        this.color = color;
         redraw ();
     }
 
     public RGB getColor ()
     {
-        return this.color.getRGB ();
+        return this.color;
     }
 
     public void setAxis ( final YAxis axis )
@@ -217,6 +210,8 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
         g.setAntialias ( false );
 
+        // draw marker ticks
+
         if ( this.showLabels )
         {
             for ( final Entry<Double> marker : markers )
@@ -230,20 +225,14 @@ public class YAxisDynamicRenderer extends AbstractRenderer
 
         g.drawLine ( x, this.rect.y, x, this.rect.y + this.rect.height + 1 );
 
-        if ( this.showLabels )
-        {
-
-        }
-
         g.setAntialias ( true );
-
         g.setClipping ( clientRectangle );
     }
 
     @Override
-    public Rectangle resize ( final Rectangle clientRectangle )
+    public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
     {
-        final int width = this.width >= 0 ? this.width : calcWidth ( clientRectangle.height );
+        final int width = this.width >= 0 ? this.width : calcWidth ( resourceManager, clientRectangle.height );
 
         if ( this.left )
         {
@@ -257,7 +246,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
         }
     }
 
-    private int calcWidth ( final int height )
+    private int calcWidth ( final ResourceManager resourceManager, final int height )
     {
         int maxTextWidth = 0;
 
@@ -266,7 +255,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             return 0;
         }
 
-        final GC gc = new GC ( this.display );
+        final GC gc = new GC ( resourceManager.getDevice () );
 
         final Point axisLabelSize;
         try
@@ -300,10 +289,4 @@ public class YAxisDynamicRenderer extends AbstractRenderer
         return maxTextWidth + ( this.showLabels ? 2 * this.textPadding + this.markerSize : 0 ) + axisLabelSize.y + this.textPadding + 1;
     }
 
-    @Override
-    public void dispose ()
-    {
-        this.resourceManager.dispose ();
-        super.dispose ();
-    }
 }

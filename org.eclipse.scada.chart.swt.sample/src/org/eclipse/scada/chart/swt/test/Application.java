@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,14 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.test;
 
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
-import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.jface.resource.LocalResourceManager;
-import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.AsyncFunctionSeriesData;
 import org.eclipse.scada.chart.DataEntry;
 import org.eclipse.scada.chart.Realm;
@@ -82,8 +80,6 @@ public class Application implements IApplication
         */
         y.setLabel ( "Value" );
 
-        final ResourceManager resourceManager = new LocalResourceManager ( JFaceResources.getResources () );
-
         final Realm realm = new DisplayRealm ( Display.getDefault () );
 
         final WritableSeries series1 = new WritableSeries ( realm, x, y );
@@ -104,7 +100,7 @@ public class Application implements IApplication
         };
 
         final LinearRenderer series1Renderer = new LinearRenderer ( chart.getChartRenderer (), series1 );
-        series1Renderer.setLineColor ( resourceManager.createColor ( new RGB ( 255, 0, 0 ) ) );
+        series1Renderer.setLineColor ( new RGB ( 255, 0, 0 ) );
         chart.getChartRenderer ().addRenderer ( series1Renderer );
 
         chart.getChartRenderer ().addRenderer ( new LinearRenderer ( chart.getChartRenderer (), series4 ) );

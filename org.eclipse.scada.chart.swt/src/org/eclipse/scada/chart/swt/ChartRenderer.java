@@ -19,15 +19,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.util.SafeRunnable;
+import org.eclipse.scada.chart.Realm;
 import org.eclipse.scada.chart.swt.render.Renderer;
 import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.MouseWheelListener;
-import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 
 public abstract class ChartRenderer
 {
@@ -69,7 +70,6 @@ public abstract class ChartRenderer
 
     public static class SizeRenderProxy implements Renderer
     {
-
         private Rectangle clientRectangle;
 
         @Override
@@ -78,7 +78,7 @@ public abstract class ChartRenderer
         }
 
         @Override
-        public Rectangle resize ( final Rectangle clientRectangle )
+        public Rectangle resize ( final ResourceManager resourceManager, final Rectangle clientRectangle )
         {
             this.clientRectangle = clientRectangle;
             return null;
@@ -102,8 +102,15 @@ public abstract class ChartRenderer
 
     private Rectangle clientRectangle;
 
-    public ChartRenderer ()
+    private final Set<DisposeListener> disposeListeners = new LinkedHashSet<DisposeListener> ();
+
+    private RGB background;
+
+    private final ResourceManager resourceManager;
+
+    public ChartRenderer ( final ResourceManager resourceManager )
     {
+        this.resourceManager = resourceManager;
         this.clientAreaProxy = new SizeRenderProxy ();
         this.renderers.add ( new RendererEntry ( this.clientAreaProxy, 0 ) );
     }
@@ -120,7 +127,7 @@ public abstract class ChartRenderer
         for ( final RendererEntry renderer : this.renderers )
         {
             renderer.setBounds ( current );
-            final Rectangle newBounds = renderer.getRenderer ().resize ( current );
+            final Rectangle newBounds = renderer.getRenderer ().resize ( this.resourceManager, current );
             if ( newBounds != null )
             {
                 current = newBounds;
@@ -251,11 +258,9 @@ public abstract class ChartRenderer
                 };
             } );
         }
+
+        this.resourceManager.dispose ();
     }
-
-    private final Set<DisposeListener> disposeListeners = new LinkedHashSet<DisposeListener> ();
-
-    private Color background;
 
     public void addDisposeListener ( final DisposeListener disposeListener )
     {
@@ -280,11 +285,16 @@ public abstract class ChartRenderer
         return this.disposed;
     }
 
-    public abstract Display getDisplay ();
+    public abstract Realm getRealm ();
 
-    public void setChartBackground ( final Color background )
+    public void setChartBackground ( final RGB background )
     {
         this.background = background;
+    }
+
+    public RGB getChartBackground ()
+    {
+        return this.background;
     }
 
     public void setFocus ()

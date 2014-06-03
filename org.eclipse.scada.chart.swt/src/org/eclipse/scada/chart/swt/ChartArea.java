@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,9 +7,12 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - bug fixes
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -26,10 +29,13 @@ public class ChartArea extends Canvas
 
     private final ChartRenderer chartRenderer;
 
+    private final LocalResourceManager resourceManager;
+
     public ChartArea ( final Composite parent, final int style )
     {
         super ( parent, SWT.DOUBLE_BUFFERED );
         this.chartRenderer = new ChartAreaRenderer ( this );
+        this.resourceManager = new LocalResourceManager ( JFaceResources.getResources ( parent.getDisplay () ) );
 
         addDisposeListener ( new DisposeListener () {
 
@@ -71,11 +77,20 @@ public class ChartArea extends Canvas
 
     protected void onDispose ()
     {
+        this.resourceManager.dispose ();
         this.chartRenderer.dispose ();
     }
 
     protected void onPaint ( final PaintEvent e )
     {
-        this.chartRenderer.paint ( new SWTGraphics ( e.gc ) );
+        final SWTGraphics g = new SWTGraphics ( e.gc, this.resourceManager );
+        try
+        {
+            this.chartRenderer.paint ( g );
+        }
+        finally
+        {
+            g.dispose ();
+        }
     }
 }
