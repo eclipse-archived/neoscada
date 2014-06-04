@@ -119,7 +119,8 @@ public class ProfileManager
             }
             catch ( final Exception e )
             {
-                logger.warn ( "Failed to switch", e );
+                // unable to get other profile, fall back to none
+                logger.debug ( "Failed to switch", e );
             }
         }
 
