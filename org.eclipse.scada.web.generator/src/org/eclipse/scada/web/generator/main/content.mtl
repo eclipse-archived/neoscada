@@ -23,7 +23,7 @@
 [/template]
 
 [template public processContent(content : GalleryContent, base: String)]
-[generateGallery(content.gallery)/]
+[generateGallery(content.gallery, base)/]
 [/template]
 
 [template public processContent(content : ReleaseSection, base: String)]
