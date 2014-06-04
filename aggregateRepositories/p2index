@@ -114,7 +114,7 @@ def p2index(base_dir):
         module = l.replace(base_dir, '')
         module = module.split(os.path.sep)[2]
         
-        source = "https://hudson.eclipse.org/scada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module
+        source = "https://hudson.eclipse.org/eclipsescada/job/%s-master/lastSuccessfulBuild/artifact/output/p2/" % module
         target = "file:" + target
         print "replace '%s' -> '%s'" % ( source, target )
         

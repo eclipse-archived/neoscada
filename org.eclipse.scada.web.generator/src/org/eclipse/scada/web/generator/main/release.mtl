@@ -3,7 +3,6 @@
 
 [import org::eclipse::scada::web::generator::main::social /]
 [import org::eclipse::scada::web::generator::main::common /]
-[import org::eclipse::scada::web::generator::main::html /]
 
 [template public generateRelease(release : Release,base : String)]
 <section class="release">

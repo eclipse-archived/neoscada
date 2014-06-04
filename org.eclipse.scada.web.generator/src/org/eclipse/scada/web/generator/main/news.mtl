@@ -1,11 +1,11 @@
 [comment encoding = UTF-8 /]
 [module news('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import org::eclipse::scada::web::generator::main::html /]
 [import org::eclipse::scada::web::generator::main::author /]
 [import org::eclipse::scada::web::generator::main::content /]
 [import org::eclipse::scada::web::generator::main::social /]
 [import org::eclipse::scada::web::generator::main::common /]
+[import org::eclipse::scada::web::generator::main::html /]
 
 [template public generateNews(site : Site)]
 [for (news : NewsEntry | site.news)]
@@ -69,16 +69,4 @@ by <a href="[relative(fileName,authorFile(author))/]" rel="author">[entry.author
 
 </article>
 [/template]
-
-[query public absolutePermaLink(news:NewsEntry) : String = 
-toAbsolute(permaLink(news))
-/]
-
-[query public permaLink(news : NewsEntry) : String =
-'news/' +
-invoke( 'org.eclipse.scada.web.generator.service.Helper', 'formatDateUrl(java.lang.String,java.util.Date)', Sequence { 'yyyy/MM/dd', news.date })
-+ '/' +
- invoke( 'org.eclipse.scada.web.generator.service.Helper', 'permaEncode(java.lang.String)', Sequence { news.title })
-+ '.html'
-/]
 

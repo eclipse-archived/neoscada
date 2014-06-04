@@ -1,7 +1,6 @@
 [comment encoding = UTF-8 /]
 [module html('http://eclipse.org/eclipsescada', 'http://www.eclipse.org/emf/2002/Ecore')]
 
-[import org::eclipse::scada::web::generator::main::news /]
 [import org::eclipse::scada::web::generator::main::social /]
 [import org::eclipse::scada::web::generator::main::common /]
 
@@ -189,12 +188,4 @@ var track = function(url, category, action) {
 [/for]
 </dl>
 [/template]
-
-[query public toLabel(link : Link) : String =
-if ( link.label = null ) then
-	link.target
-else
-	link.label.encodeHtml()
-endif /]
-
 
