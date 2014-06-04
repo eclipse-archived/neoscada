@@ -36,6 +36,7 @@ import org.eclipse.scada.ui.chart.model.LineProperties;
  * <ul>
  *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ArchiveSeriesImpl#getChannels <em>Channels</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ArchiveSeriesImpl#getLineProperties <em>Line Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ArchiveSeriesImpl#isIgnoreFuture <em>Ignore Future</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +64,26 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
      * @ordered
      */
     protected LineProperties lineProperties;
+
+    /**
+     * The default value of the '{@link #isIgnoreFuture() <em>Ignore Future</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIgnoreFuture()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean IGNORE_FUTURE_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isIgnoreFuture() <em>Ignore Future</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIgnoreFuture()
+     * @generated
+     * @ordered
+     */
+    protected boolean ignoreFuture = IGNORE_FUTURE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -190,6 +211,29 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isIgnoreFuture ()
+    {
+        return ignoreFuture;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setIgnoreFuture ( boolean newIgnoreFuture )
+    {
+        boolean oldIgnoreFuture = ignoreFuture;
+        ignoreFuture = newIgnoreFuture;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE, oldIgnoreFuture, ignoreFuture ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -219,6 +263,8 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
                 if ( resolve )
                     return getLineProperties ();
                 return basicGetLineProperties ();
+            case ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE:
+                return isIgnoreFuture ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -241,6 +287,9 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
             case ChartPackage.ARCHIVE_SERIES__LINE_PROPERTIES:
                 setLineProperties ( (LineProperties)newValue );
                 return;
+            case ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE:
+                setIgnoreFuture ( (Boolean)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -261,6 +310,9 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
             case ChartPackage.ARCHIVE_SERIES__LINE_PROPERTIES:
                 setLineProperties ( (LineProperties)null );
                 return;
+            case ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE:
+                setIgnoreFuture ( IGNORE_FUTURE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -279,8 +331,28 @@ public class ArchiveSeriesImpl extends ItemDataSeriesImpl implements
                 return channels != null && !channels.isEmpty ();
             case ChartPackage.ARCHIVE_SERIES__LINE_PROPERTIES:
                 return lineProperties != null;
+            case ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE:
+                return ignoreFuture != IGNORE_FUTURE_EDEFAULT;
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
+
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (ignoreFuture: " ); //$NON-NLS-1$
+        result.append ( ignoreFuture );
+        result.append ( ')' );
+        return result.toString ();
     }
 
 } //ArchiveSeriesImpl

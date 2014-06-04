@@ -19,12 +19,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
@@ -65,8 +67,32 @@ public class ArchiveSeriesItemProvider extends ItemDataSeriesItemProvider
         {
             super.getPropertyDescriptors ( object );
 
+            addIgnoreFuturePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Ignore Future feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addIgnoreFuturePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ArchiveSeries_ignoreFuture_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ArchiveSeries_ignoreFuture_feature", "_UI_ArchiveSeries_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ChartPackage.Literals.ARCHIVE_SERIES__IGNORE_FUTURE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -145,6 +171,9 @@ public class ArchiveSeriesItemProvider extends ItemDataSeriesItemProvider
 
         switch ( notification.getFeatureID ( ArchiveSeries.class ) )
         {
+            case ChartPackage.ARCHIVE_SERIES__IGNORE_FUTURE:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
             case ChartPackage.ARCHIVE_SERIES__CHANNELS:
             case ChartPackage.ARCHIVE_SERIES__LINE_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );

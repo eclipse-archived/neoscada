@@ -174,6 +174,10 @@
   <children xmi:type="notation:Node" xmi:id="_RsiCUNTPEeGG6ZRHVvsIug" type="1001">
     <children xmi:type="notation:Node" xmi:id="_RsipYNTPEeGG6ZRHVvsIug" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_RsipYdTPEeGG6ZRHVvsIug" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_xifc8OvrEeOG-M2VliG1EA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="Chart.ecore#//ArchiveSeries/ignoreFuture"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xifc8evrEeOG-M2VliG1EA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_RsipYtTPEeGG6ZRHVvsIug"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_RsipY9TPEeGG6ZRHVvsIug"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_RsipZNTPEeGG6ZRHVvsIug"/>
@@ -185,7 +189,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_RsiCUdTPEeGG6ZRHVvsIug" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Chart.ecore#//ArchiveSeries"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RsiCUtTPEeGG6ZRHVvsIug" x="1104" y="648" width="147"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RsiCUtTPEeGG6ZRHVvsIug" x="1056" y="648" width="219" height="75"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_p3G6gNTQEeGG6ZRHVvsIug" type="1001">
     <children xmi:type="notation:Node" xmi:id="_p3JWwNTQEeGG6ZRHVvsIug" type="4001"/>

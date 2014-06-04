@@ -21,44 +21,48 @@ import org.eclipse.scada.ui.chart.model.Axis;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class AxisTest extends TestCase {
+public abstract class AxisTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Axis test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Axis fixture = null;
+    /**
+     * The fixture for this Axis test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Axis fixture = null;
 
-	/**
-	 * Constructs a new Axis test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AxisTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Axis test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public AxisTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Axis test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Axis fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Axis test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Axis fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Axis test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Axis getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Axis test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Axis getFixture ()
+    {
+        return fixture;
+    }
 
 } //AxisTest

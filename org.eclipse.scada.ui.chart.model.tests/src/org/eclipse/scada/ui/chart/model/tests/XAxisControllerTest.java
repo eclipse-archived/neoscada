@@ -19,27 +19,30 @@ import org.eclipse.scada.ui.chart.model.XAxisController;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class XAxisControllerTest extends ControllerTest {
+public abstract class XAxisControllerTest extends ControllerTest
+{
 
-	/**
-	 * Constructs a new XAxis Controller test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public XAxisControllerTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new XAxis Controller test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public XAxisControllerTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this XAxis Controller test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected XAxisController getFixture() {
-		return (XAxisController) fixture;
-	}
+    /**
+     * Returns the fixture for this XAxis Controller test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected XAxisController getFixture ()
+    {
+        return (XAxisController)fixture;
+    }
 
 } //XAxisControllerTest

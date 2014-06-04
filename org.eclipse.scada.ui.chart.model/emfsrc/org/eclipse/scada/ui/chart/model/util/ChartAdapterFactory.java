@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.ui.chart.model.*;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Axis;
@@ -49,7 +50,6 @@ import org.eclipse.scada.ui.chart.model.YAxis;
  * It provides an adapter <code>createXXX</code> method for each class of the
  * model.
  * <!-- end-user-doc -->
- * 
  * @see org.eclipse.scada.ui.chart.model.ChartPackage
  * @generated
  */
@@ -59,7 +59,6 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * The cached model package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected static ChartPackage modelPackage;
@@ -68,7 +67,6 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * Creates an instance of the adapter factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ChartAdapterFactory ()
@@ -85,12 +83,11 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * This implementation returns <code>true</code> if the object is either the
      * model's package or is an instance object of the model.
      * <!-- end-user-doc -->
-     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType ( final Object object )
+    public boolean isFactoryForType ( Object object )
     {
         if ( object == modelPackage )
         {
@@ -107,169 +104,168 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * The switch that delegates to the <code>createXXX</code> methods.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ChartSwitch<Adapter> modelSwitch = new ChartSwitch<Adapter> ()
     {
         @Override
-        public Adapter caseChart ( final Chart object )
+        public Adapter caseChart ( Chart object )
         {
             return createChartAdapter ();
         }
 
         @Override
-        public Adapter caseXAxis ( final XAxis object )
+        public Adapter caseXAxis ( XAxis object )
         {
             return createXAxisAdapter ();
         }
 
         @Override
-        public Adapter caseYAxis ( final YAxis object )
+        public Adapter caseYAxis ( YAxis object )
         {
             return createYAxisAdapter ();
         }
 
         @Override
-        public Adapter caseAxis ( final Axis object )
+        public Adapter caseAxis ( Axis object )
         {
             return createAxisAdapter ();
         }
 
         @Override
-        public Adapter caseDataSeries ( final DataSeries object )
+        public Adapter caseDataSeries ( DataSeries object )
         {
             return createDataSeriesAdapter ();
         }
 
         @Override
-        public Adapter caseDataItemSeries ( final DataItemSeries object )
+        public Adapter caseDataItemSeries ( DataItemSeries object )
         {
             return createDataItemSeriesAdapter ();
         }
 
         @Override
-        public Adapter caseArchiveSeries ( final ArchiveSeries object )
+        public Adapter caseArchiveSeries ( ArchiveSeries object )
         {
             return createArchiveSeriesAdapter ();
         }
 
         @Override
-        public Adapter caseItem ( final Item object )
+        public Adapter caseItem ( Item object )
         {
             return createItemAdapter ();
         }
 
         @Override
-        public Adapter caseUriItem ( final UriItem object )
+        public Adapter caseUriItem ( UriItem object )
         {
             return createUriItemAdapter ();
         }
 
         @Override
-        public Adapter caseIdItem ( final IdItem object )
+        public Adapter caseIdItem ( IdItem object )
         {
             return createIdItemAdapter ();
         }
 
         @Override
-        public Adapter caseItemDataSeries ( final ItemDataSeries object )
+        public Adapter caseItemDataSeries ( ItemDataSeries object )
         {
             return createItemDataSeriesAdapter ();
         }
 
         @Override
-        public Adapter caseArchiveChannel ( final ArchiveChannel object )
+        public Adapter caseArchiveChannel ( ArchiveChannel object )
         {
             return createArchiveChannelAdapter ();
         }
 
         @Override
-        public Adapter caseLineProperties ( final LineProperties object )
+        public Adapter caseLineProperties ( LineProperties object )
         {
             return createLinePropertiesAdapter ();
         }
 
         @Override
-        public Adapter caseScriptSeries ( final ScriptSeries object )
+        public Adapter caseScriptSeries ( ScriptSeries object )
         {
             return createScriptSeriesAdapter ();
         }
 
         @Override
-        public Adapter caseController ( final Controller object )
+        public Adapter caseController ( Controller object )
         {
             return createControllerAdapter ();
         }
 
         @Override
-        public Adapter caseCurrentTimeController ( final CurrentTimeController object )
+        public Adapter caseCurrentTimeController ( CurrentTimeController object )
         {
             return createCurrentTimeControllerAdapter ();
         }
 
         @Override
-        public Adapter caseProfile ( final Profile object )
+        public Adapter caseProfile ( Profile object )
         {
             return createProfileAdapter ();
         }
 
         @Override
-        public Adapter caseTimeShiftAction ( final TimeShiftAction object )
+        public Adapter caseTimeShiftAction ( TimeShiftAction object )
         {
             return createTimeShiftActionAdapter ();
         }
 
         @Override
-        public Adapter caseTimeNowAction ( final TimeNowAction object )
+        public Adapter caseTimeNowAction ( TimeNowAction object )
         {
             return createTimeNowActionAdapter ();
         }
 
         @Override
-        public Adapter caseXAxisController ( final XAxisController object )
+        public Adapter caseXAxisController ( XAxisController object )
         {
             return createXAxisControllerAdapter ();
         }
 
         @Override
-        public Adapter caseScaleAction ( final ScaleAction object )
+        public Adapter caseScaleAction ( ScaleAction object )
         {
             return createScaleActionAdapter ();
         }
 
         @Override
-        public Adapter caseSeparatorController ( final SeparatorController object )
+        public Adapter caseSeparatorController ( SeparatorController object )
         {
             return createSeparatorControllerAdapter ();
         }
 
         @Override
-        public Adapter caseMouseController ( final MouseController object )
+        public Adapter caseMouseController ( MouseController object )
         {
             return createMouseControllerAdapter ();
         }
 
         @Override
-        public Adapter caseResetController ( final ResetController object )
+        public Adapter caseResetController ( ResetController object )
         {
             return createResetControllerAdapter ();
         }
 
         @Override
-        public Adapter caseCompositeArchiveQualitySeries ( final CompositeArchiveQualitySeries object )
+        public Adapter caseCompositeArchiveQualitySeries ( CompositeArchiveQualitySeries object )
         {
             return createCompositeArchiveQualitySeriesAdapter ();
         }
 
         @Override
-        public Adapter caseLegendController ( final LegendController object )
+        public Adapter caseLegendController ( LegendController object )
         {
             return createLegendControllerAdapter ();
         }
 
         @Override
-        public Adapter defaultCase ( final EObject object )
+        public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
         }
@@ -279,28 +275,24 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * Creates an adapter for the <code>target</code>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @param target
-     *            the object to adapt.
+     * @param target the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter ( final Notifier target )
+    public Adapter createAdapter ( Notifier target )
     {
-        return this.modelSwitch.doSwitch ( (EObject)target );
+        return modelSwitch.doSwitch ( (EObject)target );
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.Chart <em>Chart</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.Chart <em>Chart</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.Chart
      * @generated
@@ -311,15 +303,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.XAxis <em>XAxis</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.XAxis <em>XAxis</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.XAxis
      * @generated
@@ -330,15 +320,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.YAxis <em>YAxis</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.YAxis <em>YAxis</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.YAxis
      * @generated
@@ -349,15 +337,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.Axis <em>Axis</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.Axis <em>Axis</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.Axis
      * @generated
@@ -368,16 +354,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.DataSeries <em>Data Series</em>}
-     * '.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.DataSeries <em>Data Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.DataSeries
      * @generated
@@ -388,16 +371,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.DataItemSeries
-     * <em>Data Item Series</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.DataItemSeries <em>Data Item Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.DataItemSeries
      * @generated
@@ -408,16 +388,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ArchiveSeries
-     * <em>Archive Series</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ArchiveSeries <em>Archive Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ArchiveSeries
      * @generated
@@ -428,15 +405,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.Item <em>Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.Item <em>Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.Item
      * @generated
@@ -447,15 +422,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.UriItem <em>Uri Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.UriItem <em>Uri Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.UriItem
      * @generated
@@ -466,15 +439,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.IdItem <em>Id Item</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.IdItem <em>Id Item</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.IdItem
      * @generated
@@ -485,16 +456,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ItemDataSeries
-     * <em>Item Data Series</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ItemDataSeries <em>Item Data Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ItemDataSeries
      * @generated
@@ -505,16 +473,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ArchiveChannel
-     * <em>Archive Channel</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel <em>Archive Channel</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ArchiveChannel
      * @generated
@@ -525,16 +490,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.LineProperties
-     * <em>Line Properties</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.LineProperties <em>Line Properties</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.LineProperties
      * @generated
@@ -545,16 +507,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ScriptSeries
-     * <em>Script Series</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ScriptSeries <em>Script Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ScriptSeries
      * @generated
@@ -565,15 +524,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.Controller <em>Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.Controller <em>Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.Controller
      * @generated
@@ -584,16 +541,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.CurrentTimeController
-     * <em>Current Time Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.CurrentTimeController <em>Current Time Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.CurrentTimeController
      * @generated
@@ -604,15 +558,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.Profile <em>Profile</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.Profile <em>Profile</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.Profile
      * @generated
@@ -623,16 +575,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.TimeShiftAction
-     * <em>Time Shift Action</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.TimeShiftAction <em>Time Shift Action</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.TimeShiftAction
      * @generated
@@ -643,16 +592,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.TimeNowAction
-     * <em>Time Now Action</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.TimeNowAction <em>Time Now Action</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.TimeNowAction
      * @generated
@@ -663,16 +609,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.XAxisController
-     * <em>XAxis Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.XAxisController <em>XAxis Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.XAxisController
      * @generated
@@ -683,16 +626,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ScaleAction
-     * <em>Scale Action</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ScaleAction <em>Scale Action</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ScaleAction
      * @generated
@@ -703,16 +643,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.SeparatorController
-     * <em>Separator Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.SeparatorController <em>Separator Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.SeparatorController
      * @generated
@@ -723,16 +660,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.MouseController
-     * <em>Mouse Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.MouseController <em>Mouse Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.MouseController
      * @generated
@@ -743,16 +677,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.ResetController
-     * <em>Reset Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.ResetController <em>Reset Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.ResetController
      * @generated
@@ -763,16 +694,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries
-     * <em>Composite Archive Quality Series</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries <em>Composite Archive Quality Series</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries
      * @generated
@@ -783,16 +711,13 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.eclipse.scada.ui.chart.model.LegendController
-     * <em>Legend Controller</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.ui.chart.model.LegendController <em>Legend Controller</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore
      * cases;
      * it's useful to ignore a case when inheritance will catch all the cases
      * anyway.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @see org.eclipse.scada.ui.chart.model.LegendController
      * @generated
@@ -807,7 +732,6 @@ public class ChartAdapterFactory extends AdapterFactoryImpl
      * <!-- begin-user-doc -->
      * This default implementation returns null.
      * <!-- end-user-doc -->
-     * 
      * @return the new adapter.
      * @generated
      */

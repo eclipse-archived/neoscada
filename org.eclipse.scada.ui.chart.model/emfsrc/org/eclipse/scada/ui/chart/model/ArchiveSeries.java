@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.eclipse.scada.ui.chart.model.ArchiveSeries#getChannels <em>Channels</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.ArchiveSeries#getLineProperties <em>Line Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.ui.chart.model.ArchiveSeries#isIgnoreFuture <em>Ignore Future</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,5 +75,32 @@ public interface ArchiveSeries extends ItemDataSeries
      * @generated
      */
     void setLineProperties ( LineProperties value );
+
+    /**
+     * Returns the value of the '<em><b>Ignore Future</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Ignore Future</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Ignore Future</em>' attribute.
+     * @see #setIgnoreFuture(boolean)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveSeries_IgnoreFuture()
+     * @model default="false" required="true"
+     * @generated
+     */
+    boolean isIgnoreFuture ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveSeries#isIgnoreFuture <em>Ignore Future</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Ignore Future</em>' attribute.
+     * @see #isIgnoreFuture()
+     * @generated
+     */
+    void setIgnoreFuture ( boolean value );
 
 } // ArchiveSeries

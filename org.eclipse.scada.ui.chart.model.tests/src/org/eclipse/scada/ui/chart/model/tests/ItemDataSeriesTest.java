@@ -19,27 +19,30 @@ import org.eclipse.scada.ui.chart.model.ItemDataSeries;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ItemDataSeriesTest extends DataSeriesTest {
+public abstract class ItemDataSeriesTest extends DataSeriesTest
+{
 
-	/**
-	 * Constructs a new Item Data Series test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ItemDataSeriesTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Item Data Series test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ItemDataSeriesTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Item Data Series test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected ItemDataSeries getFixture() {
-		return (ItemDataSeries) fixture;
-	}
+    /**
+     * Returns the fixture for this Item Data Series test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected ItemDataSeries getFixture ()
+    {
+        return (ItemDataSeries)fixture;
+    }
 
 } //ItemDataSeriesTest

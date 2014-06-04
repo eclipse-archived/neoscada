@@ -21,44 +21,48 @@ import org.eclipse.scada.ui.chart.model.DataSeries;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class DataSeriesTest extends TestCase {
+public abstract class DataSeriesTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Data Series test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataSeries fixture = null;
+    /**
+     * The fixture for this Data Series test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataSeries fixture = null;
 
-	/**
-	 * Constructs a new Data Series test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataSeriesTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Data Series test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataSeriesTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Data Series test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(DataSeries fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Data Series test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( DataSeries fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Data Series test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataSeries getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Data Series test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataSeries getFixture ()
+    {
+        return fixture;
+    }
 
 } //DataSeriesTest

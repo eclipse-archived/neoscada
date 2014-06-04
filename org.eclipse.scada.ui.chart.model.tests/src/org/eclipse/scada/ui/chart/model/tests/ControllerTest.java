@@ -21,44 +21,48 @@ import org.eclipse.scada.ui.chart.model.Controller;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ControllerTest extends TestCase {
+public abstract class ControllerTest extends TestCase
+{
 
-	/**
-	 * The fixture for this Controller test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Controller fixture = null;
+    /**
+     * The fixture for this Controller test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Controller fixture = null;
 
-	/**
-	 * Constructs a new Controller test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ControllerTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Controller test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ControllerTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Sets the fixture for this Controller test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Controller fixture) {
-		this.fixture = fixture;
-	}
+    /**
+     * Sets the fixture for this Controller test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void setFixture ( Controller fixture )
+    {
+        this.fixture = fixture;
+    }
 
-	/**
-	 * Returns the fixture for this Controller test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Controller getFixture() {
-		return fixture;
-	}
+    /**
+     * Returns the fixture for this Controller test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Controller getFixture ()
+    {
+        return fixture;
+    }
 
 } //ControllerTest

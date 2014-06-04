@@ -724,13 +724,22 @@ public interface ChartPackage extends EPackage
     int ARCHIVE_SERIES__LINE_PROPERTIES = ITEM_DATA_SERIES_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Ignore Future</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ARCHIVE_SERIES__IGNORE_FUTURE = ITEM_DATA_SERIES_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Archive Series</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ARCHIVE_SERIES_FEATURE_COUNT = ITEM_DATA_SERIES_FEATURE_COUNT + 2;
+    int ARCHIVE_SERIES_FEATURE_COUNT = ITEM_DATA_SERIES_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.ui.chart.model.impl.ItemImpl <em>Item</em>}' class.
@@ -1868,6 +1877,17 @@ public interface ChartPackage extends EPackage
     EReference getArchiveSeries_LineProperties ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.ui.chart.model.ArchiveSeries#isIgnoreFuture <em>Ignore Future</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ignore Future</em>'.
+     * @see org.eclipse.scada.ui.chart.model.ArchiveSeries#isIgnoreFuture()
+     * @see #getArchiveSeries()
+     * @generated
+     */
+    EAttribute getArchiveSeries_IgnoreFuture ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.ui.chart.model.Item <em>Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2712,6 +2732,14 @@ public interface ChartPackage extends EPackage
          * @generated
          */
         EReference ARCHIVE_SERIES__LINE_PROPERTIES = eINSTANCE.getArchiveSeries_LineProperties ();
+
+        /**
+         * The meta object literal for the '<em><b>Ignore Future</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ARCHIVE_SERIES__IGNORE_FUTURE = eINSTANCE.getArchiveSeries_IgnoreFuture ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.ui.chart.model.impl.ItemImpl <em>Item</em>}' class.

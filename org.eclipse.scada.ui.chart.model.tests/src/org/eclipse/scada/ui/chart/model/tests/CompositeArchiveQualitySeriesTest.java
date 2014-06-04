@@ -22,58 +22,64 @@ import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompositeArchiveQualitySeriesTest extends DataSeriesTest {
+public class CompositeArchiveQualitySeriesTest extends DataSeriesTest
+{
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(CompositeArchiveQualitySeriesTest.class);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static void main ( String[] args )
+    {
+        TestRunner.run ( CompositeArchiveQualitySeriesTest.class );
+    }
 
-	/**
-	 * Constructs a new Composite Archive Quality Series test case with the given name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompositeArchiveQualitySeriesTest(String name) {
-		super(name);
-	}
+    /**
+     * Constructs a new Composite Archive Quality Series test case with the given name.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public CompositeArchiveQualitySeriesTest ( String name )
+    {
+        super ( name );
+    }
 
-	/**
-	 * Returns the fixture for this Composite Archive Quality Series test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected CompositeArchiveQualitySeries getFixture() {
-		return (CompositeArchiveQualitySeries) fixture;
-	}
+    /**
+     * Returns the fixture for this Composite Archive Quality Series test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected CompositeArchiveQualitySeries getFixture ()
+    {
+        return (CompositeArchiveQualitySeries)fixture;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(ChartFactory.eINSTANCE.createCompositeArchiveQualitySeries());
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
+    @Override
+    protected void setUp () throws Exception
+    {
+        setFixture ( ChartFactory.eINSTANCE.createCompositeArchiveQualitySeries () );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
+    @Override
+    protected void tearDown () throws Exception
+    {
+        setFixture ( null );
+    }
 
 } //CompositeArchiveQualitySeriesTest

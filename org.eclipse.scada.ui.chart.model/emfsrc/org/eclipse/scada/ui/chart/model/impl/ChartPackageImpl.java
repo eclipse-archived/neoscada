@@ -712,6 +712,16 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getArchiveSeries_IgnoreFuture ()
+    {
+        return (EAttribute)archiveSeriesEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getItem ()
     {
         return itemEClass;
@@ -1253,6 +1263,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
         archiveSeriesEClass = createEClass ( ARCHIVE_SERIES );
         createEReference ( archiveSeriesEClass, ARCHIVE_SERIES__CHANNELS );
         createEReference ( archiveSeriesEClass, ARCHIVE_SERIES__LINE_PROPERTIES );
+        createEAttribute ( archiveSeriesEClass, ARCHIVE_SERIES__IGNORE_FUTURE );
 
         itemEClass = createEClass ( ITEM );
         createEAttribute ( itemEClass, ITEM__ITEM_ID );
@@ -1420,6 +1431,7 @@ public class ChartPackageImpl extends EPackageImpl implements ChartPackage
         initEClass ( archiveSeriesEClass, ArchiveSeries.class, "ArchiveSeries", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getArchiveSeries_Channels (), this.getArchiveChannel (), null, "channels", null, 0, -1, ArchiveSeries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getArchiveSeries_LineProperties (), this.getLineProperties (), null, "lineProperties", null, 1, 1, ArchiveSeries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getArchiveSeries_IgnoreFuture (), ecorePackage.getEBoolean (), "ignoreFuture", "false", 1, 1, ArchiveSeries.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getItem_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

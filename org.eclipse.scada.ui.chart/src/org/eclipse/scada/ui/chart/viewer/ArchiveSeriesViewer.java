@@ -16,6 +16,7 @@ import java.util.Map;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeansObservables;
+import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.list.IListChangeListener;
 import org.eclipse.core.databinding.observable.list.ListChangeEvent;
 import org.eclipse.core.databinding.observable.list.ListDiffVisitor;
@@ -89,6 +90,7 @@ public class ArchiveSeriesViewer extends AbstractItemInputViewer
         this.linePropertiesObservable = EMFObservables.observeValue ( element, ChartPackage.Literals.ARCHIVE_SERIES__LINE_PROPERTIES );
 
         addBindings ( LinePropertiesBinder.bind ( dbc, this.inputObservable, this.linePropertiesObservable ) );
+        addBinding ( dbc.bindValue ( PojoObservables.observeDetailValue ( this.inputObservable, "noFuture", boolean.class ), EMFObservables.observeValue ( element, ChartPackage.Literals.ARCHIVE_SERIES__IGNORE_FUTURE ) ) );
 
         setInputObserable ( this.inputObservable );
     }
