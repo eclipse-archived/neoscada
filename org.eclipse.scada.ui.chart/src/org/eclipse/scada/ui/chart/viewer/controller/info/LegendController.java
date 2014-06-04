@@ -32,7 +32,7 @@ public class LegendController extends AbstractObserver implements ChartControlle
     {
         this.chartRenderer = chartContext.getChartRenderer ();
         this.renderer = new LegendRenderer ( this.chartRenderer, chartContext.getInformations () );
-        this.chartRenderer.addRenderer ( this.renderer, 100 );
+        this.chartRenderer.addRenderer ( this.renderer, 200 );
 
         addBinding ( ctx.bindValue ( PojoObservables.observeValue ( this.renderer, LegendRenderer.PROP_TIMETSAMP_FORMAT ), EMFObservables.observeValue ( controller, ChartPackage.Literals.LEGEND_CONTROLLER__TIMESTAMP_FORMAT ) ) );
     }
