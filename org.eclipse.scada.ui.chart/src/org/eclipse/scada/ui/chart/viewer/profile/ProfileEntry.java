@@ -111,6 +111,8 @@ public class ProfileEntry
 
     public void dispose ()
     {
+        deactivate ();
+
         for ( final Binding b : this.bindings )
         {
             b.dispose ();

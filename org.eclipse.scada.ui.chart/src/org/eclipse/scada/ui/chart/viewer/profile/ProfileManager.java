@@ -199,6 +199,11 @@ public class ProfileManager
     {
         disposeAllEntries ();
         createAllEntries ();
+
+        // 
+        final Profile profile = this.activeProfile;
+        setActiveProfile ( null );
+        setActiveProfile ( profile );
     }
 
     private void createAllEntries ()
@@ -260,6 +265,7 @@ public class ProfileManager
         {
             entry.dispose ();
         }
+
         this.profileEntries.clear ();
         if ( this.wrapper != null )
         {
