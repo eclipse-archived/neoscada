@@ -28,59 +28,60 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface XAxis extends Axis {
-	/**
-	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Minimum</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Minimum</em>' attribute.
-	 * @see #setMinimum(long)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxis_Minimum()
-	 * @model default="0" required="true"
-	 * @generated
-	 */
-	long getMinimum();
+public interface XAxis extends Axis
+{
+    /**
+     * Returns the value of the '<em><b>Minimum</b></em>' attribute.
+     * The default value is <code>"0"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Minimum</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Minimum</em>' attribute.
+     * @see #setMinimum(long)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxis_Minimum()
+     * @model default="0" required="true"
+     * @generated
+     */
+    long getMinimum ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.XAxis#getMinimum <em>Minimum</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Minimum</em>' attribute.
-	 * @see #getMinimum()
-	 * @generated
-	 */
-	void setMinimum(long value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.XAxis#getMinimum <em>Minimum</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Minimum</em>' attribute.
+     * @see #getMinimum()
+     * @generated
+     */
+    void setMinimum ( long value );
 
-	/**
-	 * Returns the value of the '<em><b>Maximum</b></em>' attribute.
-	 * The default value is <code>"1000"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Maximum</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Maximum</em>' attribute.
-	 * @see #setMaximum(long)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxis_Maximum()
-	 * @model default="1000" required="true"
-	 * @generated
-	 */
-	long getMaximum();
+    /**
+     * Returns the value of the '<em><b>Maximum</b></em>' attribute.
+     * The default value is <code>"1000"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Maximum</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Maximum</em>' attribute.
+     * @see #setMaximum(long)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxis_Maximum()
+     * @model default="1000" required="true"
+     * @generated
+     */
+    long getMaximum ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.XAxis#getMaximum <em>Maximum</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Maximum</em>' attribute.
-	 * @see #getMaximum()
-	 * @generated
-	 */
-	void setMaximum(long value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.XAxis#getMaximum <em>Maximum</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Maximum</em>' attribute.
+     * @see #getMaximum()
+     * @generated
+     */
+    void setMaximum ( long value );
 
 } // XAxis

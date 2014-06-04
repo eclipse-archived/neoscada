@@ -42,625 +42,699 @@ import org.eclipse.scada.ui.chart.model.util.ChartAdapterFactory;
  * @generated
  */
 public class ChartItemProviderAdapterFactory extends ChartAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComposedAdapterFactory parentAdapterFactory;
-
-	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IChangeNotifier changeNotifier = new ChangeNotifier();
-
-	/**
-	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
-
-	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChartItemProviderAdapterFactory() {
-		supportedTypes.add(IEditingDomainItemProvider.class);
-		supportedTypes.add(IStructuredItemContentProvider.class);
-		supportedTypes.add(ITreeItemContentProvider.class);
-		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.Chart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChartItemProvider chartItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.Chart}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChartAdapter() {
-		if (chartItemProvider == null) {
-			chartItemProvider = new ChartItemProvider(this);
-		}
-
-		return chartItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.XAxis} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected XAxisItemProvider xAxisItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.XAxis}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createXAxisAdapter() {
-		if (xAxisItemProvider == null) {
-			xAxisItemProvider = new XAxisItemProvider(this);
-		}
-
-		return xAxisItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.YAxis} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected YAxisItemProvider yAxisItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.YAxis}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createYAxisAdapter() {
-		if (yAxisItemProvider == null) {
-			yAxisItemProvider = new YAxisItemProvider(this);
-		}
-
-		return yAxisItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.DataItemSeries} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataItemSeriesItemProvider dataItemSeriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.DataItemSeries}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataItemSeriesAdapter() {
-		if (dataItemSeriesItemProvider == null) {
-			dataItemSeriesItemProvider = new DataItemSeriesItemProvider(this);
-		}
-
-		return dataItemSeriesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ArchiveSeries} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ArchiveSeriesItemProvider archiveSeriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ArchiveSeries}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createArchiveSeriesAdapter() {
-		if (archiveSeriesItemProvider == null) {
-			archiveSeriesItemProvider = new ArchiveSeriesItemProvider(this);
-		}
-
-		return archiveSeriesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.UriItem} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UriItemItemProvider uriItemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.UriItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUriItemAdapter() {
-		if (uriItemItemProvider == null) {
-			uriItemItemProvider = new UriItemItemProvider(this);
-		}
-
-		return uriItemItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.IdItem} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IdItemItemProvider idItemItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.IdItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIdItemAdapter() {
-		if (idItemItemProvider == null) {
-			idItemItemProvider = new IdItemItemProvider(this);
-		}
-
-		return idItemItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ArchiveChannel} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ArchiveChannelItemProvider archiveChannelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ArchiveChannel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createArchiveChannelAdapter() {
-		if (archiveChannelItemProvider == null) {
-			archiveChannelItemProvider = new ArchiveChannelItemProvider(this);
-		}
-
-		return archiveChannelItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.LineProperties} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LinePropertiesItemProvider linePropertiesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.LineProperties}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLinePropertiesAdapter() {
-		if (linePropertiesItemProvider == null) {
-			linePropertiesItemProvider = new LinePropertiesItemProvider(this);
-		}
-
-		return linePropertiesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ScriptSeries} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScriptSeriesItemProvider scriptSeriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ScriptSeries}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScriptSeriesAdapter() {
-		if (scriptSeriesItemProvider == null) {
-			scriptSeriesItemProvider = new ScriptSeriesItemProvider(this);
-		}
-
-		return scriptSeriesItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.CurrentTimeController} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CurrentTimeControllerItemProvider currentTimeControllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.CurrentTimeController}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCurrentTimeControllerAdapter() {
-		if (currentTimeControllerItemProvider == null) {
-			currentTimeControllerItemProvider = new CurrentTimeControllerItemProvider(
-					this);
-		}
-
-		return currentTimeControllerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.Profile} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProfileItemProvider profileItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.Profile}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createProfileAdapter() {
-		if (profileItemProvider == null) {
-			profileItemProvider = new ProfileItemProvider(this);
-		}
-
-		return profileItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.TimeShiftAction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimeShiftActionItemProvider timeShiftActionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.TimeShiftAction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTimeShiftActionAdapter() {
-		if (timeShiftActionItemProvider == null) {
-			timeShiftActionItemProvider = new TimeShiftActionItemProvider(this);
-		}
-
-		return timeShiftActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.TimeNowAction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimeNowActionItemProvider timeNowActionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.TimeNowAction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTimeNowActionAdapter() {
-		if (timeNowActionItemProvider == null) {
-			timeNowActionItemProvider = new TimeNowActionItemProvider(this);
-		}
-
-		return timeNowActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ScaleAction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ScaleActionItemProvider scaleActionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ScaleAction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createScaleActionAdapter() {
-		if (scaleActionItemProvider == null) {
-			scaleActionItemProvider = new ScaleActionItemProvider(this);
-		}
-
-		return scaleActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.SeparatorController} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SeparatorControllerItemProvider separatorControllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.SeparatorController}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSeparatorControllerAdapter() {
-		if (separatorControllerItemProvider == null) {
-			separatorControllerItemProvider = new SeparatorControllerItemProvider(
-					this);
-		}
-
-		return separatorControllerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.MouseController} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MouseControllerItemProvider mouseControllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.MouseController}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createMouseControllerAdapter() {
-		if (mouseControllerItemProvider == null) {
-			mouseControllerItemProvider = new MouseControllerItemProvider(this);
-		}
-
-		return mouseControllerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ResetController} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResetControllerItemProvider resetControllerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ResetController}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createResetControllerAdapter() {
-		if (resetControllerItemProvider == null) {
-			resetControllerItemProvider = new ResetControllerItemProvider(this);
-		}
-
-		return resetControllerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompositeArchiveQualitySeriesItemProvider compositeArchiveQualitySeriesItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCompositeArchiveQualitySeriesAdapter() {
-		if (compositeArchiveQualitySeriesItemProvider == null) {
-			compositeArchiveQualitySeriesItemProvider = new CompositeArchiveQualitySeriesItemProvider(
-					this);
-		}
-
-		return compositeArchiveQualitySeriesItemProvider;
-	}
-
-	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory
-				.getRootAdapterFactory();
-	}
-
-	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentAdapterFactory(
-			ComposedAdapterFactory parentAdapterFactory) {
-		this.parentAdapterFactory = parentAdapterFactory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isFactoryForType(Object type) {
-		return supportedTypes.contains(type) || super.isFactoryForType(type);
-	}
-
-	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
-		return super.adapt(notifier, this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
-			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>)
-					|| (((Class<?>) type).isInstance(adapter))) {
-				return adapter;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.addListener(notifyChangedListener);
-	}
-
-	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.removeListener(notifyChangedListener);
-	}
-
-	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void fireNotifyChanged(Notification notification) {
-		changeNotifier.fireNotifyChanged(notification);
-
-		if (parentAdapterFactory != null) {
-			parentAdapterFactory.fireNotifyChanged(notification);
-		}
-	}
-
-	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void dispose() {
-		if (chartItemProvider != null)
-			chartItemProvider.dispose();
-		if (xAxisItemProvider != null)
-			xAxisItemProvider.dispose();
-		if (yAxisItemProvider != null)
-			yAxisItemProvider.dispose();
-		if (dataItemSeriesItemProvider != null)
-			dataItemSeriesItemProvider.dispose();
-		if (archiveSeriesItemProvider != null)
-			archiveSeriesItemProvider.dispose();
-		if (uriItemItemProvider != null)
-			uriItemItemProvider.dispose();
-		if (idItemItemProvider != null)
-			idItemItemProvider.dispose();
-		if (archiveChannelItemProvider != null)
-			archiveChannelItemProvider.dispose();
-		if (linePropertiesItemProvider != null)
-			linePropertiesItemProvider.dispose();
-		if (scriptSeriesItemProvider != null)
-			scriptSeriesItemProvider.dispose();
-		if (currentTimeControllerItemProvider != null)
-			currentTimeControllerItemProvider.dispose();
-		if (profileItemProvider != null)
-			profileItemProvider.dispose();
-		if (timeShiftActionItemProvider != null)
-			timeShiftActionItemProvider.dispose();
-		if (timeNowActionItemProvider != null)
-			timeNowActionItemProvider.dispose();
-		if (scaleActionItemProvider != null)
-			scaleActionItemProvider.dispose();
-		if (separatorControllerItemProvider != null)
-			separatorControllerItemProvider.dispose();
-		if (mouseControllerItemProvider != null)
-			mouseControllerItemProvider.dispose();
-		if (resetControllerItemProvider != null)
-			resetControllerItemProvider.dispose();
-		if (compositeArchiveQualitySeriesItemProvider != null)
-			compositeArchiveQualitySeriesItemProvider.dispose();
-	}
+        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable
+{
+    /**
+     * This keeps track of the root adapter factory that delegates to this adapter factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ComposedAdapterFactory parentAdapterFactory;
+
+    /**
+     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IChangeNotifier changeNotifier = new ChangeNotifier ();
+
+    /**
+     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Collection<Object> supportedTypes = new ArrayList<Object> ();
+
+    /**
+     * This constructs an instance.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ChartItemProviderAdapterFactory ()
+    {
+        supportedTypes.add ( IEditingDomainItemProvider.class );
+        supportedTypes.add ( IStructuredItemContentProvider.class );
+        supportedTypes.add ( ITreeItemContentProvider.class );
+        supportedTypes.add ( IItemLabelProvider.class );
+        supportedTypes.add ( IItemPropertySource.class );
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.Chart} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ChartItemProvider chartItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.Chart}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createChartAdapter ()
+    {
+        if ( chartItemProvider == null )
+        {
+            chartItemProvider = new ChartItemProvider ( this );
+        }
+
+        return chartItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.XAxis} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected XAxisItemProvider xAxisItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.XAxis}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createXAxisAdapter ()
+    {
+        if ( xAxisItemProvider == null )
+        {
+            xAxisItemProvider = new XAxisItemProvider ( this );
+        }
+
+        return xAxisItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.YAxis} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected YAxisItemProvider yAxisItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.YAxis}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createYAxisAdapter ()
+    {
+        if ( yAxisItemProvider == null )
+        {
+            yAxisItemProvider = new YAxisItemProvider ( this );
+        }
+
+        return yAxisItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.DataItemSeries} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DataItemSeriesItemProvider dataItemSeriesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.DataItemSeries}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDataItemSeriesAdapter ()
+    {
+        if ( dataItemSeriesItemProvider == null )
+        {
+            dataItemSeriesItemProvider = new DataItemSeriesItemProvider ( this );
+        }
+
+        return dataItemSeriesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ArchiveSeries} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArchiveSeriesItemProvider archiveSeriesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ArchiveSeries}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createArchiveSeriesAdapter ()
+    {
+        if ( archiveSeriesItemProvider == null )
+        {
+            archiveSeriesItemProvider = new ArchiveSeriesItemProvider ( this );
+        }
+
+        return archiveSeriesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.UriItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected UriItemItemProvider uriItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.UriItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createUriItemAdapter ()
+    {
+        if ( uriItemItemProvider == null )
+        {
+            uriItemItemProvider = new UriItemItemProvider ( this );
+        }
+
+        return uriItemItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.IdItem} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IdItemItemProvider idItemItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.IdItem}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIdItemAdapter ()
+    {
+        if ( idItemItemProvider == null )
+        {
+            idItemItemProvider = new IdItemItemProvider ( this );
+        }
+
+        return idItemItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ArchiveChannel} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ArchiveChannelItemProvider archiveChannelItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ArchiveChannel}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createArchiveChannelAdapter ()
+    {
+        if ( archiveChannelItemProvider == null )
+        {
+            archiveChannelItemProvider = new ArchiveChannelItemProvider ( this );
+        }
+
+        return archiveChannelItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.LineProperties} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected LinePropertiesItemProvider linePropertiesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.LineProperties}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createLinePropertiesAdapter ()
+    {
+        if ( linePropertiesItemProvider == null )
+        {
+            linePropertiesItemProvider = new LinePropertiesItemProvider ( this );
+        }
+
+        return linePropertiesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ScriptSeries} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScriptSeriesItemProvider scriptSeriesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ScriptSeries}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScriptSeriesAdapter ()
+    {
+        if ( scriptSeriesItemProvider == null )
+        {
+            scriptSeriesItemProvider = new ScriptSeriesItemProvider ( this );
+        }
+
+        return scriptSeriesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.CurrentTimeController} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CurrentTimeControllerItemProvider currentTimeControllerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.CurrentTimeController}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCurrentTimeControllerAdapter ()
+    {
+        if ( currentTimeControllerItemProvider == null )
+        {
+            currentTimeControllerItemProvider = new CurrentTimeControllerItemProvider ( this );
+        }
+
+        return currentTimeControllerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.Profile} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ProfileItemProvider profileItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.Profile}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createProfileAdapter ()
+    {
+        if ( profileItemProvider == null )
+        {
+            profileItemProvider = new ProfileItemProvider ( this );
+        }
+
+        return profileItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.TimeShiftAction} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TimeShiftActionItemProvider timeShiftActionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.TimeShiftAction}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTimeShiftActionAdapter ()
+    {
+        if ( timeShiftActionItemProvider == null )
+        {
+            timeShiftActionItemProvider = new TimeShiftActionItemProvider ( this );
+        }
+
+        return timeShiftActionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.TimeNowAction} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TimeNowActionItemProvider timeNowActionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.TimeNowAction}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createTimeNowActionAdapter ()
+    {
+        if ( timeNowActionItemProvider == null )
+        {
+            timeNowActionItemProvider = new TimeNowActionItemProvider ( this );
+        }
+
+        return timeNowActionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ScaleAction} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ScaleActionItemProvider scaleActionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ScaleAction}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createScaleActionAdapter ()
+    {
+        if ( scaleActionItemProvider == null )
+        {
+            scaleActionItemProvider = new ScaleActionItemProvider ( this );
+        }
+
+        return scaleActionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.SeparatorController} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SeparatorControllerItemProvider separatorControllerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.SeparatorController}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSeparatorControllerAdapter ()
+    {
+        if ( separatorControllerItemProvider == null )
+        {
+            separatorControllerItemProvider = new SeparatorControllerItemProvider ( this );
+        }
+
+        return separatorControllerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.MouseController} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MouseControllerItemProvider mouseControllerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.MouseController}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMouseControllerAdapter ()
+    {
+        if ( mouseControllerItemProvider == null )
+        {
+            mouseControllerItemProvider = new MouseControllerItemProvider ( this );
+        }
+
+        return mouseControllerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.ResetController} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ResetControllerItemProvider resetControllerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.ResetController}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createResetControllerAdapter ()
+    {
+        if ( resetControllerItemProvider == null )
+        {
+            resetControllerItemProvider = new ResetControllerItemProvider ( this );
+        }
+
+        return resetControllerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CompositeArchiveQualitySeriesItemProvider compositeArchiveQualitySeriesItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createCompositeArchiveQualitySeriesAdapter ()
+    {
+        if ( compositeArchiveQualitySeriesItemProvider == null )
+        {
+            compositeArchiveQualitySeriesItemProvider = new CompositeArchiveQualitySeriesItemProvider ( this );
+        }
+
+        return compositeArchiveQualitySeriesItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.ui.chart.model.LegendController} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected LegendControllerItemProvider legendControllerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.ui.chart.model.LegendController}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createLegendControllerAdapter ()
+    {
+        if ( legendControllerItemProvider == null )
+        {
+            legendControllerItemProvider = new LegendControllerItemProvider ( this );
+        }
+
+        return legendControllerItemProvider;
+    }
+
+    /**
+     * This returns the root adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ComposeableAdapterFactory getRootAdapterFactory ()
+    {
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory ();
+    }
+
+    /**
+     * This sets the composed adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setParentAdapterFactory (
+            ComposedAdapterFactory parentAdapterFactory )
+    {
+        this.parentAdapterFactory = parentAdapterFactory;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean isFactoryForType ( Object type )
+    {
+        return supportedTypes.contains ( type ) || super.isFactoryForType ( type );
+    }
+
+    /**
+     * This implementation substitutes the factory itself as the key for the adapter.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter adapt ( Notifier notifier, Object type )
+    {
+        return super.adapt ( notifier, this );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object adapt ( Object object, Object type )
+    {
+        if ( isFactoryForType ( type ) )
+        {
+            Object adapter = super.adapt ( object, type );
+            if ( ! ( type instanceof Class<?> ) || ( ( (Class<?>)type ).isInstance ( adapter ) ) )
+            {
+                return adapter;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * This adds a listener.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void addListener ( INotifyChangedListener notifyChangedListener )
+    {
+        changeNotifier.addListener ( notifyChangedListener );
+    }
+
+    /**
+     * This removes a listener.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void removeListener ( INotifyChangedListener notifyChangedListener )
+    {
+        changeNotifier.removeListener ( notifyChangedListener );
+    }
+
+    /**
+     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void fireNotifyChanged ( Notification notification )
+    {
+        changeNotifier.fireNotifyChanged ( notification );
+
+        if ( parentAdapterFactory != null )
+        {
+            parentAdapterFactory.fireNotifyChanged ( notification );
+        }
+    }
+
+    /**
+     * This disposes all of the item providers created by this factory. 
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void dispose ()
+    {
+        if ( chartItemProvider != null )
+            chartItemProvider.dispose ();
+        if ( xAxisItemProvider != null )
+            xAxisItemProvider.dispose ();
+        if ( yAxisItemProvider != null )
+            yAxisItemProvider.dispose ();
+        if ( dataItemSeriesItemProvider != null )
+            dataItemSeriesItemProvider.dispose ();
+        if ( archiveSeriesItemProvider != null )
+            archiveSeriesItemProvider.dispose ();
+        if ( uriItemItemProvider != null )
+            uriItemItemProvider.dispose ();
+        if ( idItemItemProvider != null )
+            idItemItemProvider.dispose ();
+        if ( archiveChannelItemProvider != null )
+            archiveChannelItemProvider.dispose ();
+        if ( linePropertiesItemProvider != null )
+            linePropertiesItemProvider.dispose ();
+        if ( scriptSeriesItemProvider != null )
+            scriptSeriesItemProvider.dispose ();
+        if ( currentTimeControllerItemProvider != null )
+            currentTimeControllerItemProvider.dispose ();
+        if ( profileItemProvider != null )
+            profileItemProvider.dispose ();
+        if ( timeShiftActionItemProvider != null )
+            timeShiftActionItemProvider.dispose ();
+        if ( timeNowActionItemProvider != null )
+            timeNowActionItemProvider.dispose ();
+        if ( scaleActionItemProvider != null )
+            scaleActionItemProvider.dispose ();
+        if ( separatorControllerItemProvider != null )
+            separatorControllerItemProvider.dispose ();
+        if ( mouseControllerItemProvider != null )
+            mouseControllerItemProvider.dispose ();
+        if ( resetControllerItemProvider != null )
+            resetControllerItemProvider.dispose ();
+        if ( compositeArchiveQualitySeriesItemProvider != null )
+            compositeArchiveQualitySeriesItemProvider.dispose ();
+        if ( legendControllerItemProvider != null )
+            legendControllerItemProvider.dispose ();
+    }
 
 }

@@ -71,6 +71,13 @@
                type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
          </adapter>
       </factory>
+      <factory
+            adaptableType="org.eclipse.scada.ui.chart.model.LegendController"
+            class="org.eclipse.scada.ui.chart.viewer.controller.info.AdapterFactory">
+         <adapter
+               type="org.eclipse.scada.ui.chart.viewer.controller.ChartControllerFactory">
+         </adapter>
+      </factory>
    </extension>
 
 </plugin>

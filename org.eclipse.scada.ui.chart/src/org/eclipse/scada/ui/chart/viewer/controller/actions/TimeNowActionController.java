@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,21 +7,21 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.controller.actions;
 
+import org.eclipse.scada.ui.chart.model.TimeNowAction;
 import org.eclipse.scada.ui.chart.viewer.ChartContext;
 import org.eclipse.scada.ui.chart.viewer.XAxisViewer;
-import org.eclipse.scada.ui.chart.viewer.controller.ChartController;
 import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.scada.ui.chart.model.TimeNowAction;
 
-public class TimeNowActionController extends AbstractXAxisController implements ChartController
+public class TimeNowActionController extends AbstractXAxisController
 {
 
     private Button button;
@@ -44,6 +44,7 @@ public class TimeNowActionController extends AbstractXAxisController implements 
                 {
                     action ();
                 };
+
             } );
             space.layout ();
         }

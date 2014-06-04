@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.controller.actions;
 
@@ -16,15 +17,16 @@ import java.util.List;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.databinding.EMFObservables;
+import org.eclipse.scada.ui.chart.model.ChartPackage;
+import org.eclipse.scada.ui.chart.model.XAxis;
+import org.eclipse.scada.ui.chart.model.XAxisController;
 import org.eclipse.scada.ui.chart.viewer.AbstractObserver;
 import org.eclipse.scada.ui.chart.viewer.AxisLocator;
 import org.eclipse.scada.ui.chart.viewer.ChartContext;
 import org.eclipse.scada.ui.chart.viewer.XAxisViewer;
-import org.eclipse.scada.ui.chart.model.ChartPackage;
-import org.eclipse.scada.ui.chart.model.XAxis;
-import org.eclipse.scada.ui.chart.model.XAxisController;
+import org.eclipse.scada.ui.chart.viewer.controller.ChartController;
 
-public class AbstractXAxisController extends AbstractObserver
+public class AbstractXAxisController extends AbstractObserver implements ChartController
 {
     private final AxisLocator<XAxis, XAxisViewer> xLocator;
 

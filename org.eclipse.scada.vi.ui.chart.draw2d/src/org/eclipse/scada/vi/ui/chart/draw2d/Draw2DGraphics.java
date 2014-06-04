@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
- *     IBH SYSTEMS GmbH - bug fixes and enhancements
+ *     IBH SYSTEMS GmbH - bug fixes and enhancements, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.chart.draw2d;
 
@@ -164,5 +164,17 @@ public class Draw2DGraphics implements Graphics
     public ResourceManager getResourceManager ()
     {
         return this.resourceManager;
+    }
+
+    @Override
+    public void drawRoundRectangle ( final int x, final int y, final int width, final int height, final int arcWidth, final int arcHeight )
+    {
+        this.g.drawRoundRectangle ( new org.eclipse.draw2d.geometry.Rectangle ( x, y, width, height ), arcWidth, arcHeight );
+    }
+
+    @Override
+    public void fillRoundRectangle ( final int x, final int y, final int width, final int height, final int arcWidth, final int arcHeight )
+    {
+        this.g.fillRoundRectangle ( new org.eclipse.draw2d.geometry.Rectangle ( x, y, width, height ), arcWidth, arcHeight );
     }
 }

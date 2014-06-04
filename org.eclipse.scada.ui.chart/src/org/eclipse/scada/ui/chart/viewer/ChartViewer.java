@@ -9,12 +9,12 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - additional work, stale initial update
- *     IBH SYSTEMS GmbH - bug fixes and extensions
+ *     IBH SYSTEMS GmbH - bug fixes and extensions, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -74,12 +74,13 @@ import org.slf4j.LoggerFactory;
 
 public class ChartViewer extends AbstractSelectionProvider
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( ChartViewer.class );
 
     private final ChartRenderer manager;
 
     private final WritableList items = new WritableList ( new LinkedList<Object> (), ChartInput.class );
+
+    private final IObservableList unmodItems = Observables.unmodifiableObservableList ( this.items );
 
     private CurrentTimeRuler timeRuler;
 
@@ -212,7 +213,7 @@ public class ChartViewer extends AbstractSelectionProvider
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "selectedXAxis" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__SELECTED_XAXIS ) ); //$NON-NLS-1$
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "selectedYAxis" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__SELECTED_YAXIS ) ); //$NON-NLS-1$
 
-        this.chartContext = new ChartContextImpl ( this.xLocator, this.yLocator, extensionSpaceProvider, chartRenderer, chart, resetHandler );
+        this.chartContext = new ChartContextImpl ( this.xLocator, this.yLocator, extensionSpaceProvider, chartRenderer, chart, resetHandler, this.unmodItems );
 
         this.controllerManager = new ControllerManager ( this.ctx, this.ctx.getValidationRealm (), this.chartContext );
         this.ctx.bindList ( this.controllerManager.getList (), EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__CONTROLLERS ) );
@@ -262,10 +263,11 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private void setInputSelection ( final long timestamp )
     {
-        final Date date = new Date ( timestamp );
+        final Calendar c = Calendar.getInstance ();
+        c.setTimeInMillis ( timestamp );
         for ( final Object input : this.items )
         {
-            ( (ChartInput)input ).setSelection ( date );
+            ( (ChartInput)input ).setSelection ( c );
         }
     }
 
@@ -621,14 +623,14 @@ public class ChartViewer extends AbstractSelectionProvider
             ( (ChartInput)this.items.get ( 0 ) ).setSelection ( false );
         }
 
-        this.items.add ( input );
-
+        if ( !this.items.add ( input ) )
+        {
+            return;
+        }
         if ( this.items.size () == 1 )
         {
             setSelection ( input );
         }
-
-        updateTitle ();
 
         // fire events
         fireInputAdded ( input );
@@ -643,26 +645,6 @@ public class ChartViewer extends AbstractSelectionProvider
         if ( this.items.remove ( input ) )
         {
             fireInputRemoved ( input );
-        }
-    }
-
-    protected void updateTitle ()
-    {
-        if ( this.items.isEmpty () )
-        {
-            this.chart.setTitle ( Messages.ChartViewer_Title_NoItem );
-        }
-        else if ( this.items.size () == 1 )
-        {
-            this.chart.setTitle ( ( (ChartInput)this.items.get ( 0 ) ).getLabel () );
-        }
-        else if ( this.selection != null )
-        {
-            this.chart.setTitle ( String.format ( Messages.ChartViewer_Title_Selection, this.items.size (), this.selection.getLabel () ) );
-        }
-        else
-        {
-            this.chart.setTitle ( String.format ( Messages.ChartViewer_Title_NoSelection, this.items.size () ) );
         }
     }
 
@@ -684,25 +666,32 @@ public class ChartViewer extends AbstractSelectionProvider
         {
             chartInput.setSelection ( true );
         }
-
-        updateTitle ();
     }
 
     public void tick ()
     {
         final long now = System.currentTimeMillis ();
 
+        boolean forceUpdate = false;
         try
         {
             this.manager.setStale ( true );
+
             for ( final Object item : this.items )
             {
-                ( (ChartInput)item ).tick ( now );
+                if ( ( (ChartInput)item ).tick ( now ) )
+                {
+                    forceUpdate = true;
+                }
+            }
+            if ( this.timeRuler != null )
+            {
+                forceUpdate = this.timeRuler.showingCurrentTime ();
             }
         }
         finally
         {
-            this.manager.setStale ( false, true );
+            this.manager.setStale ( false, forceUpdate );
         }
     }
 
@@ -727,7 +716,7 @@ public class ChartViewer extends AbstractSelectionProvider
 
     public IObservableList getItems ()
     {
-        return Observables.unmodifiableObservableList ( this.items );
+        return this.unmodItems;
     }
 
     public void showTimespan ( final long duration, final TimeUnit timeUnit )

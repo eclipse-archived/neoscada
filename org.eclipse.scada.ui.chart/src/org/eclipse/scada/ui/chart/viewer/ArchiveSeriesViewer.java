@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixes and extensions
+ *     IBH SYSTEMS GmbH - bug fixes and extensions, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -116,6 +116,12 @@ public class ArchiveSeriesViewer extends AbstractItemInputViewer
     public void dispose ()
     {
         super.dispose ();
+
+        for ( final ArchiveChannelViewer v : this.viewerMap.values () )
+        {
+            v.dispose ();
+        }
+        this.viewerMap.clear ();
 
         this.inputObservable.dispose ();
         this.linePropertiesObservable.dispose ();

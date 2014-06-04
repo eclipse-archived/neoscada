@@ -31,83 +31,84 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ArchiveChannel extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
+public interface ArchiveChannel extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Name</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Name</em>' attribute.
+     * @see #setName(String)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_Name()
+     * @model required="true"
+     * @generated
+     */
+    String getName ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getName <em>Name</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Name</em>' attribute.
+     * @see #getName()
+     * @generated
+     */
+    void setName ( String value );
 
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_Label()
-	 * @model
-	 * @generated
-	 */
-	String getLabel();
+    /**
+     * Returns the value of the '<em><b>Label</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Label</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Label</em>' attribute.
+     * @see #setLabel(String)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_Label()
+     * @model
+     * @generated
+     */
+    String getLabel ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getLabel <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getLabel <em>Label</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Label</em>' attribute.
+     * @see #getLabel()
+     * @generated
+     */
+    void setLabel ( String value );
 
-	/**
-	 * Returns the value of the '<em><b>Line Properties</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Line Properties</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Line Properties</em>' containment reference.
-	 * @see #setLineProperties(LineProperties)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_LineProperties()
-	 * @model containment="true" resolveProxies="true" required="true"
-	 * @generated
-	 */
-	LineProperties getLineProperties();
+    /**
+     * Returns the value of the '<em><b>Line Properties</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Line Properties</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Line Properties</em>' containment reference.
+     * @see #setLineProperties(LineProperties)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getArchiveChannel_LineProperties()
+     * @model containment="true" resolveProxies="true" required="true"
+     * @generated
+     */
+    LineProperties getLineProperties ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getLineProperties <em>Line Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Line Properties</em>' containment reference.
-	 * @see #getLineProperties()
-	 * @generated
-	 */
-	void setLineProperties(LineProperties value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ArchiveChannel#getLineProperties <em>Line Properties</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Line Properties</em>' containment reference.
+     * @see #getLineProperties()
+     * @generated
+     */
+    void setLineProperties ( LineProperties value );
 
 } // ArchiveChannel

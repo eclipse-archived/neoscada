@@ -29,31 +29,32 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Item extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Item Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item Id</em>' attribute.
-	 * @see #setItemId(String)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getItem_ItemId()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getItemId();
+public interface Item extends EObject
+{
+    /**
+     * Returns the value of the '<em><b>Item Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Item Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Item Id</em>' attribute.
+     * @see #setItemId(String)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getItem_ItemId()
+     * @model required="true"
+     * @generated
+     */
+    String getItemId ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.Item#getItemId <em>Item Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item Id</em>' attribute.
-	 * @see #getItemId()
-	 * @generated
-	 */
-	void setItemId(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.Item#getItemId <em>Item Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Item Id</em>' attribute.
+     * @see #getItemId()
+     * @generated
+     */
+    void setItemId ( String value );
 
 } // Item

@@ -26,24 +26,27 @@ import org.eclipse.scada.ui.chart.model.MouseController;
  * @generated
  */
 public class MouseControllerImpl extends ControllerImpl implements
-		MouseController {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MouseControllerImpl() {
-		super();
-	}
+        MouseController
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MouseControllerImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.MOUSE_CONTROLLER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.MOUSE_CONTROLLER;
+    }
 
 } //MouseControllerImpl

@@ -26,24 +26,27 @@ import org.eclipse.scada.ui.chart.model.ResetController;
  * @generated
  */
 public class ResetControllerImpl extends ControllerImpl implements
-		ResetController {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResetControllerImpl() {
-		super();
-	}
+        ResetController
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ResetControllerImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.RESET_CONTROLLER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.RESET_CONTROLLER;
+    }
 
 } //ResetControllerImpl

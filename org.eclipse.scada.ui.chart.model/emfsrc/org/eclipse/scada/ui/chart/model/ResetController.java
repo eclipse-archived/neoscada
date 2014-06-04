@@ -21,5 +21,6 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface ResetController extends Controller {
+public interface ResetController extends Controller
+{
 } // ResetController

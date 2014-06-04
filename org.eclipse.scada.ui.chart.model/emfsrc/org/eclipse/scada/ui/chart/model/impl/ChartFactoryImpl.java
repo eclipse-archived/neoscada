@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.scada.ui.chart.model.*;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Chart;
@@ -48,7 +49,6 @@ import org.eclipse.swt.graphics.RGB;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Factory</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
@@ -57,15 +57,13 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
      * Creates the default factory implementation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static ChartFactory init ()
     {
         try
         {
-            ChartFactory theChartFactory = (ChartFactory)EPackage.Registry.INSTANCE
-                    .getEFactory ( ChartPackage.eNS_URI );
+            ChartFactory theChartFactory = (ChartFactory)EPackage.Registry.INSTANCE.getEFactory ( ChartPackage.eNS_URI );
             if ( theChartFactory != null )
             {
                 return theChartFactory;
@@ -82,7 +80,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
      * Creates an instance of the factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public ChartFactoryImpl ()
@@ -93,11 +90,10 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public EObject create ( final EClass eClass )
+    public EObject create ( EClass eClass )
     {
         switch ( eClass.getClassifierID () )
         {
@@ -139,20 +135,20 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
                 return createResetController ();
             case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES:
                 return createCompositeArchiveQualitySeries ();
+            case ChartPackage.LEGEND_CONTROLLER:
+                return createLegendController ();
             default:
-                throw new IllegalArgumentException (
-                        "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object createFromString ( final EDataType eDataType, final String initialValue )
+    public Object createFromString ( EDataType eDataType, String initialValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -161,19 +157,17 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
             case ChartPackage.RGB:
                 return createRGBFromString ( eDataType, initialValue );
             default:
-                throw new IllegalArgumentException (
-                        "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public String convertToString ( final EDataType eDataType, final Object instanceValue )
+    public String convertToString ( EDataType eDataType, Object instanceValue )
     {
         switch ( eDataType.getClassifierID () )
         {
@@ -182,15 +176,13 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
             case ChartPackage.RGB:
                 return convertRGBToString ( eDataType, instanceValue );
             default:
-                throw new IllegalArgumentException (
-                        "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
+                throw new IllegalArgumentException ( "The datatype '" + eDataType.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -203,7 +195,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -216,7 +207,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -229,7 +219,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -242,7 +231,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -255,7 +243,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -268,7 +255,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -281,7 +267,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -294,7 +279,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -307,7 +291,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -320,7 +303,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -333,7 +315,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -346,7 +327,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -359,7 +339,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -372,7 +351,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -385,7 +363,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -398,7 +375,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -411,7 +387,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -424,7 +399,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -437,29 +411,34 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     * @generated
+     */
+    public LegendController createLegendController ()
+    {
+        LegendControllerImpl legendController = new LegendControllerImpl ();
+        return legendController;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
     public ProfileSwitcherType createProfileSwitcherTypeFromString (
-            final EDataType eDataType, final String initialValue )
+            EDataType eDataType, String initialValue )
     {
         ProfileSwitcherType result = ProfileSwitcherType.get ( initialValue );
         if ( result == null )
-        {
-            throw new IllegalArgumentException (
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        }
+            throw new IllegalArgumentException ( "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName () + "'" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
         return result;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public String convertProfileSwitcherTypeToString ( final EDataType eDataType,
-            final Object instanceValue )
+    public String convertProfileSwitcherTypeToString ( EDataType eDataType, Object instanceValue )
     {
         return instanceValue == null ? null : instanceValue.toString ();
     }
@@ -508,7 +487,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -520,7 +498,6 @@ public class ChartFactoryImpl extends EFactoryImpl implements ChartFactory
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @deprecated
      * @generated
      */

@@ -26,24 +26,27 @@ import org.eclipse.scada.ui.chart.model.SeparatorController;
  * @generated
  */
 public class SeparatorControllerImpl extends ControllerImpl implements
-		SeparatorController {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SeparatorControllerImpl() {
-		super();
-	}
+        SeparatorController
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SeparatorControllerImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.SEPARATOR_CONTROLLER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.SEPARATOR_CONTROLLER;
+    }
 
 } //SeparatorControllerImpl

@@ -21,5 +21,6 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface MouseController extends Controller {
+public interface MouseController extends Controller
+{
 } // MouseController

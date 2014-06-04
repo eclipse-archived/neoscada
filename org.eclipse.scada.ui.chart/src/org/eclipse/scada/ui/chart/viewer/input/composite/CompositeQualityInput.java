@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,21 +8,13 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
-/*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input.composite;
 
 import java.text.MessageFormat;
+import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +35,7 @@ import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.input.AbstractInput;
 import org.eclipse.scada.ui.chart.viewer.input.ArchiveInput;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,6 +96,12 @@ public class CompositeQualityInput extends AbstractInput
     protected boolean checkQuality ( final double value )
     {
         return value > this.threshold;
+    }
+
+    @Override
+    public RGB getColor ()
+    {
+        return null;
     }
 
     @Override
@@ -177,8 +176,9 @@ public class CompositeQualityInput extends AbstractInput
     }
 
     @Override
-    public void tick ( final long now )
+    public boolean tick ( final long now )
     {
+        return false;
     }
 
     @Override
@@ -209,17 +209,20 @@ public class CompositeQualityInput extends AbstractInput
     }
 
     @Override
-    protected void setSelectedTimestamp ( final Date selectedTimestamp )
+    protected void setSelectedTimestamp ( final Calendar selectedTimestamp )
     {
-        super.setSelectedTimestamp ( selectedTimestamp );
-        final DataEntry value = this.data.getViewData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTime (), null ) );
+        final DataEntry value = this.data.getViewData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTimeInMillis (), null ) );
         if ( value == null )
         {
+            super.setSelectedTimestamp ( selectedTimestamp );
             setSelectedValue ( null );
         }
         else
         {
-            setSelectedValue ( value.toString () );
+            final Calendar c = Calendar.getInstance ();
+            c.setTimeInMillis ( value.getTimestamp () );
+            super.setSelectedTimestamp ( c );
+            setSelectedValue ( value.getValue () );
         }
     }
 

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - additional work, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
@@ -23,12 +23,15 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public abstract class AbstractInput extends AbstractPropertyChange implements ChartInput
 {
+    private Calendar selectedTimestamp;
 
-    private Date selectedTimestamp;
+    private Double selectedValue;
 
-    private String selectedValue;
-
-    private String selectedQuality;
+    /**
+     * The selected quality. Between 0.0 to 1.0. May be <code>null</code> if not
+     * available
+     */
+    private Double selectedQuality;
 
     private ChartMouseMoveListener mouseMoveListener;
 
@@ -51,29 +54,29 @@ public abstract class AbstractInput extends AbstractPropertyChange implements Ch
     }
 
     @Override
-    public Date getSelectedTimestamp ()
+    public Calendar getSelectedTimestamp ()
     {
         return this.selectedTimestamp;
     }
 
-    protected void setSelectedTimestamp ( final Date selectedTimestamp )
+    protected void setSelectedTimestamp ( final Calendar selectedTimestamp )
     {
         firePropertyChange ( PROP_SELECTED_TIMESTAMP, this.selectedTimestamp, this.selectedTimestamp = selectedTimestamp );
     }
 
     @Override
-    public void setSelection ( final Date date )
+    public void setSelection ( final Calendar date )
     {
         setSelectedTimestamp ( date );
     }
 
-    protected void setSelectedValue ( final String selectedValue )
+    protected void setSelectedValue ( final Double selectedValue )
     {
         firePropertyChange ( PROP_SELECTED_VALUE, this.selectedValue, this.selectedValue = selectedValue );
     }
 
     @Override
-    public String getSelectedValue ()
+    public Double getSelectedValue ()
     {
         return this.selectedValue;
     }
@@ -107,7 +110,9 @@ public abstract class AbstractInput extends AbstractPropertyChange implements Ch
 
     protected void handeMouseMove ( final MouseState e, final long timestamp )
     {
-        setSelectedTimestamp ( new Date ( timestamp ) );
+        final Calendar c = Calendar.getInstance ();
+        c.setTimeInMillis ( timestamp );
+        setSelectedTimestamp ( c );
     }
 
     @Override
@@ -117,12 +122,12 @@ public abstract class AbstractInput extends AbstractPropertyChange implements Ch
     }
 
     @Override
-    public String getSelectedQuality ()
+    public Double getSelectedQuality ()
     {
         return this.selectedQuality;
     }
 
-    protected void setSelectedQuality ( final String selectedQuality )
+    protected void setSelectedQuality ( final Double selectedQuality )
     {
         firePropertyChange ( PROP_SELECTED_QUALITY, this.selectedQuality, this.selectedQuality = selectedQuality );
     }

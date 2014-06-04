@@ -161,4 +161,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="threshold" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.8"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LegendController" eSuperTypes="#//Controller">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestampFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

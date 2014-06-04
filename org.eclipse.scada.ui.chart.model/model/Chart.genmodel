@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    TH4 SYSTEMS GmbH - initial API and implementation&#xA;    IBH SYSTEMS GmbH - prepare for Eclipse contribution"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
     modelDirectory="/org.eclipse.scada.ui.chart.model/emfsrc" editDirectory="/org.eclipse.scada.ui.chart.model.edit/src"
     editorDirectory="/org.eclipse.scada.ui.chart.model.editor/src" modelPluginID="org.eclipse.scada.ui.chart.model"
     modelName="Chart" editPluginClass="org.eclipse.scada.ui.chart.model.provider.ChartEditPlugin"
@@ -119,6 +119,9 @@
     <genClasses ecoreClass="Chart.ecore#//ResetController"/>
     <genClasses ecoreClass="Chart.ecore#//CompositeArchiveQualitySeries">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//CompositeArchiveQualitySeries/threshold"/>
+    </genClasses>
+    <genClasses ecoreClass="Chart.ecore#//LegendController">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Chart.ecore#//LegendController/timestampFormat"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -27,24 +27,27 @@ import org.eclipse.scada.ui.chart.model.Controller;
  *
  * @generated
  */
-public abstract class ControllerImpl extends EObjectImpl implements Controller {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ControllerImpl() {
-		super();
-	}
+public abstract class ControllerImpl extends EObjectImpl implements Controller
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ControllerImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.CONTROLLER;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.CONTROLLER;
+    }
 
 } //ControllerImpl

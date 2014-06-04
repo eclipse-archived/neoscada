@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - fix table column layout
+ *     IBH SYSTEMS GmbH - fix table column layout, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.view;
 
 import java.text.DateFormat;
-import java.util.Date;
+import java.text.NumberFormat;
+import java.util.Calendar;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.BeansObservables;
@@ -28,6 +29,7 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.scada.chart.swt.render.legend.SeriesInformation;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
 import org.eclipse.swt.SWT;
@@ -70,7 +72,7 @@ public class ChartControllerView extends AbstractChartManagePart
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Input" );
             layout.addColumnData ( new ColumnWeightData ( 100 ) );
-            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), ChartInput.PROP_LABEL ) ) {
+            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), SeriesInformation.PROP_LABEL ) ) {
 
                 @Override
                 public void update ( final ViewerCell cell )
@@ -119,12 +121,12 @@ public class ChartControllerView extends AbstractChartManagePart
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Selected Timestamp" );
             layout.addColumnData ( new ColumnWeightData ( 100 ) );
-            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), ChartInput.PROP_SELECTED_TIMESTAMP ) ) {
+            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), SeriesInformation.PROP_SELECTED_TIMESTAMP ) ) {
 
                 @Override
                 public void update ( final ViewerCell cell )
                 {
-                    final Date timestamp = ( (ChartInput)cell.getElement () ).getSelectedTimestamp ();
+                    final Calendar timestamp = ( (ChartInput)cell.getElement () ).getSelectedTimestamp ();
                     cell.setText ( timestamp == null ? null : DateFormat.getDateTimeInstance ().format ( timestamp ) );
                 }
             } );
@@ -133,12 +135,20 @@ public class ChartControllerView extends AbstractChartManagePart
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Selected Value" );
             layout.addColumnData ( new ColumnWeightData ( 100 ) );
-            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), ChartInput.PROP_SELECTED_VALUE ) ) {
+            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), SeriesInformation.PROP_SELECTED_VALUE ) ) {
 
                 @Override
                 public void update ( final ViewerCell cell )
                 {
-                    cell.setText ( ( (ChartInput)cell.getElement () ).getSelectedValue () );
+                    final Double value = ( (ChartInput)cell.getElement () ).getSelectedValue ();
+                    if ( value == null )
+                    {
+                        cell.setText ( "<none>" );
+                    }
+                    else
+                    {
+                        cell.setText ( NumberFormat.getNumberInstance ().format ( value ) );
+                    }
                 }
             } );
         }
@@ -146,12 +156,20 @@ public class ChartControllerView extends AbstractChartManagePart
             final TableViewerColumn col = new TableViewerColumn ( this.viewer, SWT.NONE );
             col.getColumn ().setText ( "Selected Quality" );
             layout.addColumnData ( new ColumnWeightData ( 100 ) );
-            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), ChartInput.PROP_SELECTED_QUALITY ) ) {
+            col.setLabelProvider ( new ObservableMapCellLabelProvider ( BeansObservables.observeMap ( provider.getRealizedElements (), SeriesInformation.PROP_SELECTED_QUALITY ) ) {
 
                 @Override
                 public void update ( final ViewerCell cell )
                 {
-                    cell.setText ( ( (ChartInput)cell.getElement () ).getSelectedQuality () );
+                    final Double quality = ( (ChartInput)cell.getElement () ).getSelectedQuality ();
+                    if ( quality == null )
+                    {
+                        cell.setText ( null );
+                    }
+                    else
+                    {
+                        cell.setText ( NumberFormat.getPercentInstance ().format ( quality ) );
+                    }
                 }
             } );
         }

@@ -21,5 +21,6 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface SeparatorController extends Controller {
+public interface SeparatorController extends Controller
+{
 } // SeparatorController

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,11 +7,11 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work, fix for bug 433409
+ *     IBH SYSTEMS GmbH - additional work, fix for bug 433409, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -135,24 +135,29 @@ public class ScriptInput extends LineInput
     }
 
     @Override
-    protected void setSelectedTimestamp ( final Date selectedTimestamp )
+    protected void setSelectedTimestamp ( final Calendar selectedTimestamp )
     {
-        super.setSelectedTimestamp ( selectedTimestamp );
-        final DataEntry value = this.dataSeries.getViewData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTime (), null ) );
+
+        final DataEntry value = this.dataSeries.getViewData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTimeInMillis (), null ) );
         if ( value == null )
         {
+            super.setSelectedTimestamp ( selectedTimestamp );
             setSelectedValue ( null );
         }
         else
         {
-            setSelectedValue ( value.toString () );
+            final Calendar c = Calendar.getInstance ();
+            c.setTimeInMillis ( value.getTimestamp () );
+            super.setSelectedTimestamp ( c );
+            setSelectedValue ( value.getValue () );
         }
 
     }
 
     @Override
-    public void tick ( final long now )
+    public boolean tick ( final long now )
     {
+        return false;
     }
 
     @Override

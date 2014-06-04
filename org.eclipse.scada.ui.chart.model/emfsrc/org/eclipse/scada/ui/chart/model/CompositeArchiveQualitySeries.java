@@ -27,32 +27,33 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface CompositeArchiveQualitySeries extends DataSeries {
-	/**
-	 * Returns the value of the '<em><b>Threshold</b></em>' attribute.
-	 * The default value is <code>"0.8"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Threshold</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Threshold</em>' attribute.
-	 * @see #setThreshold(double)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getCompositeArchiveQualitySeries_Threshold()
-	 * @model default="0.8" required="true"
-	 * @generated
-	 */
-	double getThreshold();
+public interface CompositeArchiveQualitySeries extends DataSeries
+{
+    /**
+     * Returns the value of the '<em><b>Threshold</b></em>' attribute.
+     * The default value is <code>"0.8"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Threshold</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Threshold</em>' attribute.
+     * @see #setThreshold(double)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getCompositeArchiveQualitySeries_Threshold()
+     * @model default="0.8" required="true"
+     * @generated
+     */
+    double getThreshold ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries#getThreshold <em>Threshold</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Threshold</em>' attribute.
-	 * @see #getThreshold()
-	 * @generated
-	 */
-	void setThreshold(double value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries#getThreshold <em>Threshold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Threshold</em>' attribute.
+     * @see #getThreshold()
+     * @generated
+     */
+    void setThreshold ( double value );
 
 } // CompositeArchiveQualitySeries

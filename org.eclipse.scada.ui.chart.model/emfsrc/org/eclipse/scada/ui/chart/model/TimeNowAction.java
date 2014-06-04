@@ -21,5 +21,6 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface TimeNowAction extends XAxisController {
+public interface TimeNowAction extends XAxisController
+{
 } // TimeNowAction

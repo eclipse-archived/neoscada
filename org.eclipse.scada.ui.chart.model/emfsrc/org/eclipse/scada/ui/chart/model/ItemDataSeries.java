@@ -27,31 +27,32 @@ package org.eclipse.scada.ui.chart.model;
  * @model abstract="true"
  * @generated
  */
-public interface ItemDataSeries extends DataSeries {
-	/**
-	 * Returns the value of the '<em><b>Item</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Item</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Item</em>' containment reference.
-	 * @see #setItem(Item)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getItemDataSeries_Item()
-	 * @model containment="true" resolveProxies="true" required="true"
-	 * @generated
-	 */
-	Item getItem();
+public interface ItemDataSeries extends DataSeries
+{
+    /**
+     * Returns the value of the '<em><b>Item</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Item</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Item</em>' containment reference.
+     * @see #setItem(Item)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getItemDataSeries_Item()
+     * @model containment="true" resolveProxies="true" required="true"
+     * @generated
+     */
+    Item getItem ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ItemDataSeries#getItem <em>Item</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Item</em>' containment reference.
-	 * @see #getItem()
-	 * @generated
-	 */
-	void setItem(Item value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ItemDataSeries#getItem <em>Item</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Item</em>' containment reference.
+     * @see #getItem()
+     * @generated
+     */
+    void setItem ( Item value );
 
 } // ItemDataSeries

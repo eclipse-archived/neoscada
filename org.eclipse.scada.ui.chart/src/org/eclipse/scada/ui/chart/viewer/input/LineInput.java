@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
- *     IBH SYSTEMS GmbH - bug fixes and extensions
+ *     IBH SYSTEMS GmbH - bug fixes and extensions, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
@@ -67,10 +67,18 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
         this.lineColor = rgb;
         getLineRenderer ().setLineColor ( rgb );
         fireUpdatePreviews ();
+
+        firePropertyChange ( PROP_COLOR, null, rgb );
     }
 
     @Override
     public RGB getLineColor ()
+    {
+        return this.lineColor;
+    }
+
+    @Override
+    public RGB getColor ()
     {
         return this.lineColor;
     }

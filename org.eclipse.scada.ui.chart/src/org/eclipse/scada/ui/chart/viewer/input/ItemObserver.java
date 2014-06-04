@@ -8,13 +8,12 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
- *     IBH SYSTEMS GmbH - bug fixes and extensions
+ *     IBH SYSTEMS GmbH - bug fixes and extensions, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedList;
 
 import org.eclipse.jface.resource.ResourceManager;
@@ -67,7 +66,7 @@ public class ItemObserver extends LineInput implements DataSourceListener
 
     private SubscriptionState state;
 
-    private Date originalSelectedTimestamp;
+    private Calendar originalSelectedTimestamp;
 
     private static class LevelRuler
     {
@@ -240,7 +239,7 @@ public class ItemObserver extends LineInput implements DataSourceListener
      * @see org.eclipse.scada.ui.chart.model.view.ChartInput#tick(long)
      */
     @Override
-    public void tick ( final long now )
+    public boolean tick ( final long now )
     {
         if ( this.lastTickMarker == null )
         {
@@ -248,7 +247,7 @@ public class ItemObserver extends LineInput implements DataSourceListener
             if ( newMarker.getTimestamp () > now )
             {
                 // don't add marker if the latest value is in the future
-                return;
+                return false;
             }
             this.lastTickMarker = newMarker;
         }
@@ -258,6 +257,8 @@ public class ItemObserver extends LineInput implements DataSourceListener
         }
         this.lastTickMarker = new DataEntry ( now, this.lastTickMarker.getValue () );
         this.valueSeries.getData ().add ( this.lastTickMarker );
+
+        return true;
     }
 
     public void connect ()
@@ -337,7 +338,7 @@ public class ItemObserver extends LineInput implements DataSourceListener
     }
 
     @Override
-    protected void setSelectedTimestamp ( final Date selectedTimestamp )
+    protected void setSelectedTimestamp ( final Calendar selectedTimestamp )
     {
         if ( selectedTimestamp == null )
         {
@@ -351,18 +352,20 @@ public class ItemObserver extends LineInput implements DataSourceListener
             return;
         }
 
-        final DataEntry value = this.valueSeries.getData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTime (), null ) );
+        final DataEntry value = this.valueSeries.getData ().getEntries ().lower ( new DataEntry ( selectedTimestamp.getTimeInMillis (), null ) );
         if ( value == null )
         {
             setSelectedValue ( null );
             super.setSelectedTimestamp ( null );
-            setSelectedQuality ( Messages.ItemObserver_ZeroPercent );
+            setSelectedQuality ( 0.0 );
         }
         else
         {
-            setSelectedValue ( String.format ( Messages.ItemObserver_Format_Value, value.getValue () ) );
-            setSelectedQuality ( value.getValue () == null ? Messages.ItemObserver_ZeroPercent : Messages.ItemObserver_100Percent );
-            super.setSelectedTimestamp ( new Date ( value.getTimestamp () ) );
+            setSelectedValue ( value.getValue () );
+            setSelectedQuality ( value.getValue () == null ? 0.0 : 1.0 );
+            final Calendar c = Calendar.getInstance ();
+            c.setTimeInMillis ( value.getTimestamp () );
+            super.setSelectedTimestamp ( c );
         }
     }
 

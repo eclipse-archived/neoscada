@@ -29,21 +29,22 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface XAxisController extends Controller {
-	/**
-	 * Returns the value of the '<em><b>Axis</b></em>' reference list.
-	 * The list contents are of type {@link org.eclipse.scada.ui.chart.model.XAxis}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Axis</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Axis</em>' reference list.
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxisController_Axis()
-	 * @model
-	 * @generated
-	 */
-	EList<XAxis> getAxis();
+public interface XAxisController extends Controller
+{
+    /**
+     * Returns the value of the '<em><b>Axis</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.ui.chart.model.XAxis}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Axis</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Axis</em>' reference list.
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getXAxisController_Axis()
+     * @model
+     * @generated
+     */
+    EList<XAxis> getAxis ();
 
 } // XAxisController

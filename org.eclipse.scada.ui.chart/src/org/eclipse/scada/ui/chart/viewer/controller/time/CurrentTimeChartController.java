@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - additional work
+ *     IBH SYSTEMS GmbH - additional work, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.controller.time;
 
@@ -20,16 +20,15 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.scada.chart.XAxis;
-import org.eclipse.scada.ui.chart.viewer.ChartContext;
-import org.eclipse.scada.ui.chart.viewer.XAxisViewer;
-import org.eclipse.scada.ui.chart.viewer.controller.ChartController;
-import org.eclipse.scada.ui.chart.viewer.controller.actions.AbstractXAxisController;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.CurrentTimeController;
+import org.eclipse.scada.ui.chart.viewer.ChartContext;
+import org.eclipse.scada.ui.chart.viewer.XAxisViewer;
+import org.eclipse.scada.ui.chart.viewer.controller.actions.AbstractXAxisController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CurrentTimeChartController extends AbstractXAxisController implements ChartController
+public class CurrentTimeChartController extends AbstractXAxisController
 {
 
     private final static Logger logger = LoggerFactory.getLogger ( CurrentTimeChartController.class );

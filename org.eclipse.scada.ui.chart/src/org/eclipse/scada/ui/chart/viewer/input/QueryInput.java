@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,12 +7,13 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.eclipse.jface.resource.ResourceManager;
@@ -32,7 +33,7 @@ public abstract class QueryInput extends LineInput
 
     private String state;
 
-    private Date originalSelectedTimestamp;
+    private Calendar originalSelectedTimestamp;
 
     private String channelName;
 
@@ -124,7 +125,7 @@ public abstract class QueryInput extends LineInput
     }
 
     @Override
-    protected void setSelectedTimestamp ( final Date selectedTimestamp )
+    protected void setSelectedTimestamp ( final Calendar selectedTimestamp )
     {
         if ( selectedTimestamp == null )
         {
@@ -145,7 +146,7 @@ public abstract class QueryInput extends LineInput
             return;
         }
 
-        final long c = selectedTimestamp.getTime ();
+        final long c = selectedTimestamp.getTimeInMillis ();
 
         for ( int i = 0; i < infos.size (); i++ )
         {
@@ -158,15 +159,17 @@ public abstract class QueryInput extends LineInput
 
             if ( vi.getStartTimestamp () <= c && vi.getEndTimestamp () >= c )
             {
-                super.setSelectedTimestamp ( new Date ( vi.getStartTimestamp () ) );
-                setSelectedValue ( valueToString ( this.query, i, this.channelName ) );
-                setSelectedQuality ( qualityToString ( vi ) );
+                final Calendar ca = Calendar.getInstance ();
+                ca.setTimeInMillis ( vi.getStartTimestamp () );
+                super.setSelectedTimestamp ( ca );
+                setSelectedQuality ( vi.getQuality () );
+                setSelectedValue ( getValue ( this.query, i, this.channelName ) );
                 break;
             }
         }
     }
 
-    private static String valueToString ( final ServiceQueryBuffer query, final int index, final String channelName )
+    private static Double getValue ( final ServiceQueryBuffer query, final int index, final String channelName )
     {
         final List<Double> data = query.getValues ().get ( channelName );
         if ( data == null )
@@ -178,21 +181,12 @@ public abstract class QueryInput extends LineInput
             return null;
         }
 
-        final Double value = data.get ( index );
-        if ( value == null )
-        {
-            return null;
-        }
-
-        return String.format ( Messages.QueryInput_Format_Value, value );
+        return data.get ( index );
     }
 
-    private static String qualityToString ( final ValueInformation valueInformation )
+    @Override
+    public boolean tick ( final long now )
     {
-        if ( valueInformation == null )
-        {
-            return null;
-        }
-        return String.format ( Messages.QueryInput_Format_Quality, valueInformation.getQuality () * 100.0 );
+        return false;
     }
 }

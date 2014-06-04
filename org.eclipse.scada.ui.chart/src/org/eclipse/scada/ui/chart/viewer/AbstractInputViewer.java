@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
@@ -16,7 +17,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.scada.ui.chart.viewer.input.ChartInput;
+import org.eclipse.scada.chart.swt.render.legend.SeriesInformation;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.DataSeries;
 import org.eclipse.scada.ui.chart.model.XAxis;
@@ -68,8 +69,8 @@ public abstract class AbstractInputViewer extends AbstractObserver implements In
 
     protected void setInputObserable ( final IObservableValue inputObservable )
     {
-        addBinding ( this.dbc.bindValue ( PojoObservables.observeDetailValue ( inputObservable, ChartInput.PROP_VISIBLE, Boolean.class ), EMFObservables.observeValue ( this.element, ChartPackage.Literals.DATA_SERIES__VISIBLE ) ) );
-        addBinding ( this.dbc.bindValue ( PojoObservables.observeDetailValue ( inputObservable, ChartInput.PROP_LABEL, String.class ), EMFObservables.observeValue ( this.element, ChartPackage.Literals.DATA_SERIES__LABEL ) ) );
+        addBinding ( this.dbc.bindValue ( PojoObservables.observeDetailValue ( inputObservable, SeriesInformation.PROP_VISIBLE, Boolean.class ), EMFObservables.observeValue ( this.element, ChartPackage.Literals.DATA_SERIES__VISIBLE ) ) );
+        addBinding ( this.dbc.bindValue ( PojoObservables.observeDetailValue ( inputObservable, SeriesInformation.PROP_LABEL, String.class ), EMFObservables.observeValue ( this.element, ChartPackage.Literals.DATA_SERIES__LABEL ) ) );
     }
 
     protected abstract void checkCreateInput ();

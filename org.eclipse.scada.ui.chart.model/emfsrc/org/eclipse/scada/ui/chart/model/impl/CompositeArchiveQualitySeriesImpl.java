@@ -34,142 +34,154 @@ import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
  * @generated
  */
 public class CompositeArchiveQualitySeriesImpl extends DataSeriesImpl implements
-		CompositeArchiveQualitySeries {
-	/**
-	 * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getThreshold()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double THRESHOLD_EDEFAULT = 0.8;
+        CompositeArchiveQualitySeries
+{
+    /**
+     * The default value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getThreshold()
+     * @generated
+     * @ordered
+     */
+    protected static final double THRESHOLD_EDEFAULT = 0.8;
 
-	/**
-	 * The cached value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getThreshold()
-	 * @generated
-	 * @ordered
-	 */
-	protected double threshold = THRESHOLD_EDEFAULT;
+    /**
+     * The cached value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getThreshold()
+     * @generated
+     * @ordered
+     */
+    protected double threshold = THRESHOLD_EDEFAULT;
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompositeArchiveQualitySeriesImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected CompositeArchiveQualitySeriesImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.COMPOSITE_ARCHIVE_QUALITY_SERIES;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.COMPOSITE_ARCHIVE_QUALITY_SERIES;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public double getThreshold() {
-		return threshold;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public double getThreshold ()
+    {
+        return threshold;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setThreshold(double newThreshold) {
-		double oldThreshold = threshold;
-		threshold = newThreshold;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD,
-					oldThreshold, threshold));
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setThreshold ( double newThreshold )
+    {
+        double oldThreshold = threshold;
+        threshold = newThreshold;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD, oldThreshold, threshold ) );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
-			return getThreshold();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    {
+        switch ( featureID )
+        {
+            case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
+                return getThreshold ();
+        }
+        return super.eGet ( featureID, resolve, coreType );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
-			setThreshold((Double) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eSet ( int featureID, Object newValue )
+    {
+        switch ( featureID )
+        {
+            case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
+                setThreshold ( (Double)newValue );
+                return;
+        }
+        super.eSet ( featureID, newValue );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
-			setThreshold(THRESHOLD_EDEFAULT);
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
+                setThreshold ( THRESHOLD_EDEFAULT );
+                return;
+        }
+        super.eUnset ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
-			return threshold != THRESHOLD_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet ( int featureID )
+    {
+        switch ( featureID )
+        {
+            case ChartPackage.COMPOSITE_ARCHIVE_QUALITY_SERIES__THRESHOLD:
+                return threshold != THRESHOLD_EDEFAULT;
+        }
+        return super.eIsSet ( featureID );
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String toString ()
+    {
+        if ( eIsProxy () )
+            return super.toString ();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (threshold: "); //$NON-NLS-1$
-		result.append(threshold);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer ( super.toString () );
+        result.append ( " (threshold: " ); //$NON-NLS-1$
+        result.append ( threshold );
+        result.append ( ')' );
+        return result.toString ();
+    }
 
 } //CompositeArchiveQualitySeriesImpl

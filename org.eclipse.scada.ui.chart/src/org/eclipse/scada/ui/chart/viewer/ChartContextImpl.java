@@ -8,10 +8,11 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - additional work
- *     IBH SYSTEMS GmbH - bug fixes and extensions
+ *     IBH SYSTEMS GmbH - bug fixes and extensions, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.XAxis;
@@ -31,7 +32,9 @@ public class ChartContextImpl implements ChartContext
 
     private final ResetHandler resetHandler;
 
-    public ChartContextImpl ( final AxisLocator<XAxis, XAxisViewer> xAxisLocator, final AxisLocator<YAxis, YAxisViewer> yAxisLocator, final ExtensionSpaceProvider extensionSpaceProvider, final ChartRenderer chartRenderer, final Chart chart, final ResetHandler resetHandler )
+    private final IObservableList informations;
+
+    public ChartContextImpl ( final AxisLocator<XAxis, XAxisViewer> xAxisLocator, final AxisLocator<YAxis, YAxisViewer> yAxisLocator, final ExtensionSpaceProvider extensionSpaceProvider, final ChartRenderer chartRenderer, final Chart chart, final ResetHandler resetHandler, final IObservableList informations )
     {
         this.resetHandler = resetHandler;
         this.xAxisLocator = xAxisLocator;
@@ -39,6 +42,13 @@ public class ChartContextImpl implements ChartContext
         this.extensionSpaceProvider = extensionSpaceProvider;
         this.chartRenderer = chartRenderer;
         this.chart = chart;
+        this.informations = informations;
+    }
+
+    @Override
+    public IObservableList getInformations ()
+    {
+        return this.informations;
     }
 
     /* (non-Javadoc)

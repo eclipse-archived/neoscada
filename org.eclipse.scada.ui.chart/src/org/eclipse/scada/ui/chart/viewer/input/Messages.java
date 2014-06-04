@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - rework chart series information
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.viewer.input;
 
@@ -16,17 +17,8 @@ public class Messages extends NLS
 {
     private static final String BUNDLE_NAME = "org.eclipse.scada.ui.chart.viewer.input.messages"; //$NON-NLS-1$
 
-    public static String ItemObserver_100Percent;
-
-    public static String ItemObserver_Format_Value;
-
-    public static String ItemObserver_ZeroPercent;
-
     public static String QueryInput_Format_LoadingState;
 
-    public static String QueryInput_Format_Quality;
-
-    public static String QueryInput_Format_Value;
     static
     {
         // initialize resource bundle

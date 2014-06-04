@@ -27,31 +27,32 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface IdItem extends Item {
-	/**
-	 * Returns the value of the '<em><b>Connection Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connection Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connection Id</em>' attribute.
-	 * @see #setConnectionId(String)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getIdItem_ConnectionId()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getConnectionId();
+public interface IdItem extends Item
+{
+    /**
+     * Returns the value of the '<em><b>Connection Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Connection Id</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Connection Id</em>' attribute.
+     * @see #setConnectionId(String)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getIdItem_ConnectionId()
+     * @model required="true"
+     * @generated
+     */
+    String getConnectionId ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.IdItem#getConnectionId <em>Connection Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connection Id</em>' attribute.
-	 * @see #getConnectionId()
-	 * @generated
-	 */
-	void setConnectionId(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.IdItem#getConnectionId <em>Connection Id</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Connection Id</em>' attribute.
+     * @see #getConnectionId()
+     * @generated
+     */
+    void setConnectionId ( String value );
 
 } // IdItem

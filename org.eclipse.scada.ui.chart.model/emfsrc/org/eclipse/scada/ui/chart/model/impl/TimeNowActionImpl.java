@@ -26,24 +26,27 @@ import org.eclipse.scada.ui.chart.model.TimeNowAction;
  * @generated
  */
 public class TimeNowActionImpl extends XAxisControllerImpl implements
-		TimeNowAction {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimeNowActionImpl() {
-		super();
-	}
+        TimeNowAction
+{
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected TimeNowActionImpl ()
+    {
+        super ();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ChartPackage.Literals.TIME_NOW_ACTION;
-	}
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass ()
+    {
+        return ChartPackage.Literals.TIME_NOW_ACTION;
+    }
 
 } //TimeNowActionImpl

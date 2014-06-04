@@ -23,5 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Controller extends EObject {
+public interface Controller extends EObject
+{
 } // Controller

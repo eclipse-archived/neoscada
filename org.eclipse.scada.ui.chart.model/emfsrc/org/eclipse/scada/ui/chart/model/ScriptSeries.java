@@ -28,57 +28,58 @@ package org.eclipse.scada.ui.chart.model;
  * @model
  * @generated
  */
-public interface ScriptSeries extends DataSeries {
-	/**
-	 * Returns the value of the '<em><b>Line Properties</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Line Properties</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Line Properties</em>' containment reference.
-	 * @see #setLineProperties(LineProperties)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getScriptSeries_LineProperties()
-	 * @model containment="true" resolveProxies="true" required="true"
-	 * @generated
-	 */
-	LineProperties getLineProperties();
+public interface ScriptSeries extends DataSeries
+{
+    /**
+     * Returns the value of the '<em><b>Line Properties</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Line Properties</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Line Properties</em>' containment reference.
+     * @see #setLineProperties(LineProperties)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getScriptSeries_LineProperties()
+     * @model containment="true" resolveProxies="true" required="true"
+     * @generated
+     */
+    LineProperties getLineProperties ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ScriptSeries#getLineProperties <em>Line Properties</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Line Properties</em>' containment reference.
-	 * @see #getLineProperties()
-	 * @generated
-	 */
-	void setLineProperties(LineProperties value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ScriptSeries#getLineProperties <em>Line Properties</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Line Properties</em>' containment reference.
+     * @see #getLineProperties()
+     * @generated
+     */
+    void setLineProperties ( LineProperties value );
 
-	/**
-	 * Returns the value of the '<em><b>Script</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Script</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Script</em>' attribute.
-	 * @see #setScript(String)
-	 * @see org.eclipse.scada.ui.chart.model.ChartPackage#getScriptSeries_Script()
-	 * @model
-	 * @generated
-	 */
-	String getScript();
+    /**
+     * Returns the value of the '<em><b>Script</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Script</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Script</em>' attribute.
+     * @see #setScript(String)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getScriptSeries_Script()
+     * @model
+     * @generated
+     */
+    String getScript ();
 
-	/**
-	 * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ScriptSeries#getScript <em>Script</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Script</em>' attribute.
-	 * @see #getScript()
-	 * @generated
-	 */
-	void setScript(String value);
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.ScriptSeries#getScript <em>Script</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Script</em>' attribute.
+     * @see #getScript()
+     * @generated
+     */
+    void setScript ( String value );
 
 } // ScriptSeries
