@@ -22,7 +22,7 @@ import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.swt.SWT;
 
-public class XAxisViewer extends AbstractAxisViewer
+public class XAxisViewer extends AbstractAxisViewer<org.eclipse.scada.chart.XAxis>
 {
     private final XAxis axis;
 
@@ -53,6 +53,7 @@ public class XAxisViewer extends AbstractAxisViewer
         addBinding ( this.dbc.bindValue ( PojoObservables.observeValue ( this.renderer, "color" ), EMFObservables.observeValue ( this.axis, ChartPackage.Literals.AXIS__COLOR ) ) ); //$NON-NLS-1$
     }
 
+    @Override
     public org.eclipse.scada.chart.XAxis getAxis ()
     {
         return this.control;

@@ -151,8 +151,8 @@ public class DetailsPart implements org.eclipse.scada.da.client.dataitem.details
         y.setMinimum ( -100.0 );
         y.setMaximum ( 100.0 );
 
-        chartModel.setSelectedXAxis ( x );
-        chartModel.setSelectedYAxis ( y );
+        chartModel.getSelectedXAxis ().add ( x );
+        chartModel.getSelectedYAxis ().add ( y );
 
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createMouseController () );
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createTimeNowAction () );

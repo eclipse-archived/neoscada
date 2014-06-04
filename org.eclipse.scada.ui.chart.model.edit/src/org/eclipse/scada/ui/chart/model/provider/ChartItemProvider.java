@@ -79,6 +79,7 @@ public class ChartItemProvider extends ItemProviderAdapter implements
             addHoverablePropertyDescriptor ( object );
             addActiveProfilePropertyDescriptor ( object );
             addProfileSwitcherTypePropertyDescriptor ( object );
+            addTimeRulerAxisPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -286,6 +287,29 @@ public class ChartItemProvider extends ItemProviderAdapter implements
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Time Ruler Axis feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTimeRulerAxisPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Chart_timeRulerAxis_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Chart_timeRulerAxis_feature", "_UI_Chart_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ChartPackage.Literals.CHART__TIME_RULER_AXIS,
+                        true,
+                        false,
+                        true,
+                        null,
                         null,
                         null ) );
     }

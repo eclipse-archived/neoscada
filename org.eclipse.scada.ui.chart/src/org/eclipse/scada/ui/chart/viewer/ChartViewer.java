@@ -22,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.eclipse.core.databinding.AggregateValidationStatus;
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.UpdateListStrategy;
 import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.core.databinding.observable.Observables;
 import org.eclipse.core.databinding.observable.list.IObservableList;
@@ -40,15 +41,15 @@ import org.eclipse.jface.util.SafeRunnable;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.scada.chart.Realm;
-import org.eclipse.scada.chart.swt.ChartMouseListener.MouseState;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.DisplayRealm;
 import org.eclipse.scada.chart.swt.DisposeListener;
+import org.eclipse.scada.chart.swt.controller.AbstractMouseHandler.AxisFunction;
 import org.eclipse.scada.chart.swt.controller.MouseHover;
-import org.eclipse.scada.chart.swt.controller.MouseHover.Listener;
 import org.eclipse.scada.chart.swt.render.CurrentTimeRuler;
 import org.eclipse.scada.chart.swt.render.TitleRenderer;
 import org.eclipse.scada.da.ui.connection.data.Item;
+import org.eclipse.scada.ui.chart.AxisConverter;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartFactory;
@@ -100,9 +101,7 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private final XAxisManager bottomManager;
 
-    private XAxisViewer selectedXAxis;
-
-    private YAxisViewer selectedYAxis;
+    private XAxisViewer timeRulerAxis;
 
     private boolean showTimeRuler;
 
@@ -114,24 +113,13 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private final InputManager inputManager;
 
-    private YAxis selectedYAxisElement;
-
-    private XAxis selectedXAxisElement;
+    private XAxis timeRulerAxisElement;
 
     private final Set<ChartViewerListener> listeners = new LinkedHashSet<ChartViewerListener> ();
 
     private boolean mutable;
 
     private boolean hoverable;
-
-    private final MouseHover.Listener hoverListener = new Listener () {
-
-        @Override
-        public void mouseMove ( final MouseState e, final long timestamp )
-        {
-            // no-op
-        }
-    };
 
     private MouseHover mouseHover;
 
@@ -144,6 +132,8 @@ public class ChartViewer extends AbstractSelectionProvider
     private TitleRenderer titleRenderer;
 
     private Display display;
+
+    private final WritableList selectedXAxis = new WritableList ();
 
     public ChartViewer ( final Display display, final ChartRenderer chartRenderer, final Chart chart, final ExtensionSpaceProvider extensionSpaceProvider, final ResetHandler resetHandler )
     {
@@ -210,8 +200,9 @@ public class ChartViewer extends AbstractSelectionProvider
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "hoverable" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__HOVERABLE ) ); //$NON-NLS-1$
         this.ctx.bindValue ( PojoObservables.observeValue ( this, "chartBackground" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__BACKGROUND_COLOR ) ); //$NON-NLS-1$
 
-        this.ctx.bindValue ( PojoObservables.observeValue ( this, "selectedXAxis" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__SELECTED_XAXIS ) ); //$NON-NLS-1$
-        this.ctx.bindValue ( PojoObservables.observeValue ( this, "selectedYAxis" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__SELECTED_YAXIS ) ); //$NON-NLS-1$
+        this.ctx.bindValue ( PojoObservables.observeValue ( this, "timeRulerAxis" ), EMFObservables.observeValue ( this.chart, ChartPackage.Literals.CHART__TIME_RULER_AXIS ) ); //$NON-NLS-1$
+
+        this.ctx.bindList ( this.selectedXAxis, EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__SELECTED_XAXIS ), null, new UpdateListStrategy ().setConverter ( new AxisConverter<> ( XAxis.class, org.eclipse.scada.chart.XAxis.class, this.xLocator ) ) );
 
         this.chartContext = new ChartContextImpl ( this.xLocator, this.yLocator, extensionSpaceProvider, chartRenderer, chart, resetHandler, this.unmodItems );
 
@@ -329,10 +320,8 @@ public class ChartViewer extends AbstractSelectionProvider
     protected void updateState ()
     {
         final org.eclipse.scada.chart.XAxis x;
-        final org.eclipse.scada.chart.YAxis y;
 
-        x = getSelectedXAxisViewer ();
-        y = getSelectedYAxisViewer ();
+        x = getTimeRulerViewer ();
 
         // update mouse controllers
 
@@ -342,9 +331,9 @@ public class ChartViewer extends AbstractSelectionProvider
             this.mouseHover = null;
         }
 
-        if ( x != null && y != null && isHoverable () )
+        if ( isHoverable () )
         {
-            this.mouseHover = new MouseHover ( this.manager, x, this.hoverListener );
+            this.mouseHover = new MouseHover ( this.manager );
             this.mouseHover.setVisible ( true );
         }
 
@@ -368,56 +357,34 @@ public class ChartViewer extends AbstractSelectionProvider
         this.timeRuler = null;
     }
 
-    private org.eclipse.scada.chart.YAxis getSelectedYAxisViewer ()
+    private org.eclipse.scada.chart.XAxis getTimeRulerViewer ()
     {
-        return this.selectedYAxis != null ? this.selectedYAxis.getAxis () : null;
+        return this.timeRulerAxis != null ? this.timeRulerAxis.getAxis () : null;
     }
 
-    private org.eclipse.scada.chart.XAxis getSelectedXAxisViewer ()
+    public XAxis getTimeRulerAxis ()
     {
-        return this.selectedXAxis != null ? this.selectedXAxis.getAxis () : null;
+        return this.timeRulerAxisElement;
     }
 
-    public XAxis getSelectedXAxis ()
-    {
-        return this.selectedXAxisElement;
-    }
-
-    public YAxis getSelectedYAxis ()
-    {
-        return this.selectedYAxisElement;
-    }
-
-    public void setSelectedXAxis ( final XAxis axis )
+    public void setTimeRulerAxis ( final XAxis axis )
     {
         final XAxisViewer newSelection = this.xLocator.findAxis ( axis );
-        if ( this.selectedXAxis == newSelection )
+        if ( this.timeRulerAxis == newSelection )
         {
             return;
         }
-        this.selectedXAxis = newSelection;
-        this.selectedXAxisElement = axis;
+        this.timeRulerAxis = newSelection;
+        this.timeRulerAxisElement = axis;
 
         disposeTimeRuler (); // dispose time ruler, as the axis changed
-        updateState ();
-    }
-
-    public void setSelectedYAxis ( final YAxis axis )
-    {
-        final YAxisViewer newSelection = this.yLocator.findAxis ( axis );
-        if ( this.selectedYAxis == newSelection )
-        {
-            return;
-        }
-        this.selectedYAxis = newSelection;
-        this.selectedYAxisElement = axis;
-
         updateState ();
     }
 
     public void setChartBackground ( final RGB rgb )
     {
         this.manager.setChartBackground ( rgb );
+        this.manager.refresh ();
     }
 
     public RGB getChartBackground ()
@@ -518,7 +485,17 @@ public class ChartViewer extends AbstractSelectionProvider
 
     public void addItem ( final org.eclipse.scada.hd.ui.connection.data.Item item )
     {
-        if ( this.selectedXAxisElement == null || this.selectedYAxisElement == null )
+        if ( this.timeRulerAxisElement == null )
+        {
+            return;
+        }
+
+        YAxis y;
+        try
+        {
+            y = this.chart.getSelectedYAxis ().get ( 0 );
+        }
+        catch ( final IndexOutOfBoundsException e )
         {
             return;
         }
@@ -551,8 +528,9 @@ public class ChartViewer extends AbstractSelectionProvider
         final ArchiveSeries input = ChartFactory.eINSTANCE.createArchiveSeries ();
         input.setLabel ( item.toLabel () );
         input.setItem ( itemRef );
-        input.setX ( this.selectedXAxisElement );
-        input.setY ( this.selectedYAxisElement );
+        input.setX ( this.timeRulerAxisElement );
+
+        input.setY ( y );
 
         input.getLineProperties ().setColor ( nextFreeColor () );
 
@@ -561,7 +539,17 @@ public class ChartViewer extends AbstractSelectionProvider
 
     public void addItem ( final Item item )
     {
-        if ( this.selectedXAxisElement == null || this.selectedYAxisElement == null )
+        if ( this.timeRulerAxisElement == null )
+        {
+            return;
+        }
+
+        YAxis y;
+        try
+        {
+            y = this.chart.getSelectedYAxis ().get ( 0 );
+        }
+        catch ( final IndexOutOfBoundsException e )
         {
             return;
         }
@@ -594,8 +582,8 @@ public class ChartViewer extends AbstractSelectionProvider
         final DataItemSeries input = ChartFactory.eINSTANCE.createDataItemSeries ();
         input.setLabel ( item.toLabel () );
         input.setItem ( itemRef );
-        input.setX ( this.selectedXAxisElement );
-        input.setY ( this.selectedYAxisElement );
+        input.setX ( this.timeRulerAxisElement );
+        input.setY ( y );
 
         input.getLineProperties ().setColor ( nextFreeColor () );
 
@@ -719,31 +707,48 @@ public class ChartViewer extends AbstractSelectionProvider
         return this.unmodItems;
     }
 
+    protected void processX ( final AxisFunction<org.eclipse.scada.chart.XAxis> func )
+    {
+        for ( final Object o : this.selectedXAxis )
+        {
+            func.process ( (org.eclipse.scada.chart.XAxis)o );
+        }
+    }
+
     public void showTimespan ( final long duration, final TimeUnit timeUnit )
     {
-        final org.eclipse.scada.chart.XAxis x = getSelectedXAxisViewer ();
-        if ( x != null )
-        {
-            x.setByTimespan ( duration, timeUnit );
-        }
+        processX ( new AxisFunction<org.eclipse.scada.chart.XAxis> () {
+
+            @Override
+            public void process ( final org.eclipse.scada.chart.XAxis axis )
+            {
+                axis.setByTimespan ( duration, timeUnit );
+            }
+        } );
     }
 
     public void pageTimespan ( final long duration, final TimeUnit timeUnit )
     {
-        final org.eclipse.scada.chart.XAxis x = getSelectedXAxisViewer ();
-        if ( x != null )
-        {
-            x.shiftByTimespan ( duration, timeUnit );
-        }
+        processX ( new AxisFunction<org.eclipse.scada.chart.XAxis> () {
+
+            @Override
+            public void process ( final org.eclipse.scada.chart.XAxis axis )
+            {
+                axis.shiftByTimespan ( duration, timeUnit );
+            }
+        } );
     }
 
     public void setNowCenter ()
     {
-        final org.eclipse.scada.chart.XAxis x = getSelectedXAxisViewer ();
-        if ( x != null )
-        {
-            x.setNowCenter ();
-        }
+        processX ( new AxisFunction<org.eclipse.scada.chart.XAxis> () {
+
+            @Override
+            public void process ( final org.eclipse.scada.chart.XAxis axis )
+            {
+                axis.setNowCenter ();
+            }
+        } );
     }
 
     public Chart getChartConfiguration ()

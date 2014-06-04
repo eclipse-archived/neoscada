@@ -12,26 +12,25 @@
 package org.eclipse.scada.ui.chart.viewer.controller.tools;
 
 import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.databinding.UpdateListStrategy;
+import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.scada.chart.swt.controller.MouseDragZoomer;
 import org.eclipse.scada.chart.swt.controller.MouseTransformer;
 import org.eclipse.scada.chart.swt.controller.MouseWheelZoomer;
-import org.eclipse.scada.ui.chart.viewer.AbstractObserver;
-import org.eclipse.scada.ui.chart.viewer.ChartContext;
-import org.eclipse.scada.ui.chart.viewer.XAxisViewer;
-import org.eclipse.scada.ui.chart.viewer.YAxisViewer;
-import org.eclipse.scada.ui.chart.viewer.controller.ChartController;
-import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
+import org.eclipse.scada.ui.chart.AxisConverter;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.MouseController;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
+import org.eclipse.scada.ui.chart.viewer.AbstractObserver;
+import org.eclipse.scada.ui.chart.viewer.ChartContext;
+import org.eclipse.scada.ui.chart.viewer.controller.ChartController;
+import org.eclipse.scada.ui.chart.viewer.controller.ControllerManager;
 
 public class MouseControllerImpl extends AbstractObserver implements ChartController
 {
-
     private final ChartContext chartContext;
 
     private MouseTransformer mouseTransformer;
@@ -40,13 +39,9 @@ public class MouseControllerImpl extends AbstractObserver implements ChartContro
 
     private MouseWheelZoomer mouseWheelZoomer;
 
-    private XAxisViewer selectedXAxis;
+    private final WritableList selectedXAxis = new WritableList/*XAxisViewer*/();
 
-    private YAxisViewer selectedYAxis;
-
-    private YAxis selectedYAxisElement;
-
-    private XAxis selectedXAxisElement;
+    private final WritableList selectedYAxis = new WritableList/*YAxisViewer*/();
 
     public MouseControllerImpl ( final ControllerManager controllerManager, final ChartContext chartContext, final MouseController controller )
     {
@@ -55,121 +50,35 @@ public class MouseControllerImpl extends AbstractObserver implements ChartContro
         final Chart chart = chartContext.getChart ();
 
         final DataBindingContext ctx = controllerManager.getContext ();
-        ctx.bindValue ( PojoObservables.observeValue ( this, "selectedXAxis" ), EMFObservables.observeValue ( chart, ChartPackage.Literals.CHART__SELECTED_XAXIS ) ); //$NON-NLS-1$
-        ctx.bindValue ( PojoObservables.observeValue ( this, "selectedYAxis" ), EMFObservables.observeValue ( chart, ChartPackage.Literals.CHART__SELECTED_YAXIS ) ); //$NON-NLS-1$
-    }
 
-    protected void activate ( final org.eclipse.scada.chart.XAxis x, final org.eclipse.scada.chart.YAxis y )
-    {
-        this.mouseTransformer = new MouseTransformer ( this.chartContext.getChartRenderer (), x, y );
-        this.mouseDragZoomer = new MouseDragZoomer ( this.chartContext.getChartRenderer (), x, y );
-        this.mouseWheelZoomer = new MouseWheelZoomer ( this.chartContext.getChartRenderer (), x, y );
-    }
+        ctx.bindList ( this.selectedXAxis, EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__SELECTED_XAXIS ), null, new UpdateListStrategy ().setConverter ( new AxisConverter<> ( XAxis.class, org.eclipse.scada.chart.XAxis.class, chartContext.getxAxisLocator () ) ) );
+        ctx.bindList ( this.selectedYAxis, EMFObservables.observeList ( chart, ChartPackage.Literals.CHART__SELECTED_YAXIS ), null, new UpdateListStrategy ().setConverter ( new AxisConverter<> ( YAxis.class, org.eclipse.scada.chart.YAxis.class, chartContext.getyAxisLocator () ) ) );
 
-    protected void deactivate ()
-    {
-        if ( this.mouseTransformer != null )
-        {
-            this.mouseTransformer.dispose ();
-            this.mouseTransformer = null;
-        }
-
-        if ( this.mouseDragZoomer != null )
-        {
-            this.mouseDragZoomer.dispose ();
-            this.mouseDragZoomer = null;
-        }
-
-        if ( this.mouseWheelZoomer != null )
-        {
-            this.mouseWheelZoomer.dispose ();
-            this.mouseWheelZoomer = null;
-        }
-    }
-
-    protected void updateState ()
-    {
-        final org.eclipse.scada.chart.XAxis x;
-        final org.eclipse.scada.chart.YAxis y;
-
-        x = getSelectedXAxisViewer ();
-        y = getSelectedYAxisViewer ();
-
-        // update mouse controllers
-
-        if ( this.mouseTransformer != null )
-        {
-            this.mouseTransformer.dispose ();
-            this.mouseTransformer = null;
-        }
-        if ( this.mouseDragZoomer != null )
-        {
-            this.mouseDragZoomer.dispose ();
-            this.mouseDragZoomer = null;
-        }
-        if ( this.mouseWheelZoomer != null )
-        {
-            this.mouseWheelZoomer.dispose ();
-            this.mouseWheelZoomer = null;
-        }
-        if ( x != null && y != null )
-        {
-            activate ( x, y );
-        }
-        else
-        {
-            deactivate ();
-        }
-    }
-
-    private org.eclipse.scada.chart.YAxis getSelectedYAxisViewer ()
-    {
-        return this.selectedYAxis != null ? this.selectedYAxis.getAxis () : null;
-    }
-
-    private org.eclipse.scada.chart.XAxis getSelectedXAxisViewer ()
-    {
-        return this.selectedXAxis != null ? this.selectedXAxis.getAxis () : null;
-    }
-
-    public XAxis getSelectedXAxis ()
-    {
-        return this.selectedXAxisElement;
-    }
-
-    public YAxis getSelectedYAxis ()
-    {
-        return this.selectedYAxisElement;
-    }
-
-    public void setSelectedXAxis ( final XAxis axis )
-    {
-        final XAxisViewer newSelection = this.chartContext.getxAxisLocator ().findAxis ( axis );
-        if ( this.selectedXAxis == newSelection )
-        {
-            return;
-        }
-        this.selectedXAxis = newSelection;
-        this.selectedXAxisElement = axis;
-        updateState ();
-    }
-
-    public void setSelectedYAxis ( final YAxis axis )
-    {
-        final YAxisViewer newSelection = this.chartContext.getyAxisLocator ().findAxis ( axis );
-        if ( this.selectedYAxis == newSelection )
-        {
-            return;
-        }
-        this.selectedYAxis = newSelection;
-        this.selectedYAxisElement = axis;
-        updateState ();
+        this.mouseTransformer = new MouseTransformer ( this.chartContext.getChartRenderer (), this.selectedXAxis, this.selectedYAxis );
+        this.mouseDragZoomer = new MouseDragZoomer ( this.chartContext.getChartRenderer (), this.selectedXAxis, this.selectedYAxis );
+        this.mouseWheelZoomer = new MouseWheelZoomer ( this.chartContext.getChartRenderer (), this.selectedXAxis, this.selectedYAxis );
     }
 
     @Override
     public void dispose ()
     {
-        deactivate ();
+        if ( this.mouseTransformer != null )
+        {
+            this.mouseTransformer.dispose ();
+            this.mouseTransformer = null;
+        }
+
+        if ( this.mouseDragZoomer != null )
+        {
+            this.mouseDragZoomer.dispose ();
+            this.mouseDragZoomer = null;
+        }
+
+        if ( this.mouseWheelZoomer != null )
+        {
+            this.mouseWheelZoomer.dispose ();
+            this.mouseWheelZoomer = null;
+        }
         super.dispose ();
     }
 

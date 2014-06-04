@@ -21,6 +21,8 @@ import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartFactory;
 import org.eclipse.scada.ui.chart.model.Charts;
 import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
+import org.eclipse.scada.ui.chart.model.XAxis;
+import org.eclipse.scada.ui.chart.model.YAxis;
 
 /**
  * Open a chart view with parameters <br/>
@@ -70,6 +72,9 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
 
         final Chart configuration = Charts.makeDefaultConfiguration ();
 
+        final XAxis x = configuration.getSelectedXAxis ().get ( 0 );
+        final YAxis y = configuration.getSelectedYAxis ().get ( 0 );
+
         if ( queryTimespec != null && !queryTimespec.isEmpty () )
         {
             final String toks[] = queryTimespec.split ( "[: ]+" ); //$NON-NLS-1$
@@ -78,21 +83,21 @@ public class OpenChartViewWithParameters extends AbstractChartHandler
 
             final int left = Integer.parseInt ( toks[0] );
             final int right = Integer.parseInt ( toks[1] );
-            configuration.getSelectedXAxis ().setMinimum ( now - left );
-            configuration.getSelectedXAxis ().setMaximum ( now + right );
+            x.setMinimum ( now - left );
+            x.setMaximum ( now + right );
 
             if ( toks.length >= 4 )
             {
                 final double min = Double.parseDouble ( toks[2] );
                 final double max = Double.parseDouble ( toks[3] );
-                configuration.getSelectedYAxis ().setMinimum ( min );
-                configuration.getSelectedYAxis ().setMaximum ( max );
+                y.setMinimum ( min );
+                y.setMaximum ( max );
             }
         }
 
         final CompositeArchiveQualitySeries q = ChartFactory.eINSTANCE.createCompositeArchiveQualitySeries ();
-        q.setX ( configuration.getSelectedXAxis () );
-        q.setY ( configuration.getSelectedYAxis () );
+        q.setX ( x );
+        q.setY ( y );
         q.setVisible ( true );
         q.setThreshold ( 0.75 );
         configuration.getInputs ().add ( q );

@@ -41,6 +41,7 @@ import org.eclipse.swt.graphics.RGB;
  *   <li>{@link org.eclipse.scada.ui.chart.model.Chart#getProfiles <em>Profiles</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.Chart#getActiveProfile <em>Active Profile</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.Chart#getProfileSwitcherType <em>Profile Switcher Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.ui.chart.model.Chart#getTimeRulerAxis <em>Time Ruler Axis</em>}</li>
  * </ul>
  * </p>
  *
@@ -196,56 +197,36 @@ public interface Chart extends EObject
     EList<YAxis> getRight ();
 
     /**
-     * Returns the value of the '<em><b>Selected YAxis</b></em>' reference.
+     * Returns the value of the '<em><b>Selected YAxis</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.ui.chart.model.YAxis}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Selected YAxis</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Selected YAxis</em>' reference.
-     * @see #setSelectedYAxis(YAxis)
+     * @return the value of the '<em>Selected YAxis</em>' reference list.
      * @see org.eclipse.scada.ui.chart.model.ChartPackage#getChart_SelectedYAxis()
      * @model
      * @generated
      */
-    YAxis getSelectedYAxis ();
+    EList<YAxis> getSelectedYAxis ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedYAxis <em>Selected YAxis</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Selected YAxis</em>' reference.
-     * @see #getSelectedYAxis()
-     * @generated
-     */
-    void setSelectedYAxis ( YAxis value );
-
-    /**
-     * Returns the value of the '<em><b>Selected XAxis</b></em>' reference.
+     * Returns the value of the '<em><b>Selected XAxis</b></em>' reference list.
+     * The list contents are of type {@link org.eclipse.scada.ui.chart.model.XAxis}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Selected XAxis</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Selected XAxis</em>' reference.
-     * @see #setSelectedXAxis(XAxis)
+     * @return the value of the '<em>Selected XAxis</em>' reference list.
      * @see org.eclipse.scada.ui.chart.model.ChartPackage#getChart_SelectedXAxis()
      * @model
      * @generated
      */
-    XAxis getSelectedXAxis ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedXAxis <em>Selected XAxis</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Selected XAxis</em>' reference.
-     * @see #getSelectedXAxis()
-     * @generated
-     */
-    void setSelectedXAxis ( XAxis value );
+    EList<XAxis> getSelectedXAxis ();
 
     /**
      * Returns the value of the '<em><b>Inputs</b></em>' containment reference list.
@@ -404,5 +385,31 @@ public interface Chart extends EObject
      * @generated
      */
     void setProfileSwitcherType ( ProfileSwitcherType value );
+
+    /**
+     * Returns the value of the '<em><b>Time Ruler Axis</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Time Ruler Axis</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Time Ruler Axis</em>' reference.
+     * @see #setTimeRulerAxis(XAxis)
+     * @see org.eclipse.scada.ui.chart.model.ChartPackage#getChart_TimeRulerAxis()
+     * @model
+     * @generated
+     */
+    XAxis getTimeRulerAxis ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.ui.chart.model.Chart#getTimeRulerAxis <em>Time Ruler Axis</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Time Ruler Axis</em>' reference.
+     * @see #getTimeRulerAxis()
+     * @generated
+     */
+    void setTimeRulerAxis ( XAxis value );
 
 } // Chart

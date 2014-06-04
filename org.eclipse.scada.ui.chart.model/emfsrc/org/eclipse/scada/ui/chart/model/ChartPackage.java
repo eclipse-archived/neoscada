@@ -141,7 +141,7 @@ public interface ChartPackage extends EPackage
     int CHART__RIGHT = 6;
 
     /**
-     * The feature id for the '<em><b>Selected YAxis</b></em>' reference.
+     * The feature id for the '<em><b>Selected YAxis</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -150,7 +150,7 @@ public interface ChartPackage extends EPackage
     int CHART__SELECTED_YAXIS = 7;
 
     /**
-     * The feature id for the '<em><b>Selected XAxis</b></em>' reference.
+     * The feature id for the '<em><b>Selected XAxis</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -222,13 +222,22 @@ public interface ChartPackage extends EPackage
     int CHART__PROFILE_SWITCHER_TYPE = 15;
 
     /**
+     * The feature id for the '<em><b>Time Ruler Axis</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART__TIME_RULER_AXIS = 16;
+
+    /**
      * The number of structural features of the '<em>Chart</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int CHART_FEATURE_COUNT = 16;
+    int CHART_FEATURE_COUNT = 17;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.ui.chart.model.impl.AxisImpl <em>Axis</em>}' class.
@@ -1542,10 +1551,10 @@ public interface ChartPackage extends EPackage
     EReference getChart_Right ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedYAxis <em>Selected YAxis</em>}'.
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedYAxis <em>Selected YAxis</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Selected YAxis</em>'.
+     * @return the meta object for the reference list '<em>Selected YAxis</em>'.
      * @see org.eclipse.scada.ui.chart.model.Chart#getSelectedYAxis()
      * @see #getChart()
      * @generated
@@ -1553,10 +1562,10 @@ public interface ChartPackage extends EPackage
     EReference getChart_SelectedYAxis ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedXAxis <em>Selected XAxis</em>}'.
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.ui.chart.model.Chart#getSelectedXAxis <em>Selected XAxis</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Selected XAxis</em>'.
+     * @return the meta object for the reference list '<em>Selected XAxis</em>'.
      * @see org.eclipse.scada.ui.chart.model.Chart#getSelectedXAxis()
      * @see #getChart()
      * @generated
@@ -1639,6 +1648,17 @@ public interface ChartPackage extends EPackage
      * @generated
      */
     EAttribute getChart_ProfileSwitcherType ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.ui.chart.model.Chart#getTimeRulerAxis <em>Time Ruler Axis</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Time Ruler Axis</em>'.
+     * @see org.eclipse.scada.ui.chart.model.Chart#getTimeRulerAxis()
+     * @see #getChart()
+     * @generated
+     */
+    EReference getChart_TimeRulerAxis ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.ui.chart.model.XAxis <em>XAxis</em>}'.
@@ -2474,7 +2494,7 @@ public interface ChartPackage extends EPackage
         EReference CHART__RIGHT = eINSTANCE.getChart_Right ();
 
         /**
-         * The meta object literal for the '<em><b>Selected YAxis</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Selected YAxis</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -2482,7 +2502,7 @@ public interface ChartPackage extends EPackage
         EReference CHART__SELECTED_YAXIS = eINSTANCE.getChart_SelectedYAxis ();
 
         /**
-         * The meta object literal for the '<em><b>Selected XAxis</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Selected XAxis</b></em>' reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -2544,6 +2564,14 @@ public interface ChartPackage extends EPackage
          * @generated
          */
         EAttribute CHART__PROFILE_SWITCHER_TYPE = eINSTANCE.getChart_ProfileSwitcherType ();
+
+        /**
+         * The meta object literal for the '<em><b>Time Ruler Axis</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CHART__TIME_RULER_AXIS = eINSTANCE.getChart_TimeRulerAxis ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.ui.chart.model.impl.XAxisImpl <em>XAxis</em>}' class.

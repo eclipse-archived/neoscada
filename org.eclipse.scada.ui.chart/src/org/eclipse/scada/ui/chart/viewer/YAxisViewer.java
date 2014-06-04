@@ -17,11 +17,11 @@ import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.emf.databinding.EMFObservables;
 import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.render.YAxisDynamicRenderer;
-import org.eclipse.swt.SWT;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.YAxis;
+import org.eclipse.swt.SWT;
 
-public class YAxisViewer extends AbstractAxisViewer
+public class YAxisViewer extends AbstractAxisViewer<org.eclipse.scada.chart.YAxis>
 {
     private final YAxis axis;
 
@@ -60,6 +60,7 @@ public class YAxisViewer extends AbstractAxisViewer
         this.renderer.dispose ();
     }
 
+    @Override
     public org.eclipse.scada.chart.YAxis getAxis ()
     {
         return this.control;

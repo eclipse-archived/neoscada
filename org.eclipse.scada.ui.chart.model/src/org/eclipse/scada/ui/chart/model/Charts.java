@@ -20,11 +20,6 @@
  *******************************************************************************/
 package org.eclipse.scada.ui.chart.model;
 
-import org.eclipse.scada.ui.chart.model.Chart;
-import org.eclipse.scada.ui.chart.model.ChartFactory;
-import org.eclipse.scada.ui.chart.model.Messages;
-import org.eclipse.scada.ui.chart.model.XAxis;
-import org.eclipse.scada.ui.chart.model.YAxis;
 
 public class Charts
 {
@@ -44,8 +39,8 @@ public class Charts
         x.setMaximum ( System.currentTimeMillis () + 900 * 1000 );
         configuration.getBottom ().add ( x );
 
-        configuration.setSelectedXAxis ( x );
-        configuration.setSelectedYAxis ( y );
+        configuration.getSelectedXAxis ().add ( x );
+        configuration.getSelectedYAxis ().add ( y );
 
         configuration.getControllers ().add ( ChartFactory.eINSTANCE.createMouseController () );
 

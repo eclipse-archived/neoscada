@@ -19,8 +19,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" upperBound="-1"
         eType="#//YAxis" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedYAxis" eType="#//YAxis"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedXAxis" eType="#//XAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedYAxis" upperBound="-1"
+        eType="#//YAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selectedXAxis" upperBound="-1"
+        eType="#//XAxis"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputs" upperBound="-1"
         eType="#//DataSeries" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mutable" lowerBound="1"
@@ -34,6 +36,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="activeProfile" eType="#//Profile"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileSwitcherType" lowerBound="1"
         eType="#//ProfileSwitcherType" defaultValueLiteral="BUTTON"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeRulerAxis" eType="#//XAxis"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="RGB" instanceClassName="org.eclipse.swt.graphics.RGB"/>
   <eClassifiers xsi:type="ecore:EClass" name="XAxis" eSuperTypes="#//Axis">

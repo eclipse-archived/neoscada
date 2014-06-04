@@ -16,7 +16,7 @@ import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.chart.swt.DisposeListener;
 import org.eclipse.scada.ui.chart.model.Axis;
 
-public class AbstractAxisViewer extends AbstractObserver
+public abstract class AbstractAxisViewer<A> extends AbstractObserver
 {
     protected final DataBindingContext dbc;
 
@@ -36,5 +36,7 @@ public class AbstractAxisViewer extends AbstractObserver
             }
         } );
     }
+
+    public abstract A getAxis ();
 
 }

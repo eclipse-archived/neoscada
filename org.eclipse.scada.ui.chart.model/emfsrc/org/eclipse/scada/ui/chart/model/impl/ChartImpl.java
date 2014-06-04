@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.scada.ui.chart.model.Chart;
@@ -62,6 +63,7 @@ import org.eclipse.swt.graphics.RGB;
  *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ChartImpl#getProfiles <em>Profiles</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ChartImpl#getActiveProfile <em>Active Profile</em>}</li>
  *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ChartImpl#getProfileSwitcherType <em>Profile Switcher Type</em>}</li>
+ *   <li>{@link org.eclipse.scada.ui.chart.model.impl.ChartImpl#getTimeRulerAxis <em>Time Ruler Axis</em>}</li>
  * </ul>
  * </p>
  *
@@ -170,24 +172,24 @@ public class ChartImpl extends EObjectImpl implements Chart
     protected EList<YAxis> right;
 
     /**
-     * The cached value of the '{@link #getSelectedYAxis() <em>Selected YAxis</em>}' reference.
+     * The cached value of the '{@link #getSelectedYAxis() <em>Selected YAxis</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getSelectedYAxis()
      * @generated
      * @ordered
      */
-    protected YAxis selectedYAxis;
+    protected EList<YAxis> selectedYAxis;
 
     /**
-     * The cached value of the '{@link #getSelectedXAxis() <em>Selected XAxis</em>}' reference.
+     * The cached value of the '{@link #getSelectedXAxis() <em>Selected XAxis</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getSelectedXAxis()
      * @generated
      * @ordered
      */
-    protected XAxis selectedXAxis;
+    protected EList<XAxis> selectedXAxis;
 
     /**
      * The cached value of the '{@link #getInputs() <em>Inputs</em>}' containment reference list.
@@ -288,6 +290,16 @@ public class ChartImpl extends EObjectImpl implements Chart
      * @ordered
      */
     protected ProfileSwitcherType profileSwitcherType = PROFILE_SWITCHER_TYPE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getTimeRulerAxis() <em>Time Ruler Axis</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTimeRulerAxis()
+     * @generated
+     * @ordered
+     */
+    protected XAxis timeRulerAxis;
 
     /**
      * <!-- begin-user-doc -->
@@ -440,17 +452,11 @@ public class ChartImpl extends EObjectImpl implements Chart
      * <!-- end-user-doc -->
      * @generated
      */
-    public YAxis getSelectedYAxis ()
+    public EList<YAxis> getSelectedYAxis ()
     {
-        if ( selectedYAxis != null && selectedYAxis.eIsProxy () )
+        if ( selectedYAxis == null )
         {
-            InternalEObject oldSelectedYAxis = (InternalEObject)selectedYAxis;
-            selectedYAxis = (YAxis)eResolveProxy ( oldSelectedYAxis );
-            if ( selectedYAxis != oldSelectedYAxis )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ChartPackage.CHART__SELECTED_YAXIS, oldSelectedYAxis, selectedYAxis ) );
-            }
+            selectedYAxis = new EObjectResolvingEList<YAxis> ( YAxis.class, this, ChartPackage.CHART__SELECTED_YAXIS );
         }
         return selectedYAxis;
     }
@@ -460,65 +466,13 @@ public class ChartImpl extends EObjectImpl implements Chart
      * <!-- end-user-doc -->
      * @generated
      */
-    public YAxis basicGetSelectedYAxis ()
+    public EList<XAxis> getSelectedXAxis ()
     {
-        return selectedYAxis;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSelectedYAxis ( YAxis newSelectedYAxis )
-    {
-        YAxis oldSelectedYAxis = selectedYAxis;
-        selectedYAxis = newSelectedYAxis;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ChartPackage.CHART__SELECTED_YAXIS, oldSelectedYAxis, selectedYAxis ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public XAxis getSelectedXAxis ()
-    {
-        if ( selectedXAxis != null && selectedXAxis.eIsProxy () )
+        if ( selectedXAxis == null )
         {
-            InternalEObject oldSelectedXAxis = (InternalEObject)selectedXAxis;
-            selectedXAxis = (XAxis)eResolveProxy ( oldSelectedXAxis );
-            if ( selectedXAxis != oldSelectedXAxis )
-            {
-                if ( eNotificationRequired () )
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ChartPackage.CHART__SELECTED_XAXIS, oldSelectedXAxis, selectedXAxis ) );
-            }
+            selectedXAxis = new EObjectResolvingEList<XAxis> ( XAxis.class, this, ChartPackage.CHART__SELECTED_XAXIS );
         }
         return selectedXAxis;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public XAxis basicGetSelectedXAxis ()
-    {
-        return selectedXAxis;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSelectedXAxis ( XAxis newSelectedXAxis )
-    {
-        XAxis oldSelectedXAxis = selectedXAxis;
-        selectedXAxis = newSelectedXAxis;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ChartPackage.CHART__SELECTED_XAXIS, oldSelectedXAxis, selectedXAxis ) );
     }
 
     /**
@@ -681,6 +635,49 @@ public class ChartImpl extends EObjectImpl implements Chart
      * <!-- end-user-doc -->
      * @generated
      */
+    public XAxis getTimeRulerAxis ()
+    {
+        if ( timeRulerAxis != null && timeRulerAxis.eIsProxy () )
+        {
+            InternalEObject oldTimeRulerAxis = (InternalEObject)timeRulerAxis;
+            timeRulerAxis = (XAxis)eResolveProxy ( oldTimeRulerAxis );
+            if ( timeRulerAxis != oldTimeRulerAxis )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, ChartPackage.CHART__TIME_RULER_AXIS, oldTimeRulerAxis, timeRulerAxis ) );
+            }
+        }
+        return timeRulerAxis;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public XAxis basicGetTimeRulerAxis ()
+    {
+        return timeRulerAxis;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTimeRulerAxis ( XAxis newTimeRulerAxis )
+    {
+        XAxis oldTimeRulerAxis = timeRulerAxis;
+        timeRulerAxis = newTimeRulerAxis;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ChartPackage.CHART__TIME_RULER_AXIS, oldTimeRulerAxis, timeRulerAxis ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd,
             int featureID, NotificationChain msgs )
@@ -730,13 +727,9 @@ public class ChartImpl extends EObjectImpl implements Chart
             case ChartPackage.CHART__RIGHT:
                 return getRight ();
             case ChartPackage.CHART__SELECTED_YAXIS:
-                if ( resolve )
-                    return getSelectedYAxis ();
-                return basicGetSelectedYAxis ();
+                return getSelectedYAxis ();
             case ChartPackage.CHART__SELECTED_XAXIS:
-                if ( resolve )
-                    return getSelectedXAxis ();
-                return basicGetSelectedXAxis ();
+                return getSelectedXAxis ();
             case ChartPackage.CHART__INPUTS:
                 return getInputs ();
             case ChartPackage.CHART__MUTABLE:
@@ -753,6 +746,10 @@ public class ChartImpl extends EObjectImpl implements Chart
                 return basicGetActiveProfile ();
             case ChartPackage.CHART__PROFILE_SWITCHER_TYPE:
                 return getProfileSwitcherType ();
+            case ChartPackage.CHART__TIME_RULER_AXIS:
+                if ( resolve )
+                    return getTimeRulerAxis ();
+                return basicGetTimeRulerAxis ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -794,10 +791,12 @@ public class ChartImpl extends EObjectImpl implements Chart
                 getRight ().addAll ( (Collection<? extends YAxis>)newValue );
                 return;
             case ChartPackage.CHART__SELECTED_YAXIS:
-                setSelectedYAxis ( (YAxis)newValue );
+                getSelectedYAxis ().clear ();
+                getSelectedYAxis ().addAll ( (Collection<? extends YAxis>)newValue );
                 return;
             case ChartPackage.CHART__SELECTED_XAXIS:
-                setSelectedXAxis ( (XAxis)newValue );
+                getSelectedXAxis ().clear ();
+                getSelectedXAxis ().addAll ( (Collection<? extends XAxis>)newValue );
                 return;
             case ChartPackage.CHART__INPUTS:
                 getInputs ().clear ();
@@ -822,6 +821,9 @@ public class ChartImpl extends EObjectImpl implements Chart
                 return;
             case ChartPackage.CHART__PROFILE_SWITCHER_TYPE:
                 setProfileSwitcherType ( (ProfileSwitcherType)newValue );
+                return;
+            case ChartPackage.CHART__TIME_RULER_AXIS:
+                setTimeRulerAxis ( (XAxis)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -859,10 +861,10 @@ public class ChartImpl extends EObjectImpl implements Chart
                 getRight ().clear ();
                 return;
             case ChartPackage.CHART__SELECTED_YAXIS:
-                setSelectedYAxis ( (YAxis)null );
+                getSelectedYAxis ().clear ();
                 return;
             case ChartPackage.CHART__SELECTED_XAXIS:
-                setSelectedXAxis ( (XAxis)null );
+                getSelectedXAxis ().clear ();
                 return;
             case ChartPackage.CHART__INPUTS:
                 getInputs ().clear ();
@@ -884,6 +886,9 @@ public class ChartImpl extends EObjectImpl implements Chart
                 return;
             case ChartPackage.CHART__PROFILE_SWITCHER_TYPE:
                 setProfileSwitcherType ( PROFILE_SWITCHER_TYPE_EDEFAULT );
+                return;
+            case ChartPackage.CHART__TIME_RULER_AXIS:
+                setTimeRulerAxis ( (XAxis)null );
                 return;
         }
         super.eUnset ( featureID );
@@ -914,9 +919,9 @@ public class ChartImpl extends EObjectImpl implements Chart
             case ChartPackage.CHART__RIGHT:
                 return right != null && !right.isEmpty ();
             case ChartPackage.CHART__SELECTED_YAXIS:
-                return selectedYAxis != null;
+                return selectedYAxis != null && !selectedYAxis.isEmpty ();
             case ChartPackage.CHART__SELECTED_XAXIS:
-                return selectedXAxis != null;
+                return selectedXAxis != null && !selectedXAxis.isEmpty ();
             case ChartPackage.CHART__INPUTS:
                 return inputs != null && !inputs.isEmpty ();
             case ChartPackage.CHART__MUTABLE:
@@ -931,6 +936,8 @@ public class ChartImpl extends EObjectImpl implements Chart
                 return activeProfile != null;
             case ChartPackage.CHART__PROFILE_SWITCHER_TYPE:
                 return profileSwitcherType != PROFILE_SWITCHER_TYPE_EDEFAULT;
+            case ChartPackage.CHART__TIME_RULER_AXIS:
+                return timeRulerAxis != null;
         }
         return super.eIsSet ( featureID );
     }

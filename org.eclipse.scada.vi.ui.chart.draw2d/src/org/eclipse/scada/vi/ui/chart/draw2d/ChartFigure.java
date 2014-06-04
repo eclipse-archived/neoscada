@@ -96,8 +96,8 @@ public class ChartFigure extends Figure
         x.setMaximum ( System.currentTimeMillis () + 900 * 1000 );
         configuration.getBottom ().add ( x );
 
-        configuration.setSelectedXAxis ( x );
-        configuration.setSelectedYAxis ( y );
+        configuration.getSelectedXAxis ().add ( x );
+        configuration.getSelectedYAxis ().add ( y );
 
         return configuration;
     }

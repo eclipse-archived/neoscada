@@ -72,7 +72,7 @@ public class FigureRenderer extends ChartRenderer
     }
 
     @Override
-    public void redraw ()
+    protected void redraw ()
     {
         this.chartFigure.getUpdateManager ().addDirtyRegion ( this.chartFigure, this.chartFigure.getBounds () );
     }
