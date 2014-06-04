@@ -322,7 +322,9 @@ public class LegendRenderer implements Renderer
 
         if ( d.value != null )
         {
-            g.drawText ( d.value, x, y, null );
+            // right align values
+            final int off = data.maxValueSize - d.valueSize.x;
+            g.drawText ( d.value, x + off, y, null );
             x += data.maxValueSize + this.textPadding;
         }
 
