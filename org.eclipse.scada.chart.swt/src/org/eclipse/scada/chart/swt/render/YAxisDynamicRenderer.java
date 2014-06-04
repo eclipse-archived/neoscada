@@ -217,6 +217,15 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             for ( final Entry<Double> marker : markers )
             {
                 final int y = marker.position + this.rect.y;
+                if ( y < this.rect.y || y > this.rect.y + this.rect.height )
+                {
+                    // out of bounds
+                    /* We do allow the marker labels to overlap, but the not he marker
+                     * lines 
+                     */
+                    continue;
+                }
+
                 g.drawLine ( x, y, x + ( this.left ? -1 : 1 ) * this.markerSize, y );
             }
         }
