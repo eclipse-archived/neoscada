@@ -114,10 +114,12 @@ public class ProfileManager
         {
             try
             {
-                selectedEntry = this.profileEntries.get ( this.profiles.get ( 1 ).getId () );
+                selectedEntry = this.profileEntries.get ( this.profiles.get ( 1 /*second one*/).getId () );
+                logger.debug ( "Selected by checkbox: {}", selectedEntry );
             }
             catch ( final Exception e )
             {
+                logger.warn ( "Failed to switch", e );
             }
         }
 
@@ -126,6 +128,8 @@ public class ProfileManager
 
     private void activateEntry ( final ProfileEntry selectedEntry )
     {
+        logger.debug ( "Active entry: {}", selectedEntry );
+
         // first deactivate all
         for ( final ProfileEntry entry : this.profileEntries.values () )
         {
@@ -140,6 +144,8 @@ public class ProfileManager
                 entry.activate ();
             }
         }
+        // after the profiles have changed we might have different renderers
+        this.chartContext.getChartRenderer ().relayout ();
     }
 
     public Profile getActiveProfile ()
