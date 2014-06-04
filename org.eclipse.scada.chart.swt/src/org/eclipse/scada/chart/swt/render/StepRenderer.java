@@ -30,9 +30,25 @@ public class StepRenderer extends AbstractLineRender implements Renderer
 
     private final static Logger logger = LoggerFactory.getLogger ( StepRenderer.class );
 
+    private boolean noFuture;
+
+    private final ChartRenderer chartArea;
+
     public StepRenderer ( final ChartRenderer chartArea, final SeriesData abstractSeriesData )
     {
         super ( chartArea, abstractSeriesData );
+        this.chartArea = chartArea;
+    }
+
+    public void setNoFuture ( final boolean noFuture )
+    {
+        this.noFuture = noFuture;
+        this.chartArea.redraw ();
+    }
+
+    public boolean isNoFuture ()
+    {
+        return this.noFuture;
     }
 
     @Override
@@ -50,7 +66,6 @@ public class StepRenderer extends AbstractLineRender implements Renderer
         final Path path = g.createPath ();
         try
         {
-
             boolean first = true;
 
             final DataPoint point = new DataPoint ();
@@ -59,13 +74,17 @@ public class StepRenderer extends AbstractLineRender implements Renderer
 
             logger.trace ( "Render steps" );
 
+            final long now = System.currentTimeMillis ();
+
             for ( final DataEntry entry : entries )
             {
                 final boolean hasData = translateToPoint ( clientRect, xAxis, yAxis, point, entry );
 
                 logger.trace ( "Entry - {}, hasData: {}, point: {}", new Object[] { entry, hasData, point } );
 
-                if ( hasData )
+                final boolean skip = this.noFuture && entry.getTimestamp () > now;
+
+                if ( hasData && !skip )
                 {
                     if ( first )
                     {
