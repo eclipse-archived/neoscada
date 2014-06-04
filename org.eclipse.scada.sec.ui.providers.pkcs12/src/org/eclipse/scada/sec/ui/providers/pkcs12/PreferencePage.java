@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new selection helper
  *******************************************************************************/
 package org.eclipse.scada.sec.ui.providers.pkcs12;
 
@@ -23,7 +24,7 @@ import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.sec.ui.providers.KeyProvider;
 import org.eclipse.scada.sec.ui.providers.KeyTreeViewer;
 import org.eclipse.scada.sec.ui.providers.Locked;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;

@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.scada.sec.callback.Callback;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public final class Helper
 {

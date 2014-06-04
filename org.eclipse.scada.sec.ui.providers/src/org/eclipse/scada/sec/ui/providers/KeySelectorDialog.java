@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new selection helper
  *******************************************************************************/
 package org.eclipse.scada.sec.ui.providers;
 
@@ -24,7 +25,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.sec.ui.providers.internal.Activator;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
