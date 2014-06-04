@@ -317,28 +317,28 @@ public class LegendRenderer implements Renderer
         if ( d.name != null )
         {
             g.drawText ( d.name, x, y, null );
-            x += data.maxNameSize + this.textPadding;
         }
+        x += data.maxNameSize + this.textPadding;
 
+        // right align values
+        final int off = data.maxValueSize - d.valueSize.x;
         if ( d.value != null )
         {
-            // right align values
-            final int off = data.maxValueSize - d.valueSize.x;
             g.drawText ( d.value, x + off, y, null );
-            x += data.maxValueSize + this.textPadding;
         }
+        x += data.maxValueSize + this.textPadding;
 
         if ( d.timestamp != null )
         {
             g.drawText ( d.timestamp, x, y, null );
-            x += data.maxTimestampSize + this.textPadding;
         }
+        x += data.maxTimestampSize + this.textPadding;
 
         if ( d.quality != null )
         {
             g.drawText ( d.quality, x, y, null );
-            x += data.maxQualitySize + this.textPadding;
         }
+        x += data.maxQualitySize + this.textPadding;
     }
 
     protected DataSet makeAllData ( final Graphics g )
