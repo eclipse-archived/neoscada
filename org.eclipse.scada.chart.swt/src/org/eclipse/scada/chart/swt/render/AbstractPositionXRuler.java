@@ -16,7 +16,6 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public abstract class AbstractPositionXRuler extends AbstractRuler
 {
-
     public abstract Long getPosition ();
 
     protected XAxis axis;

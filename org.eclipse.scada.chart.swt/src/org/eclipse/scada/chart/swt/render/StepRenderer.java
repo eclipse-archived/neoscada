@@ -43,7 +43,7 @@ public class StepRenderer extends AbstractLineRender implements Renderer
     public void setNoFuture ( final boolean noFuture )
     {
         this.noFuture = noFuture;
-        this.chartArea.redraw ();
+        this.chartArea.refresh ();
     }
 
     public boolean isNoFuture ()

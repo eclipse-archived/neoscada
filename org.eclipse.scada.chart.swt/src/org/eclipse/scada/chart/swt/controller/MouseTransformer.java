@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.controller;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartMouseListener;
@@ -23,7 +24,7 @@ import org.eclipse.swt.graphics.Rectangle;
 /**
  * This class allows to pan the chart area, moving into all directions
  */
-public class MouseTransformer implements ChartMouseListener, ChartMouseMoveListener
+public class MouseTransformer extends AbstractMouseHandler implements ChartMouseListener, ChartMouseMoveListener
 {
     private boolean active;
 
@@ -33,15 +34,11 @@ public class MouseTransformer implements ChartMouseListener, ChartMouseMoveListe
 
     private final ChartRenderer chartArea;
 
-    private final XAxis xAxis;
-
-    private final YAxis yAxis;
-
-    public MouseTransformer ( final ChartRenderer chartArea, final XAxis xAxis, final YAxis yAxis )
+    public MouseTransformer ( final ChartRenderer chartArea, final IObservableList/*XAxis*/xAxis, final IObservableList/*YAxis*/yAxis )
     {
+        super ( xAxis, yAxis );
+
         this.chartArea = chartArea;
-        this.xAxis = xAxis;
-        this.yAxis = yAxis;
 
         chartArea.addDisposeListener ( new DisposeListener () {
 
@@ -117,20 +114,39 @@ public class MouseTransformer implements ChartMouseListener, ChartMouseMoveListe
 
         final Rectangle rect = this.chartArea.getClientAreaProxy ().getClientRectangle ();
         boolean update = false;
+
+        this.chartArea.setStale ( true );
+
         if ( rect.width > 0 )
         {
-            this.xAxis.transform ( diffX, rect.width );
+            processX ( new AxisFunction<XAxis> () {
+
+                @Override
+                public void process ( final XAxis axis )
+                {
+                    axis.transform ( diffX, rect.width );
+                }
+            } );
             update = true;
         }
         if ( rect.height > 0 )
         {
-            this.yAxis.transform ( diffY, rect.height );
+            processY ( new AxisFunction<YAxis> () {
+
+                @Override
+                public void process ( final YAxis axis )
+                {
+                    axis.transform ( diffY, rect.height );
+                }
+            } );
             update = true;
         }
 
+        this.chartArea.setStale ( false );
+
         if ( update )
         {
-            this.chartArea.redraw ();
+            // this.chartArea.redraw ();
         }
     }
 

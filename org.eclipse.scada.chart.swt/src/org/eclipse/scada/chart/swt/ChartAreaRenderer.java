@@ -50,7 +50,7 @@ public class ChartAreaRenderer extends ChartRenderer
     }
 
     @Override
-    public void redraw ()
+    protected void redraw ()
     {
         this.control.redraw ();
     }

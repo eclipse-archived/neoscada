@@ -11,6 +11,10 @@
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.test;
 
+import java.util.Arrays;
+
+import org.eclipse.core.databinding.observable.Observables;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.scada.chart.AsyncFunctionSeriesData;
@@ -114,9 +118,12 @@ public class Application implements IApplication
         x.setMinMax ( series1.getData ().getMinTimestamp (), series1.getData ().getMaxTimestamp () );
         y.setMinMax ( series1.getData ().getMinValue (), series1.getData ().getMaxValue () );
 
-        new MouseWheelZoomer ( chart.getChartRenderer (), x, y );
-        new MouseTransformer ( chart.getChartRenderer (), x, y );
-        new MouseDragZoomer ( chart.getChartRenderer (), x, y );
+        final IObservableList xs = Observables.staticObservableList ( Arrays.asList ( x ) );
+        final IObservableList ys = Observables.staticObservableList ( Arrays.asList ( y ) );
+
+        new MouseWheelZoomer ( chart.getChartRenderer (), xs, ys );
+        new MouseTransformer ( chart.getChartRenderer (), xs, ys );
+        new MouseDragZoomer ( chart.getChartRenderer (), xs, ys );
 
         // add new renderers
 

@@ -61,7 +61,7 @@ public abstract class AbstractRenderer implements Renderer
 
         checkWidget ();
         this.chart.relayout ();
-        this.chart.redraw ();
+        this.chart.refresh ();
     }
 
     /**
@@ -81,7 +81,7 @@ public abstract class AbstractRenderer implements Renderer
     protected void redraw ()
     {
         checkWidget ();
-        this.chart.redraw ();
+        this.chart.refresh ();
     }
 
     protected void checkWidget ()

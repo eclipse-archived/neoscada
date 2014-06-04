@@ -102,7 +102,7 @@ public class LegendRenderer implements Renderer
         @Override
         public void handleValueChange ( final ValueChangeEvent event )
         {
-            LegendRenderer.this.renderer.redraw ();
+            LegendRenderer.this.renderer.refresh ();
         }
     }
 
@@ -221,7 +221,7 @@ public class LegendRenderer implements Renderer
                 this.timestampFormatImpl = DateFormat.getDateTimeInstance ();
             }
         }
-        this.renderer.redraw ();
+        this.renderer.refresh ();
     }
 
     public String getTimestampFormat ()
@@ -255,7 +255,7 @@ public class LegendRenderer implements Renderer
             }
 
         } );
-        this.renderer.redraw ();
+        this.renderer.refresh ();
     }
 
     public void dispose ()

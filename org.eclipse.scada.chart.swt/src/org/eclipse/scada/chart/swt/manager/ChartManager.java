@@ -15,9 +15,6 @@ import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartArea;
 import org.eclipse.scada.chart.swt.ChartRenderer;
-import org.eclipse.scada.chart.swt.controller.MouseDragZoomer;
-import org.eclipse.scada.chart.swt.controller.MouseTransformer;
-import org.eclipse.scada.chart.swt.controller.MouseWheelZoomer;
 import org.eclipse.scada.chart.swt.render.Renderer;
 import org.eclipse.scada.chart.swt.render.StepRenderer;
 import org.eclipse.scada.chart.swt.render.XAxisDynamicRenderer;
@@ -99,15 +96,6 @@ public class ChartManager extends Composite
         checkWidget ();
 
         this.chartArea.setBackground ( color );
-    }
-
-    public void addDefaultControllers ( final XAxis x, final YAxis y )
-    {
-        checkWidget ();
-
-        new MouseTransformer ( this.chartArea.getChartRenderer (), x, y );
-        new MouseDragZoomer ( this.chartArea.getChartRenderer (), x, y );
-        new MouseWheelZoomer ( this.chartArea.getChartRenderer (), x, y );
     }
 
     public XAxisDynamicRenderer addDynamicXAxis ( final XAxis x, final boolean top )

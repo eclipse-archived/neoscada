@@ -55,7 +55,7 @@ public abstract class AbstractDataSeriesRenderer implements Renderer
     public void setVisible ( final boolean visible )
     {
         this.visible = visible;
-        this.chartArea.redraw ();
+        this.chartArea.refresh ();
     }
 
     public boolean isVisible ()
@@ -70,7 +70,7 @@ public abstract class AbstractDataSeriesRenderer implements Renderer
         {
             return;
         }
-        this.chartArea.refreshData ();
+        this.chartArea.refresh ();
     }
 
     @Override

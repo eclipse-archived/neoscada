@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.controller;
 
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.scada.chart.XAxis;
 import org.eclipse.scada.chart.YAxis;
 import org.eclipse.scada.chart.swt.ChartRenderer;
@@ -18,18 +19,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseWheelListener;
 
-public class MouseWheelZoomer implements MouseWheelListener
+public class MouseWheelZoomer extends AbstractMouseHandler implements MouseWheelListener
 {
-    private final XAxis x;
-
-    private final YAxis y;
-
     private final ChartRenderer chart;
 
-    public MouseWheelZoomer ( final ChartRenderer chart, final XAxis x, final YAxis y )
+    public MouseWheelZoomer ( final ChartRenderer chart, final IObservableList/*XAxis*/xAxis, final IObservableList/*YAxis*/yAxis )
     {
-        this.x = x;
-        this.y = y;
+        super ( xAxis, yAxis );
+
         this.chart = chart;
 
         this.chart.addDisposeListener ( new DisposeListener () {
@@ -51,14 +48,29 @@ public class MouseWheelZoomer implements MouseWheelListener
     @Override
     public void mouseScrolled ( final MouseEvent e )
     {
+        this.chart.setStale ( true );
         if ( e.stateMask == 0 )
         {
-            this.x.zoom ( e.count < 0 ? 0.1 : -0.1 );
+            processX ( new AxisFunction<XAxis> () {
+
+                @Override
+                public void process ( final XAxis axis )
+                {
+                    axis.zoom ( e.count < 0 ? 0.1 : -0.1 );
+                }
+            } );
         }
         else if ( ( e.stateMask & SWT.MOD1 ) > 0 )
         {
-            this.y.zoom ( e.count < 0 ? 0.1 : -0.1 );
+            processY ( new AxisFunction<YAxis> () {
+
+                @Override
+                public void process ( final YAxis axis )
+                {
+                    axis.zoom ( e.count < 0 ? 0.1 : -0.1 );
+                }
+            } );
         }
-        this.chart.redraw ();
+        this.chart.setStale ( false );
     }
 }

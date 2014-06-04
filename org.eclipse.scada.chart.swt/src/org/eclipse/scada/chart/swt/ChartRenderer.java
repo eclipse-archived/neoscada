@@ -145,7 +145,7 @@ public abstract class ChartRenderer
     {
     }
 
-    public abstract void redraw ();
+    protected abstract void redraw ();
 
     public abstract Rectangle getClientArea ();
 
@@ -213,7 +213,7 @@ public abstract class ChartRenderer
         }
     }
 
-    public void refreshData ()
+    public void refresh ()
     {
         checkWidget ();
         if ( this.stale )
