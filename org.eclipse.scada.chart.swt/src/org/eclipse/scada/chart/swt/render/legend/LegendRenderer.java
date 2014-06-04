@@ -429,6 +429,18 @@ public class LegendRenderer implements Renderer
         {
             return null;
         }
+        if ( Double.isNaN ( value ) )
+        {
+            return "NaN";
+        }
+        if ( value == Double.NEGATIVE_INFINITY )
+        {
+            return "-∞";
+        }
+        if ( value == Double.POSITIVE_INFINITY )
+        {
+            return "+∞";
+        }
         return this.valueFormatImpl.format ( value );
     }
 
