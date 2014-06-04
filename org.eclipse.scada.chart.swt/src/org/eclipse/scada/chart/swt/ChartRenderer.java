@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - allow re-layouting
+ *     IBH SYSTEMS GmbH - allow re-layouting, adding legend
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
@@ -149,6 +149,11 @@ public abstract class ChartRenderer
 
     public abstract Rectangle getClientArea ();
 
+    /**
+     * Get the proxy that be <q>rendered</q> just before the client area
+     * 
+     * @return the instance of the proxy, never <code>null</code>.
+     */
     public SizeRenderProxy getClientAreaProxy ()
     {
         return this.clientAreaProxy;
@@ -234,6 +239,7 @@ public abstract class ChartRenderer
         {
             this.updatePending = false;
             relayout ();
+            redraw ();
         }
     }
 

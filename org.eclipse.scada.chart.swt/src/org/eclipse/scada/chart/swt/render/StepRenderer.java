@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixes
+ *     IBH SYSTEMS GmbH - bug fixes, allow antialising
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
@@ -54,6 +54,7 @@ public class StepRenderer extends AbstractLineRender implements Renderer
             boolean first = true;
 
             final DataPoint point = new DataPoint ();
+            Float previousX = null;
             Float previousY = null;
 
             logger.trace ( "Render steps" );
@@ -73,9 +74,21 @@ public class StepRenderer extends AbstractLineRender implements Renderer
                     }
                     else
                     {
-                        path.lineTo ( point.x, previousY );
-                        path.lineTo ( point.x, point.y );
+                        if ( previousX != null && previousX + 1 == point.x )
+                        {
+                            /* is the special case were we only advance one pixel.
+                             * so we can draw a direct line and allow the
+                             * antialiasing to kick in */
+
+                            path.lineTo ( point.x, point.y );
+                        }
+                        else
+                        {
+                            path.lineTo ( point.x, previousY );
+                            path.lineTo ( point.x, point.y );
+                        }
                     }
+                    previousX = point.x;
                     previousY = point.y;
                 }
                 else
@@ -86,12 +99,14 @@ public class StepRenderer extends AbstractLineRender implements Renderer
                         path.lineTo ( point.x, previousY );
                         previousY = null;
                     }
+                    previousX = null;
                 }
             }
 
             g.setAlpha ( 255 );
             g.setLineAttributes ( this.lineAttributes );
             g.setForeground ( this.lineColor );
+            g.setAntialias ( true );
 
             g.setClipping ( clientRect );
             g.drawPath ( path );

@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixes
+ *     IBH SYSTEMS GmbH - bug fixes, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
@@ -180,4 +180,17 @@ public class SWTGraphics implements Graphics
     {
         return this.resourceManager;
     }
+
+    @Override
+    public void drawRoundRectangle ( final int x, final int y, final int width, final int height, final int arcWidth, final int arcHeight )
+    {
+        this.gc.drawRoundRectangle ( x, y, width, height, arcWidth, arcHeight );
+    }
+
+    @Override
+    public void fillRoundRectangle ( final int x, final int y, final int width, final int height, final int arcWidth, final int arcHeight )
+    {
+        this.gc.fillRoundRectangle ( x, y, width, height, arcWidth, arcHeight );
+    }
+
 }

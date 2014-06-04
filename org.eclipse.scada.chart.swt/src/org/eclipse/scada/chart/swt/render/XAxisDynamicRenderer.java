@@ -65,6 +65,8 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
     private DateFormat formatInstance;
 
+    private long lastFormatTimeRange;
+
     public XAxisDynamicRenderer ( final ChartRenderer chart )
     {
         super ( chart );
@@ -273,7 +275,14 @@ public class XAxisDynamicRenderer extends AbstractRenderer
 
     private DateFormat makeFormat ( final long timeRange )
     {
-        if ( this.formatInstance != null || !hasFormat () )
+        if ( this.lastFormatTimeRange != timeRange )
+        {
+            // reset
+            this.formatInstance = null;
+            this.lastFormatTimeRange = timeRange;
+        }
+
+        if ( this.formatInstance != null )
         {
             return this.formatInstance;
         }

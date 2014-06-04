@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixes
+ *     IBH SYSTEMS GmbH - bug fixes, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.chart.swt;
 
@@ -49,6 +49,10 @@ public interface Graphics
     public void drawPath ( Path path );
 
     public void fillRectangle ( Rectangle rect );
+
+    public void fillRoundRectangle ( int x, int y, int width, int height, int arcWidth, int arcHeight );
+
+    public void drawRoundRectangle ( int x, int y, int width, int height, int arcWidth, int arcHeight );
 
     public void drawText ( String string, int x, int y, Float rotate );
 

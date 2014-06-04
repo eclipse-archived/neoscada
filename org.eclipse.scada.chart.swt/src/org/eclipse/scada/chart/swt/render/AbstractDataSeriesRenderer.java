@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - bug fixes
+ *     IBH SYSTEMS GmbH - bug fixes, enhancements for legends
  *******************************************************************************/
 package org.eclipse.scada.chart.swt.render;
 
@@ -55,6 +55,7 @@ public abstract class AbstractDataSeriesRenderer implements Renderer
     public void setVisible ( final boolean visible )
     {
         this.visible = visible;
+        this.chartArea.redraw ();
     }
 
     public boolean isVisible ()
