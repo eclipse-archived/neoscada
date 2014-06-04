@@ -12,10 +12,10 @@
 [for (image : Image | gallery.images)]
 
 <figure>
-	<a href="[image.src/]" onclick="return track('[image.src/]','screenshot','view');">
+	<a href="[relative(fileName,image.src)/]" onclick="return track('[image.src/]','screenshot','view');">
 		<img src="[relative(fileName,image.src)/]" title="[image.label.encodeHtml()/]" alt="[image.label.encodeHtml()/]"/>
 	</a>
-	<figcaption>[image.label/]</figcaption>
+	<figcaption>[image.label.encodeHtml()/]</figcaption>
 </figure>
 
 [/for]
