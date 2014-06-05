@@ -182,20 +182,7 @@ public class EquinoxDriverItemProvider extends AbstractFactoryDriverItemProvider
     @Override
     public String getText ( final Object object )
     {
-        final EquinoxDriver driver = (EquinoxDriver)object;
-
-        final String label;
-        if ( driver != null && driver.getNode () != null )
-        {
-            label = String.format ( "%s @ %s", driver.getName (), driver.getNode ().getHostName () );
-        }
-        else
-        {
-            label = null;
-        }
-
-        return label == null || label.length () == 0 ? getString ( "_UI_EquinoxDriver_type" ) : //$NON-NLS-1$
-        getString ( "_UI_EquinoxDriver_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return getDriverLabel ( (EquinoxDriver)object, getString ( "_UI_EquinoxDriver_type" ) );
     }
 
     /**
