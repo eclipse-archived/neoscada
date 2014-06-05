@@ -523,7 +523,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int NODE_MAPPING_ENTRY___MAP_NODE__NODE = 0;
+    int NODE_MAPPING_ENTRY___MAP_NODE__STRING = 0;
 
     /**
      * The number of operations of the '<em>Node Mapping Entry</em>' class.
@@ -578,7 +578,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__NODE = NODE_MAPPING_ENTRY___MAP_NODE__NODE;
+    int EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__STRING = NODE_MAPPING_ENTRY___MAP_NODE__STRING;
 
     /**
      * The number of operations of the '<em>Expression Node Mapping Entry</em>' class.
@@ -633,7 +633,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__NODE = NODE_MAPPING_ENTRY___MAP_NODE__NODE;
+    int SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__STRING = NODE_MAPPING_ENTRY___MAP_NODE__STRING;
 
     /**
      * The number of operations of the '<em>Simple Node Mapping Entry</em>' class.
@@ -1106,14 +1106,14 @@ public interface DeploymentPackage extends EPackage
     EClass getNodeMappingEntry ();
 
     /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}' operation.
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(java.lang.String) <em>Map Node</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @return the meta object for the '<em>Map Node</em>' operation.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node)
+     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(java.lang.String)
      * @generated
      */
-    EOperation getNodeMappingEntry__MapNode__Node ();
+    EOperation getNodeMappingEntry__MapNode__String ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry <em>Simple Node Mapping Entry</em>}'.
@@ -1576,7 +1576,7 @@ public interface DeploymentPackage extends EPackage
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation NODE_MAPPING_ENTRY___MAP_NODE__NODE = eINSTANCE.getNodeMappingEntry__MapNode__Node ();
+        EOperation NODE_MAPPING_ENTRY___MAP_NODE__STRING = eINSTANCE.getNodeMappingEntry__MapNode__String ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl <em>Simple Node Mapping Entry</em>}' class.

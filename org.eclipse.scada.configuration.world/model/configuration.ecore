@@ -1041,8 +1041,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NodeMappingEntry" abstract="true"
         interface="true">
-      <eOperations name="mapNode" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="node" eType="#//Node"/>
+      <eOperations name="mapNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eParameters name="hostname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleNodeMappingEntry" eSuperTypes="#//deployment/NodeMappingEntry">

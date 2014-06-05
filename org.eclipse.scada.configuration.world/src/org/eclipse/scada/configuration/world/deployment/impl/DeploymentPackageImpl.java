@@ -534,8 +534,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EOperation getNodeMappingEntry__MapNode__Node ()
+    public EOperation getNodeMappingEntry__MapNode__String ()
     {
         return nodeMappingEntryEClass.getEOperations ().get ( 0 );
     }
@@ -801,7 +800,7 @@ public class DeploymentPackageImpl extends EPackageImpl implements
         createEAttribute ( expressionNodeMappingEntryEClass, EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT );
 
         nodeMappingEntryEClass = createEClass ( NODE_MAPPING_ENTRY );
-        createEOperation ( nodeMappingEntryEClass, NODE_MAPPING_ENTRY___MAP_NODE__NODE );
+        createEOperation ( nodeMappingEntryEClass, NODE_MAPPING_ENTRY___MAP_NODE__STRING );
 
         simpleNodeMappingEntryEClass = createEClass ( SIMPLE_NODE_MAPPING_ENTRY );
         createEAttribute ( simpleNodeMappingEntryEClass, SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME );
@@ -907,8 +906,8 @@ public class DeploymentPackageImpl extends EPackageImpl implements
 
         initEClass ( nodeMappingEntryEClass, NodeMappingEntry.class, "NodeMappingEntry", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        EOperation op = initEOperation ( getNodeMappingEntry__MapNode__Node (), ecorePackage.getEBoolean (), "mapNode", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-        addEParameter ( op, theWorldPackage.getNode (), "node", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        EOperation op = initEOperation ( getNodeMappingEntry__MapNode__String (), ecorePackage.getEString (), "mapNode", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, ecorePackage.getEString (), "hostname", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( simpleNodeMappingEntryEClass, SimpleNodeMappingEntry.class, "SimpleNodeMappingEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getSimpleNodeMappingEntry_FromHostName (), ecorePackage.getEString (), "fromHostName", null, 1, 1, SimpleNodeMappingEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

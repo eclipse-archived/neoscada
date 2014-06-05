@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
 
@@ -32,20 +31,26 @@ import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEnt
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getReplacement <em>Replacement</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getPattern
+ * <em>Pattern</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl#getReplacement
+ * <em>Replacement</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ExpressionNodeMappingEntryImpl extends
         MinimalEObjectImpl.Container implements ExpressionNodeMappingEntry
 {
     /**
-     * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+     * The default value of the '{@link #getPattern() <em>Pattern</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -53,9 +58,11 @@ public class ExpressionNodeMappingEntryImpl extends
     protected static final Pattern PATTERN_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
+     * The cached value of the '{@link #getPattern() <em>Pattern</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPattern()
      * @generated
      * @ordered
@@ -63,9 +70,11 @@ public class ExpressionNodeMappingEntryImpl extends
     protected Pattern pattern = PATTERN_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
+     * The default value of the '{@link #getReplacement() <em>Replacement</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getReplacement()
      * @generated
      * @ordered
@@ -73,9 +82,11 @@ public class ExpressionNodeMappingEntryImpl extends
     protected static final String REPLACEMENT_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getReplacement() <em>Replacement</em>}' attribute.
+     * The cached value of the '{@link #getReplacement() <em>Replacement</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getReplacement()
      * @generated
      * @ordered
@@ -85,6 +96,7 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ExpressionNodeMappingEntryImpl ()
@@ -95,6 +107,7 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -106,51 +119,59 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Pattern getPattern ()
     {
-        return pattern;
+        return this.pattern;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setPattern ( Pattern newPattern )
+    public void setPattern ( final Pattern newPattern )
     {
-        Pattern oldPattern = pattern;
-        pattern = newPattern;
+        final Pattern oldPattern = this.pattern;
+        this.pattern = newPattern;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, oldPattern, pattern ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN, oldPattern, this.pattern ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getReplacement ()
     {
-        return replacement;
+        return this.replacement;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setReplacement ( String newReplacement )
+    public void setReplacement ( final String newReplacement )
     {
-        String oldReplacement = replacement;
-        replacement = newReplacement;
+        final String oldReplacement = this.replacement;
+        this.replacement = newReplacement;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, oldReplacement, replacement ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT, oldReplacement, this.replacement ) );
+        }
     }
 
     /**
@@ -160,35 +181,34 @@ public class ExpressionNodeMappingEntryImpl extends
      * @generated NOT
      */
     @Override
-    public boolean mapNode ( final Node node )
+    public String mapNode ( final String hostname )
     {
-        if ( node == null || node.getHostName () == null )
+        if ( hostname == null )
         {
-            return false;
+            return null;
         }
 
         // recompile as case insensitve
-        final Pattern pattern = Pattern.compile ( getPattern ().pattern (),
-                Pattern.CASE_INSENSITIVE );
-        final Matcher m = pattern.matcher ( node.getHostName () );
+        final Pattern pattern = Pattern.compile ( getPattern ().pattern (), Pattern.CASE_INSENSITIVE );
+        final Matcher m = pattern.matcher ( hostname );
         if ( m.matches () )
         {
-            node.setHostName ( m.replaceAll ( this.replacement ) );
-            return true;
+            return m.replaceAll ( this.replacement );
         }
         else
         {
-            return false;
+            return null;
         }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -203,10 +223,11 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -223,10 +244,11 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -243,17 +265,18 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__PATTERN:
-                return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals ( pattern );
+                return PATTERN_EDEFAULT == null ? this.pattern != null : !PATTERN_EDEFAULT.equals ( this.pattern );
             case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY__REPLACEMENT:
-                return REPLACEMENT_EDEFAULT == null ? replacement != null : !REPLACEMENT_EDEFAULT.equals ( replacement );
+                return REPLACEMENT_EDEFAULT == null ? this.replacement != null : !REPLACEMENT_EDEFAULT.equals ( this.replacement );
         }
         return super.eIsSet ( featureID );
     }
@@ -261,16 +284,17 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
+    public Object eInvoke ( final int operationID, final EList<?> arguments )
             throws InvocationTargetException
     {
         switch ( operationID )
         {
-            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
-                return mapNode ( (Node)arguments.get ( 0 ) );
+            case DeploymentPackage.EXPRESSION_NODE_MAPPING_ENTRY___MAP_NODE__STRING:
+                return mapNode ( (String)arguments.get ( 0 ) );
         }
         return super.eInvoke ( operationID, arguments );
     }
@@ -278,19 +302,22 @@ public class ExpressionNodeMappingEntryImpl extends
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (pattern: " ); //$NON-NLS-1$
-        result.append ( pattern );
+        result.append ( this.pattern );
         result.append ( ", replacement: " ); //$NON-NLS-1$
-        result.append ( replacement );
+        result.append ( this.replacement );
         result.append ( ')' );
         return result.toString ();
     }

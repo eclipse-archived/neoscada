@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
 import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
 
@@ -30,20 +29,26 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getFromHostName <em>From Host Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getToHostName <em>To Host Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getFromHostName
+ * <em>From Host Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.deployment.impl.SimpleNodeMappingEntryImpl#getToHostName
+ * <em>To Host Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
         implements SimpleNodeMappingEntry
 {
     /**
-     * The default value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
+     * The default value of the '{@link #getFromHostName()
+     * <em>From Host Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getFromHostName()
      * @generated
      * @ordered
@@ -51,9 +56,11 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected static final String FROM_HOST_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getFromHostName() <em>From Host Name</em>}' attribute.
+     * The cached value of the '{@link #getFromHostName()
+     * <em>From Host Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getFromHostName()
      * @generated
      * @ordered
@@ -61,9 +68,11 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected String fromHostName = FROM_HOST_NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
+     * The default value of the '{@link #getToHostName() <em>To Host Name</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getToHostName()
      * @generated
      * @ordered
@@ -71,9 +80,11 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     protected static final String TO_HOST_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getToHostName() <em>To Host Name</em>}' attribute.
+     * The cached value of the '{@link #getToHostName() <em>To Host Name</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getToHostName()
      * @generated
      * @ordered
@@ -83,6 +94,7 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SimpleNodeMappingEntryImpl ()
@@ -93,6 +105,7 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -104,51 +117,59 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getFromHostName ()
     {
-        return fromHostName;
+        return this.fromHostName;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setFromHostName ( String newFromHostName )
+    public void setFromHostName ( final String newFromHostName )
     {
-        String oldFromHostName = fromHostName;
-        fromHostName = newFromHostName;
+        final String oldFromHostName = this.fromHostName;
+        this.fromHostName = newFromHostName;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME, oldFromHostName, fromHostName ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME, oldFromHostName, this.fromHostName ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getToHostName ()
     {
-        return toHostName;
+        return this.toHostName;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void setToHostName ( String newToHostName )
+    public void setToHostName ( final String newToHostName )
     {
-        String oldToHostName = toHostName;
-        toHostName = newToHostName;
+        final String oldToHostName = this.toHostName;
+        this.toHostName = newToHostName;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME, oldToHostName, toHostName ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME, oldToHostName, this.toHostName ) );
+        }
     }
 
     /**
@@ -158,31 +179,28 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
      * @generated NOT
      */
     @Override
-    public boolean mapNode ( final Node node )
+    public String mapNode ( final String hostname )
     {
-        if ( node == null )
+        if ( hostname == null )
         {
-            return false;
+            return null;
         }
-        if ( node.getHostName () == null )
+
+        if ( hostname.equalsIgnoreCase ( getFromHostName () ) )
         {
-            return false;
+            return getToHostName ();
         }
-        if ( node.getHostName ().equalsIgnoreCase ( getFromHostName () ) )
-        {
-            node.setHostName ( getToHostName () );
-            return true;
-        }
-        return false;
+        return null;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -197,10 +215,11 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -217,10 +236,11 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -237,17 +257,18 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__FROM_HOST_NAME:
-                return FROM_HOST_NAME_EDEFAULT == null ? fromHostName != null : !FROM_HOST_NAME_EDEFAULT.equals ( fromHostName );
+                return FROM_HOST_NAME_EDEFAULT == null ? this.fromHostName != null : !FROM_HOST_NAME_EDEFAULT.equals ( this.fromHostName );
             case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME:
-                return TO_HOST_NAME_EDEFAULT == null ? toHostName != null : !TO_HOST_NAME_EDEFAULT.equals ( toHostName );
+                return TO_HOST_NAME_EDEFAULT == null ? this.toHostName != null : !TO_HOST_NAME_EDEFAULT.equals ( this.toHostName );
         }
         return super.eIsSet ( featureID );
     }
@@ -255,16 +276,17 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments )
+    public Object eInvoke ( final int operationID, final EList<?> arguments )
             throws InvocationTargetException
     {
         switch ( operationID )
         {
-            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__NODE:
-                return mapNode ( (Node)arguments.get ( 0 ) );
+            case DeploymentPackage.SIMPLE_NODE_MAPPING_ENTRY___MAP_NODE__STRING:
+                return mapNode ( (String)arguments.get ( 0 ) );
         }
         return super.eInvoke ( operationID, arguments );
     }
@@ -272,19 +294,22 @@ public class SimpleNodeMappingEntryImpl extends MinimalEObjectImpl.Container
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (fromHostName: " ); //$NON-NLS-1$
-        result.append ( fromHostName );
+        result.append ( this.fromHostName );
         result.append ( ", toHostName: " ); //$NON-NLS-1$
-        result.append ( toHostName );
+        result.append ( this.toHostName );
         result.append ( ')' );
         return result.toString ();
     }

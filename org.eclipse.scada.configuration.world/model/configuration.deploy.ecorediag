@@ -198,7 +198,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_jPLhwVzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/NodeMappingEntry"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jPLhwlzEEeOjNJTT7hEYrg" x="1032" y="240"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jPLhwlzEEeOjNJTT7hEYrg" x="1020" y="240"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_sqV0oFzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_sqXCwFzEEeOjNJTT7hEYrg" type="4001"/>

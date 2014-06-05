@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.world.deployment;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.world.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,9 +28,9 @@ public interface NodeMappingEntry extends EObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model required="true"
+     * @model
      * @generated
      */
-    boolean mapNode ( Node node );
+    String mapNode ( String hostname );
 
 } // NodeMappingEntry
