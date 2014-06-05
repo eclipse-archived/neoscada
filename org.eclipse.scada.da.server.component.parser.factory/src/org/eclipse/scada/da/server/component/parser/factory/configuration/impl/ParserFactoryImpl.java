@@ -98,6 +98,8 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
                 return createStringGroupField ();
             case ParserPackage.NUMERIC_GROUP_FIELD:
                 return createNumericGroupField ();
+            case ParserPackage.SPLIT_TABLE:
+                return createSplitTable ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -254,6 +256,17 @@ public class ParserFactoryImpl extends EFactoryImpl implements ParserFactory
     {
         NumericGroupFieldImpl numericGroupField = new NumericGroupFieldImpl ();
         return numericGroupField;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public SplitTable createSplitTable ()
+    {
+        SplitTableImpl splitTable = new SplitTableImpl ();
+        return splitTable;
     }
 
     /**

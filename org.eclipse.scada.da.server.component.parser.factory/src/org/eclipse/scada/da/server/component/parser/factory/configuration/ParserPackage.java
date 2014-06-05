@@ -767,6 +767,88 @@ public interface ParserPackage extends EPackage
     int NUMERIC_GROUP_FIELD_OPERATION_COUNT = FIELD_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl <em>Split Table</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getSplitTable()
+     * @generated
+     */
+    int SPLIT_TABLE = 14;
+
+    /**
+     * The feature id for the '<em><b>Prefix</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE__PREFIX = EXTRACTOR_DEFINITION__PREFIX;
+
+    /**
+     * The feature id for the '<em><b>Line Separator Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE__LINE_SEPARATOR_PATTERN = EXTRACTOR_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Field Separator Pattern</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE__FIELD_SEPARATOR_PATTERN = EXTRACTOR_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Id Column</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE__ID_COLUMN = EXTRACTOR_DEFINITION_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Fields</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE__FIELDS = EXTRACTOR_DEFINITION_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Split Table</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE_FEATURE_COUNT = EXTRACTOR_DEFINITION_FEATURE_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>Create Extractor</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE___CREATE_EXTRACTOR__CREATIONCONTEXT = EXTRACTOR_DEFINITION___CREATE_EXTRACTOR__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Split Table</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SPLIT_TABLE_OPERATION_COUNT = EXTRACTOR_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -774,7 +856,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getVariantType()
      * @generated
      */
-    int VARIANT_TYPE = 14;
+    int VARIANT_TYPE = 15;
 
     /**
      * The meta object id for the '<em>Input</em>' data type.
@@ -784,7 +866,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getInput()
      * @generated
      */
-    int INPUT = 15;
+    int INPUT = 16;
 
     /**
      * The meta object id for the '<em>Creation Context</em>' data type.
@@ -794,7 +876,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getCreationContext()
      * @generated
      */
-    int CREATION_CONTEXT = 16;
+    int CREATION_CONTEXT = 17;
 
     /**
      * The meta object id for the '<em>Extractor</em>' data type.
@@ -804,7 +886,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getExtractor()
      * @generated
      */
-    int EXTRACTOR = 17;
+    int EXTRACTOR = 18;
 
     /**
      * The meta object id for the '<em>Pattern</em>' data type.
@@ -814,7 +896,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 18;
+    int PATTERN = 19;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component <em>Component</em>}'.
@@ -1195,6 +1277,60 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EAttribute getNumericGroupField_GroupNumber ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable <em>Split Table</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Split Table</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable
+     * @generated
+     */
+    EClass getSplitTable ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getLineSeparatorPattern <em>Line Separator Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Line Separator Pattern</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getLineSeparatorPattern()
+     * @see #getSplitTable()
+     * @generated
+     */
+    EAttribute getSplitTable_LineSeparatorPattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFieldSeparatorPattern <em>Field Separator Pattern</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Field Separator Pattern</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFieldSeparatorPattern()
+     * @see #getSplitTable()
+     * @generated
+     */
+    EAttribute getSplitTable_FieldSeparatorPattern ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getIdColumn <em>Id Column</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id Column</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getIdColumn()
+     * @see #getSplitTable()
+     * @generated
+     */
+    EAttribute getSplitTable_IdColumn ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFields <em>Fields</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Fields</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable#getFields()
+     * @see #getSplitTable()
+     * @generated
+     */
+    EAttribute getSplitTable_Fields ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}'.
@@ -1589,6 +1725,48 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EAttribute NUMERIC_GROUP_FIELD__GROUP_NUMBER = eINSTANCE.getNumericGroupField_GroupNumber ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl <em>Split Table</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.SplitTableImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getSplitTable()
+         * @generated
+         */
+        EClass SPLIT_TABLE = eINSTANCE.getSplitTable ();
+
+        /**
+         * The meta object literal for the '<em><b>Line Separator Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SPLIT_TABLE__LINE_SEPARATOR_PATTERN = eINSTANCE.getSplitTable_LineSeparatorPattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Field Separator Pattern</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SPLIT_TABLE__FIELD_SEPARATOR_PATTERN = eINSTANCE.getSplitTable_FieldSeparatorPattern ();
+
+        /**
+         * The meta object literal for the '<em><b>Id Column</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SPLIT_TABLE__ID_COLUMN = eINSTANCE.getSplitTable_IdColumn ();
+
+        /**
+         * The meta object literal for the '<em><b>Fields</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SPLIT_TABLE__FIELDS = eINSTANCE.getSplitTable_Fields ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.

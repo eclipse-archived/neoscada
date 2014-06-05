@@ -349,6 +349,31 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected SplitTableItemProvider splitTableItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createSplitTableAdapter ()
+    {
+        if ( splitTableItemProvider == null )
+        {
+            splitTableItemProvider = new SplitTableItemProvider ( this );
+        }
+
+        return splitTableItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -509,6 +534,8 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             stringGroupFieldItemProvider.dispose ();
         if ( numericGroupFieldItemProvider != null )
             numericGroupFieldItemProvider.dispose ();
+        if ( splitTableItemProvider != null )
+            splitTableItemProvider.dispose ();
     }
 
 }

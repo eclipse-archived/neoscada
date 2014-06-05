@@ -220,6 +220,11 @@ public class ComponentItemProvider
                 ( createChildParameter
                 ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
                         ParserFactory.eINSTANCE.createSinglePattern () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
+                        ParserFactory.eINSTANCE.createSplitTable () ) );
     }
 
     /**

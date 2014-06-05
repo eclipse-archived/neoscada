@@ -86,4 +86,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupNumber" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SplitTable" eSuperTypes="#//ExtractorDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lineSeparatorPattern" lowerBound="1"
+        eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fieldSeparatorPattern"
+        lowerBound="1" eType="#//Pattern"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idColumn" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fields" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines the names of the fields. Of none are set, then the first row will be used instead."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
 </ecore:EPackage>
