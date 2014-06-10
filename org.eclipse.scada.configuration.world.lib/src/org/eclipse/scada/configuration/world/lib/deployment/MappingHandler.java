@@ -30,7 +30,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.deployment.MappingEntry;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 
-public class NodeMappingHandler implements TypeVisitor<Node>
+public class MappingHandler implements TypeVisitor<Node>
 {
     @Inject
     private World worldModel;

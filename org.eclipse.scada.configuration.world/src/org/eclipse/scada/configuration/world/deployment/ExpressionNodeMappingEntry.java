@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
  * @model
  * @generated
  */
-public interface ExpressionNodeMappingEntry extends NodeMappingEntry
+public interface ExpressionNodeMappingEntry extends MappingEntry
 {
     /**
      * Returns the value of the '<em><b>Pattern</b></em>' attribute.

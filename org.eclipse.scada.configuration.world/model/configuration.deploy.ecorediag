@@ -154,7 +154,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_KlpnQVzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/NodeMappings"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KlpnQlzEEeOjNJTT7hEYrg" x="972" y="132"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KlpnQlzEEeOjNJTT7hEYrg" x="984" y="144"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_PaRz4FzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_PaTCAFzEEeOjNJTT7hEYrg" type="4001"/>
@@ -189,7 +189,7 @@
     </children>
     <children xmi:type="notation:Node" xmi:id="_jPMv5FzEEeOjNJTT7hEYrg" type="5002">
       <children xmi:type="notation:Node" xmi:id="_uG3dAFzEEeOjNJTT7hEYrg" type="2002">
-        <element xmi:type="ecore:EOperation" href="configuration.ecore#//deployment/NodeMappingEntry/mapNode"/>
+        <element xmi:type="ecore:EOperation" href="configuration.ecore#//deployment/MappingEntry/map"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uG3dAVzEEeOjNJTT7hEYrg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_jPMv5VzEEeOjNJTT7hEYrg"/>
@@ -197,8 +197,8 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_jPMv51zEEeOjNJTT7hEYrg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_jPLhwVzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/NodeMappingEntry"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jPLhwlzEEeOjNJTT7hEYrg" x="1020" y="240"/>
+    <element xmi:type="ecore:EClass" href="configuration.ecore#//deployment/MappingEntry"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jPLhwlzEEeOjNJTT7hEYrg" x="1044" y="240"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_sqV0oFzEEeOjNJTT7hEYrg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_sqXCwFzEEeOjNJTT7hEYrg" type="4001"/>
@@ -228,11 +228,11 @@
     <children xmi:type="notation:Node" xmi:id="_-fhGcFzEEeOjNJTT7hEYrg" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_-fhGcVzEEeOjNJTT7hEYrg" type="5008">
       <children xmi:type="notation:Node" xmi:id="_BoS1QFzFEeOjNJTT7hEYrg" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/FallbackNodeMappingMode/FAIL"/>
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/FallbackMappingMode/FAIL"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_BoS1QVzFEeOjNJTT7hEYrg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_D2i1gFzFEeOjNJTT7hEYrg" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/FallbackNodeMappingMode/IGNORE"/>
+        <element xmi:type="ecore:EEnumLiteral" href="configuration.ecore#//deployment/FallbackMappingMode/IGNORE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_D2i1gVzFEeOjNJTT7hEYrg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-fhGclzEEeOjNJTT7hEYrg"/>
@@ -240,8 +240,8 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-fhGdFzEEeOjNJTT7hEYrg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_-fgfYVzEEeOjNJTT7hEYrg" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/FallbackNodeMappingMode"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-fgfYlzEEeOjNJTT7hEYrg" x="1344"/>
+    <element xmi:type="ecore:EEnum" href="configuration.ecore#//deployment/FallbackMappingMode"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-fgfYlzEEeOjNJTT7hEYrg" x="1008" y="24"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_gNgQwJ7AEeO0DZsIXagbmg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_gNhe4J7AEeO0DZsIXagbmg" type="4001"/>

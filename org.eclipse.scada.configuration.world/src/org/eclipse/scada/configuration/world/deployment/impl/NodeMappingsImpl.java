@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.world.deployment.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -23,8 +22,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
-import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
-import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.FallbackMappingMode;
+import org.eclipse.scada.configuration.world.deployment.MappingEntry;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 
 /**
@@ -34,8 +33,8 @@ import org.eclipse.scada.configuration.world.deployment.NodeMappings;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl#getEntries <em>Entries</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl#getFallbackMode <em>Fallback Mode</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl#getEntries <em>Entries</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,16 +44,6 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
         NodeMappings
 {
     /**
-     * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getEntries()
-     * @generated
-     * @ordered
-     */
-    protected EList<NodeMappingEntry> entries;
-
-    /**
      * The default value of the '{@link #getFallbackMode() <em>Fallback Mode</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -62,7 +51,7 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final FallbackNodeMappingMode FALLBACK_MODE_EDEFAULT = FallbackNodeMappingMode.FAIL;
+    protected static final FallbackMappingMode FALLBACK_MODE_EDEFAULT = FallbackMappingMode.FAIL;
 
     /**
      * The cached value of the '{@link #getFallbackMode() <em>Fallback Mode</em>}' attribute.
@@ -72,7 +61,17 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected FallbackNodeMappingMode fallbackMode = FALLBACK_MODE_EDEFAULT;
+    protected FallbackMappingMode fallbackMode = FALLBACK_MODE_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getEntries()
+     * @generated
+     * @ordered
+     */
+    protected EList<MappingEntry> entries;
 
     /**
      * <!-- begin-user-doc -->
@@ -100,11 +99,11 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<NodeMappingEntry> getEntries ()
+    public EList<MappingEntry> getEntries ()
     {
         if ( entries == null )
         {
-            entries = new EObjectContainmentEList.Resolving<NodeMappingEntry> ( NodeMappingEntry.class, this, DeploymentPackage.NODE_MAPPINGS__ENTRIES );
+            entries = new EObjectContainmentEList.Resolving<MappingEntry> ( MappingEntry.class, this, DeploymentPackage.NODE_MAPPINGS__ENTRIES );
         }
         return entries;
     }
@@ -114,7 +113,7 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public FallbackNodeMappingMode getFallbackMode ()
+    public FallbackMappingMode getFallbackMode ()
     {
         return fallbackMode;
     }
@@ -124,9 +123,9 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setFallbackMode ( FallbackNodeMappingMode newFallbackMode )
+    public void setFallbackMode ( FallbackMappingMode newFallbackMode )
     {
-        FallbackNodeMappingMode oldFallbackMode = fallbackMode;
+        FallbackMappingMode oldFallbackMode = fallbackMode;
         fallbackMode = newFallbackMode == null ? FALLBACK_MODE_EDEFAULT : newFallbackMode;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE, oldFallbackMode, fallbackMode ) );
@@ -159,10 +158,10 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
-                return getEntries ();
             case DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE:
                 return getFallbackMode ();
+            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
+                return getEntries ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -178,12 +177,12 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
+            case DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE:
+                setFallbackMode ( (FallbackMappingMode)newValue );
+                return;
             case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
                 getEntries ().clear ();
-                getEntries ().addAll ( (Collection<? extends NodeMappingEntry>)newValue );
-                return;
-            case DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE:
-                setFallbackMode ( (FallbackNodeMappingMode)newValue );
+                getEntries ().addAll ( (Collection<? extends MappingEntry>)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -199,11 +198,11 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
-                getEntries ().clear ();
-                return;
             case DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE:
                 setFallbackMode ( FALLBACK_MODE_EDEFAULT );
+                return;
+            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
+                getEntries ().clear ();
                 return;
         }
         super.eUnset ( featureID );
@@ -219,10 +218,10 @@ public class NodeMappingsImpl extends MinimalEObjectImpl.Container implements
     {
         switch ( featureID )
         {
-            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
-                return entries != null && !entries.isEmpty ();
             case DeploymentPackage.NODE_MAPPINGS__FALLBACK_MODE:
                 return fallbackMode != FALLBACK_MODE_EDEFAULT;
+            case DeploymentPackage.NODE_MAPPINGS__ENTRIES:
+                return entries != null && !entries.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

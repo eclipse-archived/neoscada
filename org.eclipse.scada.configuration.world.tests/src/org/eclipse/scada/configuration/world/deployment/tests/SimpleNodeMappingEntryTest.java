@@ -25,7 +25,7 @@ import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.MappingEntry#map(java.lang.String) <em>Map</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -109,13 +109,13 @@ public class SimpleNodeMappingEntryTest extends TestCase
     }
 
     /**
-     * Tests the '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node) <em>Map Node</em>}' operation.
+     * Tests the '{@link org.eclipse.scada.configuration.world.deployment.MappingEntry#map(java.lang.String) <em>Map</em>}' operation.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry#mapNode(org.eclipse.scada.configuration.world.Node)
+     * @see org.eclipse.scada.configuration.world.deployment.MappingEntry#map(java.lang.String)
      * @generated
      */
-    public void testMapNode__Node ()
+    public void testMap__String ()
     {
         // TODO: implement this operation test method
         // Ensure that you remove @generated or mark it @generated NOT

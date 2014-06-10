@@ -13,7 +13,6 @@ package org.eclipse.scada.configuration.world.deployment.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -31,7 +30,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
-import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.FallbackMappingMode;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
 
@@ -153,7 +152,7 @@ public class NodeMappingsItemProvider extends ItemProviderAdapter implements
     @Override
     public String getText ( Object object )
     {
-        FallbackNodeMappingMode labelValue = ( (NodeMappings)object ).getFallbackMode ();
+        FallbackMappingMode labelValue = ( (NodeMappings)object ).getFallbackMode ();
         String label = labelValue == null ? null : labelValue.toString ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_NodeMappings_type" ) : //$NON-NLS-1$

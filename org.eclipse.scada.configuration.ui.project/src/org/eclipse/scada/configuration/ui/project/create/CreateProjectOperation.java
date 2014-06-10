@@ -75,7 +75,7 @@ import org.eclipse.scada.configuration.world.deployment.Author;
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
 import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
 import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
-import org.eclipse.scada.configuration.world.deployment.FallbackNodeMappingMode;
+import org.eclipse.scada.configuration.world.deployment.FallbackMappingMode;
 import org.eclipse.scada.configuration.world.deployment.NodeMappings;
 import org.eclipse.scada.configuration.world.deployment.P2Platform;
 import org.eclipse.scada.configuration.world.osgi.EventPool;
@@ -174,7 +174,7 @@ public class CreateProjectOperation extends WorkspaceModifyOperation
     private NodeMappings createNodeMappings ()
     {
         final NodeMappings mappings = DeploymentFactory.eINSTANCE.createNodeMappings ();
-        mappings.setFallbackMode ( FallbackNodeMappingMode.IGNORE );
+        mappings.setFallbackMode ( FallbackMappingMode.IGNORE );
         final ExpressionNodeMappingEntry exp = DeploymentFactory.eINSTANCE.createExpressionNodeMappingEntry ();
         mappings.getEntries ().add ( exp );
 

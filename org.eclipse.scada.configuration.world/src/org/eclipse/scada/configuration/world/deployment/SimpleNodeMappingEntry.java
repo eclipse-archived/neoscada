@@ -32,7 +32,7 @@ package org.eclipse.scada.configuration.world.deployment;
  * @model
  * @generated
  */
-public interface SimpleNodeMappingEntry extends NodeMappingEntry
+public interface SimpleNodeMappingEntry extends MappingEntry
 {
     /**
      * Returns the value of the '<em><b>From Host Name</b></em>' attribute.

@@ -14,20 +14,7 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.configuration.world.deployment.Author;
-import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
-import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
-import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
-import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
-import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
-import org.eclipse.scada.configuration.world.deployment.NodeMappings;
-import org.eclipse.scada.configuration.world.deployment.P2Platform;
-import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -148,9 +135,9 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
-        public Adapter caseNodeMappingEntry ( NodeMappingEntry object )
+        public Adapter caseMappingEntry ( MappingEntry object )
         {
-            return createNodeMappingEntryAdapter ();
+            return createMappingEntryAdapter ();
         }
 
         @Override
@@ -346,18 +333,16 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.NodeMappingEntry <em>Node Mapping Entry</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.MappingEntry <em>Mapping Entry</em>}'.
      * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore
-     * cases;
-     * it's useful to ignore a case when inheritance will catch all the cases
-     * anyway.
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappingEntry
+     * @see org.eclipse.scada.configuration.world.deployment.MappingEntry
      * @generated
      */
-    public Adapter createNodeMappingEntryAdapter ()
+    public Adapter createMappingEntryAdapter ()
     {
         return null;
     }

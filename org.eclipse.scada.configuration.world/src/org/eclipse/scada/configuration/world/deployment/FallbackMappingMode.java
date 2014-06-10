@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,14 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Fallback Node Mapping Mode</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Fallback Mapping Mode</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getFallbackNodeMappingMode()
+ * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getFallbackMappingMode()
  * @model
  * @generated
  */
-public enum FallbackNodeMappingMode implements Enumerator
+public enum FallbackMappingMode implements Enumerator
 {
     /**
      * The '<em><b>FAIL</b></em>' literal object.
@@ -79,36 +79,37 @@ public enum FallbackNodeMappingMode implements Enumerator
     public static final int IGNORE_VALUE = 1;
 
     /**
-     * An array of all the '<em><b>Fallback Node Mapping Mode</b></em>' enumerators.
+     * An array of all the '<em><b>Fallback Mapping Mode</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final FallbackNodeMappingMode[] VALUES_ARRAY = new FallbackNodeMappingMode[]
-    {
-            FAIL,
-            IGNORE,
-    };
+    private static final FallbackMappingMode[] VALUES_ARRAY =
+            new FallbackMappingMode[]
+            {
+                    FAIL,
+                    IGNORE,
+            };
 
     /**
-     * A public read-only list of all the '<em><b>Fallback Node Mapping Mode</b></em>' enumerators.
+     * A public read-only list of all the '<em><b>Fallback Mapping Mode</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<FallbackNodeMappingMode> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
+    public static final List<FallbackMappingMode> VALUES = Collections.unmodifiableList ( Arrays.asList ( VALUES_ARRAY ) );
 
     /**
-     * Returns the '<em><b>Fallback Node Mapping Mode</b></em>' literal with the specified literal value.
+     * Returns the '<em><b>Fallback Mapping Mode</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static FallbackNodeMappingMode get ( String literal )
+    public static FallbackMappingMode get ( String literal )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            FallbackNodeMappingMode result = VALUES_ARRAY[i];
+            FallbackMappingMode result = VALUES_ARRAY[i];
             if ( result.toString ().equals ( literal ) )
             {
                 return result;
@@ -118,16 +119,16 @@ public enum FallbackNodeMappingMode implements Enumerator
     }
 
     /**
-     * Returns the '<em><b>Fallback Node Mapping Mode</b></em>' literal with the specified name.
+     * Returns the '<em><b>Fallback Mapping Mode</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static FallbackNodeMappingMode getByName ( String name )
+    public static FallbackMappingMode getByName ( String name )
     {
         for ( int i = 0; i < VALUES_ARRAY.length; ++i )
         {
-            FallbackNodeMappingMode result = VALUES_ARRAY[i];
+            FallbackMappingMode result = VALUES_ARRAY[i];
             if ( result.getName ().equals ( name ) )
             {
                 return result;
@@ -137,12 +138,12 @@ public enum FallbackNodeMappingMode implements Enumerator
     }
 
     /**
-     * Returns the '<em><b>Fallback Node Mapping Mode</b></em>' literal with the specified integer value.
+     * Returns the '<em><b>Fallback Mapping Mode</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static FallbackNodeMappingMode get ( int value )
+    public static FallbackMappingMode get ( int value )
     {
         switch ( value )
         {
@@ -181,7 +182,7 @@ public enum FallbackNodeMappingMode implements Enumerator
      * <!-- end-user-doc -->
      * @generated
      */
-    private FallbackNodeMappingMode ( int value, String name, String literal )
+    private FallbackMappingMode ( int value, String name, String literal )
     {
         this.value = value;
         this.name = name;
@@ -230,4 +231,4 @@ public enum FallbackNodeMappingMode implements Enumerator
         return literal;
     }
 
-} //FallbackNodeMappingMode
+} //FallbackMappingMode

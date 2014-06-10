@@ -13,20 +13,7 @@ package org.eclipse.scada.configuration.world.deployment.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.scada.configuration.world.deployment.Author;
-import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
-import org.eclipse.scada.configuration.world.deployment.CommonDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DeploymentInformation;
-import org.eclipse.scada.configuration.world.deployment.DeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.DeploymentPackage;
-import org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry;
-import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.NodeMappingEntry;
-import org.eclipse.scada.configuration.world.deployment.NodeMappings;
-import org.eclipse.scada.configuration.world.deployment.P2Platform;
-import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
-import org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry;
+import org.eclipse.scada.configuration.world.deployment.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -170,15 +157,15 @@ public class DeploymentSwitch<T> extends Switch<T>
                 ExpressionNodeMappingEntry expressionNodeMappingEntry = (ExpressionNodeMappingEntry)theEObject;
                 T result = caseExpressionNodeMappingEntry ( expressionNodeMappingEntry );
                 if ( result == null )
-                    result = caseNodeMappingEntry ( expressionNodeMappingEntry );
+                    result = caseMappingEntry ( expressionNodeMappingEntry );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case DeploymentPackage.NODE_MAPPING_ENTRY:
+            case DeploymentPackage.MAPPING_ENTRY:
             {
-                NodeMappingEntry nodeMappingEntry = (NodeMappingEntry)theEObject;
-                T result = caseNodeMappingEntry ( nodeMappingEntry );
+                MappingEntry mappingEntry = (MappingEntry)theEObject;
+                T result = caseMappingEntry ( mappingEntry );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -188,7 +175,7 @@ public class DeploymentSwitch<T> extends Switch<T>
                 SimpleNodeMappingEntry simpleNodeMappingEntry = (SimpleNodeMappingEntry)theEObject;
                 T result = caseSimpleNodeMappingEntry ( simpleNodeMappingEntry );
                 if ( result == null )
-                    result = caseNodeMappingEntry ( simpleNodeMappingEntry );
+                    result = caseMappingEntry ( simpleNodeMappingEntry );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -361,17 +348,17 @@ public class DeploymentSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Mapping Entry</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
      * returning a non-null result will terminate the switch.
      * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Node Mapping Entry</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Mapping Entry</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNodeMappingEntry ( NodeMappingEntry object )
+    public T caseMappingEntry ( MappingEntry object )
     {
         return null;
     }

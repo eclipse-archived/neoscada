@@ -1025,12 +1025,12 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NodeMappings">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-          eType="#//deployment/NodeMappingEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallbackMode" lowerBound="1"
-          eType="#//deployment/FallbackNodeMappingMode" defaultValueLiteral="FAIL"/>
+          eType="#//deployment/FallbackMappingMode" defaultValueLiteral="FAIL"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="#//deployment/MappingEntry" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExpressionNodeMappingEntry" eSuperTypes="#//deployment/NodeMappingEntry">
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionNodeMappingEntry" eSuperTypes="#//deployment/MappingEntry">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Replace the hostname with an case insensitive regular expression. The replacement string may reference capture groups using the dollar ($) sign. See also java.util.regex.Matcher.replaceAll - http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#replaceAll%28java.lang.String%29"/>
       </eAnnotations>
@@ -1039,13 +1039,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="replacement" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NodeMappingEntry" abstract="true"
-        interface="true">
-      <eOperations name="mapNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eClassifiers xsi:type="ecore:EClass" name="MappingEntry" abstract="true" interface="true">
+      <eOperations name="map" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="hostname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleNodeMappingEntry" eSuperTypes="#//deployment/NodeMappingEntry">
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleNodeMappingEntry" eSuperTypes="#//deployment/MappingEntry">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Replace a hostname by matching it against the fromHostName field and replacing it with the toHostName field if it matches. It is compared case insensitive."/>
       </eAnnotations>
@@ -1054,7 +1053,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="toHostName" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="FallbackNodeMappingMode">
+    <eClassifiers xsi:type="ecore:EEnum" name="FallbackMappingMode">
       <eLiterals name="FAIL"/>
       <eLiterals name="IGNORE" value="1"/>
     </eClassifiers>

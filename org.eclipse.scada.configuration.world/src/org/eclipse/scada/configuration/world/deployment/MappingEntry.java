@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,15 +15,15 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Node Mapping Entry</b></em>'.
+ * A representation of the model object '<em><b>Mapping Entry</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getNodeMappingEntry()
+ * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getMappingEntry()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface NodeMappingEntry extends EObject
+public interface MappingEntry extends EObject
 {
     /**
      * <!-- begin-user-doc -->
@@ -31,6 +31,6 @@ public interface NodeMappingEntry extends EObject
      * @model
      * @generated
      */
-    String mapNode ( String hostname );
+    String map ( String hostname );
 
-} // NodeMappingEntry
+} // MappingEntry
