@@ -29,9 +29,7 @@ import javax.xml.crypto.dsig.keyinfo.X509Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * @since 1.1
- */
+
 public class X509KeySelector extends KeySelector
 {
 
