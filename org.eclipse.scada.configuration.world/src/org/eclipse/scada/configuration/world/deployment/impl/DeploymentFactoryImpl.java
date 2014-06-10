@@ -92,6 +92,8 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
                 return createMsiDeploymentMechanism ();
             case DeploymentPackage.P2_PLATFORM:
                 return createP2Platform ();
+            case DeploymentPackage.MAPPINGS:
+                return createMappings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -264,6 +266,17 @@ public class DeploymentFactoryImpl extends EFactoryImpl implements
     {
         P2PlatformImpl p2Platform = new P2PlatformImpl ();
         return p2Platform;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Mappings createMappings ()
+    {
+        MappingsImpl mappings = new MappingsImpl ();
+        return mappings;
     }
 
     /**

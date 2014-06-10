@@ -1024,12 +1024,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NodeMappings">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallbackMode" lowerBound="1"
-          eType="#//deployment/FallbackMappingMode" defaultValueLiteral="FAIL"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-          eType="#//deployment/MappingEntry" containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NodeMappings" eSuperTypes="#//deployment/Mappings"/>
     <eClassifiers xsi:type="ecore:EClass" name="ExpressionNodeMappingEntry" eSuperTypes="#//deployment/MappingEntry">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Replace the hostname with an case insensitive regular expression. The replacement string may reference capture groups using the dollar ($) sign. See also java.util.regex.Matcher.replaceAll - http://docs.oracle.com/javase/7/docs/api/java/util/regex/Matcher.html#replaceAll%28java.lang.String%29"/>
@@ -1052,6 +1047,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="toHostName" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreCase" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="FallbackMappingMode">
       <eLiterals name="FAIL"/>
@@ -1092,6 +1090,12 @@
       <eLiterals name="UPSTART" value="1"/>
       <eLiterals name="REDHAT_SYSV" value="2"/>
       <eLiterals name="LSB_SYSV" value="3"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Mappings">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
+          eType="#//deployment/MappingEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fallbackMode" lowerBound="1"
+          eType="#//deployment/FallbackMappingMode" defaultValueLiteral="FAIL"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

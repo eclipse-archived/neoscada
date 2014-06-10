@@ -121,6 +121,15 @@ public interface DeploymentFactory extends EFactory
     P2Platform createP2Platform ();
 
     /**
+     * Returns a new object of class '<em>Mappings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Mappings</em>'.
+     * @generated
+     */
+    Mappings createMappings ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

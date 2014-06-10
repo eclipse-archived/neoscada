@@ -149,6 +149,8 @@ public class DeploymentSwitch<T> extends Switch<T>
                 NodeMappings nodeMappings = (NodeMappings)theEObject;
                 T result = caseNodeMappings ( nodeMappings );
                 if ( result == null )
+                    result = caseMappings ( nodeMappings );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -194,6 +196,14 @@ public class DeploymentSwitch<T> extends Switch<T>
             {
                 P2Platform p2Platform = (P2Platform)theEObject;
                 T result = caseP2Platform ( p2Platform );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case DeploymentPackage.MAPPINGS:
+            {
+                Mappings mappings = (Mappings)theEObject;
+                T result = caseMappings ( mappings );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -407,6 +417,22 @@ public class DeploymentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseP2Platform ( P2Platform object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Mappings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Mappings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseMappings ( Mappings object )
     {
         return null;
     }

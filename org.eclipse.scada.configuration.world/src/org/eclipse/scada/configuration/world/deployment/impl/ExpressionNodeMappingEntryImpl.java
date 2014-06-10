@@ -166,8 +166,7 @@ public class ExpressionNodeMappingEntryImpl extends
             return null;
         }
 
-        final Pattern pattern = getPattern ();
-        final Matcher m = pattern.matcher ( from );
+        final Matcher m = getPattern ().matcher ( from );
         if ( m.matches () )
         {
             return m.replaceAll ( this.replacement );

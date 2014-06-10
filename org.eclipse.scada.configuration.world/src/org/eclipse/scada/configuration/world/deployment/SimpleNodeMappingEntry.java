@@ -25,6 +25,7 @@ package org.eclipse.scada.configuration.world.deployment;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getFromHostName <em>From Host Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#getToHostName <em>To Host Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#isIgnoreCase <em>Ignore Case</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,5 +86,32 @@ public interface SimpleNodeMappingEntry extends MappingEntry
      * @generated
      */
     void setToHostName ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Ignore Case</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Ignore Case</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Ignore Case</em>' attribute.
+     * @see #setIgnoreCase(boolean)
+     * @see org.eclipse.scada.configuration.world.deployment.DeploymentPackage#getSimpleNodeMappingEntry_IgnoreCase()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isIgnoreCase ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#isIgnoreCase <em>Ignore Case</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Ignore Case</em>' attribute.
+     * @see #isIgnoreCase()
+     * @generated
+     */
+    void setIgnoreCase ( boolean value );
 
 } // SimpleNodeMappingEntry

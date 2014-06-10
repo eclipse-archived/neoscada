@@ -10,120 +10,41 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib.deployment;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
 import javax.inject.Inject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.scada.configuration.utils.TypeVisitor;
 import org.eclipse.scada.configuration.utils.TypeWalker;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldPackage;
-import org.eclipse.scada.configuration.world.deployment.MappingEntry;
-import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.Mappings;
 
-public class NodeMappingHandler implements TypeVisitor<Node>
+public class NodeMappingHandler extends AbstractMapper
 {
     @Inject
     private World worldModel;
 
     @Inject
-    private NodeMappings nodeMappings;
+    private Mappings nodeMappings;
 
-    @Inject
-    private String additionalTargets;
-
-    private Map<String, Set<String>> additionalMappings = new HashMap<> ();
+    @Override
+    protected Mappings getMappings ()
+    {
+        return this.nodeMappings;
+    }
 
     public void execute ( final IProgressMonitor monitor ) throws Exception
     {
         monitor.setTaskName ( "Mapping nodes" );
 
-        this.additionalMappings = parse ();
+        new TypeWalker<Node> ( Node.class ).walk ( this.worldModel, new TypeVisitor<Node> () {
 
-        new TypeWalker<Node> ( Node.class ).walk ( this.worldModel, this );
-
-        final TreeIterator<EObject> i = this.worldModel.eAllContents ();
-        while ( i.hasNext () )
-        {
-            final EObject o = i.next ();
-
-            final String className = o.eClass ().getName ();
-
-            final Set<String> features = this.additionalMappings.get ( className );
-            if ( features == null )
+            @Override
+            public void visit ( final Node node ) throws Exception
             {
-                continue;
+                replaceName ( node, WorldPackage.Literals.NODE__HOST_NAME );
             }
-            for ( final String f : features )
-            {
-                final EStructuralFeature sf = o.eClass ().getEStructuralFeature ( f );
-                if ( sf == null )
-                {
-                    throw new RuntimeException ( String.format ( "Class %s does not have feature %s", className, f ) );
-                }
-                replaceName ( o, sf );
-            }
-        }
-    }
-
-    private Map<String, Set<String>> parse ()
-    {
-        final Map<String, Set<String>> result = new HashMap<> ();
-
-        if ( this.additionalTargets == null || this.additionalTargets.isEmpty () )
-        {
-            return result;
-        }
-
-        for ( final String tok : this.additionalTargets.split ( ";" ) )
-        {
-            final String[] a = tok.split ( ":", 2 );
-            result.put ( a[0], new HashSet<> ( Arrays.asList ( a[1].split ( "," ) ) ) );
-        }
-
-        return result;
-    }
-
-    @Override
-    public void visit ( final Node node ) throws Exception
-    {
-        replaceName ( node, WorldPackage.Literals.NODE__HOST_NAME );
-    }
-
-    protected void replaceName ( final EObject object, final EStructuralFeature feature )
-    {
-        final String hostname = (String)object.eGet ( feature );
-
-        if ( hostname == null )
-        {
-            return;
-        }
-
-        for ( final MappingEntry entry : this.nodeMappings.getEntries () )
-        {
-            final String newName = entry.map ( hostname );
-            if ( newName != null )
-            {
-                object.eSet ( feature, newName );
-                return;
-            }
-        }
-
-        switch ( this.nodeMappings.getFallbackMode () )
-        {
-            case IGNORE:
-                return;
-            case FAIL:
-                throw new IllegalStateException ( String.format ( "No node mapping for: %s", hostname ) );
-        }
+        } );
     }
 }

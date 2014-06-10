@@ -452,6 +452,52 @@ public interface DeploymentPackage extends EPackage
     int CHANGE_ENTRY_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl <em>Mappings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl
+     * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getMappings()
+     * @generated
+     */
+    int MAPPINGS = 13;
+
+    /**
+     * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPINGS__ENTRIES = 0;
+
+    /**
+     * The feature id for the '<em><b>Fallback Mode</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPINGS__FALLBACK_MODE = 1;
+
+    /**
+     * The number of structural features of the '<em>Mappings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPINGS_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Mappings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MAPPINGS_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.impl.NodeMappingsImpl <em>Node Mappings</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -462,22 +508,22 @@ public interface DeploymentPackage extends EPackage
     int NODE_MAPPINGS = 7;
 
     /**
-     * The feature id for the '<em><b>Fallback Mode</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int NODE_MAPPINGS__FALLBACK_MODE = 0;
-
-    /**
      * The feature id for the '<em><b>Entries</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int NODE_MAPPINGS__ENTRIES = 1;
+    int NODE_MAPPINGS__ENTRIES = MAPPINGS__ENTRIES;
+
+    /**
+     * The feature id for the '<em><b>Fallback Mode</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int NODE_MAPPINGS__FALLBACK_MODE = MAPPINGS__FALLBACK_MODE;
 
     /**
      * The number of structural features of the '<em>Node Mappings</em>' class.
@@ -486,7 +532,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int NODE_MAPPINGS_FEATURE_COUNT = 2;
+    int NODE_MAPPINGS_FEATURE_COUNT = MAPPINGS_FEATURE_COUNT + 0;
 
     /**
      * The number of operations of the '<em>Node Mappings</em>' class.
@@ -495,7 +541,7 @@ public interface DeploymentPackage extends EPackage
      * @generated
      * @ordered
      */
-    int NODE_MAPPINGS_OPERATION_COUNT = 0;
+    int NODE_MAPPINGS_OPERATION_COUNT = MAPPINGS_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.MappingEntry <em>Mapping Entry</em>}' class.
@@ -618,13 +664,22 @@ public interface DeploymentPackage extends EPackage
     int SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME = MAPPING_ENTRY_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Ignore Case</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SIMPLE_NODE_MAPPING_ENTRY__IGNORE_CASE = MAPPING_ENTRY_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Simple Node Mapping Entry</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int SIMPLE_NODE_MAPPING_ENTRY_FEATURE_COUNT = MAPPING_ENTRY_FEATURE_COUNT + 2;
+    int SIMPLE_NODE_MAPPING_ENTRY_FEATURE_COUNT = MAPPING_ENTRY_FEATURE_COUNT + 3;
 
     /**
      * The operation id for the '<em>Map</em>' operation.
@@ -807,7 +862,7 @@ public interface DeploymentPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getFallbackMappingMode()
      * @generated
      */
-    int FALLBACK_MAPPING_MODE = 13;
+    int FALLBACK_MAPPING_MODE = 14;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.Architecture <em>Architecture</em>}' enum.
@@ -817,7 +872,7 @@ public interface DeploymentPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getArchitecture()
      * @generated
      */
-    int ARCHITECTURE = 14;
+    int ARCHITECTURE = 15;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.deployment.StartupMechanism <em>Startup Mechanism</em>}' enum.
@@ -827,7 +882,7 @@ public interface DeploymentPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getStartupMechanism()
      * @generated
      */
-    int STARTUP_MECHANISM = 15;
+    int STARTUP_MECHANISM = 16;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.DeploymentMechanism <em>Mechanism</em>}'.
@@ -1042,28 +1097,6 @@ public interface DeploymentPackage extends EPackage
     EClass getNodeMappings ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getEntries <em>Entries</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Entries</em>'.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings#getEntries()
-     * @see #getNodeMappings()
-     * @generated
-     */
-    EReference getNodeMappings_Entries ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode <em>Fallback Mode</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Fallback Mode</em>'.
-     * @see org.eclipse.scada.configuration.world.deployment.NodeMappings#getFallbackMode()
-     * @see #getNodeMappings()
-     * @generated
-     */
-    EAttribute getNodeMappings_FallbackMode ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.ExpressionNodeMappingEntry <em>Expression Node Mapping Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1146,6 +1179,17 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EAttribute getSimpleNodeMappingEntry_ToHostName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#isIgnoreCase <em>Ignore Case</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ignore Case</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.SimpleNodeMappingEntry#isIgnoreCase()
+     * @see #getSimpleNodeMappingEntry()
+     * @generated
+     */
+    EAttribute getSimpleNodeMappingEntry_IgnoreCase ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism <em>Msi Deployment Mechanism</em>}'.
@@ -1287,6 +1331,38 @@ public interface DeploymentPackage extends EPackage
      * @generated
      */
     EAttribute getP2Platform_Name ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.deployment.Mappings <em>Mappings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Mappings</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.Mappings
+     * @generated
+     */
+    EClass getMappings ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.deployment.Mappings#getEntries <em>Entries</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Entries</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.Mappings#getEntries()
+     * @see #getMappings()
+     * @generated
+     */
+    EReference getMappings_Entries ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.deployment.Mappings#getFallbackMode <em>Fallback Mode</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Fallback Mode</em>'.
+     * @see org.eclipse.scada.configuration.world.deployment.Mappings#getFallbackMode()
+     * @see #getMappings()
+     * @generated
+     */
+    EAttribute getMappings_FallbackMode ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.deployment.FallbackMappingMode <em>Fallback Mapping Mode</em>}'.
@@ -1519,22 +1595,6 @@ public interface DeploymentPackage extends EPackage
         EClass NODE_MAPPINGS = eINSTANCE.getNodeMappings ();
 
         /**
-         * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference NODE_MAPPINGS__ENTRIES = eINSTANCE.getNodeMappings_Entries ();
-
-        /**
-         * The meta object literal for the '<em><b>Fallback Mode</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute NODE_MAPPINGS__FALLBACK_MODE = eINSTANCE.getNodeMappings_FallbackMode ();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.ExpressionNodeMappingEntryImpl <em>Expression Node Mapping Entry</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1603,6 +1663,14 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute SIMPLE_NODE_MAPPING_ENTRY__TO_HOST_NAME = eINSTANCE.getSimpleNodeMappingEntry_ToHostName ();
+
+        /**
+         * The meta object literal for the '<em><b>Ignore Case</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute SIMPLE_NODE_MAPPING_ENTRY__IGNORE_CASE = eINSTANCE.getSimpleNodeMappingEntry_IgnoreCase ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.MsiDeploymentMechanismImpl <em>Msi Deployment Mechanism</em>}' class.
@@ -1711,6 +1779,32 @@ public interface DeploymentPackage extends EPackage
          * @generated
          */
         EAttribute P2_PLATFORM__NAME = eINSTANCE.getP2Platform_Name ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl <em>Mappings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.deployment.impl.MappingsImpl
+         * @see org.eclipse.scada.configuration.world.deployment.impl.DeploymentPackageImpl#getMappings()
+         * @generated
+         */
+        EClass MAPPINGS = eINSTANCE.getMappings ();
+
+        /**
+         * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference MAPPINGS__ENTRIES = eINSTANCE.getMappings_Entries ();
+
+        /**
+         * The meta object literal for the '<em><b>Fallback Mode</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MAPPINGS__FALLBACK_MODE = eINSTANCE.getMappings_FallbackMode ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.deployment.FallbackMappingMode <em>Fallback Mapping Mode</em>}' enum.

@@ -159,6 +159,12 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseMappings ( Mappings object )
+        {
+            return createMappingsAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -394,6 +400,21 @@ public class DeploymentAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createP2PlatformAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.deployment.Mappings <em>Mappings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.deployment.Mappings
+     * @generated
+     */
+    public Adapter createMappingsAdapter ()
     {
         return null;
     }
