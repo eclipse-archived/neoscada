@@ -15,9 +15,7 @@ import java.security.cert.X509Certificate;
 
 import javax.xml.crypto.KeySelectorResult;
 
-/**
- * @since 1.1
- */
+
 public class X509KeySelectorResult implements KeySelectorResult
 {
 

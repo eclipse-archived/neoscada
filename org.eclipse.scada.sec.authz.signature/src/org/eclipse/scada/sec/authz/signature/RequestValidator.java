@@ -23,9 +23,6 @@ import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
-/**
- * @since 1.1
- */
 public class RequestValidator
 {
 

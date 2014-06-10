@@ -34,9 +34,7 @@ import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 
 import org.w3c.dom.Document;
 
-/**
- * @since 1.1
- */
+
 public class RequestSigner
 {
 

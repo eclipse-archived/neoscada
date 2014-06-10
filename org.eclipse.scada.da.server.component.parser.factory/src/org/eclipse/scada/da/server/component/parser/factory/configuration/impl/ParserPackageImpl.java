@@ -35,6 +35,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Parser
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainText;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor;
@@ -145,6 +146,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EClass numericGroupFieldEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass splitTableEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -609,6 +617,56 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSplitTable ()
+    {
+        return splitTableEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSplitTable_LineSeparatorPattern ()
+    {
+        return (EAttribute)splitTableEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSplitTable_FieldSeparatorPattern ()
+    {
+        return (EAttribute)splitTableEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSplitTable_IdColumn ()
+    {
+        return (EAttribute)splitTableEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getSplitTable_Fields ()
+    {
+        return (EAttribute)splitTableEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getVariantType ()
     {
         return variantTypeEEnum;
@@ -735,6 +793,12 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         numericGroupFieldEClass = createEClass ( NUMERIC_GROUP_FIELD );
         createEAttribute ( numericGroupFieldEClass, NUMERIC_GROUP_FIELD__GROUP_NUMBER );
 
+        splitTableEClass = createEClass ( SPLIT_TABLE );
+        createEAttribute ( splitTableEClass, SPLIT_TABLE__LINE_SEPARATOR_PATTERN );
+        createEAttribute ( splitTableEClass, SPLIT_TABLE__FIELD_SEPARATOR_PATTERN );
+        createEAttribute ( splitTableEClass, SPLIT_TABLE__ID_COLUMN );
+        createEAttribute ( splitTableEClass, SPLIT_TABLE__FIELDS );
+
         // Create enums
         variantTypeEEnum = createEEnum ( VARIANT_TYPE );
 
@@ -783,6 +847,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         mainGroupFieldEClass.getESuperTypes ().add ( this.getField () );
         stringGroupFieldEClass.getESuperTypes ().add ( this.getField () );
         numericGroupFieldEClass.getESuperTypes ().add ( this.getField () );
+        splitTableEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -838,6 +903,12 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
 
         initEClass ( numericGroupFieldEClass, NumericGroupField.class, "NumericGroupField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getNumericGroupField_GroupNumber (), ecorePackage.getEInt (), "groupNumber", null, 1, 1, NumericGroupField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( splitTableEClass, SplitTable.class, "SplitTable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSplitTable_LineSeparatorPattern (), this.getPattern (), "lineSeparatorPattern", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSplitTable_FieldSeparatorPattern (), this.getPattern (), "fieldSeparatorPattern", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSplitTable_IdColumn (), ecorePackage.getEInt (), "idColumn", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSplitTable_Fields (), ecorePackage.getEString (), "fields", null, 0, -1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( variantTypeEEnum, VariantType.class, "VariantType" ); //$NON-NLS-1$

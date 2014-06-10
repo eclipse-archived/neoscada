@@ -35,9 +35,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-/**
- * @since 1.1
- */
+
 public class SignatureRequestBuilder
 {
     public static final String NAMESPACE = System.getProperty("org.eclipse.scada.sec.authz.signature.xmlNamespace", "urn:eclipse:scada:sec:request");

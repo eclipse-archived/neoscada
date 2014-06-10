@@ -121,6 +121,15 @@ public interface ParserFactory extends EFactory
     NumericGroupField createNumericGroupField ();
 
     /**
+     * Returns a new object of class '<em>Split Table</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Split Table</em>'.
+     * @generated
+     */
+    SplitTable createSplitTable ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
