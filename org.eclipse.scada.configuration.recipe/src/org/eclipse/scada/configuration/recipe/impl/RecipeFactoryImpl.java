@@ -89,6 +89,8 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory
                 return createInputReference ();
             case RecipePackage.PROPERTY_ENTRY:
                 return createPropertyEntry ();
+            case RecipePackage.PROFILE:
+                return createProfile ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -180,6 +182,17 @@ public class RecipeFactoryImpl extends EFactoryImpl implements RecipeFactory
     {
         PropertyEntryImpl propertyEntry = new PropertyEntryImpl ();
         return propertyEntry;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Profile createProfile ()
+    {
+        ProfileImpl profile = new ProfileImpl ();
+        return profile;
     }
 
     /**

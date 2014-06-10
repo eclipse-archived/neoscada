@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.recipe.Execute;
 import org.eclipse.scada.configuration.recipe.InputReference;
 import org.eclipse.scada.configuration.recipe.InputValue;
 import org.eclipse.scada.configuration.recipe.MapInput;
+import org.eclipse.scada.configuration.recipe.Profile;
 import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.RecipeFactory;
 import org.eclipse.scada.configuration.recipe.RecipePackage;
@@ -99,6 +100,13 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
      * @generated
      */
     private EClass propertyEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass profileEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -221,6 +229,16 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
     public EReference getDefinition_Properties ()
     {
         return (EReference)definitionEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDefinition_Profiles ()
+    {
+        return (EReference)definitionEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -518,6 +536,36 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getProfile ()
+    {
+        return profileEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProfile_Name ()
+    {
+        return (EAttribute)profileEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getProfile_Properties ()
+    {
+        return (EReference)profileEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public RecipeFactory getRecipeFactory ()
     {
         return (RecipeFactory)getEFactoryInstance ();
@@ -550,6 +598,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         createEAttribute ( definitionEClass, DEFINITION__NAME );
         createEAttribute ( definitionEClass, DEFINITION__ID );
         createEReference ( definitionEClass, DEFINITION__PROPERTIES );
+        createEReference ( definitionEClass, DEFINITION__PROFILES );
 
         taskEClass = createEClass ( TASK );
         createEReference ( taskEClass, TASK__EXECUTE );
@@ -587,6 +636,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         propertyEntryEClass = createEClass ( PROPERTY_ENTRY );
         createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
         createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
+
+        profileEClass = createEClass ( PROFILE );
+        createEAttribute ( profileEClass, PROFILE__NAME );
+        createEReference ( profileEClass, PROFILE__PROPERTIES );
     }
 
     /**
@@ -628,6 +681,7 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         initEAttribute ( getDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getDefinition_Id (), ecorePackage.getEString (), "id", null, 1, 1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDefinition_Properties (), this.getPropertyEntry (), null, "properties", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDefinition_Profiles (), this.getProfile (), null, "profiles", null, 0, -1, Definition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getTask_Execute (), this.getExecute (), this.getExecute_Task (), "execute", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED ); //$NON-NLS-1$
@@ -666,6 +720,10 @@ public class RecipePackageImpl extends EPackageImpl implements RecipePackage
         initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPropertyEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 0, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( profileEClass, Profile.class, "Profile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getProfile_Name (), ecorePackage.getEString (), "name", null, 1, 1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getProfile_Properties (), this.getPropertyEntry (), null, "properties", null, 0, -1, Profile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );

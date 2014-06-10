@@ -19,8 +19,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.scada.configuration.recipe.Definition;
+import org.eclipse.scada.configuration.recipe.Profile;
 import org.eclipse.scada.configuration.recipe.PropertyEntry;
 import org.eclipse.scada.configuration.recipe.Task;
 import org.eclipse.scada.configuration.recipe.lib.internal.DefaultExecutableFactory;
@@ -31,9 +33,18 @@ public class Builder
 {
     private final Definition rootDefinition;
 
+    private final Profile profile;
+
     public Builder ( final Definition rootDefinition )
     {
         this.rootDefinition = rootDefinition;
+        this.profile = null;
+    }
+
+    public Builder ( final Definition rootDefinition, final Profile profile )
+    {
+        this.rootDefinition = rootDefinition;
+        this.profile = profile;
     }
 
     public Recipe build ()
@@ -67,6 +78,10 @@ public class Builder
     protected void gatherProperties ( final Map<String, String> properties )
     {
         gatherProperties ( this.rootDefinition, properties );
+        if ( this.profile != null )
+        {
+            applyProperties ( this.profile.getProperties (), properties );
+        }
     }
 
     protected void gatherProperties ( final Definition definition, final Map<String, String> properties )
@@ -76,7 +91,12 @@ public class Builder
             gatherProperties ( imported, properties );
         }
 
-        for ( final PropertyEntry entry : definition.getProperties () )
+        applyProperties ( definition.getProperties (), properties );
+    }
+
+    protected void applyProperties ( final EList<PropertyEntry> propertyEntries, final Map<String, String> properties )
+    {
+        for ( final PropertyEntry entry : propertyEntries )
         {
             if ( entry.getValue () != null )
             {

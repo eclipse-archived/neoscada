@@ -131,13 +131,22 @@ public interface RecipePackage extends EPackage
     int DEFINITION__PROPERTIES = 4;
 
     /**
+     * The feature id for the '<em><b>Profiles</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEFINITION__PROFILES = 5;
+
+    /**
      * The number of structural features of the '<em>Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEFINITION_FEATURE_COUNT = 5;
+    int DEFINITION_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Definition</em>' class.
@@ -580,6 +589,52 @@ public interface RecipePackage extends EPackage
     int PROPERTY_ENTRY_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.recipe.impl.ProfileImpl <em>Profile</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.recipe.impl.ProfileImpl
+     * @see org.eclipse.scada.configuration.recipe.impl.RecipePackageImpl#getProfile()
+     * @generated
+     */
+    int PROFILE = 9;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE__NAME = 0;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE__PROPERTIES = 1;
+
+    /**
+     * The number of structural features of the '<em>Profile</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Profile</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROFILE_OPERATION_COUNT = 0;
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Definition <em>Definition</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -643,6 +698,17 @@ public interface RecipePackage extends EPackage
      * @generated
      */
     EReference getDefinition_Properties ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.recipe.Definition#getProfiles <em>Profiles</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Profiles</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Definition#getProfiles()
+     * @see #getDefinition()
+     * @generated
+     */
+    EReference getDefinition_Profiles ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Task <em>Task</em>}'.
@@ -955,6 +1021,38 @@ public interface RecipePackage extends EPackage
     EAttribute getPropertyEntry_Value ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.recipe.Profile <em>Profile</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Profile</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Profile
+     * @generated
+     */
+    EClass getProfile ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.recipe.Profile#getName <em>Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Name</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Profile#getName()
+     * @see #getProfile()
+     * @generated
+     */
+    EAttribute getProfile_Name ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.recipe.Profile#getProperties <em>Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Properties</em>'.
+     * @see org.eclipse.scada.configuration.recipe.Profile#getProperties()
+     * @see #getProfile()
+     * @generated
+     */
+    EReference getProfile_Properties ();
+
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1027,6 +1125,14 @@ public interface RecipePackage extends EPackage
          * @generated
          */
         EReference DEFINITION__PROPERTIES = eINSTANCE.getDefinition_Properties ();
+
+        /**
+         * The meta object literal for the '<em><b>Profiles</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEFINITION__PROFILES = eINSTANCE.getDefinition_Profiles ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.recipe.impl.TaskImpl <em>Task</em>}' class.
@@ -1275,6 +1381,32 @@ public interface RecipePackage extends EPackage
          * @generated
          */
         EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.recipe.impl.ProfileImpl <em>Profile</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.recipe.impl.ProfileImpl
+         * @see org.eclipse.scada.configuration.recipe.impl.RecipePackageImpl#getProfile()
+         * @generated
+         */
+        EClass PROFILE = eINSTANCE.getProfile ();
+
+        /**
+         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROFILE__NAME = eINSTANCE.getProfile_Name ();
+
+        /**
+         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PROFILE__PROPERTIES = eINSTANCE.getProfile_Properties ();
 
     }
 

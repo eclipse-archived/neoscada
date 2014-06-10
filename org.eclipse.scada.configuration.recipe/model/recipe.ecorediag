@@ -208,6 +208,26 @@
     <element xmi:type="ecore:EClass" href="recipe.ecore#//PropertyEntry"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sMeHImicEeOHrO1eEeyYMQ" x="-60" y="24"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_G5DgwPCgEeOG-M2VliG1EA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_G5EH0PCgEeOG-M2VliG1EA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_G5EH0fCgEeOG-M2VliG1EA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_H5d04PCgEeOG-M2VliG1EA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="recipe.ecore#//Profile/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_H5d04fCgEeOG-M2VliG1EA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_G5EH0vCgEeOG-M2VliG1EA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_G5EH0_CgEeOG-M2VliG1EA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_G5EH1PCgEeOG-M2VliG1EA"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_G5EH1fCgEeOG-M2VliG1EA" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_G5EH1vCgEeOG-M2VliG1EA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_G5EH1_CgEeOG-M2VliG1EA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_G5EH2PCgEeOG-M2VliG1EA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_G5DgwfCgEeOG-M2VliG1EA" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="recipe.ecore#//Profile"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_G5DgwvCgEeOG-M2VliG1EA" x="168" y="36"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ANm1sVthEeOins3Jsk_5vg"/>
   <element xmi:type="ecore:EPackage" href="recipe.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_i8NiwFthEeOins3Jsk_5vg" type="3002" source="_ANruMFthEeOins3Jsk_5vg" target="_Ja2oYFthEeOins3Jsk_5vg">
@@ -343,5 +363,29 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_xU-SAmicEeOHrO1eEeyYMQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="recipe.ecore#//Definition/properties"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xU-SA2icEeOHrO1eEeyYMQ" points="[6, 33, -50, -209]$[48, 275, -8, 33]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Ys7yEPCgEeOG-M2VliG1EA" type="3002" source="_ANruMFthEeOins3Jsk_5vg" target="_G5DgwPCgEeOG-M2VliG1EA">
+    <children xmi:type="notation:Node" xmi:id="_Ys8ZIPCgEeOG-M2VliG1EA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ys8ZIfCgEeOG-M2VliG1EA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Ys8ZIvCgEeOG-M2VliG1EA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Ys8ZI_CgEeOG-M2VliG1EA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Ys7yEfCgEeOG-M2VliG1EA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ys7yEvCgEeOG-M2VliG1EA" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="recipe.ecore#//Definition/profiles"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Ys7yE_CgEeOG-M2VliG1EA" points="[51, -33, -165, 108]$[221, -165, 5, -24]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_iNb38PCgEeOG-M2VliG1EA" type="3002" source="_G5DgwPCgEeOG-M2VliG1EA" target="_sMeHIGicEeOHrO1eEeyYMQ">
+    <children xmi:type="notation:Node" xmi:id="_iNcfAPCgEeOG-M2VliG1EA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_iNcfAfCgEeOG-M2VliG1EA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_iNcfAvCgEeOG-M2VliG1EA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_iNcfA_CgEeOG-M2VliG1EA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_iNb38fCgEeOG-M2VliG1EA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_iNb38vCgEeOG-M2VliG1EA" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="recipe.ecore#//Profile/properties"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iNb38_CgEeOG-M2VliG1EA" points="[-62, -3, 167, 0]$[-222, -36, 7, -33]"/>
   </edges>
 </notation:Diagram>

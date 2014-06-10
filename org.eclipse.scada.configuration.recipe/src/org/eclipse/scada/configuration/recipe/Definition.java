@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.recipe.Definition#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Definition#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.recipe.Definition#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.recipe.Definition#getProfiles <em>Profiles</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,5 +139,21 @@ public interface Definition extends EObject
      * @generated
      */
     EList<PropertyEntry> getProperties ();
+
+    /**
+     * Returns the value of the '<em><b>Profiles</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.recipe.Profile}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Profiles</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Profiles</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.recipe.RecipePackage#getDefinition_Profiles()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<Profile> getProfiles ();
 
 } // Definition

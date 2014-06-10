@@ -2,48 +2,42 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.ui.commands">
-      <command
-            categoryId="org.eclipse.scada.configuration"
-            id="org.eclipse.scada.configuration.recipe.ui.RunRecipe"
-            name="Run Recipe">
-      </command>
+         point="org.eclipse.ui.menus">
+     <menuContribution
+            locationURI="popup:org.eclipse.scada.configuration">
+            <dynamic
+                  class="org.eclipse.scada.configuration.recipe.ui.ProfilesContribution"
+                  id="org.eclipse.scada.configuration.recipe.ui.profiles">
+               <visibleWhen
+                     checkEnabled="false">
+                  <reference
+                        definitionId="org.eclipse.scada.configuration.recipe.ui.definition">
+                  </reference>
+               </visibleWhen>
+            </dynamic>
+      </menuContribution>
    </extension>
    <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="org.eclipse.scada.configuration.recipe.ui.RunRecipeHandler"
-            commandId="org.eclipse.scada.configuration.recipe.ui.RunRecipe">
-          <enabledWhen>
-            <with
-                  variable="selection">
-               <iterate
-                     ifEmpty="false"
-                     operator="and">
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="org.eclipse.scada.configuration.recipe.ui.definition">
+         <with
+               variable="selection">
+            <iterate
+                  ifEmpty="false"
+                  operator="and">
+               <or>
                   <adapt
-                        type="org.eclipse.core.resources.IFile">
+                        type="org.eclipse.core.resources.IResource">
                      <test
                            property="org.eclipse.core.resources.contentTypeId"
                            value="org.eclipse.scada.configuration.recipe">
                      </test>
                   </adapt>
-               </iterate>
-            </with>
-         </enabledWhen>
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-     <menuContribution
-            locationURI="popup:org.eclipse.scada.configuration">
-            <command
-               commandId="org.eclipse.scada.configuration.recipe.ui.RunRecipe"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-      </menuContribution>
+               </or>
+            </iterate>
+         </with>
+      </definition>
    </extension>
 
 </plugin>

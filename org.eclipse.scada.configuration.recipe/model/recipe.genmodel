@@ -16,6 +16,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Definition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Definition/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Definition/profiles"/>
     </genClasses>
     <genClasses ecoreClass="recipe.ecore#//Task">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Task/execute"/>
@@ -53,6 +54,10 @@
     <genClasses ecoreClass="recipe.ecore#//PropertyEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PropertyEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//PropertyEntry/value"/>
+    </genClasses>
+    <genClasses ecoreClass="recipe.ecore#//Profile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute recipe.ecore#//Profile/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference recipe.ecore#//Profile/properties"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

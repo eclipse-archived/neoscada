@@ -283,6 +283,31 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.recipe.Profile} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ProfileItemProvider profileItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.recipe.Profile}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createProfileAdapter ()
+    {
+        if ( profileItemProvider == null )
+        {
+            profileItemProvider = new ProfileItemProvider ( this );
+        }
+
+        return profileItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -409,6 +434,8 @@ public class RecipeItemProviderAdapterFactory extends RecipeAdapterFactory imple
             inputReferenceItemProvider.dispose ();
         if ( propertyEntryItemProvider != null )
             propertyEntryItemProvider.dispose ();
+        if ( profileItemProvider != null )
+            profileItemProvider.dispose ();
     }
 
 }
