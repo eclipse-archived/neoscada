@@ -243,6 +243,7 @@
 		
 		<module>../org.eclipse.scada.da.server.exporter.common</module>
 		<module>../org.eclipse.scada.da.server.exporter.modbus</module>
+		<module>../org.eclipse.scada.da.server.exporter.iec60870</module>
 		<module>../org.eclipse.scada.sec.provider.ca</module>
 		<module>../org.eclipse.scada.da.server.exporter.rest</module>
 		<module>../org.eclipse.scada.core.doc.isv</module>

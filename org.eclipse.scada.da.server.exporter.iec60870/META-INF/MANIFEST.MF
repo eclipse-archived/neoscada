@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: IEC6870-5-104 Exporter
+Bundle-SymbolicName: org.eclipse.scada.da.server.exporter.iec60870
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: com.google.common.base;version="12.0.0",
+ com.google.common.util.concurrent;version="12.0.0",
+ org.eclipse.scada.ca;version="0.1.0",
+ org.eclipse.scada.ca.common.factory;version="0.1.0",
+ org.eclipse.scada.core;version="0.1.0",
+ org.eclipse.scada.core.data;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.1.0",
+ org.eclipse.scada.da.client;version="0.1.0",
+ org.eclipse.scada.da.core;version="0.1.0",
+ org.eclipse.scada.da.core.server;version="0.1.0",
+ org.eclipse.scada.da.server.common;version="0.1.0",
+ org.eclipse.scada.da.server.common.exporter;version="0.1.0",
+ org.eclipse.scada.da.server.common.item.factory;version="0.1.0",
+ org.eclipse.scada.da.server.common.osgi.factory;version="0.1.0",
+ org.eclipse.scada.da.server.exporter.common;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870.asdu;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870.asdu.types;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870.server;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870.server.data;version="0.1.0",
+ org.eclipse.scada.protocol.iec60870.server.data.event;version="0.2.0",
+ org.eclipse.scada.sec;version="0.1.0",
+ org.eclipse.scada.sec.osgi;version="0.1.0",
+ org.eclipse.scada.utils.beans;version="0.1.0",
+ org.eclipse.scada.utils.concurrent;version="0.1.0",
+ org.eclipse.scada.utils.osgi.pool;version="0.1.0",
+ org.osgi.framework;version="1.7.0",
+ org.slf4j;version="1.7.2"
+Service-Component: OSGI-INF/factory.xml
