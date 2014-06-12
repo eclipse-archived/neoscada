@@ -125,8 +125,8 @@ public class ExportConfiguration
         final ProtocolOptions.Builder optionsBuilder = new Builder ();
 
         optionsBuilder.setTimeout1 ( cfg.getInteger ( "t1", optionsBuilder.getTimeout1 () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeout1 ( cfg.getInteger ( "t2", optionsBuilder.getTimeout2 () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeout1 ( cfg.getInteger ( "t3", optionsBuilder.getTimeout3 () ) ); //$NON-NLS-1$
+        optionsBuilder.setTimeout2 ( cfg.getInteger ( "t2", optionsBuilder.getTimeout2 () ) ); //$NON-NLS-1$
+        optionsBuilder.setTimeout3 ( cfg.getInteger ( "t3", optionsBuilder.getTimeout3 () ) ); //$NON-NLS-1$
         optionsBuilder.setAdsuAddressType ( cfg.getEnum ( "asduAddressType", ASDUAddressType.class, ASDUAddressType.SIZE_2 ) ); //$NON-NLS-1$
         optionsBuilder.setCauseOfTransmissionType ( cfg.getEnum ( "causeOfTransmissionType", CauseOfTransmissionType.class, CauseOfTransmissionType.SIZE_2 ) ); //$NON-NLS-1$
         optionsBuilder.setInformationObjectAddressType ( cfg.getEnum ( "informationObjectAddressType", InformationObjectAddressType.class, InformationObjectAddressType.SIZE_3 ) ); //$NON-NLS-1$
