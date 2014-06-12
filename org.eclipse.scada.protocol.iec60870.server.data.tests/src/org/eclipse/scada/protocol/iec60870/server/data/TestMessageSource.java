@@ -14,7 +14,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
+import org.eclipse.scada.protocol.iec60870.asdu.message.AbstractSingleBooleanBaseSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTimeSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationEntry;
@@ -29,7 +31,24 @@ public class TestMessageSource
     public void test1 () throws Exception
     {
         final DataModuleOptions.Builder builder = new DataModuleOptions.Builder ();
+        builder.setBooleansWithTimestamp ( false );
+        builder.setFloatsWithTimestamp ( false );
 
+        performTest1 ( builder );
+    }
+
+    @Test
+    public void test1WithTimestamps () throws Exception
+    {
+        final DataModuleOptions.Builder builder = new DataModuleOptions.Builder ();
+        builder.setBooleansWithTimestamp ( true );
+        builder.setFloatsWithTimestamp ( true );
+
+        performTest1 ( builder );
+    }
+
+    private void performTest1 ( final DataModuleOptions.Builder builder )
+    {
         final DataModuleMessageSource ms = new DataModuleMessageSource ( builder.build (), null, new ChannelWriter () {
 
             @Override
@@ -61,14 +80,22 @@ public class TestMessageSource
         final List<InformationEntry<Boolean>> entries = new LinkedList<> ();
         entries.add ( new InformationEntry<> ( address, trueValue ) );
         entries.add ( new InformationEntry<> ( address, falseValue ) );
-        assertEquals ( SinglePointInformationSingle.create ( new ASDUHeader ( CauseOfTransmission.REQUEST, asduAddress ), entries ), ms.poll () );
+
+        if ( builder.isBooleansWithTimestamp () )
+        {
+            assertEquals ( SinglePointInformationTimeSingle.create ( new ASDUHeader ( CauseOfTransmission.REQUEST, asduAddress ), entries ), ms.poll () );
+        }
+        else
+        {
+            assertEquals ( SinglePointInformationSingle.create ( new ASDUHeader ( CauseOfTransmission.REQUEST, asduAddress ), entries ), ms.poll () );
+        }
     }
 
-    private void assertEquals ( final SinglePointInformationSingle expected, final Object actualObject )
+    private void assertEquals ( final AbstractSingleBooleanBaseSingle expected, final Object actualObject )
     {
         Assert.assertEquals ( expected.getClass (), actualObject.getClass () );
 
-        final SinglePointInformationSingle actual = (SinglePointInformationSingle)actualObject;
+        final AbstractSingleBooleanBaseSingle actual = (AbstractSingleBooleanBaseSingle)actualObject;
 
         Assert.assertEquals ( expected.getHeader (), actual.getHeader () );
         Assert.assertEquals ( expected.getEntries (), actual.getEntries () );
