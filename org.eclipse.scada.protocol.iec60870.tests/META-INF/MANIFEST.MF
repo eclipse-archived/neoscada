@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit tests for org.eclipse.scada.protocol.iec60870
+Bundle-SymbolicName: org.eclipse.scada.protocol.iec60870.tests
+Bundle-Version: 0.2.0.qualifier
+Fragment-Host: org.eclipse.scada.protocol.iec60870;bundle-version="0.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: org.junit
+Bundle-Vendor: Eclipse SCADA Project
