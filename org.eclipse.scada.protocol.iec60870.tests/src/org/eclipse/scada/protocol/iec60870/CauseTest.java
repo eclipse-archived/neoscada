@@ -16,7 +16,7 @@ import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CauseTests
+public class CauseTest
 {
     /**
      * Plain compare

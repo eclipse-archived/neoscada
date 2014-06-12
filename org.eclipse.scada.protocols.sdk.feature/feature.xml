@@ -26,6 +26,10 @@
    <includes
          id="org.eclipse.scada.protocols.source"
          version="0.0.0"/>
+         
+   <includes
+         id="org.eclipse.scada.protocol.iec60870.source"
+         version="0.0.0"/>
 
    <includes
          id="org.eclipse.scada.protocols.editors"

@@ -75,11 +75,15 @@
 		<module>../org.eclipse.scada.protocol.ngp.generator</module>
 		<module>../org.eclipse.scada.protocol.ngp.generator.ui</module>
 		
-		<!-- test units -->
+		<!-- IEC 60870 -->
 		
-		<!--
-		some tycho issue .. check later 
-		<module>../org.eclipse.scada.protocol.ngp.common.test</module>
-		-->
+		<module>../org.eclipse.scada.protocol.iec60870</module>
+		<module>../org.eclipse.scada.protocol.iec60870.server</module>
+		<module>../org.eclipse.scada.protocol.iec60870.server.data</module>
+		
+		<module>../org.eclipse.scada.protocol.iec60870.tests</module>
+		<module>../org.eclipse.scada.protocol.iec60870.server.data.tests</module>
+		
+		<module>../org.eclipse.scada.protocol.iec60870.feature</module>
 	</modules>
 </project>
