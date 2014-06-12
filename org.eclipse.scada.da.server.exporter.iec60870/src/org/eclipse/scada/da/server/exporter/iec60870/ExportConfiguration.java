@@ -30,7 +30,7 @@ public class ExportConfiguration
 
     private boolean spontaneous = true;
 
-    private int backgroundScanPeriod = 60_000;
+    private final int backgroundScanPeriod = 60_000;
 
     private ProtocolOptions protocolOptions;
 
@@ -104,16 +104,6 @@ public class ExportConfiguration
         return this.spontaneous;
     }
 
-    public void setBackgroundScanPeriod ( final int backgroundScanPeriod )
-    {
-        this.backgroundScanPeriod = backgroundScanPeriod;
-    }
-
-    public int getBackgroundScanPeriod ()
-    {
-        return this.backgroundScanPeriod;
-    }
-
     /**
      * Parse the configuration from the CA properties <br/>
      * <code>
@@ -131,7 +121,6 @@ public class ExportConfiguration
 
         result.setPort ( (short)cfg.getInteger ( "port", 2404 /* IEC 60870-5-104 default */) ); //$NON-NLS-1$
         result.setSpontaneous ( cfg.getBoolean ( "spontaneous", true ) ); //$NON-NLS-1$
-        result.setBackgroundScanPeriod ( cfg.getInteger ( "backgroundScanPeriod", 60_000 ) ); //$NON-NLS-1$
 
         final ProtocolOptions.Builder optionsBuilder = new Builder ();
 
