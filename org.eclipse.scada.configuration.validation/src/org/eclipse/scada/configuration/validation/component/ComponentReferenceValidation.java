@@ -73,9 +73,18 @@ public class ComponentReferenceValidation extends AbstractModelConstraint
         }
 
         final DataComponent dc = (DataComponent)ref.eContainer ();
-        if ( !dc.getMasterOn ().containsAll ( ( (DataComponent)ref.getComponent () ).getMasterOn () ) )
+        final DataComponent refComp = (DataComponent)ref.getComponent ();
+
+        for ( final MasterServer m : dc.getMasterOn () )
         {
-            result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( ref ), IStatus.ERROR, 1, "The component reference references to a component that is not available on all master servers that the containing component is." ) );
+            // master server of data component we validate
+            if ( !refComp.getMasterOn ().contains ( m ) )
+            {
+                result.add ( ConstraintStatus.createStatus ( ctx, Arrays.asList ( ref ), IStatus.ERROR, 1,
+                        "\"{0}\" of data component \"{1}\" references to a component \"{2}\" that is not available on the master server \"'{3}\".",
+                        ref, dc, refComp, m
+                        ) );
+            }
         }
 
         for ( final MasterServer m : dc.getMasterOn () )
