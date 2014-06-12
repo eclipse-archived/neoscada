@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -22,14 +22,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttDefaultFilePersistence;
-import org.eclipse.paho.client.mqttv3.MqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.MqttTopic;
+import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -239,7 +238,7 @@ public class MqttBrokerImpl implements MqttBroker, MqttCallback
                 logger.trace ( "prefix = {}", MqttBrokerImpl.this.prefix );
                 logger.trace ( "writeSuffix = {}", MqttBrokerImpl.this.writeSuffix );
                 logger.trace ( "username = {}", MqttBrokerImpl.this.username );
-                logger.trace ( "password = {}", ( MqttBrokerImpl.this.password == null ? "null" : "********" ) );
+                logger.trace ( "password = {}", MqttBrokerImpl.this.password == null ? "null" : "********" );
 
                 return null;
             };
@@ -285,16 +284,16 @@ public class MqttBrokerImpl implements MqttBroker, MqttCallback
     }
 
     @Override
-    public void deliveryComplete ( final MqttDeliveryToken token )
+    public void deliveryComplete ( final IMqttDeliveryToken arg0 )
     {
-        // ignore for now
+        // ignore for now 
     }
 
     @Override
-    public void messageArrived ( final MqttTopic topic, final MqttMessage message ) throws Exception
+    public void messageArrived ( final String topic, final MqttMessage message ) throws Exception
     {
         logger.trace ( "received message {} on topic {}", message, topic );
-        final Set<TopicListener> listeners = this.topicListeners.get ( topic.getName () );
+        final Set<TopicListener> listeners = this.topicListeners.get ( topic );
         if ( listeners != null )
         {
             for ( final TopicListener listener : listeners )
@@ -338,7 +337,7 @@ public class MqttBrokerImpl implements MqttBroker, MqttCallback
         {
             listeners.remove ( listener );
         }
-        if ( ( listeners == null ) || listeners.isEmpty () )
+        if ( listeners == null || listeners.isEmpty () )
         {
             try
             {

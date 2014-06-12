@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jürgen Rose and others.
+ * Copyright (c) 2013, 2014 Jürgen Rose and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jürgen Rose - initial API and implementation
+ *     IBH SYSTEMS GmbH - adapt for Paho 1.0
  *******************************************************************************/
 
 package org.eclipse.scada.da.server.exporter.mqtt;
@@ -28,15 +29,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttDefaultFilePersistence;
-import org.eclipse.paho.client.mqttv3.MqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttSecurityException;
-import org.eclipse.paho.client.mqttv3.MqttTopic;
+import org.eclipse.paho.client.mqttv3.persist.MqttDefaultFilePersistence;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.InvalidSessionException;
 import org.eclipse.scada.core.Variant;
@@ -306,7 +306,7 @@ public class MqttExporter implements LifecycleAware
             @Override
             public void run ()
             {
-                if ( ( hive == null ) && ( MqttExporter.this.hive != null ) && ( MqttExporter.this.pool != null ) )
+                if ( hive == null && MqttExporter.this.hive != null && MqttExporter.this.pool != null )
                 {
                     try
                     {
@@ -318,7 +318,7 @@ public class MqttExporter implements LifecycleAware
                     }
                 }
                 MqttExporter.this.hive = hive;
-                if ( ( MqttExporter.this.hive != null ) && ( MqttExporter.this.pool != null ) )
+                if ( MqttExporter.this.hive != null && MqttExporter.this.pool != null )
                 {
                     try
                     {
@@ -339,7 +339,7 @@ public class MqttExporter implements LifecycleAware
             @Override
             public void run ()
             {
-                if ( ( pool == null ) && ( MqttExporter.this.pool != null ) && ( MqttExporter.this.hive != null ) )
+                if ( pool == null && MqttExporter.this.pool != null && MqttExporter.this.hive != null )
                 {
                     try
                     {
@@ -351,7 +351,7 @@ public class MqttExporter implements LifecycleAware
                     }
                 }
                 MqttExporter.this.pool = pool;
-                if ( ( MqttExporter.this.hive != null ) && ( MqttExporter.this.pool != null ) )
+                if ( MqttExporter.this.hive != null && MqttExporter.this.pool != null )
                 {
                     try
                     {
@@ -402,15 +402,16 @@ public class MqttExporter implements LifecycleAware
     private void setupMqtt ( final Hive hive, final Session session ) throws MqttException
     {
         this.client.setCallback ( new MqttCallback () {
+
             @Override
-            public void messageArrived ( final MqttTopic topic, final MqttMessage message ) throws Exception
+            public void messageArrived ( final String topic, final MqttMessage message ) throws Exception
             {
                 logger.trace ( "received message '{}' on topic '{}'", message, topic );
                 MqttExporter.this.executor.submit ( new Callable<Void> () {
                     @Override
                     public Void call () throws Exception
                     {
-                        final String itemId = MqttExporter.this.itemsToWriteTopics.inverse ().get ( topic.getName () );
+                        final String itemId = MqttExporter.this.itemsToWriteTopics.inverse ().get ( topic );
                         if ( itemId != null )
                         {
                             writeMessageToItem ( hive, session, itemId, message );
@@ -425,10 +426,8 @@ public class MqttExporter implements LifecycleAware
             }
 
             @Override
-            public void deliveryComplete ( final MqttDeliveryToken token )
+            public void deliveryComplete ( final IMqttDeliveryToken token )
             {
-                // TODO: implement this
-                logger.trace ( "deliveryComplete {}", token );
             }
 
             @Override
@@ -592,7 +591,7 @@ public class MqttExporter implements LifecycleAware
             {
                 hive.startWrite ( session, itemId, div.getValue (), null, null );
             }
-            if ( ( div.getAttributes () != null ) && !div.getAttributes ().isEmpty () )
+            if ( div.getAttributes () != null && !div.getAttributes ().isEmpty () )
             {
                 hive.startWriteAttributes ( session, itemId, div.getAttributes (), null, null );
             }

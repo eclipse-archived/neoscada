@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA MQTT Base (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.mqtt
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.mqtt.Activator
 Export-Package: org.eclipse.scada.mqtt;version="0.1.0";
   uses:="org.eclipse.paho.client.mqttv3,
@@ -11,6 +11,7 @@ Export-Package: org.eclipse.scada.mqtt;version="0.1.0";
    org.eclipse.scada.sec"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.paho.client.mqttv3,
+ org.eclipse.paho.client.mqttv3.persist;version="0.9.0",
  org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",
  org.eclipse.scada.sec;version="0.1.0",
