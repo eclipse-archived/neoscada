@@ -11,6 +11,12 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//DataModuleOptions"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -24,4 +30,30 @@
     <eLiterals name="BOOLEAN" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Address" instanceClassName="org.eclipse.scada.configuration.iec60870.AddressInformation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExporterItemInterceptor" eSuperTypes="../../org.eclipse.scada.configuration.component/model/component.ecore#//ItemInterceptor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.script/model/script.ecore#//Script"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//DataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"
+        defaultValueLiteral="2404"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProtocolOptions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout2" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout3" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asduAddressSize" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte" defaultValueLiteral="2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="informationObjectAddressSize"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="causeOfTransmissionSize"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EByte"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataModuleOptions"/>
 </ecore:EPackage>

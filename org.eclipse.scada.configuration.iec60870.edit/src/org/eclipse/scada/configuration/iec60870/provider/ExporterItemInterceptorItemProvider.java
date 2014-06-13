@@ -33,17 +33,22 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.configuration.iec60870.Device;
+import org.eclipse.scada.configuration.component.ComponentPackage;
+
+import org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 
+import org.eclipse.scada.configuration.script.ScriptFactory;
+import org.eclipse.scada.configuration.world.WorldFactory;
+
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.iec60870.Device} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DeviceItemProvider
+public class ExporterItemInterceptorItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -58,7 +63,7 @@ public class DeviceItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public DeviceItemProvider ( AdapterFactory adapterFactory )
+    public ExporterItemInterceptorItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -76,54 +81,54 @@ public class DeviceItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
-            addEndpointPropertyDescriptor ( object );
+            addMasterOnPropertyDescriptor ( object );
+            addPortPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Master On feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addMasterOnPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Device_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Device_id_feature", "_UI_Device_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DEVICE__ID,
+                        getString ( "_UI_ItemInterceptor_masterOn_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ItemInterceptor_masterOn_feature", "_UI_ItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ComponentPackage.Literals.ITEM_INTERCEPTOR__MASTER_ON,
                         true,
                         false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        true,
+                        null,
                         null,
                         null ) );
     }
 
     /**
-     * This adds a property descriptor for the Endpoint feature.
+     * This adds a property descriptor for the Port feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addEndpointPropertyDescriptor ( Object object )
+    protected void addPortPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Device_endpoint_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Device_endpoint_feature", "_UI_Device_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.DEVICE__ENDPOINT,
+                        getString ( "_UI_ExporterItemInterceptor_port_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExporterItemInterceptor_port_feature", "_UI_ExporterItemInterceptor_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PORT,
                         true,
                         false,
-                        true,
-                        null,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -142,9 +147,10 @@ public class DeviceItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( IEC60870Package.Literals.DEVICE__ITEMS );
-            childrenFeatures.add ( IEC60870Package.Literals.DEVICE__PROTOCOL_OPTIONS );
-            childrenFeatures.add ( IEC60870Package.Literals.DEVICE__DATA_MODULE_OPTIONS );
+            childrenFeatures.add ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES );
+            childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT );
+            childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS );
+            childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS );
         }
         return childrenFeatures;
     }
@@ -164,7 +170,7 @@ public class DeviceItemProvider
     }
 
     /**
-     * This returns Device.gif.
+     * This returns ExporterItemInterceptor.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -172,7 +178,7 @@ public class DeviceItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Device" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ExporterItemInterceptor" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -184,10 +190,8 @@ public class DeviceItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Device)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Device_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Device_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        ExporterItemInterceptor exporterItemInterceptor = (ExporterItemInterceptor)object;
+        return getString ( "_UI_ExporterItemInterceptor_type" ) + " " + exporterItemInterceptor.getPort (); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -202,14 +206,15 @@ public class DeviceItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Device.class ) )
+        switch ( notification.getFeatureID ( ExporterItemInterceptor.class ) )
         {
-            case IEC60870Package.DEVICE__ID:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case IEC60870Package.DEVICE__ITEMS:
-            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
-            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PROPERTIES:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__SCRIPT:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -230,17 +235,32 @@ public class DeviceItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( IEC60870Package.Literals.DEVICE__ITEMS,
-                        IEC60870Factory.eINSTANCE.createItem () ) );
+                ( ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( IEC60870Package.Literals.DEVICE__PROTOCOL_OPTIONS,
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
+                        ScriptFactory.eINSTANCE.createGenericScript () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
+                        ScriptFactory.eINSTANCE.createJavaScript () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT,
+                        ScriptFactory.eINSTANCE.createScriptReference () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS,
                         IEC60870Factory.eINSTANCE.createProtocolOptions () ) );
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( IEC60870Package.Literals.DEVICE__DATA_MODULE_OPTIONS,
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS,
                         IEC60870Factory.eINSTANCE.createDataModuleOptions () ) );
     }
 

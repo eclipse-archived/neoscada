@@ -27,9 +27,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipse.scada.configuration.iec60870.DataModuleOptions;
 import org.eclipse.scada.configuration.iec60870.Device;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.Item;
+import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
+import org.eclipse.scada.configuration.world.Endpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +43,9 @@ import org.eclipse.scada.configuration.iec60870.Item;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getProtocolOptions <em>Protocol Options</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +82,36 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * @ordered
      */
     protected EList<Item> items;
+
+    /**
+     * The cached value of the '{@link #getEndpoint() <em>Endpoint</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getEndpoint()
+     * @generated
+     * @ordered
+     */
+    protected Endpoint endpoint;
+
+    /**
+     * The cached value of the '{@link #getProtocolOptions() <em>Protocol Options</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProtocolOptions()
+     * @generated
+     * @ordered
+     */
+    protected ProtocolOptions protocolOptions;
+
+    /**
+     * The cached value of the '{@link #getDataModuleOptions() <em>Data Module Options</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getDataModuleOptions()
+     * @generated
+     * @ordered
+     */
+    protected DataModuleOptions dataModuleOptions;
 
     /**
      * <!-- begin-user-doc -->
@@ -140,6 +176,153 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * <!-- end-user-doc -->
      * @generated
      */
+    public Endpoint getEndpoint ()
+    {
+        if ( endpoint != null && endpoint.eIsProxy () )
+        {
+            InternalEObject oldEndpoint = (InternalEObject)endpoint;
+            endpoint = (Endpoint)eResolveProxy ( oldEndpoint );
+            if ( endpoint != oldEndpoint )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, IEC60870Package.DEVICE__ENDPOINT, oldEndpoint, endpoint ) );
+            }
+        }
+        return endpoint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Endpoint basicGetEndpoint ()
+    {
+        return endpoint;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setEndpoint ( Endpoint newEndpoint )
+    {
+        Endpoint oldEndpoint = endpoint;
+        endpoint = newEndpoint;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__ENDPOINT, oldEndpoint, endpoint ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProtocolOptions getProtocolOptions ()
+    {
+        return protocolOptions;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetProtocolOptions ( ProtocolOptions newProtocolOptions, NotificationChain msgs )
+    {
+        ProtocolOptions oldProtocolOptions = protocolOptions;
+        protocolOptions = newProtocolOptions;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__PROTOCOL_OPTIONS, oldProtocolOptions, newProtocolOptions );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setProtocolOptions ( ProtocolOptions newProtocolOptions )
+    {
+        if ( newProtocolOptions != protocolOptions )
+        {
+            NotificationChain msgs = null;
+            if ( protocolOptions != null )
+                msgs = ( (InternalEObject)protocolOptions ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - IEC60870Package.DEVICE__PROTOCOL_OPTIONS, null, msgs );
+            if ( newProtocolOptions != null )
+                msgs = ( (InternalEObject)newProtocolOptions ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - IEC60870Package.DEVICE__PROTOCOL_OPTIONS, null, msgs );
+            msgs = basicSetProtocolOptions ( newProtocolOptions, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__PROTOCOL_OPTIONS, newProtocolOptions, newProtocolOptions ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataModuleOptions getDataModuleOptions ()
+    {
+        return dataModuleOptions;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetDataModuleOptions ( DataModuleOptions newDataModuleOptions, NotificationChain msgs )
+    {
+        DataModuleOptions oldDataModuleOptions = dataModuleOptions;
+        dataModuleOptions = newDataModuleOptions;
+        if ( eNotificationRequired () )
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__DATA_MODULE_OPTIONS, oldDataModuleOptions, newDataModuleOptions );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setDataModuleOptions ( DataModuleOptions newDataModuleOptions )
+    {
+        if ( newDataModuleOptions != dataModuleOptions )
+        {
+            NotificationChain msgs = null;
+            if ( dataModuleOptions != null )
+                msgs = ( (InternalEObject)dataModuleOptions ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - IEC60870Package.DEVICE__DATA_MODULE_OPTIONS, null, msgs );
+            if ( newDataModuleOptions != null )
+                msgs = ( (InternalEObject)newDataModuleOptions ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - IEC60870Package.DEVICE__DATA_MODULE_OPTIONS, null, msgs );
+            msgs = basicSetDataModuleOptions ( newDataModuleOptions, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.DEVICE__DATA_MODULE_OPTIONS, newDataModuleOptions, newDataModuleOptions ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -147,6 +330,10 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
         {
             case IEC60870Package.DEVICE__ITEMS:
                 return ( (InternalEList<?>)getItems () ).basicRemove ( otherEnd, msgs );
+            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
+                return basicSetProtocolOptions ( null, msgs );
+            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+                return basicSetDataModuleOptions ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -165,6 +352,14 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return getId ();
             case IEC60870Package.DEVICE__ITEMS:
                 return getItems ();
+            case IEC60870Package.DEVICE__ENDPOINT:
+                if ( resolve )
+                    return getEndpoint ();
+                return basicGetEndpoint ();
+            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
+                return getProtocolOptions ();
+            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+                return getDataModuleOptions ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -187,6 +382,15 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 getItems ().clear ();
                 getItems ().addAll ( (Collection<? extends Item>)newValue );
                 return;
+            case IEC60870Package.DEVICE__ENDPOINT:
+                setEndpoint ( (Endpoint)newValue );
+                return;
+            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
+                setProtocolOptions ( (ProtocolOptions)newValue );
+                return;
+            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+                setDataModuleOptions ( (DataModuleOptions)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -207,6 +411,15 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
             case IEC60870Package.DEVICE__ITEMS:
                 getItems ().clear ();
                 return;
+            case IEC60870Package.DEVICE__ENDPOINT:
+                setEndpoint ( (Endpoint)null );
+                return;
+            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
+                setProtocolOptions ( (ProtocolOptions)null );
+                return;
+            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+                setDataModuleOptions ( (DataModuleOptions)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -225,6 +438,12 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
             case IEC60870Package.DEVICE__ITEMS:
                 return items != null && !items.isEmpty ();
+            case IEC60870Package.DEVICE__ENDPOINT:
+                return endpoint != null;
+            case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
+                return protocolOptions != null;
+            case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+                return dataModuleOptions != null;
         }
         return super.eIsSet ( featureID );
     }

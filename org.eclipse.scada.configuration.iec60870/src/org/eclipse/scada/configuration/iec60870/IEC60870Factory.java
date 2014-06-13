@@ -59,6 +59,33 @@ public interface IEC60870Factory extends EFactory
     Item createItem ();
 
     /**
+     * Returns a new object of class '<em>Exporter Item Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Exporter Item Interceptor</em>'.
+     * @generated
+     */
+    ExporterItemInterceptor createExporterItemInterceptor ();
+
+    /**
+     * Returns a new object of class '<em>Protocol Options</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Protocol Options</em>'.
+     * @generated
+     */
+    ProtocolOptions createProtocolOptions ();
+
+    /**
+     * Returns a new object of class '<em>Data Module Options</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Data Module Options</em>'.
+     * @generated
+     */
+    DataModuleOptions createDataModuleOptions ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

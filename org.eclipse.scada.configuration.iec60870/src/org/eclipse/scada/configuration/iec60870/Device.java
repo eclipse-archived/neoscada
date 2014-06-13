@@ -14,6 +14,7 @@ package org.eclipse.scada.configuration.iec60870;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.world.Endpoint;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +26,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getItems <em>Items</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getEndpoint <em>Endpoint</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getProtocolOptions <em>Protocol Options</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getDataModuleOptions <em>Data Module Options</em>}</li>
  * </ul>
  * </p>
  *
@@ -75,5 +79,83 @@ public interface Device extends EObject
      * @generated
      */
     EList<Item> getItems ();
+
+    /**
+     * Returns the value of the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Endpoint</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Endpoint</em>' reference.
+     * @see #setEndpoint(Endpoint)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getDevice_Endpoint()
+     * @model required="true"
+     * @generated
+     */
+    Endpoint getEndpoint ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.Device#getEndpoint <em>Endpoint</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Endpoint</em>' reference.
+     * @see #getEndpoint()
+     * @generated
+     */
+    void setEndpoint ( Endpoint value );
+
+    /**
+     * Returns the value of the '<em><b>Protocol Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Protocol Options</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Protocol Options</em>' containment reference.
+     * @see #setProtocolOptions(ProtocolOptions)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getDevice_ProtocolOptions()
+     * @model containment="true"
+     * @generated
+     */
+    ProtocolOptions getProtocolOptions ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.Device#getProtocolOptions <em>Protocol Options</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Protocol Options</em>' containment reference.
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    void setProtocolOptions ( ProtocolOptions value );
+
+    /**
+     * Returns the value of the '<em><b>Data Module Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Data Module Options</em>' containment reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Data Module Options</em>' containment reference.
+     * @see #setDataModuleOptions(DataModuleOptions)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getDevice_DataModuleOptions()
+     * @model containment="true"
+     * @generated
+     */
+    DataModuleOptions getDataModuleOptions ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.Device#getDataModuleOptions <em>Data Module Options</em>}' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Data Module Options</em>' containment reference.
+     * @see #getDataModuleOptions()
+     * @generated
+     */
+    void setDataModuleOptions ( DataModuleOptions value );
 
 } // Device

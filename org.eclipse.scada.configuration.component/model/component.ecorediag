@@ -987,12 +987,6 @@
     <element xmi:type="ecore:EReference" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//MasterServer/driver"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__VkQs3h7EeOnu99lvUIkKg" points="[-34, -29, 863, 745]$[-896, -773, 1, 1]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_oyIr8IJ_EeOQC-jE1OzfjA" type="3003" source="__462EPOMEeK6AdOYc1mm4A" target="_oxJNcIJ_EeOQC-jE1OzfjA">
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_oyIr8YJ_EeOQC-jE1OzfjA" routing="Rectilinear" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_oyIr8oJ_EeOQC-jE1OzfjA" fontName="Sans"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oyIr84J_EeOQC-jE1OzfjA" points="[-21, -24, 336, 397]$[-356, -420, 1, 1]"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_oyKhIIJ_EeOQC-jE1OzfjA" type="3003" source="_jhEfoPOgEeK6AdOYc1mm4A" target="_oxJNcIJ_EeOQC-jE1OzfjA">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_oyKhIYJ_EeOQC-jE1OzfjA" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_oyKhIoJ_EeOQC-jE1OzfjA" fontName="Sans"/>

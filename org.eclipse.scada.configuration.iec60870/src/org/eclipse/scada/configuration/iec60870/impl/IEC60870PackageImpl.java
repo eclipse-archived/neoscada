@@ -20,14 +20,19 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.iec60870.AddressInformation;
+import org.eclipse.scada.configuration.iec60870.DataModuleOptions;
 import org.eclipse.scada.configuration.iec60870.DataType;
 import org.eclipse.scada.configuration.iec60870.Device;
 import org.eclipse.scada.configuration.iec60870.Exporter;
+import org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.Item;
 
+import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
+import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
@@ -60,6 +65,27 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * @generated
      */
     private EClass itemEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass exporterItemInterceptorEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass protocolOptionsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass dataModuleOptionsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -125,7 +151,8 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         isInited = true;
 
         // Initialize simple dependencies
-        WorldPackage.eINSTANCE.eClass ();
+        ComponentPackage.eINSTANCE.eClass ();
+        ScriptPackage.eINSTANCE.eClass ();
 
         // Create package meta-data objects
         theIEC60870Package.createPackageContents ();
@@ -196,6 +223,36 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getDevice_Endpoint ()
+    {
+        return (EReference)deviceEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDevice_ProtocolOptions ()
+    {
+        return (EReference)deviceEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDevice_DataModuleOptions ()
+    {
+        return (EReference)deviceEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getItem ()
     {
         return itemEClass;
@@ -229,6 +286,136 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
     public EAttribute getItem_Type ()
     {
         return (EAttribute)itemEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getExporterItemInterceptor ()
+    {
+        return exporterItemInterceptorEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExporterItemInterceptor_Script ()
+    {
+        return (EReference)exporterItemInterceptorEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExporterItemInterceptor_ProtocolOptions ()
+    {
+        return (EReference)exporterItemInterceptorEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getExporterItemInterceptor_DataModuleOptions ()
+    {
+        return (EReference)exporterItemInterceptorEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getExporterItemInterceptor_Port ()
+    {
+        return (EAttribute)exporterItemInterceptorEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getProtocolOptions ()
+    {
+        return protocolOptionsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_Timeout1 ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_Timeout2 ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_Timeout3 ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_AsduAddressSize ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_InformationObjectAddressSize ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_CauseOfTransmissionSize ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDataModuleOptions ()
+    {
+        return dataModuleOptionsEClass;
     }
 
     /**
@@ -288,11 +475,30 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         deviceEClass = createEClass ( DEVICE );
         createEAttribute ( deviceEClass, DEVICE__ID );
         createEReference ( deviceEClass, DEVICE__ITEMS );
+        createEReference ( deviceEClass, DEVICE__ENDPOINT );
+        createEReference ( deviceEClass, DEVICE__PROTOCOL_OPTIONS );
+        createEReference ( deviceEClass, DEVICE__DATA_MODULE_OPTIONS );
 
         itemEClass = createEClass ( ITEM );
         createEReference ( itemEClass, ITEM__SOURCE );
         createEAttribute ( itemEClass, ITEM__ADDRESS );
         createEAttribute ( itemEClass, ITEM__TYPE );
+
+        exporterItemInterceptorEClass = createEClass ( EXPORTER_ITEM_INTERCEPTOR );
+        createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__SCRIPT );
+        createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS );
+        createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS );
+        createEAttribute ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__PORT );
+
+        protocolOptionsEClass = createEClass ( PROTOCOL_OPTIONS );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__TIMEOUT1 );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__TIMEOUT2 );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__TIMEOUT3 );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE );
+
+        dataModuleOptionsEClass = createEClass ( DATA_MODULE_OPTIONS );
 
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
@@ -328,6 +534,9 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
 
         // Obtain other dependent packages
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
+        WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
+        ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
+        ScriptPackage theScriptPackage = (ScriptPackage)EPackage.Registry.INSTANCE.getEPackage ( ScriptPackage.eNS_URI );
 
         // Create type parameters
 
@@ -335,6 +544,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
 
         // Add supertypes to classes
         exporterEClass.getESuperTypes ().add ( theOsgiPackage.getApplicationModule () );
+        exporterItemInterceptorEClass.getESuperTypes ().add ( theComponentPackage.getItemInterceptor () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( exporterEClass, Exporter.class, "Exporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -343,11 +553,30 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEClass ( deviceEClass, Device.class, "Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDevice_Id (), ecorePackage.getEString (), "id", null, 1, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDevice_Items (), this.getItem (), null, "items", null, 0, -1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDevice_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDevice_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDevice_DataModuleOptions (), this.getDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getItem_Source (), theOsgiPackage.getItem (), null, "source", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getItem_Address (), this.getAddress (), "address", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getItem_Type (), this.getDataType (), "type", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( exporterItemInterceptorEClass, ExporterItemInterceptor.class, "ExporterItemInterceptor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getExporterItemInterceptor_Script (), theScriptPackage.getScript (), null, "script", null, 1, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getExporterItemInterceptor_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getExporterItemInterceptor_DataModuleOptions (), this.getDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExporterItemInterceptor_Port (), ecorePackage.getEShort (), "port", "2404", 1, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( protocolOptionsEClass, ProtocolOptions.class, "ProtocolOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_Timeout1 (), ecorePackage.getEInt (), "timeout1", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_Timeout2 (), ecorePackage.getEInt (), "timeout2", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_Timeout3 (), ecorePackage.getEInt (), "timeout3", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_AsduAddressSize (), ecorePackage.getEByte (), "asduAddressSize", "2", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_InformationObjectAddressSize (), ecorePackage.getEByte (), "informationObjectAddressSize", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_CauseOfTransmissionSize (), ecorePackage.getEByte (), "causeOfTransmissionSize", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( dataModuleOptionsEClass, DataModuleOptions.class, "DataModuleOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" ); //$NON-NLS-1$

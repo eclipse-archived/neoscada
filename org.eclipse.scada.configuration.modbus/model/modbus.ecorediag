@@ -209,7 +209,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_TC6KkSCDEeOLA4w2U3e-aw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.memory/model/memory.ecore#//TypeSystem"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TC6KkiCDEeOLA4w2U3e-aw" x="348" y="252"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TC6KkiCDEeOLA4w2U3e-aw" x="312" y="252"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_4w6Q0EX6EeOZB5cG17JO2A" type="1005">
     <children xmi:type="notation:Node" xmi:id="_4w97MEX6EeOZB5cG17JO2A" type="4010"/>
@@ -220,7 +220,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_4w6Q0UX6EeOZB5cG17JO2A" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="modbus.ecore#//ProtocolType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4w6Q0kX6EeOZB5cG17JO2A" x="93" y="249"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4w6Q0kX6EeOZB5cG17JO2A" x="36" y="252"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_W61BwEuNEeOlUItvRuKTjg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_W64sIEuNEeOlUItvRuKTjg" type="4001"/>

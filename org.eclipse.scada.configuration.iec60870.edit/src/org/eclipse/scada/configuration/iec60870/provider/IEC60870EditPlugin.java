@@ -15,6 +15,11 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.scada.configuration.component.provider.ComponentEditPlugin;
+import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
+import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
+import org.eclipse.scada.configuration.item.provider.ItemEditPlugin;
+import org.eclipse.scada.configuration.script.provider.ScriptEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 
 import org.eclipse.scada.configuration.world.provider.WorldEditPlugin;
@@ -55,7 +60,12 @@ public final class IEC60870EditPlugin extends EMFPlugin
     {
         super ( new ResourceLocator[]
         {
+                ComponentEditPlugin.INSTANCE,
                 ExecEditPlugin.INSTANCE,
+                GlobalizeEditPlugin.INSTANCE,
+                InfrastructureEditPlugin.INSTANCE,
+                ItemEditPlugin.INSTANCE,
+                ScriptEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
         } );

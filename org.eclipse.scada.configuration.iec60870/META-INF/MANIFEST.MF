@@ -7,7 +7,12 @@ Bundle-ClassPath: .
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.scada.configuration.component;visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
+ org.eclipse.scada.configuration.globalization;visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
+ org.eclipse.scada.configuration.item;visibility:=reexport,
+ org.eclipse.scada.configuration.script;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
@@ -136,13 +137,40 @@ public interface IEC60870Package extends EPackage
     int DEVICE__ITEMS = 1;
 
     /**
+     * The feature id for the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVICE__ENDPOINT = 2;
+
+    /**
+     * The feature id for the '<em><b>Protocol Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVICE__PROTOCOL_OPTIONS = 3;
+
+    /**
+     * The feature id for the '<em><b>Data Module Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVICE__DATA_MODULE_OPTIONS = 4;
+
+    /**
      * The number of structural features of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEVICE_FEATURE_COUNT = 2;
+    int DEVICE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Device</em>' class.
@@ -209,6 +237,198 @@ public interface IEC60870Package extends EPackage
     int ITEM_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl <em>Exporter Item Interceptor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getExporterItemInterceptor()
+     * @generated
+     */
+    int EXPORTER_ITEM_INTERCEPTOR = 3;
+
+    /**
+     * The feature id for the '<em><b>Master On</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__MASTER_ON = ComponentPackage.ITEM_INTERCEPTOR__MASTER_ON;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__PROPERTIES = ComponentPackage.ITEM_INTERCEPTOR__PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Script</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__SCRIPT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Protocol Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Data Module Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__PORT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Exporter Item Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR_FEATURE_COUNT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 4;
+
+    /**
+     * The number of operations of the '<em>Exporter Item Interceptor</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR_OPERATION_COUNT = ComponentPackage.ITEM_INTERCEPTOR_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl <em>Protocol Options</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getProtocolOptions()
+     * @generated
+     */
+    int PROTOCOL_OPTIONS = 4;
+
+    /**
+     * The feature id for the '<em><b>Timeout1</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__TIMEOUT1 = 0;
+
+    /**
+     * The feature id for the '<em><b>Timeout2</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__TIMEOUT2 = 1;
+
+    /**
+     * The feature id for the '<em><b>Timeout3</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__TIMEOUT3 = 2;
+
+    /**
+     * The feature id for the '<em><b>Asdu Address Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE = 3;
+
+    /**
+     * The feature id for the '<em><b>Information Object Address Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE = 4;
+
+    /**
+     * The feature id for the '<em><b>Cause Of Transmission Size</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE = 5;
+
+    /**
+     * The number of structural features of the '<em>Protocol Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS_FEATURE_COUNT = 6;
+
+    /**
+     * The number of operations of the '<em>Protocol Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl <em>Data Module Options</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDataModuleOptions()
+     * @generated
+     */
+    int DATA_MODULE_OPTIONS = 5;
+
+    /**
+     * The number of structural features of the '<em>Data Module Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Data Module Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS_OPERATION_COUNT = 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -216,7 +436,7 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 3;
+    int DATA_TYPE = 6;
 
     /**
      * The meta object id for the '<em>Address</em>' data type.
@@ -226,7 +446,7 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getAddress()
      * @generated
      */
-    int ADDRESS = 4;
+    int ADDRESS = 7;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.Exporter <em>Exporter</em>}'.
@@ -282,6 +502,39 @@ public interface IEC60870Package extends EPackage
     EReference getDevice_Items ();
 
     /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.iec60870.Device#getEndpoint <em>Endpoint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Endpoint</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.Device#getEndpoint()
+     * @see #getDevice()
+     * @generated
+     */
+    EReference getDevice_Endpoint ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.Device#getProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Protocol Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.Device#getProtocolOptions()
+     * @see #getDevice()
+     * @generated
+     */
+    EReference getDevice_ProtocolOptions ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.Device#getDataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.Device#getDataModuleOptions()
+     * @see #getDevice()
+     * @generated
+     */
+    EReference getDevice_DataModuleOptions ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.Item <em>Item</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -323,6 +576,146 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EAttribute getItem_Type ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor <em>Exporter Item Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Exporter Item Interceptor</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor
+     * @generated
+     */
+    EClass getExporterItemInterceptor ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getScript <em>Script</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Script</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getScript()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EReference getExporterItemInterceptor_Script ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Protocol Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getProtocolOptions()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EReference getExporterItemInterceptor_ProtocolOptions ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getDataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getDataModuleOptions()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EReference getExporterItemInterceptor_DataModuleOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getPort()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EAttribute getExporterItemInterceptor_Port ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Protocol Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions
+     * @generated
+     */
+    EClass getProtocolOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout1 <em>Timeout1</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout1</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout1()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_Timeout1 ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout2 <em>Timeout2</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout2</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout2()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_Timeout2 ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout3 <em>Timeout3</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout3</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTimeout3()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_Timeout3 ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getAsduAddressSize <em>Asdu Address Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Asdu Address Size</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getAsduAddressSize()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_AsduAddressSize ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getInformationObjectAddressSize <em>Information Object Address Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Information Object Address Size</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getInformationObjectAddressSize()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_InformationObjectAddressSize ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getCauseOfTransmissionSize <em>Cause Of Transmission Size</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Cause Of Transmission Size</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getCauseOfTransmissionSize()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_CauseOfTransmissionSize ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions
+     * @generated
+     */
+    EClass getDataModuleOptions ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}'.
@@ -414,6 +807,30 @@ public interface IEC60870Package extends EPackage
         EReference DEVICE__ITEMS = eINSTANCE.getDevice_Items ();
 
         /**
+         * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEVICE__ENDPOINT = eINSTANCE.getDevice_Endpoint ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEVICE__PROTOCOL_OPTIONS = eINSTANCE.getDevice_ProtocolOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Module Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEVICE__DATA_MODULE_OPTIONS = eINSTANCE.getDevice_DataModuleOptions ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ItemImpl <em>Item</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -446,6 +863,116 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute ITEM__TYPE = eINSTANCE.getItem_Type ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl <em>Exporter Item Interceptor</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getExporterItemInterceptor()
+         * @generated
+         */
+        EClass EXPORTER_ITEM_INTERCEPTOR = eINSTANCE.getExporterItemInterceptor ();
+
+        /**
+         * The meta object literal for the '<em><b>Script</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EXPORTER_ITEM_INTERCEPTOR__SCRIPT = eINSTANCE.getExporterItemInterceptor_Script ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS = eINSTANCE.getExporterItemInterceptor_ProtocolOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Module Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS = eINSTANCE.getExporterItemInterceptor_DataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXPORTER_ITEM_INTERCEPTOR__PORT = eINSTANCE.getExporterItemInterceptor_Port ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl <em>Protocol Options</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getProtocolOptions()
+         * @generated
+         */
+        EClass PROTOCOL_OPTIONS = eINSTANCE.getProtocolOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout1</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__TIMEOUT1 = eINSTANCE.getProtocolOptions_Timeout1 ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout2</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__TIMEOUT2 = eINSTANCE.getProtocolOptions_Timeout2 ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout3</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__TIMEOUT3 = eINSTANCE.getProtocolOptions_Timeout3 ();
+
+        /**
+         * The meta object literal for the '<em><b>Asdu Address Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE = eINSTANCE.getProtocolOptions_AsduAddressSize ();
+
+        /**
+         * The meta object literal for the '<em><b>Information Object Address Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE = eINSTANCE.getProtocolOptions_InformationObjectAddressSize ();
+
+        /**
+         * The meta object literal for the '<em><b>Cause Of Transmission Size</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE = eINSTANCE.getProtocolOptions_CauseOfTransmissionSize ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl <em>Data Module Options</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDataModuleOptions()
+         * @generated
+         */
+        EClass DATA_MODULE_OPTIONS = eINSTANCE.getDataModuleOptions ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}' enum.

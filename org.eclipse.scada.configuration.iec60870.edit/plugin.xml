@@ -31,6 +31,9 @@
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <!-- @generated iec60870 -->
       <extender
+            uri="http://eclipse.org/SCADA/Configuration/Component"
+            class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$ComponentChildCreationExtender"/>
+      <extender
             uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
             class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$OsgiChildCreationExtender"/>
    </extension>

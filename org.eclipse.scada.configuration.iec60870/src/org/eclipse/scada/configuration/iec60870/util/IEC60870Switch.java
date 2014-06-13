@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
+import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.*;
 
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
@@ -109,6 +110,32 @@ public class IEC60870Switch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR:
+            {
+                ExporterItemInterceptor exporterItemInterceptor = (ExporterItemInterceptor)theEObject;
+                T result = caseExporterItemInterceptor ( exporterItemInterceptor );
+                if ( result == null )
+                    result = caseItemInterceptor ( exporterItemInterceptor );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.PROTOCOL_OPTIONS:
+            {
+                ProtocolOptions protocolOptions = (ProtocolOptions)theEObject;
+                T result = caseProtocolOptions ( protocolOptions );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.DATA_MODULE_OPTIONS:
+            {
+                DataModuleOptions dataModuleOptions = (DataModuleOptions)theEObject;
+                T result = caseDataModuleOptions ( dataModuleOptions );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -163,6 +190,54 @@ public class IEC60870Switch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Exporter Item Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Exporter Item Interceptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExporterItemInterceptor ( ExporterItemInterceptor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Protocol Options</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Protocol Options</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProtocolOptions ( ProtocolOptions object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Data Module Options</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Data Module Options</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDataModuleOptions ( DataModuleOptions object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Application Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -174,6 +249,22 @@ public class IEC60870Switch<T> extends Switch<T>
      * @generated
      */
     public T caseApplicationModule ( ApplicationModule object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Item Interceptor</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Item Interceptor</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseItemInterceptor ( ItemInterceptor object )
     {
         return null;
     }

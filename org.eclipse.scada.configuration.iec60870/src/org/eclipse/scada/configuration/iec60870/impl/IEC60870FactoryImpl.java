@@ -80,6 +80,12 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
                 return createDevice ();
             case IEC60870Package.ITEM:
                 return createItem ();
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR:
+                return createExporterItemInterceptor ();
+            case IEC60870Package.PROTOCOL_OPTIONS:
+                return createProtocolOptions ();
+            case IEC60870Package.DATA_MODULE_OPTIONS:
+                return createDataModuleOptions ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -154,6 +160,39 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
     {
         ItemImpl item = new ItemImpl ();
         return item;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ExporterItemInterceptor createExporterItemInterceptor ()
+    {
+        ExporterItemInterceptorImpl exporterItemInterceptor = new ExporterItemInterceptorImpl ();
+        return exporterItemInterceptor;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ProtocolOptions createProtocolOptions ()
+    {
+        ProtocolOptionsImpl protocolOptions = new ProtocolOptionsImpl ();
+        return protocolOptions;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DataModuleOptions createDataModuleOptions ()
+    {
+        DataModuleOptionsImpl dataModuleOptions = new DataModuleOptionsImpl ();
+        return dataModuleOptions;
     }
 
     /**

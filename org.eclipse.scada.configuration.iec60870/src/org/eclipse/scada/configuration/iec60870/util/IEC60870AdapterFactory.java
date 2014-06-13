@@ -18,6 +18,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.*;
 
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
@@ -104,9 +105,33 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseExporterItemInterceptor ( ExporterItemInterceptor object )
+                {
+                    return createExporterItemInterceptorAdapter ();
+                }
+
+                @Override
+                public Adapter caseProtocolOptions ( ProtocolOptions object )
+                {
+                    return createProtocolOptionsAdapter ();
+                }
+
+                @Override
+                public Adapter caseDataModuleOptions ( DataModuleOptions object )
+                {
+                    return createDataModuleOptionsAdapter ();
+                }
+
+                @Override
                 public Adapter caseApplicationModule ( ApplicationModule object )
                 {
                     return createApplicationModuleAdapter ();
+                }
+
+                @Override
+                public Adapter caseItemInterceptor ( ItemInterceptor object )
+                {
+                    return createItemInterceptorAdapter ();
                 }
 
                 @Override
@@ -176,6 +201,51 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor <em>Exporter Item Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor
+     * @generated
+     */
+    public Adapter createExporterItemInterceptorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions
+     * @generated
+     */
+    public Adapter createProtocolOptionsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions
+     * @generated
+     */
+    public Adapter createDataModuleOptionsAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationModule <em>Application Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -186,6 +256,21 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createApplicationModuleAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.component.ItemInterceptor <em>Item Interceptor</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.component.ItemInterceptor
+     * @generated
+     */
+    public Adapter createItemInterceptorAdapter ()
     {
         return null;
     }
