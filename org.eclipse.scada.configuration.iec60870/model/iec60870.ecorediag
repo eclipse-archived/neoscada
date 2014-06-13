@@ -287,7 +287,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_XvvVYfLiEeOYB5d2uXnThQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XvvVYvLiEeOYB5d2uXnThQ" x="468" y="348"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XvvVYvLiEeOYB5d2uXnThQ" x="-420" y="-72"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_9CJW0fIwEeOG-M2VliG1EA"/>
   <element xmi:type="ecore:EPackage" href="iec60870.ecore#/"/>
@@ -407,7 +407,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_5AqLcfI9EeOG-M2VliG1EA" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_5AqLcvI9EeOG-M2VliG1EA" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="iec60870.ecore#//Device/dataModuleOptions"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5AqLc_I9EeOG-M2VliG1EA" points="[-72, 49, 360, -244]$[-372, 252, 60, -41]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5AqLc_I9EeOG-M2VliG1EA" points="[-63, 49, 371, -291]$[-306, 240, 128, -100]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="___kr0PLhEeOYB5d2uXnThQ" id="(0.7450980392156863,0.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="___kr0fLhEeOYB5d2uXnThQ" id="(0.5,1.0)"/>
   </edges>
@@ -422,5 +422,18 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_Xv7iovLiEeOYB5d2uXnThQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="iec60870.ecore#//Device/hiveProperties"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xv7io_LiEeOYB5d2uXnThQ" points="[-15, -20, 252, 361]$[-266, -380, 1, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_oG0rAPMCEeOYB5d2uXnThQ" type="3002" source="__CwtQPI8EeOG-M2VliG1EA" target="_XvvVYPLiEeOYB5d2uXnThQ">
+    <children xmi:type="notation:Node" xmi:id="_oG0rBPMCEeOYB5d2uXnThQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_oG0rBfMCEeOYB5d2uXnThQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_oG1SEPMCEeOYB5d2uXnThQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_oG1SEfMCEeOYB5d2uXnThQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_oG0rAfMCEeOYB5d2uXnThQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_oG0rAvMCEeOYB5d2uXnThQ" fontColor="4210752" fontName="Sans" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="iec60870.ecore#//ExporterItemInterceptor/hiveProperties"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oG0rA_MCEeOYB5d2uXnThQ" points="[10, -22, -129, 295]$[201, -322, 62, -5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oG4VYPMCEeOYB5d2uXnThQ" id="(0.9265536723163842,0.45098039215686275)"/>
   </edges>
 </notation:Diagram>

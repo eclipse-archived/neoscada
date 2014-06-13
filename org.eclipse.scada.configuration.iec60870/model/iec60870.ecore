@@ -53,6 +53,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"
         defaultValueLiteral="2404"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hiveProperties" upperBound="-1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//PropertyEntry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProtocolOptions">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">

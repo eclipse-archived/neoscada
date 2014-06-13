@@ -366,6 +366,16 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getExporterItemInterceptor_HiveProperties ()
+    {
+        return (EReference)exporterItemInterceptorEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getProtocolOptions ()
     {
         return protocolOptionsEClass;
@@ -573,6 +583,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS );
         createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS );
         createEAttribute ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__PORT );
+        createEReference ( exporterItemInterceptorEClass, EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES );
 
         protocolOptionsEClass = createEClass ( PROTOCOL_OPTIONS );
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__TIMEOUT1 );
@@ -658,6 +669,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEReference ( getExporterItemInterceptor_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getExporterItemInterceptor_DataModuleOptions (), this.getDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getExporterItemInterceptor_Port (), ecorePackage.getEShort (), "port", "2404", 1, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getExporterItemInterceptor_HiveProperties (), theWorldPackage.getPropertyEntry (), null, "hiveProperties", null, 0, -1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( protocolOptionsEClass, ProtocolOptions.class, "ProtocolOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getProtocolOptions_Timeout1 (), ecorePackage.getEInt (), "timeout1", "15000", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$

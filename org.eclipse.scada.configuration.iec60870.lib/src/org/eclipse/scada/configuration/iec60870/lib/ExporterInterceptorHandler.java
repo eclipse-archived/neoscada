@@ -95,6 +95,7 @@ public class ExporterInterceptorHandler extends AbstractItemInterceptorHandler
 
         device.setDataModuleOptions ( EcoreUtil.copy ( interceptor.getDataModuleOptions () ) );
         device.setProtocolOptions ( EcoreUtil.copy ( interceptor.getProtocolOptions () ) );
+        device.getHiveProperties ().addAll ( EcoreUtil.copyAll ( interceptor.getHiveProperties () ) );
 
         exporter.getDevices ().add ( device );
 

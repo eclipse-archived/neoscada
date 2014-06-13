@@ -18,6 +18,7 @@ import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.exec.*;
+import org.eclipse.scada.configuration.world.Documentable;
 
 /**
  * <!-- begin-user-doc -->
@@ -93,6 +94,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( execJob );
                 if ( result == null )
+                    result = caseDocumentable ( execJob );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -108,6 +111,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                     result = caseDataComponent ( loadAverage );
                 if ( result == null )
                     result = caseComponent ( loadAverage );
+                if ( result == null )
+                    result = caseDocumentable ( loadAverage );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -135,6 +140,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                 if ( result == null )
                     result = caseComponent ( pingCheck );
                 if ( result == null )
+                    result = caseDocumentable ( pingCheck );
+                if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
             }
@@ -160,6 +167,8 @@ public class ExecComponentsSwitch<T> extends Switch<T>
                     result = caseDataComponent ( systemInformationVMStat );
                 if ( result == null )
                     result = caseComponent ( systemInformationVMStat );
+                if ( result == null )
+                    result = caseDocumentable ( systemInformationVMStat );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -261,6 +270,22 @@ public class ExecComponentsSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseSystemInformationVMStat ( SystemInformationVMStat object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDocumentable ( Documentable object )
     {
         return null;
     }

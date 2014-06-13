@@ -19,6 +19,7 @@ import org.eclipse.scada.configuration.component.Configuration;
 import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.MasterComponent;
 import org.eclipse.scada.configuration.component.exec.*;
+import org.eclipse.scada.configuration.world.Documentable;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,6 +117,12 @@ public class ExecComponentsAdapterFactory extends AdapterFactoryImpl
         public Adapter caseSystemInformationVMStat ( SystemInformationVMStat object )
         {
             return createSystemInformationVMStatAdapter ();
+        }
+
+        @Override
+        public Adapter caseDocumentable ( Documentable object )
+        {
+            return createDocumentableAdapter ();
         }
 
         @Override
@@ -249,6 +256,21 @@ public class ExecComponentsAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSystemInformationVMStatAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Documentable
+     * @generated
+     */
+    public Adapter createDocumentableAdapter ()
     {
         return null;
     }

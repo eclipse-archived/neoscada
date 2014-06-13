@@ -115,6 +115,15 @@ public interface CommonPackage extends EPackage
     int HEARTBEAT_GENERATOR__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_GENERATOR__PROPERTIES = ComponentPackage.MASTER_COMPONENT__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -222,6 +231,15 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int TOGGLE_HEARTBEAT_GENERATOR__ARCHIVE_SELECTOR = HEARTBEAT_GENERATOR__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TOGGLE_HEARTBEAT_GENERATOR__PROPERTIES = HEARTBEAT_GENERATOR__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -333,6 +351,15 @@ public interface CommonPackage extends EPackage
     int HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int HEARTBEAT_DETECTOR__PROPERTIES = ComponentPackage.MASTER_COMPONENT__PROPERTIES;
+
+    /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -413,6 +440,15 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int CHANGE_HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR = HEARTBEAT_DETECTOR__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHANGE_HEARTBEAT_DETECTOR__PROPERTIES = HEARTBEAT_DETECTOR__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -522,6 +558,15 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int TIMER_ACTION__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TIMER_ACTION__PROPERTIES = ComponentPackage.MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -640,6 +685,15 @@ public interface CommonPackage extends EPackage
      * @ordered
      */
     int CURRENT_TIME_COMPONENT__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CURRENT_TIME_COMPONENT__PROPERTIES = ComponentPackage.MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.

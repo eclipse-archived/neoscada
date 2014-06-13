@@ -151,6 +151,7 @@ public class ExporterItemInterceptorItemProvider
             childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__SCRIPT );
             childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS );
             childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS );
+            childrenFeatures.add ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -215,6 +216,7 @@ public class ExporterItemInterceptorItemProvider
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__SCRIPT:
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PROTOCOL_OPTIONS:
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS:
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -262,6 +264,35 @@ public class ExporterItemInterceptorItemProvider
                 ( createChildParameter
                 ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS,
                         IEC60870Factory.eINSTANCE.createDataModuleOptions () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
+    }
+
+    /**
+     * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public String getCreateChildText ( Object owner, Object feature, Object child, Collection<?> selection )
+    {
+        Object childFeature = feature;
+        Object childObject = child;
+
+        boolean qualify =
+                childFeature == ComponentPackage.Literals.ITEM_INTERCEPTOR__PROPERTIES ||
+                        childFeature == IEC60870Package.Literals.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES;
+
+        if ( qualify )
+        {
+            return getString ( "_UI_CreateChild_text2", //$NON-NLS-1$
+                    new Object[] { getTypeText ( childObject ), getFeatureText ( childFeature ), getTypeText ( owner ) } );
+        }
+        return super.getCreateChildText ( owner, feature, child, selection );
     }
 
     /**

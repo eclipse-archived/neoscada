@@ -81,6 +81,15 @@ public interface ExecComponentsPackage extends EPackage
     int EXEC_JOB = 0;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXEC_JOB__SHORT_DESCRIPTION = ComponentPackage.MASTER_COMPONENT__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -106,6 +115,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int EXEC_JOB__ARCHIVE_SELECTOR = ComponentPackage.MASTER_COMPONENT__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXEC_JOB__PROPERTIES = ComponentPackage.MASTER_COMPONENT__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -181,6 +199,15 @@ public interface ExecComponentsPackage extends EPackage
     int LOAD_AVERAGE = 1;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LOAD_AVERAGE__SHORT_DESCRIPTION = EXEC_JOB__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -206,6 +233,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int LOAD_AVERAGE__ARCHIVE_SELECTOR = EXEC_JOB__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int LOAD_AVERAGE__PROPERTIES = EXEC_JOB__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -327,6 +363,15 @@ public interface ExecComponentsPackage extends EPackage
     int PING_CHECK = 3;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PING_CHECK__SHORT_DESCRIPTION = EXEC_JOB__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -352,6 +397,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int PING_CHECK__ARCHIVE_SELECTOR = EXEC_JOB__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PING_CHECK__PROPERTIES = EXEC_JOB__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -473,6 +527,15 @@ public interface ExecComponentsPackage extends EPackage
     int SYSTEM_INFORMATION_VM_STAT = 5;
 
     /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_INFORMATION_VM_STAT__SHORT_DESCRIPTION = EXEC_JOB__SHORT_DESCRIPTION;
+
+    /**
      * The feature id for the '<em><b>Level</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -498,6 +561,15 @@ public interface ExecComponentsPackage extends EPackage
      * @ordered
      */
     int SYSTEM_INFORMATION_VM_STAT__ARCHIVE_SELECTOR = EXEC_JOB__ARCHIVE_SELECTOR;
+
+    /**
+     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_INFORMATION_VM_STAT__PROPERTIES = EXEC_JOB__PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.

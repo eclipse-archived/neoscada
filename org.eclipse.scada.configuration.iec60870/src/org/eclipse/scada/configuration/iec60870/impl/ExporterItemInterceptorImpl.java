@@ -52,6 +52,7 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ExporterItemInterceptorImpl#getHiveProperties <em>Hive Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,6 +129,16 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
      * @ordered
      */
     protected short port = PORT_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getHiveProperties() <em>Hive Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHiveProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> hiveProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -362,6 +373,20 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getHiveProperties ()
+    {
+        if ( hiveProperties == null )
+        {
+            hiveProperties = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES );
+        }
+        return hiveProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -375,6 +400,8 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
                 return basicSetProtocolOptions ( null, msgs );
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__DATA_MODULE_OPTIONS:
                 return basicSetDataModuleOptions ( null, msgs );
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
+                return ( (InternalEList<?>)getHiveProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -401,6 +428,8 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
                 return getDataModuleOptions ();
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
                 return getPort ();
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
+                return getHiveProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -436,6 +465,10 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
                 setPort ( (Short)newValue );
                 return;
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
+                getHiveProperties ().clear ();
+                getHiveProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -468,6 +501,9 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
                 setPort ( PORT_EDEFAULT );
                 return;
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
+                getHiveProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -494,6 +530,8 @@ public class ExporterItemInterceptorImpl extends MinimalEObjectImpl.Container im
                 return dataModuleOptions != null;
             case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__PORT:
                 return port != PORT_EDEFAULT;
+            case IEC60870Package.EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES:
+                return hiveProperties != null && !hiveProperties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

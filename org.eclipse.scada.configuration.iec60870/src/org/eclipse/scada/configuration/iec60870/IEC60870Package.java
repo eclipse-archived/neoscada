@@ -312,13 +312,22 @@ public interface IEC60870Package extends EPackage
     int EXPORTER_ITEM_INTERCEPTOR__PORT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Hive Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Exporter Item Interceptor</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXPORTER_ITEM_INTERCEPTOR_FEATURE_COUNT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 4;
+    int EXPORTER_ITEM_INTERCEPTOR_FEATURE_COUNT = ComponentPackage.ITEM_INTERCEPTOR_FEATURE_COUNT + 5;
 
     /**
      * The number of operations of the '<em>Exporter Item Interceptor</em>' class.
@@ -708,6 +717,17 @@ public interface IEC60870Package extends EPackage
     EAttribute getExporterItemInterceptor_Port ();
 
     /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getHiveProperties <em>Hive Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Hive Properties</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor#getHiveProperties()
+     * @see #getExporterItemInterceptor()
+     * @generated
+     */
+    EReference getExporterItemInterceptor_HiveProperties ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions <em>Protocol Options</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1055,6 +1075,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute EXPORTER_ITEM_INTERCEPTOR__PORT = eINSTANCE.getExporterItemInterceptor_Port ();
+
+        /**
+         * The meta object literal for the '<em><b>Hive Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EXPORTER_ITEM_INTERCEPTOR__HIVE_PROPERTIES = eINSTANCE.getExporterItemInterceptor_HiveProperties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl <em>Protocol Options</em>}' class.
