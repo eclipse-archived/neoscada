@@ -9,7 +9,7 @@
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.scada.configuration.validation;
+package org.eclipse.scada.configuration.validation.internal;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Plugin;

@@ -9,11 +9,12 @@
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
 
-package org.eclipse.scada.configuration.validation;
+package org.eclipse.scada.configuration.validation.internal;
 
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.validation.EValidatorAdapter;
 import org.eclipse.ui.IStartup;
 
 /**

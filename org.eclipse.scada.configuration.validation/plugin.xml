@@ -3,7 +3,7 @@
 <plugin>
 
   <extension point="org.eclipse.ui.startup">
-      <startup class="org.eclipse.scada.configuration.validation.Startup"/>
+      <startup class="org.eclipse.scada.configuration.validation.internal.Startup"/>
    </extension>
    
    <extension point="org.eclipse.core.expressions.propertyTesters">

@@ -35,7 +35,7 @@ import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 import org.eclipse.ocl.utilities.UMLReflection;
-import org.eclipse.scada.configuration.validation.ValidationPlugin;
+import org.eclipse.scada.configuration.validation.internal.ValidationPlugin;
 import org.osgi.framework.Bundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
