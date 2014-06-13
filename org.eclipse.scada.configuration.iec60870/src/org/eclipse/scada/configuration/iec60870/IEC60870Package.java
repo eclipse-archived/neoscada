@@ -35,6 +35,8 @@ import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
  * <!-- end-user-doc -->
  * @see org.eclipse.scada.configuration.iec60870.IEC60870Factory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/OCL/Import component='/resource/org.eclipse.scada.configuration.component/model/component.ecore#/' ecore='http://www.eclipse.org/emf/2002/Ecore#/' script_0='/resource/org.eclipse.scada.configuration.script/model/script.ecore#/'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL'"
  * @generated
  */
 public interface IEC60870Package extends EPackage
@@ -164,13 +166,22 @@ public interface IEC60870Package extends EPackage
     int DEVICE__DATA_MODULE_OPTIONS = 4;
 
     /**
+     * The feature id for the '<em><b>Hive Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DEVICE__HIVE_PROPERTIES = 5;
+
+    /**
      * The number of structural features of the '<em>Device</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DEVICE_FEATURE_COUNT = 5;
+    int DEVICE_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Device</em>' class.
@@ -383,13 +394,31 @@ public interface IEC60870Package extends EPackage
     int PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE = 5;
 
     /**
+     * The feature id for the '<em><b>W</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__W = 6;
+
+    /**
+     * The feature id for the '<em><b>K</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__K = 7;
+
+    /**
      * The number of structural features of the '<em>Protocol Options</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROTOCOL_OPTIONS_FEATURE_COUNT = 6;
+    int PROTOCOL_OPTIONS_FEATURE_COUNT = 8;
 
     /**
      * The number of operations of the '<em>Protocol Options</em>' class.
@@ -411,13 +440,49 @@ public interface IEC60870Package extends EPackage
     int DATA_MODULE_OPTIONS = 5;
 
     /**
+     * The feature id for the '<em><b>Background Scan Period</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD = 0;
+
+    /**
+     * The feature id for the '<em><b>Spontaneous Item Buffer</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER = 1;
+
+    /**
+     * The feature id for the '<em><b>Timestamps For Boolean</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN = 2;
+
+    /**
+     * The feature id for the '<em><b>Timestamps For Float</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT = 3;
+
+    /**
      * The number of structural features of the '<em>Data Module Options</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int DATA_MODULE_OPTIONS_FEATURE_COUNT = 0;
+    int DATA_MODULE_OPTIONS_FEATURE_COUNT = 4;
 
     /**
      * The number of operations of the '<em>Data Module Options</em>' class.
@@ -533,6 +598,17 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EReference getDevice_DataModuleOptions ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.iec60870.Device#getHiveProperties <em>Hive Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Hive Properties</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.Device#getHiveProperties()
+     * @see #getDevice()
+     * @generated
+     */
+    EReference getDevice_HiveProperties ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.Item <em>Item</em>}'.
@@ -708,6 +784,28 @@ public interface IEC60870Package extends EPackage
     EAttribute getProtocolOptions_CauseOfTransmissionSize ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW <em>W</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>W</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_W ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK <em>K</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>K</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_K ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions <em>Data Module Options</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -716,6 +814,50 @@ public interface IEC60870Package extends EPackage
      * @generated
      */
     EClass getDataModuleOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions#getBackgroundScanPeriod <em>Background Scan Period</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Background Scan Period</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions#getBackgroundScanPeriod()
+     * @see #getDataModuleOptions()
+     * @generated
+     */
+    EAttribute getDataModuleOptions_BackgroundScanPeriod ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions#getSpontaneousItemBuffer <em>Spontaneous Item Buffer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Spontaneous Item Buffer</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions#getSpontaneousItemBuffer()
+     * @see #getDataModuleOptions()
+     * @generated
+     */
+    EAttribute getDataModuleOptions_SpontaneousItemBuffer ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions#isTimestampsForBoolean <em>Timestamps For Boolean</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timestamps For Boolean</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions#isTimestampsForBoolean()
+     * @see #getDataModuleOptions()
+     * @generated
+     */
+    EAttribute getDataModuleOptions_TimestampsForBoolean ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions#isTimestampsForFloat <em>Timestamps For Float</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timestamps For Float</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DataModuleOptions#isTimestampsForFloat()
+     * @see #getDataModuleOptions()
+     * @generated
+     */
+    EAttribute getDataModuleOptions_TimestampsForFloat ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}'.
@@ -829,6 +971,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EReference DEVICE__DATA_MODULE_OPTIONS = eINSTANCE.getDevice_DataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Hive Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DEVICE__HIVE_PROPERTIES = eINSTANCE.getDevice_HiveProperties ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ItemImpl <em>Item</em>}' class.
@@ -965,6 +1115,22 @@ public interface IEC60870Package extends EPackage
         EAttribute PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE = eINSTANCE.getProtocolOptions_CauseOfTransmissionSize ();
 
         /**
+         * The meta object literal for the '<em><b>W</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__W = eINSTANCE.getProtocolOptions_W ();
+
+        /**
+         * The meta object literal for the '<em><b>K</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__K = eINSTANCE.getProtocolOptions_K ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl <em>Data Module Options</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -973,6 +1139,38 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EClass DATA_MODULE_OPTIONS = eINSTANCE.getDataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Background Scan Period</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD = eINSTANCE.getDataModuleOptions_BackgroundScanPeriod ();
+
+        /**
+         * The meta object literal for the '<em><b>Spontaneous Item Buffer</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER = eINSTANCE.getDataModuleOptions_SpontaneousItemBuffer ();
+
+        /**
+         * The meta object literal for the '<em><b>Timestamps For Boolean</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN = eINSTANCE.getDataModuleOptions_TimestampsForBoolean ();
+
+        /**
+         * The meta object literal for the '<em><b>Timestamps For Float</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT = eINSTANCE.getDataModuleOptions_TimestampsForFloat ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}' enum.

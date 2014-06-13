@@ -33,6 +33,7 @@ import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.Item;
 import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +47,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getDataModuleOptions <em>Data Module Options</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.DeviceImpl#getHiveProperties <em>Hive Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +114,16 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * @ordered
      */
     protected DataModuleOptions dataModuleOptions;
+
+    /**
+     * The cached value of the '{@link #getHiveProperties() <em>Hive Properties</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getHiveProperties()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> hiveProperties;
 
     /**
      * <!-- begin-user-doc -->
@@ -323,6 +335,20 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
      * <!-- end-user-doc -->
      * @generated
      */
+    public EList<PropertyEntry> getHiveProperties ()
+    {
+        if ( hiveProperties == null )
+        {
+            hiveProperties = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, IEC60870Package.DEVICE__HIVE_PROPERTIES );
+        }
+        return hiveProperties;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -334,6 +360,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return basicSetProtocolOptions ( null, msgs );
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
                 return basicSetDataModuleOptions ( null, msgs );
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
+                return ( (InternalEList<?>)getHiveProperties () ).basicRemove ( otherEnd, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -360,6 +388,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return getProtocolOptions ();
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
                 return getDataModuleOptions ();
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
+                return getHiveProperties ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -391,6 +421,10 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
                 setDataModuleOptions ( (DataModuleOptions)newValue );
                 return;
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
+                getHiveProperties ().clear ();
+                getHiveProperties ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
         }
         super.eSet ( featureID, newValue );
     }
@@ -420,6 +454,9 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
                 setDataModuleOptions ( (DataModuleOptions)null );
                 return;
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
+                getHiveProperties ().clear ();
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -444,6 +481,8 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device
                 return protocolOptions != null;
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
                 return dataModuleOptions != null;
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
+                return hiveProperties != null && !hiveProperties.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }

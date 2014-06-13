@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -35,7 +35,9 @@ import org.eclipse.scada.utils.script.ScriptExecutor;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.item.impl.ScriptCustomizationPipelineImpl#getCode <em>Code</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.item.impl.ScriptCustomizationPipelineImpl#getCode
+ * <em>Code</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,6 +49,7 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
      * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getCode()
      * @generated
      * @ordered
@@ -57,6 +60,7 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
      * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getCode()
      * @generated
      * @ordered
@@ -68,6 +72,7 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected ScriptCustomizationPipelineImpl ()
@@ -78,6 +83,7 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -89,31 +95,36 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String getCode ()
     {
-        return code;
+        return this.code;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void setCode ( String newCode )
+    public void setCode ( final String newCode )
     {
-        String oldCode = code;
-        code = newCode;
+        final String oldCode = this.code;
+        this.code = newCode;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ItemPackage.SCRIPT_CUSTOMIZATION_PIPELINE__CODE, oldCode, code ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ItemPackage.SCRIPT_CUSTOMIZATION_PIPELINE__CODE, oldCode, this.code ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -127,7 +138,7 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -140,7 +151,8 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
             {
                 final ScriptEngineManager sem = new ScriptEngineManager ();
                 final ScriptEngine engine = sem.getEngineByName ( getScriptEngine () );
-                this.executor = new ScriptExecutor ( engine, this.code, ScriptCustomizationPipelineImpl.class.getClassLoader () );
+                final String resource = eResource ().getURI ().toString ();
+                this.executor = new ScriptExecutor ( engine, this.code, ScriptCustomizationPipelineImpl.class.getClassLoader (), resource );
             }
 
             final SimpleScriptContext ctx = new SimpleScriptContext ();
@@ -157,10 +169,11 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -173,10 +186,11 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -190,10 +204,11 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -207,15 +222,16 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case ItemPackage.SCRIPT_CUSTOMIZATION_PIPELINE__CODE:
-                return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals ( code );
+                return CODE_EDEFAULT == null ? this.code != null : !CODE_EDEFAULT.equals ( this.code );
         }
         return super.eIsSet ( featureID );
     }
@@ -223,10 +239,11 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -242,17 +259,20 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (code: " ); //$NON-NLS-1$
-        result.append ( code );
+        result.append ( this.code );
         result.append ( ')' );
         return result.toString ();
     }

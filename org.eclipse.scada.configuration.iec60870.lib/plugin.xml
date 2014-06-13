@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <oscarProcessor
+            class="org.eclipse.scada.configuration.iec60870.lib.ExporterProcessor">
+      </oscarProcessor>
+   </extension>
+  <extension
+        point="org.eclipse.core.runtime.adapters">
+  	<factory
+         adaptableType="org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor"
+         class="org.eclipse.scada.configuration.iec60870.lib.InterceptorAdapterFactory">
+      <adapter
+            type="org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler">
+      </adapter>
+   </factory>
+        
+  </extension>
+</plugin>

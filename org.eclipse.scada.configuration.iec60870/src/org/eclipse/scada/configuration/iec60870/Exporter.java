@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.iec60870;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 
 /**

@@ -19,6 +19,11 @@ import org.eclipse.scada.configuration.world.osgi.Item;
 
 public abstract class AbstractItemInterceptorHandler implements ItemInterceptorHandler
 {
+
+    /**
+     * @return <code>true</code> if the even should be passed to other
+     *         interceptors
+     */
     protected abstract boolean processInterceptItem ( final Item item, final ItemInterceptor interceptorElement, final MasterContext masterContext, Properties properties );
 
     @Override

@@ -27,11 +27,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getAsduAddressSize <em>Asdu Address Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getInformationObjectAddressSize <em>Information Object Address Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getCauseOfTransmissionSize <em>Cause Of Transmission Size</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW <em>W</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK <em>K</em>}</li>
  * </ul>
  * </p>
  *
  * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='asduAddressSizeCheck\ncauseOfTransmissionSizeCheck'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL asduAddressSizeCheck='asduAddressSize>=1 and asduAddressSize <=2' causeOfTransmissionSizeCheck='causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2' informationObjectAddressSizeCheck='informationObjectAddressSize>=1 and informationObjectAddressSize<=3'"
  * @generated
  */
 public interface ProtocolOptions extends EObject
@@ -39,6 +42,7 @@ public interface ProtocolOptions extends EObject
 
     /**
      * Returns the value of the '<em><b>Timeout1</b></em>' attribute.
+     * The default value is <code>"15000"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Timeout1</em>' attribute isn't clear,
@@ -48,7 +52,8 @@ public interface ProtocolOptions extends EObject
      * @return the value of the '<em>Timeout1</em>' attribute.
      * @see #setTimeout1(int)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_Timeout1()
-     * @model required="true"
+     * @model default="15000" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='t1'"
      * @generated
      */
     int getTimeout1 ();
@@ -65,6 +70,7 @@ public interface ProtocolOptions extends EObject
 
     /**
      * Returns the value of the '<em><b>Timeout2</b></em>' attribute.
+     * The default value is <code>"10000"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Timeout2</em>' attribute isn't clear,
@@ -74,7 +80,8 @@ public interface ProtocolOptions extends EObject
      * @return the value of the '<em>Timeout2</em>' attribute.
      * @see #setTimeout2(int)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_Timeout2()
-     * @model required="true"
+     * @model default="10000" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='t2'"
      * @generated
      */
     int getTimeout2 ();
@@ -91,6 +98,7 @@ public interface ProtocolOptions extends EObject
 
     /**
      * Returns the value of the '<em><b>Timeout3</b></em>' attribute.
+     * The default value is <code>"20000"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Timeout3</em>' attribute isn't clear,
@@ -100,7 +108,8 @@ public interface ProtocolOptions extends EObject
      * @return the value of the '<em>Timeout3</em>' attribute.
      * @see #setTimeout3(int)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_Timeout3()
-     * @model required="true"
+     * @model default="20000" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='t3'"
      * @generated
      */
     int getTimeout3 ();
@@ -128,6 +137,7 @@ public interface ProtocolOptions extends EObject
      * @see #setAsduAddressSize(byte)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_AsduAddressSize()
      * @model default="2" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='asduAddressType' format='SIZE_%d'"
      * @generated
      */
     byte getAsduAddressSize ();
@@ -144,6 +154,7 @@ public interface ProtocolOptions extends EObject
 
     /**
      * Returns the value of the '<em><b>Information Object Address Size</b></em>' attribute.
+     * The default value is <code>"3"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Information Object Address Size</em>' attribute isn't clear,
@@ -153,7 +164,8 @@ public interface ProtocolOptions extends EObject
      * @return the value of the '<em>Information Object Address Size</em>' attribute.
      * @see #setInformationObjectAddressSize(byte)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_InformationObjectAddressSize()
-     * @model required="true"
+     * @model default="3" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='informationObjectAddressType' format='SIZE_%d'"
      * @generated
      */
     byte getInformationObjectAddressSize ();
@@ -170,6 +182,7 @@ public interface ProtocolOptions extends EObject
 
     /**
      * Returns the value of the '<em><b>Cause Of Transmission Size</b></em>' attribute.
+     * The default value is <code>"2"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Cause Of Transmission Size</em>' attribute isn't clear,
@@ -179,7 +192,8 @@ public interface ProtocolOptions extends EObject
      * @return the value of the '<em>Cause Of Transmission Size</em>' attribute.
      * @see #setCauseOfTransmissionSize(byte)
      * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_CauseOfTransmissionSize()
-     * @model required="true"
+     * @model default="2" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='causeOfTransmissionType' format='SIZE_%d'"
      * @generated
      */
     byte getCauseOfTransmissionSize ();
@@ -193,4 +207,60 @@ public interface ProtocolOptions extends EObject
      * @generated
      */
     void setCauseOfTransmissionSize ( byte value );
+
+    /**
+     * Returns the value of the '<em><b>W</b></em>' attribute.
+     * The default value is <code>"10"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>W</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>W</em>' attribute.
+     * @see #setW(int)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_W()
+     * @model default="10" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='w'"
+     * @generated
+     */
+    int getW ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW <em>W</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>W</em>' attribute.
+     * @see #getW()
+     * @generated
+     */
+    void setW ( int value );
+
+    /**
+     * Returns the value of the '<em><b>K</b></em>' attribute.
+     * The default value is <code>"15"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>K</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>K</em>' attribute.
+     * @see #setK(int)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_K()
+     * @model default="15" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='k'"
+     * @generated
+     */
+    int getK ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK <em>K</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>K</em>' attribute.
+     * @see #getK()
+     * @generated
+     */
+    void setK ( int value );
 } // ProtocolOptions

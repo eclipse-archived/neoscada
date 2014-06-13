@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.PropertyEntry;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getEndpoint <em>Endpoint</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getProtocolOptions <em>Protocol Options</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getDataModuleOptions <em>Data Module Options</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.Device#getHiveProperties <em>Hive Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,5 +159,21 @@ public interface Device extends EObject
      * @generated
      */
     void setDataModuleOptions ( DataModuleOptions value );
+
+    /**
+     * Returns the value of the '<em><b>Hive Properties</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Hive Properties</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Hive Properties</em>' containment reference list.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getDevice_HiveProperties()
+     * @model containment="true"
+     * @generated
+     */
+    EList<PropertyEntry> getHiveProperties ();
 
 } // Device

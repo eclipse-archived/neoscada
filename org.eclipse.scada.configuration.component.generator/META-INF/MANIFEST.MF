@@ -4,7 +4,7 @@ Bundle-Name: Component Generator (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.configuration.component.generator;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.configuration.component.generator;version="0.1.0";
+Export-Package: org.eclipse.scada.configuration.component.generator;version="0.2.0";
   uses:="org.eclipse.emf.ecore,
    org.eclipse.scada.configuration.world.osgi,
    org.eclipse.scada.configuration.component.lib.create,

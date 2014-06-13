@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
@@ -32,6 +33,7 @@ import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.Item;
 
 import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
+import org.eclipse.scada.configuration.iec60870.util.IEC60870Validator;
 import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
@@ -160,6 +162,17 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         // Initialize created meta-data
         theIEC60870Package.initializePackageContents ();
 
+        // Register package validator
+        EValidator.Registry.INSTANCE.put
+                ( theIEC60870Package,
+                        new EValidator.Descriptor ()
+                        {
+                            public EValidator getEValidator ()
+                            {
+                                return IEC60870Validator.INSTANCE;
+                            }
+                        } );
+
         // Mark meta-data to indicate it can't be changed
         theIEC60870Package.freeze ();
 
@@ -246,6 +259,16 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
     public EReference getDevice_DataModuleOptions ()
     {
         return (EReference)deviceEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDevice_HiveProperties ()
+    {
+        return (EReference)deviceEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -413,9 +436,69 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getProtocolOptions_W ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getProtocolOptions_K ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDataModuleOptions ()
     {
         return dataModuleOptionsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataModuleOptions_BackgroundScanPeriod ()
+    {
+        return (EAttribute)dataModuleOptionsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataModuleOptions_SpontaneousItemBuffer ()
+    {
+        return (EAttribute)dataModuleOptionsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataModuleOptions_TimestampsForBoolean ()
+    {
+        return (EAttribute)dataModuleOptionsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDataModuleOptions_TimestampsForFloat ()
+    {
+        return (EAttribute)dataModuleOptionsEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -478,6 +561,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         createEReference ( deviceEClass, DEVICE__ENDPOINT );
         createEReference ( deviceEClass, DEVICE__PROTOCOL_OPTIONS );
         createEReference ( deviceEClass, DEVICE__DATA_MODULE_OPTIONS );
+        createEReference ( deviceEClass, DEVICE__HIVE_PROPERTIES );
 
         itemEClass = createEClass ( ITEM );
         createEReference ( itemEClass, ITEM__SOURCE );
@@ -497,8 +581,14 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE );
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE );
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__W );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__K );
 
         dataModuleOptionsEClass = createEClass ( DATA_MODULE_OPTIONS );
+        createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD );
+        createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER );
+        createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN );
+        createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT );
 
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
@@ -556,6 +646,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEReference ( getDevice_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDevice_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDevice_DataModuleOptions (), this.getDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDevice_HiveProperties (), theWorldPackage.getPropertyEntry (), null, "hiveProperties", null, 0, -1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( itemEClass, Item.class, "Item", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getItem_Source (), theOsgiPackage.getItem (), null, "source", null, 1, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -569,14 +660,20 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEAttribute ( getExporterItemInterceptor_Port (), ecorePackage.getEShort (), "port", "2404", 1, 1, ExporterItemInterceptor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( protocolOptionsEClass, ProtocolOptions.class, "ProtocolOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getProtocolOptions_Timeout1 (), ecorePackage.getEInt (), "timeout1", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getProtocolOptions_Timeout2 (), ecorePackage.getEInt (), "timeout2", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getProtocolOptions_Timeout3 (), ecorePackage.getEInt (), "timeout3", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_Timeout1 (), ecorePackage.getEInt (), "timeout1", "15000", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_Timeout2 (), ecorePackage.getEInt (), "timeout2", "10000", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_Timeout3 (), ecorePackage.getEInt (), "timeout3", "20000", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getProtocolOptions_AsduAddressSize (), ecorePackage.getEByte (), "asduAddressSize", "2", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getProtocolOptions_InformationObjectAddressSize (), ecorePackage.getEByte (), "informationObjectAddressSize", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getProtocolOptions_CauseOfTransmissionSize (), ecorePackage.getEByte (), "causeOfTransmissionSize", null, 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getProtocolOptions_InformationObjectAddressSize (), ecorePackage.getEByte (), "informationObjectAddressSize", "3", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_CauseOfTransmissionSize (), ecorePackage.getEByte (), "causeOfTransmissionSize", "2", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_W (), ecorePackage.getEInt (), "w", "10", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_K (), ecorePackage.getEInt (), "k", "15", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( dataModuleOptionsEClass, DataModuleOptions.class, "DataModuleOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDataModuleOptions_BackgroundScanPeriod (), ecorePackage.getEIntegerObject (), "backgroundScanPeriod", "60000", 0, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getDataModuleOptions_SpontaneousItemBuffer (), ecorePackage.getEIntegerObject (), "spontaneousItemBuffer", "100", 0, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getDataModuleOptions_TimestampsForBoolean (), ecorePackage.getEBoolean (), "timestampsForBoolean", "true", 1, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getDataModuleOptions_TimestampsForFloat (), ecorePackage.getEBoolean (), "timestampsForFloat", "true", 1, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" ); //$NON-NLS-1$
@@ -588,6 +685,149 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
 
         // Create resource
         createResource ( eNS_URI );
+
+        // Create annotations
+        // http://www.eclipse.org/OCL/Import
+        createImportAnnotations ();
+        // http://www.eclipse.org/emf/2002/Ecore
+        createEcoreAnnotations ();
+        // http://www.eclipse.org/emf/2002/Ecore/OCL
+        createOCLAnnotations ();
+        // http://eclipse.org/SCADA/CA/Descriptor
+        createDescriptorAnnotations ();
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/OCL/Import</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createImportAnnotations ()
+    {
+        String source = "http://www.eclipse.org/OCL/Import"; //$NON-NLS-1$		
+        addAnnotation ( this,
+                source,
+                new String[]
+                {       "component", "/resource/org.eclipse.scada.configuration.component/model/component.ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+                        "ecore", "http://www.eclipse.org/emf/2002/Ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+                        "script_0", "/resource/org.eclipse.scada.configuration.script/model/script.ecore#/" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createEcoreAnnotations ()
+    {
+        String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$			
+        addAnnotation ( this,
+                source,
+                new String[]
+                {       "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
+                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$ //$NON-NLS-2$
+                        "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( protocolOptionsEClass,
+                source,
+                new String[]
+                {       "constraints", "asduAddressSizeCheck\ncauseOfTransmissionSizeCheck" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createOCLAnnotations ()
+    {
+        String source = "http://www.eclipse.org/emf/2002/Ecore/OCL"; //$NON-NLS-1$					
+        addAnnotation ( protocolOptionsEClass,
+                source,
+                new String[]
+                {       "asduAddressSizeCheck", "asduAddressSize>=1 and asduAddressSize <=2", //$NON-NLS-1$ //$NON-NLS-2$
+                        "causeOfTransmissionSizeCheck", "causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2", //$NON-NLS-1$ //$NON-NLS-2$
+                        "informationObjectAddressSizeCheck", "informationObjectAddressSize>=1 and informationObjectAddressSize<=3" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+    }
+
+    /**
+     * Initializes the annotations for <b>http://eclipse.org/SCADA/CA/Descriptor</b>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void createDescriptorAnnotations ()
+    {
+        String source = "http://eclipse.org/SCADA/CA/Descriptor"; //$NON-NLS-1$						
+        addAnnotation ( getProtocolOptions_Timeout1 (),
+                source,
+                new String[]
+                {       "name", "t1" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_Timeout2 (),
+                source,
+                new String[]
+                {       "name", "t2" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_Timeout3 (),
+                source,
+                new String[]
+                {       "name", "t3" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_AsduAddressSize (),
+                source,
+                new String[]
+                {       "name", "asduAddressType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_InformationObjectAddressSize (),
+                source,
+                new String[]
+                {       "name", "informationObjectAddressType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_CauseOfTransmissionSize (),
+                source,
+                new String[]
+                {       "name", "causeOfTransmissionType", //$NON-NLS-1$ //$NON-NLS-2$
+                        "format", "SIZE_%d" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_W (),
+                source,
+                new String[]
+                {       "name", "w" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_K (),
+                source,
+                new String[]
+                {       "name", "k" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDataModuleOptions_BackgroundScanPeriod (),
+                source,
+                new String[]
+                {       "name", "backgroundScanPeriod" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDataModuleOptions_SpontaneousItemBuffer (),
+                source,
+                new String[]
+                {       "name", "spontaneousItemBuffer" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDataModuleOptions_TimestampsForBoolean (),
+                source,
+                new String[]
+                {       "name", "withTimestamp.boolean" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getDataModuleOptions_TimestampsForFloat (),
+                source,
+                new String[]
+                {       "name", "withTimestamp.float" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
     }
 
 } //IEC60870PackageImpl

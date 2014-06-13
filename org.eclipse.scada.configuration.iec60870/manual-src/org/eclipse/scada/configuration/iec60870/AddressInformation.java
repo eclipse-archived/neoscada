@@ -29,6 +29,11 @@ public class AddressInformation implements Serializable
         this.addr[4] = validate ( 5, a5 );
     }
 
+    public int[] getAddress ()
+    {
+        return this.addr;
+    }
+
     private static int validate ( final int nr, final int value )
     {
         if ( value < 0 || value > 0xFF )

@@ -27,7 +27,7 @@ import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.eclipse.scada.configuration.world.osgi.SourceItem;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
 {
@@ -50,7 +50,7 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
 
     /**
      * Create the properties hierarchy for this component
-     * 
+     *
      * @param component
      *            the component
      * @return the properties, never returns <code>null</code>
@@ -174,7 +174,7 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
 
     /**
      * Call all registered item interceptors in this level
-     * 
+     *
      * @param itemInterceptors
      *            the item interceptors
      * @param masterContext
@@ -184,7 +184,7 @@ public abstract class MasterItemCreatorImpl extends AbstractComponentItemCreator
     {
         for ( final ItemInterceptor i : itemInterceptors )
         {
-            final ItemInterceptorHandler handler = AdapterHelper.adapt ( i, ItemInterceptorHandler.class );
+            final ItemInterceptorHandler handler = AdapterHelper.adapt ( i, ItemInterceptorHandler.class, true );
             if ( handler == null )
             {
                 throw new IllegalStateException ( String.format ( "Interceptor '%s' does not adapt to '%s'", i.eClass ().getName (), ItemInterceptorHandler.class.getName () ) );

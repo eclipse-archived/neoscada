@@ -33,6 +33,8 @@ import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getAsduAddressSize <em>Asdu Address Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getInformationObjectAddressSize <em>Information Object Address Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getCauseOfTransmissionSize <em>Cause Of Transmission Size</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getW <em>W</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getK <em>K</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,7 +50,7 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final int TIMEOUT1_EDEFAULT = 0;
+    protected static final int TIMEOUT1_EDEFAULT = 15000;
 
     /**
      * The cached value of the '{@link #getTimeout1() <em>Timeout1</em>}' attribute.
@@ -68,7 +70,7 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final int TIMEOUT2_EDEFAULT = 0;
+    protected static final int TIMEOUT2_EDEFAULT = 10000;
 
     /**
      * The cached value of the '{@link #getTimeout2() <em>Timeout2</em>}' attribute.
@@ -88,7 +90,7 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final int TIMEOUT3_EDEFAULT = 0;
+    protected static final int TIMEOUT3_EDEFAULT = 20000;
 
     /**
      * The cached value of the '{@link #getTimeout3() <em>Timeout3</em>}' attribute.
@@ -128,7 +130,7 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final byte INFORMATION_OBJECT_ADDRESS_SIZE_EDEFAULT = 0x00;
+    protected static final byte INFORMATION_OBJECT_ADDRESS_SIZE_EDEFAULT = 0x03;
 
     /**
      * The cached value of the '{@link #getInformationObjectAddressSize() <em>Information Object Address Size</em>}' attribute.
@@ -148,7 +150,7 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final byte CAUSE_OF_TRANSMISSION_SIZE_EDEFAULT = 0x00;
+    protected static final byte CAUSE_OF_TRANSMISSION_SIZE_EDEFAULT = 0x02;
 
     /**
      * The cached value of the '{@link #getCauseOfTransmissionSize() <em>Cause Of Transmission Size</em>}' attribute.
@@ -159,6 +161,46 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected byte causeOfTransmissionSize = CAUSE_OF_TRANSMISSION_SIZE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getW() <em>W</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getW()
+     * @generated
+     * @ordered
+     */
+    protected static final int W_EDEFAULT = 10;
+
+    /**
+     * The cached value of the '{@link #getW() <em>W</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getW()
+     * @generated
+     * @ordered
+     */
+    protected int w = W_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getK() <em>K</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getK()
+     * @generated
+     * @ordered
+     */
+    protected static final int K_EDEFAULT = 15;
+
+    /**
+     * The cached value of the '{@link #getK() <em>K</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getK()
+     * @generated
+     * @ordered
+     */
+    protected int k = K_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -324,6 +366,52 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public int getW ()
+    {
+        return w;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setW ( int newW )
+    {
+        int oldW = w;
+        w = newW;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.PROTOCOL_OPTIONS__W, oldW, w ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public int getK ()
+    {
+        return k;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setK ( int newK )
+    {
+        int oldK = k;
+        k = newK;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.PROTOCOL_OPTIONS__K, oldK, k ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -341,6 +429,10 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return getInformationObjectAddressSize ();
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
                 return getCauseOfTransmissionSize ();
+            case IEC60870Package.PROTOCOL_OPTIONS__W:
+                return getW ();
+            case IEC60870Package.PROTOCOL_OPTIONS__K:
+                return getK ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -372,6 +464,12 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return;
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
                 setCauseOfTransmissionSize ( (Byte)newValue );
+                return;
+            case IEC60870Package.PROTOCOL_OPTIONS__W:
+                setW ( (Integer)newValue );
+                return;
+            case IEC60870Package.PROTOCOL_OPTIONS__K:
+                setK ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -405,6 +503,12 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
                 setCauseOfTransmissionSize ( CAUSE_OF_TRANSMISSION_SIZE_EDEFAULT );
                 return;
+            case IEC60870Package.PROTOCOL_OPTIONS__W:
+                setW ( W_EDEFAULT );
+                return;
+            case IEC60870Package.PROTOCOL_OPTIONS__K:
+                setK ( K_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -431,6 +535,10 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return informationObjectAddressSize != INFORMATION_OBJECT_ADDRESS_SIZE_EDEFAULT;
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
                 return causeOfTransmissionSize != CAUSE_OF_TRANSMISSION_SIZE_EDEFAULT;
+            case IEC60870Package.PROTOCOL_OPTIONS__W:
+                return w != W_EDEFAULT;
+            case IEC60870Package.PROTOCOL_OPTIONS__K:
+                return k != K_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -459,6 +567,10 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
         result.append ( informationObjectAddressSize );
         result.append ( ", causeOfTransmissionSize: " ); //$NON-NLS-1$
         result.append ( causeOfTransmissionSize );
+        result.append ( ", w: " ); //$NON-NLS-1$
+        result.append ( w );
+        result.append ( ", k: " ); //$NON-NLS-1$
+        result.append ( k );
         result.append ( ')' );
         return result.toString ();
     }

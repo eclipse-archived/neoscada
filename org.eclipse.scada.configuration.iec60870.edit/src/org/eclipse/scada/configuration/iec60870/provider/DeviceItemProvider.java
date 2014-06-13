@@ -36,6 +36,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.iec60870.Device;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.iec60870.Device} object.
@@ -145,6 +146,7 @@ public class DeviceItemProvider
             childrenFeatures.add ( IEC60870Package.Literals.DEVICE__ITEMS );
             childrenFeatures.add ( IEC60870Package.Literals.DEVICE__PROTOCOL_OPTIONS );
             childrenFeatures.add ( IEC60870Package.Literals.DEVICE__DATA_MODULE_OPTIONS );
+            childrenFeatures.add ( IEC60870Package.Literals.DEVICE__HIVE_PROPERTIES );
         }
         return childrenFeatures;
     }
@@ -210,6 +212,7 @@ public class DeviceItemProvider
             case IEC60870Package.DEVICE__ITEMS:
             case IEC60870Package.DEVICE__PROTOCOL_OPTIONS:
             case IEC60870Package.DEVICE__DATA_MODULE_OPTIONS:
+            case IEC60870Package.DEVICE__HIVE_PROPERTIES:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -242,6 +245,11 @@ public class DeviceItemProvider
                 ( createChildParameter
                 ( IEC60870Package.Literals.DEVICE__DATA_MODULE_OPTIONS,
                         IEC60870Factory.eINSTANCE.createDataModuleOptions () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( IEC60870Package.Literals.DEVICE__HIVE_PROPERTIES,
+                        WorldFactory.eINSTANCE.createPropertyEntry () ) );
     }
 
     /**

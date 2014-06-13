@@ -19,6 +19,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -26,7 +27,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.scada.configuration.iec60870.DataModuleOptions;
+import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.iec60870.DataModuleOptions} object.
@@ -67,8 +72,104 @@ public class DataModuleOptionsItemProvider
         {
             super.getPropertyDescriptors ( object );
 
+            addBackgroundScanPeriodPropertyDescriptor ( object );
+            addSpontaneousItemBufferPropertyDescriptor ( object );
+            addTimestampsForBooleanPropertyDescriptor ( object );
+            addTimestampsForFloatPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Background Scan Period feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addBackgroundScanPeriodPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DataModuleOptions_backgroundScanPeriod_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_backgroundScanPeriod_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Spontaneous Item Buffer feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSpontaneousItemBufferPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DataModuleOptions_spontaneousItemBuffer_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_spontaneousItemBuffer_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Timestamps For Boolean feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTimestampsForBooleanPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DataModuleOptions_timestampsForBoolean_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForBoolean_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Timestamps For Float feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTimestampsForFloatPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_DataModuleOptions_timestampsForFloat_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DataModuleOptions_timestampsForFloat_feature", "_UI_DataModuleOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -92,7 +193,11 @@ public class DataModuleOptionsItemProvider
     @Override
     public String getText ( Object object )
     {
-        return getString ( "_UI_DataModuleOptions_type" ); //$NON-NLS-1$
+        Integer labelValue = ( (DataModuleOptions)object ).getBackgroundScanPeriod ();
+        String label = labelValue == null ? null : labelValue.toString ();
+        return label == null || label.length () == 0 ?
+                getString ( "_UI_DataModuleOptions_type" ) : //$NON-NLS-1$
+                getString ( "_UI_DataModuleOptions_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -106,6 +211,16 @@ public class DataModuleOptionsItemProvider
     public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
+
+        switch ( notification.getFeatureID ( DataModuleOptions.class ) )
+        {
+            case IEC60870Package.DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD:
+            case IEC60870Package.DATA_MODULE_OPTIONS__SPONTANEOUS_ITEM_BUFFER:
+            case IEC60870Package.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN:
+            case IEC60870Package.DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT:
+                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
+                return;
+        }
         super.notifyChanged ( notification );
     }
 

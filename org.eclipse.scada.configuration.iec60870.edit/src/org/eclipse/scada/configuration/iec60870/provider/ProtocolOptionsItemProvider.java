@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.iec60870.provider;
 
@@ -77,6 +77,8 @@ public class ProtocolOptionsItemProvider
             addAsduAddressSizePropertyDescriptor ( object );
             addInformationObjectAddressSizePropertyDescriptor ( object );
             addCauseOfTransmissionSizePropertyDescriptor ( object );
+            addWPropertyDescriptor ( object );
+            addKPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -154,7 +156,7 @@ public class ProtocolOptionsItemProvider
      * This adds a property descriptor for the Asdu Address Size feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     protected void addAsduAddressSizePropertyDescriptor ( final Object object )
@@ -172,6 +174,70 @@ public class ProtocolOptionsItemProvider
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) {
+
+                    @Override
+                    public Collection<?> getChoiceOfValues ( final Object object )
+                    {
+                        return Arrays.asList ( (byte)1, (byte)2 );
+                    }
+
+                } );
+    }
+
+    /**
+     * This adds a property descriptor for the Information Object Address Size
+     * feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    protected void addInformationObjectAddressSizePropertyDescriptor ( final Object object )
+    {
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ProtocolOptions_informationObjectAddressSize_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_informationObjectAddressSize_feature", "_UI_ProtocolOptions_type" ),
+                        IEC60870Package.Literals.PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) {
+                    @Override
+                    public Collection<?> getChoiceOfValues ( final Object object )
+                    {
+                        return Arrays.asList ( (byte)1, (byte)2, (byte)3 );
+                    }
+                } );
+    }
+
+    /**
+     * This adds a property descriptor for the Cause Of Transmission Size
+     * feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    protected void addCauseOfTransmissionSizePropertyDescriptor ( final Object object )
+    {
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ProtocolOptions_causeOfTransmissionSize_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_causeOfTransmissionSize_feature", "_UI_ProtocolOptions_type" ),
+                        IEC60870Package.Literals.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) {
                     @Override
                     public Collection<?> getChoiceOfValues ( final Object object )
                     {
@@ -181,20 +247,20 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Information Object Address Size feature.
+     * This adds a property descriptor for the W feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addInformationObjectAddressSizePropertyDescriptor ( Object object )
+    protected void addWPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ProtocolOptions_informationObjectAddressSize_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_informationObjectAddressSize_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE,
+                        getString ( "_UI_ProtocolOptions_w_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_w_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.PROTOCOL_OPTIONS__W,
                         true,
                         false,
                         false,
@@ -204,20 +270,20 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Cause Of Transmission Size feature.
+     * This adds a property descriptor for the K feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addCauseOfTransmissionSizePropertyDescriptor ( Object object )
+    protected void addKPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_ProtocolOptions_causeOfTransmissionSize_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_causeOfTransmissionSize_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        IEC60870Package.Literals.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE,
+                        getString ( "_UI_ProtocolOptions_k_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_k_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.PROTOCOL_OPTIONS__K,
                         true,
                         false,
                         false,
@@ -242,7 +308,7 @@ public class ProtocolOptionsItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
@@ -271,6 +337,8 @@ public class ProtocolOptionsItemProvider
             case IEC60870Package.PROTOCOL_OPTIONS__ASDU_ADDRESS_SIZE:
             case IEC60870Package.PROTOCOL_OPTIONS__INFORMATION_OBJECT_ADDRESS_SIZE:
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
+            case IEC60870Package.PROTOCOL_OPTIONS__W:
+            case IEC60870Package.PROTOCOL_OPTIONS__K:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

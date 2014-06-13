@@ -24,6 +24,8 @@ public final class Endpoints
     /**
      * Register a new endpoint <br/>
      * The endpoint must not exists, but will exists after the call returns
+     * 
+     * @return the newly created endpoint
      */
     public static Endpoint registerEndpoint ( final Application app, final short port, final String name )
     {
@@ -65,7 +67,7 @@ public final class Endpoints
 
     /**
      * Find the containing node which must be of the provided type
-     * 
+     *
      * @param ep
      *            the endpoint
      * @param clazz
