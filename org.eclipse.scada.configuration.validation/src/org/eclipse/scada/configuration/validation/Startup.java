@@ -17,24 +17,12 @@ import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.ui.IStartup;
 
 /**
- * Installs an EMF <code>EValidator</code> on the Library package when we
+ * Installs an EMF <code>EValidator</code> on the Model package when we
  * start up. This validator adapts EMF's <code>EValidator</code> API to the
  * EMF Model Validation Service API.
  */
 public class Startup implements IStartup
 {
-
-    /**
-     * Initializes me.
-     */
-    public Startup ()
-    {
-        super ();
-    }
-
-    /**
-     * Install the validator.
-     */
     @Override
     public void earlyStartup ()
     {
