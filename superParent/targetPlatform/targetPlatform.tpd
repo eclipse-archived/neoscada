@@ -28,6 +28,10 @@ location "http://download.eclipse.org/rt/rap/2.2" {
 	org.eclipse.rap.jface.databinding
 }
 
+location "http://download.eclipse.org/paho/" {
+	org.eclipse.paho.client.mqttv3
+}
+
 location "http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/" {
 
 /*

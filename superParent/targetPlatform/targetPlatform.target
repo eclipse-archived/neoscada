@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1401098361">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1402572953">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
@@ -23,6 +23,10 @@
       <unit id="org.eclipse.rap.jface" version="2.2.0.20131017-1149"/>
       <unit id="org.eclipse.rap.jface.databinding" version="2.2.0.20130702-1310"/>
       <repository location="http://download.eclipse.org/rt/rap/2.2"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.paho.client.mqttv3" version="0.9.0"/>
+      <repository location="http://download.eclipse.org/paho/"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.apache.commons.beanutils" version="1.8.0.v201205091237"/>
