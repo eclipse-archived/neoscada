@@ -1,23 +1,23 @@
 Manifest-Version: 1.0
-Export-Package: org.eclipse.scada.utils;version="0.1.0",
- org.eclipse.scada.utils.beans;version="0.1.0",
- org.eclipse.scada.utils.collection;version="0.1.0";uses:="org.eclipse.scada.utils.lang",
- org.eclipse.scada.utils.concurrent;version="0.1.0",
- org.eclipse.scada.utils.concurrent.task;version="0.1.0";uses:="org.eclipse.scada.utils.concurrent",
- org.eclipse.scada.utils.exec;version="0.1.0",
- org.eclipse.scada.utils.init;version="0.1.0",
- org.eclipse.scada.utils.inject;version="0.1.0",
- org.eclipse.scada.utils.interner;version="0.1.0";uses:="com.google.common.collect",
- org.eclipse.scada.utils.io;version="0.1.0",
- org.eclipse.scada.utils.lang;version="0.1.0",
- org.eclipse.scada.utils.lifecycle;version="0.1.0",
- org.eclipse.scada.utils.reflect;version="0.1.0",
- org.eclipse.scada.utils.script;version="0.1.0";uses:="javax.script",
- org.eclipse.scada.utils.sql;version="0.1.0",
- org.eclipse.scada.utils.statuscodes;version="0.1.0",
- org.eclipse.scada.utils.str;version="0.1.0";uses:="org.eclipse.scada.utils.lang"
+Export-Package: org.eclipse.scada.utils;version="0.2.0",
+ org.eclipse.scada.utils.beans;version="0.2.0",
+ org.eclipse.scada.utils.collection;version="0.2.0";uses:="org.eclipse.scada.utils.lang",
+ org.eclipse.scada.utils.concurrent;version="0.2.0",
+ org.eclipse.scada.utils.concurrent.task;version="0.2.0";uses:="org.eclipse.scada.utils.concurrent",
+ org.eclipse.scada.utils.exec;version="0.2.0",
+ org.eclipse.scada.utils.init;version="0.2.0",
+ org.eclipse.scada.utils.inject;version="0.2.0",
+ org.eclipse.scada.utils.interner;version="0.2.0";uses:="com.google.common.collect",
+ org.eclipse.scada.utils.io;version="0.2.0",
+ org.eclipse.scada.utils.lang;version="0.2.0",
+ org.eclipse.scada.utils.lifecycle;version="0.2.0",
+ org.eclipse.scada.utils.reflect;version="0.2.0",
+ org.eclipse.scada.utils.script;version="0.2.0";uses:="javax.script",
+ org.eclipse.scada.utils.sql;version="0.2.0",
+ org.eclipse.scada.utils.statuscodes;version="0.2.0",
+ org.eclipse.scada.utils.str;version="0.2.0";uses:="org.eclipse.scada.utils.lang"
 Bundle-Vendor: Eclipse SCADA Project
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Name: Eclipse SCADA Common Utilities (Incubation)
 Bundle-ManifestVersion: 2
 Bundle-Description: Utility classes for use throughout the Eclipse SCA
