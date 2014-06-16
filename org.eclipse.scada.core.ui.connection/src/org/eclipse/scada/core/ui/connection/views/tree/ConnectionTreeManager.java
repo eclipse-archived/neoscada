@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - adding a connection store selector
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.views.tree;
 
@@ -58,7 +59,7 @@ public class ConnectionTreeManager
 
         this.poolManager = new ConnectionPoolManager ( this.realm );
 
-        this.discoverers = Activator.getDefault ().getDiscovererSet ();
+        this.discoverers = Activator.getDefault ().createDiscovererSet ();
         this.discoverers.addSetChangeListener ( this.listener );
         handleDiff ( Diffs.createSetDiff ( this.discoverers, Collections.emptySet () ) );
 

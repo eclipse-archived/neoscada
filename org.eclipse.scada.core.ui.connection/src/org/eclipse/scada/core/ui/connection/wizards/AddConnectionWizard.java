@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
+ *     IBH SYSTEMS GmbH - adding a connection store selector
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.wizards;
 
@@ -35,6 +36,8 @@ public class AddConnectionWizard extends Wizard implements INewWizard
 
     private ConnectionDescriptor preset;
 
+    private SelectConnectionStorePage storePage;
+
     protected boolean isUpdateMode ()
     {
         return false;
@@ -45,17 +48,19 @@ public class AddConnectionWizard extends Wizard implements INewWizard
     {
         final ConnectionDescriptor connectionInformation = this.entryPage.getConnectionInformation ();
 
+        final ConnectionStore store = getStore ();
+
         try
         {
             if ( connectionInformation != null )
             {
                 if ( isUpdateMode () )
                 {
-                    this.store.update ( this.preset, connectionInformation );
+                    store.update ( this.preset, connectionInformation );
                 }
                 else
                 {
-                    this.store.add ( connectionInformation );
+                    store.add ( connectionInformation );
                 }
             }
         }
@@ -66,6 +71,20 @@ public class AddConnectionWizard extends Wizard implements INewWizard
         }
 
         return connectionInformation != null;
+    }
+
+    protected ConnectionStore getStore ()
+    {
+        final ConnectionStore store;
+        if ( this.storePage != null )
+        {
+            store = this.storePage.getStore ();
+        }
+        else
+        {
+            store = this.store;
+        }
+        return store;
     }
 
     @Override
@@ -96,14 +115,25 @@ public class AddConnectionWizard extends Wizard implements INewWizard
     @Override
     public boolean canFinish ()
     {
-        return this.store != null;
+        if ( getStore () == null )
+        {
+            return false;
+        }
+        if ( this.entryPage.getConnectionInformation () == null )
+        {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public void addPages ()
     {
         super.addPages ();
+        if ( !isUpdateMode () )
+        {
+            addPage ( this.storePage = new SelectConnectionStorePage ( this.store ) );
+        }
         addPage ( this.entryPage = new AddConnectionWizardPage1 ( this.preset ) );
     }
-
 }

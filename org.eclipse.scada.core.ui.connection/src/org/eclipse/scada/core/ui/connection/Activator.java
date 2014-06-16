@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - also provide a set for stores
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection;
 
@@ -23,13 +24,13 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.scada.core.ui.connection.data.ConnectionDiscovererAdapterFactory;
 import org.eclipse.scada.core.ui.connection.data.ConnectionDiscovererBean;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolderAdapterFactory;
 import org.eclipse.scada.core.ui.connection.data.ConnectionManager;
 import org.eclipse.scada.core.ui.connection.views.tree.ConnectionTreeManager;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -49,6 +50,8 @@ public class Activator extends AbstractUIPlugin
     private static Activator plugin;
 
     private ObservableSet discoverers;
+
+    private ObservableSet stores;
 
     private WritableSet treeRoot;
 
@@ -111,20 +114,52 @@ public class Activator extends AbstractUIPlugin
 
         this.treeRootManager.dispose ();
         this.treeRoot.dispose ();
+        this.discoverers.dispose ();
 
         plugin = null;
         super.stop ( context );
     }
 
-    public IObservableSet getDiscovererSet ()
+    /**
+     * Create a new set with all known discoverers
+     * <p>
+     * The method creates a new instance which must be disposed by the caller.
+     * </p>
+     *
+     * @return a new set of {@link ConnectionDiscovererBean}s
+     */
+    public IObservableSet createDiscovererSet ()
     {
         synchronized ( this )
         {
             if ( this.discoverers == null )
             {
-                this.discoverers = createDiscoverers ();
+                createDiscoverers ();
             }
             return Observables.proxyObservableSet ( this.discoverers );
+        }
+    }
+
+    /**
+     * Get the list of known stores (ConnectionStore)
+     * <p>
+     * This instance must not be disposed. If you need an instance that can be
+     * disposed you need to wrap the received instance using
+     * {@link Observables#proxyObservableSet(IObservableSet)}
+     * </p>
+     *
+     * @return a list of {@link ConnectionDiscovererBean}s which implement the
+     *         {@link ConnectionStore} interface
+     */
+    public IObservableSet getStoresSet ()
+    {
+        synchronized ( this )
+        {
+            if ( this.stores == null )
+            {
+                createDiscoverers ();
+            }
+            return this.stores;
         }
     }
 
@@ -133,9 +168,10 @@ public class Activator extends AbstractUIPlugin
         return this.treeRoot;
     }
 
-    private ObservableSet createDiscoverers ()
+    private void createDiscoverers ()
     {
-        final WritableSet result = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
+        final WritableSet resultDiscoverers = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
+        final WritableSet resultStores = new WritableSet ( SWTObservables.getRealm ( getWorkbench ().getDisplay () ) );
 
         for ( final IConfigurationElement ele : Platform.getExtensionRegistry ().getConfigurationElementsFor ( EXTP_CONNECTON_DISCOVERER ) )
         {
@@ -161,7 +197,12 @@ public class Activator extends AbstractUIPlugin
                 try
                 {
                     final ConnectionDiscovererBean bean = new ConnectionDiscovererBean ( id, name, description, imageDescriptor, (ConnectionDiscoverer)ele.createExecutableExtension ( "class" ) );
-                    result.add ( bean );
+                    resultDiscoverers.add ( bean );
+
+                    if ( bean.isStore () )
+                    {
+                        resultStores.add ( bean );
+                    }
                 }
                 catch ( final CoreException e )
                 {
@@ -170,7 +211,8 @@ public class Activator extends AbstractUIPlugin
             }
         }
 
-        return result;
+        this.discoverers = resultDiscoverers;
+        this.stores = resultStores;
     }
 
     public ConnectionManager getConnectionManager ()
@@ -180,7 +222,7 @@ public class Activator extends AbstractUIPlugin
 
     /**
      * Returns the shared instance
-     * 
+     *
      * @return the shared instance
      */
     public static Activator getDefault ()

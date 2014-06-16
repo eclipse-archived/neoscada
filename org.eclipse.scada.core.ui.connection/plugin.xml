@@ -120,21 +120,17 @@
             category="org.eclipse.scada.core.ui.category"
             class="org.eclipse.scada.core.ui.connection.wizards.AddConnectionWizard"
             hasPages="true"
+            icon="icons/new_connection.gif"
             id="org.eclipse.scada.core.ui.connection.AddConnection"
             name="%wizard.addConnection.name"
             project="false">
-         <selection
-               class="org.eclipse.scada.core.ui.connection.ConnectionStore">
-         </selection>
-         <selection
-               class="org.eclipse.scada.core.ui.connection.data.ConnectionHolder">
-         </selection>
       </wizard>
       <wizard
             canFinishEarly="true"
             category="org.eclipse.scada.core.ui.category"
             class="org.eclipse.scada.core.ui.connection.wizards.EditConnectionWizard"
             hasPages="true"
+            icon="icons/edit_connection.gif"
             id="org.eclipse.scada.core.ui.connection.EditConnection"
             name="%wizard.editConnection.name"
             project="false">
@@ -380,6 +376,15 @@
                type="org.eclipse.scada.core.connection.provider.ConnectionService">
          </adapter>
       </factory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+      </perspectiveExtension>
    </extension>
 
 </plugin>
