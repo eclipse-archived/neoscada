@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,20 +8,21 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.commands;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.scada.core.client.ConnectionState;
+import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
+import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.navigator.ICommonActionConstants;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.navigator.ICommonViewerSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
-import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
-import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
-import org.eclipse.scada.ui.databinding.SelectionHelper;
 
 public class CommonActionProvider extends org.eclipse.ui.navigator.CommonActionProvider
 {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.commands;
 
@@ -21,7 +22,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.scada.core.ui.connection.Activator;
 import org.eclipse.scada.core.ui.connection.ConnectionStore;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,7 @@ public class DeleteConnection extends AbstractConnectionHandler
 
     private final static Logger logger = LoggerFactory.getLogger ( DeleteConnection.class );
 
+    @Override
     public Object execute ( final ExecutionEvent event ) throws ExecutionException
     {
         logger.info ( "Execute command: {}", event ); //$NON-NLS-1$
@@ -47,7 +49,7 @@ public class DeleteConnection extends AbstractConnectionHandler
 
         for ( final ConnectionHolder holder : connections )
         {
-            final ConnectionStore store = (ConnectionStore)AdapterHelper.adapt ( holder.getDiscoverer (), ConnectionStore.class );
+            final ConnectionStore store = AdapterHelper.adapt ( holder.getDiscoverer (), ConnectionStore.class );
             if ( store != null )
             {
                 try

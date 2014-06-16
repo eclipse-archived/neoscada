@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,16 +7,17 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.commands;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.scada.core.client.Connection;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.scada.core.ui.connection.Activator;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
+import org.eclipse.ui.statushandlers.StatusManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

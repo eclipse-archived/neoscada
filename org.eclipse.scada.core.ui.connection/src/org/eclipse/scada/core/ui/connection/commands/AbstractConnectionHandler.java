@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new Adapter and Selection Helper
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.commands;
 
@@ -17,7 +18,7 @@ import java.util.LinkedList;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.scada.core.ui.connection.data.ConnectionHolder;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +40,7 @@ public abstract class AbstractConnectionHandler extends AbstractSelectionHandler
 
                 logger.debug ( "Try to add: {}", o.getClass () ); //$NON-NLS-1$
 
-                final ConnectionHolder holder = (ConnectionHolder)AdapterHelper.adapt ( o, ConnectionHolder.class );
+                final ConnectionHolder holder = AdapterHelper.adapt ( o, ConnectionHolder.class );
                 if ( holder != null )
                 {
                     result.add ( holder );
