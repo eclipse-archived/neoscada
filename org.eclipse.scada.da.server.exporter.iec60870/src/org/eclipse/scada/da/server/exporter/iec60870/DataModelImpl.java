@@ -250,7 +250,17 @@ public class DataModelImpl extends AbstractBaseDataModel
 
         try
         {
-            final Object cv = convertValue ( entry, value );
+            final Object cv;
+            if ( value.getValue () == null || value.getValue ().isNull () )
+            {
+                // VariantType#NULL is null
+                cv = null;
+            }
+            else
+            {
+                cv = convertValue ( entry, value );
+            }
+
             if ( cv == null )
             {
                 return errorValue ( entry );
@@ -301,6 +311,7 @@ public class DataModelImpl extends AbstractBaseDataModel
                 return Double.parseDouble ( (String)ov );
             }
 
+            // could be only be NULL or BOOLEAN
             return ov;
         }
 
