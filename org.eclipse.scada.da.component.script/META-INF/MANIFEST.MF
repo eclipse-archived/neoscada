@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Script Component (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.da.component.script
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.da.component.script.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: javax.script,
  org.eclipse.scada.ca;version="0.1.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",
@@ -24,5 +24,5 @@ Import-Package: javax.script,
  org.eclipse.scada.utils.concurrent;version="0.1.0",
  org.eclipse.scada.utils.osgi;version="0.1.0",
  org.eclipse.scada.utils.osgi.pool;version="0.1.0",
- org.eclipse.scada.utils.script;version="0.1.0",
+ org.eclipse.scada.utils.script;version="0.2.0",
  org.osgi.framework;version="1.6.0"

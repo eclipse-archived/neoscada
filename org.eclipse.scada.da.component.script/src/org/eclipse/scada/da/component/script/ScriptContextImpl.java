@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - use startWrite instead of write
  *******************************************************************************/
 package org.eclipse.scada.da.component.script;
 
@@ -23,11 +24,11 @@ import org.eclipse.scada.core.connection.provider.ConnectionIdTracker;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.core.server.OperationParametersHelper;
 import org.eclipse.scada.da.connection.provider.ConnectionService;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
 import org.eclipse.scada.da.server.common.chain.WriteHandler;
 import org.eclipse.scada.da.server.common.chain.WriteHandlerItem;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleContext;
 
 public class ScriptContextImpl implements ScriptContext
@@ -124,7 +125,7 @@ public class ScriptContextImpl implements ScriptContext
             final ConnectionService service = (ConnectionService)tracker.waitForService ( 0 );
             if ( service != null )
             {
-                service.getConnection ().write ( itemId, value, OperationParametersHelper.toData ( operationParameters ), null );
+                service.getConnection ().startWrite ( itemId, value, OperationParametersHelper.toData ( operationParameters ), null );
             }
         }
         finally

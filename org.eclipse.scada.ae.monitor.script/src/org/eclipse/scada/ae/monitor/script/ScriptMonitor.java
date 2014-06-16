@@ -8,18 +8,14 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409
+ *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536
  *******************************************************************************/
 package org.eclipse.scada.ae.monitor.script;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ae.data.MonitorStatusInformation;
@@ -44,7 +40,6 @@ import org.eclipse.scada.da.master.MasterItem;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
@@ -95,11 +90,7 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
 
     private final ClassLoader classLoader;
 
-    private final ScriptEngineManager manager;
-
     private SimpleScriptContext scriptContext;
-
-    private ScriptEngine scriptEngine;
 
     private ScriptExecutor updateCommand;
 
@@ -120,8 +111,6 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
 
         this.monitorStateInjector = new MonitorStateInjector ( stringInterner );
         this.monitorStateInjector.setPrefix ( this.prefix );
-
-        this.manager = Scripts.createManager ( this.classLoader );
 
         this.handler = new InjectMasterHandler ( id, masterItemPoolTracker, 0, caTracker, this.prefix, factoryId );
         this.listener = new MultiDataSourceListener ( dataSourcePoolTracker ) {
@@ -180,7 +169,7 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
         handleChange ( this.listener.getSourcesCopy () );
     }
 
-    private synchronized void setScript ( final ConfigurationDataHelper cfg ) throws ScriptException, IOException
+    private synchronized void setScript ( final ConfigurationDataHelper cfg ) throws Exception
     {
         String engine = cfg.getString ( "scriptEngine", DEFAULT_ENGINE_NAME ); //$NON-NLS-1$
         if ( "".equals ( engine ) ) // catches null
@@ -190,30 +179,24 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
 
         this.scriptContext = new SimpleScriptContext ();
 
-        this.scriptEngine = this.manager.getEngineByName ( engine );
-        if ( this.scriptEngine == null )
-        {
-            throw new IllegalArgumentException ( String.format ( "'%s' is not a valid script engine", engine ) );
-        }
-
         // trigger init script
         final String initScript = cfg.getString ( "init" ); //$NON-NLS-1$
         if ( initScript != null )
         {
-            new ScriptExecutor ( this.scriptEngine, initScript, this.classLoader ).execute ( this.scriptContext );
+            new ScriptExecutor ( engine, initScript, this.classLoader ).execute ( this.scriptContext );
         }
 
-        this.updateCommand = makeScript ( cfg.getString ( "updateCommand" ) ); //$NON-NLS-1$
+        this.updateCommand = makeScript ( engine, cfg.getString ( "updateCommand" ) ); //$NON-NLS-1$
     }
 
-    private ScriptExecutor makeScript ( final String string ) throws ScriptException
+    private ScriptExecutor makeScript ( final String engine, final String string ) throws Exception
     {
         if ( string == null || string.isEmpty () )
         {
             return null;
         }
 
-        return new ScriptExecutor ( this.scriptEngine, string, this.classLoader );
+        return new ScriptExecutor ( engine, string, this.classLoader );
     }
 
     public synchronized DataItemValue dataUpdate ( final Map<String, Object> context, final DataItemValue.Builder builder )

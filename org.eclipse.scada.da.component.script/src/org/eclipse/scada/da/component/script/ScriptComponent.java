@@ -11,22 +11,17 @@
  *******************************************************************************/
 package org.eclipse.scada.da.component.script;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
 import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 
 public class ScriptComponent
@@ -35,7 +30,7 @@ public class ScriptComponent
 
     private final ScriptContextImpl scriptContext;
 
-    public ScriptComponent ( final Executor executor, final ObjectPoolImpl<DataItem> objectPool, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws ScriptException, IOException
+    public ScriptComponent ( final Executor executor, final ObjectPoolImpl<DataItem> objectPool, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
     {
         this.id = configurationId;
 
@@ -44,10 +39,7 @@ public class ScriptComponent
         final String scriptLanguage = cfg.getString ( "scriptLanguage", "JavaScript" );
         final String script = cfg.getStringChecked ( "script", "'script' must be set to an executable script fragment" );
 
-        final ScriptEngineManager scriptEngineManager = Scripts.createManager ( Activator.class.getClassLoader () );
-        final ScriptEngine scriptEngine = scriptEngineManager.getEngineByName ( scriptLanguage );
-
-        final ScriptExecutor scriptExecutor = new ScriptExecutor ( scriptEngine, script, Activator.class.getClassLoader () );
+        final ScriptExecutor scriptExecutor = new ScriptExecutor ( scriptLanguage, script, Activator.class.getClassLoader () );
 
         this.scriptContext = new ScriptContextImpl ( executor, objectPool, this.id, context, cfg.getPrefixed ( "property." ) );
 
