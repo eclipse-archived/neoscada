@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409
+ *     IBH SYSTEMS GmbH - fix bug 433409, 437536
  *******************************************************************************/
 package org.eclipse.scada.vi.ui.draw2d;
 
@@ -27,9 +27,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
+import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.ui.styles.StyleGenerator;
@@ -37,7 +35,6 @@ import org.eclipse.scada.core.ui.styles.StyleGenerator.GeneratorListener;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.RegistrationManager;
 import org.eclipse.scada.vi.data.RegistrationManager.Listener;
@@ -71,10 +68,6 @@ public class SymbolController implements Listener
     private final Set<SymbolController> controllers = new LinkedHashSet<SymbolController> ();
 
     private final ScriptExecutor onInit;
-
-    private final ScriptEngineManager engineManager;
-
-    private final ScriptEngine engine;
 
     private final ScriptExecutor onDispose;
 
@@ -150,7 +143,6 @@ public class SymbolController implements Listener
         this.registrationManager = new RegistrationManager ( Activator.getDefault ().getBundle ().getBundleContext (), this.symbolInfoName );
         this.registrationManager.addListener ( this );
         this.registrationManager.open ();
-        this.engineManager = Scripts.createManager ( this.classLoader );
 
         final Symbol symbol = symbolLoader.loadSymbol ();
 
@@ -179,7 +171,6 @@ public class SymbolController implements Listener
             }
         }
 
-        this.engine = this.engineManager.getEngineByName ( "JavaScript" ); //$NON-NLS-1$
         this.context = new SymbolContext ( this );
 
         if ( parentController != null )
@@ -187,7 +178,7 @@ public class SymbolController implements Listener
             parentController.addChild ( this );
         }
 
-        this.scriptContext = this.engine.getContext ();
+        this.scriptContext = new SimpleScriptContext ();
         assignConsole ( this.scriptContext );
 
         this.scriptContext.setAttribute ( "controller", this.context, ScriptContext.ENGINE_SCOPE ); //$NON-NLS-1$
@@ -206,9 +197,9 @@ public class SymbolController implements Listener
             loadScript ( module );
         }
 
-        this.onInit = new ScriptExecutor ( this.engine, symbol.getOnInit (), this.classLoader, "onInit" ); //$NON-NLS-1$
-        this.onDispose = new ScriptExecutor ( this.engine, symbol.getOnDispose (), this.classLoader, "onDispose" ); //$NON-NLS-1$
-        this.onUpdate = new ScriptExecutor ( this.engine, symbol.getOnUpdate (), this.classLoader, "onUpdate" ); //$NON-NLS-1$
+        this.onInit = new ScriptExecutor ( "JavaScript", symbol.getOnInit (), this.classLoader, "onInit" ); //$NON-NLS-1$
+        this.onDispose = new ScriptExecutor ( "JavaScript", symbol.getOnDispose (), this.classLoader, "onDispose" ); //$NON-NLS-1$
+        this.onUpdate = new ScriptExecutor ( "JavaScript", symbol.getOnUpdate (), this.classLoader, "onUpdate" ); //$NON-NLS-1$
 
         this.generator.addListener ( this.generatorListener );
     }
@@ -312,7 +303,7 @@ public class SymbolController implements Listener
 
         final String moduleSource = this.symbolLoader.loadStringResource ( module );
 
-        new ScriptExecutor ( this.engine, moduleSource, this.classLoader, module ).execute ( this.scriptContext );
+        new ScriptExecutor ( "JavaScript", moduleSource, this.classLoader, module ).execute ( this.scriptContext );
     }
 
     public void init () throws Exception
@@ -408,7 +399,7 @@ public class SymbolController implements Listener
 
     public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
     {
-        final ScriptExecutor executor = new ScriptExecutor ( this.engine, onCreateProperties, this.classLoader );
+        final ScriptExecutor executor = new ScriptExecutor ( "JavaScript", onCreateProperties, this.classLoader, "onCreateProperties" );
         final Map<String, Object> localProperties = new HashMap<String, Object> ( 1 );
         localProperties.put ( "properties", currentProperties );
         return executor.execute ( this.scriptContext, localProperties );
@@ -578,14 +569,14 @@ public class SymbolController implements Listener
         this.summaryListeners.remove ( listener );
     }
 
-    public ScriptExecutor createScriptExecutor ( final String command ) throws ScriptException
+    public ScriptExecutor createScriptExecutor ( final String command, final String sourceName ) throws Exception
     {
         if ( command == null || command.isEmpty () )
         {
             return null;
         }
 
-        return new ScriptExecutor ( this.engine, command, this.classLoader );
+        return new ScriptExecutor ( "JavaScript", command, this.classLoader, sourceName );
     }
 
     public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects )
