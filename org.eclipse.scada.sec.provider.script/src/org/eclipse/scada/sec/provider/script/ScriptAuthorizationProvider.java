@@ -8,22 +8,17 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409
+ *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536
  *******************************************************************************/
 package org.eclipse.scada.sec.provider.script;
 
 import java.util.Map;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.sec.AuthenticationImplementation;
 import org.eclipse.scada.sec.AuthorizationService;
 import org.eclipse.scada.sec.authz.AuthorizationRule;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +27,6 @@ public class ScriptAuthorizationProvider implements AuthorizationService
 
     private final static Logger logger = LoggerFactory.getLogger ( ScriptAuthorizationProvider.class );
 
-    private final ScriptEngineManager manager;
-
     private final ClassLoader classLoader;
 
     private AuthenticationImplementation authenticationImplementation;
@@ -41,7 +34,6 @@ public class ScriptAuthorizationProvider implements AuthorizationService
     public ScriptAuthorizationProvider ()
     {
         this.classLoader = getClass ().getClassLoader ();
-        this.manager = Scripts.createManager ( this.classLoader );
     }
 
     public void setAuthenticationImplementation ( final AuthenticationImplementation authenticationImplementation )
@@ -57,7 +49,7 @@ public class ScriptAuthorizationProvider implements AuthorizationService
         return createEntry ( new ConfigurationDataHelper ( properties ) );
     }
 
-    private ScriptExecutor makeScript ( final ScriptEngine engine, final String script ) throws ScriptException
+    private ScriptExecutor makeScript ( final String engine, final String script ) throws Exception
     {
         if ( script == null || script.isEmpty () )
         {
@@ -68,11 +60,8 @@ public class ScriptAuthorizationProvider implements AuthorizationService
 
     private AuthorizationEntry createEntry ( final ConfigurationDataHelper cfg ) throws Exception
     {
-        final ScriptEngine scriptEngine = this.manager.getEngineByName ( cfg.getString ( "script.engine", "JavaScript" ) );
-        final ScriptEngine callbackScriptEngine = this.manager.getEngineByName ( cfg.getString ( "callbackScript.engine", "JavaScript" ) );
-
-        final ScriptExecutor script = makeScript ( scriptEngine, cfg.getString ( "script" ) );
-        final ScriptExecutor callbackScript = makeScript ( callbackScriptEngine, cfg.getString ( "callbackScript" ) );
+        final ScriptExecutor script = makeScript ( cfg.getString ( "script.engine", "JavaScript" ), cfg.getString ( "script" ) );
+        final ScriptExecutor callbackScript = makeScript ( cfg.getString ( "callbackScript.engine", "JavaScript" ), cfg.getString ( "callbackScript" ) );
 
         return new AuthorizationEntry ( script, callbackScript, this.authenticationImplementation );
     }

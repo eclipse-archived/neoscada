@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - fix bug 433409
+ *     IBH SYSTEMS GmbH - fix bug 433409, fix bug 437536
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.script;
 
@@ -22,9 +22,6 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ae.event.EventProcessor;
@@ -46,7 +43,6 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
-import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,15 +55,11 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
 
     private final ScheduledExecutorService executor;
 
-    private final ScriptEngineManager manager;
-
     private SimpleScriptContext scriptContext;
 
     private ScriptExecutor updateCommand;
 
     private ScriptExecutor timerCommand;
-
-    private ScriptEngine scriptEngine;
 
     private final ClassLoader classLoader;
 
@@ -85,8 +77,6 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         this.executor = executor;
         this.classLoader = getClass ().getClassLoader ();
         this.eventProcessor = eventProcessor;
-
-        this.manager = Scripts.createManager ( this.classLoader );
 
         this.writer = new WriterController ( poolTracker );
     }
@@ -267,7 +257,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         super.dispose ();
     }
 
-    private void setScript ( final ConfigurationDataHelper cfg ) throws ScriptException
+    private void setScript ( final ConfigurationDataHelper cfg ) throws Exception
     {
 
         String engine = cfg.getString ( "engine", DEFAULT_ENGINE_NAME );
@@ -278,32 +268,26 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
 
         this.scriptContext = new SimpleScriptContext ();
 
-        this.scriptEngine = this.manager.getEngineByName ( engine );
-        if ( this.scriptEngine == null )
-        {
-            throw new IllegalArgumentException ( String.format ( "'%s' is not a valid script engine", engine ) );
-        }
-
         // trigger init script
         final String initScript = cfg.getString ( "init" );
         if ( initScript != null )
         {
-            this.scriptEngine.eval ( initScript, this.scriptContext );
+            new ScriptExecutor ( engine, initScript, ScriptDataSource.class.getClassLoader () ).execute ( this.scriptContext );
         }
 
-        this.updateCommand = makeScript ( cfg.getString ( "updateCommand" ) );
-        this.timerCommand = makeScript ( cfg.getString ( "timerCommand" ) );
-        this.writeCommand = makeScript ( cfg.getString ( "writeCommand" ) );
+        this.updateCommand = makeScript ( engine, cfg.getString ( "updateCommand" ) );
+        this.timerCommand = makeScript ( engine, cfg.getString ( "timerCommand" ) );
+        this.writeCommand = makeScript ( engine, cfg.getString ( "writeCommand" ) );
     }
 
-    private ScriptExecutor makeScript ( final String string ) throws ScriptException
+    private ScriptExecutor makeScript ( final String engine, final String string ) throws Exception
     {
         if ( string == null || string.isEmpty () )
         {
             return null;
         }
 
-        return new ScriptExecutor ( this.scriptEngine, string, this.classLoader );
+        return new ScriptExecutor ( engine, string, this.classLoader );
     }
 
     protected synchronized void handleTimer ()
