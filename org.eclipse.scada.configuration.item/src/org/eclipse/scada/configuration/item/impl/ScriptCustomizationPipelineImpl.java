@@ -13,8 +13,6 @@ package org.eclipse.scada.configuration.item.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -149,10 +147,8 @@ public abstract class ScriptCustomizationPipelineImpl extends MinimalEObjectImpl
         {
             if ( this.executor == null )
             {
-                final ScriptEngineManager sem = new ScriptEngineManager ();
-                final ScriptEngine engine = sem.getEngineByName ( getScriptEngine () );
                 final String resource = eResource ().getURI ().toString ();
-                this.executor = new ScriptExecutor ( engine, this.code, ScriptCustomizationPipelineImpl.class.getClassLoader (), resource );
+                this.executor = new ScriptExecutor ( getScriptEngine (), this.code, ScriptCustomizationPipelineImpl.class.getClassLoader (), resource );
             }
 
             final SimpleScriptContext ctx = new SimpleScriptContext ();
