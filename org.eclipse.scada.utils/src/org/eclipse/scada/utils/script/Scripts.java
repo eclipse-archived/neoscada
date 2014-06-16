@@ -26,10 +26,11 @@ public final class Scripts
      * <p>
      * <em>Note:</em> The context class loader will be set during the creation
      * of the script engine. However the constructor
-     * {@link ScriptEngineManager#ScriptEngineManager()} will still be used in
-     * order to look up the default script languages of the JRE.
+     * {@link ScriptEngineManager#ScriptEngineManager(ClassLoader)} with the
+     * parameter <code>null</code> will still be used in order to look up the
+     * default script languages of the JRE.
      * </p>
-     * 
+     *
      * @param contextClassLoader
      *            the context class loader to use
      * @return a new instanceof a {@link ScriptEngineManager}
@@ -40,7 +41,7 @@ public final class Scripts
         try
         {
             Thread.currentThread ().setContextClassLoader ( contextClassLoader );
-            return new ScriptEngineManager ();
+            return new ScriptEngineManager ( null );
         }
         finally
         {
