@@ -130,9 +130,9 @@ public class AddConnectionWizard extends Wizard implements INewWizard
     public void addPages ()
     {
         super.addPages ();
-        if ( !isUpdateMode () )
+        if ( !isUpdateMode () && this.store == null )
         {
-            addPage ( this.storePage = new SelectConnectionStorePage ( this.store ) );
+            addPage ( this.storePage = new SelectConnectionStorePage () );
         }
         addPage ( this.entryPage = new AddConnectionWizardPage1 ( this.preset ) );
     }

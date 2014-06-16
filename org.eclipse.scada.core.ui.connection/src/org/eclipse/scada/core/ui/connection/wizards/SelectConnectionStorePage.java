@@ -14,7 +14,6 @@ import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.core.ui.connection.Activator;
@@ -30,12 +29,9 @@ public class SelectConnectionStorePage extends WizardPage
 
     private IObservableSet stores;
 
-    private final ConnectionStore initialStore;
-
-    protected SelectConnectionStorePage ( final ConnectionStore selectedStore )
+    protected SelectConnectionStorePage ()
     {
         super ( "selectConnectionStore" ); //$NON-NLS-1$
-        this.initialStore = selectedStore;
         setTitle ( "Select store" );
         setDescription ( "The connection will be added to the selected store" );
     }
@@ -51,11 +47,6 @@ public class SelectConnectionStorePage extends WizardPage
         this.tableViewer.setContentProvider ( new ObservableSetContentProvider () );
         this.tableViewer.setLabelProvider ( new ConnectionLabelProvider () );
         this.tableViewer.setInput ( this.stores );
-
-        if ( this.initialStore != null )
-        {
-            this.tableViewer.setSelection ( new StructuredSelection ( this.initialStore ) );
-        }
 
         this.tableViewer.addSelectionChangedListener ( new ISelectionChangedListener () {
 

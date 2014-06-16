@@ -206,39 +206,6 @@
                   name="newWizardId"
                   value="org.eclipse.scada.core.ui.connection.AddConnection">
             </parameter>
-            <visibleWhen
-                  checkEnabled="false">
-                  <or>
-				  <iterate
-                        ifEmpty="false"
-                        operator="and">
-                        <test
-                              property="org.eclipse.scada.core.ui.connection.data.ConnectionDiscovererBean.isStore"
-                              value="true">
-                        </test>
-                  </iterate>
-                  </or>
-            </visibleWhen>
-         </command>
-         <command
-               commandId="org.eclipse.ui.newWizard"
-               label="%command.newConnection.label"
-               style="push">
-            <parameter
-                  name="newWizardId"
-                  value="org.eclipse.scada.core.ui.connection.AddConnection">
-            </parameter>
-            <visibleWhen
-                  checkEnabled="false">
-				   <iterate
-                        ifEmpty="false"
-                        operator="and">
-                        <test
-                              property="org.eclipse.scada.core.ui.connection.data.ConnectionHolder.stored"
-                              value="true">
-                        </test>
-                  </iterate>
-            </visibleWhen>
          </command>
          <command
                commandId="org.eclipse.scada.core.ui.connection.cancelConnection"
