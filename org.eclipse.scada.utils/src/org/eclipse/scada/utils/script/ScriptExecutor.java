@@ -78,7 +78,12 @@ public class ScriptExecutor
 
     public ScriptExecutor ( final String engineName, final String command, final ClassLoader classLoader ) throws Exception
     {
-        this ( Scripts.createManager ( classLoader ), engineName, command, classLoader );
+        this ( engineName, command, classLoader, null );
+    }
+
+    public ScriptExecutor ( final String engineName, final String command, final ClassLoader classLoader, final String sourceName ) throws Exception
+    {
+        this ( Scripts.createManager ( classLoader ), engineName, command, classLoader, sourceName );
     }
 
     public ScriptExecutor ( final String engineName, final URL commandUrl, final ClassLoader classLoader ) throws Exception
@@ -103,6 +108,27 @@ public class ScriptExecutor
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final String command, final ClassLoader classLoader ) throws Exception
     {
         this ( createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader );
+    }
+
+    /**
+     * Create a new script executor
+     *
+     * @param engineManager
+     *            the engine manager to use
+     * @param engineName
+     *            the name of the script engine
+     * @param command
+     *            the script
+     * @param classLoader
+     *            the class loader the script should use
+     * @param sourceName
+     *            the name of the source
+     * @throws Exception
+     *             if anything goes wrong
+     */
+    public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final String command, final ClassLoader classLoader, final String sourceName ) throws Exception
+    {
+        this ( createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader, sourceName );
     }
 
     /**
@@ -166,7 +192,10 @@ public class ScriptExecutor
 
         if ( command != null && engine instanceof Compilable && !Boolean.getBoolean ( PROP_NAME_DISABLE_COMPILE ) )
         {
-            engine.put ( ScriptEngine.FILENAME, sourceName );
+            if ( sourceName != null )
+            {
+                engine.put ( ScriptEngine.FILENAME, sourceName );
+            }
 
             executeWithClassLoader ( classLoader, new Callable<Void> () {
                 @Override
@@ -266,7 +295,10 @@ public class ScriptExecutor
         Map<String, Object> vars = null;
         try
         {
-            this.engine.put ( ScriptEngine.FILENAME, this.sourceName );
+            if ( this.sourceName != null )
+            {
+                this.engine.put ( ScriptEngine.FILENAME, this.sourceName );
+            }
 
             vars = applyVars ( scriptContext, scriptObjects );
 
