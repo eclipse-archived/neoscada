@@ -57,7 +57,6 @@ import org.eclipse.scada.vi.model.XYContainer;
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class VisualInterfacePackageImpl extends EPackageImpl implements VisualInterfacePackage
@@ -65,7 +64,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass symbolEClass = null;
@@ -73,7 +71,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass primitiveEClass = null;
@@ -81,7 +78,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass containerEClass = null;
@@ -89,7 +85,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass shapeEClass = null;
@@ -97,7 +92,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass rectangleEClass = null;
@@ -105,7 +99,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass textEClass = null;
@@ -113,7 +106,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass childEClass = null;
@@ -121,7 +113,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass xyChildEClass = null;
@@ -129,7 +120,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass xyContainerEClass = null;
@@ -137,7 +127,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass positionEClass = null;
@@ -145,7 +134,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass lineEClass = null;
@@ -153,7 +141,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass figureEClass = null;
@@ -161,7 +148,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass symbolReferenceEClass = null;
@@ -169,7 +155,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass stringToStringMapEClass = null;
@@ -177,7 +162,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass dimensionEClass = null;
@@ -185,7 +169,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass cursorEClass = null;
@@ -193,7 +176,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass systemCursorEClass = null;
@@ -201,7 +183,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass gridContainerEClass = null;
@@ -209,7 +190,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass borderContainerEClass = null;
@@ -217,7 +197,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass borderChildEClass = null;
@@ -225,7 +204,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass gridChildEClass = null;
@@ -233,7 +211,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass figureContainerEClass = null;
@@ -241,7 +218,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass imageEClass = null;
@@ -249,7 +225,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass ellipseEClass = null;
@@ -257,7 +232,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass arcEClass = null;
@@ -265,7 +239,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass connectionEClass = null;
@@ -273,7 +246,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EClass stackContainerEClass = null;
@@ -281,7 +253,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum alignmentEEnum = null;
@@ -289,7 +260,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum orientationEEnum = null;
@@ -297,7 +267,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum systemCursorTypeEEnum = null;
@@ -305,7 +274,6 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private EEnum gridAlignmentEEnum = null;
@@ -334,21 +302,17 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model,
-     * and for any others upon which it depends.
-     * <p>
-     * This method is used to initialize
-     * {@link VisualInterfacePackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access
-     * that field to obtain the package. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
      * 
+     * <p>This method is used to initialize {@link VisualInterfacePackage#eINSTANCE} when that field is accessed.
+     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+     * <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -357,12 +321,10 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     public static VisualInterfacePackage init ()
     {
         if ( isInited )
-        {
             return (VisualInterfacePackage)EPackage.Registry.INSTANCE.getEPackage ( VisualInterfacePackage.eNS_URI );
-        }
 
         // Obtain or create and register package
-        final VisualInterfacePackageImpl theVisualInterfacePackage = (VisualInterfacePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof VisualInterfacePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new VisualInterfacePackageImpl () );
+        VisualInterfacePackageImpl theVisualInterfacePackage = (VisualInterfacePackageImpl) ( EPackage.Registry.INSTANCE.get ( eNS_URI ) instanceof VisualInterfacePackageImpl ? EPackage.Registry.INSTANCE.get ( eNS_URI ) : new VisualInterfacePackageImpl () );
 
         isInited = true;
 
@@ -383,1387 +345,1271 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getSymbol ()
     {
-        return this.symbolEClass;
+        return symbolEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbol_Root ()
     {
-        return (EReference)this.symbolEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbol_Properties ()
     {
-        return (EReference)this.symbolEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbol_OnInit ()
     {
-        return (EAttribute)this.symbolEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbol_OnDispose ()
     {
-        return (EAttribute)this.symbolEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbol_OnUpdate ()
     {
-        return (EAttribute)this.symbolEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbol_ScriptModules ()
     {
-        return (EAttribute)this.symbolEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbol_Cursors ()
     {
-        return (EReference)this.symbolEClass.getEStructuralFeatures ().get ( 6 );
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbol_BackgroundColor ()
     {
-        return (EAttribute)this.symbolEClass.getEStructuralFeatures ().get ( 7 );
+        return (EAttribute)symbolEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbol_DesignSize ()
     {
-        return (EReference)this.symbolEClass.getEStructuralFeatures ().get ( 8 );
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbol_Connections ()
     {
-        return (EReference)this.symbolEClass.getEStructuralFeatures ().get ( 9 );
+        return (EReference)symbolEClass.getEStructuralFeatures ().get ( 9 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getPrimitive ()
     {
-        return this.primitiveEClass;
+        return primitiveEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getPrimitive_Name ()
     {
-        return (EAttribute)this.primitiveEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)primitiveEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getContainer ()
     {
-        return this.containerEClass;
+        return containerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getShape ()
     {
-        return this.shapeEClass;
+        return shapeEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getShape_LineWidth ()
     {
-        return (EAttribute)this.shapeEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)shapeEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getShape_Antialias ()
     {
-        return (EAttribute)this.shapeEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)shapeEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getShape_Alpha ()
     {
-        return (EAttribute)this.shapeEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)shapeEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getShape_Fill ()
     {
-        return (EAttribute)this.shapeEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)shapeEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getShape_Outline ()
     {
-        return (EAttribute)this.shapeEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)shapeEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getRectangle ()
     {
-        return this.rectangleEClass;
+        return rectangleEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getText ()
     {
-        return this.textEClass;
+        return textEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_Text ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_LabelAlignment ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_IconAlignment ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_TextAlignment ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_TextPlacement ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_FontName ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_FontSize ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_FontBold ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 7 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getText_FontItalic ()
     {
-        return (EAttribute)this.textEClass.getEStructuralFeatures ().get ( 8 );
+        return (EAttribute)textEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getChild ()
     {
-        return this.childEClass;
+        return childEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getChild_Element ()
     {
-        return (EReference)this.childEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)childEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getChild_Name ()
     {
-        return (EAttribute)this.childEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)childEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getXYChild ()
     {
-        return this.xyChildEClass;
+        return xyChildEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getXYChild_Position ()
     {
-        return (EReference)this.xyChildEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)xyChildEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getXYChild_Dimension ()
     {
-        return (EReference)this.xyChildEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)xyChildEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getXYContainer ()
     {
-        return this.xyContainerEClass;
+        return xyContainerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getXYContainer_Children ()
     {
-        return (EReference)this.xyContainerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)xyContainerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getPosition ()
     {
-        return this.positionEClass;
+        return positionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getPosition_X ()
     {
-        return (EAttribute)this.positionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)positionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getPosition_Y ()
     {
-        return (EAttribute)this.positionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)positionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getLine ()
     {
-        return this.lineEClass;
+        return lineEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getLine_Points ()
     {
-        return (EReference)this.lineEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)lineEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getFigure ()
     {
-        return this.figureEClass;
+        return figureEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_ForegroundColor ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_BackgroundColor ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getFigure_Size ()
     {
-        return (EReference)this.figureEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)figureEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnClick ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnDoubleClick ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getFigure_Cursor ()
     {
-        return (EReference)this.figureEClass.getEStructuralFeatures ().get ( 5 );
+        return (EReference)figureEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_Visible ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_Border ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 7 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_Opaque ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 8 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 8 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_ToolTip ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 9 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 9 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnMouseIn ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 10 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 10 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnMouseOut ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 11 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 11 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnMouseMove ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 12 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 12 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnMouseHover ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 13 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 13 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getFigure_OnMouseDrag ()
     {
-        return (EAttribute)this.figureEClass.getEStructuralFeatures ().get ( 14 );
+        return (EAttribute)figureEClass.getEStructuralFeatures ().get ( 14 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getSymbolReference ()
     {
-        return this.symbolReferenceEClass;
+        return symbolReferenceEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbolReference_Uri ()
     {
-        return (EAttribute)this.symbolReferenceEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbolReference_Zoom ()
     {
-        return (EAttribute)this.symbolReferenceEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getSymbolReference_Properties ()
     {
-        return (EReference)this.symbolReferenceEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)symbolReferenceEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSymbolReference_OnCreateProperties ()
     {
-        return (EAttribute)this.symbolReferenceEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)symbolReferenceEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getStringToStringMap ()
     {
-        return this.stringToStringMapEClass;
+        return stringToStringMapEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getStringToStringMap_Key ()
     {
-        return (EAttribute)this.stringToStringMapEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)stringToStringMapEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getStringToStringMap_Value ()
     {
-        return (EAttribute)this.stringToStringMapEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)stringToStringMapEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getDimension ()
     {
-        return this.dimensionEClass;
+        return dimensionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getDimension_Width ()
     {
-        return (EAttribute)this.dimensionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)dimensionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getDimension_Height ()
     {
-        return (EAttribute)this.dimensionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)dimensionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getCursor ()
     {
-        return this.cursorEClass;
+        return cursorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getSystemCursor ()
     {
-        return this.systemCursorEClass;
+        return systemCursorEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getSystemCursor_Type ()
     {
-        return (EAttribute)this.systemCursorEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)systemCursorEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getGridContainer ()
     {
-        return this.gridContainerEClass;
+        return gridContainerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_Columns ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_EqualWidth ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getGridContainer_Children ()
     {
-        return (EReference)this.gridContainerEClass.getEStructuralFeatures ().get ( 2 );
+        return (EReference)gridContainerEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_HorizontalSpacing ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_VerticalSpacing ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_MarginWidth ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridContainer_MarginHeight ()
     {
-        return (EAttribute)this.gridContainerEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)gridContainerEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getBorderContainer ()
     {
-        return this.borderContainerEClass;
+        return borderContainerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getBorderContainer_Children ()
     {
-        return (EReference)this.borderContainerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)borderContainerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getBorderContainer_VerticalSpacing ()
     {
-        return (EAttribute)this.borderContainerEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)borderContainerEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getBorderContainer_HorizontalSpacing ()
     {
-        return (EAttribute)this.borderContainerEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)borderContainerEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getBorderChild ()
     {
-        return this.borderChildEClass;
+        return borderChildEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getBorderChild_Alignment ()
     {
-        return (EAttribute)this.borderChildEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)borderChildEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getGridChild ()
     {
-        return this.gridChildEClass;
+        return gridChildEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_HorizontalAlignment ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_VerticalAlignment ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_GrabHorizontalSpace ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_GrabVerticalSpace ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_SpanCols ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_SpanRows ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_WidthHint ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 6 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 6 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getGridChild_HeightHint ()
     {
-        return (EAttribute)this.gridChildEClass.getEStructuralFeatures ().get ( 7 );
+        return (EAttribute)gridChildEClass.getEStructuralFeatures ().get ( 7 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getFigureContainer ()
     {
-        return this.figureContainerEClass;
+        return figureContainerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getFigureContainer_Content ()
     {
-        return (EReference)this.figureContainerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)figureContainerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getImage ()
     {
-        return this.imageEClass;
+        return imageEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getImage_Uri ()
     {
-        return (EAttribute)this.imageEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)imageEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getImage_ImageAlignment ()
     {
-        return (EAttribute)this.imageEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)imageEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getEllipse ()
     {
-        return this.ellipseEClass;
+        return ellipseEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getArc ()
     {
-        return this.arcEClass;
+        return arcEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getArc_Start ()
     {
-        return (EAttribute)this.arcEClass.getEStructuralFeatures ().get ( 0 );
+        return (EAttribute)arcEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EAttribute getArc_Length ()
     {
-        return (EAttribute)this.arcEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)arcEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getConnection ()
     {
-        return this.connectionEClass;
+        return connectionEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getConnection_Start ()
     {
-        return (EReference)this.connectionEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)connectionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getConnection_End ()
     {
-        return (EReference)this.connectionEClass.getEStructuralFeatures ().get ( 1 );
+        return (EReference)connectionEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EClass getStackContainer ()
     {
-        return this.stackContainerEClass;
+        return stackContainerEClass;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EReference getStackContainer_Children ()
     {
-        return (EReference)this.stackContainerEClass.getEStructuralFeatures ().get ( 0 );
+        return (EReference)stackContainerEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getAlignment ()
     {
-        return this.alignmentEEnum;
+        return alignmentEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getOrientation ()
     {
-        return this.orientationEEnum;
+        return orientationEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getSystemCursorType ()
     {
-        return this.systemCursorTypeEEnum;
+        return systemCursorTypeEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EEnum getGridAlignment ()
     {
-        return this.gridAlignmentEEnum;
+        return gridAlignmentEEnum;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -1775,196 +1621,188 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package. This method is
+     * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void createPackageContents ()
     {
-        if ( this.isCreated )
-        {
+        if ( isCreated )
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.symbolEClass = createEClass ( SYMBOL );
-        createEReference ( this.symbolEClass, SYMBOL__ROOT );
-        createEReference ( this.symbolEClass, SYMBOL__PROPERTIES );
-        createEAttribute ( this.symbolEClass, SYMBOL__ON_INIT );
-        createEAttribute ( this.symbolEClass, SYMBOL__ON_DISPOSE );
-        createEAttribute ( this.symbolEClass, SYMBOL__ON_UPDATE );
-        createEAttribute ( this.symbolEClass, SYMBOL__SCRIPT_MODULES );
-        createEReference ( this.symbolEClass, SYMBOL__CURSORS );
-        createEAttribute ( this.symbolEClass, SYMBOL__BACKGROUND_COLOR );
-        createEReference ( this.symbolEClass, SYMBOL__DESIGN_SIZE );
-        createEReference ( this.symbolEClass, SYMBOL__CONNECTIONS );
+        symbolEClass = createEClass ( SYMBOL );
+        createEReference ( symbolEClass, SYMBOL__ROOT );
+        createEReference ( symbolEClass, SYMBOL__PROPERTIES );
+        createEAttribute ( symbolEClass, SYMBOL__ON_INIT );
+        createEAttribute ( symbolEClass, SYMBOL__ON_DISPOSE );
+        createEAttribute ( symbolEClass, SYMBOL__ON_UPDATE );
+        createEAttribute ( symbolEClass, SYMBOL__SCRIPT_MODULES );
+        createEReference ( symbolEClass, SYMBOL__CURSORS );
+        createEAttribute ( symbolEClass, SYMBOL__BACKGROUND_COLOR );
+        createEReference ( symbolEClass, SYMBOL__DESIGN_SIZE );
+        createEReference ( symbolEClass, SYMBOL__CONNECTIONS );
 
-        this.primitiveEClass = createEClass ( PRIMITIVE );
-        createEAttribute ( this.primitiveEClass, PRIMITIVE__NAME );
+        primitiveEClass = createEClass ( PRIMITIVE );
+        createEAttribute ( primitiveEClass, PRIMITIVE__NAME );
 
-        this.containerEClass = createEClass ( CONTAINER );
+        containerEClass = createEClass ( CONTAINER );
 
-        this.shapeEClass = createEClass ( SHAPE );
-        createEAttribute ( this.shapeEClass, SHAPE__LINE_WIDTH );
-        createEAttribute ( this.shapeEClass, SHAPE__ANTIALIAS );
-        createEAttribute ( this.shapeEClass, SHAPE__ALPHA );
-        createEAttribute ( this.shapeEClass, SHAPE__FILL );
-        createEAttribute ( this.shapeEClass, SHAPE__OUTLINE );
+        shapeEClass = createEClass ( SHAPE );
+        createEAttribute ( shapeEClass, SHAPE__LINE_WIDTH );
+        createEAttribute ( shapeEClass, SHAPE__ANTIALIAS );
+        createEAttribute ( shapeEClass, SHAPE__ALPHA );
+        createEAttribute ( shapeEClass, SHAPE__FILL );
+        createEAttribute ( shapeEClass, SHAPE__OUTLINE );
 
-        this.rectangleEClass = createEClass ( RECTANGLE );
+        rectangleEClass = createEClass ( RECTANGLE );
 
-        this.textEClass = createEClass ( TEXT );
-        createEAttribute ( this.textEClass, TEXT__TEXT );
-        createEAttribute ( this.textEClass, TEXT__LABEL_ALIGNMENT );
-        createEAttribute ( this.textEClass, TEXT__ICON_ALIGNMENT );
-        createEAttribute ( this.textEClass, TEXT__TEXT_ALIGNMENT );
-        createEAttribute ( this.textEClass, TEXT__TEXT_PLACEMENT );
-        createEAttribute ( this.textEClass, TEXT__FONT_NAME );
-        createEAttribute ( this.textEClass, TEXT__FONT_SIZE );
-        createEAttribute ( this.textEClass, TEXT__FONT_BOLD );
-        createEAttribute ( this.textEClass, TEXT__FONT_ITALIC );
+        textEClass = createEClass ( TEXT );
+        createEAttribute ( textEClass, TEXT__TEXT );
+        createEAttribute ( textEClass, TEXT__LABEL_ALIGNMENT );
+        createEAttribute ( textEClass, TEXT__ICON_ALIGNMENT );
+        createEAttribute ( textEClass, TEXT__TEXT_ALIGNMENT );
+        createEAttribute ( textEClass, TEXT__TEXT_PLACEMENT );
+        createEAttribute ( textEClass, TEXT__FONT_NAME );
+        createEAttribute ( textEClass, TEXT__FONT_SIZE );
+        createEAttribute ( textEClass, TEXT__FONT_BOLD );
+        createEAttribute ( textEClass, TEXT__FONT_ITALIC );
 
-        this.childEClass = createEClass ( CHILD );
-        createEReference ( this.childEClass, CHILD__ELEMENT );
-        createEAttribute ( this.childEClass, CHILD__NAME );
+        childEClass = createEClass ( CHILD );
+        createEReference ( childEClass, CHILD__ELEMENT );
+        createEAttribute ( childEClass, CHILD__NAME );
 
-        this.xyChildEClass = createEClass ( XY_CHILD );
-        createEReference ( this.xyChildEClass, XY_CHILD__POSITION );
-        createEReference ( this.xyChildEClass, XY_CHILD__DIMENSION );
+        xyChildEClass = createEClass ( XY_CHILD );
+        createEReference ( xyChildEClass, XY_CHILD__POSITION );
+        createEReference ( xyChildEClass, XY_CHILD__DIMENSION );
 
-        this.xyContainerEClass = createEClass ( XY_CONTAINER );
-        createEReference ( this.xyContainerEClass, XY_CONTAINER__CHILDREN );
+        xyContainerEClass = createEClass ( XY_CONTAINER );
+        createEReference ( xyContainerEClass, XY_CONTAINER__CHILDREN );
 
-        this.positionEClass = createEClass ( POSITION );
-        createEAttribute ( this.positionEClass, POSITION__X );
-        createEAttribute ( this.positionEClass, POSITION__Y );
+        positionEClass = createEClass ( POSITION );
+        createEAttribute ( positionEClass, POSITION__X );
+        createEAttribute ( positionEClass, POSITION__Y );
 
-        this.lineEClass = createEClass ( LINE );
-        createEReference ( this.lineEClass, LINE__POINTS );
+        lineEClass = createEClass ( LINE );
+        createEReference ( lineEClass, LINE__POINTS );
 
-        this.figureEClass = createEClass ( FIGURE );
-        createEAttribute ( this.figureEClass, FIGURE__FOREGROUND_COLOR );
-        createEAttribute ( this.figureEClass, FIGURE__BACKGROUND_COLOR );
-        createEReference ( this.figureEClass, FIGURE__SIZE );
-        createEAttribute ( this.figureEClass, FIGURE__ON_CLICK );
-        createEAttribute ( this.figureEClass, FIGURE__ON_DOUBLE_CLICK );
-        createEReference ( this.figureEClass, FIGURE__CURSOR );
-        createEAttribute ( this.figureEClass, FIGURE__VISIBLE );
-        createEAttribute ( this.figureEClass, FIGURE__BORDER );
-        createEAttribute ( this.figureEClass, FIGURE__OPAQUE );
-        createEAttribute ( this.figureEClass, FIGURE__TOOL_TIP );
-        createEAttribute ( this.figureEClass, FIGURE__ON_MOUSE_IN );
-        createEAttribute ( this.figureEClass, FIGURE__ON_MOUSE_OUT );
-        createEAttribute ( this.figureEClass, FIGURE__ON_MOUSE_MOVE );
-        createEAttribute ( this.figureEClass, FIGURE__ON_MOUSE_HOVER );
-        createEAttribute ( this.figureEClass, FIGURE__ON_MOUSE_DRAG );
+        figureEClass = createEClass ( FIGURE );
+        createEAttribute ( figureEClass, FIGURE__FOREGROUND_COLOR );
+        createEAttribute ( figureEClass, FIGURE__BACKGROUND_COLOR );
+        createEReference ( figureEClass, FIGURE__SIZE );
+        createEAttribute ( figureEClass, FIGURE__ON_CLICK );
+        createEAttribute ( figureEClass, FIGURE__ON_DOUBLE_CLICK );
+        createEReference ( figureEClass, FIGURE__CURSOR );
+        createEAttribute ( figureEClass, FIGURE__VISIBLE );
+        createEAttribute ( figureEClass, FIGURE__BORDER );
+        createEAttribute ( figureEClass, FIGURE__OPAQUE );
+        createEAttribute ( figureEClass, FIGURE__TOOL_TIP );
+        createEAttribute ( figureEClass, FIGURE__ON_MOUSE_IN );
+        createEAttribute ( figureEClass, FIGURE__ON_MOUSE_OUT );
+        createEAttribute ( figureEClass, FIGURE__ON_MOUSE_MOVE );
+        createEAttribute ( figureEClass, FIGURE__ON_MOUSE_HOVER );
+        createEAttribute ( figureEClass, FIGURE__ON_MOUSE_DRAG );
 
-        this.symbolReferenceEClass = createEClass ( SYMBOL_REFERENCE );
-        createEAttribute ( this.symbolReferenceEClass, SYMBOL_REFERENCE__URI );
-        createEAttribute ( this.symbolReferenceEClass, SYMBOL_REFERENCE__ZOOM );
-        createEReference ( this.symbolReferenceEClass, SYMBOL_REFERENCE__PROPERTIES );
-        createEAttribute ( this.symbolReferenceEClass, SYMBOL_REFERENCE__ON_CREATE_PROPERTIES );
+        symbolReferenceEClass = createEClass ( SYMBOL_REFERENCE );
+        createEAttribute ( symbolReferenceEClass, SYMBOL_REFERENCE__URI );
+        createEAttribute ( symbolReferenceEClass, SYMBOL_REFERENCE__ZOOM );
+        createEReference ( symbolReferenceEClass, SYMBOL_REFERENCE__PROPERTIES );
+        createEAttribute ( symbolReferenceEClass, SYMBOL_REFERENCE__ON_CREATE_PROPERTIES );
 
-        this.stringToStringMapEClass = createEClass ( STRING_TO_STRING_MAP );
-        createEAttribute ( this.stringToStringMapEClass, STRING_TO_STRING_MAP__KEY );
-        createEAttribute ( this.stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE );
+        stringToStringMapEClass = createEClass ( STRING_TO_STRING_MAP );
+        createEAttribute ( stringToStringMapEClass, STRING_TO_STRING_MAP__KEY );
+        createEAttribute ( stringToStringMapEClass, STRING_TO_STRING_MAP__VALUE );
 
-        this.dimensionEClass = createEClass ( DIMENSION );
-        createEAttribute ( this.dimensionEClass, DIMENSION__WIDTH );
-        createEAttribute ( this.dimensionEClass, DIMENSION__HEIGHT );
+        dimensionEClass = createEClass ( DIMENSION );
+        createEAttribute ( dimensionEClass, DIMENSION__WIDTH );
+        createEAttribute ( dimensionEClass, DIMENSION__HEIGHT );
 
-        this.cursorEClass = createEClass ( CURSOR );
+        cursorEClass = createEClass ( CURSOR );
 
-        this.systemCursorEClass = createEClass ( SYSTEM_CURSOR );
-        createEAttribute ( this.systemCursorEClass, SYSTEM_CURSOR__TYPE );
+        systemCursorEClass = createEClass ( SYSTEM_CURSOR );
+        createEAttribute ( systemCursorEClass, SYSTEM_CURSOR__TYPE );
 
-        this.gridContainerEClass = createEClass ( GRID_CONTAINER );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__COLUMNS );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__EQUAL_WIDTH );
-        createEReference ( this.gridContainerEClass, GRID_CONTAINER__CHILDREN );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__HORIZONTAL_SPACING );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__VERTICAL_SPACING );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__MARGIN_WIDTH );
-        createEAttribute ( this.gridContainerEClass, GRID_CONTAINER__MARGIN_HEIGHT );
+        gridContainerEClass = createEClass ( GRID_CONTAINER );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__COLUMNS );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__EQUAL_WIDTH );
+        createEReference ( gridContainerEClass, GRID_CONTAINER__CHILDREN );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__HORIZONTAL_SPACING );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__VERTICAL_SPACING );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__MARGIN_WIDTH );
+        createEAttribute ( gridContainerEClass, GRID_CONTAINER__MARGIN_HEIGHT );
 
-        this.borderContainerEClass = createEClass ( BORDER_CONTAINER );
-        createEReference ( this.borderContainerEClass, BORDER_CONTAINER__CHILDREN );
-        createEAttribute ( this.borderContainerEClass, BORDER_CONTAINER__VERTICAL_SPACING );
-        createEAttribute ( this.borderContainerEClass, BORDER_CONTAINER__HORIZONTAL_SPACING );
+        borderContainerEClass = createEClass ( BORDER_CONTAINER );
+        createEReference ( borderContainerEClass, BORDER_CONTAINER__CHILDREN );
+        createEAttribute ( borderContainerEClass, BORDER_CONTAINER__VERTICAL_SPACING );
+        createEAttribute ( borderContainerEClass, BORDER_CONTAINER__HORIZONTAL_SPACING );
 
-        this.borderChildEClass = createEClass ( BORDER_CHILD );
-        createEAttribute ( this.borderChildEClass, BORDER_CHILD__ALIGNMENT );
+        borderChildEClass = createEClass ( BORDER_CHILD );
+        createEAttribute ( borderChildEClass, BORDER_CHILD__ALIGNMENT );
 
-        this.gridChildEClass = createEClass ( GRID_CHILD );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__HORIZONTAL_ALIGNMENT );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__VERTICAL_ALIGNMENT );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__GRAB_HORIZONTAL_SPACE );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__GRAB_VERTICAL_SPACE );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__SPAN_COLS );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__SPAN_ROWS );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__WIDTH_HINT );
-        createEAttribute ( this.gridChildEClass, GRID_CHILD__HEIGHT_HINT );
+        gridChildEClass = createEClass ( GRID_CHILD );
+        createEAttribute ( gridChildEClass, GRID_CHILD__HORIZONTAL_ALIGNMENT );
+        createEAttribute ( gridChildEClass, GRID_CHILD__VERTICAL_ALIGNMENT );
+        createEAttribute ( gridChildEClass, GRID_CHILD__GRAB_HORIZONTAL_SPACE );
+        createEAttribute ( gridChildEClass, GRID_CHILD__GRAB_VERTICAL_SPACE );
+        createEAttribute ( gridChildEClass, GRID_CHILD__SPAN_COLS );
+        createEAttribute ( gridChildEClass, GRID_CHILD__SPAN_ROWS );
+        createEAttribute ( gridChildEClass, GRID_CHILD__WIDTH_HINT );
+        createEAttribute ( gridChildEClass, GRID_CHILD__HEIGHT_HINT );
 
-        this.figureContainerEClass = createEClass ( FIGURE_CONTAINER );
-        createEReference ( this.figureContainerEClass, FIGURE_CONTAINER__CONTENT );
+        figureContainerEClass = createEClass ( FIGURE_CONTAINER );
+        createEReference ( figureContainerEClass, FIGURE_CONTAINER__CONTENT );
 
-        this.imageEClass = createEClass ( IMAGE );
-        createEAttribute ( this.imageEClass, IMAGE__URI );
-        createEAttribute ( this.imageEClass, IMAGE__IMAGE_ALIGNMENT );
+        imageEClass = createEClass ( IMAGE );
+        createEAttribute ( imageEClass, IMAGE__URI );
+        createEAttribute ( imageEClass, IMAGE__IMAGE_ALIGNMENT );
 
-        this.ellipseEClass = createEClass ( ELLIPSE );
+        ellipseEClass = createEClass ( ELLIPSE );
 
-        this.arcEClass = createEClass ( ARC );
-        createEAttribute ( this.arcEClass, ARC__START );
-        createEAttribute ( this.arcEClass, ARC__LENGTH );
+        arcEClass = createEClass ( ARC );
+        createEAttribute ( arcEClass, ARC__START );
+        createEAttribute ( arcEClass, ARC__LENGTH );
 
-        this.connectionEClass = createEClass ( CONNECTION );
-        createEReference ( this.connectionEClass, CONNECTION__START );
-        createEReference ( this.connectionEClass, CONNECTION__END );
+        connectionEClass = createEClass ( CONNECTION );
+        createEReference ( connectionEClass, CONNECTION__START );
+        createEReference ( connectionEClass, CONNECTION__END );
 
-        this.stackContainerEClass = createEClass ( STACK_CONTAINER );
-        createEReference ( this.stackContainerEClass, STACK_CONTAINER__CHILDREN );
+        stackContainerEClass = createEClass ( STACK_CONTAINER );
+        createEReference ( stackContainerEClass, STACK_CONTAINER__CHILDREN );
 
         // Create enums
-        this.alignmentEEnum = createEEnum ( ALIGNMENT );
-        this.orientationEEnum = createEEnum ( ORIENTATION );
-        this.systemCursorTypeEEnum = createEEnum ( SYSTEM_CURSOR_TYPE );
-        this.gridAlignmentEEnum = createEEnum ( GRID_ALIGNMENT );
+        alignmentEEnum = createEEnum ( ALIGNMENT );
+        orientationEEnum = createEEnum ( ORIENTATION );
+        systemCursorTypeEEnum = createEEnum ( SYSTEM_CURSOR_TYPE );
+        gridAlignmentEEnum = createEEnum ( GRID_ALIGNMENT );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model. This
+     * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void initializePackageContents ()
     {
-        if ( this.isInitialized )
-        {
+        if ( isInitialized )
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
         setName ( eNAME );
@@ -1976,189 +1814,189 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.containerEClass.getESuperTypes ().add ( getPrimitive () );
-        this.shapeEClass.getESuperTypes ().add ( getFigure () );
-        this.rectangleEClass.getESuperTypes ().add ( getShape () );
-        this.textEClass.getESuperTypes ().add ( getFigure () );
-        this.xyChildEClass.getESuperTypes ().add ( getChild () );
-        this.xyContainerEClass.getESuperTypes ().add ( getContainer () );
-        this.lineEClass.getESuperTypes ().add ( getShape () );
-        this.figureEClass.getESuperTypes ().add ( getPrimitive () );
-        this.symbolReferenceEClass.getESuperTypes ().add ( getPrimitive () );
-        this.systemCursorEClass.getESuperTypes ().add ( getCursor () );
-        this.gridContainerEClass.getESuperTypes ().add ( getContainer () );
-        this.borderContainerEClass.getESuperTypes ().add ( getContainer () );
-        this.borderChildEClass.getESuperTypes ().add ( getChild () );
-        this.gridChildEClass.getESuperTypes ().add ( getChild () );
-        this.figureContainerEClass.getESuperTypes ().add ( getFigure () );
-        this.imageEClass.getESuperTypes ().add ( getFigure () );
-        this.ellipseEClass.getESuperTypes ().add ( getShape () );
-        this.arcEClass.getESuperTypes ().add ( getShape () );
-        this.stackContainerEClass.getESuperTypes ().add ( getContainer () );
+        containerEClass.getESuperTypes ().add ( this.getPrimitive () );
+        shapeEClass.getESuperTypes ().add ( this.getFigure () );
+        rectangleEClass.getESuperTypes ().add ( this.getShape () );
+        textEClass.getESuperTypes ().add ( this.getFigure () );
+        xyChildEClass.getESuperTypes ().add ( this.getChild () );
+        xyContainerEClass.getESuperTypes ().add ( this.getContainer () );
+        lineEClass.getESuperTypes ().add ( this.getShape () );
+        figureEClass.getESuperTypes ().add ( this.getPrimitive () );
+        symbolReferenceEClass.getESuperTypes ().add ( this.getPrimitive () );
+        systemCursorEClass.getESuperTypes ().add ( this.getCursor () );
+        gridContainerEClass.getESuperTypes ().add ( this.getContainer () );
+        borderContainerEClass.getESuperTypes ().add ( this.getContainer () );
+        borderChildEClass.getESuperTypes ().add ( this.getChild () );
+        gridChildEClass.getESuperTypes ().add ( this.getChild () );
+        figureContainerEClass.getESuperTypes ().add ( this.getFigure () );
+        imageEClass.getESuperTypes ().add ( this.getFigure () );
+        ellipseEClass.getESuperTypes ().add ( this.getShape () );
+        arcEClass.getESuperTypes ().add ( this.getShape () );
+        stackContainerEClass.getESuperTypes ().add ( this.getContainer () );
 
         // Initialize classes and features; add operations and parameters
-        initEClass ( this.symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getSymbol_Root (), getPrimitive (), null, "root", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSymbol_Properties (), getStringToStringMap (), null, "properties", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbol_OnInit (), this.ecorePackage.getEString (), "onInit", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbol_OnDispose (), this.ecorePackage.getEString (), "onDispose", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbol_OnUpdate (), this.ecorePackage.getEString (), "onUpdate", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbol_ScriptModules (), this.ecorePackage.getEString (), "scriptModules", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSymbol_Cursors (), getCursor (), null, "cursors", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbol_BackgroundColor (), this.ecorePackage.getEString (), "backgroundColor", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSymbol_DesignSize (), getDimension (), null, "designSize", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSymbol_Connections (), getConnection (), null, "connections", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getSymbol_Root (), this.getPrimitive (), null, "root", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbol_Properties (), this.getStringToStringMap (), null, "properties", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbol_OnInit (), ecorePackage.getEString (), "onInit", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbol_OnDispose (), ecorePackage.getEString (), "onDispose", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbol_OnUpdate (), ecorePackage.getEString (), "onUpdate", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbol_ScriptModules (), ecorePackage.getEString (), "scriptModules", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbol_Cursors (), this.getCursor (), null, "cursors", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbol_BackgroundColor (), ecorePackage.getEString (), "backgroundColor", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbol_DesignSize (), this.getDimension (), null, "designSize", null, 0, 1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbol_Connections (), this.getConnection (), null, "connections", null, 0, -1, Symbol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getPrimitive_Name (), this.ecorePackage.getEString (), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( primitiveEClass, Primitive.class, "Primitive", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getPrimitive_Name (), ecorePackage.getEString (), "name", null, 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.containerEClass, org.eclipse.scada.vi.model.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( containerEClass, org.eclipse.scada.vi.model.Container.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getShape_LineWidth (), this.ecorePackage.getEFloat (), "lineWidth", "1", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getShape_Antialias (), this.ecorePackage.getEBooleanObject (), "antialias", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getShape_Alpha (), this.ecorePackage.getEDoubleObject (), "alpha", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getShape_Fill (), this.ecorePackage.getEBoolean (), "fill", "true", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getShape_Outline (), this.ecorePackage.getEBoolean (), "outline", "true", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getShape_LineWidth (), ecorePackage.getEFloat (), "lineWidth", "1", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getShape_Antialias (), ecorePackage.getEBooleanObject (), "antialias", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getShape_Alpha (), ecorePackage.getEDoubleObject (), "alpha", null, 0, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getShape_Fill (), ecorePackage.getEBoolean (), "fill", "true", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getShape_Outline (), ecorePackage.getEBoolean (), "outline", "true", 1, 1, Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getText_Text (), this.ecorePackage.getEString (), "text", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getText_LabelAlignment (), getAlignment (), "labelAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getText_IconAlignment (), getAlignment (), "iconAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getText_TextAlignment (), getAlignment (), "textAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getText_TextPlacement (), getOrientation (), "textPlacement", "EAST", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getText_FontName (), this.ecorePackage.getEString (), "fontName", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getText_FontSize (), this.ecorePackage.getEInt (), "fontSize", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getText_FontBold (), this.ecorePackage.getEBoolean (), "fontBold", "false", 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getText_FontItalic (), this.ecorePackage.getEBoolean (), "fontItalic", "false", 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getText_Text (), ecorePackage.getEString (), "text", null, 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getText_LabelAlignment (), this.getAlignment (), "labelAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getText_IconAlignment (), this.getAlignment (), "iconAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getText_TextAlignment (), this.getAlignment (), "textAlignment", "CENTER", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getText_TextPlacement (), this.getOrientation (), "textPlacement", "EAST", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getText_FontName (), ecorePackage.getEString (), "fontName", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getText_FontSize (), ecorePackage.getEInt (), "fontSize", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getText_FontBold (), ecorePackage.getEBoolean (), "fontBold", "false", 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getText_FontItalic (), ecorePackage.getEBoolean (), "fontItalic", "false", 1, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getChild_Element (), getPrimitive (), null, "element", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getChild_Name (), this.ecorePackage.getEString (), "name", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( childEClass, Child.class, "Child", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getChild_Element (), this.getPrimitive (), null, "element", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getChild_Name (), ecorePackage.getEString (), "name", null, 0, 1, Child.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.xyChildEClass, XYChild.class, "XYChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getXYChild_Position (), getPosition (), null, "position", null, 1, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getXYChild_Dimension (), getDimension (), null, "dimension", null, 0, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( xyChildEClass, XYChild.class, "XYChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getXYChild_Position (), this.getPosition (), null, "position", null, 1, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getXYChild_Dimension (), this.getDimension (), null, "dimension", null, 0, 1, XYChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.xyContainerEClass, XYContainer.class, "XYContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getXYContainer_Children (), getXYChild (), null, "children", null, 0, -1, XYContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( xyContainerEClass, XYContainer.class, "XYContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getXYContainer_Children (), this.getXYChild (), null, "children", null, 0, -1, XYContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getPosition_X (), this.ecorePackage.getEDouble (), "x", null, 1, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getPosition_Y (), this.ecorePackage.getEDouble (), "y", null, 1, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getPosition_X (), ecorePackage.getEDouble (), "x", null, 1, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPosition_Y (), ecorePackage.getEDouble (), "y", null, 1, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getLine_Points (), getPosition (), null, "points", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( lineEClass, Line.class, "Line", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getLine_Points (), this.getPosition (), null, "points", null, 0, -1, Line.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.figureEClass, Figure.class, "Figure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getFigure_ForegroundColor (), this.ecorePackage.getEString (), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_BackgroundColor (), this.ecorePackage.getEString (), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getFigure_Size (), getDimension (), null, "size", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnClick (), this.ecorePackage.getEString (), "onClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnDoubleClick (), this.ecorePackage.getEString (), "onDoubleClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getFigure_Cursor (), getCursor (), null, "cursor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_Visible (), this.ecorePackage.getEBoolean (), "visible", "true", 1, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getFigure_Border (), this.ecorePackage.getEString (), "border", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_Opaque (), this.ecorePackage.getEBooleanObject (), "opaque", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_ToolTip (), this.ecorePackage.getEString (), "toolTip", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnMouseIn (), this.ecorePackage.getEString (), "onMouseIn", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnMouseOut (), this.ecorePackage.getEString (), "onMouseOut", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnMouseMove (), this.ecorePackage.getEString (), "onMouseMove", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnMouseHover (), this.ecorePackage.getEString (), "onMouseHover", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getFigure_OnMouseDrag (), this.ecorePackage.getEString (), "onMouseDrag", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( figureEClass, Figure.class, "Figure", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getFigure_ForegroundColor (), ecorePackage.getEString (), "foregroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_BackgroundColor (), ecorePackage.getEString (), "backgroundColor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getFigure_Size (), this.getDimension (), null, "size", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnClick (), ecorePackage.getEString (), "onClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnDoubleClick (), ecorePackage.getEString (), "onDoubleClick", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getFigure_Cursor (), this.getCursor (), null, "cursor", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_Visible (), ecorePackage.getEBoolean (), "visible", "true", 1, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getFigure_Border (), ecorePackage.getEString (), "border", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_Opaque (), ecorePackage.getEBooleanObject (), "opaque", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_ToolTip (), ecorePackage.getEString (), "toolTip", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnMouseIn (), ecorePackage.getEString (), "onMouseIn", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnMouseOut (), ecorePackage.getEString (), "onMouseOut", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnMouseMove (), ecorePackage.getEString (), "onMouseMove", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnMouseHover (), ecorePackage.getEString (), "onMouseHover", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getFigure_OnMouseDrag (), ecorePackage.getEString (), "onMouseDrag", null, 0, 1, Figure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getSymbolReference_Uri (), this.ecorePackage.getEString (), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbolReference_Zoom (), this.ecorePackage.getEDoubleObject (), "zoom", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getSymbolReference_Properties (), getStringToStringMap (), null, "properties", null, 0, -1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getSymbolReference_OnCreateProperties (), this.ecorePackage.getEString (), "onCreateProperties", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( symbolReferenceEClass, SymbolReference.class, "SymbolReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSymbolReference_Uri (), ecorePackage.getEString (), "uri", null, 1, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbolReference_Zoom (), ecorePackage.getEDoubleObject (), "zoom", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getSymbolReference_Properties (), this.getStringToStringMap (), null, "properties", null, 0, -1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getSymbolReference_OnCreateProperties (), ecorePackage.getEString (), "onCreateProperties", null, 0, 1, SymbolReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getStringToStringMap_Key (), this.ecorePackage.getEString (), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getStringToStringMap_Value (), this.ecorePackage.getEString (), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( stringToStringMapEClass, Map.Entry.class, "StringToStringMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getStringToStringMap_Key (), ecorePackage.getEString (), "key", null, 1, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getStringToStringMap_Value (), ecorePackage.getEString (), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getDimension_Width (), this.ecorePackage.getEDouble (), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getDimension_Height (), this.ecorePackage.getEDouble (), "height", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDimension_Width (), ecorePackage.getEDouble (), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getDimension_Height (), ecorePackage.getEDouble (), "height", "0", 1, 1, Dimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.cursorEClass, Cursor.class, "Cursor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( cursorEClass, Cursor.class, "Cursor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.systemCursorEClass, SystemCursor.class, "SystemCursor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getSystemCursor_Type (), getSystemCursorType (), "type", null, 1, 1, SystemCursor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( systemCursorEClass, SystemCursor.class, "SystemCursor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getSystemCursor_Type (), this.getSystemCursorType (), "type", null, 1, 1, SystemCursor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.gridContainerEClass, GridContainer.class, "GridContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getGridContainer_Columns (), this.ecorePackage.getEInt (), "columns", "1", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridContainer_EqualWidth (), this.ecorePackage.getEBoolean (), "equalWidth", "false", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEReference ( getGridContainer_Children (), getGridChild (), null, "children", null, 0, -1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getGridContainer_HorizontalSpacing (), this.ecorePackage.getEInt (), "horizontalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridContainer_VerticalSpacing (), this.ecorePackage.getEInt (), "verticalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridContainer_MarginWidth (), this.ecorePackage.getEInt (), "marginWidth", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridContainer_MarginHeight (), this.ecorePackage.getEInt (), "marginHeight", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( gridContainerEClass, GridContainer.class, "GridContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getGridContainer_Columns (), ecorePackage.getEInt (), "columns", "1", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_EqualWidth (), ecorePackage.getEBoolean (), "equalWidth", "false", 0, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEReference ( getGridContainer_Children (), this.getGridChild (), null, "children", null, 0, -1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getGridContainer_HorizontalSpacing (), ecorePackage.getEInt (), "horizontalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_VerticalSpacing (), ecorePackage.getEInt (), "verticalSpacing", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_MarginWidth (), ecorePackage.getEInt (), "marginWidth", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridContainer_MarginHeight (), ecorePackage.getEInt (), "marginHeight", "5", 1, 1, GridContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.borderContainerEClass, BorderContainer.class, "BorderContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getBorderContainer_Children (), getBorderChild (), null, "children", null, 0, -1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getBorderContainer_VerticalSpacing (), this.ecorePackage.getEInt (), "verticalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getBorderContainer_HorizontalSpacing (), this.ecorePackage.getEInt (), "horizontalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( borderContainerEClass, BorderContainer.class, "BorderContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getBorderContainer_Children (), this.getBorderChild (), null, "children", null, 0, -1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getBorderContainer_VerticalSpacing (), ecorePackage.getEInt (), "verticalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getBorderContainer_HorizontalSpacing (), ecorePackage.getEInt (), "horizontalSpacing", "0", 1, 1, BorderContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.borderChildEClass, BorderChild.class, "BorderChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getBorderChild_Alignment (), getAlignment (), "alignment", "CENTER", 1, 1, BorderChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( borderChildEClass, BorderChild.class, "BorderChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getBorderChild_Alignment (), this.getAlignment (), "alignment", "CENTER", 1, 1, BorderChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.gridChildEClass, GridChild.class, "GridChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getGridChild_HorizontalAlignment (), getGridAlignment (), "horizontalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_VerticalAlignment (), getGridAlignment (), "verticalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_GrabHorizontalSpace (), this.ecorePackage.getEBoolean (), "grabHorizontalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_GrabVerticalSpace (), this.ecorePackage.getEBoolean (), "grabVerticalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_SpanCols (), this.ecorePackage.getEInt (), "spanCols", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_SpanRows (), this.ecorePackage.getEIntegerObject (), "spanRows", "0", 0, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
-        initEAttribute ( getGridChild_WidthHint (), this.ecorePackage.getEIntegerObject (), "widthHint", null, 0, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getGridChild_HeightHint (), this.ecorePackage.getEIntegerObject (), "heightHint", null, 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( gridChildEClass, GridChild.class, "GridChild", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getGridChild_HorizontalAlignment (), this.getGridAlignment (), "horizontalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_VerticalAlignment (), this.getGridAlignment (), "verticalAlignment", "BEGINNING", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_GrabHorizontalSpace (), ecorePackage.getEBoolean (), "grabHorizontalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_GrabVerticalSpace (), ecorePackage.getEBoolean (), "grabVerticalSpace", "false", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_SpanCols (), ecorePackage.getEInt (), "spanCols", "0", 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_SpanRows (), ecorePackage.getEIntegerObject (), "spanRows", "0", 0, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getGridChild_WidthHint (), ecorePackage.getEIntegerObject (), "widthHint", null, 0, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getGridChild_HeightHint (), ecorePackage.getEIntegerObject (), "heightHint", null, 1, 1, GridChild.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.figureContainerEClass, FigureContainer.class, "FigureContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getFigureContainer_Content (), getPrimitive (), null, "content", null, 0, 1, FigureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( figureContainerEClass, FigureContainer.class, "FigureContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getFigureContainer_Content (), this.getPrimitive (), null, "content", null, 0, 1, FigureContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getImage_Uri (), this.ecorePackage.getEString (), "uri", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getImage_ImageAlignment (), getAlignment (), "imageAlignment", "CENTER", 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEClass ( imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getImage_Uri (), ecorePackage.getEString (), "uri", null, 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getImage_ImageAlignment (), this.getAlignment (), "imageAlignment", "CENTER", 0, 1, Image.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        initEClass ( this.ellipseEClass, Ellipse.class, "Ellipse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEClass ( ellipseEClass, Ellipse.class, "Ellipse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
-        initEClass ( this.arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getArc_Start (), this.ecorePackage.getEInt (), "start", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getArc_Length (), this.ecorePackage.getEInt (), "length", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( arcEClass, Arc.class, "Arc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getArc_Start (), ecorePackage.getEInt (), "start", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getArc_Length (), ecorePackage.getEInt (), "length", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
-        initEClass ( this.connectionEClass, Connection.class, "Connection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getConnection_Start (), getPrimitive (), null, "start", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getConnection_End (), getPrimitive (), null, "end", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        getConnection_End ().getEKeys ().add ( getPrimitive_Name () );
+        initEClass ( connectionEClass, Connection.class, "Connection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getConnection_Start (), this.getPrimitive (), null, "start", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getConnection_End (), this.getPrimitive (), null, "end", null, 1, 1, Connection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        getConnection_End ().getEKeys ().add ( this.getPrimitive_Name () );
 
-        initEClass ( this.stackContainerEClass, StackContainer.class, "StackContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getStackContainer_Children (), getPrimitive (), null, "children", null, 0, -1, StackContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEClass ( stackContainerEClass, StackContainer.class, "StackContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getStackContainer_Children (), this.getPrimitive (), null, "children", null, 0, -1, StackContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
-        initEEnum ( this.alignmentEEnum, Alignment.class, "Alignment" ); //$NON-NLS-1$
-        addEEnumLiteral ( this.alignmentEEnum, Alignment.LEFT );
-        addEEnumLiteral ( this.alignmentEEnum, Alignment.CENTER );
-        addEEnumLiteral ( this.alignmentEEnum, Alignment.RIGHT );
-        addEEnumLiteral ( this.alignmentEEnum, Alignment.TOP );
-        addEEnumLiteral ( this.alignmentEEnum, Alignment.BOTTOM );
+        initEEnum ( alignmentEEnum, Alignment.class, "Alignment" ); //$NON-NLS-1$
+        addEEnumLiteral ( alignmentEEnum, Alignment.LEFT );
+        addEEnumLiteral ( alignmentEEnum, Alignment.CENTER );
+        addEEnumLiteral ( alignmentEEnum, Alignment.RIGHT );
+        addEEnumLiteral ( alignmentEEnum, Alignment.TOP );
+        addEEnumLiteral ( alignmentEEnum, Alignment.BOTTOM );
 
-        initEEnum ( this.orientationEEnum, Orientation.class, "Orientation" ); //$NON-NLS-1$
-        addEEnumLiteral ( this.orientationEEnum, Orientation.NORTH );
-        addEEnumLiteral ( this.orientationEEnum, Orientation.SOUTH );
-        addEEnumLiteral ( this.orientationEEnum, Orientation.EAST );
-        addEEnumLiteral ( this.orientationEEnum, Orientation.WEST );
+        initEEnum ( orientationEEnum, Orientation.class, "Orientation" ); //$NON-NLS-1$
+        addEEnumLiteral ( orientationEEnum, Orientation.NORTH );
+        addEEnumLiteral ( orientationEEnum, Orientation.SOUTH );
+        addEEnumLiteral ( orientationEEnum, Orientation.EAST );
+        addEEnumLiteral ( orientationEEnum, Orientation.WEST );
 
-        initEEnum ( this.systemCursorTypeEEnum, SystemCursorType.class, "SystemCursorType" ); //$NON-NLS-1$
-        addEEnumLiteral ( this.systemCursorTypeEEnum, SystemCursorType.ARROW );
-        addEEnumLiteral ( this.systemCursorTypeEEnum, SystemCursorType.HAND );
+        initEEnum ( systemCursorTypeEEnum, SystemCursorType.class, "SystemCursorType" ); //$NON-NLS-1$
+        addEEnumLiteral ( systemCursorTypeEEnum, SystemCursorType.ARROW );
+        addEEnumLiteral ( systemCursorTypeEEnum, SystemCursorType.HAND );
 
-        initEEnum ( this.gridAlignmentEEnum, GridAlignment.class, "GridAlignment" ); //$NON-NLS-1$
-        addEEnumLiteral ( this.gridAlignmentEEnum, GridAlignment.CENTER );
-        addEEnumLiteral ( this.gridAlignmentEEnum, GridAlignment.FILL );
-        addEEnumLiteral ( this.gridAlignmentEEnum, GridAlignment.BEGINNING );
-        addEEnumLiteral ( this.gridAlignmentEEnum, GridAlignment.END );
+        initEEnum ( gridAlignmentEEnum, GridAlignment.class, "GridAlignment" ); //$NON-NLS-1$
+        addEEnumLiteral ( gridAlignmentEEnum, GridAlignment.CENTER );
+        addEEnumLiteral ( gridAlignmentEEnum, GridAlignment.FILL );
+        addEEnumLiteral ( gridAlignmentEEnum, GridAlignment.BEGINNING );
+        addEEnumLiteral ( gridAlignmentEEnum, GridAlignment.END );
 
         // Create resource
         createResource ( eNS_URI );
@@ -2169,26 +2007,24 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
     }
 
     /**
-     * Initializes the annotations for
-     * <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+     * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        final String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$			
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$			
         addAnnotation ( getChild_Element (),
                 source,
                 new String[]
-                { "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
-                "name", "element" //$NON-NLS-1$ //$NON-NLS-2$
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "element" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( getXYChild_Position (),
                 source,
                 new String[]
-                { "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
+                {       "kind", "element" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 
