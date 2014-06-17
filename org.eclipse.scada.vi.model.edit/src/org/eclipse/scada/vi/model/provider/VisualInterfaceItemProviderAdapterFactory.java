@@ -13,7 +13,6 @@ package org.eclipse.scada.vi.model.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -34,7 +33,6 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.scada.vi.model.VisualInterfacePackage;
 import org.eclipse.scada.vi.model.util.VisualInterfaceAdapterFactory;
-import org.eclipse.scada.vi.model.visualInterface.provider.VisualInterfaceEditPlugin;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

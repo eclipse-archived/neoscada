@@ -45,7 +45,9 @@ public final class VisualInterfaceEditPlugin extends EMFPlugin
      */
     public VisualInterfaceEditPlugin ()
     {
-        super ( new ResourceLocator[] {} );
+        super ( new ResourceLocator[]
+        {
+                } );
     }
 
     /**

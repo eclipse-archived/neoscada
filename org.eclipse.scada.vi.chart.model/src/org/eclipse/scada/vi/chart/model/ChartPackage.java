@@ -174,6 +174,51 @@ public interface ChartPackage extends EPackage
     int CHART_VIEW__TOOL_TIP = VisualInterfacePackage.FIGURE__TOOL_TIP;
 
     /**
+     * The feature id for the '<em><b>On Mouse In</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__ON_MOUSE_IN = VisualInterfacePackage.FIGURE__ON_MOUSE_IN;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Out</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__ON_MOUSE_OUT = VisualInterfacePackage.FIGURE__ON_MOUSE_OUT;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Move</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__ON_MOUSE_MOVE = VisualInterfacePackage.FIGURE__ON_MOUSE_MOVE;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Hover</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__ON_MOUSE_HOVER = VisualInterfacePackage.FIGURE__ON_MOUSE_HOVER;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Drag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CHART_VIEW__ON_MOUSE_DRAG = VisualInterfacePackage.FIGURE__ON_MOUSE_DRAG;
+
+    /**
      * The feature id for the '<em><b>Configuration Uri</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

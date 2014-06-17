@@ -38,7 +38,6 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.scada.vi.model.visualInterface.presentation.VisualInterfaceEditorPlugin;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 

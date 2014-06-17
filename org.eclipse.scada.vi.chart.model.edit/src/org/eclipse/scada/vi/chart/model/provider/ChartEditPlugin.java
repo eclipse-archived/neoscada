@@ -12,7 +12,6 @@ package org.eclipse.scada.vi.chart.model.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.scada.vi.model.visualInterface.provider.VisualInterfaceEditPlugin;
 
 /**
  * This is the central singleton for the Chart edit plugin.
@@ -48,7 +47,7 @@ public final class ChartEditPlugin extends EMFPlugin
     {
         super ( new ResourceLocator[]
         {
-                VisualInterfaceEditPlugin.INSTANCE,
+                org.eclipse.scada.vi.model.provider.VisualInterfaceEditPlugin.INSTANCE,
         } );
     }
 

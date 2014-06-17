@@ -3,12 +3,10 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
     modelDirectory="/org.eclipse.scada.vi.model/src" editDirectory="/org.eclipse.scada.vi.model.edit/src"
     editorDirectory="/org.eclipse.scada.vi.model.editor/src" modelPluginID="org.eclipse.scada.vi.model"
-    modelName="VisualInterface" modelPluginClass="" editPluginClass="org.eclipse.scada.vi.model.visualInterface.provider.VisualInterfaceEditPlugin"
-    editorPluginClass="org.eclipse.scada.vi.model.visualInterface.presentation.VisualInterfaceEditorPlugin"
-    nonNLSMarkers="true" codeFormatting="true" testSuiteClass="org.eclipse.scada.vi.model.visualInterface.tests.VisualInterfaceAllTests"
+    modelName="VisualInterface" modelPluginClass="" nonNLSMarkers="true" codeFormatting="true"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    editPluginID="org.eclipse.scada.vi.model.edit" editorPluginID="org.eclipse.scada.vi.model.editor"
-    language="" interfaceNamePattern="" classNamePattern="" importOrganizing="true">
+    editorPluginID="org.eclipse.scada.vi.model.editor" language="" interfaceNamePattern=""
+    classNamePattern="" importOrganizing="true">
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.eclipse.scada.vi" disposableProviderFactory="true"
       generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
