@@ -12,7 +12,6 @@ package org.eclipse.scada.configuration.item;
 
 import java.util.List;
 
-import org.eclipse.scada.configuration.item.CustomizationPipeline;
 import org.eclipse.scada.configuration.world.osgi.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,14 +30,14 @@ public class CustomizationRunner
 
     public void run ( final Item item, final CustomizationRequest request )
     {
-        logger.debug ( "Customizing item - item: {}, pipelines: {}", item, this.pipelines );
+        logger.trace ( "Customizing item - item: {}, pipelines: {}", item, this.pipelines );
 
-        // execute the first that is not null 
+        // execute the first that is not null
         for ( final CustomizationPipeline pipeline : this.pipelines )
         {
             if ( pipeline != null )
             {
-                logger.debug ( "Using pipeline: {}", pipeline );
+                logger.trace ( "Using pipeline: {}", pipeline );
                 pipeline.customize ( request );
                 return;
             }
