@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new Adapter helper
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.export.excel.impl;
 
@@ -27,7 +28,6 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDataFormat;
 import org.apache.poi.hssf.usermodel.HSSFFooter;
 import org.apache.poi.hssf.usermodel.HSSFHeader;
-import org.apache.poi.hssf.usermodel.HSSFPatternFormatting;
 import org.apache.poi.hssf.usermodel.HSSFPrintSetup;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -36,6 +36,7 @@ import org.apache.poi.hssf.usermodel.HeaderFooter;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.PatternFormatting;
 import org.apache.poi.ss.usermodel.PrintSetup;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -50,7 +51,7 @@ import org.eclipse.scada.ae.ui.views.export.excel.FileTarget;
 import org.eclipse.scada.ae.ui.views.export.excel.config.DynamicField;
 import org.eclipse.scada.ae.ui.views.export.excel.config.Field;
 import org.eclipse.scada.ae.ui.views.export.excel.config.StaticField;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -303,7 +304,7 @@ public class ExportEventsImpl implements FileTarget
         final CellStyle style = sheet.getWorkbook ().createCellStyle ();
         style.setFont ( font );
         style.setFillForegroundColor ( HSSFColor.BLACK.index );
-        style.setFillPattern ( HSSFPatternFormatting.SOLID_FOREGROUND );
+        style.setFillPattern ( PatternFormatting.SOLID_FOREGROUND );
 
         final HSSFRow row = sheet.createRow ( 0 );
 
