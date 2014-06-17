@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - use new adapter helper
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.handler;
 
@@ -20,7 +21,7 @@ import org.eclipse.scada.ae.data.MonitorStatus;
 import org.eclipse.scada.ae.ui.views.views.MonitorSubscriptionAlarmsEventsView;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.eclipse.ui.IWorkbenchPart;
 
 public class AcknowledgeHandler extends AbstractSelectionHandler implements IHandler

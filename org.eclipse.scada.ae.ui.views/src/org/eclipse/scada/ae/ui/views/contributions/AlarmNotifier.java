@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - use start write
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.contributions;
 
@@ -49,6 +50,12 @@ import org.eclipse.scada.core.client.ConnectionState;
 import org.eclipse.scada.core.connection.provider.ConnectionIdTracker;
 import org.eclipse.scada.core.connection.provider.ConnectionTracker;
 import org.eclipse.scada.core.connection.provider.ConnectionTracker.Listener;
+import org.eclipse.scada.core.ui.styles.StateInformation;
+import org.eclipse.scada.core.ui.styles.StateInformation.State;
+import org.eclipse.scada.core.ui.styles.StateStyler;
+import org.eclipse.scada.core.ui.styles.StaticStateInformation;
+import org.eclipse.scada.core.ui.styles.StyleBlinker;
+import org.eclipse.scada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.eclipse.scada.da.client.DataItem;
 import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.connection.provider.ConnectionService;
@@ -66,12 +73,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.menus.WorkbenchWindowControlContribution;
-import org.eclipse.scada.core.ui.styles.StateInformation;
-import org.eclipse.scada.core.ui.styles.StateInformation.State;
-import org.eclipse.scada.core.ui.styles.StateStyler;
-import org.eclipse.scada.core.ui.styles.StaticStateInformation;
-import org.eclipse.scada.core.ui.styles.StyleBlinker;
-import org.eclipse.scada.core.ui.styles.StyleBlinker.CurrentStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -237,7 +238,7 @@ public class AlarmNotifier extends WorkbenchWindowControlContribution
     {
         try
         {
-            this.connectionService.getConnection ().write ( getItemId ( "ALERT_ACTIVE" ), Variant.FALSE, null, null ); //$NON-NLS-1$
+            this.connectionService.getConnection ().startWrite ( getItemId ( "ALERT_ACTIVE" ), Variant.FALSE, null, null ); //$NON-NLS-1$
         }
         catch ( final Exception e )
         {

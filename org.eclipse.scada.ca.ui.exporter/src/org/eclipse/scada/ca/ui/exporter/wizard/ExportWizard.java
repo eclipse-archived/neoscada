@@ -24,15 +24,15 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.eclipse.scada.ca.data.FactoryInformation;
 import org.eclipse.scada.ca.oscar.OscarWriter;
 import org.eclipse.scada.ca.ui.exporter.Activator;
 import org.eclipse.scada.ca.ui.util.ConfigurationHelper;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.eclipse.ui.IExportWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.ca.connection.provider.ConnectionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
