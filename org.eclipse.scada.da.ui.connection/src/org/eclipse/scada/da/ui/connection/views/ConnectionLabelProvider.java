@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - use new adapter helper
  *******************************************************************************/
 package org.eclipse.scada.da.ui.connection.views;
 
@@ -20,9 +21,9 @@ import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.core.browser.DataItemEntry;
 import org.eclipse.scada.da.core.browser.FolderEntry;
 import org.eclipse.scada.da.data.IODirection;
-import org.eclipse.scada.ui.databinding.AdapterHelper;
 import org.eclipse.scada.ui.databinding.CommonListeningLabelProvider;
 import org.eclipse.scada.ui.databinding.StyledViewerLabel;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 
 public class ConnectionLabelProvider extends CommonListeningLabelProvider
 {
