@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import org.eclipse.emf.ecore.util.Diagnostician;
 
+import org.eclipse.emf.ecore.xmi.impl.RootXMLContentHandlerImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import org.eclipse.scada.vi.model.Symbol;
@@ -52,11 +53,16 @@ public class VisualInterfaceExample
         //
         ResourceSet resourceSet = new ResourceSetImpl ();
 
-        // Register the appropriate resource factory to handle all file extensions.
+        // Register the appropriate resource factory to handle the content type.
         //
-        resourceSet.getResourceFactoryRegistry ().getExtensionToFactoryMap ().put
-                ( Resource.Factory.Registry.DEFAULT_EXTENSION,
+        resourceSet.getResourceFactoryRegistry ().getContentTypeToFactoryMap ().put
+                ( VisualInterfacePackage.eCONTENT_TYPE,
                         new XMIResourceFactoryImpl () );
+
+        // Register the appropriate content handler for all file extensions and any element from the package's namespace.
+        //
+        resourceSet.getURIConverter ().getContentHandlers ().add
+                ( new RootXMLContentHandlerImpl ( VisualInterfacePackage.eCONTENT_TYPE, null, null, VisualInterfacePackage.eNS_URI, null ) );
 
         // Register the package to ensure it is available during loading.
         //
@@ -71,7 +77,7 @@ public class VisualInterfaceExample
             System.out.println ( "Enter a list of file paths or URIs that have content like this:" ); //$NON-NLS-1$
             try
             {
-                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.vi" ) ); //$NON-NLS-1$
+                Resource resource = resourceSet.createResource ( URI.createURI ( "http:///My.vi" ), VisualInterfacePackage.eCONTENT_TYPE ); //$NON-NLS-1$
                 Symbol root = VisualInterfaceFactory.eINSTANCE.createSymbol ();
                 resource.getContents ().add ( root );
                 resource.save ( System.out, null );

@@ -161,7 +161,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @generated
+     * @generated NOT
      */
     @Override
     public void init ( final IWorkbench workbench, final IStructuredSelection selection )
@@ -169,7 +169,7 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
         this.workbench = workbench;
         this.selection = selection;
         setWindowTitle ( VisualInterfaceEditorPlugin.INSTANCE.getString ( "_UI_Wizard_label" ) ); //$NON-NLS-1$
-        setDefaultPageImageDescriptor ( ExtendedImageRegistry.INSTANCE.getImageDescriptor ( VisualInterfaceEditorPlugin.INSTANCE.getImage ( "full/wizban/NewVisualInterface" ) ) ); //$NON-NLS-1$
+        setDefaultPageImageDescriptor ( ExtendedImageRegistry.INSTANCE.getImageDescriptor ( VisualInterfaceEditorPlugin.INSTANCE.getImage ( "full/wizban/NewVisualInterface.png" ) ) ); //$NON-NLS-1$
     }
 
     /**
@@ -224,48 +224,48 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             //
             final WorkspaceModifyOperation operation =
                     new WorkspaceModifyOperation ()
+            {
+                @Override
+                protected void execute ( final IProgressMonitor progressMonitor )
+                {
+                    try
                     {
-                        @Override
-                        protected void execute ( final IProgressMonitor progressMonitor )
+                        // Create a resource set
+                        //
+                        final ResourceSet resourceSet = new ResourceSetImpl ();
+
+                        // Get the URI of the model file.
+                        //
+                        final URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
+
+                        // Create a resource for this file.
+                        //
+                        final Resource resource = resourceSet.createResource ( fileURI );
+
+                        // Add the initial model object to the contents.
+                        //
+                        final EObject rootObject = createInitialModel ();
+                        if ( rootObject != null )
                         {
-                            try
-                            {
-                                // Create a resource set
-                                //
-                                final ResourceSet resourceSet = new ResourceSetImpl ();
-
-                                // Get the URI of the model file.
-                                //
-                                final URI fileURI = URI.createPlatformResourceURI ( modelFile.getFullPath ().toString (), true );
-
-                                // Create a resource for this file.
-                                //
-                                final Resource resource = resourceSet.createResource ( fileURI );
-
-                                // Add the initial model object to the contents.
-                                //
-                                final EObject rootObject = createInitialModel ();
-                                if ( rootObject != null )
-                                {
-                                    resource.getContents ().add ( rootObject );
-                                }
-
-                                // Save the contents of the resource to the file system.
-                                //
-                                final Map<Object, Object> options = new HashMap<Object, Object> ();
-                                options.put ( XMLResource.OPTION_ENCODING, VisualInterfaceModelWizard.this.initialObjectCreationPage.getEncoding () );
-                                resource.save ( options );
-                            }
-                            catch ( final Exception exception )
-                            {
-                                VisualInterfaceEditorPlugin.INSTANCE.log ( exception );
-                            }
-                            finally
-                            {
-                                progressMonitor.done ();
-                            }
+                            resource.getContents ().add ( rootObject );
                         }
-                    };
+
+                        // Save the contents of the resource to the file system.
+                        //
+                        final Map<Object, Object> options = new HashMap<Object, Object> ();
+                        options.put ( XMLResource.OPTION_ENCODING, VisualInterfaceModelWizard.this.initialObjectCreationPage.getEncoding () );
+                        resource.save ( options );
+                    }
+                    catch ( final Exception exception )
+                    {
+                        VisualInterfaceEditorPlugin.INSTANCE.log ( exception );
+                    }
+                    finally
+                    {
+                        progressMonitor.done ();
+                    }
+                }
+            };
 
             getContainer ().run ( false, false, operation );
 
@@ -278,14 +278,14 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             {
                 final ISelection targetSelection = new StructuredSelection ( modelFile );
                 getShell ().getDisplay ().asyncExec
-                        ( new Runnable ()
-                        {
-                            @Override
-                            public void run ()
-                            {
-                                ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
-                            }
-                        } );
+                ( new Runnable ()
+                {
+                    @Override
+                    public void run ()
+                    {
+                        ( (ISetSelectionTarget)activePart ).selectReveal ( targetSelection );
+                    }
+                } );
             }
 
             // Open an editor on the new file.
@@ -293,8 +293,8 @@ public class VisualInterfaceModelWizard extends Wizard implements INewWizard
             try
             {
                 page.openEditor
-                        ( new FileEditorInput ( modelFile ),
-                                this.workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
+                ( new FileEditorInput ( modelFile ),
+                        this.workbench.getEditorRegistry ().getDefaultEditor ( modelFile.getFullPath ().toString () ).getId () );
             }
             catch ( final PartInitException exception )
             {

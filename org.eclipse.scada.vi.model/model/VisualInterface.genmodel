@@ -10,7 +10,7 @@
   <foreignModel>VisualInterface.ecore</foreignModel>
   <genPackages prefix="VisualInterface" basePackage="org.eclipse.scada.vi" disposableProviderFactory="true"
       generateModelWizard="false" extensibleProviderFactory="true" childCreationExtenders="true"
-      fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
+      contentTypeIdentifier="org.eclipse.scada.hmi.vi" fileExtensions="vi" ecorePackage="VisualInterface.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="VisualInterface.ecore#//Alignment">
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/LEFT"/>
       <genEnumLiterals ecoreEnumLiteral="VisualInterface.ecore#//Alignment/CENTER"/>

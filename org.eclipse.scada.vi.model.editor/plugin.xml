@@ -21,21 +21,21 @@
             name="%_UI_VisualInterfaceModelWizard_label"
             class="org.eclipse.scada.vi.model.presentation.VisualInterfaceModelWizard"
             category="org.eclipse.scada.hmi"
-            icon="icons/full/obj16/VisualInterfaceModelFile.gif">
+            icon="icons/full/obj16/VisualInterfaceModelFile.png">
          <description>%_UI_VisualInterfaceModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
-      <!-- @generated VisualInterface -->
+      <!-- @generated NOT -->
       <editor
             id="org.eclipse.scada.vi.model.presentation.VisualInterfaceEditorID"
             name="%_UI_VisualInterfaceEditor_label"
-            icon="icons/full/obj16/VisualInterfaceModelFile.gif"
-            extensions="vi"
+            icon="icons/full/obj16/VisualInterfaceModelFile.png"
             class="org.eclipse.scada.vi.model.presentation.VisualInterfaceEditor"
             contributorClass="org.eclipse.scada.vi.model.presentation.VisualInterfaceActionBarContributor">
+         <contentTypeBinding contentTypeId="org.eclipse.scada.hmi.vi"/>
       </editor>
    </extension>
 

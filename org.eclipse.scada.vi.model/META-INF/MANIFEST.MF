@@ -10,6 +10,7 @@ Export-Package: org.eclipse.scada.vi.model;uses:="org.eclipse.emf.ecore,org.ecli
  org.eclipse.scada.vi.model.impl;uses:="org.eclipse.scada.vi.model,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  org.eclipse.emf.common.notify,  org.eclipse.emf.ecore.impl";version="0.2.0",
  org.eclipse.scada.vi.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.scada.vi.model,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.common.notify";version="0.2.0"
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
