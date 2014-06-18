@@ -1,6 +1,9 @@
 target "Eclipse SCADA Target Platform (SDK)"
 
-include "../targetPlatform/targetPlatform.tpd"
+/*
+ * Don't include RAP since this would break an IDE setup
+ */
+include "../targetPlatform/base.tpd"
 
 with source, allEnvironments
 
@@ -16,4 +19,18 @@ location "http://download.eclipse.org/eclipsescada/updates/nightly/0.2" {
 	org.eclipse.scada.utils.sdk.feature.group
 	org.eclipse.scada.core.sdk.feature.group
 	org.eclipse.scada.external.feature.group
+}
+
+/* we can include git in this profile to allow really using the configurator */
+
+location "http://download.eclipse.org/releases/kepler" {
+	org.eclipse.jgit.feature.group
+	org.eclipse.jgit.java7.feature.group
+	org.eclipse.egit.feature.group
+}
+
+/* add SWT tools in order to have sleak */
+
+location "http://www.eclipse.org/swt/updates/4.3" {
+	org.eclipse.swt.tools.category
 }

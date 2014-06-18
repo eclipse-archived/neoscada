@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Eclipse SCADA Target Platform" sequenceNumber="1402572953">
+<target name="Eclipse SCADA Target Platform" sequenceNumber="1402931978">
   <locations>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.9.0.v20140221-1852"/>
@@ -16,13 +16,6 @@
       <unit id="org.eclipse.gef.sdk.feature.group" version="3.9.1.201308190730"/>
       <unit id="org.eclipse.jdt.feature.group" version="3.9.2.v20140221-1700"/>
       <repository location="http://download.eclipse.org/releases/kepler"/>
-    </location>
-    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.rap.rwt" version="2.2.0.20131204-0942"/>
-      <unit id="org.eclipse.rap.rwt.osgi" version="2.2.0.20131126-1551"/>
-      <unit id="org.eclipse.rap.jface" version="2.2.0.20131017-1149"/>
-      <unit id="org.eclipse.rap.jface.databinding" version="2.2.0.20130702-1310"/>
-      <repository location="http://download.eclipse.org/rt/rap/2.2"/>
     </location>
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.paho.client.mqttv3" version="0.9.0"/>
@@ -78,6 +71,13 @@
     <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.gemini.dbaccess.h2.feature.feature.group" version="1.1.0.RELEASE"/>
       <repository location="http://download.eclipse.org/gemini/updates/dbaccess/1.1.0"/>
+    </location>
+    <location includeMode="slicer" includeAllPlatforms="true" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.rap.rwt" version="2.2.0.20131204-0942"/>
+      <unit id="org.eclipse.rap.rwt.osgi" version="2.2.0.20131126-1551"/>
+      <unit id="org.eclipse.rap.jface" version="2.2.0.20131017-1149"/>
+      <unit id="org.eclipse.rap.jface.databinding" version="2.2.0.20130702-1310"/>
+      <repository location="http://download.eclipse.org/rt/rap/2.2"/>
     </location>
   </locations>
 </target>

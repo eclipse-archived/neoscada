@@ -1,0 +1,10 @@
+target "Eclipse SCADA Target Platform (RAP Fragment)"
+
+with source, allEnvironments
+
+location "http://download.eclipse.org/rt/rap/2.2" {
+	org.eclipse.rap.rwt
+	org.eclipse.rap.rwt.osgi
+	org.eclipse.rap.jface
+	org.eclipse.rap.jface.databinding
+}
