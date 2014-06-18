@@ -79,6 +79,7 @@ public class ProtocolOptionsItemProvider
             addCauseOfTransmissionSizePropertyDescriptor ( object );
             addWPropertyDescriptor ( object );
             addKPropertyDescriptor ( object );
+            addTargetTimeZonePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -293,6 +294,29 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Target Time Zone feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTargetTimeZonePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ProtocolOptions_targetTimeZone_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_targetTimeZone_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        IEC60870Package.Literals.PROTOCOL_OPTIONS__TARGET_TIME_ZONE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns ProtocolOptions.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -339,6 +363,7 @@ public class ProtocolOptionsItemProvider
             case IEC60870Package.PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE:
             case IEC60870Package.PROTOCOL_OPTIONS__W:
             case IEC60870Package.PROTOCOL_OPTIONS__K:
+            case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

@@ -466,6 +466,16 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getProtocolOptions_TargetTimeZone ()
+    {
+        return (EAttribute)protocolOptionsEClass.getEStructuralFeatures ().get ( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getDataModuleOptions ()
     {
         return dataModuleOptionsEClass;
@@ -594,6 +604,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__CAUSE_OF_TRANSMISSION_SIZE );
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__W );
         createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__K );
+        createEAttribute ( protocolOptionsEClass, PROTOCOL_OPTIONS__TARGET_TIME_ZONE );
 
         dataModuleOptionsEClass = createEClass ( DATA_MODULE_OPTIONS );
         createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__BACKGROUND_SCAN_PERIOD );
@@ -680,6 +691,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEAttribute ( getProtocolOptions_CauseOfTransmissionSize (), ecorePackage.getEByte (), "causeOfTransmissionSize", "2", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getProtocolOptions_W (), ecorePackage.getEInt (), "w", "10", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getProtocolOptions_K (), ecorePackage.getEInt (), "k", "15", 1, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+        initEAttribute ( getProtocolOptions_TargetTimeZone (), ecorePackage.getEString (), "targetTimeZone", null, 0, 1, ProtocolOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( dataModuleOptionsEClass, DataModuleOptions.class, "DataModuleOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDataModuleOptions_BackgroundScanPeriod (), ecorePackage.getEIntegerObject (), "backgroundScanPeriod", "60000", 0, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
@@ -819,6 +831,11 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
                 source,
                 new String[]
                 {       "name", "k" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getProtocolOptions_TargetTimeZone (),
+                source,
+                new String[]
+                {       "name", "timeZone" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( getDataModuleOptions_BackgroundScanPeriod (),
                 source,

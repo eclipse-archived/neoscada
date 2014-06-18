@@ -421,13 +421,22 @@ public interface IEC60870Package extends EPackage
     int PROTOCOL_OPTIONS__K = 7;
 
     /**
+     * The feature id for the '<em><b>Target Time Zone</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__TARGET_TIME_ZONE = 8;
+
+    /**
      * The number of structural features of the '<em>Protocol Options</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROTOCOL_OPTIONS_FEATURE_COUNT = 8;
+    int PROTOCOL_OPTIONS_FEATURE_COUNT = 9;
 
     /**
      * The number of operations of the '<em>Protocol Options</em>' class.
@@ -826,6 +835,17 @@ public interface IEC60870Package extends EPackage
     EAttribute getProtocolOptions_K ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTargetTimeZone <em>Target Time Zone</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Target Time Zone</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTargetTimeZone()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_TargetTimeZone ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions <em>Data Module Options</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1157,6 +1177,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute PROTOCOL_OPTIONS__K = eINSTANCE.getProtocolOptions_K ();
+
+        /**
+         * The meta object literal for the '<em><b>Target Time Zone</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__TARGET_TIME_ZONE = eINSTANCE.getProtocolOptions_TargetTimeZone ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl <em>Data Module Options</em>}' class.

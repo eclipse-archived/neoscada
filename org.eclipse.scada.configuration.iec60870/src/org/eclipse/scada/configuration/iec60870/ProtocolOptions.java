@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getCauseOfTransmissionSize <em>Cause Of Transmission Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW <em>W</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK <em>K</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTargetTimeZone <em>Target Time Zone</em>}</li>
  * </ul>
  * </p>
  *
@@ -263,4 +264,32 @@ public interface ProtocolOptions extends EObject
      * @generated
      */
     void setK ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Target Time Zone</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * This defines in which time zone the timestamps will be converted before they are sent/or after they have been received from communication partner.
+     * IEC60870-5 recommends to use the UTC as time zone, however not all systems follow that recommendation.
+     * 
+     * This value must be a valid Java time zone ID.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Target Time Zone</em>' attribute.
+     * @see #setTargetTimeZone(String)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_TargetTimeZone()
+     * @model annotation="http://eclipse.org/SCADA/CA/Descriptor name='timeZone'"
+     * @generated
+     */
+    String getTargetTimeZone ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTargetTimeZone <em>Target Time Zone</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Target Time Zone</em>' attribute.
+     * @see #getTargetTimeZone()
+     * @generated
+     */
+    void setTargetTimeZone ( String value );
 } // ProtocolOptions

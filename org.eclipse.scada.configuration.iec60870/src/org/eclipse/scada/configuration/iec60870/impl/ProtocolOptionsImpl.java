@@ -35,6 +35,7 @@ import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getCauseOfTransmissionSize <em>Cause Of Transmission Size</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getW <em>W</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getK <em>K</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getTargetTimeZone <em>Target Time Zone</em>}</li>
  * </ul>
  * </p>
  *
@@ -201,6 +202,26 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected int k = K_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getTargetTimeZone() <em>Target Time Zone</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetTimeZone()
+     * @generated
+     * @ordered
+     */
+    protected static final String TARGET_TIME_ZONE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getTargetTimeZone() <em>Target Time Zone</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getTargetTimeZone()
+     * @generated
+     * @ordered
+     */
+    protected String targetTimeZone = TARGET_TIME_ZONE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -412,6 +433,29 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getTargetTimeZone ()
+    {
+        return targetTimeZone;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setTargetTimeZone ( String newTargetTimeZone )
+    {
+        String oldTargetTimeZone = targetTimeZone;
+        targetTimeZone = newTargetTimeZone;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE, oldTargetTimeZone, targetTimeZone ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -433,6 +477,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return getW ();
             case IEC60870Package.PROTOCOL_OPTIONS__K:
                 return getK ();
+            case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
+                return getTargetTimeZone ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -470,6 +516,9 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return;
             case IEC60870Package.PROTOCOL_OPTIONS__K:
                 setK ( (Integer)newValue );
+                return;
+            case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
+                setTargetTimeZone ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -509,6 +558,9 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
             case IEC60870Package.PROTOCOL_OPTIONS__K:
                 setK ( K_EDEFAULT );
                 return;
+            case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
+                setTargetTimeZone ( TARGET_TIME_ZONE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -539,6 +591,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return w != W_EDEFAULT;
             case IEC60870Package.PROTOCOL_OPTIONS__K:
                 return k != K_EDEFAULT;
+            case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
+                return TARGET_TIME_ZONE_EDEFAULT == null ? targetTimeZone != null : !TARGET_TIME_ZONE_EDEFAULT.equals ( targetTimeZone );
         }
         return super.eIsSet ( featureID );
     }
@@ -571,6 +625,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
         result.append ( w );
         result.append ( ", k: " ); //$NON-NLS-1$
         result.append ( k );
+        result.append ( ", targetTimeZone: " ); //$NON-NLS-1$
+        result.append ( targetTimeZone );
         result.append ( ')' );
         return result.toString ();
     }
