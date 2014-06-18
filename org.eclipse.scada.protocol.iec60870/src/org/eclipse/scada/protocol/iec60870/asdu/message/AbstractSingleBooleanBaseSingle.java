@@ -48,7 +48,7 @@ public abstract class AbstractSingleBooleanBaseSingle extends AbstractMessage
         for ( final InformationEntry<Boolean> entry : this.entries )
         {
             entry.getAddress ().encode ( options, out );
-            TypeHelper.encodeBooleanValue ( out, entry.getValue (), this.withTimestamp );
+            TypeHelper.encodeBooleanValue ( options, out, entry.getValue (), this.withTimestamp );
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class AbstractSingleBooleanBaseSingle extends AbstractMessage
         for ( int i = 0; i < length; i++ )
         {
             final InformationObjectAddress address = InformationObjectAddress.parse ( options, data );
-            final Value<Boolean> value = TypeHelper.parseBooleanValue ( data, withTimestamp );
+            final Value<Boolean> value = TypeHelper.parseBooleanValue ( options, data, withTimestamp );
             values.add ( new InformationEntry<> ( address, value ) );
         }
         return values;

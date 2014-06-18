@@ -14,15 +14,14 @@ import io.netty.buffer.ByteBuf;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.TimeZone;
+
+import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
 
 public class TypeHelper
 {
-    private static final TimeZone UTC = TimeZone.getTimeZone ( "UTC" ); //$NON-NLS-1$
-
-    private static void encodeTimestamp ( final ByteBuf out, final long timestamp )
+    private static void encodeTimestamp ( final ProtocolOptions options, final ByteBuf out, final long timestamp )
     {
-        final Calendar c = new GregorianCalendar ( UTC );
+        final Calendar c = new GregorianCalendar ( options.getTimeZone () );
         c.setTimeInMillis ( timestamp );
 
         final int ms = c.get ( Calendar.SECOND ) * 1_000 + c.get ( Calendar.MILLISECOND );
@@ -40,7 +39,7 @@ public class TypeHelper
         out.writeByte ( year );
     }
 
-    private static long parseTimestamp ( final ByteBuf data )
+    private static long parseTimestamp ( final ProtocolOptions options, final ByteBuf data )
     {
         final int ms = data.readUnsignedShort ();
 
@@ -66,7 +65,7 @@ public class TypeHelper
          */
         year = year + 2000;
 
-        final Calendar c = new GregorianCalendar ( UTC );
+        final Calendar c = new GregorianCalendar ( options.getTimeZone () );
         c.set ( year, month, dayOfMonth, hours, minutes, ms / 1_000 );
         c.set ( Calendar.MILLISECOND, ms % 1_000 );
         return c.getTimeInMillis ();
@@ -74,12 +73,12 @@ public class TypeHelper
 
     /**
      * Encode Single-point information with quality descriptor
-     * 
+     *
      * @param withTimestamp
      *            <code>true</code> if the time should be encoded as well,
      *            <code>false</code> otherwise
      */
-    public static void encodeBooleanValue ( final ByteBuf out, final Value<Boolean> value, final boolean withTimestamp )
+    public static void encodeBooleanValue ( final ProtocolOptions options, final ByteBuf out, final Value<Boolean> value, final boolean withTimestamp )
     {
         byte siq = (byte) ( value.getValue () ? 0x01 : 0x00 );
         siq = value.getQualityInformation ().apply ( siq );
@@ -87,25 +86,25 @@ public class TypeHelper
 
         if ( withTimestamp )
         {
-            encodeTimestamp ( out, value.getTimestamp () );
+            encodeTimestamp ( options, out, value.getTimestamp () );
         }
     }
 
     /**
      * Parse Single-point information with quality descriptor
-     * 
+     *
      * @param withTimestamp
      *            <code>true</code> if the time should be parsed as well,
      *            <code>false</code> otherwise
      */
-    public static Value<Boolean> parseBooleanValue ( final ByteBuf data, final boolean withTimestamp )
+    public static Value<Boolean> parseBooleanValue ( final ProtocolOptions options, final ByteBuf data, final boolean withTimestamp )
     {
         final byte siq = data.readByte ();
 
         final Boolean value = ( siq & 0x01 ) > 0 ? Boolean.TRUE : Boolean.FALSE; // we need to use a boolean object due to the following generic object
         final QualityInformation qualityInformation = QualityInformation.parse ( siq );
 
-        final long timestamp = withTimestamp ? parseTimestamp ( data ) : System.currentTimeMillis ();
+        final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
 
         return new Value<Boolean> ( value, timestamp, qualityInformation );
     }
@@ -113,7 +112,7 @@ public class TypeHelper
     /**
      * Encode Short floating point number with quality descriptor
      */
-    public static void encodeFloatValue ( final ByteBuf out, final Value<Float> value, final boolean withTimestamp )
+    public static void encodeFloatValue ( final ProtocolOptions options, final ByteBuf out, final Value<Float> value, final boolean withTimestamp )
     {
         final byte qds = (byte) ( value.isOverflow () ? 0b00000001 : 0b00000000 );
         final byte siq = value.getQualityInformation ().apply ( qds );
@@ -123,14 +122,14 @@ public class TypeHelper
 
         if ( withTimestamp )
         {
-            encodeTimestamp ( out, value.getTimestamp () );
+            encodeTimestamp ( options, out, value.getTimestamp () );
         }
     }
 
     /**
      * Parse Short floating point number with quality descriptor
      */
-    public static Value<Float> parseFloatValue ( final ByteBuf data, final boolean withTimestamp )
+    public static Value<Float> parseFloatValue ( final ProtocolOptions options, final ByteBuf data, final boolean withTimestamp )
     {
         final float value = data.readFloat ();
 
@@ -139,7 +138,7 @@ public class TypeHelper
         final QualityInformation qualityInformation = QualityInformation.parse ( qds );
         final boolean overflow = ( qds & 0b00000001 ) > 0;
 
-        final long timestamp = withTimestamp ? parseTimestamp ( data ) : System.currentTimeMillis ();
+        final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
 
         return new Value<Float> ( value, timestamp, qualityInformation, overflow );
     }

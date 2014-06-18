@@ -43,7 +43,7 @@ public abstract class AbstractMeasuredValueFloatingPoint extends AbstractMessage
         for ( final InformationEntry<Float> entry : this.entries )
         {
             entry.getAddress ().encode ( options, out );
-            TypeHelper.encodeFloatValue ( out, entry.getValue (), this.withTimestamp );
+            TypeHelper.encodeFloatValue ( options, out, entry.getValue (), this.withTimestamp );
         }
     }
 
@@ -53,7 +53,7 @@ public abstract class AbstractMeasuredValueFloatingPoint extends AbstractMessage
         for ( int i = 0; i < length; i++ )
         {
             final InformationObjectAddress address = InformationObjectAddress.parse ( options, data );
-            final Value<Float> value = TypeHelper.parseFloatValue ( data, withTimestamp );
+            final Value<Float> value = TypeHelper.parseFloatValue ( options, data, withTimestamp );
             values.add ( new InformationEntry<> ( address, value ) );
         }
         return values;

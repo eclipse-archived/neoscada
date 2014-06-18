@@ -45,7 +45,7 @@ public class SinglePointInformationSequence extends AbstractMessage
         final List<Value<Boolean>> values = new ArrayList<> ( length );
         for ( int i = 0; i < length; i++ )
         {
-            values.add ( TypeHelper.parseBooleanValue ( data, false ) );
+            values.add ( TypeHelper.parseBooleanValue ( options, data, false ) );
         }
 
         return new SinglePointInformationSequence ( header, startAddress, values );
@@ -60,7 +60,7 @@ public class SinglePointInformationSequence extends AbstractMessage
 
         for ( final Value<Boolean> value : this.values )
         {
-            TypeHelper.encodeBooleanValue ( out, value, false );
+            TypeHelper.encodeBooleanValue ( options, out, value, false );
         }
     }
 

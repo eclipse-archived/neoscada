@@ -45,7 +45,7 @@ public class MeasuredValueShortFloatingPointSequence extends AbstractMessage
         final List<Value<Float>> values = new ArrayList<> ( length );
         for ( int i = 0; i < length; i++ )
         {
-            values.add ( TypeHelper.parseFloatValue ( data, false ) );
+            values.add ( TypeHelper.parseFloatValue ( options, data, false ) );
         }
 
         return new MeasuredValueShortFloatingPointSequence ( header, startAddress, values );
@@ -60,7 +60,7 @@ public class MeasuredValueShortFloatingPointSequence extends AbstractMessage
 
         for ( final Value<Float> value : this.values )
         {
-            TypeHelper.encodeFloatValue ( out, value, false );
+            TypeHelper.encodeFloatValue ( options, out, value, false );
         }
     }
 

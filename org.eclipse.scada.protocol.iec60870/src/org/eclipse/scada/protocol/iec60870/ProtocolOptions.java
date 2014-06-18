@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870;
 
+import java.util.TimeZone;
+
 import org.eclipse.scada.protocol.iec60870.apci.Supervisory;
 
 public class ProtocolOptions
@@ -53,6 +55,20 @@ public class ProtocolOptions
      */
     private short acknowledgeWindow = 10;
 
+    /**
+     * The timezone to which the internal (UTC) timestamps will be converted
+     * <p>
+     * The default is UTC. The recommendation of IEC 60870-5 also is UTC.
+     * </p>
+     */
+    private TimeZone timeZone = TimeZone.getTimeZone ( "UTC" );
+
+    /**
+     * An internal copy of the time zone ID <br/>
+     * This is used to implement hashCode and equals
+     */
+    private String timeZoneId;
+
     private ProtocolOptions ()
     {
     }
@@ -68,6 +84,8 @@ public class ProtocolOptions
         this.acknowledgeWindow = other.acknowledgeWindow;
         this.maxUnacknowledged = other.maxUnacknowledged;
         this.maxSequenceNumber = other.maxSequenceNumber;
+        this.timeZone = other.timeZone;
+        this.timeZoneId = other.timeZoneId;
     }
 
     public int getTimeout1 ()
@@ -113,6 +131,11 @@ public class ProtocolOptions
     public CauseOfTransmissionType getCauseOfTransmissionType ()
     {
         return this.causeOfTransmissionType;
+    }
+
+    public TimeZone getTimeZone ()
+    {
+        return this.timeZone;
     }
 
     public static class Builder
@@ -228,6 +251,24 @@ public class ProtocolOptions
         {
             this.value.causeOfTransmissionType = causeOfTransmissionType;
         }
+
+        public TimeZone getTimeZone ()
+        {
+            return this.value.timeZone;
+        }
+
+        public void setTimeZone ( final TimeZone timeZone )
+        {
+            if ( timeZone == null )
+            {
+                setTimeZone ( TimeZone.getTimeZone ( "UTC" ) );
+            }
+            else
+            {
+                this.value.timeZone = timeZone;
+                this.value.timeZoneId = timeZone.getID ();
+            }
+        }
     }
 
     @Override
@@ -241,6 +282,7 @@ public class ProtocolOptions
         result = prime * result + ( this.informationObjectAddressType == null ? 0 : this.informationObjectAddressType.hashCode () );
         result = prime * result + this.maxSequenceNumber;
         result = prime * result + this.maxUnacknowledged;
+        result = prime * result + ( this.timeZoneId == null ? 0 : this.timeZoneId.hashCode () );
         result = prime * result + this.timeout1;
         result = prime * result + this.timeout2;
         result = prime * result + this.timeout3;
@@ -284,6 +326,17 @@ public class ProtocolOptions
             return false;
         }
         if ( this.maxUnacknowledged != other.maxUnacknowledged )
+        {
+            return false;
+        }
+        if ( this.timeZoneId == null )
+        {
+            if ( other.timeZoneId != null )
+            {
+                return false;
+            }
+        }
+        else if ( !this.timeZoneId.equals ( other.timeZoneId ) )
         {
             return false;
         }
