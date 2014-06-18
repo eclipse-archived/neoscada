@@ -5,9 +5,9 @@ Bundle-SymbolicName: org.eclipse.scada.vi.ui.draw2d;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.vi.ui.draw2d.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.vi.ui.draw2d;version="0.1.0",
- org.eclipse.scada.vi.ui.draw2d.loader;version="0.1.0",
- org.eclipse.scada.vi.ui.draw2d.primitives;version="0.1.0"
+Export-Package: org.eclipse.scada.vi.ui.draw2d;version="0.2.0",
+ org.eclipse.scada.vi.ui.draw2d.loader;version="0.2.0",
+ org.eclipse.scada.vi.ui.draw2d.primitives;version="0.2.0"
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.draw2d;bundle-version="3.7.0",

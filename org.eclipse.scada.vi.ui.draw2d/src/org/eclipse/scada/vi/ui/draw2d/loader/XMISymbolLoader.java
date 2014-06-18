@@ -47,7 +47,7 @@ public class XMISymbolLoader implements SymbolLoader
     public XMISymbolLoader ( final URI uri )
     {
         this.uri = uri;
-        this.classLoader = findClassLoader ( uri );
+        this.classLoader = findClassLoader ();
     }
 
     @Override
@@ -56,7 +56,7 @@ public class XMISymbolLoader implements SymbolLoader
         return this.uri.toString ();
     }
 
-    private ClassLoader findClassLoader ( final URI uri )
+    private ClassLoader findClassLoader ()
     {
         return Activator.class.getClassLoader ();
     }
@@ -85,18 +85,16 @@ public class XMISymbolLoader implements SymbolLoader
     public String resolveUri ( final String uri )
     {
         final String result = URI.createURI ( uri ).resolve ( this.uri ).toString ();
-        logger.debug ( "Resolved URI: {} -> {}", uri, result );
+        logger.debug ( "Resolved URI: {} -> {}", uri, result ); //$NON-NLS-1$
         return result;
     }
 
     @Override
     public String loadStringResource ( final String url ) throws Exception
     {
-        final URI uri = URI.createURI ( url ).resolve ( this.uri );
-
-        logger.debug ( "Loading resource from: {}", uri );
-
-        return Resources.toString ( new URL ( uri.toString () ), Charset.forName ( "UTF-8" ) );
+        final String target = resolveUri ( url );
+        logger.debug ( "Loading resource from: {}", target ); //$NON-NLS-1$
+        return Resources.toString ( new URL ( target ), Charset.forName ( "UTF-8" ) ); //$NON-NLS-1$
     }
 
     protected void load () throws Exception
