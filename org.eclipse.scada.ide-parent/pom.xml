@@ -158,6 +158,7 @@
 		
 		<module>../org.eclipse.scada.ide.hd.hdsspy</module>
 		<module>../org.eclipse.scada.ide.pde</module>
+		<module>../org.eclipse.scada.ide.vi.preview.editor</module>
 		
 		<!--
 		fails with some strange error: 
