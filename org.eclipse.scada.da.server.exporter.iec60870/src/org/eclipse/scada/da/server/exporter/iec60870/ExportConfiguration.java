@@ -133,15 +133,15 @@ public class ExportConfiguration
         optionsBuilder.setInformationObjectAddressType ( cfg.getEnum ( "informationObjectAddressType", InformationObjectAddressType.class, InformationObjectAddressType.SIZE_3 ) ); //$NON-NLS-1$
         optionsBuilder.setAcknowledgeWindow ( (short)cfg.getInteger ( "w", optionsBuilder.getAcknowledgeWindow () ) ); //$NON-NLS-1$
         optionsBuilder.setMaxUnacknowledged ( (short)cfg.getInteger ( "k", optionsBuilder.getMaxUnacknowledged () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeZone ( getTimeZone ( cfg, "timeZone" ) );
+        optionsBuilder.setTimeZone ( getTimeZone ( cfg, "timeZone" ) ); //$NON-NLS-1$
 
         result.setProtocolOptions ( optionsBuilder.build () );
 
         final DataModuleOptions.Builder dataModuleOptions = new DataModuleOptions.Builder ();
-        dataModuleOptions.setBackgroundScanPeriod ( cfg.getInteger ( "backgroundScanPeriod", 60_000 ) );
-        dataModuleOptions.setSpontaneousDuplicates ( cfg.getInteger ( "spontaneousItemBuffer", 100 ) );
-        dataModuleOptions.setFloatsWithTimestamp ( cfg.getBoolean ( "withTimestamp.float", true ) );
-        dataModuleOptions.setBooleansWithTimestamp ( cfg.getBoolean ( "withTimestamp.boolean", true ) );
+        dataModuleOptions.setBackgroundScanPeriod ( cfg.getInteger ( "backgroundScanPeriod", 60_000 ) ); //$NON-NLS-1$
+        dataModuleOptions.setSpontaneousDuplicates ( cfg.getInteger ( "spontaneousItemBuffer", 100 ) ); //$NON-NLS-1$
+        dataModuleOptions.setFloatsWithTimestamp ( cfg.getBoolean ( "withTimestamp.float", true ) ); //$NON-NLS-1$
+        dataModuleOptions.setBooleansWithTimestamp ( cfg.getBoolean ( "withTimestamp.boolean", true ) ); //$NON-NLS-1$
 
         result.setDataModuleOptions ( dataModuleOptions.build () );
 
