@@ -5,7 +5,7 @@
     modelPluginID="org.eclipse.scada.configuration.iec60870" modelName="IEC60870"
     nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
+    copyrightFields="false" providerRootExtendsClass="" usedGenPackages="../../org.eclipse.scada.configuration.component/model/component.genmodel#//component ../../org.eclipse.scada.da.server.exec/model/exec.genmodel#//configuration ../../org.eclipse.scada.configuration.globalization/model/globalize.genmodel#//globalization ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.genmodel#//infrastructure ../../org.eclipse.scada.configuration.item/model/item.genmodel#//item ../../org.eclipse.scada.configuration.script/model/script.genmodel#//script ../../org.eclipse.scada.configuration.security/model/sec.genmodel#//security ../../org.eclipse.scada.configuration.world/model/configuration.genmodel#//world"
     operationReflection="true" importOrganizing="true">
   <foreignModel>iec60870.ecore</foreignModel>
   <genPackages prefix="IEC60870" basePackage="org.eclipse.scada.configuration" resource="XMI"
@@ -25,6 +25,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec60870.ecore#//Device/endpoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//Device/protocolOptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//Device/dataModuleOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//Device/hiveProperties"/>
     </genClasses>
     <genClasses ecoreClass="iec60870.ecore#//Item">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec60870.ecore#//Item/source"/>
@@ -37,15 +38,24 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ExporterItemInterceptor/protocolOptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ExporterItemInterceptor/dataModuleOptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ExporterItemInterceptor/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ExporterItemInterceptor/hiveProperties"/>
     </genClasses>
     <genClasses ecoreClass="iec60870.ecore#//ProtocolOptions">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout1"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout2"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout3"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/asduAddressSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/informationObjectAdressSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/informationObjectAddressSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/causeOfTransmissionSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/w"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/k"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/targetTimeZone"/>
     </genClasses>
-    <genClasses ecoreClass="iec60870.ecore#//DataModuleOptions"/>
+    <genClasses ecoreClass="iec60870.ecore#//DataModuleOptions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/backgroundScanPeriod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/spontaneousItemBuffer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/timestampsForBoolean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/timestampsForFloat"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -164,5 +162,5 @@
 		fails with some strange error: 
 		<module>../org.eclipse.scada.configuration.world.lib.test</module>
 		 -->
-	</modules>
+	<module>../org.eclipse.scada.configuration.driver.parser</module><module>../org.eclipse.scada.configuration.driver.parser.edit</module><module>../org.eclipse.scada.configuration.driver.parser.lib</module><module>../org.eclipse.scada.configuration.ecore.ui</module><module>../org.eclipse.scada.configuration.iec60870</module><module>../org.eclipse.scada.configuration.iec60870.edit</module><module>../org.eclipse.scada.configuration.iec60870.lib</module></modules>
 </project>
