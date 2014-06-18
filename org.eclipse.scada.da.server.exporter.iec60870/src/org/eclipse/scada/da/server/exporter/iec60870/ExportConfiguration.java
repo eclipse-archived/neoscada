@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TimeZone;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.da.server.exporter.iec60870.MappingEntry.ValueType;
@@ -109,7 +110,7 @@ public class ExportConfiguration
      * <code>
      * entry.1.1=INT32#data.item.1
      * </code>
-     * 
+     *
      * @param parameters
      *            the parameters
      * @return the exporter configuration
@@ -132,6 +133,7 @@ public class ExportConfiguration
         optionsBuilder.setInformationObjectAddressType ( cfg.getEnum ( "informationObjectAddressType", InformationObjectAddressType.class, InformationObjectAddressType.SIZE_3 ) ); //$NON-NLS-1$
         optionsBuilder.setAcknowledgeWindow ( (short)cfg.getInteger ( "w", optionsBuilder.getAcknowledgeWindow () ) ); //$NON-NLS-1$
         optionsBuilder.setMaxUnacknowledged ( (short)cfg.getInteger ( "k", optionsBuilder.getMaxUnacknowledged () ) ); //$NON-NLS-1$
+        optionsBuilder.setTimeZone ( getTimeZone ( cfg, "timeZone" ) );
 
         result.setProtocolOptions ( optionsBuilder.build () );
 
@@ -154,6 +156,17 @@ public class ExportConfiguration
         result.setHiveProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
 
         return result;
+    }
+
+    private static TimeZone getTimeZone ( final ConfigurationDataHelper cfg, final String name )
+    {
+        final String timeZoneId = cfg.getString ( name, null );
+        if ( timeZoneId == null || timeZoneId.isEmpty () )
+        {
+            return null;
+        }
+
+        return TimeZone.getTimeZone ( timeZoneId );
     }
 
     private static MappingEntry createEntry ( final String key, final String value )
