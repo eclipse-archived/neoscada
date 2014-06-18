@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA Visual Interface Preview Editor
+Bundle-SymbolicName: org.eclipse.scada.ide.vi.preview.editor;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.eclipse.scada.ide.vi.preview.editor.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common;bundle-version="2.9.2",
+ org.eclipse.emf.edit;bundle-version="2.9.0",
+ org.eclipse.ui.ide,
+ org.eclipse.core.resources,
+ org.eclipse.scada.vi.model;bundle-version="0.2.0",
+ org.eclipse.scada.vi.ui.draw2d;bundle-version="0.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.scada.ui.utils.status;version="0.1.0",
+ org.eclipse.scada.utils;version="0.2.0",
+ org.slf4j;version="1.7.2"

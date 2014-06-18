@@ -239,7 +239,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
     public boolean isModelFile ( final IFile candidate, final Set<String> extensions )
     {
         final String ext = candidate.getFileExtension ();
-        logger.trace ( "Is model file - file: {}, ext: {}, list: {}", candidate, ext, extensions );
+        logger.debug ( "Is model file - file: {}, ext: {}, list: {}", candidate, ext, extensions );
 
         if ( extensions.contains ( ext ) )
         {
@@ -251,7 +251,7 @@ public class ProjectBuilder extends IncrementalProjectBuilder
 
     public boolean handleResource ( final IResourceDelta delta, final IResource resource, final ComposedAdapterFactory adapterFactory, final Set<String> extensions, final IProgressMonitor monitor )
     {
-        logger.trace ( "Handle resource - file: {}", resource );
+        logger.debug ( "Handle resource - file: {}", resource );
 
         if ( resource instanceof IProject )
         {
