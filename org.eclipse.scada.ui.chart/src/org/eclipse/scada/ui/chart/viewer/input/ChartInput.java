@@ -30,6 +30,10 @@ public interface ChartInput extends SeriesInformation
 
     public void setVisible ( boolean state );
 
+    // required for bean introspection
+    @Override
+    public boolean isVisible ();
+
     public String getState ();
 
     public void setSelection ( Calendar date );
@@ -41,7 +45,7 @@ public interface ChartInput extends SeriesInformation
      * implementation cannot create the image for the requested size it must
      * return <code>null</code>.
      * </p>
-     * 
+     *
      * @param width
      *            the requested width
      * @param height
