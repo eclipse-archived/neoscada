@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,22 +8,26 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add timestamp handling
  *******************************************************************************/
 package org.eclipse.scada.da.datasource.ds;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
-import org.eclipse.scada.core.InvalidOperationException;
 import org.eclipse.scada.core.OperationException;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.core.server.OperationParameters;
 import org.eclipse.scada.da.client.DataItemValue.Builder;
+import org.eclipse.scada.da.core.WriteAttributeResult;
 import org.eclipse.scada.da.core.WriteAttributeResults;
 import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.datasource.base.AbstractDataSource;
+import org.eclipse.scada.da.server.common.WriteAttributesHelper;
 import org.eclipse.scada.ds.DataListener;
 import org.eclipse.scada.ds.DataNode;
 import org.eclipse.scada.ds.DataNodeTracker;
@@ -34,6 +38,8 @@ import org.osgi.framework.BundleContext;
 
 public class DataStoreDataSource extends AbstractDataSource implements DataListener
 {
+    private static final String ATTR_TIMESTAMP = "timestamp"; //$NON-NLS-1$
+
     private final Executor executor;
 
     private boolean disposed;
@@ -45,6 +51,48 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
     private String nodeId;
 
     private final BundleContext context;
+
+    private Value currentNodeValue;
+
+    private static class Value implements Serializable
+    {
+        private static final long serialVersionUID = 1L;
+
+        private Variant value = Variant.NULL;
+
+        private Long timestamp;
+
+        public Value ()
+        {
+        }
+
+        public Value ( final Value other )
+        {
+            this.value = other.value;
+            this.timestamp = other.timestamp;
+        }
+
+        public Variant getValue ()
+        {
+            return this.value;
+        }
+
+        public void setValue ( final Variant value )
+        {
+            this.value = value;
+        }
+
+        public Long getTimestamp ()
+        {
+            return this.timestamp;
+        }
+
+        public void setTimestamp ( final Long timestamp )
+        {
+            this.timestamp = timestamp;
+        }
+
+    }
 
     public DataStoreDataSource ( final BundleContext context, final String id, final Executor executor, final DataNodeTracker dataNodeTracker )
     {
@@ -65,13 +113,41 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
     @Override
     public NotifyFuture<WriteAttributeResults> startWriteAttributes ( final Map<String, Variant> attributes, final OperationParameters operationParameters )
     {
-        return new InstantErrorFuture<WriteAttributeResults> ( new InvalidOperationException () );
+        // copy first, whoever wins, it must be consistent
+        final Value newValue = new Value ( this.currentNodeValue );
+
+        final WriteAttributeResults initialResults = new WriteAttributeResults ();
+        handleTimestamp ( initialResults, attributes, newValue );
+
+        if ( setNewValue ( newValue ) )
+        {
+            return new InstantFuture<WriteAttributeResults> ( WriteAttributesHelper.errorUnhandled ( initialResults, attributes ) );
+        }
+        else
+        {
+            return new InstantErrorFuture<WriteAttributeResults> ( new OperationException ( "Unable to write to data store! Data store missing!" ) );
+        }
+    }
+
+    private void handleTimestamp ( final WriteAttributeResults initialResults, final Map<String, Variant> attributes, final Value newValue )
+    {
+        final Variant timestampValue = attributes.get ( ATTR_TIMESTAMP );
+        if ( timestampValue != null )
+        {
+            newValue.setTimestamp ( timestampValue.asLong ( null ) );
+            initialResults.put ( ATTR_TIMESTAMP, WriteAttributeResult.OK );
+        }
     }
 
     @Override
     public NotifyFuture<WriteResult> startWriteValue ( final Variant value, final OperationParameters operationParameters )
     {
-        if ( this.dataNodeTracker.write ( new DataNode ( getNodeId (), value ) ) )
+        // copy first, whoever wins, it must be consistent
+        final Value newValue = new Value ( this.currentNodeValue );
+        newValue.setValue ( value );
+
+        // now apply
+        if ( setNewValue ( newValue ) )
         {
             return new InstantFuture<WriteResult> ( WriteResult.OK );
         }
@@ -79,6 +155,11 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
         {
             return new InstantErrorFuture<WriteResult> ( new OperationException ( "Unable to write to data store! Data store missing!" ) );
         }
+    }
+
+    private boolean setNewValue ( final Value newValue )
+    {
+        return this.dataNodeTracker.write ( new DataNode ( getNodeId (), newValue ) );
     }
 
     private String getNodeId ()
@@ -99,7 +180,7 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
         }
 
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
-        this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.datasource.ds/" + this.id );
+        this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.datasource.ds/" + this.id ); //$NON-NLS-1$ //$NON-NLS-2$
 
         this.dataNodeTracker.addListener ( this.nodeId, this );
     }
@@ -114,27 +195,44 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
         }
     }
 
+    protected Value convertValue ( final DataNode node ) throws IOException, ClassNotFoundException
+    {
+        if ( node == null )
+        {
+            return new Value ();
+        }
+
+        final Object value = node.getDataAsObject ( this.context.getBundle () );
+        if ( value instanceof Value )
+        {
+            return (Value)value;
+        }
+        else if ( value instanceof Variant )
+        {
+            final Value result = new Value ();
+            result.setValue ( (Variant)value );
+            return result;
+        }
+        return new Value ();
+    }
+
     @Override
     public void nodeChanged ( final DataNode node )
     {
-        logger.debug ( "Node data changed: {}", node );
+        logger.debug ( "Node data changed: {}", node ); //$NON-NLS-1$
+
         try
         {
-            if ( node != null )
+            this.currentNodeValue = convertValue ( node );
+
+            final Builder builder = new Builder ();
+            builder.setSubscriptionState ( SubscriptionState.CONNECTED );
+            builder.setValue ( this.currentNodeValue.getValue () );
+            if ( this.currentNodeValue.getTimestamp () != null )
             {
-                final Variant variant = (Variant)node.getDataAsObject ( this.context.getBundle () );
-                final Builder builder = new Builder ();
-                builder.setSubscriptionState ( SubscriptionState.CONNECTED );
-                builder.setValue ( variant );
-                updateData ( builder.build () );
+                builder.setTimestamp ( this.currentNodeValue.getTimestamp () );
             }
-            else
-            {
-                final Builder builder = new Builder ();
-                builder.setSubscriptionState ( SubscriptionState.CONNECTED );
-                builder.setValue ( Variant.NULL );
-                updateData ( builder.build () );
-            }
+            updateData ( builder.build () );
         }
         catch ( final Throwable e )
         {
@@ -144,16 +242,16 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
 
     private void setError ( final Throwable e )
     {
-        logger.warn ( "Failed to read data", e );
+        logger.warn ( "Failed to read data", e ); //$NON-NLS-1$
 
         final Builder builder = new Builder ();
         builder.setSubscriptionState ( SubscriptionState.CONNECTED );
         builder.setValue ( Variant.NULL );
-        builder.setAttribute ( "node.error", Variant.TRUE );
+        builder.setAttribute ( "node.error", Variant.TRUE ); //$NON-NLS-1$
 
         if ( e != null )
         {
-            builder.setAttribute ( "node.error.message", Variant.valueOf ( e.getMessage () ) );
+            builder.setAttribute ( "node.error.message", Variant.valueOf ( e.getMessage () ) ); //$NON-NLS-1$
         }
 
         updateData ( builder.build () );
