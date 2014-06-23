@@ -33,7 +33,7 @@ public class ExecDriverProcessor extends CommonDriverProcessor
     @Override
     protected String getHiveId ()
     {
-        return "org.eclipse.scada.da.server.exec.Hive";
+        return "org.eclipse.scada.da.server.exec.Hive"; //$NON-NLS-1$
     }
 
 }
