@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getW <em>W</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getK <em>K</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#getTargetTimeZone <em>Target Time Zone</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#isIgnoreDaylightSavingTime <em>Ignore Daylight Saving Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -292,4 +293,32 @@ public interface ProtocolOptions extends EObject
      * @generated
      */
     void setTargetTimeZone ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Ignore Daylight Saving Time</b></em>' attribute.
+     * The default value is <code>"false"</code>.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Ignore Daylight Saving Time</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Ignore Daylight Saving Time</em>' attribute.
+     * @see #setIgnoreDaylightSavingTime(boolean)
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getProtocolOptions_IgnoreDaylightSavingTime()
+     * @model default="false" required="true"
+     *        annotation="http://eclipse.org/SCADA/CA/Descriptor name='ignoreDaylightSavingTime'"
+     * @generated
+     */
+    boolean isIgnoreDaylightSavingTime ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#isIgnoreDaylightSavingTime <em>Ignore Daylight Saving Time</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Ignore Daylight Saving Time</em>' attribute.
+     * @see #isIgnoreDaylightSavingTime()
+     * @generated
+     */
+    void setIgnoreDaylightSavingTime ( boolean value );
 } // ProtocolOptions

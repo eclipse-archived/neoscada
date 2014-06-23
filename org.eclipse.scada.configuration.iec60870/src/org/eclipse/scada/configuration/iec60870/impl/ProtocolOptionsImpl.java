@@ -36,6 +36,7 @@ import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getW <em>W</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getK <em>K</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#getTargetTimeZone <em>Target Time Zone</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.iec60870.impl.ProtocolOptionsImpl#isIgnoreDaylightSavingTime <em>Ignore Daylight Saving Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -222,6 +223,26 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * @ordered
      */
     protected String targetTimeZone = TARGET_TIME_ZONE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isIgnoreDaylightSavingTime() <em>Ignore Daylight Saving Time</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIgnoreDaylightSavingTime()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean IGNORE_DAYLIGHT_SAVING_TIME_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isIgnoreDaylightSavingTime() <em>Ignore Daylight Saving Time</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isIgnoreDaylightSavingTime()
+     * @generated
+     * @ordered
+     */
+    protected boolean ignoreDaylightSavingTime = IGNORE_DAYLIGHT_SAVING_TIME_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -456,6 +477,29 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isIgnoreDaylightSavingTime ()
+    {
+        return ignoreDaylightSavingTime;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setIgnoreDaylightSavingTime ( boolean newIgnoreDaylightSavingTime )
+    {
+        boolean oldIgnoreDaylightSavingTime = ignoreDaylightSavingTime;
+        ignoreDaylightSavingTime = newIgnoreDaylightSavingTime;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, IEC60870Package.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME, oldIgnoreDaylightSavingTime, ignoreDaylightSavingTime ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -479,6 +523,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return getK ();
             case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
                 return getTargetTimeZone ();
+            case IEC60870Package.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME:
+                return isIgnoreDaylightSavingTime ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -519,6 +565,9 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return;
             case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
                 setTargetTimeZone ( (String)newValue );
+                return;
+            case IEC60870Package.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME:
+                setIgnoreDaylightSavingTime ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -561,6 +610,9 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
             case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
                 setTargetTimeZone ( TARGET_TIME_ZONE_EDEFAULT );
                 return;
+            case IEC60870Package.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME:
+                setIgnoreDaylightSavingTime ( IGNORE_DAYLIGHT_SAVING_TIME_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -593,6 +645,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
                 return k != K_EDEFAULT;
             case IEC60870Package.PROTOCOL_OPTIONS__TARGET_TIME_ZONE:
                 return TARGET_TIME_ZONE_EDEFAULT == null ? targetTimeZone != null : !TARGET_TIME_ZONE_EDEFAULT.equals ( targetTimeZone );
+            case IEC60870Package.PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME:
+                return ignoreDaylightSavingTime != IGNORE_DAYLIGHT_SAVING_TIME_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -627,6 +681,8 @@ public class ProtocolOptionsImpl extends MinimalEObjectImpl.Container implements
         result.append ( k );
         result.append ( ", targetTimeZone: " ); //$NON-NLS-1$
         result.append ( targetTimeZone );
+        result.append ( ", ignoreDaylightSavingTime: " ); //$NON-NLS-1$
+        result.append ( ignoreDaylightSavingTime );
         result.append ( ')' );
         return result.toString ();
     }

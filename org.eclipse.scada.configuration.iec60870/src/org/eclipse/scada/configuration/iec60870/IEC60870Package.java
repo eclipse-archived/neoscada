@@ -430,13 +430,22 @@ public interface IEC60870Package extends EPackage
     int PROTOCOL_OPTIONS__TARGET_TIME_ZONE = 8;
 
     /**
+     * The feature id for the '<em><b>Ignore Daylight Saving Time</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME = 9;
+
+    /**
      * The number of structural features of the '<em>Protocol Options</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PROTOCOL_OPTIONS_FEATURE_COUNT = 9;
+    int PROTOCOL_OPTIONS_FEATURE_COUNT = 10;
 
     /**
      * The number of operations of the '<em>Protocol Options</em>' class.
@@ -846,6 +855,17 @@ public interface IEC60870Package extends EPackage
     EAttribute getProtocolOptions_TargetTimeZone ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ProtocolOptions#isIgnoreDaylightSavingTime <em>Ignore Daylight Saving Time</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ignore Daylight Saving Time</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ProtocolOptions#isIgnoreDaylightSavingTime()
+     * @see #getProtocolOptions()
+     * @generated
+     */
+    EAttribute getProtocolOptions_IgnoreDaylightSavingTime ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.DataModuleOptions <em>Data Module Options</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1185,6 +1205,14 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute PROTOCOL_OPTIONS__TARGET_TIME_ZONE = eINSTANCE.getProtocolOptions_TargetTimeZone ();
+
+        /**
+         * The meta object literal for the '<em><b>Ignore Daylight Saving Time</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PROTOCOL_OPTIONS__IGNORE_DAYLIGHT_SAVING_TIME = eINSTANCE.getProtocolOptions_IgnoreDaylightSavingTime ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.DataModuleOptionsImpl <em>Data Module Options</em>}' class.

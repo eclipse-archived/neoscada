@@ -127,6 +127,13 @@
         <details key="name" value="timeZone"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreDaylightSavingTime"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="ignoreDaylightSavingTime"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataModuleOptions">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundScanPeriod" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
