@@ -257,6 +257,14 @@ public class ProtocolOptions
             return this.value.timeZone;
         }
 
+        /**
+         * Set the target time zone <br/>
+         * If the timezone is not set or set to <code>null</code> the timezone
+         * will be <q>UTC</q>.
+         * 
+         * @param timeZone
+         *            the target time zone, may be <code>null</code/>
+         */
         public void setTimeZone ( final TimeZone timeZone )
         {
             if ( timeZone == null )
