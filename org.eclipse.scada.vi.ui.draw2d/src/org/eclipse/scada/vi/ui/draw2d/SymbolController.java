@@ -27,6 +27,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.core.Variant;
@@ -35,6 +36,7 @@ import org.eclipse.scada.core.ui.styles.StyleGenerator.GeneratorListener;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
 import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.eclipse.scada.vi.data.DataValue;
 import org.eclipse.scada.vi.data.RegistrationManager;
 import org.eclipse.scada.vi.data.RegistrationManager.Listener;
@@ -122,6 +124,8 @@ public class SymbolController implements Listener
 
     private final SymbolLoader symbolLoader;
 
+    private final ScriptEngine scriptEngine;
+
     public SymbolController ( final Shell shell, final SymbolLoader symbolLoader, final Map<String, String> properties, final Map<String, Object> scriptObjects ) throws Exception
     {
         this ( shell, null, symbolLoader, properties, scriptObjects );
@@ -192,21 +196,20 @@ public class SymbolController implements Listener
             addScriptObjects ( parentController.getScriptObjects () );
         }
 
+        this.scriptEngine = Scripts.createEngine ( "JavaScript", this.classLoader );
+
         for ( final String module : symbol.getScriptModules () )
         {
             loadScript ( module );
         }
 
-        this.onInit = new ScriptExecutor ( "JavaScript", symbol.getOnInit (), this.classLoader, "onInit" ); //$NON-NLS-1$
-        this.onDispose = new ScriptExecutor ( "JavaScript", symbol.getOnDispose (), this.classLoader, "onDispose" ); //$NON-NLS-1$
-        this.onUpdate = new ScriptExecutor ( "JavaScript", symbol.getOnUpdate (), this.classLoader, "onUpdate" ); //$NON-NLS-1$
+        this.onInit = new ScriptExecutor ( this.scriptEngine, symbol.getOnInit (), this.classLoader, "onInit" ); //$NON-NLS-1$
+        this.onDispose = new ScriptExecutor ( this.scriptEngine, symbol.getOnDispose (), this.classLoader, "onDispose" ); //$NON-NLS-1$
+        this.onUpdate = new ScriptExecutor ( this.scriptEngine, symbol.getOnUpdate (), this.classLoader, "onUpdate" ); //$NON-NLS-1$
 
         this.generator.addListener ( this.generatorListener );
     }
 
-    /**
-     * @since 1.1
-     */
     public Shell getShell ()
     {
         return this.shell;
@@ -303,7 +306,7 @@ public class SymbolController implements Listener
 
         final String moduleSource = this.symbolLoader.loadStringResource ( module );
 
-        new ScriptExecutor ( "JavaScript", moduleSource, this.classLoader, module ).execute ( this.scriptContext );
+        new ScriptExecutor ( this.scriptEngine, moduleSource, this.classLoader, module ).execute ( this.scriptContext );
     }
 
     public void init () throws Exception
@@ -399,7 +402,7 @@ public class SymbolController implements Listener
 
     public Object createProperties ( final String command, final String onCreateProperties, final Map<String, String> currentProperties ) throws Exception
     {
-        final ScriptExecutor executor = new ScriptExecutor ( "JavaScript", onCreateProperties, this.classLoader, "onCreateProperties" );
+        final ScriptExecutor executor = new ScriptExecutor ( this.scriptEngine, onCreateProperties, this.classLoader, "onCreateProperties" );
         final Map<String, Object> localProperties = new HashMap<String, Object> ( 1 );
         localProperties.put ( "properties", currentProperties );
         return executor.execute ( this.scriptContext, localProperties );
@@ -576,7 +579,7 @@ public class SymbolController implements Listener
             return null;
         }
 
-        return new ScriptExecutor ( "JavaScript", command, this.classLoader, sourceName );
+        return new ScriptExecutor ( this.scriptEngine, command, this.classLoader, sourceName );
     }
 
     public void execute ( final ScriptExecutor scriptExecutor, final Map<String, Object> scriptObjects )
