@@ -16,19 +16,17 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
-import org.eclipse.scada.chart.swt.ChartRenderer;
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartFactory;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.scada.ui.chart.viewer.NullExtensionSpace;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 
 public class ChartFigure extends Figure
 {
-    private ChartRenderer renderer;
+    private FigureRenderer renderer;
 
     private ChartViewer viewer;
 
@@ -44,7 +42,7 @@ public class ChartFigure extends Figure
 
     /**
      * Create a new chart figure
-     * 
+     *
      * @param parentResourceManager
      *            The resource manager that will act as parent when creating
      *            resource managers
@@ -155,7 +153,7 @@ public class ChartFigure extends Figure
         super.setSize ( w, h );
         if ( this.renderer != null )
         {
-            this.renderer.resizeAll ( new Rectangle ( 0, 0, w, h ) );
+            this.renderer.handleResize ();
         }
     }
 

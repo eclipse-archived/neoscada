@@ -66,7 +66,7 @@ public class FigureRenderer extends ChartRenderer
         super.dispose ();
     }
 
-    protected void handleResize ()
+    public void handleResize ()
     {
         resizeAll ( getClientArea () );
     }

@@ -120,7 +120,6 @@ public class Draw2DGraphics implements Graphics
     @Override
     public void drawText ( final String string, final int x, final int y, final Float rotate )
     {
-
         if ( rotate != null )
         {
             this.g.pushState ();
