@@ -162,6 +162,7 @@
 		<module>../org.eclipse.scada.da.server.exporter.osgi</module>
 		<module>../org.eclipse.scada.da.server.io.common</module>
 		<module>../org.eclipse.scada.da.server.jdbc</module>
+		<module>../org.eclipse.scada.da.server.jdbc.edit</module>
 		<module>../org.eclipse.scada.da.server.net</module>
 		<module>../org.eclipse.scada.da.server.ngp</module>
 		<module>../org.eclipse.scada.da.server.osgi</module>
