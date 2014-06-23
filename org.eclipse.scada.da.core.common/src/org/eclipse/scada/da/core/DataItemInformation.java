@@ -18,7 +18,8 @@ import org.eclipse.scada.da.data.IODirection;
  * Data item information
  * <p>
  * Data items information objects must be equal on their name!
- * 
+ * </p>
+ *
  * @author Jens Reimann
  */
 public interface DataItemInformation
@@ -30,7 +31,11 @@ public interface DataItemInformation
      * <p>
      * Although the getter is called <em>name</em> it returns the <em>id</em>
      * since somewhere in the past "name" was renamed to "id".
-     * 
+     * </p>
+     * <p>
+     * <em>Note:</em>The ID of the item must be unique.
+     * </p>
+     *
      * @return the id of the data item
      */
     public abstract String getName ();
