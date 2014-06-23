@@ -122,7 +122,7 @@ public class TitleRenderer extends AbstractRenderer
         {
             final Point size = gc.textExtent ( this.title );
             this.rect = new Rectangle ( clientRectangle.x, clientRectangle.y, clientRectangle.width, size.y + this.padding * 2 );
-            return new Rectangle ( clientRectangle.x, this.rect.height, clientRectangle.width, clientRectangle.height - this.rect.height );
+            return new Rectangle ( clientRectangle.x, this.rect.y + this.rect.height, clientRectangle.width, clientRectangle.height - this.rect.height );
         }
         finally
         {
