@@ -69,6 +69,12 @@ public class ProtocolOptions
      */
     private String timeZoneId;
 
+    /**
+     * A flag indicating of the daylight saving time information should be
+     * ignored
+     */
+    private boolean ignoreDaylightSavingTime;
+
     private ProtocolOptions ()
     {
     }
@@ -86,6 +92,7 @@ public class ProtocolOptions
         this.maxSequenceNumber = other.maxSequenceNumber;
         this.timeZone = other.timeZone;
         this.timeZoneId = other.timeZoneId;
+        this.ignoreDaylightSavingTime = other.ignoreDaylightSavingTime;
     }
 
     public int getTimeout1 ()
@@ -136,6 +143,11 @@ public class ProtocolOptions
     public TimeZone getTimeZone ()
     {
         return this.timeZone;
+    }
+
+    public boolean isIgnoreDaylightSavingTime ()
+    {
+        return this.ignoreDaylightSavingTime;
     }
 
     public static class Builder
@@ -261,7 +273,7 @@ public class ProtocolOptions
          * Set the target time zone <br/>
          * If the timezone is not set or set to <code>null</code> the timezone
          * will be <q>UTC</q>.
-         * 
+         *
          * @param timeZone
          *            the target time zone, may be <code>null</code/>
          */
@@ -277,6 +289,16 @@ public class ProtocolOptions
                 this.value.timeZoneId = timeZone.getID ();
             }
         }
+
+        public void setIgnoreDaylightSavingTime ( final boolean ignoreDaylightSavingTime )
+        {
+            this.value.ignoreDaylightSavingTime = ignoreDaylightSavingTime;
+        }
+
+        public boolean isIgnoreDaylightSavingTime ()
+        {
+            return this.value.ignoreDaylightSavingTime;
+        }
     }
 
     @Override
@@ -287,6 +309,7 @@ public class ProtocolOptions
         result = prime * result + this.acknowledgeWindow;
         result = prime * result + ( this.adsuAddressType == null ? 0 : this.adsuAddressType.hashCode () );
         result = prime * result + ( this.causeOfTransmissionType == null ? 0 : this.causeOfTransmissionType.hashCode () );
+        result = prime * result + ( this.ignoreDaylightSavingTime ? 1231 : 1237 );
         result = prime * result + ( this.informationObjectAddressType == null ? 0 : this.informationObjectAddressType.hashCode () );
         result = prime * result + this.maxSequenceNumber;
         result = prime * result + this.maxUnacknowledged;
@@ -322,6 +345,10 @@ public class ProtocolOptions
             return false;
         }
         if ( this.causeOfTransmissionType != other.causeOfTransmissionType )
+        {
+            return false;
+        }
+        if ( this.ignoreDaylightSavingTime != other.ignoreDaylightSavingTime )
         {
             return false;
         }

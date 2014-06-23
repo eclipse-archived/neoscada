@@ -31,9 +31,19 @@ public class TypeHelper
         final int month = c.get ( Calendar.MONTH ) + 1;
         final int year = c.get ( Calendar.YEAR ) % 100;
 
+        byte hourField = (byte) ( hours & 0b00011111 );
+
+        if ( !options.isIgnoreDaylightSavingTime () )
+        {
+            if ( c.get ( Calendar.DST_OFFSET ) > 0 )
+            {
+                hourField |= 0b10000000;
+            }
+        }
+
         out.writeShort ( ms );
         out.writeByte ( minutes ); // we implicitly set "valid"
-        out.writeByte ( hours ); // we implicitly set DST to false
+        out.writeByte ( hourField );
         out.writeByte ( dayOfMonth ); // we implicitly set dayOfWeek to zero here
         out.writeByte ( month );
         out.writeByte ( year );
