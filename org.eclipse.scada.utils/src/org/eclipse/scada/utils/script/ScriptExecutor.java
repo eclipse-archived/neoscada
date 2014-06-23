@@ -47,35 +47,6 @@ public class ScriptExecutor
 
     private final String sourceName;
 
-    private static ScriptEngine createEngine ( final ScriptEngineManager engineManager, final String engineName, final ClassLoader scriptClassLoader ) throws Exception
-    {
-        if ( engineManager == null )
-        {
-            throw new IllegalArgumentException ( "Script engine manager must not be null" );
-        }
-
-        if ( engineName == null )
-        {
-            return null;
-        }
-
-        final ScriptEngine engine = executeWithClassLoader ( scriptClassLoader, new Callable<ScriptEngine> () {
-
-            @Override
-            public ScriptEngine call () throws Exception
-            {
-                return engineManager.getEngineByName ( engineName );
-            }
-        } );
-
-        if ( engine == null )
-        {
-            throw new ScriptException ( String.format ( "Script engine '%s' could not be found", engineName ) );
-        }
-
-        return engine;
-    }
-
     public ScriptExecutor ( final String engineName, final String command, final ClassLoader classLoader ) throws Exception
     {
         this ( engineName, command, classLoader, null );
@@ -107,7 +78,7 @@ public class ScriptExecutor
      */
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final String command, final ClassLoader classLoader ) throws Exception
     {
-        this ( createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader );
+        this ( Scripts.createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader );
     }
 
     /**
@@ -128,7 +99,7 @@ public class ScriptExecutor
      */
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final String command, final ClassLoader classLoader, final String sourceName ) throws Exception
     {
-        this ( createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader, sourceName );
+        this ( Scripts.createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : command, classLoader, sourceName );
     }
 
     /**
@@ -147,27 +118,7 @@ public class ScriptExecutor
      */
     public ScriptExecutor ( final ScriptEngineManager engineManager, final String engineName, final URL commandUrl, final ClassLoader classLoader ) throws Exception
     {
-        this ( createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : commandUrl, classLoader );
-    }
-
-    private static <V> V executeWithClassLoader ( final ClassLoader classLoader, final Callable<V> callable ) throws Exception
-    {
-        if ( classLoader == null )
-        {
-            return callable.call ();
-        }
-
-        final ClassLoader tcl = Thread.currentThread ().getContextClassLoader ();
-        try
-        {
-            Thread.currentThread ().setContextClassLoader ( classLoader );
-            return callable.call ();
-        }
-        finally
-        {
-            Thread.currentThread ().setContextClassLoader ( tcl );
-        }
-
+        this ( Scripts.createEngine ( engineManager, engineName, classLoader ), engineName == null ? null : commandUrl, classLoader );
     }
 
     /**
@@ -182,7 +133,7 @@ public class ScriptExecutor
      *            <code>null</code>
      * @throws ScriptException
      */
-    private ScriptExecutor ( final ScriptEngine engine, final String command, final ClassLoader classLoader, final String sourceName ) throws Exception
+    public ScriptExecutor ( final ScriptEngine engine, final String command, final ClassLoader classLoader, final String sourceName ) throws Exception
     {
         this.engine = engine;
         this.command = command;
@@ -197,7 +148,7 @@ public class ScriptExecutor
                 engine.put ( ScriptEngine.FILENAME, sourceName );
             }
 
-            executeWithClassLoader ( classLoader, new Callable<Void> () {
+            Scripts.executeWithClassLoader ( classLoader, new Callable<Void> () {
                 @Override
                 public Void call () throws Exception
                 {
@@ -220,12 +171,12 @@ public class ScriptExecutor
      *            <code>null</code>
      * @throws ScriptException
      */
-    private ScriptExecutor ( final ScriptEngine engine, final String command, final ClassLoader classLoader ) throws Exception
+    public ScriptExecutor ( final ScriptEngine engine, final String command, final ClassLoader classLoader ) throws Exception
     {
         this ( engine, command, classLoader, null );
     }
 
-    private ScriptExecutor ( final ScriptEngine engine, final URL commandUrl, final ClassLoader classLoader ) throws Exception
+    public ScriptExecutor ( final ScriptEngine engine, final URL commandUrl, final ClassLoader classLoader ) throws Exception
     {
         this.engine = engine;
         this.command = null;
@@ -235,7 +186,7 @@ public class ScriptExecutor
 
         if ( commandUrl != null && engine instanceof Compilable && !Boolean.getBoolean ( PROP_NAME_DISABLE_COMPILE ) )
         {
-            executeWithClassLoader ( classLoader, new Callable<Void> () {
+            Scripts.executeWithClassLoader ( classLoader, new Callable<Void> () {
 
                 @Override
                 public Void call () throws Exception
@@ -332,7 +283,7 @@ public class ScriptExecutor
 
     public Object execute ( final ScriptContext scriptContext, final Map<String, Object> scriptObjects ) throws Exception
     {
-        return executeWithClassLoader ( this.classLoader, new Callable<Object> () {
+        return Scripts.executeWithClassLoader ( this.classLoader, new Callable<Object> () {
 
             @Override
             public Object call () throws Exception
