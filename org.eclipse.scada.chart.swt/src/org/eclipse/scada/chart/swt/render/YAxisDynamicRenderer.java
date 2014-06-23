@@ -178,7 +178,19 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             {
                 final Point labelSize = g.textExtent ( marker.label );
                 final int y = marker.position + this.rect.y;
-                g.drawText ( marker.label, this.left ? x - ( labelSize.x + this.textPadding + this.markerSize ) : x + this.textPadding, y - labelSize.y / 2, null );
+
+                final int tx;
+                if ( this.left )
+                {
+                    tx = x - ( labelSize.x + this.textPadding + this.markerSize );
+                }
+                else
+                {
+                    tx = x + this.textPadding + this.markerSize;
+                }
+
+                final int ty = y - labelSize.y / 2;
+                g.drawText ( marker.label, tx, ty, null );
             }
         }
         else
@@ -221,7 +233,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
                 {
                     // out of bounds
                     /* We do allow the marker labels to overlap, but the not he marker
-                     * lines 
+                     * lines
                      */
                     continue;
                 }
