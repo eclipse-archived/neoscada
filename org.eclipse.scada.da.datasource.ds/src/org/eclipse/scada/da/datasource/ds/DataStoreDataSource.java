@@ -65,7 +65,7 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
     @Override
     public NotifyFuture<WriteAttributeResults> startWriteAttributes ( final Map<String, Variant> attributes, final OperationParameters operationParameters )
     {
-        return new InstantErrorFuture<WriteAttributeResults> ( new InvalidOperationException ().fillInStackTrace () );
+        return new InstantErrorFuture<WriteAttributeResults> ( new InvalidOperationException () );
     }
 
     @Override
@@ -77,7 +77,7 @@ public class DataStoreDataSource extends AbstractDataSource implements DataListe
         }
         else
         {
-            return new InstantErrorFuture<WriteResult> ( new OperationException ( "Unable to write to data store! Data store missing!" ).fillInStackTrace () );
+            return new InstantErrorFuture<WriteResult> ( new OperationException ( "Unable to write to data store! Data store missing!" ) );
         }
     }
 
