@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
+import javax.script.ScriptEngine;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ae.data.MonitorStatusInformation;
@@ -40,6 +41,7 @@ import org.eclipse.scada.da.master.MasterItem;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
@@ -171,12 +173,13 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
 
     private synchronized void setScript ( final ConfigurationDataHelper cfg ) throws Exception
     {
-        String engine = cfg.getString ( "scriptEngine", DEFAULT_ENGINE_NAME ); //$NON-NLS-1$
-        if ( "".equals ( engine ) ) // catches null
+        String engineName = cfg.getString ( "scriptEngine", DEFAULT_ENGINE_NAME ); //$NON-NLS-1$
+        if ( "".equals ( engineName ) ) // catches null
         {
-            engine = DEFAULT_ENGINE_NAME;
+            engineName = DEFAULT_ENGINE_NAME;
         }
 
+        final ScriptEngine engine = Scripts.createEngine ( engineName, this.classLoader );
         this.scriptContext = new SimpleScriptContext ();
 
         // trigger init script
@@ -189,7 +192,7 @@ public class ScriptMonitor extends AbstractPersistentStateMonitor
         this.updateCommand = makeScript ( engine, cfg.getString ( "updateCommand" ) ); //$NON-NLS-1$
     }
 
-    private ScriptExecutor makeScript ( final String engine, final String string ) throws Exception
+    private ScriptExecutor makeScript ( final ScriptEngine engine, final String string ) throws Exception
     {
         if ( string == null || string.isEmpty () )
         {

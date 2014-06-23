@@ -22,6 +22,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import javax.script.ScriptContext;
+import javax.script.ScriptEngine;
 import javax.script.SimpleScriptContext;
 
 import org.eclipse.scada.ae.event.EventProcessor;
@@ -43,6 +44,7 @@ import org.eclipse.scada.utils.concurrent.InstantErrorFuture;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.script.ScriptExecutor;
+import org.eclipse.scada.utils.script.Scripts;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -259,13 +261,13 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
 
     private void setScript ( final ConfigurationDataHelper cfg ) throws Exception
     {
-
-        String engine = cfg.getString ( "engine", DEFAULT_ENGINE_NAME );
-        if ( "".equals ( engine ) )
+        String engineName = cfg.getString ( "engine", DEFAULT_ENGINE_NAME );
+        if ( "".equals ( engineName ) )
         {
-            engine = DEFAULT_ENGINE_NAME;
+            engineName = DEFAULT_ENGINE_NAME;
         }
 
+        final ScriptEngine engine = Scripts.createEngine ( engineName, ScriptDataSource.class.getClassLoader () );
         this.scriptContext = new SimpleScriptContext ();
 
         // trigger init script
@@ -280,7 +282,7 @@ public class ScriptDataSource extends AbstractMultiSourceDataSource
         this.writeCommand = makeScript ( engine, cfg.getString ( "writeCommand" ) );
     }
 
-    private ScriptExecutor makeScript ( final String engine, final String string ) throws Exception
+    private ScriptExecutor makeScript ( final ScriptEngine engine, final String string ) throws Exception
     {
         if ( string == null || string.isEmpty () )
         {
