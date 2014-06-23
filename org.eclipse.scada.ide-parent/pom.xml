@@ -93,7 +93,7 @@
 		<module>../org.eclipse.scada.configuration.component.editor</module>
 		<module>../org.eclipse.scada.configuration.component.exec</module>
 		<module>../org.eclipse.scada.configuration.component.exec.edit</module>
-		<module>../org.eclipse.scada.configuration.component.exec.generator</module>
+		<module>../org.eclipse.scada.configuration.component.exec.lib</module>
 		<module>../org.eclipse.scada.configuration.component.generator</module>
 		<module>../org.eclipse.scada.configuration.component.lib</module>
 		<module>../org.eclipse.scada.configuration.generator</module>
