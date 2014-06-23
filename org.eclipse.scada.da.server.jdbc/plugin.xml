@@ -7,7 +7,7 @@
          point="org.eclipse.wst.xml.core.catalogContributions">
       <catalogContribution>
          <uri
-               name="http://openscada.org/DA/JDBC/Configuration"
+               name="http://eclipse.org/SCADA/DA/JDBC/Configuration"
                uri="model/jdbc.xsd">
          </uri>
       </catalogContribution>
