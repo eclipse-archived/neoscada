@@ -22,7 +22,7 @@ import org.eclipse.scada.configuration.world.osgi.DataAccessExporter;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 
-public abstract class AbstractDriverHandler<T extends org.eclipse.scada.configuration.infrastructure.Driver & EquinoxBase, S extends Driver & EquinoxApplication> implements DriverHandler
+public abstract class AbstractEquinoxDriverHandler<T extends org.eclipse.scada.configuration.infrastructure.Driver & EquinoxBase, S extends Driver & EquinoxApplication> implements DriverHandler
 {
     protected abstract S createDriver ( T driver );
 

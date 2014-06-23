@@ -16,7 +16,7 @@ import org.eclipse.scada.configuration.driver.parser.ParserDriver;
 import org.eclipse.scada.configuration.driver.parser.ParserFactory;
 import org.eclipse.scada.configuration.infrastructure.lib.DriverHandler;
 
-public class DriverHandlerImpl extends AbstractDriverHandler<ParserComponentHost, ParserDriver> implements DriverHandler
+public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<ParserComponentHost, ParserDriver> implements DriverHandler
 {
     @Override
     protected ParserDriver createDriver ( final ParserComponentHost driver )
