@@ -41,15 +41,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ExporterItemInterceptor/hiveProperties"/>
     </genClasses>
     <genClasses ecoreClass="iec60870.ecore#//ProtocolOptions">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout2"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout3"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/asduAddressSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/informationObjectAddressSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/causeOfTransmissionSize"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/w"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/k"/>
-      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/targetTimeZone"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout1"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout2"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/timeout3"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/asduAddressSize"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/informationObjectAddressSize"/>
+      <genFeatures createChild="false" propertyCategory="parameters" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/causeOfTransmissionSize"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/w"/>
+      <genFeatures createChild="false" propertyCategory="communication" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/k"/>
+      <genFeatures createChild="false" propertyCategory="time" propertySortChoices="true"
+          ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/targetTimeZone"/>
+      <genFeatures createChild="false" propertyCategory="time" ecoreFeature="ecore:EAttribute iec60870.ecore#//ProtocolOptions/ignoreDaylightSavingTime"/>
     </genClasses>
     <genClasses ecoreClass="iec60870.ecore#//DataModuleOptions">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/backgroundScanPeriod"/>
