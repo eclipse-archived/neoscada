@@ -134,6 +134,7 @@ public class ExportConfiguration
         optionsBuilder.setAcknowledgeWindow ( (short)cfg.getInteger ( "w", optionsBuilder.getAcknowledgeWindow () ) ); //$NON-NLS-1$
         optionsBuilder.setMaxUnacknowledged ( (short)cfg.getInteger ( "k", optionsBuilder.getMaxUnacknowledged () ) ); //$NON-NLS-1$
         optionsBuilder.setTimeZone ( getTimeZone ( cfg, "timeZone" ) ); //$NON-NLS-1$
+        optionsBuilder.setIgnoreDaylightSavingTime ( cfg.getBoolean ( "ignoreDaylightSavingTime", false ) ); //$NON-NLS-1$
 
         result.setProtocolOptions ( optionsBuilder.build () );
 
