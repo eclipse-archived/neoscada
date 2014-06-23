@@ -358,7 +358,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.scada.configuration.component.exec.generator"
+         id="org.eclipse.scada.configuration.component.exec.lib"
          download-size="0"
          install-size="0"
          version="0.0.0"
