@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.exec.generator;
+package org.eclipse.scada.configuration.component.exec.lib;
 
 import java.util.HashMap;
 import java.util.Map;

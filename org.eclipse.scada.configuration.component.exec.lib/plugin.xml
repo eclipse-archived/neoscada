@@ -5,21 +5,21 @@
          point="org.eclipse.core.runtime.adapters">
            <factory
             adaptableType="org.eclipse.scada.configuration.component.exec.LoadAverage"
-            class="org.eclipse.scada.configuration.component.exec.generator.AdapterFactory">
+            class="org.eclipse.scada.configuration.component.exec.lib.AdapterFactory">
          <adapter
                type="org.eclipse.scada.configuration.generator.Generator">
          </adapter>
       </factory>
         <factory
              adaptableType="org.eclipse.scada.configuration.component.exec.PingCheck"
-             class="org.eclipse.scada.configuration.component.exec.generator.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.exec.lib.AdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
        </factory>
            <factory
              adaptableType="org.eclipse.scada.configuration.component.exec.SystemInformationVMStat"
-             class="org.eclipse.scada.configuration.component.exec.generator.AdapterFactory">
+             class="org.eclipse.scada.configuration.component.exec.lib.AdapterFactory">
           <adapter
                 type="org.eclipse.scada.configuration.generator.Generator">
           </adapter>
@@ -29,7 +29,7 @@
     <extension
          point="org.eclipse.scada.configuration.infrastructure.lib.driver">
       <driverFactory
-            factoryClass="org.eclipse.scada.configuration.component.exec.generator.ExecDriverFactory"
+            factoryClass="org.eclipse.scada.configuration.component.exec.lib.ExecDriverFactory"
             typeId="org.eclipse.scada.da.server.exec">
       </driverFactory>
    </extension>

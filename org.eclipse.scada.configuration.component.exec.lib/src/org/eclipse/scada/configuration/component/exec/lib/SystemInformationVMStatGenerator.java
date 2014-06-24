@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.exec.generator;
+package org.eclipse.scada.configuration.component.exec.lib;
 
 import org.eclipse.scada.configuration.component.exec.SystemInformationVMStat;
 import org.eclipse.scada.configuration.world.osgi.DataType;
