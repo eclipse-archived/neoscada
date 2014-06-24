@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,10 +8,12 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add query timeout
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -269,7 +271,7 @@ public class Hive extends HiveCommon
 
         logger.info ( "Creating new query: {}", sql );
 
-        connection.add ( new Query ( queryType.getId (), queryType.getPeriod (), sql, connection, columnAliases ) );
+        connection.add ( new Query ( queryType.getId (), queryType.getPeriod (), sql, connection, convertTimeout ( queryType.getTimeout () ), columnAliases ) );
     }
 
     private void createTabularQuery ( final Connection connection, final TabularQueryType queryType, final Map<Integer, String> columnAliases, final Map<String, String> updateMap, final Map<String, String> commands )
@@ -281,7 +283,16 @@ public class Hive extends HiveCommon
         }
 
         logger.info ( "Creating new tabular query: {} / {}", sql );
-        connection.add ( new TabularQuery ( queryType.getId (), queryType.getIdColumn (), queryType.getPeriod (), sql, connection, columnAliases, updateMap, commands ) );
+        connection.add ( new TabularQuery ( queryType.getId (), queryType.getIdColumn (), queryType.getPeriod (), sql, connection, convertTimeout ( queryType.getTimeout () ), columnAliases, updateMap, commands ) );
+    }
+
+    private Integer convertTimeout ( final BigInteger timeout )
+    {
+        if ( timeout == null )
+        {
+            return null;
+        }
+        return timeout.intValue ();
     }
 
 }

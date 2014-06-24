@@ -23,6 +23,7 @@
 		<attribute name="id" type="string" use="required"></attribute>
 		<attribute name="period" type="int" use="required"></attribute>
 		<attribute name="sql" type="string" use="optional"></attribute>
+		<attribute name="timeout" type="positiveInteger"></attribute>
 	</complexType>
 
 	<complexType name="QueryType">
@@ -101,6 +102,7 @@
 		</sequence>
 		<attribute name="id" type="string" use="required"></attribute>
 		<attribute name="sql" type="string"></attribute>
+		<attribute name="timeout" type="int"></attribute>
 	</complexType>
 
 	<complexType name="UpdateMappingType">

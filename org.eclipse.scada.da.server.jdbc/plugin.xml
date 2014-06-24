@@ -3,16 +3,6 @@
 
 <plugin>
 
-   <extension
-         point="org.eclipse.wst.xml.core.catalogContributions">
-      <catalogContribution>
-         <uri
-               name="http://eclipse.org/SCADA/DA/JDBC/Configuration"
-               uri="model/jdbc.xsd">
-         </uri>
-      </catalogContribution>
-   </extension>
-
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated jdbc -->
       <package

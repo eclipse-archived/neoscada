@@ -285,6 +285,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getAbstractQueryType_Timeout ()
+    {
+        return (EAttribute)abstractQueryTypeEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getColumnMappingType ()
     {
         return columnMappingTypeEClass;
@@ -705,6 +715,16 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getUpdateType_Timeout ()
+    {
+        return (EAttribute)updateTypeEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EDataType getAliasNameType ()
     {
         return aliasNameTypeEDataType;
@@ -767,6 +787,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         createEAttribute ( abstractQueryTypeEClass, ABSTRACT_QUERY_TYPE__ID );
         createEAttribute ( abstractQueryTypeEClass, ABSTRACT_QUERY_TYPE__PERIOD );
         createEAttribute ( abstractQueryTypeEClass, ABSTRACT_QUERY_TYPE__SQL1 );
+        createEAttribute ( abstractQueryTypeEClass, ABSTRACT_QUERY_TYPE__TIMEOUT );
 
         columnMappingTypeEClass = createEClass ( COLUMN_MAPPING_TYPE );
         createEAttribute ( columnMappingTypeEClass, COLUMN_MAPPING_TYPE__ALIAS_NAME );
@@ -819,6 +840,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         createEReference ( updateTypeEClass, UPDATE_TYPE__MAPPING );
         createEAttribute ( updateTypeEClass, UPDATE_TYPE__ID );
         createEAttribute ( updateTypeEClass, UPDATE_TYPE__SQL1 );
+        createEAttribute ( updateTypeEClass, UPDATE_TYPE__TIMEOUT );
 
         // Create data types
         aliasNameTypeEDataType = createEDataType ( ALIAS_NAME_TYPE );
@@ -869,6 +891,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         initEAttribute ( getAbstractQueryType_Id (), theXMLTypePackage.getString (), "id", null, 1, 1, AbstractQueryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractQueryType_Period (), theXMLTypePackage.getInt (), "period", null, 1, 1, AbstractQueryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractQueryType_Sql1 (), theXMLTypePackage.getString (), "sql1", null, 0, 1, AbstractQueryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractQueryType_Timeout (), theXMLTypePackage.getPositiveInteger (), "timeout", null, 0, 1, AbstractQueryType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( columnMappingTypeEClass, ColumnMappingType.class, "ColumnMappingType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getColumnMappingType_AliasName (), this.getAliasNameType (), "aliasName", null, 1, 1, ColumnMappingType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -921,6 +944,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         initEReference ( getUpdateType_Mapping (), this.getUpdateMappingType (), null, "mapping", null, 0, -1, UpdateType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getUpdateType_Id (), theXMLTypePackage.getString (), "id", null, 1, 1, UpdateType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getUpdateType_Sql1 (), theXMLTypePackage.getString (), "sql1", null, 0, 1, UpdateType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getUpdateType_Timeout (), theXMLTypePackage.getInt (), "timeout", null, 0, 1, UpdateType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( aliasNameTypeEDataType, String.class, "AliasNameType", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -981,6 +1005,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
                 new String[]
                 {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "sql" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getAbstractQueryType_Timeout (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "timeout" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( aliasNameTypeEDataType,
                 source,
@@ -1264,6 +1294,12 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
                 new String[]
                 {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "sql" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getUpdateType_Timeout (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "timeout" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 

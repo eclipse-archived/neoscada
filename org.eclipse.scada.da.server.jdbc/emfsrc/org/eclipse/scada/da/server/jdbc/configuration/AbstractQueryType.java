@@ -1,17 +1,19 @@
 /**
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add query timeout
  */
 package org.eclipse.scada.da.server.jdbc.configuration;
 
-import org.eclipse.emf.common.util.EList;
+import java.math.BigInteger;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getPeriod <em>Period</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql1 <em>Sql1</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout <em>Timeout</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,8 +44,8 @@ public interface AbstractQueryType extends EObject
      * Returns the value of the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Sql</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Sql</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sql</em>' attribute.
@@ -69,8 +72,8 @@ public interface AbstractQueryType extends EObject
      * The list contents are of type {@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Column Mapping</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Column Mapping</em>' containment reference
+     * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Column Mapping</em>' containment reference list.
@@ -85,8 +88,8 @@ public interface AbstractQueryType extends EObject
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Id</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Id</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Id</em>' attribute.
@@ -112,8 +115,8 @@ public interface AbstractQueryType extends EObject
      * Returns the value of the '<em><b>Period</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Period</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Period</em>' attribute isn't clear, there
+     * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Period</em>' attribute.
@@ -166,8 +169,8 @@ public interface AbstractQueryType extends EObject
      * Returns the value of the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Sql1</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Sql1</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sql1</em>' attribute.
@@ -188,5 +191,32 @@ public interface AbstractQueryType extends EObject
      * @generated
      */
     void setSql1 ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Timeout</em>' attribute isn't clear, there
+     * really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Timeout</em>' attribute.
+     * @see #setTimeout(BigInteger)
+     * @see org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage#getAbstractQueryType_Timeout()
+     * @model dataType="org.eclipse.emf.ecore.xml.type.PositiveInteger"
+     *        extendedMetaData="kind='attribute' name='timeout'"
+     * @generated
+     */
+    BigInteger getTimeout ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout <em>Timeout</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Timeout</em>' attribute.
+     * @see #getTimeout()
+     * @generated
+     */
+    void setTimeout ( BigInteger value );
 
 } // AbstractQueryType

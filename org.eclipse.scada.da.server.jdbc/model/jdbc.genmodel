@@ -18,6 +18,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/period"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/sql1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractQueryType/timeout"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ColumnMappingType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//ColumnMappingType/aliasName"/>
@@ -69,6 +70,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//UpdateType/mapping"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UpdateType/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UpdateType/sql1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//UpdateType/timeout"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

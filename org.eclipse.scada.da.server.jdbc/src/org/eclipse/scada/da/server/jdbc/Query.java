@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add query timeout
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
@@ -29,9 +30,9 @@ public class Query extends AbstractQuery
 
     private final Map<String, DataItemInputChained> items = new HashMap<String, DataItemInputChained> ();
 
-    public Query ( final String id, final int period, final String sql, final Connection connection, final Map<Integer, String> columnAliases )
+    public Query ( final String id, final int period, final String sql, final Connection connection, final Integer timeout, final Map<Integer, String> columnAliases )
     {
-        super ( id, period, sql, connection, columnAliases );
+        super ( id, period, sql, connection, timeout, columnAliases );
     }
 
     @Override
@@ -49,16 +50,13 @@ public class Query extends AbstractQuery
     protected void doQuery () throws Exception
     {
         logger.debug ( "Perform query" );
-        try (java.sql.Connection connection = this.connection.getConnection ())
+        try ( java.sql.Connection connection = this.connection.getConnection () )
         {
-            try (final PreparedStatement stmt = connection.prepareStatement ( this.sql ))
+            try ( final PreparedStatement stmt = connection.prepareStatement ( this.sql ) )
             {
-                if ( this.connection.getTimeout () != null )
-                {
-                    stmt.setQueryTimeout ( this.connection.getTimeout () / 1000 );
-                }
+                applyTimeout ( stmt );
 
-                try (final ResultSet result = stmt.executeQuery ())
+                try ( final ResultSet result = stmt.executeQuery () )
                 {
                     if ( result.next () )
                     {

@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add query timeout
  */
 package org.eclipse.scada.da.server.jdbc.configuration;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getMapping <em>Mapping</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getId <em>Id</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql1 <em>Sql1</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,8 +40,8 @@ public interface UpdateType extends EObject
      * Returns the value of the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Sql</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Sql</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sql</em>' attribute.
@@ -67,8 +68,8 @@ public interface UpdateType extends EObject
      * The list contents are of type {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Mapping</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Mapping</em>' containment reference list isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Mapping</em>' containment reference list.
@@ -83,8 +84,8 @@ public interface UpdateType extends EObject
      * Returns the value of the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Id</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Id</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Id</em>' attribute.
@@ -110,8 +111,8 @@ public interface UpdateType extends EObject
      * Returns the value of the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Sql1</em>' attribute isn't clear,
-     * there really should be more of a description here...
+     * If the meaning of the '<em>Sql1</em>' attribute isn't clear, there really
+     * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Sql1</em>' attribute.
@@ -132,5 +133,59 @@ public interface UpdateType extends EObject
      * @generated
      */
     void setSql1 ( String value );
+
+    /**
+     * Returns the value of the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Timeout</em>' attribute isn't clear, there
+     * really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Timeout</em>' attribute.
+     * @see #isSetTimeout()
+     * @see #unsetTimeout()
+     * @see #setTimeout(int)
+     * @see org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage#getUpdateType_Timeout()
+     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
+     *        extendedMetaData="kind='attribute' name='timeout'"
+     * @generated
+     */
+    int getTimeout ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Timeout</em>' attribute.
+     * @see #isSetTimeout()
+     * @see #unsetTimeout()
+     * @see #getTimeout()
+     * @generated
+     */
+    void setTimeout ( int value );
+
+    /**
+     * Unsets the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isSetTimeout()
+     * @see #getTimeout()
+     * @see #setTimeout(int)
+     * @generated
+     */
+    void unsetTimeout ();
+
+    /**
+     * Returns whether the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute is set.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return whether the value of the '<em>Timeout</em>' attribute is set.
+     * @see #unsetTimeout()
+     * @see #getTimeout()
+     * @see #setTimeout(int)
+     * @generated
+     */
+    boolean isSetTimeout ();
 
 } // UpdateType

@@ -1,12 +1,13 @@
 /**
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add query timeout
  */
 package org.eclipse.scada.da.server.jdbc.configuration;
 
@@ -21,11 +22,11 @@ import org.eclipse.emf.ecore.EReference;
  * The <b>Package</b> for the model.
  * It contains accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each operation of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each operation of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
  * @see org.eclipse.scada.da.server.jdbc.configuration.ConfigurationFactory
@@ -122,13 +123,22 @@ public interface ConfigurationPackage extends EPackage
     int ABSTRACT_QUERY_TYPE__SQL1 = 4;
 
     /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_QUERY_TYPE__TIMEOUT = 5;
+
+    /**
      * The number of structural features of the '<em>Abstract Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_QUERY_TYPE_FEATURE_COUNT = 5;
+    int ABSTRACT_QUERY_TYPE_FEATURE_COUNT = 6;
 
     /**
      * The number of operations of the '<em>Abstract Query Type</em>' class.
@@ -469,6 +479,15 @@ public interface ConfigurationPackage extends EPackage
     int QUERY_TYPE__SQL1 = ABSTRACT_QUERY_TYPE__SQL1;
 
     /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int QUERY_TYPE__TIMEOUT = ABSTRACT_QUERY_TYPE__TIMEOUT;
+
+    /**
      * The number of structural features of the '<em>Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -577,6 +596,15 @@ public interface ConfigurationPackage extends EPackage
      * @ordered
      */
     int TABULAR_QUERY_TYPE__SQL1 = ABSTRACT_QUERY_TYPE__SQL1;
+
+    /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TABULAR_QUERY_TYPE__TIMEOUT = ABSTRACT_QUERY_TYPE__TIMEOUT;
 
     /**
      * The feature id for the '<em><b>Update Columns</b></em>' containment reference list.
@@ -780,13 +808,22 @@ public interface ConfigurationPackage extends EPackage
     int UPDATE_TYPE__SQL1 = 3;
 
     /**
+     * The feature id for the '<em><b>Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int UPDATE_TYPE__TIMEOUT = 4;
+
+    /**
      * The number of structural features of the '<em>Update Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int UPDATE_TYPE_FEATURE_COUNT = 4;
+    int UPDATE_TYPE_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Update Type</em>' class.
@@ -890,6 +927,17 @@ public interface ConfigurationPackage extends EPackage
      * @generated
      */
     EAttribute getAbstractQueryType_Sql1 ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout <em>Timeout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout()
+     * @see #getAbstractQueryType()
+     * @generated
+     */
+    EAttribute getAbstractQueryType_Timeout ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType <em>Column Mapping Type</em>}'.
@@ -1344,6 +1392,17 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateType_Sql1 ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Timeout</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout()
+     * @see #getUpdateType()
+     * @generated
+     */
+    EAttribute getUpdateType_Timeout ();
+
+    /**
      * Returns the meta object for data type '{@link java.lang.String <em>Alias Name Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1391,11 +1450,11 @@ public interface ConfigurationPackage extends EPackage
      * <!-- begin-user-doc -->
      * Defines literals for the meta objects that represent
      * <ul>
-     *   <li>each class,</li>
-     *   <li>each feature of each class,</li>
-     *   <li>each operation of each class,</li>
-     *   <li>each enum,</li>
-     *   <li>and each data type</li>
+     * <li>each class,</li>
+     * <li>each feature of each class,</li>
+     * <li>each operation of each class,</li>
+     * <li>each enum,</li>
+     * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
      * @generated
@@ -1451,6 +1510,14 @@ public interface ConfigurationPackage extends EPackage
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__SQL1 = eINSTANCE.getAbstractQueryType_Sql1 ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_QUERY_TYPE__TIMEOUT = eINSTANCE.getAbstractQueryType_Timeout ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl <em>Column Mapping Type</em>}' class.
@@ -1807,6 +1874,14 @@ public interface ConfigurationPackage extends EPackage
          * @generated
          */
         EAttribute UPDATE_TYPE__SQL1 = eINSTANCE.getUpdateType_Sql1 ();
+
+        /**
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute UPDATE_TYPE__TIMEOUT = eINSTANCE.getUpdateType_Timeout ();
 
         /**
          * The meta object literal for the '<em>Alias Name Type</em>' data type.

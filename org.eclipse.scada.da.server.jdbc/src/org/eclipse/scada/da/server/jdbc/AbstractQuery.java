@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,9 +8,11 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - refactor to creating the tabular query
+ *     IBH SYSTEMS GmbH - add query timeout
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
@@ -46,13 +48,16 @@ public abstract class AbstractQuery
 
     private ScheduledFuture<?> job;
 
-    public AbstractQuery ( final String id, final int period, final String sql, final Connection connection, final Map<Integer, String> columnAliases )
+    private final Integer timeout;
+
+    public AbstractQuery ( final String id, final int period, final String sql, final Connection connection, final Integer timeout, final Map<Integer, String> columnAliases )
     {
         this.id = id;
         this.period = period;
         this.sql = sql;
         this.connection = connection;
         this.columnAliases = columnAliases;
+        this.timeout = timeout;
 
         logger.info ( "Created new query: {}", this.id );
 
@@ -72,6 +77,11 @@ public abstract class AbstractQuery
         this.itemFactory = parentItemFactory.createSubFolderFactory ( this.id );
 
         this.job = this.timer.scheduleAtFixedRate ( this.task, 0, this.period, TimeUnit.MILLISECONDS );
+    }
+
+    protected Integer getTimeout ()
+    {
+        return this.timeout;
     }
 
     public void unregister ()
@@ -119,6 +129,18 @@ public abstract class AbstractQuery
             field = result.getMetaData ().getColumnName ( i );
         }
         return field;
+    }
+
+    protected void applyTimeout ( final PreparedStatement stmt ) throws SQLException
+    {
+        if ( getTimeout () != null )
+        {
+            stmt.setQueryTimeout ( getTimeout () / 1000 );
+        }
+        else if ( this.connection.getTimeout () != null )
+        {
+            stmt.setQueryTimeout ( this.connection.getTimeout () / 1000 );
+        }
     }
 
 }

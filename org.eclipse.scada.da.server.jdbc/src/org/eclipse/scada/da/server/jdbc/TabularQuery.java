@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add query timeout
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
@@ -42,9 +43,9 @@ public class TabularQuery extends AbstractQuery
 
     private Map<String, String> commands;
 
-    public TabularQuery ( final String id, final int idColumn, final int period, final String sql, final Connection connection, final Map<Integer, String> columnAliases, final Map<String, String> updateMap, final Map<String, String> commands )
+    public TabularQuery ( final String id, final int idColumn, final int period, final String sql, final Connection connection, final Integer timeout, final Map<Integer, String> columnAliases, final Map<String, String> updateMap, final Map<String, String> commands )
     {
-        super ( id, period, sql, connection, columnAliases );
+        super ( id, period, sql, connection, timeout, columnAliases );
         this.idColumn = idColumn;
         this.updateMap = updateMap;
         this.commands = commands;
@@ -61,7 +62,6 @@ public class TabularQuery extends AbstractQuery
             {
                 return performCreateCommandWriteHandler ( id, command );
             }
-
         };
     }
 
@@ -107,12 +107,14 @@ public class TabularQuery extends AbstractQuery
 
     protected void processUpdateSql ( final String updateSql, final Variant value, final OperationParameters operationParameters ) throws Exception
     {
-        try (final java.sql.Connection c = this.connection.getConnection ())
+        try ( final java.sql.Connection c = this.connection.getConnection () )
         {
             c.setAutoCommit ( true );
 
-            try (PreparedStatement stmt = c.prepareStatement ( updateSql ))
+            try ( PreparedStatement stmt = c.prepareStatement ( updateSql ) )
             {
+                applyTimeout ( stmt );
+
                 if ( stmt.getParameterMetaData ().getParameterCount () == 1 && !value.isNull () )
                 {
                     stmt.setObject ( 1, value.getValue () );
@@ -151,16 +153,13 @@ public class TabularQuery extends AbstractQuery
     protected void doQuery () throws Exception
     {
         logger.debug ( "Perform query" );
-        try (java.sql.Connection connection = this.connection.getConnection ())
+        try ( java.sql.Connection connection = this.connection.getConnection () )
         {
-            try (final PreparedStatement stmt = connection.prepareStatement ( this.sql ))
+            try ( final PreparedStatement stmt = connection.prepareStatement ( this.sql ) )
             {
-                if ( this.connection.getTimeout () != null )
-                {
-                    stmt.setQueryTimeout ( this.connection.getTimeout () / 1000 );
-                }
+                applyTimeout ( stmt );
 
-                try (final ResultSet result = stmt.executeQuery ())
+                try ( final ResultSet result = stmt.executeQuery () )
                 {
                     processResult ( result );
                 }

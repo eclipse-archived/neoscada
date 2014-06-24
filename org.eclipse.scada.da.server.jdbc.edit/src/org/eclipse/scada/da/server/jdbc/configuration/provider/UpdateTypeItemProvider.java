@@ -1,12 +1,13 @@
 /**
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add query timeout
  */
 package org.eclipse.scada.da.server.jdbc.configuration.provider;
 
@@ -15,11 +16,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -30,7 +28,6 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationFactory;
 import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage;
 import org.eclipse.scada.da.server.jdbc.configuration.UpdateType;
@@ -77,6 +74,7 @@ public class UpdateTypeItemProvider
             addSqlPropertyDescriptor ( object );
             addIdPropertyDescriptor ( object );
             addSql1PropertyDescriptor ( object );
+            addTimeoutPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -146,6 +144,29 @@ public class UpdateTypeItemProvider
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Timeout feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTimeoutPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_UpdateType_timeout_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_UpdateType_timeout_feature", "_UI_UpdateType_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ConfigurationPackage.Literals.UPDATE_TYPE__TIMEOUT,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -227,6 +248,7 @@ public class UpdateTypeItemProvider
             case ConfigurationPackage.UPDATE_TYPE__SQL:
             case ConfigurationPackage.UPDATE_TYPE__ID:
             case ConfigurationPackage.UPDATE_TYPE__SQL1:
+            case ConfigurationPackage.UPDATE_TYPE__TIMEOUT:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case ConfigurationPackage.UPDATE_TYPE__MAPPING:
