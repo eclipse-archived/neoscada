@@ -102,7 +102,7 @@
 		</sequence>
 		<attribute name="id" type="string" use="required"></attribute>
 		<attribute name="sql" type="string"></attribute>
-		<attribute name="timeout" type="int"></attribute>
+		<attribute name="timeout" type="positiveInteger"></attribute>
 	</complexType>
 
 	<complexType name="UpdateMappingType">

@@ -11,6 +11,7 @@
  */
 package org.eclipse.scada.da.server.jdbc.configuration;
 
+import java.math.BigInteger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -143,49 +144,22 @@ public interface UpdateType extends EObject
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Timeout</em>' attribute.
-     * @see #isSetTimeout()
-     * @see #unsetTimeout()
-     * @see #setTimeout(int)
+     * @see #setTimeout(BigInteger)
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage#getUpdateType_Timeout()
-     * @model unsettable="true" dataType="org.eclipse.emf.ecore.xml.type.Int"
+     * @model dataType="org.eclipse.emf.ecore.xml.type.PositiveInteger"
      *        extendedMetaData="kind='attribute' name='timeout'"
      * @generated
      */
-    int getTimeout ();
+    BigInteger getTimeout ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Timeout</em>' attribute.
-     * @see #isSetTimeout()
-     * @see #unsetTimeout()
      * @see #getTimeout()
      * @generated
      */
-    void setTimeout ( int value );
-
-    /**
-     * Unsets the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #isSetTimeout()
-     * @see #getTimeout()
-     * @see #setTimeout(int)
-     * @generated
-     */
-    void unsetTimeout ();
-
-    /**
-     * Returns whether the value of the '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}' attribute is set.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return whether the value of the '<em>Timeout</em>' attribute is set.
-     * @see #unsetTimeout()
-     * @see #getTimeout()
-     * @see #setTimeout(int)
-     * @generated
-     */
-    boolean isSetTimeout ();
+    void setTimeout ( BigInteger value );
 
 } // UpdateType
