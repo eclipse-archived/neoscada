@@ -92,7 +92,9 @@ public class DefaultConnectionFactory implements ConnectionFactory
                             final Driver driver = service.createDriver ( null );
                             if ( driver.acceptsURL ( uri ) )
                             {
-                                return driver.connect ( uri, properties );
+                                final Properties p = new Properties ();
+                                p.put ( DataSourceFactory.JDBC_URL, uri );
+                                return driver.connect ( uri, p );
                             }
                         }
                         finally
