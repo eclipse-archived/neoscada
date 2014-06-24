@@ -116,7 +116,7 @@ public class Activator implements BundleActivator
             }
             catch ( final Exception e2 )
             {
-                logger.warn ( "Failed to early dispose CA after error", e );
+                logger.warn ( "Failed to early dispose CA after error", e2 );
             }
 
             throw new InvocationTargetException ( e );
