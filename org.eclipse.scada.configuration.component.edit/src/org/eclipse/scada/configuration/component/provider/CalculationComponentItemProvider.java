@@ -95,7 +95,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -118,7 +118,7 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

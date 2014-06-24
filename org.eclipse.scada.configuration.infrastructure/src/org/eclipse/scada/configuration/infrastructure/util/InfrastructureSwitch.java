@@ -434,6 +434,26 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case InfrastructurePackage.DATABASE_SETTINGS:
+            {
+                DatabaseSettings databaseSettings = (DatabaseSettings)theEObject;
+                T result = caseDatabaseSettings ( databaseSettings );
+                if ( result == null )
+                    result = caseSettings ( databaseSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case InfrastructurePackage.ABSTRACT_COMMON_DRIVER:
+            {
+                AbstractCommonDriver abstractCommonDriver = (AbstractCommonDriver)theEObject;
+                T result = caseAbstractCommonDriver ( abstractCommonDriver );
+                if ( result == null )
+                    result = caseDriver ( abstractCommonDriver );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -947,6 +967,38 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseEquinoxBase ( EquinoxBase object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Database Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDatabaseSettings ( DatabaseSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Common Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Common Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractCommonDriver ( AbstractCommonDriver object )
     {
         return null;
     }

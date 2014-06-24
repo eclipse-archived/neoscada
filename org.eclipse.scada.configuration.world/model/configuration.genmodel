@@ -27,7 +27,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ApplicationNode/services"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//Documentable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/shortDescription"/>
+      <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute configuration.ecore#//Documentable/shortDescription"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//Application"/>
     <genClasses ecoreClass="configuration.ecore#//Driver">
@@ -69,7 +69,7 @@
     <genClasses ecoreClass="configuration.ecore#//ExternalNode"/>
     <genClasses image="false" ecoreClass="configuration.ecore#//Service"/>
     <genClasses image="false" ecoreClass="configuration.ecore#//NamedDocumentable">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NamedDocumentable/name"/>
+      <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute configuration.ecore#//NamedDocumentable/name"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//PropertyEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/key"/>
@@ -334,7 +334,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/ExternalEventMonitor/filter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/ExternalEventMonitor/properties"/>
       </genClasses>
-      <genClasses ecoreClass="configuration.ecore#//osgi/PropertyEntry"/>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ExternalEventFilter"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/StaticExternalEventFilter">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/StaticExternalEventFilter/value"/>
@@ -609,13 +608,19 @@
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
         contentTypeIdentifier="org.eclipse.scada.configuration.deployment" fileExtensions="esdi"
         ecorePackage="configuration.ecore#//deployment">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/FallbackNodeMappingMode">
-        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackNodeMappingMode/FAIL"/>
-        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackNodeMappingMode/IGNORE"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/FallbackMappingMode">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackMappingMode/FAIL"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/FallbackMappingMode/IGNORE"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/Architecture">
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/Architecture/i386"/>
         <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/Architecture/amd64"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="configuration.ecore#//deployment/StartupMechanism">
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/StartupMechanism/DEFAULT"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/StartupMechanism/UPSTART"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/StartupMechanism/REDHAT_SYSV"/>
+        <genEnumLiterals ecoreEnumLiteral="configuration.ecore#//deployment/StartupMechanism/LSB_SYSV"/>
       </genEnums>
       <genClasses image="false" ecoreClass="configuration.ecore#//deployment/DeploymentMechanism"/>
       <genClasses ecoreClass="configuration.ecore#//deployment/DebianDeploymentMechanism"/>
@@ -634,6 +639,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference configuration.ecore#//deployment/CommonDeploymentMechanism/maintainer"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/additionalDependencies"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/CommonDeploymentMechanism/startupMechanism"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/ChangeEntry">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -642,22 +648,20 @@
         <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ChangeEntry/description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ChangeEntry/version"/>
       </genClasses>
-      <genClasses ecoreClass="configuration.ecore#//deployment/NodeMappings">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/NodeMappings/entries"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/NodeMappings/fallbackMode"/>
-      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/NodeMappings"/>
       <genClasses ecoreClass="configuration.ecore#//deployment/ExpressionNodeMappingEntry">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ExpressionNodeMappingEntry/pattern"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/ExpressionNodeMappingEntry/replacement"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="configuration.ecore#//deployment/NodeMappingEntry">
-        <genOperations ecoreOperation="configuration.ecore#//deployment/NodeMappingEntry/mapNode">
-          <genParameters ecoreParameter="configuration.ecore#//deployment/NodeMappingEntry/mapNode/node"/>
+      <genClasses image="false" ecoreClass="configuration.ecore#//deployment/MappingEntry">
+        <genOperations ecoreOperation="configuration.ecore#//deployment/MappingEntry/map">
+          <genParameters ecoreParameter="configuration.ecore#//deployment/MappingEntry/map/hostname"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/SimpleNodeMappingEntry">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/fromHostName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/toHostName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/SimpleNodeMappingEntry/ignoreCase"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//deployment/MsiDeploymentMechanism">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/MsiDeploymentMechanism/version"/>
@@ -674,6 +678,10 @@
       <genClasses ecoreClass="configuration.ecore#//deployment/P2Platform">
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/repositories"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/P2Platform/name"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//deployment/Mappings">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//deployment/Mappings/entries"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//deployment/Mappings/fallbackMode"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

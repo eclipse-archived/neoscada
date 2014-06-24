@@ -14,6 +14,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver;
+import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
@@ -48,16 +50,24 @@ public final class Worlds
 
     /**
      * Find the credentials for accessing a driver
-     * 
+     *
      * @param driver
      *            the driver to access
      * @return the credentials or <code>null</code> if there are none
      */
     public static Credentials findConnectionPassword ( final Driver driver )
     {
-        if ( driver instanceof CommonDriver )
+        if ( driver instanceof AbstractCommonDriver )
+        {
+            return findCommonConnectionPassword ( (AbstractCommonDriver)driver );
+        }
+        else if ( driver instanceof CommonDriver )
         {
             return findCommonConnectionPassword ( (CommonDriver)driver );
+        }
+        else if ( driver instanceof AbstractEquinoxDriver )
+        {
+            return findEquinoxConnectionPassword ( (AbstractEquinoxDriver)driver );
         }
         else if ( driver instanceof EquinoxDriver )
         {
@@ -80,7 +90,27 @@ public final class Worlds
         return findDefaultAccessCredentials ( driver );
     }
 
+    protected static Credentials findEquinoxConnectionPassword ( final AbstractEquinoxDriver driver )
+    {
+        if ( driver.getAccessCredentials () != null )
+        {
+            return driver.getAccessCredentials ();
+        }
+
+        return findDefaultAccessCredentials ( driver );
+    }
+
     protected static Credentials findCommonConnectionPassword ( final CommonDriver driver )
+    {
+        if ( driver.getPassword () != null )
+        {
+            return driver.getPassword ();
+        }
+
+        return findDefaultAccessCredentials ( driver );
+    }
+
+    protected static Credentials findCommonConnectionPassword ( final AbstractCommonDriver driver )
     {
         if ( driver.getPassword () != null )
         {
@@ -103,7 +133,7 @@ public final class Worlds
             return world.getDefaultCredentials ();
         }
 
-        if ( driver instanceof CommonDriver )
+        if ( driver instanceof CommonDriver || driver instanceof AbstractCommonDriver )
         {
             return world.getDefaultDriverPassword ();
         }
@@ -122,10 +152,10 @@ public final class Worlds
 
     /**
      * Find the password for a common driver
-     * 
+     *
      * @param driver
      *            the driver to check
-     * @return the password credentials, or <code>null</code> if was none
+     * @return the password credentials, or <code>null</code> if none was found
      */
     public static PasswordCredentials findCommonDriverPassword ( final CommonDriver driver )
     {
@@ -144,8 +174,31 @@ public final class Worlds
     }
 
     /**
+     * Find the password for an abstract common driver
+     *
+     * @param driver
+     *            the driver to check
+     * @return the password credentials, or <code>null</code> if none was found
+     */
+    public static PasswordCredentials findCommonDriverPassword ( final AbstractCommonDriver driver )
+    {
+        if ( driver.getPassword () != null )
+        {
+            return driver.getPassword ();
+        }
+
+        final org.eclipse.scada.configuration.infrastructure.World world = Containers.findContainer ( driver, org.eclipse.scada.configuration.infrastructure.World.class );
+        if ( world == null )
+        {
+            return null;
+        }
+
+        return world.getDefaultDriverPassword ();
+    }
+
+    /**
      * Find the access credentials for the target master server
-     * 
+     *
      * @param app
      *            the master server
      * @return the access credentials, or <code>null</code> if there were none
@@ -169,7 +222,7 @@ public final class Worlds
 
     /**
      * Find the access credentials for the target
-     * 
+     *
      * @param masterImport
      *            the target
      * @return the access credentials, or <code>null</code> if there were none

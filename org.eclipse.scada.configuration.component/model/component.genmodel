@@ -57,7 +57,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MasterImportConnectionAnalyzer/connection"/>
     </genClasses>
     <genClasses image="false" ecoreClass="component.ecore#//SingleValue">
-      <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
+      <genFeatures createChild="false" propertyCategory="naming" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/name"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/dataType"/>
       <genFeatures createChild="false" propertyCategory="customization" ecoreFeature="ecore:EAttribute component.ecore#//SingleValue/customizationTags"/>
     </genClasses>
@@ -71,7 +71,6 @@
     <genClasses ecoreClass="component.ecore#//MappedSourceValue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/mapper"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference component.ecore#//MappedSourceValue/input"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute component.ecore#//MappedSourceValue/customizationTags"/>
     </genClasses>
     <genClasses ecoreClass="component.ecore#//CalculationComponent">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference component.ecore#//CalculationComponent/implementation"/>

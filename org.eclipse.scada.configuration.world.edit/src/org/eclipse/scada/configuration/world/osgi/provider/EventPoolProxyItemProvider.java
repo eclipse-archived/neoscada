@@ -95,7 +95,7 @@ public class EventPoolProxyItemProvider extends ItemProviderAdapter implements
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -118,7 +118,7 @@ public class EventPoolProxyItemProvider extends ItemProviderAdapter implements
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

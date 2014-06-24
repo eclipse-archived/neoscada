@@ -85,7 +85,7 @@ public class SingleValueItemProvider extends MasterComponentItemProvider impleme
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_customizationPropertyCategory" ), //$NON-NLS-1$
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

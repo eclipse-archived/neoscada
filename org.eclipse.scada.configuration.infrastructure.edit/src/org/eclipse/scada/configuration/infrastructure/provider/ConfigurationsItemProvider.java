@@ -170,6 +170,11 @@ public class ConfigurationsItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.CONFIGURATIONS__CONFIGURATIONS,
                         InfrastructureFactory.eINSTANCE.createApplicationConfiguration () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
+                        InfrastructureFactory.eINSTANCE.createDatabaseSettings () ) );
     }
 
     /**

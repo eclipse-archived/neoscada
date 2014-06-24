@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver} object.
@@ -139,6 +140,7 @@ public class AbstractEquinoxDriverItemProvider
         {
             super.getChildrenFeatures ( object );
             childrenFeatures.add ( InfrastructurePackage.Literals.EQUINOX_BASE__USER_SERVICE );
+            childrenFeatures.add ( InfrastructurePackage.Literals.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS );
         }
         return childrenFeatures;
     }
@@ -190,6 +192,7 @@ public class AbstractEquinoxDriverItemProvider
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE:
+            case InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -217,6 +220,16 @@ public class AbstractEquinoxDriverItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.EQUINOX_BASE__USER_SERVICE,
                         InfrastructureFactory.eINSTANCE.createJdbcUserService () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS,
+                        WorldFactory.eINSTANCE.createUsernamePasswordCredentials () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS,
+                        WorldFactory.eINSTANCE.createPasswordCredentials () ) );
     }
 
 }

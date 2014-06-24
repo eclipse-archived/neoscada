@@ -8,12 +8,10 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.driver.parser.lib;
+package org.eclipse.scada.configuration.infrastructure.lib;
 
 import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
 import org.eclipse.scada.configuration.infrastructure.World;
-import org.eclipse.scada.configuration.infrastructure.lib.DriverHandler;
-import org.eclipse.scada.configuration.infrastructure.lib.Worlds;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Driver;

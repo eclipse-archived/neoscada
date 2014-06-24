@@ -30,7 +30,6 @@ import org.eclipse.scada.configuration.world.osgi.MasterServer;
 
 public abstract class DataComponentGenerator extends ComponentGenerator implements ItemSource
 {
-
     private final DataComponent component;
 
     public DataComponentGenerator ( final DataComponent component )

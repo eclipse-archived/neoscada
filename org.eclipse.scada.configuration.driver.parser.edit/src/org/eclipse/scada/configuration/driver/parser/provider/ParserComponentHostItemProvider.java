@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.driver.parser.provider;
 
@@ -36,23 +36,23 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Parser
  * object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ParserComponentHostItemProvider
-        extends AbstractEquinoxDriverItemProvider
-        implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource
+extends AbstractEquinoxDriverItemProvider
+implements
+IEditingDomainItemProvider,
+IStructuredItemContentProvider,
+ITreeItemContentProvider,
+IItemLabelProvider,
+IItemPropertySource
 {
     /**
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParserComponentHostItemProvider ( final AdapterFactory adapterFactory )
@@ -64,7 +64,7 @@ public class ParserComponentHostItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public class ParserComponentHostItemProvider
      * {@link #createCommand}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class ParserComponentHostItemProvider
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -120,7 +120,7 @@ public class ParserComponentHostItemProvider
      * This returns ParserComponentHost.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,13 +133,13 @@ public class ParserComponentHostItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
-     * @generated
+     *
+     * @generated NOT
      */
     @Override
     public String getText ( final Object object )
     {
-        return getDriverLabel ( (Driver)object, getString ( "_UI_ParserComponentHost_type" ) ); //$NON-NLS-1$ 
+        return getDriverLabel ( (Driver)object, getString ( "_UI_ParserComponentHost_type" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -149,7 +149,7 @@ public class ParserComponentHostItemProvider
      * {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class ParserComponentHostItemProvider
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public class ParserComponentHostItemProvider
         super.collectNewChildDescriptors ( newChildDescriptors, object );
 
         newChildDescriptors.add
-                ( createChildParameter
+        ( createChildParameter
                 ( ParserPackage.Literals.PARSER_COMPONENT_HOST__COMPONENTS,
                         ParserFactory.eINSTANCE.createComponent () ) );
     }

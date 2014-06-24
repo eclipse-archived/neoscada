@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -643,6 +643,31 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
         }
 
         return genericVMSettingsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DatabaseSettingsItemProvider databaseSettingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDatabaseSettingsAdapter ()
+    {
+        if ( databaseSettingsItemProvider == null )
+        {
+            databaseSettingsItemProvider = new DatabaseSettingsItemProvider ( this );
+        }
+
+        return databaseSettingsItemProvider;
     }
 
     /**

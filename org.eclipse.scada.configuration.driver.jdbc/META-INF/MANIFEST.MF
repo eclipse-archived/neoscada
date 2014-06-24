@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.scada.configuration.driver.jdbc;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.eclipse.scada.configuration.driver.jdbc;uses:="org.eclipse.emf.ecore,org.eclipse.scada.configuration.world,org.eclipse.scada.da.server.jdbc.configuration";version="0.2.0",
+ org.eclipse.scada.configuration.driver.jdbc.impl;uses:="org.eclipse.emf.ecore,  org.eclipse.scada.configuration.driver.jdbc,  org.eclipse.scada.configuration.world.impl,  org.eclipse.emf.common.notify,  org.eclipse.emf.ecore.impl,  org.eclipse.scada.da.server.jdbc.configuration";version="0.2.0",
+ org.eclipse.scada.configuration.driver.jdbc.util;uses:="org.eclipse.emf.ecore.resource,  org.eclipse.emf.ecore.xmi.impl,  org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.scada.configuration.driver.jdbc,  org.eclipse.emf.common.util,  org.eclipse.emf.common.notify.impl,  org.eclipse.scada.configuration.world,  org.eclipse.emf.ecore.resource.impl,  org.eclipse.emf.common.notify";version="0.2.0"
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.scada.configuration.component;visibility:=reexport,
+ org.eclipse.scada.da.server.exec;visibility:=reexport,
+ org.eclipse.scada.configuration.globalization;visibility:=reexport,
+ org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
+ org.eclipse.scada.configuration.item;visibility:=reexport,
+ org.eclipse.scada.da.server.jdbc;visibility:=reexport,
+ org.eclipse.scada.configuration.security;visibility:=reexport,
+ org.eclipse.scada.configuration.world;visibility:=reexport
+Bundle-ActivationPolicy: lazy

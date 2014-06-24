@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.globalization.GlobalizePackage;
+import org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver;
 import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.CommonDriver;
 import org.eclipse.scada.configuration.infrastructure.Configurations;
+import org.eclipse.scada.configuration.infrastructure.DatabaseSettings;
 import org.eclipse.scada.configuration.infrastructure.Device;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.EquinoxApplication;
@@ -289,6 +291,20 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * @generated
      */
     private EClass equinoxBaseEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass databaseSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractCommonDriverEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1458,6 +1474,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getAbstractEquinoxDriver_AccessCredentials ()
+    {
+        return (EReference)abstractEquinoxDriverEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getEquinoxBase ()
     {
         return equinoxBaseEClass;
@@ -1491,6 +1517,106 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
     public EReference getEquinoxBase_SecurityConfiguration ()
     {
         return (EReference)equinoxBaseEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDatabaseSettings ()
+    {
+        return databaseSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_Id ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_DriverName ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDatabaseSettings_Properties ()
+    {
+        return (EReference)databaseSettingsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_Uri ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_User ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_Password ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAbstractCommonDriver ()
+    {
+        return abstractCommonDriverEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractCommonDriver_PortNumber ()
+    {
+        return (EAttribute)abstractCommonDriverEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAbstractCommonDriver_Password ()
+    {
+        return (EReference)abstractCommonDriverEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -1666,11 +1792,24 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         createEAttribute ( genericVMSettingsEClass, GENERIC_VM_SETTINGS__ARGUMENTS );
 
         abstractEquinoxDriverEClass = createEClass ( ABSTRACT_EQUINOX_DRIVER );
+        createEReference ( abstractEquinoxDriverEClass, ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS );
 
         equinoxBaseEClass = createEClass ( EQUINOX_BASE );
         createEAttribute ( equinoxBaseEClass, EQUINOX_BASE__INSTANCE_NUMBER );
         createEReference ( equinoxBaseEClass, EQUINOX_BASE__USER_SERVICE );
         createEReference ( equinoxBaseEClass, EQUINOX_BASE__SECURITY_CONFIGURATION );
+
+        databaseSettingsEClass = createEClass ( DATABASE_SETTINGS );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__ID );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__DRIVER_NAME );
+        createEReference ( databaseSettingsEClass, DATABASE_SETTINGS__PROPERTIES );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__URI );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__USER );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__PASSWORD );
+
+        abstractCommonDriverEClass = createEClass ( ABSTRACT_COMMON_DRIVER );
+        createEAttribute ( abstractCommonDriverEClass, ABSTRACT_COMMON_DRIVER__PORT_NUMBER );
+        createEReference ( abstractCommonDriverEClass, ABSTRACT_COMMON_DRIVER__PASSWORD );
 
         // Create enums
         slaveStorageLayoutEEnum = createEEnum ( SLAVE_STORAGE_LAYOUT );
@@ -1737,6 +1876,8 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         genericVMSettingsEClass.getESuperTypes ().add ( this.getModule () );
         abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getDriver () );
         abstractEquinoxDriverEClass.getESuperTypes ().add ( this.getEquinoxBase () );
+        databaseSettingsEClass.getESuperTypes ().add ( this.getSettings () );
+        abstractCommonDriverEClass.getESuperTypes ().add ( this.getDriver () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1869,11 +2010,24 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEAttribute ( getGenericVMSettings_Arguments (), ecorePackage.getEString (), "arguments", null, 0, -1, GenericVMSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( abstractEquinoxDriverEClass, AbstractEquinoxDriver.class, "AbstractEquinoxDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getAbstractEquinoxDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, AbstractEquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( equinoxBaseEClass, EquinoxBase.class, "EquinoxBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getEquinoxBase_InstanceNumber (), ecorePackage.getEInt (), "instanceNumber", null, 1, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxBase_UserService (), this.getUserService (), null, "userService", null, 0, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getEquinoxBase_SecurityConfiguration (), theSecurityPackage.getConfiguration (), null, "securityConfiguration", null, 0, 1, EquinoxBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( databaseSettingsEClass, DatabaseSettings.class, "DatabaseSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_Id (), ecorePackage.getEString (), "id", null, 1, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_DriverName (), ecorePackage.getEString (), "driverName", null, 1, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getDatabaseSettings_Properties (), theWorldPackage.getPropertyEntry (), null, "properties", null, 0, -1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_Uri (), ecorePackage.getEString (), "uri", null, 1, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_User (), ecorePackage.getEString (), "user", null, 0, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_Password (), ecorePackage.getEString (), "password", null, 0, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( abstractCommonDriverEClass, AbstractCommonDriver.class, "AbstractCommonDriver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAbstractCommonDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, AbstractCommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAbstractCommonDriver_Password (), theWorldPackage.getPasswordCredentials (), null, "password", null, 0, 1, AbstractCommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( slaveStorageLayoutEEnum, SlaveStorageLayout.class, "SlaveStorageLayout" ); //$NON-NLS-1$
