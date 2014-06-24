@@ -113,6 +113,12 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter casePropertyEntry ( PropertyEntry object )
+                {
+                    return createPropertyEntryAdapter ();
+                }
+
+                @Override
                 public Adapter caseQueryType ( QueryType object )
                 {
                     return createQueryTypeAdapter ();
@@ -240,6 +246,21 @@ public class ConfigurationAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createDocumentRootAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry <em>Property Entry</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry
+     * @generated
+     */
+    public Adapter createPropertyEntryAdapter ()
     {
         return null;
     }

@@ -75,6 +75,7 @@
 
 	<complexType name="ConnectionType">
 		<sequence>
+			<element name="property" type="jdbc:PropertyEntry" maxOccurs="unbounded" minOccurs="0"/>
 			<element name="query" type="jdbc:QueryType" maxOccurs="unbounded"
 				minOccurs="0">
 			</element>
@@ -108,6 +109,11 @@
 	<complexType name="UpdateMappingType">
 		<attribute name="name" type="string" use="optional"></attribute>
 		<attribute name="namedParameter" type="string" use="required"></attribute>
+	</complexType>
+	
+	<complexType name="PropertyEntry">
+		<attribute name="key" type="string" use="required"></attribute>
+		<attribute name="value" type="string" use="optional"></attribute>
 	</complexType>
 
 	<complexType name="ColumnMappingType">

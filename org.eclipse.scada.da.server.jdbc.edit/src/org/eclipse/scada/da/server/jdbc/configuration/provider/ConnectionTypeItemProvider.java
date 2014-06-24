@@ -236,6 +236,7 @@ public class ConnectionTypeItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
+            childrenFeatures.add ( ConfigurationPackage.Literals.CONNECTION_TYPE__PROPERTY );
             childrenFeatures.add ( ConfigurationPackage.Literals.CONNECTION_TYPE__QUERY );
             childrenFeatures.add ( ConfigurationPackage.Literals.CONNECTION_TYPE__TABULAR_QUERY );
             childrenFeatures.add ( ConfigurationPackage.Literals.CONNECTION_TYPE__UPDATE );
@@ -306,6 +307,7 @@ public class ConnectionTypeItemProvider
             case ConfigurationPackage.CONNECTION_TYPE__USERNAME:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
             case ConfigurationPackage.CONNECTION_TYPE__TABULAR_QUERY:
             case ConfigurationPackage.CONNECTION_TYPE__UPDATE:
@@ -326,6 +328,11 @@ public class ConnectionTypeItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( ConfigurationPackage.Literals.CONNECTION_TYPE__PROPERTY,
+                        ConfigurationFactory.eINSTANCE.createPropertyEntry () ) );
 
         newChildDescriptors.add
                 ( createChildParameter

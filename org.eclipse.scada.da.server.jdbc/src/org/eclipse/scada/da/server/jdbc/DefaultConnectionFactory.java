@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add JDBC properties
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
@@ -27,7 +28,6 @@ import org.slf4j.LoggerFactory;
 
 public class DefaultConnectionFactory implements ConnectionFactory
 {
-
     private final static Logger logger = LoggerFactory.getLogger ( DefaultConnectionFactory.class );
 
     private final BundleContext bundleContext;
@@ -40,7 +40,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
     }
 
     @Override
-    public Connection createConnection ( final String connectionClass, final String uri, final String username, final String password, final Integer timeout ) throws Exception
+    public Connection createConnection ( final String connectionClass, final String uri, final Properties properties, final Integer timeout ) throws Exception
     {
         if ( this.bundleContext == null && !this.forNameSet.contains ( connectionClass ) )
         {
@@ -67,7 +67,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
         try
         {
             logger.debug ( "Try to create a connection using plain JDBC" );
-            return DriverManager.getConnection ( uri, username, password );
+            return DriverManager.getConnection ( uri, properties );
         }
         catch ( final SQLException e )
         {
@@ -92,10 +92,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
                             final Driver driver = service.createDriver ( null );
                             if ( driver.acceptsURL ( uri ) )
                             {
-                                final Properties info = new Properties ();
-                                info.put ( DataSourceFactory.JDBC_USER, username );
-                                info.put ( DataSourceFactory.JDBC_PASSWORD, password );
-                                return driver.connect ( uri, info );
+                                return driver.connect ( uri, properties );
                             }
                         }
                         finally

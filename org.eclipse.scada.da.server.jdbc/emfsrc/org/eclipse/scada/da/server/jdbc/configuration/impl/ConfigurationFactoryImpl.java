@@ -84,6 +84,8 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
                 return createConnectionType ();
             case ConfigurationPackage.DOCUMENT_ROOT:
                 return createDocumentRoot ();
+            case ConfigurationPackage.PROPERTY_ENTRY:
+                return createPropertyEntry ();
             case ConfigurationPackage.QUERY_TYPE:
                 return createQueryType ();
             case ConfigurationPackage.ROOT_TYPE:
@@ -185,6 +187,17 @@ public class ConfigurationFactoryImpl extends EFactoryImpl implements Configurat
     {
         DocumentRootImpl documentRoot = new DocumentRootImpl ();
         return documentRoot;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PropertyEntry createPropertyEntry ()
+    {
+        PropertyEntryImpl propertyEntry = new PropertyEntryImpl ();
+        return propertyEntry;
     }
 
     /**

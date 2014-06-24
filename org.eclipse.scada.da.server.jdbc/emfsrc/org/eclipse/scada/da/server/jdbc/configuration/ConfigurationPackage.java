@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
- *     IBH SYSTEMS GmbH - add query timeout
+ *     IBH SYSTEMS GmbH - add query timeout, add JDBC properties
  */
 package org.eclipse.scada.da.server.jdbc.configuration;
 
@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see org.eclipse.scada.da.server.jdbc.configuration.ConfigurationFactory
  * @model kind="package"
  * @generated
@@ -39,6 +40,7 @@ public interface ConfigurationPackage extends EPackage
      * The package name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNAME = "configuration"; //$NON-NLS-1$
@@ -47,6 +49,7 @@ public interface ConfigurationPackage extends EPackage
      * The package namespace URI.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNS_URI = "http://eclipse.org/SCADA/DA/JDBC/Configuration"; //$NON-NLS-1$
@@ -55,6 +58,7 @@ public interface ConfigurationPackage extends EPackage
      * The package namespace name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNS_PREFIX = "configuration"; //$NON-NLS-1$
@@ -63,14 +67,18 @@ public interface ConfigurationPackage extends EPackage
      * The singleton instance of the package.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     ConfigurationPackage eINSTANCE = org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl.init ();
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl <em>Abstract Query Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl
+     * <em>Abstract Query Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getAbstractQueryType()
      * @generated
@@ -81,15 +89,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int ABSTRACT_QUERY_TYPE__SQL = 0;
 
     /**
-     * The feature id for the '<em><b>Column Mapping</b></em>' containment reference list.
+     * The feature id for the '<em><b>Column Mapping</b></em>' containment
+     * reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -99,6 +110,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -108,6 +120,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Period</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -117,6 +130,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -126,15 +140,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int ABSTRACT_QUERY_TYPE__TIMEOUT = 5;
 
     /**
-     * The number of structural features of the '<em>Abstract Query Type</em>' class.
+     * The number of structural features of the '<em>Abstract Query Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -144,15 +161,19 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Abstract Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int ABSTRACT_QUERY_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl <em>Column Mapping Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl
+     * <em>Column Mapping Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnMappingType()
      * @generated
@@ -163,6 +184,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Alias Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -172,15 +194,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Column Number</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COLUMN_MAPPING_TYPE__COLUMN_NUMBER = 1;
 
     /**
-     * The number of structural features of the '<em>Column Mapping Type</em>' class.
+     * The number of structural features of the '<em>Column Mapping Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -190,15 +215,19 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Column Mapping Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COLUMN_MAPPING_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl <em>Commands Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl
+     * <em>Commands Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getCommandsType()
      * @generated
@@ -209,6 +238,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -218,6 +248,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Local Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -227,6 +258,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -236,6 +268,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of structural features of the '<em>Commands Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -245,15 +278,19 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Commands Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COMMANDS_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl <em>Connection Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl
+     * <em>Connection Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getConnectionType()
      * @generated
@@ -261,108 +298,137 @@ public interface ConfigurationPackage extends EPackage
     int CONNECTION_TYPE = 3;
 
     /**
-     * The feature id for the '<em><b>Query</b></em>' containment reference list.
+     * The feature id for the '<em><b>Property</b></em>' containment reference
+     * list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__QUERY = 0;
+    int CONNECTION_TYPE__PROPERTY = 0;
 
     /**
-     * The feature id for the '<em><b>Tabular Query</b></em>' containment reference list.
+     * The feature id for the '<em><b>Query</b></em>' containment reference
+     * list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__TABULAR_QUERY = 1;
+    int CONNECTION_TYPE__QUERY = 1;
 
     /**
-     * The feature id for the '<em><b>Update</b></em>' containment reference list.
+     * The feature id for the '<em><b>Tabular Query</b></em>' containment
+     * reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__UPDATE = 2;
+    int CONNECTION_TYPE__TABULAR_QUERY = 2;
+
+    /**
+     * The feature id for the '<em><b>Update</b></em>' containment reference
+     * list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int CONNECTION_TYPE__UPDATE = 3;
 
     /**
      * The feature id for the '<em><b>Connection Class</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__CONNECTION_CLASS = 3;
+    int CONNECTION_TYPE__CONNECTION_CLASS = 4;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__ID = 4;
+    int CONNECTION_TYPE__ID = 5;
 
     /**
      * The feature id for the '<em><b>Password</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__PASSWORD = 5;
+    int CONNECTION_TYPE__PASSWORD = 6;
 
     /**
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__TIMEOUT = 6;
+    int CONNECTION_TYPE__TIMEOUT = 7;
 
     /**
      * The feature id for the '<em><b>Uri</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__URI = 7;
+    int CONNECTION_TYPE__URI = 8;
 
     /**
      * The feature id for the '<em><b>Username</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE__USERNAME = 8;
+    int CONNECTION_TYPE__USERNAME = 9;
 
     /**
-     * The number of structural features of the '<em>Connection Type</em>' class.
+     * The number of structural features of the '<em>Connection Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
-    int CONNECTION_TYPE_FEATURE_COUNT = 9;
+    int CONNECTION_TYPE_FEATURE_COUNT = 10;
 
     /**
      * The number of operations of the '<em>Connection Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int CONNECTION_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl <em>Document Root</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl
+     * <em>Document Root</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getDocumentRoot()
      * @generated
@@ -373,6 +439,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Mixed</b></em>' attribute list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -382,6 +449,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -391,6 +459,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -400,6 +469,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Root</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -409,6 +479,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of structural features of the '<em>Document Root</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -418,34 +489,94 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Document Root</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int DOCUMENT_ROOT_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl <em>Query Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.PropertyEntryImpl
+     * <em>Property Entry</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @see org.eclipse.scada.da.server.jdbc.configuration.impl.PropertyEntryImpl
+     * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getPropertyEntry()
+     * @generated
+     */
+    int PROPERTY_ENTRY = 5;
+
+    /**
+     * The feature id for the '<em><b>Key</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__KEY = 0;
+
+    /**
+     * The feature id for the '<em><b>Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY__VALUE = 1;
+
+    /**
+     * The number of structural features of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_FEATURE_COUNT = 2;
+
+    /**
+     * The number of operations of the '<em>Property Entry</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    int PROPERTY_ENTRY_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl
+     * <em>Query Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getQueryType()
      * @generated
      */
-    int QUERY_TYPE = 5;
+    int QUERY_TYPE = 6;
 
     /**
      * The feature id for the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int QUERY_TYPE__SQL = ABSTRACT_QUERY_TYPE__SQL;
 
     /**
-     * The feature id for the '<em><b>Column Mapping</b></em>' containment reference list.
+     * The feature id for the '<em><b>Column Mapping</b></em>' containment
+     * reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -455,6 +586,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -464,6 +596,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Period</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -473,6 +606,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -482,6 +616,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -491,6 +626,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of structural features of the '<em>Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -500,25 +636,31 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int QUERY_TYPE_OPERATION_COUNT = ABSTRACT_QUERY_TYPE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl <em>Root Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl
+     * <em>Root Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getRootType()
      * @generated
      */
-    int ROOT_TYPE = 6;
+    int ROOT_TYPE = 7;
 
     /**
-     * The feature id for the '<em><b>Connection</b></em>' containment reference list.
+     * The feature id for the '<em><b>Connection</b></em>' containment reference
+     * list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -528,6 +670,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of structural features of the '<em>Root Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -537,34 +680,41 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Root Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int ROOT_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl <em>Tabular Query Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl
+     * <em>Tabular Query Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getTabularQueryType()
      * @generated
      */
-    int TABULAR_QUERY_TYPE = 7;
+    int TABULAR_QUERY_TYPE = 8;
 
     /**
      * The feature id for the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int TABULAR_QUERY_TYPE__SQL = ABSTRACT_QUERY_TYPE__SQL;
 
     /**
-     * The feature id for the '<em><b>Column Mapping</b></em>' containment reference list.
+     * The feature id for the '<em><b>Column Mapping</b></em>' containment
+     * reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -574,6 +724,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -583,6 +734,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Period</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -592,6 +744,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -601,15 +754,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int TABULAR_QUERY_TYPE__TIMEOUT = ABSTRACT_QUERY_TYPE__TIMEOUT;
 
     /**
-     * The feature id for the '<em><b>Update Columns</b></em>' containment reference list.
+     * The feature id for the '<em><b>Update Columns</b></em>' containment
+     * reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -619,15 +775,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Default Update Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int TABULAR_QUERY_TYPE__DEFAULT_UPDATE_SQL = ABSTRACT_QUERY_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+     * The feature id for the '<em><b>Commands</b></em>' containment reference
+     * list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -637,6 +796,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Default Update Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -646,15 +806,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Id Column</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int TABULAR_QUERY_TYPE__ID_COLUMN = ABSTRACT_QUERY_TYPE_FEATURE_COUNT + 4;
 
     /**
-     * The number of structural features of the '<em>Tabular Query Type</em>' class.
+     * The number of structural features of the '<em>Tabular Query Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -664,25 +827,30 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Tabular Query Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int TABULAR_QUERY_TYPE_OPERATION_COUNT = ABSTRACT_QUERY_TYPE_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl <em>Update Columns Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl
+     * <em>Update Columns Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateColumnsType()
      * @generated
      */
-    int UPDATE_COLUMNS_TYPE = 8;
+    int UPDATE_COLUMNS_TYPE = 9;
 
     /**
      * The feature id for the '<em><b>Column Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -692,15 +860,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Custom Update Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int UPDATE_COLUMNS_TYPE__CUSTOM_UPDATE_SQL = 1;
 
     /**
-     * The number of structural features of the '<em>Update Columns Type</em>' class.
+     * The number of structural features of the '<em>Update Columns Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -710,25 +881,30 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Update Columns Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int UPDATE_COLUMNS_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl <em>Update Mapping Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl
+     * <em>Update Mapping Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateMappingType()
      * @generated
      */
-    int UPDATE_MAPPING_TYPE = 9;
+    int UPDATE_MAPPING_TYPE = 10;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -738,15 +914,18 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Named Parameter</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int UPDATE_MAPPING_TYPE__NAMED_PARAMETER = 1;
 
     /**
-     * The number of structural features of the '<em>Update Mapping Type</em>' class.
+     * The number of structural features of the '<em>Update Mapping Type</em>'
+     * class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -756,34 +935,41 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Update Mapping Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int UPDATE_MAPPING_TYPE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl <em>Update Type</em>}' class.
+     * The meta object id for the '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl
+     * <em>Update Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateType()
      * @generated
      */
-    int UPDATE_TYPE = 10;
+    int UPDATE_TYPE = 11;
 
     /**
      * The feature id for the '<em><b>Sql</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int UPDATE_TYPE__SQL = 0;
 
     /**
-     * The feature id for the '<em><b>Mapping</b></em>' containment reference list.
+     * The feature id for the '<em><b>Mapping</b></em>' containment reference
+     * list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -793,6 +979,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Id</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -802,6 +989,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Sql1</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -811,6 +999,7 @@ public interface ConfigurationPackage extends EPackage
      * The feature id for the '<em><b>Timeout</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -820,6 +1009,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of structural features of the '<em>Update Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -829,6 +1019,7 @@ public interface ConfigurationPackage extends EPackage
      * The number of operations of the '<em>Update Type</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -838,35 +1029,42 @@ public interface ConfigurationPackage extends EPackage
      * The meta object id for the '<em>Alias Name Type</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see java.lang.String
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getAliasNameType()
      * @generated
      */
-    int ALIAS_NAME_TYPE = 11;
+    int ALIAS_NAME_TYPE = 12;
 
     /**
      * The meta object id for the '<em>Column Number Type</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnNumberType()
      * @generated
      */
-    int COLUMN_NUMBER_TYPE = 12;
+    int COLUMN_NUMBER_TYPE = 13;
 
     /**
-     * The meta object id for the '<em>Column Number Type Object</em>' data type.
+     * The meta object id for the '<em>Column Number Type Object</em>' data
+     * type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see java.lang.Integer
      * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnNumberTypeObject()
      * @generated
      */
-    int COLUMN_NUMBER_TYPE_OBJECT = 13;
+    int COLUMN_NUMBER_TYPE_OBJECT = 14;
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType <em>Abstract Query Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType
+     * <em>Abstract Query Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Abstract Query Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType
      * @generated
@@ -874,9 +1072,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getAbstractQueryType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql <em>Sql</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql
+     * <em>Sql</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql()
      * @see #getAbstractQueryType()
@@ -885,10 +1086,14 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getAbstractQueryType_Sql ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getColumnMapping <em>Column Mapping</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getColumnMapping
+     * <em>Column Mapping</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Column Mapping</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Column Mapping</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getColumnMapping()
      * @see #getAbstractQueryType()
      * @generated
@@ -896,9 +1101,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getAbstractQueryType_ColumnMapping ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getId <em>Id</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getId
+     * <em>Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Id</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getId()
      * @see #getAbstractQueryType()
@@ -907,9 +1115,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getAbstractQueryType_Id ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getPeriod <em>Period</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getPeriod
+     * <em>Period</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Period</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getPeriod()
      * @see #getAbstractQueryType()
@@ -918,9 +1129,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getAbstractQueryType_Period ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql1 <em>Sql1</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql1
+     * <em>Sql1</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql1</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getSql1()
      * @see #getAbstractQueryType()
@@ -929,9 +1143,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getAbstractQueryType_Sql1 ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout <em>Timeout</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout
+     * <em>Timeout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Timeout</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.AbstractQueryType#getTimeout()
      * @see #getAbstractQueryType()
@@ -940,9 +1157,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getAbstractQueryType_Timeout ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType <em>Column Mapping Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType
+     * <em>Column Mapping Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Column Mapping Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType
      * @generated
@@ -950,9 +1170,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getColumnMappingType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getAliasName <em>Alias Name</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getAliasName
+     * <em>Alias Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Alias Name</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getAliasName()
      * @see #getColumnMappingType()
@@ -961,9 +1184,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getColumnMappingType_AliasName ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getColumnNumber <em>Column Number</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getColumnNumber
+     * <em>Column Number</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Column Number</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ColumnMappingType#getColumnNumber()
      * @see #getColumnMappingType()
@@ -972,9 +1198,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getColumnMappingType_ColumnNumber ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType <em>Commands Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType
+     * <em>Commands Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Commands Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.CommandsType
      * @generated
@@ -982,9 +1211,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getCommandsType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql <em>Sql</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql
+     * <em>Sql</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql()
      * @see #getCommandsType()
@@ -993,9 +1225,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getCommandsType_Sql ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getLocalName <em>Local Name</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getLocalName
+     * <em>Local Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Local Name</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getLocalName()
      * @see #getCommandsType()
@@ -1004,9 +1239,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getCommandsType_LocalName ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql1 <em>Sql1</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql1
+     * <em>Sql1</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql1</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.CommandsType#getSql1()
      * @see #getCommandsType()
@@ -1015,9 +1253,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getCommandsType_Sql1 ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType <em>Connection Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType
+     * <em>Connection Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Connection Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType
      * @generated
@@ -1025,10 +1266,29 @@ public interface ConfigurationPackage extends EPackage
     EClass getConnectionType ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getQuery <em>Query</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getProperty
+     * <em>Property</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Query</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Property</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getProperty()
+     * @see #getConnectionType()
+     * @generated
+     */
+    EReference getConnectionType_Property ();
+
+    /**
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getQuery
+     * <em>Query</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Query</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getQuery()
      * @see #getConnectionType()
      * @generated
@@ -1036,10 +1296,14 @@ public interface ConfigurationPackage extends EPackage
     EReference getConnectionType_Query ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTabularQuery <em>Tabular Query</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTabularQuery
+     * <em>Tabular Query</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Tabular Query</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Tabular Query</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTabularQuery()
      * @see #getConnectionType()
      * @generated
@@ -1047,10 +1311,14 @@ public interface ConfigurationPackage extends EPackage
     EReference getConnectionType_TabularQuery ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUpdate <em>Update</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUpdate
+     * <em>Update</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Update</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Update</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUpdate()
      * @see #getConnectionType()
      * @generated
@@ -1058,9 +1326,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getConnectionType_Update ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getConnectionClass <em>Connection Class</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getConnectionClass
+     * <em>Connection Class</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Connection Class</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getConnectionClass()
      * @see #getConnectionType()
@@ -1069,9 +1340,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_ConnectionClass ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getId <em>Id</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getId
+     * <em>Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Id</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getId()
      * @see #getConnectionType()
@@ -1080,9 +1354,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_Id ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getPassword <em>Password</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getPassword
+     * <em>Password</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Password</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getPassword()
      * @see #getConnectionType()
@@ -1091,9 +1368,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_Password ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTimeout <em>Timeout</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTimeout
+     * <em>Timeout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Timeout</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getTimeout()
      * @see #getConnectionType()
@@ -1102,9 +1382,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_Timeout ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUri <em>Uri</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUri
+     * <em>Uri</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Uri</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUri()
      * @see #getConnectionType()
@@ -1113,9 +1396,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_Uri ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUsername <em>Username</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUsername
+     * <em>Username</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Username</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.ConnectionType#getUsername()
      * @see #getConnectionType()
@@ -1124,9 +1410,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getConnectionType_Username ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot <em>Document Root</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot
+     * <em>Document Root</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Document Root</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot
      * @generated
@@ -1134,9 +1423,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getDocumentRoot ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getMixed <em>Mixed</em>}'.
+     * Returns the meta object for the attribute list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getMixed
+     * <em>Mixed</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute list '<em>Mixed</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getMixed()
      * @see #getDocumentRoot()
@@ -1145,9 +1437,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getDocumentRoot_Mixed ();
 
     /**
-     * Returns the meta object for the map '{@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
+     * Returns the meta object for the map '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXMLNSPrefixMap
+     * <em>XMLNS Prefix Map</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXMLNSPrefixMap()
      * @see #getDocumentRoot()
@@ -1156,9 +1451,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getDocumentRoot_XMLNSPrefixMap ();
 
     /**
-     * Returns the meta object for the map '{@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
+     * Returns the meta object for the map '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXSISchemaLocation
+     * <em>XSI Schema Location</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the map '<em>XSI Schema Location</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getXSISchemaLocation()
      * @see #getDocumentRoot()
@@ -1167,9 +1465,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getDocumentRoot_XSISchemaLocation ();
 
     /**
-     * Returns the meta object for the containment reference '{@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getRoot <em>Root</em>}'.
+     * Returns the meta object for the containment reference '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getRoot
+     * <em>Root</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the containment reference '<em>Root</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot#getRoot()
      * @see #getDocumentRoot()
@@ -1178,9 +1479,53 @@ public interface ConfigurationPackage extends EPackage
     EReference getDocumentRoot_Root ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.QueryType <em>Query Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry
+     * <em>Property Entry</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
+     * @return the meta object for class '<em>Property Entry</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry
+     * @generated
+     */
+    EClass getPropertyEntry ();
+
+    /**
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry#getKey
+     * <em>Key</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Key</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry#getKey()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Key ();
+
+    /**
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry#getValue
+     * <em>Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @return the meta object for the attribute '<em>Value</em>'.
+     * @see org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry#getValue()
+     * @see #getPropertyEntry()
+     * @generated
+     */
+    EAttribute getPropertyEntry_Value ();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.QueryType
+     * <em>Query Type</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Query Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.QueryType
      * @generated
@@ -1188,9 +1533,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getQueryType ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.RootType <em>Root Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.RootType
+     * <em>Root Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Root Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.RootType
      * @generated
@@ -1198,10 +1546,14 @@ public interface ConfigurationPackage extends EPackage
     EClass getRootType ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.RootType#getConnection <em>Connection</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.RootType#getConnection
+     * <em>Connection</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Connection</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Connection</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.RootType#getConnection()
      * @see #getRootType()
      * @generated
@@ -1209,9 +1561,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getRootType_Connection ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType <em>Tabular Query Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType
+     * <em>Tabular Query Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Tabular Query Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType
      * @generated
@@ -1219,10 +1574,14 @@ public interface ConfigurationPackage extends EPackage
     EClass getTabularQueryType ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getUpdateColumns <em>Update Columns</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getUpdateColumns
+     * <em>Update Columns</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Update Columns</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Update Columns</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getUpdateColumns()
      * @see #getTabularQueryType()
      * @generated
@@ -1230,9 +1589,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getTabularQueryType_UpdateColumns ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql <em>Default Update Sql</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql
+     * <em>Default Update Sql</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Default Update Sql</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql()
      * @see #getTabularQueryType()
@@ -1241,10 +1603,14 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getTabularQueryType_DefaultUpdateSql ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getCommands <em>Commands</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getCommands
+     * <em>Commands</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Commands</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Commands</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getCommands()
      * @see #getTabularQueryType()
      * @generated
@@ -1252,9 +1618,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getTabularQueryType_Commands ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql1 <em>Default Update Sql1</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql1
+     * <em>Default Update Sql1</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Default Update Sql1</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getDefaultUpdateSql1()
      * @see #getTabularQueryType()
@@ -1263,9 +1632,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getTabularQueryType_DefaultUpdateSql1 ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getIdColumn <em>Id Column</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getIdColumn
+     * <em>Id Column</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Id Column</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType#getIdColumn()
      * @see #getTabularQueryType()
@@ -1274,9 +1646,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getTabularQueryType_IdColumn ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType <em>Update Columns Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType
+     * <em>Update Columns Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Update Columns Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType
      * @generated
@@ -1284,9 +1659,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getUpdateColumnsType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getColumnName <em>Column Name</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getColumnName
+     * <em>Column Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Column Name</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getColumnName()
      * @see #getUpdateColumnsType()
@@ -1295,9 +1673,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateColumnsType_ColumnName ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getCustomUpdateSql <em>Custom Update Sql</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getCustomUpdateSql
+     * <em>Custom Update Sql</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Custom Update Sql</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateColumnsType#getCustomUpdateSql()
      * @see #getUpdateColumnsType()
@@ -1306,9 +1687,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateColumnsType_CustomUpdateSql ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType <em>Update Mapping Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType
+     * <em>Update Mapping Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Update Mapping Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType
      * @generated
@@ -1316,9 +1700,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getUpdateMappingType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getName <em>Name</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getName
+     * <em>Name</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Name</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getName()
      * @see #getUpdateMappingType()
@@ -1327,9 +1714,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateMappingType_Name ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getNamedParameter <em>Named Parameter</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getNamedParameter
+     * <em>Named Parameter</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Named Parameter</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateMappingType#getNamedParameter()
      * @see #getUpdateMappingType()
@@ -1338,9 +1728,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateMappingType_NamedParameter ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType <em>Update Type</em>}'.
+     * Returns the meta object for class '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType
+     * <em>Update Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Update Type</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType
      * @generated
@@ -1348,9 +1741,12 @@ public interface ConfigurationPackage extends EPackage
     EClass getUpdateType ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql <em>Sql</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql
+     * <em>Sql</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql()
      * @see #getUpdateType()
@@ -1359,10 +1755,14 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateType_Sql ();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getMapping <em>Mapping</em>}'.
+     * Returns the meta object for the containment reference list '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getMapping
+     * <em>Mapping</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Mapping</em>'.
+     * 
+     * @return the meta object for the containment reference list '
+     *         <em>Mapping</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getMapping()
      * @see #getUpdateType()
      * @generated
@@ -1370,9 +1770,12 @@ public interface ConfigurationPackage extends EPackage
     EReference getUpdateType_Mapping ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getId <em>Id</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getId
+     * <em>Id</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Id</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getId()
      * @see #getUpdateType()
@@ -1381,9 +1784,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateType_Id ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql1 <em>Sql1</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql1
+     * <em>Sql1</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Sql1</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getSql1()
      * @see #getUpdateType()
@@ -1392,9 +1798,12 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateType_Sql1 ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout <em>Timeout</em>}'.
+     * Returns the meta object for the attribute '
+     * {@link org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout
+     * <em>Timeout</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for the attribute '<em>Timeout</em>'.
      * @see org.eclipse.scada.da.server.jdbc.configuration.UpdateType#getTimeout()
      * @see #getUpdateType()
@@ -1403,13 +1812,16 @@ public interface ConfigurationPackage extends EPackage
     EAttribute getUpdateType_Timeout ();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.String <em>Alias Name Type</em>}'.
+     * Returns the meta object for data type '{@link java.lang.String
+     * <em>Alias Name Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for data type '<em>Alias Name Type</em>'.
      * @see java.lang.String
      * @model instanceClass="java.lang.String"
-     *        extendedMetaData="name='aliasName_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#string' minLength='1'"
+     *        extendedMetaData=
+     *        "name='aliasName_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#string' minLength='1'"
      * @generated
      */
     EDataType getAliasNameType ();
@@ -1418,21 +1830,27 @@ public interface ConfigurationPackage extends EPackage
      * Returns the meta object for data type '<em>Column Number Type</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the meta object for data type '<em>Column Number Type</em>'.
      * @model instanceClass="int"
-     *        extendedMetaData="name='columnNumber_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#int' minInclusive='1'"
+     *        extendedMetaData=
+     *        "name='columnNumber_._type' baseType='http://www.eclipse.org/emf/2003/XMLType#int' minInclusive='1'"
      * @generated
      */
     EDataType getColumnNumberType ();
 
     /**
-     * Returns the meta object for data type '{@link java.lang.Integer <em>Column Number Type Object</em>}'.
+     * Returns the meta object for data type '{@link java.lang.Integer
+     * <em>Column Number Type Object</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for data type '<em>Column Number Type Object</em>'.
+     * 
+     * @return the meta object for data type '<em>Column Number Type Object</em>
+     *         '.
      * @see java.lang.Integer
      * @model instanceClass="java.lang.Integer"
-     *        extendedMetaData="name='columnNumber_._type:Object' baseType='columnNumber_._type'"
+     *        extendedMetaData=
+     *        "name='columnNumber_._type:Object' baseType='columnNumber_._type'"
      * @generated
      */
     EDataType getColumnNumberTypeObject ();
@@ -1441,6 +1859,7 @@ public interface ConfigurationPackage extends EPackage
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -1457,14 +1876,18 @@ public interface ConfigurationPackage extends EPackage
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     interface Literals
     {
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl <em>Abstract Query Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl
+         * <em>Abstract Query Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.AbstractQueryTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getAbstractQueryType()
          * @generated
@@ -1472,57 +1895,72 @@ public interface ConfigurationPackage extends EPackage
         EClass ABSTRACT_QUERY_TYPE = eINSTANCE.getAbstractQueryType ();
 
         /**
-         * The meta object literal for the '<em><b>Sql</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__SQL = eINSTANCE.getAbstractQueryType_Sql ();
 
         /**
-         * The meta object literal for the '<em><b>Column Mapping</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Column Mapping</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference ABSTRACT_QUERY_TYPE__COLUMN_MAPPING = eINSTANCE.getAbstractQueryType_ColumnMapping ();
 
         /**
-         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Id</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__ID = eINSTANCE.getAbstractQueryType_Id ();
 
         /**
-         * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Period</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__PERIOD = eINSTANCE.getAbstractQueryType_Period ();
 
         /**
-         * The meta object literal for the '<em><b>Sql1</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql1</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__SQL1 = eINSTANCE.getAbstractQueryType_Sql1 ();
 
         /**
-         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute ABSTRACT_QUERY_TYPE__TIMEOUT = eINSTANCE.getAbstractQueryType_Timeout ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl <em>Column Mapping Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl
+         * <em>Column Mapping Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ColumnMappingTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnMappingType()
          * @generated
@@ -1530,25 +1968,32 @@ public interface ConfigurationPackage extends EPackage
         EClass COLUMN_MAPPING_TYPE = eINSTANCE.getColumnMappingType ();
 
         /**
-         * The meta object literal for the '<em><b>Alias Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Alias Name</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute COLUMN_MAPPING_TYPE__ALIAS_NAME = eINSTANCE.getColumnMappingType_AliasName ();
 
         /**
-         * The meta object literal for the '<em><b>Column Number</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Column Number</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute COLUMN_MAPPING_TYPE__COLUMN_NUMBER = eINSTANCE.getColumnMappingType_ColumnNumber ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl <em>Commands Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl
+         * <em>Commands Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.CommandsTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getCommandsType()
          * @generated
@@ -1556,33 +2001,42 @@ public interface ConfigurationPackage extends EPackage
         EClass COMMANDS_TYPE = eINSTANCE.getCommandsType ();
 
         /**
-         * The meta object literal for the '<em><b>Sql</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute COMMANDS_TYPE__SQL = eINSTANCE.getCommandsType_Sql ();
 
         /**
-         * The meta object literal for the '<em><b>Local Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Local Name</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute COMMANDS_TYPE__LOCAL_NAME = eINSTANCE.getCommandsType_LocalName ();
 
         /**
-         * The meta object literal for the '<em><b>Sql1</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql1</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute COMMANDS_TYPE__SQL1 = eINSTANCE.getCommandsType_Sql1 ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl <em>Connection Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl
+         * <em>Connection Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getConnectionType()
          * @generated
@@ -1590,81 +2044,112 @@ public interface ConfigurationPackage extends EPackage
         EClass CONNECTION_TYPE = eINSTANCE.getConnectionType ();
 
         /**
-         * The meta object literal for the '<em><b>Query</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Property</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EReference CONNECTION_TYPE__PROPERTY = eINSTANCE.getConnectionType_Property ();
+
+        /**
+         * The meta object literal for the '<em><b>Query</b></em>' containment
+         * reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference CONNECTION_TYPE__QUERY = eINSTANCE.getConnectionType_Query ();
 
         /**
-         * The meta object literal for the '<em><b>Tabular Query</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Tabular Query</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference CONNECTION_TYPE__TABULAR_QUERY = eINSTANCE.getConnectionType_TabularQuery ();
 
         /**
-         * The meta object literal for the '<em><b>Update</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Update</b></em>' containment
+         * reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference CONNECTION_TYPE__UPDATE = eINSTANCE.getConnectionType_Update ();
 
         /**
-         * The meta object literal for the '<em><b>Connection Class</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Connection Class</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__CONNECTION_CLASS = eINSTANCE.getConnectionType_ConnectionClass ();
 
         /**
-         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Id</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__ID = eINSTANCE.getConnectionType_Id ();
 
         /**
-         * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Password</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__PASSWORD = eINSTANCE.getConnectionType_Password ();
 
         /**
-         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__TIMEOUT = eINSTANCE.getConnectionType_Timeout ();
 
         /**
-         * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Uri</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__URI = eINSTANCE.getConnectionType_Uri ();
 
         /**
-         * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Username</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute CONNECTION_TYPE__USERNAME = eINSTANCE.getConnectionType_Username ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl <em>Document Root</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl
+         * <em>Document Root</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.DocumentRootImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getDocumentRoot()
          * @generated
@@ -1672,41 +2157,85 @@ public interface ConfigurationPackage extends EPackage
         EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot ();
 
         /**
-         * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+         * The meta object literal for the '<em><b>Mixed</b></em>' attribute
+         * list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute DOCUMENT_ROOT__MIXED = eINSTANCE.getDocumentRoot_Mixed ();
 
         /**
-         * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
+         * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>'
+         * map feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap ();
 
         /**
-         * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
+         * The meta object literal for the '<em><b>XSI Schema Location</b></em>'
+         * map feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation ();
 
         /**
-         * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
+         * The meta object literal for the '<em><b>Root</b></em>' containment
+         * reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference DOCUMENT_ROOT__ROOT = eINSTANCE.getDocumentRoot_Root ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl <em>Query Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.PropertyEntryImpl
+         * <em>Property Entry</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
+         * @see org.eclipse.scada.da.server.jdbc.configuration.impl.PropertyEntryImpl
+         * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getPropertyEntry()
+         * @generated
+         */
+        EClass PROPERTY_ENTRY = eINSTANCE.getPropertyEntry ();
+
+        /**
+         * The meta object literal for the '<em><b>Key</b></em>' attribute
+         * feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__KEY = eINSTANCE.getPropertyEntry_Key ();
+
+        /**
+         * The meta object literal for the '<em><b>Value</b></em>' attribute
+         * feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl
+         * <em>Query Type</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.QueryTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getQueryType()
          * @generated
@@ -1714,9 +2243,12 @@ public interface ConfigurationPackage extends EPackage
         EClass QUERY_TYPE = eINSTANCE.getQueryType ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl <em>Root Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl
+         * <em>Root Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.RootTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getRootType()
          * @generated
@@ -1724,17 +2256,22 @@ public interface ConfigurationPackage extends EPackage
         EClass ROOT_TYPE = eINSTANCE.getRootType ();
 
         /**
-         * The meta object literal for the '<em><b>Connection</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Connection</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference ROOT_TYPE__CONNECTION = eINSTANCE.getRootType_Connection ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl <em>Tabular Query Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl
+         * <em>Tabular Query Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.TabularQueryTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getTabularQueryType()
          * @generated
@@ -1742,49 +2279,62 @@ public interface ConfigurationPackage extends EPackage
         EClass TABULAR_QUERY_TYPE = eINSTANCE.getTabularQueryType ();
 
         /**
-         * The meta object literal for the '<em><b>Update Columns</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Update Columns</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference TABULAR_QUERY_TYPE__UPDATE_COLUMNS = eINSTANCE.getTabularQueryType_UpdateColumns ();
 
         /**
-         * The meta object literal for the '<em><b>Default Update Sql</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Default Update Sql</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute TABULAR_QUERY_TYPE__DEFAULT_UPDATE_SQL = eINSTANCE.getTabularQueryType_DefaultUpdateSql ();
 
         /**
-         * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Commands</b></em>'
+         * containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference TABULAR_QUERY_TYPE__COMMANDS = eINSTANCE.getTabularQueryType_Commands ();
 
         /**
-         * The meta object literal for the '<em><b>Default Update Sql1</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Default Update Sql1</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute TABULAR_QUERY_TYPE__DEFAULT_UPDATE_SQL1 = eINSTANCE.getTabularQueryType_DefaultUpdateSql1 ();
 
         /**
-         * The meta object literal for the '<em><b>Id Column</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Id Column</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute TABULAR_QUERY_TYPE__ID_COLUMN = eINSTANCE.getTabularQueryType_IdColumn ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl <em>Update Columns Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl
+         * <em>Update Columns Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateColumnsTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateColumnsType()
          * @generated
@@ -1792,25 +2342,32 @@ public interface ConfigurationPackage extends EPackage
         EClass UPDATE_COLUMNS_TYPE = eINSTANCE.getUpdateColumnsType ();
 
         /**
-         * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Column Name</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_COLUMNS_TYPE__COLUMN_NAME = eINSTANCE.getUpdateColumnsType_ColumnName ();
 
         /**
-         * The meta object literal for the '<em><b>Custom Update Sql</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Custom Update Sql</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_COLUMNS_TYPE__CUSTOM_UPDATE_SQL = eINSTANCE.getUpdateColumnsType_CustomUpdateSql ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl <em>Update Mapping Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl
+         * <em>Update Mapping Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateMappingTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateMappingType()
          * @generated
@@ -1818,25 +2375,32 @@ public interface ConfigurationPackage extends EPackage
         EClass UPDATE_MAPPING_TYPE = eINSTANCE.getUpdateMappingType ();
 
         /**
-         * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Name</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_MAPPING_TYPE__NAME = eINSTANCE.getUpdateMappingType_Name ();
 
         /**
-         * The meta object literal for the '<em><b>Named Parameter</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Named Parameter</b></em>'
+         * attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_MAPPING_TYPE__NAMED_PARAMETER = eINSTANCE.getUpdateMappingType_NamedParameter ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl <em>Update Type</em>}' class.
+         * The meta object literal for the '
+         * {@link org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl
+         * <em>Update Type</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.UpdateTypeImpl
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getUpdateType()
          * @generated
@@ -1844,41 +2408,51 @@ public interface ConfigurationPackage extends EPackage
         EClass UPDATE_TYPE = eINSTANCE.getUpdateType ();
 
         /**
-         * The meta object literal for the '<em><b>Sql</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_TYPE__SQL = eINSTANCE.getUpdateType_Sql ();
 
         /**
-         * The meta object literal for the '<em><b>Mapping</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Mapping</b></em>' containment
+         * reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EReference UPDATE_TYPE__MAPPING = eINSTANCE.getUpdateType_Mapping ();
 
         /**
-         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Id</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_TYPE__ID = eINSTANCE.getUpdateType_Id ();
 
         /**
-         * The meta object literal for the '<em><b>Sql1</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Sql1</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_TYPE__SQL1 = eINSTANCE.getUpdateType_Sql1 ();
 
         /**
-         * The meta object literal for the '<em><b>Timeout</b></em>' attribute feature.
+         * The meta object literal for the '<em><b>Timeout</b></em>' attribute
+         * feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @generated
          */
         EAttribute UPDATE_TYPE__TIMEOUT = eINSTANCE.getUpdateType_Timeout ();
@@ -1887,6 +2461,7 @@ public interface ConfigurationPackage extends EPackage
          * The meta object literal for the '<em>Alias Name Type</em>' data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see java.lang.String
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getAliasNameType()
          * @generated
@@ -1894,18 +2469,22 @@ public interface ConfigurationPackage extends EPackage
         EDataType ALIAS_NAME_TYPE = eINSTANCE.getAliasNameType ();
 
         /**
-         * The meta object literal for the '<em>Column Number Type</em>' data type.
+         * The meta object literal for the '<em>Column Number Type</em>' data
+         * type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnNumberType()
          * @generated
          */
         EDataType COLUMN_NUMBER_TYPE = eINSTANCE.getColumnNumberType ();
 
         /**
-         * The meta object literal for the '<em>Column Number Type Object</em>' data type.
+         * The meta object literal for the '<em>Column Number Type Object</em>'
+         * data type.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
+         * 
          * @see java.lang.Integer
          * @see org.eclipse.scada.da.server.jdbc.configuration.impl.ConfigurationPackageImpl#getColumnNumberTypeObject()
          * @generated

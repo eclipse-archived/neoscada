@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage;
 import org.eclipse.scada.da.server.jdbc.configuration.ConnectionType;
+import org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry;
 import org.eclipse.scada.da.server.jdbc.configuration.QueryType;
 import org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType;
 import org.eclipse.scada.da.server.jdbc.configuration.UpdateType;
@@ -39,6 +40,7 @@ import org.eclipse.scada.da.server.jdbc.configuration.UpdateType;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl#getTabularQuery <em>Tabular Query</em>}</li>
  *   <li>{@link org.eclipse.scada.da.server.jdbc.configuration.impl.ConnectionTypeImpl#getUpdate <em>Update</em>}</li>
@@ -55,6 +57,16 @@ import org.eclipse.scada.da.server.jdbc.configuration.UpdateType;
  */
 public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements ConnectionType
 {
+    /**
+     * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getProperty()
+     * @generated
+     * @ordered
+     */
+    protected EList<PropertyEntry> property;
+
     /**
      * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference list.
      * <!-- begin-user-doc -->
@@ -233,6 +245,20 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     protected EClass eStaticClass ()
     {
         return ConfigurationPackage.Literals.CONNECTION_TYPE;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<PropertyEntry> getProperty ()
+    {
+        if ( property == null )
+        {
+            property = new EObjectContainmentEList<PropertyEntry> ( PropertyEntry.class, this, ConfigurationPackage.CONNECTION_TYPE__PROPERTY );
+        }
+        return property;
     }
 
     /**
@@ -452,6 +478,8 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
+                return ( (InternalEList<?>)getProperty () ).basicRemove ( otherEnd, msgs );
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
                 return ( (InternalEList<?>)getQuery () ).basicRemove ( otherEnd, msgs );
             case ConfigurationPackage.CONNECTION_TYPE__TABULAR_QUERY:
@@ -472,6 +500,8 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
+                return getProperty ();
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
                 return getQuery ();
             case ConfigurationPackage.CONNECTION_TYPE__TABULAR_QUERY:
@@ -505,6 +535,10 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
+                getProperty ().clear ();
+                getProperty ().addAll ( (Collection<? extends PropertyEntry>)newValue );
+                return;
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
                 getQuery ().clear ();
                 getQuery ().addAll ( (Collection<? extends QueryType>)newValue );
@@ -549,6 +583,9 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
+                getProperty ().clear ();
+                return;
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
                 getQuery ().clear ();
                 return;
@@ -590,6 +627,8 @@ public class ConnectionTypeImpl extends MinimalEObjectImpl.Container implements 
     {
         switch ( featureID )
         {
+            case ConfigurationPackage.CONNECTION_TYPE__PROPERTY:
+                return property != null && !property.isEmpty ();
             case ConfigurationPackage.CONNECTION_TYPE__QUERY:
                 return query != null && !query.isEmpty ();
             case ConfigurationPackage.CONNECTION_TYPE__TABULAR_QUERY:

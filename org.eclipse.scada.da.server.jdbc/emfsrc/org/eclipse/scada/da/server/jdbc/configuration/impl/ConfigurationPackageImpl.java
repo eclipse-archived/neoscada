@@ -28,6 +28,7 @@ import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationFactory;
 import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationPackage;
 import org.eclipse.scada.da.server.jdbc.configuration.ConnectionType;
 import org.eclipse.scada.da.server.jdbc.configuration.DocumentRoot;
+import org.eclipse.scada.da.server.jdbc.configuration.PropertyEntry;
 import org.eclipse.scada.da.server.jdbc.configuration.QueryType;
 import org.eclipse.scada.da.server.jdbc.configuration.RootType;
 import org.eclipse.scada.da.server.jdbc.configuration.TabularQueryType;
@@ -79,6 +80,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * @generated
      */
     private EClass documentRootEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass propertyEntryEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -375,7 +383,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getConnectionType_Query ()
+    public EReference getConnectionType_Property ()
     {
         return (EReference)connectionTypeEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -385,7 +393,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getConnectionType_TabularQuery ()
+    public EReference getConnectionType_Query ()
     {
         return (EReference)connectionTypeEClass.getEStructuralFeatures ().get ( 1 );
     }
@@ -395,7 +403,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getConnectionType_Update ()
+    public EReference getConnectionType_TabularQuery ()
     {
         return (EReference)connectionTypeEClass.getEStructuralFeatures ().get ( 2 );
     }
@@ -405,9 +413,9 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_ConnectionClass ()
+    public EReference getConnectionType_Update ()
     {
-        return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 3 );
+        return (EReference)connectionTypeEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -415,7 +423,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_Id ()
+    public EAttribute getConnectionType_ConnectionClass ()
     {
         return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 4 );
     }
@@ -425,7 +433,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_Password ()
+    public EAttribute getConnectionType_Id ()
     {
         return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 5 );
     }
@@ -435,7 +443,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_Timeout ()
+    public EAttribute getConnectionType_Password ()
     {
         return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 6 );
     }
@@ -445,7 +453,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_Uri ()
+    public EAttribute getConnectionType_Timeout ()
     {
         return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 7 );
     }
@@ -455,9 +463,19 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnectionType_Username ()
+    public EAttribute getConnectionType_Uri ()
     {
         return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 8 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getConnectionType_Username ()
+    {
+        return (EAttribute)connectionTypeEClass.getEStructuralFeatures ().get ( 9 );
     }
 
     /**
@@ -508,6 +526,36 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
     public EReference getDocumentRoot_Root ()
     {
         return (EReference)documentRootEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPropertyEntry ()
+    {
+        return propertyEntryEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Key ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getPropertyEntry_Value ()
+    {
+        return (EAttribute)propertyEntryEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -799,6 +847,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         createEAttribute ( commandsTypeEClass, COMMANDS_TYPE__SQL1 );
 
         connectionTypeEClass = createEClass ( CONNECTION_TYPE );
+        createEReference ( connectionTypeEClass, CONNECTION_TYPE__PROPERTY );
         createEReference ( connectionTypeEClass, CONNECTION_TYPE__QUERY );
         createEReference ( connectionTypeEClass, CONNECTION_TYPE__TABULAR_QUERY );
         createEReference ( connectionTypeEClass, CONNECTION_TYPE__UPDATE );
@@ -814,6 +863,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         createEReference ( documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP );
         createEReference ( documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION );
         createEReference ( documentRootEClass, DOCUMENT_ROOT__ROOT );
+
+        propertyEntryEClass = createEClass ( PROPERTY_ENTRY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
+        createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
 
         queryTypeEClass = createEClass ( QUERY_TYPE );
 
@@ -903,6 +956,7 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         initEAttribute ( getCommandsType_Sql1 (), theXMLTypePackage.getString (), "sql1", null, 0, 1, CommandsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( connectionTypeEClass, ConnectionType.class, "ConnectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getConnectionType_Property (), this.getPropertyEntry (), null, "property", null, 0, -1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getConnectionType_Query (), this.getQueryType (), null, "query", null, 0, -1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getConnectionType_TabularQuery (), this.getTabularQueryType (), null, "tabularQuery", null, 0, -1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getConnectionType_Update (), this.getUpdateType (), null, "update", null, 0, -1, ConnectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -918,6 +972,10 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
         initEReference ( getDocumentRoot_XMLNSPrefixMap (), ecorePackage.getEStringToStringMapEntry (), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDocumentRoot_XSISchemaLocation (), ecorePackage.getEStringToStringMapEntry (), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getDocumentRoot_Root (), this.getRootType (), null, "root", null, 0, -2, null, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getPropertyEntry_Key (), theXMLTypePackage.getString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getPropertyEntry_Value (), theXMLTypePackage.getString (), "value", null, 0, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( queryTypeEClass, QueryType.class, "QueryType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -1081,6 +1139,13 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
                 {       "name", "ConnectionType", //$NON-NLS-1$ //$NON-NLS-2$
                         "kind", "elementOnly" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
+        addAnnotation ( getConnectionType_Property (),
+                source,
+                new String[]
+                {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "property", //$NON-NLS-1$ //$NON-NLS-2$
+                        "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
         addAnnotation ( getConnectionType_Query (),
                 source,
                 new String[]
@@ -1168,6 +1233,24 @@ public class ConfigurationPackageImpl extends EPackageImpl implements Configurat
                 {       "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
                         "name", "root", //$NON-NLS-1$ //$NON-NLS-2$
                         "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( propertyEntryEClass,
+                source,
+                new String[]
+                {       "name", "PropertyEntry", //$NON-NLS-1$ //$NON-NLS-2$
+                        "kind", "empty" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getPropertyEntry_Key (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "key" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getPropertyEntry_Value (),
+                source,
+                new String[]
+                {       "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+                        "name", "value" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
         addAnnotation ( queryTypeEClass,
                 source,

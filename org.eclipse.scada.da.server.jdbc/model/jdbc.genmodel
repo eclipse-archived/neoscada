@@ -30,6 +30,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//CommandsType/sql1"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ConnectionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConnectionType/property"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConnectionType/query"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConnectionType/tabularQuery"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ConnectionType/update"/>
@@ -45,6 +46,10 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/xSISchemaLocation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//DocumentRoot/root"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PropertyEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/value"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//QueryType"/>
     <genClasses ecoreClass="configuration.ecore#//RootType">

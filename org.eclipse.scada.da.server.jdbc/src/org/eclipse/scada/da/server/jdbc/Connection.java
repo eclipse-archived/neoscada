@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,11 +8,13 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add JDBC properties
  *******************************************************************************/
 package org.eclipse.scada.da.server.jdbc;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.Properties;
 import java.util.concurrent.ScheduledExecutorService;
 
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
@@ -23,10 +25,6 @@ public class Connection
     private final Collection<AbstractQuery> queries = new LinkedList<AbstractQuery> ();
 
     private final Collection<Update> updates = new LinkedList<Update> ();
-
-    private final String username;
-
-    private final String password;
 
     private final String uri;
 
@@ -40,12 +38,13 @@ public class Connection
 
     private final String connectionClass;
 
-    public Connection ( final ConnectionFactory connectionFactory, final String id, final Integer timeout, final String connectionClass, final String uri, final String username, final String password )
+    private final Properties properties;
+
+    public Connection ( final ConnectionFactory connectionFactory, final String id, final Integer timeout, final String connectionClass, final String uri, final Properties properties )
     {
         this.connectionFactory = connectionFactory;
         this.uri = uri;
-        this.username = username;
-        this.password = password;
+        this.properties = properties;
         this.id = id;
         this.timeout = timeout;
         this.connectionClass = connectionClass;
@@ -92,7 +91,7 @@ public class Connection
 
     protected java.sql.Connection createConnection () throws Exception
     {
-        return this.connectionFactory.createConnection ( this.connectionClass, this.uri, this.username, this.password, this.timeout );
+        return this.connectionFactory.createConnection ( this.connectionClass, this.uri, this.properties, this.timeout );
     }
 
     public java.sql.Connection getConnection () throws Exception

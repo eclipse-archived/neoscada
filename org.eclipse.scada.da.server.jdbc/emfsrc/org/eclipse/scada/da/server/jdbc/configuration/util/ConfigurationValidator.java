@@ -119,6 +119,8 @@ public class ConfigurationValidator extends EObjectValidator
                 return validateConnectionType ( (ConnectionType)value, diagnostics, context );
             case ConfigurationPackage.DOCUMENT_ROOT:
                 return validateDocumentRoot ( (DocumentRoot)value, diagnostics, context );
+            case ConfigurationPackage.PROPERTY_ENTRY:
+                return validatePropertyEntry ( (PropertyEntry)value, diagnostics, context );
             case ConfigurationPackage.QUERY_TYPE:
                 return validateQueryType ( (QueryType)value, diagnostics, context );
             case ConfigurationPackage.ROOT_TYPE:
@@ -190,6 +192,16 @@ public class ConfigurationValidator extends EObjectValidator
     public boolean validateDocumentRoot ( DocumentRoot documentRoot, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( documentRoot, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validatePropertyEntry ( PropertyEntry propertyEntry, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( propertyEntry, diagnostics, context );
     }
 
     /**

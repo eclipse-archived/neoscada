@@ -120,6 +120,14 @@ public class ConfigurationSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ConfigurationPackage.PROPERTY_ENTRY:
+            {
+                PropertyEntry propertyEntry = (PropertyEntry)theEObject;
+                T result = casePropertyEntry ( propertyEntry );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             case ConfigurationPackage.QUERY_TYPE:
             {
                 QueryType queryType = (QueryType)theEObject;
@@ -253,6 +261,22 @@ public class ConfigurationSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseDocumentRoot ( DocumentRoot object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Property Entry</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Property Entry</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePropertyEntry ( PropertyEntry object )
     {
         return null;
     }
