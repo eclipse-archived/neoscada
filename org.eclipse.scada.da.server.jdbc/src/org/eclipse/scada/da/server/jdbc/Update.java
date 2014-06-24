@@ -54,7 +54,7 @@ public class Update
 
         /**
          * The constructor that maps the main value to a named parameter
-         * 
+         *
          * @param namedParameter
          *            the name of the SQL parameter
          */
@@ -71,7 +71,7 @@ public class Update
          * Note that if the attribute is <code>null</code> then is defines the
          * main value instead.
          * </p>
-         * 
+         *
          * @param attribute
          *            the name of the attribute
          * @param namedParameter
@@ -135,7 +135,7 @@ public class Update
 
     private int doUpdate ( final Variant value ) throws Exception
     {
-        try (final java.sql.Connection connection = this.connection.createConnection ())
+        try ( final java.sql.Connection connection = this.connection.createConnection () )
         {
             connection.setAutoCommit ( true );
 
@@ -154,7 +154,7 @@ public class Update
             final String positionalSql = SqlHelper.convertSql ( this.sql, posMap );
             final Object[] positionalParameters = SqlHelper.expandParameters ( posMap, parameters );
 
-            try (final PreparedStatement stmt = connection.prepareStatement ( positionalSql ))
+            try ( final PreparedStatement stmt = connection.prepareStatement ( positionalSql ) )
             {
                 applyParameters ( stmt, positionalParameters );
                 return stmt.executeUpdate ();
@@ -187,7 +187,7 @@ public class Update
      * the same attribute is not allowed and will result in an undefined
      * behavior.
      * </p>
-     * 
+     *
      * @param mapping
      *            the mapping to add
      */
