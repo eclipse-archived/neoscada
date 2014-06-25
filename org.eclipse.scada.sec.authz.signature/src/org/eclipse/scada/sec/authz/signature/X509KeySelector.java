@@ -161,14 +161,15 @@ public class X509KeySelector extends KeySelector
 
     private String dumpCa ( final X509CA ca )
     {
-        if ( ca == null )
+        if ( ca == null || ca.getCertificates () == null )
         {
-            return "null";
+            return "no CA given or CA is empty";
         }
         StringBuilder sb = new StringBuilder ();
         for ( X509Certificate cert : ca.getCertificates () )
         {
             sb.append ( cert );
+            sb.append ( "\n" );
         }
         return sb.toString ();
     }
