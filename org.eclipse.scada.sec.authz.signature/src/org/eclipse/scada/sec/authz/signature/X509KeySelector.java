@@ -29,7 +29,6 @@ import javax.xml.crypto.dsig.keyinfo.X509Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class X509KeySelector extends KeySelector
 {
 
@@ -121,7 +120,7 @@ public class X509KeySelector extends KeySelector
 
             for ( final X509CA ca : this.cas )
             {
-                logger.trace ( "Checking CA: {}", ca );
+                logger.trace ( "Checking CA: {}", dumpCa ( ca ) );
 
                 if ( ca.isRevoked ( cert ) )
                 {
@@ -145,6 +144,7 @@ public class X509KeySelector extends KeySelector
                     catch ( final Exception e )
                     {
                         // try next
+                        logger.trace ( "just ignore exception:", e );
                     }
                 }
 
@@ -157,6 +157,20 @@ public class X509KeySelector extends KeySelector
         }
 
         return null;
+    }
+
+    private String dumpCa ( final X509CA ca )
+    {
+        if ( ca == null )
+        {
+            return "null";
+        }
+        StringBuilder sb = new StringBuilder ();
+        for ( X509Certificate cert : ca.getCertificates () )
+        {
+            sb.append ( cert );
+        }
+        return sb.toString ();
     }
 
     static boolean algEquals ( final String algURI, final String algName )
