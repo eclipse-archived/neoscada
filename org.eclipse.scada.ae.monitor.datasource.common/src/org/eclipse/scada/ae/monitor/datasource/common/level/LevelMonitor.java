@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - some minor enhancements
  *******************************************************************************/
 package org.eclipse.scada.ae.monitor.datasource.common.level;
 
@@ -59,13 +60,19 @@ public class LevelMonitor extends AbstractNumericMonitor
         }
 
         final Variant originalValue = builder.getValue ();
+        final Variant newValue = Variant.valueOf ( value );
 
         final boolean failure = LevelHelper.isFailure ( value.doubleValue (), this.configuration.preset, this.configuration.lowerOk, this.configuration.includedOk );
         if ( failure )
         {
             if ( this.configuration.cap )
             {
-                builder.setValue ( capValue ( this.configuration.preset, value ) );
+                final Variant cappedValue = capValue ( this.configuration.preset, value );
+                if ( !cappedValue.equals ( newValue ) )
+                {
+                    builder.setValue ( cappedValue );
+                    builder.setAttribute ( this.firstPrefix + ".value.original", newValue );
+                }
             }
             setFailure ( originalValue, Helper.getTimestamp ( builder ), this.configuration.severity, this.configuration.requireAck );
         }
