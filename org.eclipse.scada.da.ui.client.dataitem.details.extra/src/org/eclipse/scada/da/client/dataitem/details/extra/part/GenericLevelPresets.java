@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some minor additions
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details.extra.part;
 
@@ -38,15 +39,15 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.Triangle;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.scada.core.Variant;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.statushandlers.StatusManager;
 import org.eclipse.scada.core.ui.styles.StateInformation.State;
 import org.eclipse.scada.core.ui.styles.StateStyler;
 import org.eclipse.scada.core.ui.styles.StaticStateInformation;
 import org.eclipse.scada.core.ui.styles.StyleBlinker;
 import org.eclipse.scada.da.client.dataitem.details.extra.Activator;
 import org.eclipse.scada.sec.ui.DisplayCallbackHandler;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.statushandlers.StatusManager;
 
 public abstract class GenericLevelPresets extends AbstractBaseDraw2DDetailsPart
 {
@@ -379,7 +380,14 @@ public abstract class GenericLevelPresets extends AbstractBaseDraw2DDetailsPart
         setLabel ( this.presetLL, getLowLowTag () );
         setLabel ( this.presetFloor, getMinTag () );
 
-        this.currentLabel.setText ( "" + this.value.getValue () ); //$NON-NLS-1$
+        if ( isCapped () )
+        {
+            this.currentLabel.setText ( String.format ( Messages.GenericLevelPresets_original_value_was, this.value.getValue (), getOriginalValue () ) );
+        }
+        else
+        {
+            this.currentLabel.setText ( "" + this.value.getValue () ); //$NON-NLS-1$
+        }
     }
 
     private void setStyle ( final StateStyler styler, final String tag )
@@ -394,15 +402,15 @@ public abstract class GenericLevelPresets extends AbstractBaseDraw2DDetailsPart
         {
             states.add ( State.WARNING );
         }
-        if ( isAckRequired ( tag, "warning" ) )
+        if ( isAckRequired ( tag, "warning" ) ) //$NON-NLS-1$
         {
             states.add ( State.WARNING_ACK );
         }
-        if ( isAckRequired ( tag, "alarm" ) )
+        if ( isAckRequired ( tag, "alarm" ) ) //$NON-NLS-1$
         {
             states.add ( State.ALARM_ACK );
         }
-        if ( isAckRequired ( tag, "error" ) )
+        if ( isAckRequired ( tag, "error" ) ) //$NON-NLS-1$
         {
             states.add ( State.ERROR_ACK );
         }
@@ -450,13 +458,17 @@ public abstract class GenericLevelPresets extends AbstractBaseDraw2DDetailsPart
 
     protected abstract Number getPreset ( final String string );
 
+    protected abstract boolean isCapped ();
+
+    protected abstract Variant getOriginalValue ();
+
     protected abstract boolean isActive ( final String string );
 
     protected abstract boolean isUnsafe ( final String string );
 
     protected DisplayCallbackHandler makeDisplayCallback ()
     {
-        return new DisplayCallbackHandler ( this.shell, "Configure Level Monitors", "Confirmation required for configuring level monitors" );
+        return new DisplayCallbackHandler ( this.shell, "Configure Level Monitors", "Confirmation required for configuring level monitors" ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
 }

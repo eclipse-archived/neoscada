@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - some minor additions
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details.extra.part;
 
@@ -34,6 +35,18 @@ public class LocalLevelPresets extends GenericLevelPresets
     protected Number getPreset ( final String string )
     {
         return getNumberAttribute ( String.format ( "org.eclipse.scada.ae.monitor.level.%s.preset", string ), null ); //$NON-NLS-1$
+    }
+
+    @Override
+    protected boolean isCapped ()
+    {
+        return this.hasAttribute ( "org.eclipse.scada.ae.monitor.level.value.original" ); //$NON-NLS-1$
+    }
+
+    @Override
+    protected Variant getOriginalValue ()
+    {
+        return this.value.getAttributes ().get ( "org.eclipse.scada.ae.monitor.level.value.original" ); //$NON-NLS-1$
     }
 
     @Override

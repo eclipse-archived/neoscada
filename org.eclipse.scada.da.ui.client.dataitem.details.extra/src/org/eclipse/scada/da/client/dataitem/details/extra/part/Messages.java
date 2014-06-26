@@ -18,6 +18,8 @@ public class Messages extends NLS
 
     public static String GenericLevelPresets_ErrorMessage_Dialog;
 
+    public static String GenericLevelPresets_original_value_was;
+
     public static String AbstractBaseDraw2DDetailsPart_Label_NotAvail_Text;
 
     public static String BooleanAlarmDetails_active;
