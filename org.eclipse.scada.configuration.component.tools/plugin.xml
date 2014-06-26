@@ -12,6 +12,15 @@
             id="org.eclipse.scada.configuration.component.tools.convert"
             name="Convert">
       </category>
+      <command
+            categoryId="org.eclipse.scada.configuration.component.tools.modify"
+            id="org.eclipse.scada.configuration.component.tools.setConnection"
+            name="Set Connection">
+      </command>
+      <category
+            id="org.eclipse.scada.configuration.component.tools.modify"
+            name="Modify">
+      </category>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -24,6 +33,10 @@
             </reference>
          </activeWhen>
       </handler>
+      <handler
+            class="org.eclipse.scada.configuration.component.tools.handler.SetConnectionHandler"
+            commandId="org.eclipse.scada.configuration.component.tools.setConnection">
+      </handler>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -34,12 +47,24 @@
                id="org.eclipse.scada.configuration.tools.convert"
                label="Convert">
          </menu>
+         <menu
+               id="org.eclipse.scada.configuration.tools.modify"
+               label="Modify">
+         </menu>
       </menuContribution>
       <menuContribution
             allPopups="false"
             locationURI="popup:org.eclipse.scada.configuration.tools.convert">
          <command
                commandId="org.eclipse.scada.configuration.component.tools.convertToExternal"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.scada.configuration.tools.modify">
+         <command
+               commandId="org.eclipse.scada.configuration.component.tools.setConnection"
                style="push">
          </command>
       </menuContribution>
@@ -59,6 +84,24 @@
                   </adapt>
                   <instanceof
                         value="org.eclipse.scada.configuration.component.SingleValue">
+                  </instanceof>
+               </or>
+            </iterate>
+         </with>
+      </definition>
+      <definition
+            id="org.eclipse.scada.configuration.component.tools.setConnection">
+         <with
+               variable="selection">
+            <iterate
+                  ifEmpty="false"
+                  operator="and">
+               <or>
+                  <adapt
+                        type="org.eclipse.scada.configuration.component.ExternalValue">
+                  </adapt>
+                  <instanceof
+                        value="org.eclipse.scada.configuration.component.ExternalValue">
                   </instanceof>
                </or>
             </iterate>

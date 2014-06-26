@@ -12,13 +12,10 @@ package org.eclipse.scada.configuration.component.tools.handler;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -35,64 +32,22 @@ import org.eclipse.scada.ui.utils.SelectionHelper;
 
 public class ConvertToExternalHandler extends AbstractSelectionHandler
 {
-    public static class CompoundHandler
-    {
-        private final EditingDomain domain;
-
-        private final CompoundCommand command;
-
-        public CompoundHandler ( final EditingDomain domain )
-        {
-            this.domain = domain;
-            this.command = new CompoundCommand ();
-        }
-
-        public void execute ()
-        {
-            this.domain.getCommandStack ().execute ( this.command );
-        }
-
-        public void addCommand ( final Command command )
-        {
-            this.command.append ( command );
-        }
-
-        public static void append ( final Map<EditingDomain, CompoundHandler> handlers, final EditingDomain domain, final Command command )
-        {
-            CompoundHandler handler = handlers.get ( domain );
-            if ( handler == null )
-            {
-                handler = new CompoundHandler ( domain );
-                handlers.put ( domain, handler );
-            }
-            handler.addCommand ( command );
-        }
-
-        public static void executeAll ( final Map<EditingDomain, CompoundHandler> handlers )
-        {
-            for ( final CompoundHandler handler : handlers.values () )
-            {
-                handler.execute ();
-            }
-        }
-    }
-
     @Override
     public Object execute ( final ExecutionEvent event ) throws ExecutionException
     {
-        final Map<EditingDomain, CompoundHandler> handlers = new HashMap<EditingDomain, CompoundHandler> ();
+        final CompoundManager manager = new CompoundManager ();
 
         for ( final SingleValue v : SelectionHelper.iterable ( getSelection (), SingleValue.class ) )
         {
-            replace ( handlers, v );
+            replace ( manager, v );
         }
 
-        CompoundHandler.executeAll ( handlers );
+        manager.executeAll ();
 
         return true;
     }
 
-    private void replace ( final Map<EditingDomain, CompoundHandler> handlers, final SingleValue v )
+    private void replace ( final CompoundManager manager, final SingleValue v )
     {
         if ( v instanceof ExternalValue )
         {
@@ -102,7 +57,7 @@ public class ConvertToExternalHandler extends AbstractSelectionHandler
         final EditingDomain domain = AdapterFactoryEditingDomain.getEditingDomainFor ( v );
 
         final Command command = ReplaceCommand.create ( domain, v.eContainer (), v.eContainmentFeature (), v, Collections.singletonList ( convert ( v ) ) );
-        CompoundHandler.append ( handlers, domain, command );
+        manager.append ( domain, command );
     }
 
     @SuppressWarnings ( "unchecked" )
