@@ -285,7 +285,7 @@ public class RedhatHandler extends CommonPackageHandler
     private String makeChangeLog ( final List<ChangeEntry> changes )
     {
         final ArrayList<ChangeEntry> sortedChanges = new ArrayList<> ( changes );
-        Collections.sort ( sortedChanges, new ChangeEntryComparator ( false ) );
+        Collections.sort ( sortedChanges, new ChangeEntryComparator ( true ) );
 
         final StringBuilder sb = new StringBuilder ();
 
