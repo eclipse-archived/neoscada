@@ -44,6 +44,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
     {
         if ( this.bundleContext == null && !this.forNameSet.contains ( connectionClass ) )
         {
+            logger.info ( "Try loading driver using Class.forName()" );
             // we only do this outside of OSGi
             this.forNameSet.add ( connectionClass );
             try
@@ -72,6 +73,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
         catch ( final SQLException e )
         {
             // try different approach
+            logger.info ( "Failed to get connection", e );
         }
 
         try
@@ -108,6 +110,7 @@ public class DefaultConnectionFactory implements ConnectionFactory
         }
         catch ( final Exception e )
         {
+            logger.info ( "Failed to load driver using OSGi", e );
             // try different approach
         }
 
