@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBH SYSTEMS GmbH - initial API and implementation
+ *******************************************************************************/
 package org.eclipse.scada.configuration.component.tools.wizard;
 
 import javax.script.Compilable;
@@ -30,7 +40,7 @@ import org.eclipse.swt.widgets.Text;
 public class ScriptPage extends WizardPage
 {
 
-    private static final int SCRIPTS_HISTORY_LIMIT = 10;
+    private static final String PROP_SCRIPT = "scripts"; //$NON-NLS-1$
 
     private final WritableValue scriptValue = new WritableValue ();
 
@@ -48,7 +58,7 @@ public class ScriptPage extends WizardPage
 
     protected ScriptPage ()
     {
-        super ( "script" );
+        super ( "script" ); //$NON-NLS-1$
     }
 
     @Override
@@ -134,8 +144,8 @@ public class ScriptPage extends WizardPage
     protected void deleteScript ()
     {
         this.combo.remove ( this.combo.getSelectionIndex () );
-        this.combo.setText ( "" );
-        getDialogSettings ().put ( "scripts", this.combo.getItems () );
+        this.combo.setText ( "" ); //$NON-NLS-1$
+        getDialogSettings ().put ( PROP_SCRIPT, this.combo.getItems () );
         update ();
     }
 
@@ -147,7 +157,7 @@ public class ScriptPage extends WizardPage
 
     private void fillScripts ()
     {
-        final String[] scripts = getDialogSettings ().getArray ( "scripts" );
+        final String[] scripts = getDialogSettings ().getArray ( PROP_SCRIPT );
         if ( scripts == null || scripts.length <= 0 )
         {
             return;
@@ -161,7 +171,7 @@ public class ScriptPage extends WizardPage
     {
         this.combo.add ( this.text.getText () );
         this.combo.select ( this.combo.getItemCount () - 1 );
-        getDialogSettings ().put ( "scripts", this.combo.getItems () );
+        getDialogSettings ().put ( PROP_SCRIPT, this.combo.getItems () );
     }
 
     protected IStatus validateScript ( final Object value )
