@@ -24,6 +24,8 @@ import org.eclipse.scada.configuration.component.ComponentWorld;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.lib.Worlds;
 import org.eclipse.scada.configuration.component.tools.Activator;
+import org.eclipse.scada.configuration.component.tools.dialog.DriverSelectionDialog;
+import org.eclipse.scada.configuration.component.tools.utils.CompoundManager;
 import org.eclipse.scada.configuration.infrastructure.Driver;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;

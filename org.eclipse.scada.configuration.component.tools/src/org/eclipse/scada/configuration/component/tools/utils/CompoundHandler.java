@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.tools.handler;
+package org.eclipse.scada.configuration.component.tools.utils;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;

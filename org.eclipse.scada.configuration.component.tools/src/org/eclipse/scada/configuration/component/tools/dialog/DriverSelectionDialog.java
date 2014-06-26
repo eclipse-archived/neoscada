@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.component.tools.handler;
+package org.eclipse.scada.configuration.component.tools.dialog;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.ObservablesManager;

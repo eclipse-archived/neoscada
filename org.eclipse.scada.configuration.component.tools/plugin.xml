@@ -17,6 +17,11 @@
             id="org.eclipse.scada.configuration.component.tools.setConnection"
             name="Set Connection">
       </command>
+      <command
+            categoryId="org.eclipse.scada.configuration.component.tools.modify"
+            id="org.eclipse.scada.configuration.component.tools.setExternalName"
+            name="Set External Name">
+      </command>
       <category
             id="org.eclipse.scada.configuration.component.tools.modify"
             name="Modify">
@@ -36,6 +41,20 @@
       <handler
             class="org.eclipse.scada.configuration.component.tools.handler.SetConnectionHandler"
             commandId="org.eclipse.scada.configuration.component.tools.setConnection">
+             <activeWhen>
+            <reference
+                  definitionId="org.eclipse.scada.configuration.component.tools.allExternal">
+            </reference>
+         </activeWhen>
+      </handler>
+       <handler
+            class="org.eclipse.scada.configuration.component.tools.handler.SetExternalNameHandler"
+            commandId="org.eclipse.scada.configuration.component.tools.setExternalName">
+             <activeWhen>
+            <reference
+                  definitionId="org.eclipse.scada.configuration.component.tools.allExternal">
+            </reference>
+         </activeWhen>
       </handler>
    </extension>
    <extension
@@ -67,6 +86,10 @@
                commandId="org.eclipse.scada.configuration.component.tools.setConnection"
                style="push">
          </command>
+          <command
+               commandId="org.eclipse.scada.configuration.component.tools.setExternalName"
+               style="push">
+         </command>
       </menuContribution>
    </extension>
    <extension
@@ -90,7 +113,7 @@
          </with>
       </definition>
       <definition
-            id="org.eclipse.scada.configuration.component.tools.setConnection">
+            id="org.eclipse.scada.configuration.component.tools.allExternal">
          <with
                variable="selection">
             <iterate

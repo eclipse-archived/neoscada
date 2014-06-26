@@ -27,6 +27,7 @@ import org.eclipse.scada.configuration.component.ComponentFactory;
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.component.ExternalValue;
 import org.eclipse.scada.configuration.component.SingleValue;
+import org.eclipse.scada.configuration.component.tools.utils.CompoundManager;
 import org.eclipse.scada.ui.databinding.AbstractSelectionHandler;
 import org.eclipse.scada.ui.utils.SelectionHelper;
 
