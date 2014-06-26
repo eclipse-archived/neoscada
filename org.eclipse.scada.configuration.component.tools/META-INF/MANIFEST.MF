@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Component Edit Tools
+Bundle-SymbolicName: org.eclipse.scada.configuration.component.tools;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.eclipse.scada.configuration.component.tools.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.expressions,
+ org.eclipse.scada.configuration.component;bundle-version="0.2.0",
+ org.eclipse.emf.edit;bundle-version="2.9.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.9.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.scada.ui.databinding;version="0.2.0",
+ org.eclipse.scada.ui.utils;version="0.1.0"
