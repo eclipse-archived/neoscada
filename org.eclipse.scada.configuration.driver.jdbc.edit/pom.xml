@@ -7,7 +7,7 @@
 		<relativePath>../org.eclipse.scada.ide-parent</relativePath>
 	</parent>
   <groupId>org.eclipse.scada.ide</groupId>
-  <artifactId>org.eclipse.scada.configuration.driver.parser</artifactId>
+  <artifactId>org.eclipse.scada.configuration.driver.jdbc.edit</artifactId>
   <version>0.2.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 </project>
