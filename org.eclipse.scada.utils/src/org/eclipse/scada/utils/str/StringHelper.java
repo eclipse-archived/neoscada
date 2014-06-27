@@ -7,7 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
- *     IBH SYSTEMS GmbH - documentation
+ *     IBH SYSTEMS GmbH - documentation, add toHex
  *******************************************************************************/
 package org.eclipse.scada.utils.str;
 
@@ -18,7 +18,7 @@ import org.eclipse.scada.utils.lang.Apply;
 
 /**
  * A helper class for string operations
- * 
+ *
  * @author Jens Reimann
  */
 public class StringHelper
@@ -30,7 +30,7 @@ public class StringHelper
      * member and add it to the result string. Delimiters are only placed
      * between
      * elements
-     * 
+     *
      * @param items
      *            The items to convert
      * @param delimiter
@@ -85,7 +85,7 @@ public class StringHelper
      * member and add it to the result string. Delimiters are only placed
      * between
      * elements
-     * 
+     *
      * @param items
      *            The items to convert
      * @param delimiter
@@ -111,7 +111,7 @@ public class StringHelper
 
     /**
      * Make the first character of a string uppercase
-     * 
+     *
      * @param text
      *            the string, may be <code>null</code>
      * @return the result, or <code>null</code> if the input was
@@ -133,7 +133,7 @@ public class StringHelper
 
     /**
      * Make the first character of a string lowercase
-     * 
+     *
      * @param text
      *            the string, may be <code>null</code>
      * @return the result, or <code>null</code> if the input was
@@ -151,5 +151,27 @@ public class StringHelper
         }
 
         return text.substring ( 0, 1 ).toLowerCase () + text.substring ( 1 );
+    }
+
+    /**
+     * Convert byte array to hex string
+     *
+     * @param data
+     *            the data to convert
+     * @return a hex string, lower case, no delimiters
+     */
+    public static String toHex ( final byte[] data )
+    {
+        if ( data == null )
+        {
+            return null;
+        }
+
+        final StringBuilder sb = new StringBuilder ();
+        for ( int i = 0; i < data.length; i++ )
+        {
+            sb.append ( String.format ( "%02x", data[i] ) );
+        }
+        return sb.toString ();
     }
 }
