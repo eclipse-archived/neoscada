@@ -249,13 +249,13 @@ public class DebianPackageWriter implements AutoCloseable
             {
                 tout.setLongFileMode ( TarArchiveOutputStream.LONGFILE_GNU );
 
-                addControlContent ( tout, "control", createControlContent () );
-                addControlContent ( tout, "md5sums", createChecksumContent () );
-                addControlContent ( tout, "conffiles", createConfFilesContent () );
-                addControlContent ( tout, "preinst", this.preinstScript );
-                addControlContent ( tout, "prerm", this.prermScript );
-                addControlContent ( tout, "postinst", this.postinstScript );
-                addControlContent ( tout, "postrm", this.postrmScript );
+                addControlContent ( tout, "control", createControlContent (), 0 );
+                addControlContent ( tout, "md5sums", createChecksumContent (), 0 );
+                addControlContent ( tout, "conffiles", createConfFilesContent (), 0 );
+                addControlContent ( tout, "preinst", this.preinstScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
+                addControlContent ( tout, "prerm", this.prermScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
+                addControlContent ( tout, "postinst", this.postinstScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
+                addControlContent ( tout, "postrm", this.postrmScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
             }
             addArFile ( controlFile, "control.tar.gz" );
         }
@@ -265,7 +265,7 @@ public class DebianPackageWriter implements AutoCloseable
         }
     }
 
-    private void addControlContent ( final TarArchiveOutputStream out, final String name, final ContentProvider content ) throws IOException
+    private void addControlContent ( final TarArchiveOutputStream out, final String name, final ContentProvider content, final int mode ) throws IOException
     {
         if ( content == null || !content.hasContent () )
         {
@@ -273,6 +273,13 @@ public class DebianPackageWriter implements AutoCloseable
         }
 
         final TarArchiveEntry entry = new TarArchiveEntry ( name );
+        if ( mode >= 0 )
+        {
+            entry.setMode ( mode );
+        }
+
+        entry.setUserName ( "root" );
+        entry.setGroupName ( "root" );
         entry.setSize ( content.getSize () );
         out.putArchiveEntry ( entry );
         try ( InputStream stream = content.createInputStream () )
