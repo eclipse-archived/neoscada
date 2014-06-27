@@ -2,10 +2,10 @@
 <?metadataRepository version='1.1.0'?>
 <repository name='Eclipse SCADA Externals Wrapper' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1400495031083'/>
+    <property name='p2.timestamp' value='1403854625606'/>
     <property name='p2.compressed' value='false'/>
   </properties>
-  <units size='5'>
+  <units size='6'>
     <unit id='io.netty.buffer' version='4.0.19.Final' singleton='false'>
       <update id='io.netty.buffer' range='[0.0.0,4.0.19.Final)' severity='0'/>
       <properties size='4'>
@@ -203,6 +203,48 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: io.netty.transport&#xA;Bundle-Version: 4.0.19.Final&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.commons.compress' version='1.5.0' singleton='false'>
+      <update id='org.apache.commons.compress' range='[0.0.0,1.5.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Commons Compress'/>
+        <property name='org.eclipse.equinox.p2.description' value='Apache Commons Compress software defines an API for working with compression and archive formats.These include: bzip2, gzip, pack200, xz and ar, cpio, jar, tar, zip, dump.'/>
+        <property name='org.eclipse.equinox.p2.provider' value='The Apache Software Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='http://commons.apache.org/compress/'/>
+      </properties>
+      <provides size='17'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.compress' version='1.5.0'/>
+        <provided namespace='osgi.bundle' name='org.apache.commons.compress' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.pack200' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.changes' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.ar' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.jar' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.cpio' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.tar' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.zip' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.archivers.dump' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.bzip2' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.xz' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.utils' version='1.5.0'/>
+        <provided namespace='java.package' name='org.apache.commons.compress.compressors.gzip' version='1.5.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='java.package' name='org.tukaani.xz' range='0.0.0' optional='true' greedy='false'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.commons.compress' version='1.5.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: org.apache.commons.compress&#xA;Bundle-Version: 1.5.0&#xA;
           </instruction>
         </instructions>
       </touchpointData>

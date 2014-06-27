@@ -2,7 +2,7 @@
 <?artifactRepository version='1.1.0'?>
 <repository name='Eclipse SCADA Externals Wrapper' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='3'>
-    <property name='p2.timestamp' value='1400495031083'/>
+    <property name='p2.timestamp' value='1403854625604'/>
     <property name='publishPackFilesAsSiblings' value='true'/>
     <property name='p2.compressed' value='false'/>
   </properties>
@@ -13,7 +13,7 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature) (format=packed))' output='${repoUrl}/features/${id}_${version}.jar.pack.gz'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='5'>
+  <artifacts size='6'>
     <artifact classifier='osgi.bundle' id='io.netty.handler' version='4.0.19.Final'>
       <properties size='3'>
         <property name='artifact.size' value='75796'/>
@@ -40,6 +40,13 @@
         <property name='artifact.size' value='138081'/>
         <property name='download.size' value='138081'/>
         <property name='download.md5' value='4c1aeb598c93aa73132374c29cb70015'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.commons.compress' version='1.5.0'>
+      <properties size='3'>
+        <property name='artifact.size' value='256241'/>
+        <property name='download.size' value='256241'/>
+        <property name='download.md5' value='5e18cfcf472548c2e0b90a4ea1cedf42'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='io.netty.buffer' version='4.0.19.Final'>
