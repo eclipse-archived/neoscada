@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit tests fororg.eclipse.scada.utils.deb
+Bundle-SymbolicName: org.eclipse.scada.utils.pkg.deb.test
+Bundle-Version: 0.2.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.junit;bundle-version="4.11.0",
+ org.eclipse.scada.utils.pkg.deb;bundle-version="0.2.0"

@@ -45,7 +45,7 @@
 		<module>../org.eclipse.scada.utils</module>
 		
 		<module>../org.eclipse.scada.utils.core.runtime</module>
-		
+
 		<module>../org.eclipse.scada.utils.filter</module>
 		<module>../org.eclipse.scada.utils.osgi</module>
 		<module>../org.eclipse.scada.utils.osgi.autostart</module>
@@ -53,6 +53,7 @@
 		<module>../org.eclipse.scada.utils.osgi.jaxws</module>
 		<module>../org.eclipse.scada.utils.osgi.jdbc</module>
 		<module>../org.eclipse.scada.utils.osgi.jdbc.pool</module>
+		<module>../org.eclipse.scada.utils.pkg.deb</module>
 		<module>../org.eclipse.scada.utils.propertyeditors</module>
 		<module>../org.eclipse.scada.utils.stats</module>
 
