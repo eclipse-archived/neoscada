@@ -10,28 +10,29 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib.deployment.startup;
 
-import java.io.File;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.world.lib.deployment.Contents;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.ResourceInformation.Type;
-import org.eclipse.scada.configuration.world.lib.utils.Helper;
+import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
+import org.eclipse.scada.utils.pkg.deb.EntryInformation;
 
 public class UpstartHandler implements StartupHandler
 {
 
     @Override
-    public void createDriver ( final File packageFolder, final String driverName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
+    public void createDriver ( final BinaryPackageBuilder builder, final String driverName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
-        Helper.createFile ( new File ( packageFolder, "src/etc/init/scada.driver." + driverName + ".conf" ), UpstartHandler.class.getResourceAsStream ( "templates/upstart/driver.upstart.conf" ), replacements, monitor );
+        builder.addFile ( Contents.createContent ( RedhatSystemVHandler.class.getResourceAsStream ( "templates/upstart/driver.upstart.conf" ), replacements ), "/etc/init/scada.driver." + driverName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
     }
 
     @Override
-    public void createEquinox ( final File packageFolder, final String appName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
+    public void createEquinox ( final BinaryPackageBuilder builder, final String appName, final Map<String, String> replacements, final IProgressMonitor monitor ) throws Exception
     {
-        Helper.createFile ( new File ( packageFolder, "src/etc/init/scada.app." + appName + ".conf" ), UpstartHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.conf" ), replacements, monitor );
+        builder.addFile ( Contents.createContent ( RedhatSystemVHandler.class.getResourceAsStream ( "templates/upstart/app.upstart.conf" ), replacements ), "/etc/init/scada.app." + appName + ".conf", EntryInformation.DEFAULT_FILE_CONF );
     }
 
     @Override

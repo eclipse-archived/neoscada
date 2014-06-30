@@ -20,6 +20,4 @@ esac
 
 $$prerm.scripts$$
 
-#DEBHELPER#
-
 exit 0

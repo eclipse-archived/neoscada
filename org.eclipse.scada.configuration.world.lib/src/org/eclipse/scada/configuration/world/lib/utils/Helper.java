@@ -39,7 +39,7 @@ public class Helper
         createFile ( file, resource, replacements, monitor, PATTERN );
     }
 
-    public static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor, final Pattern pattern ) throws Exception
+    protected static void createFile ( final File file, final InputStream resource, final Map<String, String> replacements, final IProgressMonitor monitor, final Pattern pattern ) throws Exception
     {
         String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
             @Override
@@ -60,7 +60,7 @@ public class Helper
 
         try
         {
-            try (FileOutputStream fos = new FileOutputStream ( file ))
+            try ( FileOutputStream fos = new FileOutputStream ( file ) )
             {
                 ByteStreams.copy ( resource, fos );
             }

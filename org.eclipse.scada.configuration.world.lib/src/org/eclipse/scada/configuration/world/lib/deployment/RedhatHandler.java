@@ -98,8 +98,10 @@ public class RedhatHandler extends CommonPackageHandler
         Helper.createFile ( specFile, RedhatHandler.class.getResourceAsStream ( "templates/rpm/template.spec" ), replacements, monitor );
         Helper.createFile ( new File ( packageFolder, "Makefile" ), RedhatHandler.class.getResourceAsStream ( "templates/rpm/Makefile" ), replacements, monitor );
 
-        createDrivers ( nodeDir, monitor, packageFolder, replacements );
-        createEquinox ( nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
+        final BinaryPackageBuilderWrapper builder = new BinaryPackageBuilderWrapper ( new File ( packageFolder, "src" ) );
+
+        createDrivers ( builder, nodeDir, monitor, packageFolder, replacements );
+        createEquinox ( builder, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
 
         // make source file
 

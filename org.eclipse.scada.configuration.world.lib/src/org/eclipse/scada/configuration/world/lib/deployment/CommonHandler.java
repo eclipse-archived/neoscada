@@ -67,10 +67,7 @@ public abstract class CommonHandler implements NodeElementProcessor
         final File folder = nodeDir.getFolder ( getBaseFolderName () ).getLocation ().toFile ();
         logger.debug ( "Output folder: {}", folder );
 
-        final String packageName = getPackageName ();
-
-        final File packageFolder = new File ( folder, packageName );
-        return packageFolder;
+        return new File ( folder, getPackageName () );
     }
 
     protected boolean needP2 ()

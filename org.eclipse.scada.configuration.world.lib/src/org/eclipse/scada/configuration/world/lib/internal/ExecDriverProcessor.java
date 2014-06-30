@@ -8,9 +8,10 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.world.lib;
+package org.eclipse.scada.configuration.world.lib.internal;
 
 import org.eclipse.scada.configuration.world.ExecDriver;
+import org.eclipse.scada.configuration.world.lib.CommonDriverProcessor;
 import org.eclipse.scada.da.exec.configuration.ConfigurationPackage;
 import org.eclipse.scada.da.server.exporter.HiveConfigurationType;
 
