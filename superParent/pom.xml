@@ -241,6 +241,14 @@
 				<buildType>I</buildType>
 				<buildTypeLong>integration</buildTypeLong>
 			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse SCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+				</repository>
+			</repositories>
 		</profile>
 
 		<profile>
@@ -249,6 +257,14 @@
 				<buildType>S</buildType>
 				<buildTypeLong>milestone</buildTypeLong>
 			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse SCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+				</repository>
+			</repositories>
 		</profile>
 
 		<profile>
@@ -257,6 +273,14 @@
 				<buildType>R</buildType>
 				<buildTypeLong>release</buildTypeLong>
 			</properties>
+			<repositories>
+				<repository>
+					<id>eclipse.scada.external.wrapper</id>
+					<name>Eclipse SCADA Externals Wrapper</name>
+					<layout>p2</layout>
+					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+				</repository>
+			</repositories>
 		</profile>
 
 		<profile>

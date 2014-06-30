@@ -25,13 +25,6 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		
-		<repository>
-			<id>eclipse.scada.external.wrapper</id>
-			<name>Eclipse SCADA Externals Wrapper</name>
-			<layout>p2</layout>
-			<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
-		</repository>
 	</repositories>
 
 	<pluginRepositories>
