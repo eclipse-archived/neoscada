@@ -67,10 +67,10 @@ public class JavaDebianHandler extends CommonPackageHandler
         packageControlFile.setVersion ( version );
         packageControlFile.setPriority ( "required" ); //$NON-NLS-1$
         packageControlFile.setSection ( "misc" ); //$NON-NLS-1$
-        packageControlFile.setMaintainer ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) );
+        packageControlFile.setMaintainer ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) ); //$NON-NLS-1$
         packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ), "This is an automatically generated configuration package" );
 
-        packageControlFile.set ( BinaryPackageControlFile.Fields.CONFLICTS, "org.openscada.drivers.common, org.openscada" );
+        packageControlFile.set ( BinaryPackageControlFile.Fields.CONFLICTS, "org.openscada.drivers.common, org.openscada" ); //$NON-NLS-1$
         packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies () );
 
         final Map<String, String> replacements = new HashMap<> ();
@@ -81,27 +81,27 @@ public class JavaDebianHandler extends CommonPackageHandler
         replacements.put ( "postinst.restart", createPostInst () ); //$NON-NLS-1$
         replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
 
-        replacements.put ( "postinst.scripts", createUserScriptCallbacks ( packageFolder, "postinst" ) );
-        replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) );
-        replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) );
+        replacements.put ( "postinst.scripts", createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
         final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
         outputFile.getParentFile ().mkdirs ();
         try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
         {
-            deb.setPostinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) );
-            deb.setPostrmScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) );
-            deb.setPrermScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) );
+            deb.setPostinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
+            deb.setPostrmScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
+            deb.setPrermScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
 
             createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
             createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
 
             // scoop up "src" files
-            final Path src = new File ( packageFolder, "src" ).toPath ();
+            final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
             if ( src.toFile ().isDirectory () )
             {
                 final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
-                scoop.getExecPrefix ().add ( "/usr/lib/eclipsescada/packagescripts" );
+                scoop.getExecPrefix ().add ( "/usr/lib/eclipsescada/packagescripts" ); //$NON-NLS-1$
                 Files.walkFileTree ( src, scoop );
             }
 
@@ -128,7 +128,7 @@ public class JavaDebianHandler extends CommonPackageHandler
      */
     private String createUserScriptCallbacks ( final File packageFolder, final String type )
     {
-        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type );
+        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type ); //$NON-NLS-1$ //$NON-NLS-2$
         final List<String> scripts = new LinkedList<> ();
 
         if ( !dir.isDirectory () )
@@ -143,7 +143,7 @@ public class JavaDebianHandler extends CommonPackageHandler
                 continue;
             }
             file.setExecutable ( true );
-            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" );
+            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         }
         return StringHelper.join ( scripts, "\n" );
     }
@@ -195,7 +195,7 @@ public class JavaDebianHandler extends CommonPackageHandler
                 continue;
             }
 
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) );
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -207,7 +207,7 @@ public class JavaDebianHandler extends CommonPackageHandler
                 continue;
             }
 
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) );
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -231,7 +231,7 @@ public class JavaDebianHandler extends CommonPackageHandler
             {
                 continue;
             }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) );
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -242,7 +242,7 @@ public class JavaDebianHandler extends CommonPackageHandler
             {
                 continue;
             }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) );
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
