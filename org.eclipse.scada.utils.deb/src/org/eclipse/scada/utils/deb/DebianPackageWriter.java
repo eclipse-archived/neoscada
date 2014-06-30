@@ -40,7 +40,7 @@ import org.eclipse.scada.utils.str.StringHelper;
 
 import com.google.common.io.ByteStreams;
 
-public class DebianPackageWriter implements AutoCloseable
+public class DebianPackageWriter implements AutoCloseable, BinaryPackageBuilder
 {
     public static final Charset CHARSET = Charset.forName ( "UTF-8" );
 
@@ -84,6 +84,7 @@ public class DebianPackageWriter implements AutoCloseable
         this.dataTemp = File.createTempFile ( "data", null );
 
         this.dataStream = new TarArchiveOutputStream ( new GZIPOutputStream ( new FileOutputStream ( this.dataTemp ) ) );
+        this.dataStream.setLongFileMode ( TarArchiveOutputStream.LONGFILE_GNU );
     }
 
     public void addFile ( final File file, final String fileName, final EntryInformation entryInformation ) throws IOException
@@ -96,6 +97,7 @@ public class DebianPackageWriter implements AutoCloseable
         addFile ( new StaticContentProvider ( content ), fileName, entryInformation );
     }
 
+    @Override
     public void addFile ( final ContentProvider contentProvider, String fileName, EntryInformation entryInformation ) throws IOException
     {
         if ( entryInformation == null )
@@ -161,6 +163,7 @@ public class DebianPackageWriter implements AutoCloseable
         return "./" + fileName;
     }
 
+    @Override
     public void addDirectory ( String directory, final EntryInformation entryInformation ) throws IOException
     {
         directory = cleanupPath ( directory );
@@ -249,9 +252,9 @@ public class DebianPackageWriter implements AutoCloseable
             {
                 tout.setLongFileMode ( TarArchiveOutputStream.LONGFILE_GNU );
 
-                addControlContent ( tout, "control", createControlContent (), 0 );
-                addControlContent ( tout, "md5sums", createChecksumContent (), 0 );
-                addControlContent ( tout, "conffiles", createConfFilesContent (), 0 );
+                addControlContent ( tout, "control", createControlContent (), -1 );
+                addControlContent ( tout, "md5sums", createChecksumContent (), -1 );
+                addControlContent ( tout, "conffiles", createConfFilesContent (), -1 );
                 addControlContent ( tout, "preinst", this.preinstScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
                 addControlContent ( tout, "prerm", this.prermScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );
                 addControlContent ( tout, "postinst", this.postinstScript, EntryInformation.DEFAULT_FILE_EXEC.getMode () );

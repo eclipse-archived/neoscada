@@ -10,11 +10,20 @@
  *******************************************************************************/
 package org.eclipse.scada.utils.deb.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A control file for binary packages
  */
 public class BinaryPackageControlFile extends GenericControlFile
 {
+
+    private final static Logger logger = LoggerFactory.getLogger ( BinaryPackageControlFile.class );
+
     public interface Fields
     {
         public static ControlFieldDefinition PACKAGE = new ControlFieldDefinition ( "Package", FieldType.SIMPLE );
@@ -81,6 +90,26 @@ public class BinaryPackageControlFile extends GenericControlFile
         set ( Fields.DESCRIPTION.createField ( details, abstractLine ) );
     }
 
+    public String getPriority ()
+    {
+        return getValue ( Fields.PRIORITY );
+    }
+
+    public void setPriority ( final String value )
+    {
+        set ( Fields.PRIORITY.createField ( value ) );
+    }
+
+    public String getSection ()
+    {
+        return getValue ( Fields.SECTION );
+    }
+
+    public void setSection ( final String value )
+    {
+        set ( Fields.SECTION.createField ( value ) );
+    }
+
     public void validate ()
     {
         validate ( this );
@@ -104,4 +133,17 @@ public class BinaryPackageControlFile extends GenericControlFile
         }
     }
 
+    public String makeFileName ()
+    {
+        final String name = String.format ( "%s_%s_%s.deb", getPackage (), getVersion (), getArchitecture () );
+        try
+        {
+            return URLEncoder.encode ( name, "UTF-8" );
+        }
+        catch ( final UnsupportedEncodingException e )
+        {
+            logger.debug ( "Failed to encode package name", e );
+            return name;
+        }
+    }
 }
