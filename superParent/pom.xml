@@ -43,6 +43,8 @@
 		<buildTimestamp>${maven.build.timestamp}</buildTimestamp>
 		<!-- the following property is used by the tycho JGit timestamp provider -->
 		<reactorBuildTimestampProperty>${maven.build.timestamp}</reactorBuildTimestampProperty>
+		
+		<external.p2.wrapper.url>file:${basedir}/../../org.eclipse.scada.external/org.eclipse.scada.external-repo/repo</external.p2.wrapper.url>
 	</properties>
 
 	<pluginRepositories>
@@ -246,7 +248,7 @@
 					<id>eclipse.scada.external.wrapper</id>
 					<name>Eclipse SCADA Externals Wrapper</name>
 					<layout>p2</layout>
-					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+					<url>${external.p2.wrapper.url}</url>
 				</repository>
 			</repositories>
 		</profile>
@@ -262,7 +264,7 @@
 					<id>eclipse.scada.external.wrapper</id>
 					<name>Eclipse SCADA Externals Wrapper</name>
 					<layout>p2</layout>
-					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+					<url>${external.p2.wrapper.url}</url>
 				</repository>
 			</repositories>
 		</profile>
@@ -278,7 +280,7 @@
 					<id>eclipse.scada.external.wrapper</id>
 					<name>Eclipse SCADA Externals Wrapper</name>
 					<layout>p2</layout>
-					<url>file:${basedir}/../../org.eclipse.scada.external-repo/repo</url>
+					<url>${external.p2.wrapper.url}</url>
 				</repository>
 			</repositories>
 		</profile>
