@@ -109,10 +109,17 @@ public abstract class CommonPackageHandler extends CommonHandler
         {
             // patch the profile, we need a copy for that
             final File tempFile = File.createTempFile ( "profile", ".xml" );
-            Files.copy ( source.toPath (), tempFile.toPath (), StandardCopyOption.REPLACE_EXISTING );
-            patchProfile ( name, tempFile );
+            try
+            {
+                Files.copy ( source.toPath (), tempFile.toPath (), StandardCopyOption.REPLACE_EXISTING );
+                patchProfile ( name, tempFile );
 
-            builder.addFile ( new FileContentProvider ( tempFile ), "/usr/share/eclipsescada/profiles/" + name + ".profile.xml", null );
+                builder.addFile ( new FileContentProvider ( tempFile ), "/usr/share/eclipsescada/profiles/" + name + ".profile.xml", null );
+            }
+            finally
+            {
+                tempFile.delete ();
+            }
         }
 
         builder.addFile ( Contents.createContent ( CommonPackageHandler.class.getResourceAsStream ( "templates/app.logback.xml" ), replacements ), "/usr/share/eclipsescada/profiles/" + name + "/logback.xml", EntryInformation.DEFAULT_FILE );
