@@ -96,6 +96,7 @@
 		<module>../org.eclipse.scada.configuration.component.exec.lib</module>
 		<module>../org.eclipse.scada.configuration.component.generator</module>
 		<module>../org.eclipse.scada.configuration.component.lib</module>
+		<module>../org.eclipse.scada.configuration.component.tools</module>
 		<module>../org.eclipse.scada.configuration.generator</module>
 		<module>../org.eclipse.scada.configuration.generator.component</module>
 		<module>../org.eclipse.scada.configuration.generator.ui</module>
