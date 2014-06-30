@@ -34,8 +34,6 @@ import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
 import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
 import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
-import org.eclipse.scada.utils.pkg.deb.control.ControlFieldDefinition;
-import org.eclipse.scada.utils.pkg.deb.control.FieldType;
 import org.eclipse.scada.utils.str.StringHelper;
 
 public class JavaDebianHandler extends CommonPackageHandler
@@ -65,18 +63,15 @@ public class JavaDebianHandler extends CommonPackageHandler
 
         final BinaryPackageControlFile packageControlFile = new BinaryPackageControlFile ();
         packageControlFile.setPackage ( packageName );
-        packageControlFile.setArchitecture ( "all" );
+        packageControlFile.setArchitecture ( "all" ); //$NON-NLS-1$
         packageControlFile.setVersion ( version );
-        packageControlFile.setPriority ( "required" );
-        packageControlFile.setSection ( "misc" );
+        packageControlFile.setPriority ( "required" ); //$NON-NLS-1$
+        packageControlFile.setSection ( "misc" ); //$NON-NLS-1$
         packageControlFile.setMaintainer ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) );
         packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ), "This is an automatically generated configuration package" );
 
-        final ControlFieldDefinition conflicts = new ControlFieldDefinition ( "Conflicts", FieldType.SIMPLE );
-        packageControlFile.set ( conflicts, "org.openscada.drivers.common, org.openscada" );
-
-        final ControlFieldDefinition depends = new ControlFieldDefinition ( "Depends", FieldType.SIMPLE );
-        packageControlFile.set ( depends, makeDependencies () );
+        packageControlFile.set ( BinaryPackageControlFile.Fields.CONFLICTS, "org.openscada.drivers.common, org.openscada" );
+        packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies () );
 
         final Map<String, String> replacements = new HashMap<> ();
         replacements.put ( "packageName", packageName ); //$NON-NLS-1$
