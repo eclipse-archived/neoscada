@@ -32,7 +32,7 @@
 		</repository>
 	</repositories>
 
-<profiles>
+	<profiles>
 		<profile>
 			<id>nightly</id>
 			<activation>
