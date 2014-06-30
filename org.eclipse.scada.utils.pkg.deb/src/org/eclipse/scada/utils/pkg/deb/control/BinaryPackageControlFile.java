@@ -26,23 +26,28 @@ public class BinaryPackageControlFile extends GenericControlFile
 
     public interface Fields
     {
-        public static ControlFieldDefinition PACKAGE = new ControlFieldDefinition ( "Package", FieldType.SIMPLE );
+        public static ControlFieldDefinition PACKAGE = new ControlFieldDefinition ( "Package", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition VERSION = new ControlFieldDefinition ( "Version", FieldType.SIMPLE );
+        public static ControlFieldDefinition VERSION = new ControlFieldDefinition ( "Version", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition ARCHITECTURE = new ControlFieldDefinition ( "Architecture", FieldType.SIMPLE );
+        public static ControlFieldDefinition ARCHITECTURE = new ControlFieldDefinition ( "Architecture", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition SECTION = new ControlFieldDefinition ( "Section", FieldType.SIMPLE );
+        public static ControlFieldDefinition SECTION = new ControlFieldDefinition ( "Section", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition PRIORITY = new ControlFieldDefinition ( "Priority", FieldType.SIMPLE );
+        public static ControlFieldDefinition PRIORITY = new ControlFieldDefinition ( "Priority", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition ESSENTIAL = new ControlFieldDefinition ( "Essential", FieldType.SIMPLE );
+        public static ControlFieldDefinition ESSENTIAL = new ControlFieldDefinition ( "Essential", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition DESCRIPTION = new ControlFieldDefinition ( "Description", FieldType.MULTILINE );
+        public static ControlFieldDefinition DESCRIPTION = new ControlFieldDefinition ( "Description", FieldType.MULTILINE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition MAINTAINER = new ControlFieldDefinition ( "Maintainer", FieldType.SIMPLE );
+        public static ControlFieldDefinition MAINTAINER = new ControlFieldDefinition ( "Maintainer", FieldType.SIMPLE ); //$NON-NLS-1$
 
-        public static ControlFieldDefinition INSTALLED_SIZE = new ControlFieldDefinition ( "Installed-Size", FieldType.SIMPLE );
+        public static ControlFieldDefinition INSTALLED_SIZE = new ControlFieldDefinition ( "Installed-Size", FieldType.SIMPLE ); //$NON-NLS-1$
+
+        public static ControlFieldDefinition CONFLICTS = new ControlFieldDefinition ( "Conflicts", FieldType.SIMPLE ); //$NON-NLS-1$
+
+        public static ControlFieldDefinition DEPENDS = new ControlFieldDefinition ( "Depends", FieldType.SIMPLE ); //$NON-NLS-1$
+
     }
 
     public void setPackage ( final String value )
