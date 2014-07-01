@@ -35,6 +35,6 @@ mvn clean verify \
   -Prpm -Pdeb -Peclipse-hudson \
  '-P!nightly' "-P$TYPE" \
   -Ddownload.root=/tmp/my-download-test \
-  -Declipse.download.root=http://download.eclipse.org
+ '-Declipse.download.root=http://www.eclipse.org/downloads/download.php?r=1&amp;file='
   
 popd # workspace
