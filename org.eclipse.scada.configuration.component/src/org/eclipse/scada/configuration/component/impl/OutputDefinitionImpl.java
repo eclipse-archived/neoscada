@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.component.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.component.DanglingItemReference;
 import org.eclipse.scada.configuration.component.OutputDefinition;
 
 /**
@@ -155,6 +157,18 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
      * <!-- end-user-doc -->
      * @generated
      */
+    public DanglingItemReference createReference ()
+    {
+        // TODO: implement this method
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException ();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -237,6 +251,22 @@ public class OutputDefinitionImpl extends MinimalEObjectImpl.Container implement
                 return customizationTags != null && !customizationTags.isEmpty ();
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case ComponentPackage.OUTPUT_DEFINITION___CREATE_REFERENCE:
+                return createReference ();
+        }
+        return super.eInvoke ( operationID, arguments );
     }
 
     /**

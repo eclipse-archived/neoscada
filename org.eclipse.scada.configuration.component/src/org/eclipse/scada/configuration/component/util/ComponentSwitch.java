@@ -380,6 +380,16 @@ public class ComponentSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case ComponentPackage.ITEM_REFERENCE_OUTPUT_DEFINITION:
+            {
+                ItemReferenceOutputDefinition itemReferenceOutputDefinition = (ItemReferenceOutputDefinition)theEObject;
+                T result = caseItemReferenceOutputDefinition ( itemReferenceOutputDefinition );
+                if ( result == null )
+                    result = caseOutputDefinition ( itemReferenceOutputDefinition );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             case ComponentPackage.INPUT_DEFINITION:
             {
                 InputDefinition inputDefinition = (InputDefinition)theEObject;
@@ -965,6 +975,22 @@ public class ComponentSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseItemReferenceInputDefinition ( ItemReferenceInputDefinition object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Item Reference Output Definition</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Item Reference Output Definition</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseItemReferenceOutputDefinition ( ItemReferenceOutputDefinition object )
     {
         return null;
     }

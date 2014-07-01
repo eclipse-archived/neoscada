@@ -97,6 +97,19 @@ public class ScriptModuleGenerator extends CalculationComponentGenerator<ScriptM
 
             item.getInputs ().add ( itemRef );
         }
+
+        for ( final OutputDefinition outputDef : this.calculationComponent.getOutputs () )
+        {
+            if ( "output".equals ( outputDef.getName () ) )
+            {
+                continue;
+            }
+            final ItemReference itemRef = OsgiFactory.eINSTANCE.createItemReference ();
+            itemRef.setItem ( outputDef.createReference () );
+            itemRef.setName ( outputDef.getName () );
+
+            item.getCommands ().add ( itemRef );
+        }
     }
 
     private CodeFragment toCodeFragment ( final Script initScript )

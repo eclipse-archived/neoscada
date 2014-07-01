@@ -50,7 +50,9 @@ public class ComponentTests extends TestSuite
         suite.addTestSuite ( DataMapperAnalyzerTest.class );
         suite.addTestSuite ( MappedSourceValueTest.class );
         suite.addTestSuite ( CalculationComponentTest.class );
+        suite.addTestSuite ( OutputDefinitionTest.class );
         suite.addTestSuite ( ItemReferenceInputDefinitionTest.class );
+        suite.addTestSuite ( ItemReferenceOutputDefinitionTest.class );
         suite.addTestSuite ( ComponentReferenceInputDefinitionTest.class );
         suite.addTestSuite ( FormulaModuleTest.class );
         suite.addTestSuite ( AverageModuleTest.class );

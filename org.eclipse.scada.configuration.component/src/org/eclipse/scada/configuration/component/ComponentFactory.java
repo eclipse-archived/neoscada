@@ -166,6 +166,15 @@ public interface ComponentFactory extends EFactory
     ItemReferenceInputDefinition createItemReferenceInputDefinition ();
 
     /**
+     * Returns a new object of class '<em>Item Reference Output Definition</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Item Reference Output Definition</em>'.
+     * @generated
+     */
+    ItemReferenceOutputDefinition createItemReferenceOutputDefinition ();
+
+    /**
      * Returns a new object of class '<em>Reference Input Definition</em>'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

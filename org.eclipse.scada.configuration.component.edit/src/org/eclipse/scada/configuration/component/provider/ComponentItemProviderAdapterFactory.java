@@ -477,6 +477,31 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ItemReferenceOutputDefinitionItemProvider itemReferenceOutputDefinitionItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createItemReferenceOutputDefinitionAdapter ()
+    {
+        if ( itemReferenceOutputDefinitionItemProvider == null )
+        {
+            itemReferenceOutputDefinitionItemProvider = new ItemReferenceOutputDefinitionItemProvider ( this );
+        }
+
+        return itemReferenceOutputDefinitionItemProvider;
+    }
+
+    /**
      * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.component.ComponentReferenceInputDefinition} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1055,6 +1080,8 @@ public class ComponentItemProviderAdapterFactory extends ComponentAdapterFactory
             outputDefinitionItemProvider.dispose ();
         if ( itemReferenceInputDefinitionItemProvider != null )
             itemReferenceInputDefinitionItemProvider.dispose ();
+        if ( itemReferenceOutputDefinitionItemProvider != null )
+            itemReferenceOutputDefinitionItemProvider.dispose ();
         if ( componentReferenceInputDefinitionItemProvider != null )
             componentReferenceInputDefinitionItemProvider.dispose ();
         if ( formulaModuleItemProvider != null )

@@ -85,7 +85,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getContainer()
      * @generated
      */
-    int CONTAINER = 34;
+    int CONTAINER = 35;
 
     /**
      * The feature id for the '<em><b>Item Interceptors</b></em>' containment reference list.
@@ -523,7 +523,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getMasterComponent()
      * @generated
      */
-    int MASTER_COMPONENT = 38;
+    int MASTER_COMPONENT = 39;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -1819,13 +1819,22 @@ public interface ComponentPackage extends EPackage
     int OUTPUT_DEFINITION_FEATURE_COUNT = 3;
 
     /**
+     * The operation id for the '<em>Create Reference</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int OUTPUT_DEFINITION___CREATE_REFERENCE = 0;
+
+    /**
      * The number of operations of the '<em>Output Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int OUTPUT_DEFINITION_OPERATION_COUNT = 0;
+    int OUTPUT_DEFINITION_OPERATION_COUNT = 1;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.InputDefinitionImpl <em>Input Definition</em>}' class.
@@ -1835,7 +1844,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getInputDefinition()
      * @generated
      */
-    int INPUT_DEFINITION = 21;
+    int INPUT_DEFINITION = 22;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1929,6 +1938,79 @@ public interface ComponentPackage extends EPackage
     int ITEM_REFERENCE_INPUT_DEFINITION_OPERATION_COUNT = INPUT_DEFINITION_OPERATION_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ItemReferenceOutputDefinitionImpl <em>Item Reference Output Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.impl.ItemReferenceOutputDefinitionImpl
+     * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemReferenceOutputDefinition()
+     * @generated
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION = 21;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION__NAME = OUTPUT_DEFINITION__NAME;
+
+    /**
+     * The feature id for the '<em><b>Local Tag</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION__LOCAL_TAG = OUTPUT_DEFINITION__LOCAL_TAG;
+
+    /**
+     * The feature id for the '<em><b>Customization Tags</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION__CUSTOMIZATION_TAGS = OUTPUT_DEFINITION__CUSTOMIZATION_TAGS;
+
+    /**
+     * The feature id for the '<em><b>Item Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID = OUTPUT_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Item Reference Output Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION_FEATURE_COUNT = OUTPUT_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Create Reference</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE = OUTPUT_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Item Reference Output Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ITEM_REFERENCE_OUTPUT_DEFINITION_OPERATION_COUNT = OUTPUT_DEFINITION_OPERATION_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.component.impl.ComponentReferenceInputDefinitionImpl <em>Reference Input Definition</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1936,7 +2018,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentReferenceInputDefinition()
      * @generated
      */
-    int COMPONENT_REFERENCE_INPUT_DEFINITION = 22;
+    int COMPONENT_REFERENCE_INPUT_DEFINITION = 23;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2000,7 +2082,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getFormulaModule()
      * @generated
      */
-    int FORMULA_MODULE = 23;
+    int FORMULA_MODULE = 24;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2118,7 +2200,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getAverageModule()
      * @generated
      */
-    int AVERAGE_MODULE = 24;
+    int AVERAGE_MODULE = 25;
 
     /**
      * The feature id for the '<em><b>Known Inputs</b></em>' reference list.
@@ -2173,7 +2255,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getDanglingItemReference()
      * @generated
      */
-    int DANGLING_ITEM_REFERENCE = 25;
+    int DANGLING_ITEM_REFERENCE = 26;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2228,7 +2310,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getScriptModule()
      * @generated
      */
-    int SCRIPT_MODULE = 26;
+    int SCRIPT_MODULE = 27;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2382,7 +2464,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getScript()
      * @generated
      */
-    int SCRIPT = 27;
+    int SCRIPT = 28;
 
     /**
      * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -2419,7 +2501,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTimerScript()
      * @generated
      */
-    int TIMER_SCRIPT = 28;
+    int TIMER_SCRIPT = 29;
 
     /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -2465,7 +2547,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getAbsoluteDanglingReference()
      * @generated
      */
-    int ABSOLUTE_DANGLING_REFERENCE = 29;
+    int ABSOLUTE_DANGLING_REFERENCE = 30;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2520,7 +2602,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getComponentDanglingReference()
      * @generated
      */
-    int COMPONENT_DANGLING_REFERENCE = 30;
+    int COMPONENT_DANGLING_REFERENCE = 31;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2593,7 +2675,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getExternalValue()
      * @generated
      */
-    int EXTERNAL_VALUE = 31;
+    int EXTERNAL_VALUE = 32;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2729,7 +2811,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getSummariesConfiguration()
      * @generated
      */
-    int SUMMARIES_CONFIGURATION = 32;
+    int SUMMARIES_CONFIGURATION = 33;
 
     /**
      * The feature id for the '<em><b>Item Threshold</b></em>' attribute.
@@ -2766,7 +2848,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemInterceptor()
      * @generated
      */
-    int ITEM_INTERCEPTOR = 33;
+    int ITEM_INTERCEPTOR = 34;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -2812,7 +2894,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getRestInterceptor()
      * @generated
      */
-    int REST_INTERCEPTOR = 35;
+    int REST_INTERCEPTOR = 36;
 
     /**
      * The feature id for the '<em><b>Master On</b></em>' reference list.
@@ -2876,7 +2958,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getGlobalizeComponent()
      * @generated
      */
-    int GLOBALIZE_COMPONENT = 36;
+    int GLOBALIZE_COMPONENT = 37;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -2985,7 +3067,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getTransientValue()
      * @generated
      */
-    int TRANSIENT_VALUE = 37;
+    int TRANSIENT_VALUE = 38;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3103,7 +3185,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getBufferedValue()
      * @generated
      */
-    int BUFFERED_VALUE = 39;
+    int BUFFERED_VALUE = 40;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3257,7 +3339,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getChangeCounter()
      * @generated
      */
-    int CHANGE_COUNTER = 40;
+    int CHANGE_COUNTER = 41;
 
     /**
      * The feature id for the '<em><b>Short Description</b></em>' attribute.
@@ -3411,7 +3493,7 @@ public interface ComponentPackage extends EPackage
      * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getNotification()
      * @generated
      */
-    int NOTIFICATION = 41;
+    int NOTIFICATION = 42;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ComponentWorld <em>World</em>}'.
@@ -4064,6 +4146,16 @@ public interface ComponentPackage extends EPackage
     EAttribute getOutputDefinition_CustomizationTags ();
 
     /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.OutputDefinition#createReference() <em>Create Reference</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Create Reference</em>' operation.
+     * @see org.eclipse.scada.configuration.component.OutputDefinition#createReference()
+     * @generated
+     */
+    EOperation getOutputDefinition__CreateReference ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ItemReferenceInputDefinition <em>Item Reference Input Definition</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4093,6 +4185,37 @@ public interface ComponentPackage extends EPackage
      * @generated
      */
     EOperation getItemReferenceInputDefinition__CreateReference ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition <em>Item Reference Output Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Item Reference Output Definition</em>'.
+     * @see org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition
+     * @generated
+     */
+    EClass getItemReferenceOutputDefinition ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition#getItemId <em>Item Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Item Id</em>'.
+     * @see org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition#getItemId()
+     * @see #getItemReferenceOutputDefinition()
+     * @generated
+     */
+    EAttribute getItemReferenceOutputDefinition_ItemId ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition#createReference() <em>Create Reference</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Create Reference</em>' operation.
+     * @see org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition#createReference()
+     * @generated
+     */
+    EOperation getItemReferenceOutputDefinition__CreateReference ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.component.InputDefinition <em>Input Definition</em>}'.
@@ -5401,6 +5524,14 @@ public interface ComponentPackage extends EPackage
         EAttribute OUTPUT_DEFINITION__CUSTOMIZATION_TAGS = eINSTANCE.getOutputDefinition_CustomizationTags ();
 
         /**
+         * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation OUTPUT_DEFINITION___CREATE_REFERENCE = eINSTANCE.getOutputDefinition__CreateReference ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ItemReferenceInputDefinitionImpl <em>Item Reference Input Definition</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -5425,6 +5556,32 @@ public interface ComponentPackage extends EPackage
          * @generated
          */
         EOperation ITEM_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE = eINSTANCE.getItemReferenceInputDefinition__CreateReference ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.ItemReferenceOutputDefinitionImpl <em>Item Reference Output Definition</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.component.impl.ItemReferenceOutputDefinitionImpl
+         * @see org.eclipse.scada.configuration.component.impl.ComponentPackageImpl#getItemReferenceOutputDefinition()
+         * @generated
+         */
+        EClass ITEM_REFERENCE_OUTPUT_DEFINITION = eINSTANCE.getItemReferenceOutputDefinition ();
+
+        /**
+         * The meta object literal for the '<em><b>Item Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID = eINSTANCE.getItemReferenceOutputDefinition_ItemId ();
+
+        /**
+         * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation ITEM_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE = eINSTANCE.getItemReferenceOutputDefinition__CreateReference ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.component.impl.InputDefinitionImpl <em>Input Definition</em>}' class.

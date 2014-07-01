@@ -20,6 +20,12 @@ import org.eclipse.scada.configuration.component.OutputDefinition;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Output Definition</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.configuration.component.OutputDefinition#createReference() <em>Create Reference</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class OutputDefinitionTest extends TestCase
@@ -98,6 +104,20 @@ public class OutputDefinitionTest extends TestCase
     protected void tearDown () throws Exception
     {
         setFixture ( null );
+    }
+
+    /**
+     * Tests the '{@link org.eclipse.scada.configuration.component.OutputDefinition#createReference() <em>Create Reference</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.component.OutputDefinition#createReference()
+     * @generated
+     */
+    public void testCreateReference ()
+    {
+        // TODO: implement this operation test method
+        // Ensure that you remove @generated or mark it @generated NOT
+        fail ();
     }
 
 } //OutputDefinitionTest

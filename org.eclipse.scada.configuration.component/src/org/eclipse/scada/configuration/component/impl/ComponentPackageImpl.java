@@ -44,6 +44,7 @@ import org.eclipse.scada.configuration.component.InputDefinition;
 import org.eclipse.scada.configuration.component.InputSpecification;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.component.ItemReferenceInputDefinition;
+import org.eclipse.scada.configuration.component.ItemReferenceOutputDefinition;
 import org.eclipse.scada.configuration.component.Level;
 import org.eclipse.scada.configuration.component.MappedSourceValue;
 import org.eclipse.scada.configuration.component.MarkerConfiguration;
@@ -219,6 +220,13 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * @generated
      */
     private EClass itemReferenceInputDefinitionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass itemReferenceOutputDefinitionEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1049,6 +1057,16 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getOutputDefinition__CreateReference ()
+    {
+        return outputDefinitionEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getItemReferenceInputDefinition ()
     {
         return itemReferenceInputDefinitionEClass;
@@ -1072,6 +1090,36 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
     public EOperation getItemReferenceInputDefinition__CreateReference ()
     {
         return itemReferenceInputDefinitionEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getItemReferenceOutputDefinition ()
+    {
+        return itemReferenceOutputDefinitionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getItemReferenceOutputDefinition_ItemId ()
+    {
+        return (EAttribute)itemReferenceOutputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getItemReferenceOutputDefinition__CreateReference ()
+    {
+        return itemReferenceOutputDefinitionEClass.getEOperations ().get ( 0 );
     }
 
     /**
@@ -1895,10 +1943,15 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__NAME );
         createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__LOCAL_TAG );
         createEAttribute ( outputDefinitionEClass, OUTPUT_DEFINITION__CUSTOMIZATION_TAGS );
+        createEOperation ( outputDefinitionEClass, OUTPUT_DEFINITION___CREATE_REFERENCE );
 
         itemReferenceInputDefinitionEClass = createEClass ( ITEM_REFERENCE_INPUT_DEFINITION );
         createEAttribute ( itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION__ITEM_ID );
         createEOperation ( itemReferenceInputDefinitionEClass, ITEM_REFERENCE_INPUT_DEFINITION___CREATE_REFERENCE );
+
+        itemReferenceOutputDefinitionEClass = createEClass ( ITEM_REFERENCE_OUTPUT_DEFINITION );
+        createEAttribute ( itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION__ITEM_ID );
+        createEOperation ( itemReferenceOutputDefinitionEClass, ITEM_REFERENCE_OUTPUT_DEFINITION___CREATE_REFERENCE );
 
         inputDefinitionEClass = createEClass ( INPUT_DEFINITION );
         createEAttribute ( inputDefinitionEClass, INPUT_DEFINITION__NAME );
@@ -2047,6 +2100,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         calculationComponentEClass.getESuperTypes ().add ( this.getMasterComponent () );
         calculationModuleEClass.getESuperTypes ().add ( this.getService () );
         itemReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        itemReferenceOutputDefinitionEClass.getESuperTypes ().add ( this.getOutputDefinition () );
         componentReferenceInputDefinitionEClass.getESuperTypes ().add ( this.getInputDefinition () );
         formulaModuleEClass.getESuperTypes ().add ( theWorldPackage.getNamedDocumentable () );
         formulaModuleEClass.getESuperTypes ().add ( this.getCalculationModule () );
@@ -2149,10 +2203,17 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
         initEAttribute ( getOutputDefinition_LocalTag (), ecorePackage.getEString (), "localTag", null, 1, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getOutputDefinition_CustomizationTags (), ecorePackage.getEString (), "customizationTags", null, 0, -1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEOperation ( getOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
         initEClass ( itemReferenceInputDefinitionEClass, ItemReferenceInputDefinition.class, "ItemReferenceInputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getItemReferenceInputDefinition_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceInputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEOperation ( getItemReferenceInputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( itemReferenceOutputDefinitionEClass, ItemReferenceOutputDefinition.class, "ItemReferenceOutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getItemReferenceOutputDefinition_ItemId (), ecorePackage.getEString (), "itemId", null, 1, 1, ItemReferenceOutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getItemReferenceOutputDefinition__CreateReference (), this.getDanglingItemReference (), "createReference", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( inputDefinitionEClass, InputDefinition.class, "InputDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getInputDefinition_Name (), ecorePackage.getEString (), "name", null, 1, 1, InputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -2272,7 +2333,7 @@ public class ComponentPackageImpl extends EPackageImpl implements ComponentPacka
      */
     protected void createExtendedMetaDataAnnotations ()
     {
-        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$									
+        String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$										
         addAnnotation ( getGlobalizeComponent_Components (),
                 source,
                 new String[]

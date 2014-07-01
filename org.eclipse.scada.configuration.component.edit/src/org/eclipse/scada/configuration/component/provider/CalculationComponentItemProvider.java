@@ -327,6 +327,11 @@ public class CalculationComponentItemProvider extends ItemProviderAdapter implem
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( ComponentPackage.Literals.CALCULATION_COMPONENT__OUTPUTS,
+                        ComponentFactory.eINSTANCE.createItemReferenceOutputDefinition () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( ComponentPackage.Literals.CALCULATION_COMPONENT__INPUTS,
                         ComponentFactory.eINSTANCE.createItemReferenceInputDefinition () ) );
 

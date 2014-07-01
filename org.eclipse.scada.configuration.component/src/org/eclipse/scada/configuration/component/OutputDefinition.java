@@ -91,4 +91,12 @@ public interface OutputDefinition extends EObject
      */
     EList<String> getCustomizationTags ();
 
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model required="true"
+     * @generated
+     */
+    DanglingItemReference createReference ();
+
 } // OutputDefinition
