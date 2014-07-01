@@ -22,7 +22,8 @@
 	</description>
 
 	<properties>
-		<eclipse.download.root>http://download.eclipse.org</eclipse.download.root>
+		<!-- base is: http://download.eclipse.org -->
+		<eclipse.download.root>http://www.eclipse.org/downloads/download.php?r=1&amp;file=</eclipse.download.root>
 	</properties>
 
 	<repositories>
