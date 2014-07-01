@@ -19,6 +19,4 @@ esac
 
 $$postinst.scripts$$
 
-#DEBHELPER#
-
 exit 0

@@ -11,40 +11,36 @@
 package org.eclipse.scada.configuration.world.lib.deployment;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Formatter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.deployment.ChangeEntry;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.StartupMechanism;
 import org.eclipse.scada.configuration.world.lib.deployment.startup.StartupHandler;
-import org.eclipse.scada.configuration.world.lib.utils.Helper;
-import org.eclipse.scada.configuration.world.lib.utils.ProcessRunner;
+import org.eclipse.scada.utils.pkg.deb.DebianPackageWriter;
+import org.eclipse.scada.utils.pkg.deb.control.BinaryPackageControlFile;
 import org.eclipse.scada.utils.str.StringHelper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class DebianHandler extends CommonPackageHandler
+public class JavaDebianHandler extends CommonPackageHandler
 {
-
-    private final static Logger logger = LoggerFactory.getLogger ( DebianHandler.class );
-
     private final DebianDeploymentMechanism deploy;
 
-    public DebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
+    public JavaDebianHandler ( final ApplicationNode applicationNode, final DebianDeploymentMechanism deploy )
     {
         super ( applicationNode, deploy );
         this.deploy = deploy;
@@ -63,6 +59,20 @@ public class DebianHandler extends CommonPackageHandler
 
         final String packageName = getPackageName ();
 
+        final String version = findVersion ();
+
+        final BinaryPackageControlFile packageControlFile = new BinaryPackageControlFile ();
+        packageControlFile.setPackage ( packageName );
+        packageControlFile.setArchitecture ( "all" ); //$NON-NLS-1$
+        packageControlFile.setVersion ( version );
+        packageControlFile.setPriority ( "required" ); //$NON-NLS-1$
+        packageControlFile.setSection ( "misc" ); //$NON-NLS-1$
+        packageControlFile.setMaintainer ( String.format ( "%s <%s>", this.deploy.getMaintainer ().getName (), this.deploy.getMaintainer ().getEmail () ) ); //$NON-NLS-1$
+        packageControlFile.setDescription ( String.format ( "Configuration package for %s", Nodes.makeName ( this.applicationNode ) ), "This is an automatically generated configuration package" );
+
+        packageControlFile.set ( BinaryPackageControlFile.Fields.CONFLICTS, "org.openscada.drivers.common, org.openscada" ); //$NON-NLS-1$
+        packageControlFile.set ( BinaryPackageControlFile.Fields.DEPENDS, makeDependencies () );
+
         final Map<String, String> replacements = new HashMap<> ();
         replacements.put ( "packageName", packageName ); //$NON-NLS-1$
         replacements.put ( "authorName", this.deploy.getMaintainer ().getName () ); //$NON-NLS-1$
@@ -70,53 +80,55 @@ public class DebianHandler extends CommonPackageHandler
         replacements.put ( "nodeName", this.applicationNode.getName () == null ? this.applicationNode.getHostName () : this.applicationNode.getName () ); //$NON-NLS-1$
         replacements.put ( "postinst.restart", createPostInst () ); //$NON-NLS-1$
         replacements.put ( "prerm.stop", createPreRm () ); //$NON-NLS-1$
-        replacements.put ( "depends", makeDependencies () ); //$NON-NLS-1$
 
-        replacements.put ( "postinst.scripts", createScriptFile ( packageFolder, "postinst" ) );
-        replacements.put ( "prerm.scripts", createScriptFile ( packageFolder, "prerm" ) );
-        replacements.put ( "postrm.scripts", createScriptFile ( packageFolder, "postrm" ) );
+        replacements.put ( "postinst.scripts", createUserScriptCallbacks ( packageFolder, "postinst" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        replacements.put ( "prerm.scripts", createUserScriptCallbacks ( packageFolder, "prerm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
+        replacements.put ( "postrm.scripts", createUserScriptCallbacks ( packageFolder, "postrm" ) ); //$NON-NLS-1$ //$NON-NLS-2$
 
-        Helper.createFile ( new File ( packageFolder, "debian/source/format" ), "3.0 (native)", monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/compat" ), "8", monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/docs" ), "", monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/" + packageName + ".install" ), "src/* /", monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/postinst" ), DebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/prerm" ), DebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/postrm" ), DebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/rules" ), DebianHandler.class.getResourceAsStream ( "templates/deb/rules" ), monitor, true );
-        Helper.createFile ( new File ( packageFolder, "debian/control" ), DebianHandler.class.getResourceAsStream ( "templates/deb/control" ), replacements, monitor );
-        Helper.createFile ( new File ( packageFolder, "debian/changelog" ), createChangeLog ( packageName, this.deploy.getChanges () ), monitor );
-
-        final BinaryPackageBuilderWrapper builder = new BinaryPackageBuilderWrapper ( new File ( packageFolder, "src" ) );
-
-        createDrivers ( builder, nodeDir, monitor, packageFolder, replacements );
-        createEquinox ( builder, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
-
-        // run debuild
-
-        if ( !Boolean.parseBoolean ( properties.get ( "skipRunDeployment" ) ) ) //$NON-NLS-1$
+        final File outputFile = new File ( nodeDir.getLocation ().toFile (), packageControlFile.makeFileName () );
+        outputFile.getParentFile ().mkdirs ();
+        try ( DebianPackageWriter deb = new DebianPackageWriter ( new FileOutputStream ( outputFile ), packageControlFile ) )
         {
+            deb.setPostinstScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postinst" ), replacements ) ); //$NON-NLS-1$
+            deb.setPostrmScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/postrm" ), replacements ) ); //$NON-NLS-1$
+            deb.setPrermScript ( Contents.createContent ( JavaDebianHandler.class.getResourceAsStream ( "templates/deb/prerm" ), replacements ) ); //$NON-NLS-1$
 
-            monitor.setTaskName ( "Running \"debuild -us -uc\"" ); //$NON-NLS-1$
+            createDrivers ( deb, nodeDir, monitor, packageFolder, replacements );
+            createEquinox ( deb, nodeDir.getLocation ().toFile (), packageFolder, replacements, monitor );
 
-            final ProcessBuilder processBuilder = new ProcessBuilder ( Arrays.asList ( "debuild", "-us", "-uc" ) );
-            processBuilder.directory ( packageFolder );
-            try
+            // scoop up "src" files
+            final Path src = new File ( packageFolder, "src" ).toPath (); //$NON-NLS-1$
+            if ( src.toFile ().isDirectory () )
             {
-                new ProcessRunner ( processBuilder ).run ();
-            }
-            catch ( final Exception e )
-            {
-                logger.warn ( "Failed to generate debian package", e ); //$NON-NLS-1$
+                final ScoopFilesVisitor scoop = new ScoopFilesVisitor ( src, deb, null );
+                scoop.getExecPrefix ().add ( "/usr/lib/eclipsescada/packagescripts" ); //$NON-NLS-1$
+                Files.walkFileTree ( src, scoop );
             }
 
-            nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
         }
+
+        nodeDir.refreshLocal ( IResource.DEPTH_INFINITE, monitor );
     }
 
-    private String createScriptFile ( final File packageFolder, final String type )
+    private String findVersion ()
     {
-        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type );
+        final ArrayList<ChangeEntry> sortedChanges = new ArrayList<> ( this.deploy.getChanges () );
+        if ( sortedChanges.isEmpty () )
+        {
+            throw new IllegalStateException ( String.format ( "No change record found" ) );
+        }
+
+        Collections.sort ( sortedChanges, new ChangeEntryComparator ( true ) );
+        return sortedChanges.get ( 0 ).getVersion ();
+    }
+
+    /**
+     * This method scoops up all package scripts and create the calls in the
+     * corresponding package scripts
+     */
+    private String createUserScriptCallbacks ( final File packageFolder, final String type )
+    {
+        final File dir = new File ( packageFolder, "src/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type ); //$NON-NLS-1$ //$NON-NLS-2$
         final List<String> scripts = new LinkedList<> ();
 
         if ( !dir.isDirectory () )
@@ -131,7 +143,7 @@ public class DebianHandler extends CommonPackageHandler
                 continue;
             }
             file.setExecutable ( true );
-            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" );
+            scripts.add ( "/usr/lib/eclipsescada/packagescripts/" + getPackageName () + "/" + type + "/" + file.getName () + " $@" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         }
         return StringHelper.join ( scripts, "\n" );
     }
@@ -183,7 +195,7 @@ public class DebianHandler extends CommonPackageHandler
                 continue;
             }
 
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) );
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, driver ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -195,7 +207,7 @@ public class DebianHandler extends CommonPackageHandler
                 continue;
             }
 
-            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) );
+            sb.append ( String.format ( "    %s || echo failed to restart %s", cmd, app ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -219,7 +231,7 @@ public class DebianHandler extends CommonPackageHandler
             {
                 continue;
             }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) );
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, driver ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
@@ -230,13 +242,14 @@ public class DebianHandler extends CommonPackageHandler
             {
                 continue;
             }
-            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) );
+            sb.append ( String.format ( "    %s || echo failed to stop %s", cmd, app ) ); //$NON-NLS-1$
             sb.append ( '\n' );
         }
 
         return sb.toString ();
     }
 
+    /*
     private String createChangeLog ( final String packageName, final List<ChangeEntry> changes )
     {
         final StringBuilder sb = new StringBuilder ();
@@ -262,4 +275,5 @@ public class DebianHandler extends CommonPackageHandler
 
         return sb.toString ();
     }
+     */
 }

@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.world.lib;
+package org.eclipse.scada.configuration.world.lib.internal;
 
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.ExecDriver;
@@ -16,7 +16,9 @@ import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.deployment.DebianDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.MsiDeploymentMechanism;
 import org.eclipse.scada.configuration.world.deployment.RedhatDeploymentMechanism;
-import org.eclipse.scada.configuration.world.lib.deployment.DebianHandler;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessor;
+import org.eclipse.scada.configuration.world.lib.NodeElementProcessorFactory;
+import org.eclipse.scada.configuration.world.lib.deployment.JavaDebianHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.MsiHandler;
 import org.eclipse.scada.configuration.world.lib.deployment.RedhatHandler;
 import org.eclipse.scada.configuration.world.lib.oscar.DefaultEquinoxApplicationProcessor;
@@ -46,7 +48,7 @@ public class DefaultNodeElementProcessorFactoryImpl implements NodeElementProces
         }
         else if ( element instanceof DebianDeploymentMechanism )
         {
-            return new DebianHandler ( applicationNode, (DebianDeploymentMechanism)element );
+            return new JavaDebianHandler ( applicationNode, (DebianDeploymentMechanism)element );
         }
         else if ( element instanceof RedhatDeploymentMechanism )
         {

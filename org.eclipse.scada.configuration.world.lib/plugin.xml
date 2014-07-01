@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.scada.configuration.world.lib.generator">
       <nodeElementProcessor
-            factoryClass="org.eclipse.scada.configuration.world.lib.DefaultNodeElementProcessorFactoryImpl">
+            factoryClass="org.eclipse.scada.configuration.world.lib.internal.DefaultNodeElementProcessorFactoryImpl">
          <forClass
                class="org.eclipse.scada.configuration.world.osgi.MasterServer">
          </forClass>

@@ -10,17 +10,17 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.lib.deployment.startup;
 
-import java.io.File;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.utils.pkg.deb.BinaryPackageBuilder;
 
 public interface StartupHandler
 {
-    public void createDriver ( File packageFolder, String driverName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
+    public void createDriver ( BinaryPackageBuilder builder, String driverName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
 
-    public void createEquinox ( File packageFolder, String appName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
+    public void createEquinox ( BinaryPackageBuilder builder, String appName, Map<String, String> replacements, IProgressMonitor monitor ) throws Exception;
 
     public String restartDriverCommand ( String driverName );
 

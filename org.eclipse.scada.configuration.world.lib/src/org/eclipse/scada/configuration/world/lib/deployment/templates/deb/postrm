@@ -6,6 +6,4 @@ set -e
 
 $$postrm.scripts$$
 
-#DEBHELPER#
-
 exit 0

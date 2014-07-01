@@ -97,11 +97,11 @@ public class MasterHandlerPriorities
 
     public Integer findPriority ( final String factoryId, final String configurationId, final Integer defaultValue )
     {
-        logger.debug ( "{} / {} - {} rules", factoryId, configurationId, this.rules.size () );
+        logger.trace ( "{} / {} - {} rules", factoryId, configurationId, this.rules.size () );
 
         for ( final HandlerPriorityRule rule : this.rules )
         {
-            logger.debug ( "  -> {} - {}", rule.getFactoryId (), rule.getConfigurationFilter () );
+            logger.trace ( "  -> {} - {}", rule.getFactoryId (), rule.getConfigurationFilter () );
             if ( rule.getFactoryId () != null && !rule.getFactoryId ().equals ( factoryId ) )
             {
                 continue;
