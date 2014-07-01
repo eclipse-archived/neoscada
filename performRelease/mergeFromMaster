@@ -13,7 +13,7 @@ test -d logs || mkdir logs
 
 # merge changes from master
 
-section Merge from master
+section Merging
 
 for i in $repos; do
   repo="org.eclipse.scada.${i}"

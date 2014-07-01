@@ -28,7 +28,7 @@ section Build superParent - $TYPE
 
 mvn clean install -f org.eclipse.scada.releng/superParent/pom.xml
 
-section "Build Main (this might take A WHILE)"
+section "Main Build (this might take A WHILE)"
 
 mvn clean verify \
   -f org.eclipse.scada.releng/aggregator/pom.xml \
