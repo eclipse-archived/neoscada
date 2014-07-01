@@ -23,7 +23,8 @@
 
 	<properties>
 		<!-- base is: http://download.eclipse.org -->
-		<eclipse.download.root>http://www.eclipse.org/downloads/download.php?r=1&amp;file=</eclipse.download.root>
+		<!-- mirror: http://www.eclipse.org/downloads/download.php?r=1&amp;file= -->
+		<eclipse.download.root>http://download.eclipse.org</eclipse.download.root>
 	</properties>
 
 	<repositories>
