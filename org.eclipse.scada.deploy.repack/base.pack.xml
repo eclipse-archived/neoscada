@@ -30,7 +30,7 @@
 							<target>
 								<!-- download file -->
 								<mkdir dir="${project.build.directory}/downloads/" />
-								<get src="${srcDir}/${srcFile}" dest="${project.build.directory}/downloads/"
+								<get src="${srcDir}/${srcFile}" dest="${project.build.directory}/downloads/${srcFile}"
 									usetimestamp="true" />
 							</target>
 						</configuration>
