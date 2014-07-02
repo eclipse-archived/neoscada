@@ -51,42 +51,25 @@ import org.eclipse.scada.configuration.world.osgi.profile.ProfilePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getShortDescription
- * <em>Short Description</em>}</li>
- * <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getName
- * <em>Name</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getConnections
- * <em>Connections</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getExporter
- * <em>Exporter</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getCustomizationProfile
- * <em>Customization Profile</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getSecurityConfiguration
- * <em>Security Configuration</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getModules
- * <em>Modules</em>}</li>
- * <li>
- * {@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getDevices
- * <em>Devices</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getShortDescription <em>Short Description</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getConnections <em>Connections</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getExporter <em>Exporter</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getCustomizationProfile <em>Customization Profile</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getSecurityConfiguration <em>Security Configuration</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getModules <em>Modules</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.dave.impl.DaveDriverImpl#getDevices <em>Devices</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DaveDriverImpl extends MinimalEObjectImpl.Container implements DaveDriver
 {
     /**
-     * The default value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The default value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -94,11 +77,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected static final String SHORT_DESCRIPTION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getShortDescription()
-     * <em>Short Description</em>}' attribute.
+     * The cached value of the '{@link #getShortDescription() <em>Short Description</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getShortDescription()
      * @generated
      * @ordered
@@ -109,7 +90,6 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -120,7 +100,6 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getName()
      * @generated
      * @ordered
@@ -128,11 +107,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected String name = NAME_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getConnections() <em>Connections</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getConnections() <em>Connections</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getConnections()
      * @generated
      * @ordered
@@ -140,11 +117,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected EList<Connection> connections;
 
     /**
-     * The cached value of the '{@link #getExporter() <em>Exporter</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getExporter() <em>Exporter</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getExporter()
      * @generated
      * @ordered
@@ -152,11 +127,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected EList<Exporter> exporter;
 
     /**
-     * The cached value of the '{@link #getCustomizationProfile()
-     * <em>Customization Profile</em>}' containment reference.
+     * The cached value of the '{@link #getCustomizationProfile() <em>Customization Profile</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getCustomizationProfile()
      * @generated
      * @ordered
@@ -164,11 +137,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected Profile customizationProfile;
 
     /**
-     * The cached value of the '{@link #getSecurityConfiguration()
-     * <em>Security Configuration</em>}' reference.
+     * The cached value of the '{@link #getSecurityConfiguration() <em>Security Configuration</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getSecurityConfiguration()
      * @generated
      * @ordered
@@ -176,11 +147,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected Configuration securityConfiguration;
 
     /**
-     * The cached value of the '{@link #getModules() <em>Modules</em>}'
-     * containment reference list.
+     * The cached value of the '{@link #getModules() <em>Modules</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getModules()
      * @generated
      * @ordered
@@ -188,11 +157,9 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     protected EList<ApplicationModule> modules;
 
     /**
-     * The cached value of the '{@link #getDevices() <em>Devices</em>}'
-     * reference list.
+     * The cached value of the '{@link #getDevices() <em>Devices</em>}' reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @see #getDevices()
      * @generated
      * @ordered
@@ -202,7 +169,6 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected DaveDriverImpl ()
@@ -213,7 +179,6 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -225,159 +190,138 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getShortDescription ()
     {
-        return this.shortDescription;
+        return shortDescription;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setShortDescription ( final String newShortDescription )
+    public void setShortDescription ( String newShortDescription )
     {
-        final String oldShortDescription = this.shortDescription;
-        this.shortDescription = newShortDescription;
+        String oldShortDescription = shortDescription;
+        shortDescription = newShortDescription;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION, oldShortDescription, this.shortDescription ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION, oldShortDescription, shortDescription ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String getName ()
     {
-        return this.name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setName ( final String newName )
+    public void setName ( String newName )
     {
-        final String oldName = this.name;
-        this.name = newName;
+        String oldName = name;
+        name = newName;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__NAME, oldName, this.name ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__NAME, oldName, name ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Connection> getConnections ()
     {
-        if ( this.connections == null )
+        if ( connections == null )
         {
-            this.connections = new EObjectContainmentEList.Resolving<Connection> ( Connection.class, this, DavePackage.DAVE_DRIVER__CONNECTIONS );
+            connections = new EObjectContainmentEList.Resolving<Connection> ( Connection.class, this, DavePackage.DAVE_DRIVER__CONNECTIONS );
         }
-        return this.connections;
+        return connections;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<Exporter> getExporter ()
     {
-        if ( this.exporter == null )
+        if ( exporter == null )
         {
-            this.exporter = new EObjectContainmentEList.Resolving<Exporter> ( Exporter.class, this, DavePackage.DAVE_DRIVER__EXPORTER );
+            exporter = new EObjectContainmentEList.Resolving<Exporter> ( Exporter.class, this, DavePackage.DAVE_DRIVER__EXPORTER );
         }
-        return this.exporter;
+        return exporter;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Profile getCustomizationProfile ()
     {
-        if ( this.customizationProfile != null && this.customizationProfile.eIsProxy () )
+        if ( customizationProfile != null && customizationProfile.eIsProxy () )
         {
-            final InternalEObject oldCustomizationProfile = (InternalEObject)this.customizationProfile;
-            this.customizationProfile = (Profile)eResolveProxy ( oldCustomizationProfile );
-            if ( this.customizationProfile != oldCustomizationProfile )
+            InternalEObject oldCustomizationProfile = (InternalEObject)customizationProfile;
+            customizationProfile = (Profile)eResolveProxy ( oldCustomizationProfile );
+            if ( customizationProfile != oldCustomizationProfile )
             {
-                final InternalEObject newCustomizationProfile = (InternalEObject)this.customizationProfile;
+                InternalEObject newCustomizationProfile = (InternalEObject)customizationProfile;
                 NotificationChain msgs = oldCustomizationProfile.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, null );
                 if ( newCustomizationProfile.eInternalContainer () == null )
                 {
                     msgs = newCustomizationProfile.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
                 }
                 if ( msgs != null )
-                {
                     msgs.dispatch ();
-                }
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, this.customizationProfile ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, customizationProfile ) );
             }
         }
-        return this.customizationProfile;
+        return customizationProfile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Profile basicGetCustomizationProfile ()
     {
-        return this.customizationProfile;
+        return customizationProfile;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
-    public NotificationChain basicSetCustomizationProfile ( final Profile newCustomizationProfile, NotificationChain msgs )
+    public NotificationChain basicSetCustomizationProfile ( Profile newCustomizationProfile, NotificationChain msgs )
     {
-        final Profile oldCustomizationProfile = this.customizationProfile;
-        this.customizationProfile = newCustomizationProfile;
+        Profile oldCustomizationProfile = customizationProfile;
+        customizationProfile = newCustomizationProfile;
         if ( eNotificationRequired () )
         {
-            final ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, newCustomizationProfile );
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, oldCustomizationProfile, newCustomizationProfile );
             if ( msgs == null )
-            {
                 msgs = notification;
-            }
             else
-            {
                 msgs.add ( notification );
-            }
         }
         return msgs;
     }
@@ -385,117 +329,99 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setCustomizationProfile ( final Profile newCustomizationProfile )
+    public void setCustomizationProfile ( Profile newCustomizationProfile )
     {
-        if ( newCustomizationProfile != this.customizationProfile )
+        if ( newCustomizationProfile != customizationProfile )
         {
             NotificationChain msgs = null;
-            if ( this.customizationProfile != null )
-            {
-                msgs = ( (InternalEObject)this.customizationProfile ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
-            }
+            if ( customizationProfile != null )
+                msgs = ( (InternalEObject)customizationProfile ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
             if ( newCustomizationProfile != null )
-            {
                 msgs = ( (InternalEObject)newCustomizationProfile ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, null, msgs );
-            }
             msgs = basicSetCustomizationProfile ( newCustomizationProfile, msgs );
             if ( msgs != null )
-            {
                 msgs.dispatch ();
-            }
         }
         else if ( eNotificationRequired () )
-        {
             eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE, newCustomizationProfile, newCustomizationProfile ) );
-        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public Configuration getSecurityConfiguration ()
     {
-        if ( this.securityConfiguration != null && this.securityConfiguration.eIsProxy () )
+        if ( securityConfiguration != null && securityConfiguration.eIsProxy () )
         {
-            final InternalEObject oldSecurityConfiguration = (InternalEObject)this.securityConfiguration;
-            this.securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
-            if ( this.securityConfiguration != oldSecurityConfiguration )
+            InternalEObject oldSecurityConfiguration = (InternalEObject)securityConfiguration;
+            securityConfiguration = (Configuration)eResolveProxy ( oldSecurityConfiguration );
+            if ( securityConfiguration != oldSecurityConfiguration )
             {
                 if ( eNotificationRequired () )
-                {
-                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
-                }
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
             }
         }
-        return this.securityConfiguration;
+        return securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public Configuration basicGetSecurityConfiguration ()
     {
-        return this.securityConfiguration;
+        return securityConfiguration;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void setSecurityConfiguration ( final Configuration newSecurityConfiguration )
+    public void setSecurityConfiguration ( Configuration newSecurityConfiguration )
     {
-        final Configuration oldSecurityConfiguration = this.securityConfiguration;
-        this.securityConfiguration = newSecurityConfiguration;
+        Configuration oldSecurityConfiguration = securityConfiguration;
+        securityConfiguration = newSecurityConfiguration;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, this.securityConfiguration ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION, oldSecurityConfiguration, securityConfiguration ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<ApplicationModule> getModules ()
     {
-        if ( this.modules == null )
+        if ( modules == null )
         {
-            this.modules = new EObjectContainmentEList.Resolving<ApplicationModule> ( ApplicationModule.class, this, DavePackage.DAVE_DRIVER__MODULES );
+            modules = new EObjectContainmentEList.Resolving<ApplicationModule> ( ApplicationModule.class, this, DavePackage.DAVE_DRIVER__MODULES );
         }
-        return this.modules;
+        return modules;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public EList<DaveCommunicationProcessor> getDevices ()
     {
-        if ( this.devices == null )
+        if ( devices == null )
         {
-            this.devices = new EObjectResolvingEList<DaveCommunicationProcessor> ( DaveCommunicationProcessor.class, this, DavePackage.DAVE_DRIVER__DEVICES );
+            devices = new EObjectResolvingEList<DaveCommunicationProcessor> ( DaveCommunicationProcessor.class, this, DavePackage.DAVE_DRIVER__DEVICES );
         }
-        return this.devices;
+        return devices;
     }
 
     /**
@@ -556,11 +482,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
+    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -579,11 +504,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -597,15 +521,11 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
                 return getExporter ();
             case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
                 if ( resolve )
-                {
                     return getCustomizationProfile ();
-                }
                 return basicGetCustomizationProfile ();
             case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
                 if ( resolve )
-                {
                     return getSecurityConfiguration ();
-                }
                 return basicGetSecurityConfiguration ();
             case DavePackage.DAVE_DRIVER__MODULES:
                 return getModules ();
@@ -618,12 +538,11 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -662,11 +581,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -701,30 +619,29 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case DavePackage.DAVE_DRIVER__SHORT_DESCRIPTION:
-                return SHORT_DESCRIPTION_EDEFAULT == null ? this.shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( this.shortDescription );
+                return SHORT_DESCRIPTION_EDEFAULT == null ? shortDescription != null : !SHORT_DESCRIPTION_EDEFAULT.equals ( shortDescription );
             case DavePackage.DAVE_DRIVER__NAME:
-                return NAME_EDEFAULT == null ? this.name != null : !NAME_EDEFAULT.equals ( this.name );
+                return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals ( name );
             case DavePackage.DAVE_DRIVER__CONNECTIONS:
-                return this.connections != null && !this.connections.isEmpty ();
+                return connections != null && !connections.isEmpty ();
             case DavePackage.DAVE_DRIVER__EXPORTER:
-                return this.exporter != null && !this.exporter.isEmpty ();
+                return exporter != null && !exporter.isEmpty ();
             case DavePackage.DAVE_DRIVER__CUSTOMIZATION_PROFILE:
-                return this.customizationProfile != null;
+                return customizationProfile != null;
             case DavePackage.DAVE_DRIVER__SECURITY_CONFIGURATION:
-                return this.securityConfiguration != null;
+                return securityConfiguration != null;
             case DavePackage.DAVE_DRIVER__MODULES:
-                return this.modules != null && !this.modules.isEmpty ();
+                return modules != null && !modules.isEmpty ();
             case DavePackage.DAVE_DRIVER__DEVICES:
-                return this.devices != null && !this.devices.isEmpty ();
+                return devices != null && !devices.isEmpty ();
         }
         return super.eIsSet ( featureID );
     }
@@ -732,11 +649,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID ( final int derivedFeatureID, final Class<?> baseClass )
+    public int eBaseStructuralFeatureID ( int derivedFeatureID, Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -762,11 +678,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID ( final int baseFeatureID, final Class<?> baseClass )
+    public int eDerivedStructuralFeatureID ( int baseFeatureID, Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -792,11 +707,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public int eDerivedOperationID ( final int baseOperationID, final Class<?> baseClass )
+    public int eDerivedOperationID ( int baseOperationID, Class<?> baseClass )
     {
         if ( baseClass == EquinoxApplication.class )
         {
@@ -814,11 +728,10 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
-    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -833,22 +746,19 @@ public class DaveDriverImpl extends MinimalEObjectImpl.Container implements Dave
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (shortDescription: " ); //$NON-NLS-1$
-        result.append ( this.shortDescription );
+        result.append ( shortDescription );
         result.append ( ", name: " ); //$NON-NLS-1$
-        result.append ( this.name );
+        result.append ( name );
         result.append ( ')' );
         return result.toString ();
     }

@@ -120,6 +120,7 @@ public interface DaveRequestBlock extends EObject
 
     /**
      * Returns the value of the '<em><b>Area</b></em>' attribute.
+     * The default value is <code>"132"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Area</em>' attribute isn't clear,
@@ -129,7 +130,7 @@ public interface DaveRequestBlock extends EObject
      * @return the value of the '<em>Area</em>' attribute.
      * @see #setArea(int)
      * @see org.eclipse.scada.configuration.dave.DavePackage#getDaveRequestBlock_Area()
-     * @model required="true"
+     * @model default="132" required="true"
      * @generated
      */
     int getArea ();

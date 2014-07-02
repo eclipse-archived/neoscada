@@ -105,7 +105,7 @@ public class DaveRequestBlockImpl extends MinimalEObjectImpl.Container implement
      * @generated
      * @ordered
      */
-    protected static final int AREA_EDEFAULT = 0;
+    protected static final int AREA_EDEFAULT = 132;
 
     /**
      * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
