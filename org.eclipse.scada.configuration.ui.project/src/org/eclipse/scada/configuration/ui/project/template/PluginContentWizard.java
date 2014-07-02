@@ -19,12 +19,18 @@ public class PluginContentWizard extends NewPluginTemplateWizard
     @Override
     public ITemplateSection[] createTemplateSections ()
     {
-        return new ITemplateSection[] { // 
-        new ConnectionContextTemplate (), //
-        new ConnectionDefinitionsTemplate (), //
-        new AEViewSection (), //
-        new DetailViewTemplate ( "org.eclipse.scada.details.node", "node" ), //
-        new VIBaseTemplate () //
+        return createDefaultTemplateSections ();
+    }
+
+    public static ITemplateSection[] createDefaultTemplateSections ()
+    {
+        return new ITemplateSection[] {
+                new ConnectionContextTemplate (),
+                new ConnectionDefinitionsTemplate (),
+                new AEViewSection (),
+                new DetailViewTemplate ( "org.eclipse.scada.details.node", "node" ),
+                new VIBaseTemplate ()
         };
     }
+
 }

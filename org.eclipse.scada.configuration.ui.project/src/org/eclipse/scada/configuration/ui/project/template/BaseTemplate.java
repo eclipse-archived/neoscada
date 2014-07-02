@@ -66,6 +66,8 @@ public abstract class BaseTemplate extends OptionTemplateSection
 
     protected String pluginId;
 
+    protected String version;
+
     protected String getFormattedPackageName ( final String id )
     {
         final StringBuffer buffer = new StringBuffer ();
@@ -137,12 +139,14 @@ public abstract class BaseTemplate extends OptionTemplateSection
     protected void initializeFields ( final IFieldData data )
     {
         this.pluginId = data.getId ();
+        this.version = data.getVersion ();
     }
 
     @Override
     public void initializeFields ( final IPluginModelBase model )
     {
         this.pluginId = model.getPluginBase ().getId ();
+        this.version = model.getPluginBase ().getVersion ();
     }
 
     protected String makeId ( final String localId )
@@ -155,7 +159,7 @@ public abstract class BaseTemplate extends OptionTemplateSection
      * option is required and is currently not set. The flagging is done by
      * setting the page incomplete and setting the error message that uses
      * option's message label.
-     * 
+     *
      * @param option
      *            the option that is required and currently not set
      */
