@@ -183,7 +183,7 @@ var track = function(url, category, action) {
 [for (version : Version | site.versions->reverse())]
 <dt>[version.state.asLabel()/]</dt>
 [for (release : Release | version.releases->first())]
-<dd>[release.name/]</dd>
+<dd><a href="[relative(fileName,'releases/' + release.version.name + '/' + release.buildId + '.html')/]">[release.name/]</a></dd>
 [/for]
 [/for]
 </dl>
