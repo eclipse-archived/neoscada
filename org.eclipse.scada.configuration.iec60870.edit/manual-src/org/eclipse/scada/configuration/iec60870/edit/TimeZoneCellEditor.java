@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.iec60870.edit;
 import java.util.TimeZone;
 
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.scada.configuration.ecore.ui.TextComboBoxCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 

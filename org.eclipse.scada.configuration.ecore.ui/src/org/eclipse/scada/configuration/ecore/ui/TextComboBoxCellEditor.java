@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.configuration.iec60870.edit;
+package org.eclipse.scada.configuration.ecore.ui;
 
 import java.util.List;
 
