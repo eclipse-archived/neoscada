@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.dave.impl;
 
@@ -45,6 +45,7 @@ import org.eclipse.scada.configuration.memory.TypeDefinition;
  */
 public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implements DaveBlockDefinition
 {
+
     /**
      * The default value of the '{@link #getBlock() <em>Block</em>}' attribute.
      * <!-- begin-user-doc -->
@@ -139,11 +140,12 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * The default value of the '{@link #getArea() <em>Area</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getArea()
-     * @generated
+     * @generated NOT
      * @ordered
      */
-    protected static final int AREA_EDEFAULT = 0;
+    protected static final int AREA_EDEFAULT = 132;
 
     /**
      * The cached value of the '{@link #getArea() <em>Area</em>}' attribute.
@@ -201,6 +203,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getBlock ()
     {
         return block;
@@ -211,6 +214,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setBlock ( int newBlock )
     {
         int oldBlock = block;
@@ -224,6 +228,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DaveDevice getDevice ()
     {
         if ( eContainerFeatureID () != DavePackage.DAVE_BLOCK_DEFINITION__DEVICE )
@@ -259,6 +264,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setDevice ( DaveDevice newDevice )
     {
         if ( newDevice != eInternalContainer () || ( eContainerFeatureID () != DavePackage.DAVE_BLOCK_DEFINITION__DEVICE && newDevice != null ) )
@@ -283,6 +289,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getOffset ()
     {
         return offset;
@@ -293,6 +300,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setOffset ( int newOffset )
     {
         int oldOffset = offset;
@@ -306,6 +314,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getPeriod ()
     {
         return period;
@@ -316,6 +325,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setPeriod ( int newPeriod )
     {
         int oldPeriod = period;
@@ -329,6 +339,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public boolean isEnableStatistics ()
     {
         return enableStatistics;
@@ -339,6 +350,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setEnableStatistics ( boolean newEnableStatistics )
     {
         boolean oldEnableStatistics = enableStatistics;
@@ -352,6 +364,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public TypeDefinition getType ()
     {
         if ( type != null && type.eIsProxy () )
@@ -382,6 +395,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setType ( TypeDefinition newType )
     {
         TypeDefinition oldType = type;
@@ -395,6 +409,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public int getArea ()
     {
         return area;
@@ -405,6 +420,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setArea ( int newArea )
     {
         int oldArea = area;
@@ -418,6 +434,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public String getName ()
     {
         return name;
@@ -428,6 +445,7 @@ public class DaveBlockDefinitionImpl extends MinimalEObjectImpl.Container implem
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setName ( String newName )
     {
         String oldName = name;

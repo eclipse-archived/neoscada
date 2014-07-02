@@ -25,3 +25,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.world;visibility:=reexport,
  org.eclipse.scada.configuration.world.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.common.ui.celleditor,
+ org.eclipse.jface.viewers,
+ org.eclipse.scada.configuration.ecore.ui,
+ org.eclipse.swt,
+ org.eclipse.swt.custom,
+ org.eclipse.swt.widgets

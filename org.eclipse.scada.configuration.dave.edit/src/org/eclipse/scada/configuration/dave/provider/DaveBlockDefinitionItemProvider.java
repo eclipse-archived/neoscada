@@ -4,10 +4,10 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
- * 
+ *
  */
 package org.eclipse.scada.configuration.dave.provider;
 
@@ -29,10 +29,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.scada.configuration.dave.DaveBlockDefinition;
 import org.eclipse.scada.configuration.dave.DaveHelper;
 import org.eclipse.scada.configuration.dave.DavePackage;
+import org.eclipse.scada.configuration.dave.edit.AreaSelector;
+import org.eclipse.scada.configuration.ecore.ui.ItemPropertyDescriptor2;
 import org.eclipse.scada.configuration.memory.TypeHelper;
+import org.eclipse.swt.widgets.Composite;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.dave.DaveBlockDefinition} object.
@@ -203,23 +207,31 @@ public class DaveBlockDefinitionItemProvider
      * This adds a property descriptor for the Area feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
-    protected void addAreaPropertyDescriptor ( Object object )
+    protected void addAreaPropertyDescriptor ( final Object object )
     {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+        this.itemPropertyDescriptors.add
+                ( new ItemPropertyDescriptor2 (
+                        ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_DaveBlockDefinition_area_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_area_feature", "_UI_DaveBlockDefinition_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        getString ( "_UI_DaveBlockDefinition_area_feature" ),
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_DaveBlockDefinition_area_feature", "_UI_DaveBlockDefinition_type" ),
                         DavePackage.Literals.DAVE_BLOCK_DEFINITION__AREA,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-                        getString ( "_UI_addressPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
+                        getString ( "_UI_addressPropertyCategory" ),
+                        null ) {
+                    @Override
+                    public CellEditor createPropertyEditor ( final Composite composite )
+                    {
+                        return new AreaSelector ( composite );
+                    };
+                }
+                );
     }
 
     /**
@@ -261,7 +273,7 @@ public class DaveBlockDefinitionItemProvider
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override

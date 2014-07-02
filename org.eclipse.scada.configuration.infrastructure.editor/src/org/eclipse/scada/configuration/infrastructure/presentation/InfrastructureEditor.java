@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -42,6 +43,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.ui.MarkerHelper;
 import org.eclipse.emf.common.ui.ViewerPane;
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -64,6 +66,8 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
+import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
@@ -90,13 +94,15 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.scada.configuration.ecore.ui.ExtendedAdapterFactoryContentProvider;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureItemProviderAdapterFactory;
-import org.eclipse.emf.common.ui.viewer.ColumnViewerInformationControlToolTipSupport;
-import org.eclipse.emf.edit.ui.provider.DecoratingColumLabelProvider;
-import org.eclipse.emf.edit.ui.provider.DiagnosticDecorator;
 import org.eclipse.scada.configuration.security.provider.SecurityItemProviderAdapterFactory;
 import org.eclipse.scada.configuration.world.deployment.provider.DeploymentItemProviderAdapterFactory;
+import org.eclipse.scada.configuration.world.osgi.profile.provider.ProfileItemProviderAdapterFactory;
+import org.eclipse.scada.configuration.world.osgi.provider.OsgiItemProviderAdapterFactory;
+import org.eclipse.scada.configuration.world.provider.WorldItemProviderAdapterFactory;
+import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProviderAdapterFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
@@ -130,10 +136,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.eclipse.scada.configuration.world.osgi.profile.provider.ProfileItemProviderAdapterFactory;
-import org.eclipse.scada.configuration.world.osgi.provider.OsgiItemProviderAdapterFactory;
-import org.eclipse.scada.configuration.world.provider.WorldItemProviderAdapterFactory;
-import org.eclipse.scada.da.exec.configuration.provider.ConfigurationItemProviderAdapterFactory;
 
 /**
  * This is an example of a Infrastructure model editor.
@@ -873,6 +875,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public EditingDomain getEditingDomain ()
     {
         return editingDomain;
@@ -1020,6 +1023,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public Viewer getViewer ()
     {
         return currentViewer;
@@ -1565,29 +1569,30 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * This accesses a cached version of the property sheet.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
+     *
+     * @generated NOT
      */
     public IPropertySheetPage getPropertySheetPage ()
     {
-        PropertySheetPage propertySheetPage =
-                new ExtendedPropertySheetPage ( editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () )
+        final PropertySheetPage propertySheetPage =
+                new ExtendedPropertySheetPage ( this.editingDomain, ExtendedPropertySheetPage.Decoration.LIVE, InfrastructureEditorPlugin.getPlugin ().getDialogSettings () )
                 {
                     @Override
-                    public void setSelectionToViewer ( List<?> selection )
+                    public void setSelectionToViewer ( final List<?> selection )
                     {
                         InfrastructureEditor.this.setSelectionToViewer ( selection );
                         InfrastructureEditor.this.setFocus ();
                     }
 
                     @Override
-                    public void setActionBars ( IActionBars actionBars )
+                    public void setActionBars ( final IActionBars actionBars )
                     {
                         super.setActionBars ( actionBars );
                         getActionBarContributor ().shareGlobalActions ( this, actionBars );
                     }
                 };
-        propertySheetPage.setPropertySourceProvider ( new AdapterFactoryContentProvider ( adapterFactory ) );
-        propertySheetPages.add ( propertySheetPage );
+        propertySheetPage.setPropertySourceProvider ( new ExtendedAdapterFactoryContentProvider ( this.adapterFactory ) );
+        this.propertySheetPages.add ( propertySheetPage );
 
         return propertySheetPage;
     }
@@ -1805,6 +1810,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void gotoMarker ( IMarker marker )
     {
         List<?> targetObjects = markerHelper.getTargetObjects ( editingDomain, marker );
@@ -1855,6 +1861,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void addSelectionChangedListener ( ISelectionChangedListener listener )
     {
         selectionChangedListeners.add ( listener );
@@ -1866,6 +1873,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void removeSelectionChangedListener ( ISelectionChangedListener listener )
     {
         selectionChangedListeners.remove ( listener );
@@ -1877,6 +1885,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public ISelection getSelection ()
     {
         return editorSelection;
@@ -1889,6 +1898,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setSelection ( ISelection selection )
     {
         editorSelection = selection;
@@ -1970,6 +1980,7 @@ public class InfrastructureEditor extends MultiPageEditorPart implements IEditin
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void menuAboutToShow ( IMenuManager menuManager )
     {
         ( (IMenuListener)getEditorSite ().getActionBarContributor () ).menuAboutToShow ( menuManager );

@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.configuration.infrastructure.presentation.InfrastructureEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.configuration.infrastructure.presentation;version="0.1.0";
+Export-Package: org.eclipse.scada.configuration.infrastructure.presentation;version="0.2.0";
   uses:="org.eclipse.jface.wizard,
    org.eclipse.core.runtime,
    org.eclipse.emf.edit.ui.provider,
@@ -47,3 +47,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.security.edit;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.scada.configuration.ecore.ui
