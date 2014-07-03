@@ -13,7 +13,6 @@
 
     <property file="default.properties" />
 	
-    <property name="update.base" location="${download.root}/updates/${buildTypeLong}/${release}" />
     <property name="repo.base" location="${download.root}/repos/${buildTypeLong}/${release}" />
     <property name="download.base.dir" location="${download.root}/downloads/org.eclipse.scada/drops/${version}/${buildType}${buildTimestamp}" />
 
@@ -26,7 +25,7 @@
     <!-- ================================= 
           target: phase1
          ================================= -->
-    <target name="phase1" depends="clean.repo,build.repo,clean.update,build.update">
+    <target name="phase1" depends="clean.repo,build.repo,build.update">
     </target>
     
     <!-- ================================= 
@@ -40,13 +39,6 @@
          ================================= -->
     <target name="clean.repo">
         <delete dir="${repo.base}" />
-    </target>
-
-    <!-- ================================= 
-		  target: clean.repo
-	     ================================= -->
-    <target name="clean.update">
-        <delete dir="${update.base}" />
     </target>
 
     <!-- ================================= 
@@ -74,12 +66,8 @@
             <fileset dir="${download.base.dir}/repos">
             </fileset>
         </copy>
-
-        <mkdir dir="${update.base}" />
-        <copy todir="${update.base}">
-            <fileset dir="${download.base.dir}/p2">
-            </fileset>
-        </copy>
+    	
+    	<!-- updates is handles by repgen -->
     </target>
 
     <!-- =================================
