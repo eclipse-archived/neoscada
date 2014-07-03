@@ -56,7 +56,7 @@
     		<sysproperty key="buildTypeLong" value="${buildTypeLong}"/>
     		<sysproperty key="release" value="${release}"/>
     		<sysproperty key="downloads.base" value="${downloads.base}"/>
-    		<sysproperty key="drops.dir" value="/drops"/>
+    		<sysproperty key="drops.dir" value="/downloads/org.eclipse.scada/drops"/>
 			<sysproperty key="updates.prefix" value="/updates"/>
     	</java>
     </target>
