@@ -29,7 +29,8 @@ public class Application
         final String buildTypeLong = getProperty ( "buildTypeLong" );
         final Pattern releasePattern = Pattern.compile ( Pattern.quote ( release ) + "\\..*" ); // e.g. "0.2.*"
 
-        final File downloadsBase = new File ( getProperty ( "downloads.base" ) );
+        final String projectPrefix = getProperty ( "downloads.project.prefix" );
+        final File downloadsBase = new File ( new File ( getProperty ( "downloads.base" ) ), projectPrefix );
         final File drops = new File ( downloadsBase, getProperty ( "drops.dir" ) );
 
         final String updatesDir = String.format ( "%s/%s/%s", getProperty ( "updates.prefix" ), buildTypeLong, release );
@@ -62,7 +63,7 @@ public class Application
 
         final CompositeBuilder builder = new CompositeBuilder ( "Eclipse SCADA" );
 
-        builder.setProperty ( "p2.mirrorsURL", String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;protocol=http&amp;format=xml", updatesDir ) );
+        builder.setProperty ( "p2.mirrorsURL", String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;protocol=http&amp;format=xml", projectPrefix + "/" + updatesDir ) );
 
         for ( final File drop : drops.listFiles () )
         {
