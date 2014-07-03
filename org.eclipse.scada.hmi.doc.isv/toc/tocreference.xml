@@ -3,6 +3,6 @@
 
 <toc label="Reference" link_to="toc/toc.xml#reference"> 
 	 <link toc="toc/tocjavadoc.xml"/> 
- <topic href="html/reference/scriptContext.html" label="Script Context">
+ <topic href="html/reference/scripting.html" label="Scripting">
  </topic> 
 </toc>
