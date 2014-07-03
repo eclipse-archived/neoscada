@@ -79,7 +79,7 @@ IFigure figure = new PolylineShape () {
 public abstract class FigureController implements Controller
 {
 
-    public class ClickHandlerImpl extends MouseListener.Stub
+    private class ClickHandlerImpl extends MouseListener.Stub
     {
         @Override
         public void mouseReleased ( final MouseEvent me )
@@ -94,7 +94,7 @@ public abstract class FigureController implements Controller
         }
     }
 
-    public class MotionHandlerImpl implements MouseMotionListener
+    private class MotionHandlerImpl implements MouseMotionListener
     {
 
         @Override
@@ -350,6 +350,13 @@ public abstract class FigureController implements Controller
         }
     }
 
+    /**
+     * Set a cursor for the figure <br/>
+     * The name of the cursor must be one of the {@link SWTCursors} enum.
+     * 
+     * @param cursor
+     *            the name of the cursor
+     */
     public void setCursor ( final String cursor )
     {
         getPropertyFigure ().setCursor ( getCursor ( cursor ) );
