@@ -13,7 +13,7 @@
 	<script language="javascript"><![CDATA[
 	var suffix = project.getProperty ( "versionSuffix" );
 	if ( suffix != null ) {
-		project.setProperty ( "versionSuffix2", suffix.replace ( /^\./, "-" ) );
+		project.setProperty ( "versionSuffix2", suffix.replace ( /^\-/, "." ) );
 	}
 	]]></script>
 	
