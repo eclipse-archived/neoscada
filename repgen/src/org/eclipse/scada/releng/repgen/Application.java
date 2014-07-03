@@ -63,7 +63,7 @@ public class Application
 
         final CompositeBuilder builder = new CompositeBuilder ( "Eclipse SCADA" );
 
-        builder.setProperty ( "p2.mirrorsURL", String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;protocol=http&amp;format=xml", projectPrefix + updatesDir ) );
+        builder.setProperty ( "p2.mirrorsURL", String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;format=xml", projectPrefix + updatesDir ) );
 
         for ( final File drop : drops.listFiles () )
         {
