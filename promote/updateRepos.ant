@@ -50,6 +50,7 @@
     		classpath="${buildDir}"
     		failonerror="true"
     		classname="org.eclipse.scada.releng.repgen.Application"
+    		fork="true"
     		>
     		
     		<sysproperty key="buildTypeShort" value="${buildTypeShort}"/>
