@@ -60,7 +60,7 @@
       <wizard
             class="org.eclipse.scada.configuration.ui.project.template.PluginContentWizard"
             icon="icons/new_client.gif"
-            id="org.eclipse.scada.configuration.ui.project.wizard1"
+            id="org.eclipse.scada.configuration.ui.project.configurationWizard"
             java="true"
             name="%wizard.clientConfiguration.name."
             pureOSGi="false"
@@ -69,6 +69,20 @@
             ui-content="true">
          <description>
             %pluginContent.client.description
+         </description>
+      </wizard>
+      <wizard
+            class="org.eclipse.scada.configuration.ui.project.template.ClientAppContentWizard"
+            icon="icons/new_client.gif"
+            id="org.eclipse.scada.configuration.ui.project.appWizard"
+            java="true"
+            name="Eclipse SCADA Client Application"
+            pureOSGi="false"
+            rcp="true"
+            requiresActivator="false"
+            ui-content="true">
+         <description>
+            Create a full client application.
          </description>
       </wizard>
    </extension>

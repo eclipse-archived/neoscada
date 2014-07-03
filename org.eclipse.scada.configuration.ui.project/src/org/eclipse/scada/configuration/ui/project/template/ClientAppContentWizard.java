@@ -13,7 +13,7 @@ package org.eclipse.scada.configuration.ui.project.template;
 import org.eclipse.pde.ui.templates.ITemplateSection;
 import org.eclipse.pde.ui.templates.NewPluginTemplateWizard;
 
-public class PluginContentWizard extends NewPluginTemplateWizard
+public class ClientAppContentWizard extends NewPluginTemplateWizard
 {
 
     @Override
@@ -25,10 +25,11 @@ public class PluginContentWizard extends NewPluginTemplateWizard
     public static ITemplateSection[] createDefaultTemplateSections ()
     {
         return new ITemplateSection[] {
+                new ClientTemplate (),
                 new ConnectionContextTemplate (),
                 new ConnectionDefinitionsTemplate (),
                 new AEViewSection (),
-                new DetailViewTemplate ( "org.eclipse.scada.details.node", "node" ),
+                new DetailViewTemplate ( "org.eclipse.scada.details.node", "node" ), //$NON-NLS-1$ //$NON-NLS-2$
                 new VIBaseTemplate ()
         };
     }

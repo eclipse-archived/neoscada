@@ -55,7 +55,7 @@ public class AEViewSection extends BaseTemplate
 
     private static void addDefaultColumn ( final List<ColumnInformation> defaultConfigurationConfiguration, final String label, final String field )
     {
-        defaultConfigurationConfiguration.add ( new ColumnInformation ( label, false, 120, "variant", new MapBuilder<String, String> ().put ( "key", field ).build () ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        defaultConfigurationConfiguration.add ( new ColumnInformation ( label, false, 120, "variant", new MapBuilder<String, String> ().put ( "key", field ).build () ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     @Override
@@ -67,13 +67,13 @@ public class AEViewSection extends BaseTemplate
     @Override
     public String[] getNewFiles ()
     {
-        return new String[] { "resources/" }; //$NON-NLS-1$ 
+        return new String[] { "resources/" }; //$NON-NLS-1$
     }
 
     @Override
     public String getSectionId ()
     {
-        return "aeViews"; //$NON-NLS-1$ 
+        return "aeViews"; //$NON-NLS-1$
     }
 
     private static final class ColumnInformation
@@ -138,24 +138,24 @@ public class AEViewSection extends BaseTemplate
 
         final IPluginElement menu = createAlarmsMenu ( factory, plugin );
 
-        createMonitorView ( factory, ext, menu, "monitors.not_ok", "All &Alarms" ); //$NON-NLS-1$ 
-        createMonitorView ( factory, ext, menu, "monitors.ack_required", "A&cknowledge required" ); //$NON-NLS-1$ 
-        createMonitorView ( factory, ext, menu, "monitors.warning.not_ok", "Only active warnings" ); //$NON-NLS-1$ 
+        createMonitorView ( factory, ext, menu, "monitors.not_ok", "All &Alarms" ); //$NON-NLS-1$
+        createMonitorView ( factory, ext, menu, "monitors.ack_required", "A&cknowledge required" ); //$NON-NLS-1$
+        createMonitorView ( factory, ext, menu, "monitors.warning.not_ok", "Only active warnings" ); //$NON-NLS-1$
         createMonitorView ( factory, ext, menu, "monitors.alarm.not_ok", "Only active alarms" ); //$NON-NLS-1$
-        addSeperator ( factory, menu, "separator2" ); //$NON-NLS-1$ 
+        addSeperator ( factory, menu, "separator2" ); //$NON-NLS-1$
         createEventView ( factory, ext, menu, "events.all", "&Latest Events", 20000, "monitors.not_ok" ); //$NON-NLS-1$ //$NON-NLS-3$
-        createQueryView ( factory, ext, menu, "eventHistoryView", "Query &Historic Events" ); //$NON-NLS-1$ 
+        createQueryView ( factory, ext, menu, "eventHistoryView", "Query &Historic Events" ); //$NON-NLS-1$
         createAlarmNotifier ( factory, ext );
-        createColumnInformation ( factory, ext, "defaultConfiguration", this.defaultConfigurationConfiguration );//$NON-NLS-1$ 
+        createColumnInformation ( factory, ext, "defaultConfiguration", this.defaultConfigurationConfiguration );//$NON-NLS-1$
 
     }
 
     private void addSeperator ( final IPluginModelFactory factory, final IPluginElement menu, final String id ) throws CoreException
     {
         final IPluginElement ele = factory.createElement ( menu );
-        ele.setName ( "separator" ); //$NON-NLS-1$ 
-        ele.setAttribute ( "name", makeId ( id ) ); //$NON-NLS-1$ 
-        ele.setAttribute ( "visible", "true" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        ele.setName ( "separator" ); //$NON-NLS-1$
+        ele.setAttribute ( "name", makeId ( id ) ); //$NON-NLS-1$
+        ele.setAttribute ( "visible", "true" ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     protected IPluginElement createAlarmsMenu ( final IPluginModelFactory factory, final IPluginBase plugin ) throws CoreException
@@ -165,12 +165,12 @@ public class AEViewSection extends BaseTemplate
 
         final IPluginElement menuEle = factory.createElement ( menuExt );
         menuExt.add ( menuEle );
-        menuEle.setName ( "menuContribution" ); //$NON-NLS-1$ 
-        menuEle.setAttribute ( "locationURI", "menu:org.eclipse.ui.main.menu" ); //$NON-NLS-1$ //$NON-NLS-2$ 
+        menuEle.setName ( "menuContribution" ); //$NON-NLS-1$
+        menuEle.setAttribute ( "locationURI", "menu:org.eclipse.ui.main.menu?after=file" ); //$NON-NLS-1$ //$NON-NLS-2$
 
         final IPluginElement menu = factory.createElement ( menuEle );
         menuEle.add ( menu );
-        menu.setName ( "menu" ); //$NON-NLS-1$ 
+        menu.setName ( "menu" ); //$NON-NLS-1$
         menu.setAttribute ( "label", "Alarms" ); //$NON-NLS-1$
 
         return menu;
@@ -178,26 +178,26 @@ public class AEViewSection extends BaseTemplate
 
     private void createColumnInformation ( final IPluginModelFactory factory, final IPluginExtension ext, final String id, final List<ColumnInformation> configuration ) throws CoreException
     {
-        final IPluginElement ele = addElement ( factory, ext, "columnInformationDefinition", id );//$NON-NLS-1$ 
+        final IPluginElement ele = addElement ( factory, ext, "columnInformationDefinition", id );//$NON-NLS-1$
 
         for ( final ColumnInformation ci : configuration )
         {
             final IPluginElement colEle = factory.createElement ( ele );
             ele.add ( colEle );
-            colEle.setName ( "columnInformation" ); //$NON-NLS-1$ 
-            colEle.setAttribute ( "initialSize", String.format ( "%d", ci.getInitialSize () ) ); //$NON-NLS-1$ //$NON-NLS-2$ 
+            colEle.setName ( "columnInformation" ); //$NON-NLS-1$
+            colEle.setAttribute ( "initialSize", String.format ( "%d", ci.getInitialSize () ) ); //$NON-NLS-1$ //$NON-NLS-2$
             colEle.setAttribute ( "sortable", ci.isSortable () ? "true" : "false" ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-            colEle.setAttribute ( "label", ci.getLabel () ); //$NON-NLS-1$ 
-            colEle.setAttribute ( "type", ci.getType () ); //$NON-NLS-1$ 
+            colEle.setAttribute ( "label", ci.getLabel () ); //$NON-NLS-1$
+            colEle.setAttribute ( "type", ci.getType () ); //$NON-NLS-1$
             if ( ci.getParameters () != null )
             {
                 for ( final Map.Entry<String, String> entry : ci.getParameters ().entrySet () )
                 {
                     final IPluginElement colPara = factory.createElement ( colEle );
                     colEle.add ( colPara );
-                    colPara.setName ( "columnParameter" ); //$NON-NLS-1$ 
-                    colPara.setAttribute ( "key", entry.getKey () ); //$NON-NLS-1$ 
-                    colPara.setAttribute ( "value", entry.getValue () ); //$NON-NLS-1$ 
+                    colPara.setName ( "columnParameter" ); //$NON-NLS-1$
+                    colPara.setAttribute ( "key", entry.getKey () ); //$NON-NLS-1$
+                    colPara.setAttribute ( "value", entry.getValue () ); //$NON-NLS-1$
                 }
             }
         }
@@ -215,13 +215,13 @@ public class AEViewSection extends BaseTemplate
 
         final IPluginElement cmd1 = factory.createElement ( ele );
         ele.add ( cmd1 );
-        cmd1.setName ( "ackAlarmsAvailableCommand" ); //$NON-NLS-1$ 
+        cmd1.setName ( "ackAlarmsAvailableCommand" ); //$NON-NLS-1$
         cmd1.setAttribute ( "id", "org.eclipse.scada.ui.utils.showView" ); //$NON-NLS-1$ //$NON-NLS-2$
         addParameter ( factory, cmd1, "org.eclipse.scada.ui.utils.showView.viewId", String.format ( "org.eclipse.scada.ae.ui.views.views.monitors:%s", makeId ( "monitors.ack_required" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
         final IPluginElement cmd2 = factory.createElement ( ele );
         ele.add ( cmd2 );
-        cmd2.setName ( "alarmsAvailableCommand" ); //$NON-NLS-1$ 
+        cmd2.setName ( "alarmsAvailableCommand" ); //$NON-NLS-1$
         cmd2.setAttribute ( "id", "org.eclipse.scada.ui.utils.showView" ); //$NON-NLS-1$ //$NON-NLS-2$
         addParameter ( factory, cmd2, "org.eclipse.scada.ui.utils.showView.viewId", String.format ( "org.eclipse.scada.ae.ui.views.views.monitors:%s", makeId ( "monitors.not_ok" ) ) ); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
@@ -237,19 +237,19 @@ public class AEViewSection extends BaseTemplate
 
         final IPluginElement sub = factory.createElement ( menuEle );
         menuEle.add ( sub );
-        sub.setName ( "control" ); //$NON-NLS-1$ 
+        sub.setName ( "control" ); //$NON-NLS-1$
         sub.setAttribute ( "class", "org.eclipse.scada.ae.ui.views.contributions.AlarmNotifier" ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     private void createQueryView ( final IPluginModelFactory factory, final IPluginExtension ext, final IPluginElement menu, final String id, final String label ) throws CoreException
     {
         final IPluginElement ele = factory.createElement ( ext );
-        ele.setName ( "eventHistoryView" ); //$NON-NLS-1$ 
-        ele.setAttribute ( "id", makeId ( id ) ); //$NON-NLS-1$ 
+        ele.setName ( "eventHistoryView" ); //$NON-NLS-1$
+        ele.setAttribute ( "id", makeId ( id ) ); //$NON-NLS-1$
         ele.setAttribute ( "columnInformationDefinition", "defaultConfiguration" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "connectionString", makeConnectionId ( "ae" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "connectionType", "ID" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$ 
+        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$
         ext.add ( ele );
 
         createShowView ( factory, menu, makeId ( id ), label, "org.eclipse.scada.ae.ui.views.views.eventhistory" );
@@ -258,14 +258,14 @@ public class AEViewSection extends BaseTemplate
     protected void createEventView ( final IPluginModelFactory factory, final IPluginExtension ext, final IPluginElement menu, final String eventPoolQueryId, final String label, final int size, final String monitorId ) throws CoreException
     {
         final IPluginElement ele = factory.createElement ( ext );
-        ele.setName ( "eventPoolView" );//$NON-NLS-1$ 
+        ele.setName ( "eventPoolView" );//$NON-NLS-1$
         ele.setAttribute ( "id", makeId ( eventPoolQueryId ) ); //$NON-NLS-1$
         ele.setAttribute ( "eventPoolQueryId", eventPoolQueryId );
         ele.setAttribute ( "columnInformationDefinition", "defaultConfiguration" ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "connectionString", makeConnectionId ( "ae" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "connectionType", "ID" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "monitorQueryId", monitorId ); //$NON-NLS-1$ 
-        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$ 
+        ele.setAttribute ( "monitorQueryId", monitorId ); //$NON-NLS-1$
+        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$
         ele.setAttribute ( "maxNumberOfEvents", String.format ( "%d", size ) ); //$NON-NLS-1$ //$NON-NLS-2$
         ext.add ( ele );
 
@@ -275,12 +275,12 @@ public class AEViewSection extends BaseTemplate
     protected void createMonitorView ( final IPluginModelFactory factory, final IPluginExtension ext, final IPluginElement menu, final String monitorId, final String label ) throws CoreException
     {
         final IPluginElement ele = factory.createElement ( ext );
-        ele.setName ( "monitorView" ); //$NON-NLS-1$ 
-        ele.setAttribute ( "id", makeId ( monitorId ) ); //$NON-NLS-1$ 
+        ele.setName ( "monitorView" ); //$NON-NLS-1$
+        ele.setAttribute ( "id", makeId ( monitorId ) ); //$NON-NLS-1$
         ele.setAttribute ( "connectionString", makeConnectionId ( "ae" ) ); //$NON-NLS-1$ //$NON-NLS-2$
         ele.setAttribute ( "connectionType", "ID" ); //$NON-NLS-1$ //$NON-NLS-2$
-        ele.setAttribute ( "monitorQueryId", monitorId ); //$NON-NLS-1$ 
-        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$ 
+        ele.setAttribute ( "monitorQueryId", monitorId ); //$NON-NLS-1$
+        ele.setAttribute ( "label", clear ( label ) ); //$NON-NLS-1$
         ext.add ( ele );
 
         createShowView ( factory, menu, makeId ( monitorId ), label, "org.eclipse.scada.ae.ui.views.views.monitors" );
@@ -290,9 +290,9 @@ public class AEViewSection extends BaseTemplate
     {
         final IPluginElement cmd = factory.createElement ( menu );
         menu.add ( cmd );
-        cmd.setName ( "command" );//$NON-NLS-1$ 
+        cmd.setName ( "command" );//$NON-NLS-1$
         cmd.setAttribute ( "commandId", "org.eclipse.scada.ui.utils.showView" );//$NON-NLS-1$ //$NON-NLS-2$
-        cmd.setAttribute ( "label", label );//$NON-NLS-1$ 
+        cmd.setAttribute ( "label", label );//$NON-NLS-1$
         cmd.setAttribute ( "style", "push" );//$NON-NLS-1$ //$NON-NLS-2$
 
         final IPluginElement para = factory.createElement ( cmd );

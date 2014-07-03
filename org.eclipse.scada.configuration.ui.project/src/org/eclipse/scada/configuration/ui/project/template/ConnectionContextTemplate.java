@@ -35,7 +35,7 @@ import org.eclipse.scada.ui.utils.status.StatusHelper;
 public class ConnectionContextTemplate extends BaseTemplate
 {
 
-    private static final String OPT_HOSTNAME = "hostname";
+    private static final String OPT_HOSTNAME = "hostname"; //$NON-NLS-1$
 
     private final Map<String, Integer> interfaceMap = new HashMap<String, Integer> ();
 
@@ -43,9 +43,9 @@ public class ConnectionContextTemplate extends BaseTemplate
 
     public ConnectionContextTemplate ()
     {
-        this.interfaceMap.put ( "da", 2101 );
-        this.interfaceMap.put ( "ae", 2201 );
-        this.interfaceMap.put ( "hd", 2302 );
+        this.interfaceMap.put ( "da", 2101 ); //$NON-NLS-1$
+        this.interfaceMap.put ( "ae", 2201 ); //$NON-NLS-1$
+        this.interfaceMap.put ( "hd", 2302 ); //$NON-NLS-1$
 
         this.privileges.addAll ( Arrays.asList ( "operator", "admin", "developer" ) );
 
@@ -55,7 +55,7 @@ public class ConnectionContextTemplate extends BaseTemplate
 
     private void createOptions ()
     {
-        addOption ( OPT_HOSTNAME, "Hostname", "demo.openscada.org", 0 );
+        addOption ( OPT_HOSTNAME, "Hostname", "scada.eclipse.org", 0 ); //$NON-NLS-2$
     }
 
     @Override
@@ -89,11 +89,11 @@ public class ConnectionContextTemplate extends BaseTemplate
     @Override
     protected void fillDependencies ( final Collection<IPluginReference> dependencies, final String schemaVersion )
     {
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.core.ui.connection.login", "0.1.0", 0 ) );
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.ae.ui.connection.creator.ngp", "0.1.0", 0 ) );
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.da.ui.connection.creator.ngp", "0.1.0", 0 ) );
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.hd.ui.connection.creator.ngp", "0.1.0", 0 ) );
-        dependencies.add ( new PluginReference ( "org.eclipse.scada.ca.ui.connection.creator.ngp", "0.1.0", 0 ) );
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.core.ui.connection.login", "0.1.0", 0 ) ); //$NON-NLS-1$  //$NON-NLS-2$
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.ae.ui.connection.creator.ngp", "0.1.0", 0 ) ); //$NON-NLS-1$  //$NON-NLS-2$
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.da.ui.connection.creator.ngp", "0.1.0", 0 ) ); //$NON-NLS-1$  //$NON-NLS-2$
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.hd.ui.connection.creator.ngp", "0.1.0", 0 ) ); //$NON-NLS-1$  //$NON-NLS-2$
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.ca.ui.connection.creator.ngp", "0.1.0", 0 ) ); //$NON-NLS-1$  //$NON-NLS-2$
     }
 
     @Override
@@ -108,54 +108,54 @@ public class ConnectionContextTemplate extends BaseTemplate
     {
         final IPluginExtension ext = factory.createExtension ();
         this.model.getPluginBase ().add ( ext );
-        ext.setPoint ( "org.eclipse.scada.core.ui.connection.login.context" );
+        ext.setPoint ( "org.eclipse.scada.core.ui.connection.login.context" ); //$NON-NLS-1$
 
-        final IPluginElement context = addElement ( factory, ext, "context", makeId ( getHostname () ) );
-        context.setAttribute ( "label", getContextLabel () );
+        final IPluginElement context = addElement ( factory, ext, "context", makeId ( getHostname () ) ); //$NON-NLS-1$
+        context.setAttribute ( "label", getContextLabel () ); //$NON-NLS-1$
 
-        final IPluginElement fac = addElement ( factory, context, "factory", null );
+        final IPluginElement fac = addElement ( factory, context, "factory", null ); //$NON-NLS-1$
         fac.setAttribute ( "class", "org.eclipse.scada.core.ui.connection.login.factory.ConnectionLoginFactory" );
 
-        createConnection ( factory, context, "da", "NORMAL" );
-        createConnection ( factory, context, "ae", "NORMAL" );
-        createConnection ( factory, context, "hd", "OPTIONAL" );
+        createConnection ( factory, context, "da", "NORMAL" ); //$NON-NLS-1$
+        createConnection ( factory, context, "ae", "NORMAL" ); //$NON-NLS-1$
+        createConnection ( factory, context, "hd", "OPTIONAL" ); //$NON-NLS-1$
     }
 
     private void createConnection ( final IPluginModelFactory factory, final IPluginElement context, final String tag, final String type ) throws CoreException
     {
         final IPluginElement con = addElement ( factory, context, "connection", null );
 
-        con.setAttribute ( "authUseCallbacks", "true" );
-        con.setAttribute ( "autoReconnectDelay", "10000" );
-        con.setAttribute ( "mode", type );
+        con.setAttribute ( "authUseCallbacks", "true" ); //$NON-NLS-1$
+        con.setAttribute ( "autoReconnectDelay", "10000" ); //$NON-NLS-1$
+        con.setAttribute ( "mode", type ); //$NON-NLS-1$
         try
         {
-            con.setAttribute ( "uri", makeUri ( tag ) );
+            con.setAttribute ( "uri", makeUri ( tag ) ); //$NON-NLS-1$
         }
         catch ( final UnsupportedEncodingException e )
         {
             throw new CoreException ( StatusHelper.convertStatus ( Activator.PLUGIN_ID, e ) );
         }
 
-        final IPluginElement reg = addElement ( factory, con, "registration", null );
-        reg.setAttribute ( "servicePid", makeConnectionId ( tag ) );
+        final IPluginElement reg = addElement ( factory, con, "registration", null ); //$NON-NLS-1$
+        reg.setAttribute ( "servicePid", makeConnectionId ( tag ) ); //$NON-NLS-1$
     }
 
     private String makeUri ( final String tag ) throws UnsupportedEncodingException
     {
         final String suffix;
-        if ( "da".equals ( tag ) )
+        if ( "da".equals ( tag ) ) //$NON-NLS-1$
         {
-            final StringBuilder sb = new StringBuilder ( "?" );
+            final StringBuilder sb = new StringBuilder ( "?" ); //$NON-NLS-1$
 
             int i = 0;
             for ( final String priv : this.privileges )
             {
                 if ( i > 0 )
                 {
-                    sb.append ( "&" );
+                    sb.append ( "&" ); //$NON-NLS-1$
                 }
-                sb.append ( String.format ( "session.privilege.%s=true", URLEncoder.encode ( priv, "UTF-8" ) ) );
+                sb.append ( String.format ( "session.privilege.%s=true", URLEncoder.encode ( priv, "UTF-8" ) ) ); //$NON-NLS-1$  //$NON-NLS-2$
                 i++;
             }
 
@@ -163,9 +163,9 @@ public class ConnectionContextTemplate extends BaseTemplate
         }
         else
         {
-            suffix = "";
+            suffix = ""; //$NON-NLS-1$
         }
-        return String.format ( "%s:ngp://%s:%d%s", tag, getHostname (), this.interfaceMap.get ( tag ), suffix );
+        return String.format ( "%s:ngp://%s:%d%s", tag, getHostname (), this.interfaceMap.get ( tag ), suffix ); //$NON-NLS-1$
     }
 
     private String getHostname ()
