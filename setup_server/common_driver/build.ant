@@ -10,8 +10,13 @@
     <property file="../local.properties" />
     <property file="../common.properties" />
     
-
-
+	<script language="javascript"><![CDATA[
+	var suffix = project.getProperty ( "versionSuffix" );
+	if ( suffix != null ) {
+		project.setProperty ( "versionSuffix2", suffix.replace ( /^\./, "-" ) );
+	}
+	]]></script>
+	
     <property name="visibleVersion" value="${version}${versionSuffix}" />
     
     <property environment="env" />
@@ -35,9 +40,18 @@
     <!-- ================================= 
           target: default
          ================================= -->
-    <target name="default" depends="clean,fetch,unpack,heat,build,sign">
+    <target name="default" depends="dump,clean,fetch,unpack,heat,build,sign">
     </target>
 
+	<!-- ================================= 
+          target: dump
+         ================================= -->
+    <target name="dump">
+    	<echo message="VersionSuffix: ${versionSuffix}"/>
+    	<echo message="VersionSuffix2: ${versionSuffix2}"/>
+    </target>
+
+	
     <!-- ================================= 
           target: clean
          ================================= -->
