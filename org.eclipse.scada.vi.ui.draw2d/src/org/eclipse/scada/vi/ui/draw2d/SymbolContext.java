@@ -36,9 +36,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The context object that is exported to the script context
- * 
+ *
  * @author Jens Reimann
- * @since 0.17.0
  */
 public class SymbolContext
 {
@@ -62,14 +61,14 @@ public class SymbolContext
         final Map<String, String> r = new HashMap<String, String> ();
         for ( final Object key : Collections.list ( this.controller.getProperties ().propertyNames () ) )
         {
-            r.put ( (String)key, (String)this.controller.getProperties ().getProperty ( (String)key ) );
+            r.put ( (String)key, this.controller.getProperties ().getProperty ( (String)key ) );
         }
         return r;
     }
 
     /**
      * Get an element from this symbol by name
-     * 
+     *
      * @param name
      *            the name of the symbol to fetch
      * @return returns either a reference to the element controller of
@@ -111,7 +110,7 @@ public class SymbolContext
      * There is no need to unregister items when the symbol is disposed. This
      * will be performed automatically.
      * </p>
-     * 
+     *
      * @param name
      *            the name of the item (not the id) to unregister
      */
@@ -165,7 +164,7 @@ public class SymbolContext
 
     /**
      * Execute an Eclipse command
-     * 
+     *
      * @param commandId
      *            the command to execute
      * @param eventData
