@@ -14,24 +14,7 @@ import io.netty.channel.socket.SocketChannel;
 
 import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.MessageManager;
-import org.eclipse.scada.protocol.iec60870.asdu.message.DoubleCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
-import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSequence;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointTimeSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.ReadCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandScaledValue;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandShortFloatingPoint;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SingleCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSequence;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSingle;
-import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MessageRegistrator;
 import org.eclipse.scada.protocol.iec60870.server.Server;
 import org.eclipse.scada.protocol.iec60870.server.ServerModule;
 import org.slf4j.Logger;
@@ -54,29 +37,7 @@ public class DataModule implements ServerModule
     @Override
     public void initializeServer ( final Server server, final MessageManager manager )
     {
-        manager.registerClass ( InterrogationCommand.class );
-        manager.registerClass ( ReadCommand.class );
-        manager.registerClass ( SinglePointInformationSequence.class );
-        manager.registerClass ( SinglePointInformationSingle.class );
-        manager.registerClass ( SinglePointInformationTimeSingle.class );
-
-        manager.registerClass ( DoublePointInformationSequence.class );
-        manager.registerClass ( DoublePointInformationSingle.class );
-        manager.registerClass ( DoublePointInformationTimeSingle.class );
-
-        manager.registerClass ( MeasuredValueScaledSequence.class );
-        manager.registerClass ( MeasuredValueScaledSingle.class );
-        manager.registerClass ( MeasuredValueScaledTimeSingle.class );
-
-        manager.registerClass ( MeasuredValueShortFloatingPointSequence.class );
-        manager.registerClass ( MeasuredValueShortFloatingPointSingle.class );
-        manager.registerClass ( MeasuredValueShortFloatingPointTimeSingle.class );
-
-        manager.registerClass ( SingleCommand.class );
-        manager.registerClass ( DoubleCommand.class );
-        manager.registerClass ( SetPointCommandShortFloatingPoint.class );
-        manager.registerClass ( SetPointCommandScaledValue.class );
-
+        new MessageRegistrator ().register ( manager );
     }
 
     @Override
