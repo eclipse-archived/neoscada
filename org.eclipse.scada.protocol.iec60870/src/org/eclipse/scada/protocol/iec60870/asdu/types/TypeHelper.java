@@ -190,4 +190,38 @@ public class TypeHelper
 
         return new Value<Float> ( value, timestamp, qualityInformation, overflow );
     }
+
+    /**
+     * Encode Short integer number with quality descriptor
+     */
+    public static void encodeScaledValue ( final ProtocolOptions options, final ByteBuf out, final Value<Short> value, final boolean withTimestamp )
+    {
+        final byte qds = (byte) ( value.isOverflow () ? 0b00000001 : 0b00000000 );
+        final byte siq = value.getQualityInformation ().apply ( qds );
+
+        out.writeShort ( value.getValue () );
+        out.writeByte ( siq );
+
+        if ( withTimestamp )
+        {
+            encodeTimestamp ( options, out, value.getTimestamp () );
+        }
+    }
+
+    /**
+     * Parse Short integer number with quality descriptor
+     */
+    public static Value<Short> parseScaledValue ( final ProtocolOptions options, final ByteBuf data, final boolean withTimestamp )
+    {
+        final short value = data.readShort ();
+
+        final byte qds = data.readByte ();
+
+        final QualityInformation qualityInformation = QualityInformation.parse ( qds );
+        final boolean overflow = ( qds & 0b00000001 ) > 0;
+
+        final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
+
+        return new Value<Short> ( value, timestamp, qualityInformation, overflow );
+    }
 }

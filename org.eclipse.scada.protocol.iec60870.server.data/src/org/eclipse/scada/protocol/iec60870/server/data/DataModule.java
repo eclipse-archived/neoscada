@@ -18,6 +18,9 @@ import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSe
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointTimeSingle;
@@ -64,6 +67,9 @@ public class DataModule implements ServerModule
         manager.registerClass ( DoublePointInformationSequence.class );
         manager.registerClass ( DoublePointInformationSingle.class );
         manager.registerClass ( DoublePointInformationTimeSingle.class );
+        manager.registerClass ( MeasuredValueScaledSequence.class );
+        manager.registerClass ( MeasuredValueScaledSingle.class );
+        manager.registerClass ( MeasuredValueScaledTimeSingle.class );
     }
 
     @Override
