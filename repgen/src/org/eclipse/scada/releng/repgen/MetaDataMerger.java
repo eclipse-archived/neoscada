@@ -12,9 +12,12 @@ package org.eclipse.scada.releng.repgen;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -42,7 +45,7 @@ public class MetaDataMerger extends AbstractP2Builder
 
     private final Map<String, Element> categoryStore = new HashMap<> ();
 
-    public MetaDataMerger ( final String label ) throws Exception
+    public MetaDataMerger ( final String label, final boolean compressed ) throws Exception
     {
         this.doc = createDocument ();
 
@@ -63,7 +66,7 @@ public class MetaDataMerger extends AbstractP2Builder
         this.p = this.doc.createElement ( "properties" );
         this.r.appendChild ( this.p );
 
-        addProperty ( this.p, "p2.compressed", "false" );
+        addProperty ( this.p, "p2.compressed", "" + compressed );
         addProperty ( this.p, "p2.timestamp", "" + System.currentTimeMillis () );
 
         this.u = this.doc.createElement ( "units" );
@@ -81,7 +84,13 @@ public class MetaDataMerger extends AbstractP2Builder
         // update unit counter
         this.u.setAttribute ( "size", "" + this.u.getChildNodes ().getLength () );
 
-        write ( this.doc, new File ( targetDir, "content.xml" ) );
+        try ( ZipOutputStream os = new ZipOutputStream ( new FileOutputStream ( new File ( targetDir, "content.jar" ) ) ) )
+        {
+            final ZipEntry ze = new ZipEntry ( "content.xml" );
+            os.putNextEntry ( ze );
+            write ( this.doc, os );
+            os.closeEntry ();
+        }
     }
 
     public void setProperty ( final String key, final String value )

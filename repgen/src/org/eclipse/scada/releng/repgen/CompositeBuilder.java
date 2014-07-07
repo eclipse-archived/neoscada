@@ -29,7 +29,7 @@ public class CompositeBuilder extends AbstractP2Builder
 
     private final Map<String, String> properties = new HashMap<> ();
 
-    public CompositeBuilder ( final String repositoryName )
+    public CompositeBuilder ( final String repositoryName ) throws Exception
     {
         this.repositoryName = repositoryName;
     }

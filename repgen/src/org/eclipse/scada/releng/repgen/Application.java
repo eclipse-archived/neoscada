@@ -63,7 +63,7 @@ public class Application
         final String label = "Eclipse SCADA";
 
         final CompositeBuilder builder = new CompositeBuilder ( label );
-        final MetaDataMerger merger = new MetaDataMerger ( label );
+        final MetaDataMerger merger = new MetaDataMerger ( label, true );
 
         final String mirrorUrl = String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;format=xml", projectPrefix + updatesDir );
         System.out.println ( "Mirror URL: " + mirrorUrl );
@@ -100,7 +100,7 @@ public class Application
         builder.build ( updates );
         merger.build ( updates );
 
-        writeIndex ( updates, "content.xml", "compositeArtifacts.xml" );
+        writeIndex ( updates, "content.jar", "compositeArtifacts.xml" );
     }
 
     private static void deleteRecursive ( final File updates ) throws IOException

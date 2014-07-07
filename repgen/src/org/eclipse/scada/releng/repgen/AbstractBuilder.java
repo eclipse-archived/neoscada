@@ -11,9 +11,11 @@
 package org.eclipse.scada.releng.repgen;
 
 import java.io.File;
+import java.io.OutputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -26,19 +28,39 @@ import org.xml.sax.InputSource;
 public abstract class AbstractBuilder
 {
 
+    private final TransformerFactory transformerFactory;
+
+    private final DocumentBuilderFactory dbf;
+
+    private final DocumentBuilder db;
+
+    public AbstractBuilder () throws ParserConfigurationException
+    {
+        this.transformerFactory = TransformerFactory.newInstance ();
+
+        this.dbf = DocumentBuilderFactory.newInstance ();
+        this.db = this.dbf.newDocumentBuilder ();
+    }
+
     protected Document createDocument () throws Exception
     {
-        final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance ();
-        final DocumentBuilder db = dbf.newDocumentBuilder ();
-        return db.newDocument ();
+        return this.db.newDocument ();
+    }
+
+    protected Document load ( final InputSource input ) throws Exception
+    {
+        return this.db.parse ( input );
     }
 
     protected void write ( final Document doc, final File file ) throws Exception
     {
-        final TransformerFactory transformerFactory = TransformerFactory.newInstance ();
-        final Transformer transformer = transformerFactory.newTransformer ();
+        write ( doc, new StreamResult ( file ) );
+    }
+
+    protected void write ( final Document doc, final StreamResult result ) throws Exception
+    {
+        final Transformer transformer = this.transformerFactory.newTransformer ();
         final DOMSource source = new DOMSource ( doc );
-        final StreamResult result = new StreamResult ( file );
 
         transformer.setOutputProperty ( OutputKeys.INDENT, "yes" );
         transformer.setOutputProperty ( "{http://xml.apache.org/xslt}indent-amount", "2" );
@@ -46,10 +68,9 @@ public abstract class AbstractBuilder
         transformer.transform ( source, result );
     }
 
-    protected Document load ( final InputSource input ) throws Exception
+    protected void write ( final Document doc, final OutputStream output ) throws Exception
     {
-        final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance ();
-        final DocumentBuilder db = dbf.newDocumentBuilder ();
-        return db.parse ( input );
+        write ( doc, new StreamResult ( output ) );
     }
+
 }

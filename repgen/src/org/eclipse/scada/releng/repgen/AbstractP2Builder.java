@@ -10,10 +10,17 @@
  *******************************************************************************/
 package org.eclipse.scada.releng.repgen;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Element;
 
 public class AbstractP2Builder extends AbstractBuilder
 {
+    public AbstractP2Builder () throws ParserConfigurationException
+    {
+        super ();
+    }
+
     protected void addProperty ( final Element properties, final String key, final String value )
     {
         final Element pe = properties.getOwnerDocument ().createElement ( "property" );
