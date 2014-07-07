@@ -35,7 +35,7 @@ public class NewProjectPage extends WizardNewProjectCreationPage
 
         final Composite control = (Composite)getControl ();
 
-        createWorkingSetGroup ( control, this.selection, new String[] { "org.eclipse.ui.resourceWorkingSetPage" } );
+        createWorkingSetGroup ( control, this.selection, new String[] { "org.eclipse.ui.resourceWorkingSetPage" } ); //$NON-NLS-1$
 
         Dialog.applyDialogFont ( control );
     }

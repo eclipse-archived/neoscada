@@ -49,7 +49,7 @@ public class NewProjectWizard extends Wizard implements INewWizard
     public void addPages ()
     {
         super.addPages ();
-        addPage ( this.newProjectPage = new NewProjectPage ( "newProjectPage", this.selection ) );
+        addPage ( this.newProjectPage = new NewProjectPage ( "newProjectPage", this.selection ) ); //$NON-NLS-1$
     }
 
     @Override
@@ -63,8 +63,8 @@ public class NewProjectWizard extends Wizard implements INewWizard
         }
 
         info.setProject ( this.newProjectPage.getProjectHandle () );
-        info.addNode ( "node1", Arrays.asList ( "REGION1", "SITE1" ) );
-        info.addNode ( "node2", Arrays.asList ( "REGION1", "SITE2" ) );
+        info.addNode ( "node1", Arrays.asList ( "REGION1", "SITE1" ) ); //$NON-NLS-1$
+        info.addNode ( "node2", Arrays.asList ( "REGION1", "SITE2" ) ); //$NON-NLS-1$
         info.setGlobalize ( true );
 
         final CreateProjectOperation operation = new CreateProjectOperation ( info );
