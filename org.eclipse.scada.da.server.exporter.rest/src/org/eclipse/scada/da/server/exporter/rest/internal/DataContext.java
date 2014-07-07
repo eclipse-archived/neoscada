@@ -34,9 +34,9 @@ public class DataContext
         final Properties hiveProperties = cfg.getPrefixedProperties ( "hive." );
         this.subscriptionManager = new AggregatingSubscriptionManager ( executor, hiveSource, hiveProperties );
 
-        this.subscriptionManager.subscribeAll ( cfg.getStringSet ( "items." ) );
-
         this.subscriptionManager.start ();
+
+        this.subscriptionManager.subscribeAll ( cfg.getStringSet ( "items." ) );
     }
 
     public DataItemValue getValue ( final String itemId )
