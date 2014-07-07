@@ -47,11 +47,11 @@ public class EventInjector extends BaseStorage
 
     private final static Logger logger = LoggerFactory.getLogger ( EventInjector.class );
 
-    private static final String replicateEventSelectSql = "SELECT id, entry_timestamp, node_id, data FROM %sOPENSCADA_AE_REP LIMIT %s;";
+    private static final String replicateEventSelectSql = "SELECT id, entry_timestamp, node_id, data FROM %sES_AE_REP LIMIT %s;";
 
-    private static final String replicateEventDeleteSql = "DELETE FROM %sOPENSCADA_AE_REP WHERE ID = ?;";
+    private static final String replicateEventDeleteSql = "DELETE FROM %sES_AE_REP WHERE ID = ?;";
 
-    private static final String eventExistsSql = "SELECT count(id) FROM %sOPENSCADA_AE_EVENTS_JSON WHERE ID = ?::UUID;";
+    private static final String eventExistsSql = "SELECT count(id) FROM %sES_AE_EVENTS_HSTORE WHERE ID = ?::UUID;";
 
     private final boolean deleteFailed = Boolean.getBoolean ( "org.eclipse.scada.ae.slave.inject.deleteFailed" );
 
