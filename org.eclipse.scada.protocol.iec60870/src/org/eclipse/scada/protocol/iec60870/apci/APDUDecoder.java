@@ -42,13 +42,13 @@ public class APDUDecoder extends ByteToMessageDecoder
             return;
         }
 
-        final byte start = in.getByte ( 0 );
+        final byte start = in.getByte ( in.readerIndex () + 0 );
         if ( start != Constants.START_BYTE )
         {
             throw new DecoderException ( String.format ( "ACPI must start with 0x%02x but did with 0x%02x", Constants.START_BYTE, start ) );
         }
 
-        final short len = in.getUnsignedByte ( 1 );
+        final short len = in.getUnsignedByte ( in.readerIndex () + 1 );
 
         if ( len > Constants.APCI_MAX_DATA_LENGTH )
         {
