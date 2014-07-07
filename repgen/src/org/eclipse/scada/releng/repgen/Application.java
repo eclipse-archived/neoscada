@@ -100,7 +100,11 @@ public class Application
         builder.build ( updates );
         merger.build ( updates );
 
-        writeIndex ( updates, "content.jar", "compositeArtifacts.xml" );
+        /*
+         * The next line really says "xml" although it is a "jar" file.
+         * See https://wiki.eclipse.org/Equinox/p2/p2_index#Why_say_.27xml.27_instead_of_.27jar.27_in_factory_name.3F
+         */
+        writeIndex ( updates, "content.xml", "compositeArtifacts.xml" );
     }
 
     private static void deleteRecursive ( final File updates ) throws IOException
