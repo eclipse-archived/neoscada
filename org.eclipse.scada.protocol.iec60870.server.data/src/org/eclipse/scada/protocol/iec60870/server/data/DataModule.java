@@ -14,6 +14,7 @@ import io.netty.channel.socket.SocketChannel;
 
 import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.MessageManager;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoubleCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
@@ -58,18 +59,24 @@ public class DataModule implements ServerModule
         manager.registerClass ( SinglePointInformationSequence.class );
         manager.registerClass ( SinglePointInformationSingle.class );
         manager.registerClass ( SinglePointInformationTimeSingle.class );
-        manager.registerClass ( MeasuredValueShortFloatingPointSequence.class );
-        manager.registerClass ( MeasuredValueShortFloatingPointSingle.class );
-        manager.registerClass ( MeasuredValueShortFloatingPointTimeSingle.class );
-        manager.registerClass ( SingleCommand.class );
-        manager.registerClass ( SetPointCommandShortFloatingPoint.class );
-        manager.registerClass ( SetPointCommandScaledValue.class );
+
         manager.registerClass ( DoublePointInformationSequence.class );
         manager.registerClass ( DoublePointInformationSingle.class );
         manager.registerClass ( DoublePointInformationTimeSingle.class );
+
         manager.registerClass ( MeasuredValueScaledSequence.class );
         manager.registerClass ( MeasuredValueScaledSingle.class );
         manager.registerClass ( MeasuredValueScaledTimeSingle.class );
+
+        manager.registerClass ( MeasuredValueShortFloatingPointSequence.class );
+        manager.registerClass ( MeasuredValueShortFloatingPointSingle.class );
+        manager.registerClass ( MeasuredValueShortFloatingPointTimeSingle.class );
+
+        manager.registerClass ( SingleCommand.class );
+        manager.registerClass ( DoubleCommand.class );
+        manager.registerClass ( SetPointCommandShortFloatingPoint.class );
+        manager.registerClass ( SetPointCommandScaledValue.class );
+
     }
 
     @Override
