@@ -12,25 +12,16 @@ package org.eclipse.scada.releng.repgen;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ProcessingInstruction;
 
-public class CompositeBuilder
+public class CompositeBuilder extends AbstractP2Builder
 {
     private final Set<File> dirs = new HashSet<> ();
 
@@ -61,13 +52,11 @@ public class CompositeBuilder
         setProperty ( "p2.timestamp", "" + System.currentTimeMillis () );
         setProperty ( "p2.compressed", "false" );
 
-        final Document docA = createContent ( targetDir, "compositeArtifactRepository" );
+        // final Document docA = createContent ( targetDir, "compositeArtifactRepository" );
         final Document docM = createContent ( targetDir, "compositeMetadataRepository" );
 
-        write ( docA, new File ( targetDir, "compositeContent.xml" ) );
+        // write ( docA, new File ( targetDir, "compositeContent.xml" ) );
         write ( docM, new File ( targetDir, "compositeArtifacts.xml" ) );
-
-        writeIndex ( new File ( targetDir, "p2.index" ) );
     }
 
     private Document createContent ( final File targetDir, final String type ) throws Exception
@@ -93,10 +82,7 @@ public class CompositeBuilder
 
         for ( final Map.Entry<String, String> entry : this.properties.entrySet () )
         {
-            final Element p = doc.createElement ( "property" );
-            props.appendChild ( p );
-            p.setAttribute ( "name", entry.getKey () );
-            p.setAttribute ( "value", entry.getValue () );
+            addProperty ( props, entry.getKey (), entry.getValue () );
         }
 
         final Element children = doc.createElement ( "children" );
@@ -114,33 +100,4 @@ public class CompositeBuilder
         return doc;
     }
 
-    private void writeIndex ( final File file ) throws IOException
-    {
-        try ( PrintWriter pw = new PrintWriter ( file ) )
-        {
-            pw.println ( "version=1" );
-            pw.println ( "metadata.repository.factory.order=compositeContent.xml,\\!" );
-            pw.println ( "artifact.repository.factory.order=compositeArtifacts.xml,\\!" );
-        }
-    }
-
-    private Document createDocument () throws Exception
-    {
-        final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance ();
-        final DocumentBuilder db = dbf.newDocumentBuilder ();
-        return db.newDocument ();
-    }
-
-    private void write ( final Document doc, final File file ) throws Exception
-    {
-        final TransformerFactory transformerFactory = TransformerFactory.newInstance ();
-        final Transformer transformer = transformerFactory.newTransformer ();
-        final DOMSource source = new DOMSource ( doc );
-        final StreamResult result = new StreamResult ( file );
-
-        transformer.setOutputProperty ( OutputKeys.INDENT, "yes" );
-        transformer.setOutputProperty ( "{http://xml.apache.org/xslt}indent-amount", "2" );
-
-        transformer.transform ( source, result );
-    }
 }

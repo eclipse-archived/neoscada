@@ -12,12 +12,11 @@ package org.eclipse.scada.releng.repgen;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileVisitResult;
+import java.io.PrintWriter;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class Application
@@ -61,9 +60,16 @@ public class Application
             updates.mkdirs ();
         }
 
-        final CompositeBuilder builder = new CompositeBuilder ( "Eclipse SCADA" );
+        final String label = "Eclipse SCADA";
 
-        builder.setProperty ( "p2.mirrorsURL", String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;format=xml", projectPrefix + updatesDir ) );
+        final CompositeBuilder builder = new CompositeBuilder ( label );
+        final MetaDataMerger merger = new MetaDataMerger ( label );
+
+        final String mirrorUrl = String.format ( "http://www.eclipse.org/downloads/download.php?file=%s&amp;format=xml", projectPrefix + updatesDir );
+        System.out.println ( "Mirror URL: " + mirrorUrl );
+
+        builder.setProperty ( "p2.mirrorsURL", mirrorUrl );
+        merger.setProperty ( "p2.mirrorsURL", mirrorUrl );
 
         for ( final File drop : drops.listFiles () )
         {
@@ -72,7 +78,10 @@ public class Application
             {
                 continue;
             }
-            for ( final File v : drop.listFiles () )
+
+            final File[] files = drop.listFiles ();
+            Arrays.sort ( files );
+            for ( final File v : files )
             {
                 if ( !v.getName ().startsWith ( buildTypeShort ) )
                 {
@@ -83,35 +92,22 @@ public class Application
                 {
                     System.out.println ( "     Add drop: " + v );
                     builder.addRepository ( dir );
+                    merger.addRepository ( dir );
                 }
             }
-
         }
 
         builder.build ( updates );
+        merger.build ( updates );
+
+        writeIndex ( updates, "content.xml", "compositeArtifacts.xml" );
     }
 
     private static void deleteRecursive ( final File updates ) throws IOException
     {
         System.out.println ( "Deleting: " + updates );
 
-        final FileVisitor<? super Path> visitor = new SimpleFileVisitor<Path> () {
-            @Override
-            public FileVisitResult visitFile ( final Path file, final BasicFileAttributes attrs ) throws IOException
-            {
-                System.out.println ( "Delete file: " + file );
-                Files.delete ( file );
-                return super.visitFile ( file, attrs );
-            }
-
-            @Override
-            public FileVisitResult postVisitDirectory ( final Path dir, final IOException exc ) throws IOException
-            {
-                System.out.println ( "Delete dir:  " + dir );
-                Files.delete ( dir );
-                return super.postVisitDirectory ( dir, exc );
-            }
-        };
+        final FileVisitor<? super Path> visitor = new RecursiveDeleteVisitior ();
 
         Files.walkFileTree ( updates.toPath (), visitor );
     }
@@ -130,5 +126,15 @@ public class Application
         }
 
         return value;
+    }
+
+    private static void writeIndex ( final File targetDir, final String metadata, final String artifacts ) throws IOException
+    {
+        try ( PrintWriter pw = new PrintWriter ( new File ( targetDir, "p2.index" ) ) )
+        {
+            pw.println ( "version=1" );
+            pw.println ( "metadata.repository.factory.order=" + metadata + ",\\!" );
+            pw.println ( "artifact.repository.factory.order=" + artifacts + ",\\!" );
+        }
     }
 }
