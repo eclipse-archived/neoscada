@@ -20,12 +20,12 @@ import java.util.List;
 import java.util.Properties;
 
 import org.eclipse.scada.ae.Event;
+import org.eclipse.scada.ae.server.storage.jdbc.AbstractJdbcStorageDao;
 import org.eclipse.scada.utils.osgi.BundleObjectInputStream;
 import org.eclipse.scada.utils.osgi.jdbc.data.SingleColumnRowMapper;
 import org.eclipse.scada.utils.osgi.jdbc.task.CommonConnectionTask;
 import org.eclipse.scada.utils.osgi.jdbc.task.ConnectionContext;
 import org.eclipse.scada.utils.osgi.jdbc.task.RowCallback;
-import org.eclipse.scada.ae.server.storage.jdbc.AbstractJdbcStorageDao;
 import org.osgi.service.jdbc.DataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -70,12 +70,17 @@ public class JdbcStorageDao extends AbstractJdbcStorageDao
 
     private String getReplicationSelectSql ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.selectSql", String.format ( "SELECT ID, ENTRY_TIMESTAMP, NODE_ID, DATA FROM %sOPENSCADA_AE_REP", getReplicationSchema () ) );
+        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.selectSql", String.format ( "SELECT ID, ENTRY_TIMESTAMP, NODE_ID, DATA FROM %sES_AE_REP", getReplicationSchema () ) );
     }
 
     private String getReplicationDeleteSql ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.deleteSql", String.format ( "DELETE FROM %sOPENSCADA_AE_REP where ID=?", getReplicationSchema () ) );
+        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.deleteSql", String.format ( "DELETE FROM %sES_AE_REP where ID=?", getReplicationSchema () ) );
+    }
+
+    private String getEntryExistsSql ()
+    {
+        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.existsSql", String.format ( "SELECT COUNT(*) FROM %sES_AE_EVENTS WHERE ID=?", getSchema () ) );
     }
 
     private String getReplicationSchema ()
@@ -181,7 +186,7 @@ public class JdbcStorageDao extends AbstractJdbcStorageDao
     {
         logger.debug ( "Checking if entry already exists" );
 
-        final List<Number> result = connectionContext.query ( new SingleColumnRowMapper<Number> ( Number.class ), String.format ( "SELECT COUNT(*) FROM %sOPENSCADA_AE_EVENTS WHERE ID=?", getSchema () ), id );
+        final List<Number> result = connectionContext.query ( new SingleColumnRowMapper<Number> ( Number.class ), getEntryExistsSql (), id );
         if ( result.isEmpty () )
         {
             return false;
