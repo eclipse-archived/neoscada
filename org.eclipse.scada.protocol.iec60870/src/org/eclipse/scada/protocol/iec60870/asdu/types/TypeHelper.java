@@ -101,6 +101,25 @@ public class TypeHelper
     }
 
     /**
+     * Encode Double-point information with quality descriptor
+     *
+     * @param withTimestamp
+     *            <code>true</code> if the time should be encoded as well,
+     *            <code>false</code> otherwise
+     */
+    public static void encodeDoublePointValue ( final ProtocolOptions options, final ByteBuf out, final Value<DoublePoint> value, final boolean withTimestamp )
+    {
+        byte diq = (byte) ( value.getValue ().ordinal () & 0b00000011 );
+        diq = value.getQualityInformation ().apply ( diq );
+        out.writeByte ( diq );
+
+        if ( withTimestamp )
+        {
+            encodeTimestamp ( options, out, value.getTimestamp () );
+        }
+    }
+
+    /**
      * Parse Single-point information with quality descriptor
      *
      * @param withTimestamp
@@ -117,6 +136,25 @@ public class TypeHelper
         final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
 
         return new Value<Boolean> ( value, timestamp, qualityInformation );
+    }
+
+    /**
+     * Parse Double-point information with quality descriptor
+     *
+     * @param withTimestamp
+     *            <code>true</code> if the time should be parsed as well,
+     *            <code>false</code> otherwise
+     */
+    public static Value<DoublePoint> parseDoublePointValue ( final ProtocolOptions options, final ByteBuf data, final boolean withTimestamp )
+    {
+        final byte diq = data.readByte ();
+
+        final DoublePoint value = DoublePoint.values ()[diq & 0b00000011];
+        final QualityInformation qualityInformation = QualityInformation.parse ( diq );
+
+        final long timestamp = withTimestamp ? parseTimestamp ( options, data ) : System.currentTimeMillis ();
+
+        return new Value<DoublePoint> ( value, timestamp, qualityInformation );
     }
 
     /**

@@ -14,6 +14,9 @@ import io.netty.channel.socket.SocketChannel;
 
 import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.MessageManager;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSequence;
 import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSingle;
@@ -58,6 +61,9 @@ public class DataModule implements ServerModule
         manager.registerClass ( SingleCommand.class );
         manager.registerClass ( SetPointCommandShortFloatingPoint.class );
         manager.registerClass ( SetPointCommandScaledValue.class );
+        manager.registerClass ( DoublePointInformationSequence.class );
+        manager.registerClass ( DoublePointInformationSingle.class );
+        manager.registerClass ( DoublePointInformationTimeSingle.class );
     }
 
     @Override
