@@ -41,6 +41,8 @@ import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteMultiDataResponse;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
 import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
@@ -276,7 +278,7 @@ public abstract class ModbusExport
         if ( baseMessage.getUnitIdentifier () != this.slaveId )
         {
             logger.trace ( "Invalid unit id - use: {}, them: {}", this.slaveId, baseMessage.getUnitIdentifier () ); //$NON-NLS-1$
-            // we should mirror that
+            // silently ignore
             return;
         }
 
@@ -289,6 +291,25 @@ public abstract class ModbusExport
         {
             this.info.incrementWriteRequestSingleReceived ();
             handleWrite ( session, (WriteSingleDataRequest)message );
+        }
+        else if ( message instanceof WriteMultiDataRequest )
+        {
+            this.info.incrementWriteRequestMultiReceived ();
+            handleWrite ( session, (WriteMultiDataRequest)message );
+        }
+    }
+
+    private void handleWrite ( final IoSession session, final WriteMultiDataRequest message )
+    {
+        switch ( message.getFunctionCode () )
+        {
+            case 16:
+                writeRegister ( session, message );
+                break;
+            default:
+                logger.info ( "Function code {} is not implemented", message.getFunctionCode () ); //$NON-NLS-1$
+                sendReply ( session, makeError ( message, 0x01 ) );
+                break;
         }
     }
 
@@ -308,7 +329,10 @@ public abstract class ModbusExport
 
     private void writeRegister ( final IoSession session, final WriteSingleDataRequest message )
     {
-        final int rc = performWrite ( message.getAddress (), message.getValue () );
+        final IoBuffer buffer = IoBuffer.allocate ( 2 );
+        buffer.putUnsignedShort ( message.getValue () );
+        buffer.flip ();
+        final int rc = performWrite ( message.getAddress (), buffer );
 
         if ( rc != 0 )
         {
@@ -320,11 +344,22 @@ public abstract class ModbusExport
         sendReply ( session, response );
     }
 
-    private int performWrite ( final int address, final int value )
+    private void writeRegister ( final IoSession session, final WriteMultiDataRequest message )
     {
-        final IoBuffer buffer = IoBuffer.allocate ( 2 );
-        buffer.putUnsignedShort ( value );
-        buffer.flip ();
+        final int rc = performWrite ( message.getStartAddress (), IoBuffer.wrap ( message.getData () ) );
+
+        if ( rc != 0 )
+        {
+            sendReply ( session, makeError ( message, rc ) );
+            return;
+        }
+
+        final WriteMultiDataResponse response = new WriteMultiDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getStartAddress (), message.getNumRegisters () );
+        sendReply ( session, response );
+    }
+
+    private int performWrite ( final int address, final IoBuffer buffer )
+    {
         return this.block.write ( address, buffer );
     }
 

@@ -23,13 +23,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import org.apache.mina.core.buffer.IoBuffer;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.client.DataItemValue;
-import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
 import org.eclipse.scada.da.server.exporter.modbus.io.AbstractSourceType;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
-import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -145,7 +143,7 @@ public class MemoryBlock
             return 0x03; /*invalid data value*/
         }
 
-        final NotifyFuture<WriteResult> result = this.manager.writeValue ( def.getItemId (), writeValue, null, null );
+        this.manager.writeValue ( def.getItemId (), writeValue, null, null );
 
         return 0;
     }

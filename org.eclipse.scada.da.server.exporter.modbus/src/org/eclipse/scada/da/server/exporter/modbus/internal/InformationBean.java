@@ -30,6 +30,8 @@ public class InformationBean extends AbstractPropertyChange
 
     public static final String PROP_WRITE_REQUESTS_SINGLE_RECEIVED = "writeRequestsSingleReceived";
 
+    public static final String PROP_WRITE_REQUESTS_MULTI_RECEIVED = "writeRequestsMultiReceived";
+
     private final AtomicLong activeSessions = new AtomicLong ();
 
     private final AtomicLong messagesReceived = new AtomicLong ();
@@ -41,6 +43,8 @@ public class InformationBean extends AbstractPropertyChange
     private final AtomicLong readInputRequestsReceived = new AtomicLong ();
 
     private final AtomicLong writeRequestsSingleReceived = new AtomicLong ();
+
+    private final AtomicLong writeRequestsMultiReceived = new AtomicLong ();
 
     private final AtomicLong errorReplies = new AtomicLong ();
 
@@ -64,6 +68,11 @@ public class InformationBean extends AbstractPropertyChange
         return this.readHoldingRequestsReceived.get ();
     }
 
+    public long getReadInputRequestsReceived ()
+    {
+        return this.readInputRequestsReceived.get ();
+    }
+
     public long getErrorReplies ()
     {
         return this.errorReplies.get ();
@@ -72,6 +81,11 @@ public class InformationBean extends AbstractPropertyChange
     public long getWriteRequestsSingleReceived ()
     {
         return this.writeRequestsSingleReceived.get ();
+    }
+
+    public long getWriteRequestsMultiReceived ()
+    {
+        return this.writeRequestsMultiReceived.get ();
     }
 
     public void incrementActiveSessions ()
@@ -102,6 +116,12 @@ public class InformationBean extends AbstractPropertyChange
     {
         final long newValue = this.writeRequestsSingleReceived.incrementAndGet ();
         firePropertyChange ( PROP_WRITE_REQUESTS_SINGLE_RECEIVED, null, newValue );
+    }
+
+    public void incrementWriteRequestMultiReceived ()
+    {
+        final long newValue = this.writeRequestsMultiReceived.incrementAndGet ();
+        firePropertyChange ( PROP_WRITE_REQUESTS_MULTI_RECEIVED, null, newValue );
     }
 
     public void incrementReadHoldingRequestReceived ()
