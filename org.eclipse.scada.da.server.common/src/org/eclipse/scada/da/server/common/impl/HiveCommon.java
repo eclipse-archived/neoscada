@@ -254,7 +254,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     /**
      * Get a unique ID for you hive type
-     * 
+     *
      * @return a unique id of you hive type
      */
     public abstract String getHiveId ();
@@ -355,7 +355,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     /**
      * Validate a session and return the session common instance if the session
      * is valid
-     * 
+     *
      * @param session
      *            the session to validate
      * @return the session common instance
@@ -518,7 +518,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * Note that registering an item is only possible after the Hive has been
      * started.
      * </p>
-     * 
+     *
      * @param item
      *            the item to register
      */
@@ -587,7 +587,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * Note that registering an item is only possible while the hive is running
      * (started, not stopped).
      * </p>
-     * 
+     *
      * @param item
      *            the item to remove
      */
@@ -647,7 +647,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * The hive will perform several methods to check if the item id is valid.
      * <p>
      * Implementations must not create items based an a validation check!
-     * 
+     *
      * @return <code>true</code> if the item id is valid <code>false</code>
      *         otherwise
      */
@@ -716,9 +716,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private static final String DATA_ITEM_OBJECT_TYPE = "ITEM"; //$NON-NLS-1$
 
-    /**
-     * @since 1.1
-     */
     @Override
     public NotifyFuture<WriteAttributeResults> startWriteAttributes ( final Session session, final String itemId, final Map<String, Variant> attributes, final OperationParameters operationParameters, final CallbackHandler callbackHandler ) throws InvalidSessionException, InvalidItemException, PermissionDeniedException
     {
@@ -734,9 +731,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         };
     }
 
-    /**
-     * @since 1.1
-     */
     protected NotifyFuture<WriteAttributeResults> processWriteAttributes ( final SessionCommon session, final String itemId, final Map<String, Variant> attributes, final org.eclipse.scada.core.server.OperationParameters operationParameters )
     {
         logger.debug ( "Process write attributes - itemId: {}, attributes: {}", itemId, attributes );
@@ -860,7 +854,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     /**
      * Gets a set of all items in granted state.
-     * 
+     *
      * @return The list of granted items.
      */
     public Set<String> getGrantedItems ()
@@ -897,7 +891,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
      * This will disable the automatic generation of the stats module when
      * setting
      * the root folder. Must be called before {@link #setRootFolder(Folder)}
-     * 
+     *
      * @param autoEnableStats
      */
     public void setAutoEnableStats ( final boolean autoEnableStats )
