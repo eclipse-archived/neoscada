@@ -11,22 +11,21 @@
 package org.eclipse.scada.protocol.iec60870.server.data;
 
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DataTransmissionMessage;
 import org.eclipse.scada.protocol.iec60870.asdu.message.InterrogationCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.message.MirrorableMessage;
 import org.eclipse.scada.protocol.iec60870.asdu.message.ReadCommand;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandScaledValue;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SetPointCommandShortFloatingPoint;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SingleCommand;
-import org.eclipse.scada.protocol.iec60870.asdu.types.Cause;
 import org.eclipse.scada.protocol.iec60870.asdu.types.CauseOfTransmission;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.StandardCause;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
+import org.eclipse.scada.protocol.iec60870.io.AbstractModuleHandler;
+import org.eclipse.scada.protocol.iec60870.io.MirrorCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,66 +33,8 @@ import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
-public class DataModuleHandler extends ChannelInboundHandlerAdapter
+public class DataModuleHandler extends AbstractModuleHandler
 {
-    private final class DefaultMirrorCommand<T extends MirrorableMessage<T>> extends MirrorCommandImpl<T>
-    {
-        private DefaultMirrorCommand ( final ChannelHandlerContext ctx, final T original )
-        {
-            super ( ctx, original );
-        }
-
-        @Override
-        public T mirrorCommand ( final T original, final Cause newCause, final boolean positive )
-        {
-            return original.mirror ( newCause, positive );
-        }
-    }
-
-    public static abstract class MirrorCommandImpl<T> implements MirrorCommand
-    {
-        private final ChannelHandlerContext ctx;
-
-        private final T original;
-
-        public MirrorCommandImpl ( final ChannelHandlerContext ctx, final T original )
-        {
-            this.ctx = ctx;
-            this.original = original;
-        }
-
-        protected abstract T mirrorCommand ( T original, Cause newCause, boolean positive );
-
-        @Override
-        public void sendActivationTermination ()
-        {
-            this.ctx.writeAndFlush ( mirrorCommand ( this.original, StandardCause.ACTIVATION_TERMINATION, true ) );
-        }
-
-        @Override
-        public void sendActivationConfirm ( final boolean positive )
-        {
-            this.ctx.writeAndFlush ( mirrorCommand ( this.original, StandardCause.ACTIVATION_CONFIRM, positive ) );
-        }
-    }
-
-    private abstract class CloseOnFailureCallback implements FutureCallback<Void>
-    {
-        private final ChannelHandlerContext ctx;
-
-        private CloseOnFailureCallback ( final ChannelHandlerContext ctx )
-        {
-            this.ctx = ctx;
-        }
-
-        @Override
-        public void onFailure ( final Throwable t )
-        {
-            logger.warn ( "Failed", t );
-            this.ctx.close ();
-        }
-    }
-
     private final static Logger logger = LoggerFactory.getLogger ( DataModuleHandler.class );
 
     private final DataModel dataModel;
@@ -130,6 +71,7 @@ public class DataModuleHandler extends ChannelInboundHandlerAdapter
     public void channelActive ( final ChannelHandlerContext ctx ) throws Exception
     {
         logger.debug ( "Channel active - {}", ctx );
+
         // we may and must remember the channel context, to know were to send notifications to
         this.ctx = ctx;
 
@@ -297,7 +239,7 @@ public class DataModuleHandler extends ChannelInboundHandlerAdapter
 
         if ( msg.getHeader ().getCauseOfTransmission ().getCause () != StandardCause.REQUEST )
         {
-            ctx.writeAndFlush ( msg.mirror ( StandardCause.UNKNOWN_REASON ) );
+            ctx.writeAndFlush ( msg.mirror ( StandardCause.UNKNOWN_REASON, true ) );
             return;
         }
 

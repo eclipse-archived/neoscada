@@ -5,8 +5,10 @@ Bundle-SymbolicName: org.eclipse.scada.protocol.iec60870
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Import-Package: io.netty.buffer;version="4.0.0",
+Import-Package: com.google.common.util.concurrent;version="15.0.0",
+ io.netty.buffer;version="4.0.0",
  io.netty.channel;version="4.0.0",
+ io.netty.channel.socket;version="4.0.0",
  io.netty.handler.codec;version="4.0.0",
  io.netty.util;version="4.0.0",
  io.netty.util.concurrent;version="4.0.0",
@@ -30,4 +32,5 @@ Export-Package: org.eclipse.scada.protocol.iec60870;version="0.2.0";uses:="io.ne
    io.netty.buffer,
    org.eclipse.scada.protocol.iec60870,
    org.eclipse.scada.protocol.iec60870.asdu",
- org.eclipse.scada.protocol.iec60870.asdu.types;version="0.2.0";uses:="org.eclipse.scada.protocol.iec60870,io.netty.buffer"
+ org.eclipse.scada.protocol.iec60870.asdu.types;version="0.2.0";uses:="io.netty.buffer,org.eclipse.scada.protocol.iec60870",
+ org.eclipse.scada.protocol.iec60870.io;version="0.2.0"

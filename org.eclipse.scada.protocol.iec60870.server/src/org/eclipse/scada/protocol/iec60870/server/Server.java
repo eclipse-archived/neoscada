@@ -72,13 +72,14 @@ public class Server implements AutoCloseable
                 handleInitChannel ( ch );
             }
         } );
-        this.channel = this.bootstrap.bind ( port ).channel ();
 
         this.modules = modules.toArray ( new ServerModule[modules.size ()] );
         for ( final ServerModule module : modules )
         {
             module.initializeServer ( this, this.manager );
         }
+
+        this.channel = this.bootstrap.bind ( port ).channel ();
     }
 
     public Server ( final short port, final List<ServerModule> modules )
@@ -93,7 +94,10 @@ public class Server implements AutoCloseable
         ch.pipeline ().addLast ( new APDUEncoder () );
 
         // add logging
-        ch.pipeline ().addLast ( new LoggingHandler ( LogLevel.TRACE ) );
+        if ( Boolean.getBoolean ( "org.eclipse.scada.protocol.iec60870.trace" ) )
+        {
+            ch.pipeline ().addLast ( new LoggingHandler ( LogLevel.TRACE ) );
+        }
 
         final MessageChannel messageChannel = new MessageChannel ( this.options, this.manager );
 
@@ -122,12 +126,13 @@ public class Server implements AutoCloseable
     @Override
     public void close () throws Exception
     {
+        this.channel.close ();
+
         for ( final ServerModule module : this.modules )
         {
             module.dispose ();
         }
 
-        this.channel.close ();
         this.bossGroup.shutdownGracefully ();
         this.workerGroup.shutdownGracefully ();
     }

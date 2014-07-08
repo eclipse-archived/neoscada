@@ -30,6 +30,8 @@ public class CauseOfTransmission
 
     private byte sourceAddress;
 
+    public static CauseOfTransmission ACTIVATED = new CauseOfTransmission ( StandardCause.ACTIVATED );
+
     public static CauseOfTransmission REQUEST = new CauseOfTransmission ( StandardCause.REQUEST );
 
     public static CauseOfTransmission BACKGROUND = new CauseOfTransmission ( StandardCause.BACKGROUND );

@@ -14,6 +14,7 @@ import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
+import org.eclipse.scada.protocol.iec60870.io.MirrorCommand;
 
 import com.google.common.base.Function;
 import com.google.common.util.concurrent.ListenableFuture;

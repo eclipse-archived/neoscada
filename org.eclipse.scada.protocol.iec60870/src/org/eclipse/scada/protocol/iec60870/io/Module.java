@@ -8,11 +8,15 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.protocol.iec60870.server.data;
+package org.eclipse.scada.protocol.iec60870.io;
 
-public interface MirrorCommand
+import io.netty.channel.socket.SocketChannel;
+
+import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
+
+public interface Module
 {
-    public void sendActivationConfirm ( boolean positive );
+    public void initializeChannel ( SocketChannel channel, MessageChannel messageChannel );
 
-    public void sendActivationTermination ();
+    public void dispose ();
 }

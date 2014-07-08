@@ -19,7 +19,7 @@ import org.eclipse.scada.protocol.iec60870.asdu.types.Cause;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 
 @ASDU ( id = 102, name = "C_RD_NA_1" )
-public class ReadCommand extends AbstractInformationObjectMessage
+public class ReadCommand extends AbstractInformationObjectMessage implements MirrorableMessage<ReadCommand>
 {
     public ReadCommand ( final ASDUHeader header, final InformationObjectAddress informationObjectAddress )
     {
@@ -38,8 +38,9 @@ public class ReadCommand extends AbstractInformationObjectMessage
         this.informationObjectAddress.encode ( options, out );
     }
 
-    public ReadCommand mirror ( final Cause cause )
+    @Override
+    public ReadCommand mirror ( final Cause cause, final boolean positive )
     {
-        return new ReadCommand ( this.header.clone ( cause ), this.informationObjectAddress );
+        return new ReadCommand ( this.header.clone ( cause, positive ), this.informationObjectAddress );
     }
 }

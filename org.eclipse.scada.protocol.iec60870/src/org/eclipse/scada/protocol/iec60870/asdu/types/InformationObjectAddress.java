@@ -87,4 +87,14 @@ public class InformationObjectAddress
         return String.format ( "[%d-%d-%d # %d]", buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ), buf.getUnsignedByte ( 2 ), this.address );
     }
 
+    public static InformationObjectAddress fromString ( final String value )
+    {
+        int address = 0;
+        for ( final String tok : value.split ( "-" ) )
+        {
+            address = address << 8 | Integer.parseInt ( tok );
+        }
+        return valueOf ( address );
+    }
+
 }

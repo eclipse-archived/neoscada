@@ -10,16 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870.server;
 
-import io.netty.channel.socket.SocketChannel;
-
-import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.MessageManager;
+import org.eclipse.scada.protocol.iec60870.io.Module;
 
-public interface ServerModule
+public interface ServerModule extends Module
 {
     public void initializeServer ( Server server, MessageManager manager );
-
-    public void initializeChannel ( SocketChannel channel, MessageChannel messageChannel );
-
-    public void dispose ();
 }

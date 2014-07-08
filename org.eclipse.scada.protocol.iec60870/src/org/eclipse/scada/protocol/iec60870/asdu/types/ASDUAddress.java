@@ -17,6 +17,8 @@ import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
 
 public class ASDUAddress
 {
+    public static final ASDUAddress BROADCAST = new ASDUAddress ( 0xFFFF );
+
     private final int address;
 
     private ASDUAddress ( final int address )
@@ -82,6 +84,16 @@ public class ASDUAddress
         final ByteBuf buf = Unpooled.buffer ( 2 );
         buf.writeShort ( this.address );
         return isBroadcast () ? "[BCAST]" : String.format ( "[%d-%d # %d]", buf.getUnsignedByte ( 0 ), buf.getUnsignedByte ( 1 ), this.address );
+    }
+
+    public static ASDUAddress fromString ( final String value )
+    {
+        int address = 0;
+        for ( final String tok : value.split ( "-" ) )
+        {
+            address = address << 8 | Integer.parseInt ( tok );
+        }
+        return valueOf ( address );
     }
 
     public static ASDUAddress valueOf ( final int address )
