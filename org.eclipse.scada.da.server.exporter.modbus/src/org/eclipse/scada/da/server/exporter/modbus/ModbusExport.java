@@ -34,6 +34,7 @@ import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.exporter.ObjectExporter;
 import org.eclipse.scada.da.server.common.osgi.factory.ObjectPoolDataItemFactory;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
+import org.eclipse.scada.da.server.exporter.modbus.internal.InformationBean;
 import org.eclipse.scada.da.server.exporter.modbus.io.DoubleType;
 import org.eclipse.scada.da.server.exporter.modbus.io.IntegerType;
 import org.eclipse.scada.da.server.exporter.modbus.io.MemoryBlock;
@@ -79,15 +80,38 @@ public class ModbusExport
 
     private ObjectExporter exporter;
 
-    public ModbusExport ( final String id, final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ManageableObjectPool<DataItem> itemObjectPool )
+    /**
+     * Create a new modbus exporter
+     *
+     * @param executor
+     *            the executor used for
+     * @param processor
+     *            the IO processor
+     * @param hiveSource
+     *            the source of the hive to export
+     * @param itemFactory
+     *            an optional item factory for publishing statistics
+     */
+    public ModbusExport ( final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ObjectPoolDataItemFactory itemFactory )
     {
         this.executor = executor;
         this.hiveSource = hiveSource;
         this.processor = processor;
 
-        final ObjectPoolDataItemFactory itemFactory = new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ); //$NON-NLS-1$
-        this.exporter = new ObjectExporter ( itemFactory, true, true );
-        this.exporter.attachTarget ( this.info );
+        if ( itemFactory != null )
+        {
+            this.exporter = new ObjectExporter ( itemFactory, true, true );
+            this.exporter.attachTarget ( this.info );
+        }
+        else
+        {
+            this.exporter = null;
+        }
+    }
+
+    public ModbusExport ( final String id, final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ManageableObjectPool<DataItem> itemObjectPool )
+    {
+        this ( executor, processor, hiveSource, new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ) ); //$NON-NLS-1$
     }
 
     public void dispose ()
@@ -112,7 +136,7 @@ public class ModbusExport
     {
         if ( this.acceptor != null )
         {
-            this.acceptor.dispose ( !Boolean.getBoolean ( "org.eclipse.scada.da.server.exporter.modbus.dontWaitDispose" ) );
+            this.acceptor.dispose ( !Boolean.getBoolean ( "org.eclipse.scada.da.server.exporter.modbus.dontWaitDispose" ) ); //$NON-NLS-1$
             this.acceptor = null;
         }
     }
@@ -180,7 +204,7 @@ public class ModbusExport
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( parameters );
         setReadTimeout ( cfg.getInteger ( "timeout", 10_000 ) ); //$NON-NLS-1$
-        setPort ( cfg.getInteger ( "port", 502 ) ); //$NON-NLS-1$ 
+        setPort ( cfg.getInteger ( "port", 502 ) ); //$NON-NLS-1$
         setSlaveId ( cfg.getInteger ( "slaveId", 1 ) ); //$NON-NLS-1$
         setProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
         configureDefinitions ( cfg );
@@ -391,7 +415,7 @@ public class ModbusExport
 
     protected void sendReply ( final IoSession session, final Object message )
     {
-        logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$ 
+        logger.trace ( "Send reply - message: {}, session: {}", message, session ); //$NON-NLS-1$
         session.write ( message );
     }
 

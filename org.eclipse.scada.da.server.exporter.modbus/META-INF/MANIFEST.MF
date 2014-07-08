@@ -38,3 +38,11 @@ Import-Package: org.apache.mina.core.buffer;version="2.0.7",
  org.osgi.framework;version="1.7.0",
  org.slf4j;version="1.7.2"
 Service-Component: OSGI-INF/factory.xml
+Export-Package: org.eclipse.scada.da.server.exporter.modbus;version="0.2.0";
+  uses:="org.apache.mina.core.session,
+   org.eclipse.scada.da.server.exporter.common,
+   org.apache.mina.core.buffer,
+   org.eclipse.scada.protocol.modbus.message,
+   org.apache.mina.core.service,
+   org.eclipse.scada.da.server.common.osgi.factory,
+   org.eclipse.scada.utils.osgi.pool"

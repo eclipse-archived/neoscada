@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.exporter.modbus;
+package org.eclipse.scada.da.server.exporter.modbus.internal;
 
 import java.util.concurrent.atomic.AtomicLong;
 

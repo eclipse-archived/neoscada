@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" deactivate="dispose" immediate="true" name="org.eclipse.scada.da.server.exporter.modbus">
-   <implementation class="org.eclipse.scada.da.server.exporter.modbus.ExporterFactoryImpl"/>
+   <implementation class="org.eclipse.scada.da.server.exporter.modbus.internal.ExporterFactoryImpl"/>
    <property name="factoryId" type="String" value="org.eclipse.scada.da.server.exporter.modbus.device"/>
    <service>
       <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
