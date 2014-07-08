@@ -21,6 +21,11 @@ public class UnsignedIntegerType extends AbstractSourceType
 
     public final static int LENGTH = AbstractSourceType.COMMON_HEADER + DATA_LENGTH;
 
+    /**
+     * A default instance with no scaling
+     */
+    public static final SourceType INSTANCE = new UnsignedIntegerType ();
+
     public UnsignedIntegerType ( final Double factor )
     {
         super ( DATA_LENGTH ); // 32bit unsigned integer

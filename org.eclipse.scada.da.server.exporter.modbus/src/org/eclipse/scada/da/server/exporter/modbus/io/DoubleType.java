@@ -21,6 +21,11 @@ public class DoubleType extends AbstractSourceType
 
     private final Double factor;
 
+    /**
+     * A default instance with no scaling
+     */
+    public static final SourceType INSTANCE = new DoubleType ();
+
     public DoubleType ()
     {
         this ( null );

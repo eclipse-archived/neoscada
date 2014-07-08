@@ -21,6 +21,11 @@ public class IntegerType extends AbstractSourceType
 
     public final static int LENGTH = AbstractSourceType.COMMON_HEADER + DATA_LENGTH;
 
+    /**
+     * A default instance with no scaling
+     */
+    public static final SourceType INSTANCE = new IntegerType ();
+
     public IntegerType ( final Double factor )
     {
         super ( DATA_LENGTH ); // 32bit signed integer

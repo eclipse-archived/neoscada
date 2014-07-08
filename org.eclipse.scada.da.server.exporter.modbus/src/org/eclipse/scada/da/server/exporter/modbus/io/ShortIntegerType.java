@@ -21,6 +21,11 @@ public class ShortIntegerType extends AbstractSourceType
 
     public final static int LENGTH = AbstractSourceType.COMMON_HEADER + DATA_LENGTH;
 
+    /**
+     * A default instance with no scaling
+     */
+    public static final SourceType INSTANCE = new ShortIntegerType ();
+
     public ShortIntegerType ( final Double factor )
     {
         super ( DATA_LENGTH ); // 16bit signed integer
