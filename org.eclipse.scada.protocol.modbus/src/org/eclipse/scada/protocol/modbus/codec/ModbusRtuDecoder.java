@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -94,8 +94,10 @@ public class ModbusRtuDecoder extends TimedEndDecoder
         // get unit id
         final byte unitIdentifier = currentFrame.get ();
 
-        final IoBuffer pdu = IoBuffer.allocate ( currentFrame.limit () - Constants.RTU_HEADER_SIZE );
-        for ( int i = 0; i < currentFrame.limit () - Constants.RTU_HEADER_SIZE; i++ )
+        final int len = currentFrame.limit () - ( 2 /*crc*/+ Constants.RTU_HEADER_SIZE );
+
+        final IoBuffer pdu = IoBuffer.allocate ( len );
+        for ( int i = 0; i < len; i++ )
         {
             pdu.put ( currentFrame.get () );
         }
