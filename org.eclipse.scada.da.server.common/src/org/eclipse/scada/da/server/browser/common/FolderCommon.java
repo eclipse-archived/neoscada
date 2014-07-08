@@ -29,7 +29,7 @@ import org.eclipse.scada.da.server.common.DataItem;
 
 /**
  * A common folder implementation which can be used to easily implement folders.
- * 
+ *
  * @author Jens Reimann
  */
 public class FolderCommon implements Folder
@@ -78,7 +78,7 @@ public class FolderCommon implements Folder
 
     /**
      * Bulk add items
-     * 
+     *
      * @param folders
      *            folders to register or <code>null</code> if no folders should
      *            be registered
@@ -325,7 +325,7 @@ public class FolderCommon implements Folder
 
     /**
      * Check if there are subscribers
-     * 
+     *
      * @return <code>true</code> if there are active subscribers
      */
     public synchronized boolean hasSubscribers ()
@@ -362,7 +362,7 @@ public class FolderCommon implements Folder
 
     /**
      * Get the number of entries in this folder
-     * 
+     *
      * @return the number of entries in this folder
      */
     public int size ()
