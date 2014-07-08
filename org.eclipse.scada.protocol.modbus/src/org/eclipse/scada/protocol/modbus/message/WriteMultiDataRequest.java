@@ -36,4 +36,9 @@ public class WriteMultiDataRequest extends BaseMessage
     {
         return this.data;
     }
+
+    public int getNumRegisters ()
+    {
+        return this.data.length / 2;
+    }
 }
