@@ -56,7 +56,7 @@ public class StaticModbusExport extends ModbusExport
         }
 
         /**
-         * Set the hive session creation properies (e.g. username/password)
+         * Set the hive session creation properties (e.g. username/password)
          *
          * @param hiveProperies
          *            the hive session creation properties
