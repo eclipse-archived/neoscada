@@ -24,7 +24,7 @@ Import-Package: org.apache.mina.core.buffer;version="2.0.7",
  org.eclipse.scada.da.server.common.exporter;version="0.1.0",
  org.eclipse.scada.da.server.common.item.factory;version="0.1.0",
  org.eclipse.scada.da.server.common.osgi.factory;version="0.1.0",
- org.eclipse.scada.da.server.exporter.common,
+ org.eclipse.scada.da.server.exporter.common;version="0.2.0",
  org.eclipse.scada.protocol.modbus;version="0.1.0",
  org.eclipse.scada.protocol.modbus.codec;version="0.1.0",
  org.eclipse.scada.protocol.modbus.io;version="0.1.0",
@@ -45,4 +45,10 @@ Export-Package: org.eclipse.scada.da.server.exporter.modbus;version="0.2.0";
    org.eclipse.scada.protocol.modbus.message,
    org.apache.mina.core.service,
    org.eclipse.scada.da.server.common.osgi.factory,
-   org.eclipse.scada.utils.osgi.pool"
+   org.eclipse.scada.da.core.server,
+   org.eclipse.scada.utils.osgi.pool",
+ org.eclipse.scada.da.server.exporter.modbus.io;version="0.2.0";
+  uses:="org.eclipse.scada.da.server.exporter.common,
+   org.apache.mina.core.buffer,
+   org.eclipse.scada.core,
+   org.eclipse.scada.da.client"

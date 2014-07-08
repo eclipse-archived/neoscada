@@ -8,7 +8,7 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.exporter.modbus.io;
+package org.eclipse.scada.da.server.exporter.modbus.internal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +25,7 @@ import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
+import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

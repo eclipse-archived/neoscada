@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -19,7 +19,6 @@ import org.apache.mina.transport.socket.nio.NioSession;
 import org.eclipse.scada.ca.common.factory.AbstractServiceConfigurationFactory;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.exporter.common.ServiceListenerHiveSource;
-import org.eclipse.scada.da.server.exporter.modbus.ModbusExport;
 import org.eclipse.scada.sec.UserInformation;
 import org.eclipse.scada.utils.concurrent.ScheduledExportedExecutorService;
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolHelper;
@@ -30,7 +29,7 @@ import org.osgi.framework.ServiceRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<ModbusExport>
+public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<ModbusExportImpl>
 {
     private final static Logger logger = LoggerFactory.getLogger ( ExporterFactoryImpl.class );
 
@@ -75,21 +74,21 @@ public class ExporterFactoryImpl extends AbstractServiceConfigurationFactory<Mod
     }
 
     @Override
-    protected Entry<ModbusExport> createService ( final UserInformation userInformation, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
+    protected Entry<ModbusExportImpl> createService ( final UserInformation userInformation, final String configurationId, final BundleContext context, final Map<String, String> parameters ) throws Exception
     {
-        final ModbusExport service = new ModbusExport ( configurationId, this.executor, this.processor, this.hiveSource, this.itemPool );
+        final ModbusExportImpl service = new ModbusExportImpl ( configurationId, this.executor, this.processor, this.hiveSource, this.itemPool );
         service.update ( parameters );
-        return new Entry<ModbusExport> ( configurationId, service );
+        return new Entry<> ( configurationId, service );
     }
 
     @Override
-    protected void disposeService ( final UserInformation userInformation, final String configurationId, final ModbusExport service )
+    protected void disposeService ( final UserInformation userInformation, final String configurationId, final ModbusExportImpl service )
     {
         service.dispose ();
     }
 
     @Override
-    protected Entry<ModbusExport> updateService ( final UserInformation userInformation, final String configurationId, final Entry<ModbusExport> entry, final Map<String, String> parameters ) throws Exception
+    protected Entry<ModbusExportImpl> updateService ( final UserInformation userInformation, final String configurationId, final Entry<ModbusExportImpl> entry, final Map<String, String> parameters ) throws Exception
     {
         entry.getService ().update ( parameters );
         return null;
