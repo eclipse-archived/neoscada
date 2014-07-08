@@ -29,7 +29,7 @@ public class ModbusProtocol
 
     /**
      * Convert the string to a {@link ByteOrder}
-     * 
+     *
      * @param string
      *            the string to convert
      * @param defaultOrder
