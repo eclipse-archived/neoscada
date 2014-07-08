@@ -44,10 +44,13 @@ public interface SourceType
     /**
      * parse the value to write from a write request
      *
+     * @param localOffset
+     *            the local offset were the write was placed inside the data
+     *            type structure
      * @param value
      *            the value to write, or <code>null</code> if the value cannot
      *            be written
      * @return the value to write, or <code>null</code>
      */
-    public Variant getValue ( IoBuffer value );
+    public Variant getValue ( int localOffset, IoBuffer value );
 }

@@ -44,9 +44,9 @@ public class ShortIntegerType extends AbstractSourceType
     }
 
     @Override
-    public Variant getValue ( final IoBuffer value )
+    public Variant getValue ( final int localOffset, final IoBuffer value )
     {
-        if ( value.remaining () == DATA_LENGTH )
+        if ( localOffset == AbstractSourceType.COMMON_HEADER && value.remaining () == DATA_LENGTH )
         {
             return Variant.valueOf ( value.getShort () );
         }

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -26,7 +27,6 @@ import org.eclipse.scada.da.client.DataItemValue;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
-import org.eclipse.scada.da.server.exporter.modbus.io.AbstractSourceType;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +44,8 @@ public class MemoryBlock
     private final Lock readLock;
 
     private final Lock writeLock;
+
+    private final Map<Integer, SourceDefinition> writeMap = new TreeMap<> ();
 
     public MemoryBlock ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties )
     {
@@ -123,7 +125,7 @@ public class MemoryBlock
 
     private int performWrite ( final int address, final IoBuffer value )
     {
-        final int startAddress = address * 2 - AbstractSourceType.COMMON_HEADER;
+        final int startAddress = address * 2;
 
         if ( startAddress < 0 || startAddress >= 0xFFFF )
         {
@@ -136,7 +138,9 @@ public class MemoryBlock
             return 0x02; /*invalid address*/
         }
 
-        final Variant writeValue = def.getType ().getValue ( value );
+        final int localOffset = startAddress - def.getOffset ();
+
+        final Variant writeValue = def.getType ().getValue ( localOffset, value );
 
         if ( writeValue == null )
         {
@@ -147,8 +151,6 @@ public class MemoryBlock
 
         return 0;
     }
-
-    private final Map<Integer, SourceDefinition> writeMap = new HashMap<> ();
 
     public void setConfiguration ( final List<SourceDefinition> definitions )
     {
@@ -175,7 +177,11 @@ public class MemoryBlock
                 logger.debug ( "Remove: {}", def );
                 final Listener listener = this.definitions.remove ( def );
                 this.manager.removeListener ( def.getItemId (), listener );
-                this.writeMap.remove ( def.getOffset () );
+
+                for ( int i = def.getOffset (); i < def.getOffset () + def.getType ().getLength (); i++ )
+                {
+                    this.writeMap.remove ( i );
+                }
             }
 
             // build new
@@ -191,7 +197,12 @@ public class MemoryBlock
                         handleStateChange ( def, value );
                     }
                 };
-                this.writeMap.put ( def.getOffset (), def );
+
+                for ( int i = def.getOffset (); i < def.getOffset () + def.getType ().getLength (); i++ )
+                {
+                    this.writeMap.put ( i, def );
+                }
+
                 this.manager.addListener ( def.getItemId (), listener );
                 this.definitions.put ( def, listener );
             }
