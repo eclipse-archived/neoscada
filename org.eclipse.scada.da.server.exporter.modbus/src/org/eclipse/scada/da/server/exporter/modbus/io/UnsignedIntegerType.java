@@ -43,6 +43,16 @@ public class UnsignedIntegerType extends AbstractSourceType
         slice.putUnsignedInt ( makeValue ( value ) );
     }
 
+    @Override
+    public Variant getValue ( final IoBuffer value )
+    {
+        if ( value.remaining () == DATA_LENGTH )
+        {
+            return Variant.valueOf ( value.getUnsignedInt () );
+        }
+        return null;
+    }
+
     private long makeValue ( final Variant value )
     {
         if ( value == null )

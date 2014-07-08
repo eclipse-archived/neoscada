@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -41,6 +41,16 @@ public class DoubleType extends AbstractSourceType
     public void putValue ( final IoBuffer slice, final Variant value )
     {
         slice.putDouble ( makeValue ( value ) );
+    }
+
+    @Override
+    public Variant getValue ( final IoBuffer value )
+    {
+        if ( value.remaining () == DATA_LENGTH )
+        {
+            return Variant.valueOf ( value.getDouble () );
+        }
+        return null;
     }
 
     private double makeValue ( final Variant value )

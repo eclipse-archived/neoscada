@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -21,11 +21,15 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.mina.core.buffer.IoBuffer;
+import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.client.DataItemValue;
+import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.da.server.exporter.common.HiveSource;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager;
 import org.eclipse.scada.da.server.exporter.common.SingleSubscriptionManager.Listener;
+import org.eclipse.scada.da.server.exporter.modbus.io.AbstractSourceType;
 import org.eclipse.scada.da.server.exporter.modbus.io.SourceDefinition;
+import org.eclipse.scada.utils.concurrent.NotifyFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -106,6 +110,48 @@ public class MemoryBlock
         return result;
     }
 
+    public int write ( final int address, final IoBuffer value )
+    {
+        this.readLock.lock ();
+        try
+        {
+            return performWrite ( address, value );
+        }
+        finally
+        {
+            this.readLock.unlock ();
+        }
+    }
+
+    private int performWrite ( final int address, final IoBuffer value )
+    {
+        final int startAddress = address * 2 - AbstractSourceType.COMMON_HEADER;
+
+        if ( startAddress < 0 || startAddress >= 0xFFFF )
+        {
+            return 0x02; /*invalid address*/
+        }
+
+        final SourceDefinition def = this.writeMap.get ( startAddress );
+        if ( def == null )
+        {
+            return 0x02; /*invalid address*/
+        }
+
+        final Variant writeValue = def.getType ().getValue ( value );
+
+        if ( writeValue == null )
+        {
+            return 0x03; /*invalid data value*/
+        }
+
+        final NotifyFuture<WriteResult> result = this.manager.writeValue ( def.getItemId (), writeValue, null, null );
+
+        return 0;
+    }
+
+    private final Map<Integer, SourceDefinition> writeMap = new HashMap<> ();
+
     public void setConfiguration ( final List<SourceDefinition> definitions )
     {
         this.writeLock.lock ();
@@ -124,12 +170,18 @@ public class MemoryBlock
             logger.debug ( "Remove definitions: {}", oldDefs );
             logger.debug ( "Add definitions: {}", newDefs );
 
+            // destroy old
+
             for ( final SourceDefinition def : oldDefs )
             {
                 logger.debug ( "Remove: {}", def );
                 final Listener listener = this.definitions.remove ( def );
                 this.manager.removeListener ( def.getItemId (), listener );
+                this.writeMap.remove ( def.getOffset () );
             }
+
+            // build new
+
             for ( final SourceDefinition def : newDefs )
             {
                 logger.debug ( "Add: {}", def );
@@ -141,6 +193,7 @@ public class MemoryBlock
                         handleStateChange ( def, value );
                     }
                 };
+                this.writeMap.put ( def.getOffset (), def );
                 this.manager.addListener ( def.getItemId (), listener );
                 this.definitions.put ( def, listener );
             }

@@ -23,7 +23,7 @@ public abstract class AbstractSourceType implements SourceType
 
     private final static Logger logger = LoggerFactory.getLogger ( AbstractSourceType.class );
 
-    protected static final int COMMON_HEADER = 2 + 8;
+    public static final int COMMON_HEADER = 2 + 8;
 
     private final int length;
 
@@ -40,7 +40,7 @@ public abstract class AbstractSourceType implements SourceType
 
     /**
      * Render the value itself to the buffer slice
-     * 
+     *
      * @param slice
      *            the buffer slice
      * @param value

@@ -43,6 +43,16 @@ public class ShortIntegerType extends AbstractSourceType
         slice.putShort ( makeValue ( value ) );
     }
 
+    @Override
+    public Variant getValue ( final IoBuffer value )
+    {
+        if ( value.remaining () == DATA_LENGTH )
+        {
+            return Variant.valueOf ( value.getShort () );
+        }
+        return null;
+    }
+
     private short makeValue ( final Variant value )
     {
         if ( value == null )

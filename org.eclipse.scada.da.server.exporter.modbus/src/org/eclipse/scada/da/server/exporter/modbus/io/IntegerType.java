@@ -43,6 +43,16 @@ public class IntegerType extends AbstractSourceType
         slice.putInt ( makeValue ( value ) );
     }
 
+    @Override
+    public Variant getValue ( final IoBuffer value )
+    {
+        if ( value.remaining () == DATA_LENGTH )
+        {
+            return Variant.valueOf ( value.getInt () );
+        }
+        return null;
+    }
+
     private int makeValue ( final Variant value )
     {
         if ( value == null )

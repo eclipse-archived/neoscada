@@ -41,6 +41,8 @@ import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
 import org.eclipse.scada.protocol.modbus.message.ReadRequest;
 import org.eclipse.scada.protocol.modbus.message.ReadResponse;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataRequest;
+import org.eclipse.scada.protocol.modbus.message.WriteSingleDataResponse;
 import org.eclipse.scada.utils.osgi.pool.ManageableObjectPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -274,6 +276,7 @@ public abstract class ModbusExport
         if ( baseMessage.getUnitIdentifier () != this.slaveId )
         {
             logger.trace ( "Invalid unit id - use: {}, them: {}", this.slaveId, baseMessage.getUnitIdentifier () ); //$NON-NLS-1$
+            // we should mirror that
             return;
         }
 
@@ -282,6 +285,47 @@ public abstract class ModbusExport
             this.info.incrementReadRequestReceived ();
             handleRead ( session, (ReadRequest)message );
         }
+        else if ( message instanceof WriteSingleDataRequest )
+        {
+            this.info.incrementWriteRequestSingleReceived ();
+            handleWrite ( session, (WriteSingleDataRequest)message );
+        }
+    }
+
+    private void handleWrite ( final IoSession session, final WriteSingleDataRequest message )
+    {
+        switch ( message.getFunctionCode () )
+        {
+            case 6:
+                writeRegister ( session, message );
+                break;
+            default:
+                logger.info ( "Function code {} is not implemented", message.getFunctionCode () ); //$NON-NLS-1$
+                sendReply ( session, makeError ( message, 0x01 ) );
+                break;
+        }
+    }
+
+    private void writeRegister ( final IoSession session, final WriteSingleDataRequest message )
+    {
+        final int rc = performWrite ( message.getAddress (), message.getValue () );
+
+        if ( rc != 0 )
+        {
+            sendReply ( session, makeError ( message, rc ) );
+            return;
+        }
+
+        final WriteSingleDataResponse response = new WriteSingleDataResponse ( message.getTransactionId (), message.getUnitIdentifier (), message.getFunctionCode (), message.getAddress (), message.getValue () );
+        sendReply ( session, response );
+    }
+
+    private int performWrite ( final int address, final int value )
+    {
+        final IoBuffer buffer = IoBuffer.allocate ( 2 );
+        buffer.putUnsignedShort ( value );
+        buffer.flip ();
+        return this.block.write ( address, buffer );
     }
 
     private void handleRead ( final IoSession session, final ReadRequest message )
@@ -290,6 +334,11 @@ public abstract class ModbusExport
         {
             case 3:
                 this.info.incrementReadHoldingRequestReceived ();
+                readHoldingData ( session, message );
+                break;
+            case 4:
+                this.info.incrementReadInputRequestReceived ();
+                // for now we return holding data
                 readHoldingData ( session, message );
                 break;
             default:
