@@ -13,6 +13,7 @@ package org.eclipse.scada.protocol.modbus.codec;
 import java.nio.ByteOrder;
 
 import org.apache.mina.core.buffer.IoBuffer;
+import org.apache.mina.filter.codec.ProtocolCodecException;
 import org.eclipse.scada.protocol.modbus.Constants;
 import org.eclipse.scada.protocol.modbus.message.BaseMessage;
 import org.eclipse.scada.protocol.modbus.message.ErrorResponse;
@@ -166,7 +167,7 @@ public class ModbusProtocol
         }
     }
 
-    public static Object decodeAsSlave ( final Pdu message )
+    public static Object decodeAsSlave ( final Pdu message ) throws ProtocolCodecException
     {
         final IoBuffer data = message.getData ();
 
@@ -185,6 +186,12 @@ public class ModbusProtocol
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_COILS:
             case Constants.FUNCTION_CODE_WRITE_MULTIPLE_REGISTERS:
                 final int startAddress = data.getUnsignedShort ();
+                data.getUnsignedShort (); /* number of registers */
+                final byte num = data.get ();
+                if ( data.remaining () != num )
+                {
+                    throw new ProtocolCodecException ( String.format ( "Wrong amount of data. Announced %s (bytes), found %s (bytes)", num, data.remaining () ) );
+                }
                 final byte[] b = new byte[data.remaining ()];
                 data.get ( b );
                 return new WriteMultiDataRequest ( message.getTransactionId (), message.getUnitIdentifier (), functionCode, startAddress, b );
