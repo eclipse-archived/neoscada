@@ -1,5 +1,5 @@
 ##################################################################################
-# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
 # which accompanies this distribution, and is available at
@@ -24,7 +24,7 @@ require Carp;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 sub excluded {
    my $file = shift;
@@ -101,7 +101,7 @@ sub configurationRoot () {
 
 sub pidfileRoot () {
   return $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'} if $ENV{'ECLIPSE_SCADA_PIDFILE_ROOT'};
-  return "/var/run";
+  return "/var/run/eclipsescada";
 }
 
 1;
