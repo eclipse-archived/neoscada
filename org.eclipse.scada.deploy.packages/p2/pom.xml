@@ -36,6 +36,7 @@
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
+							<skipPOMs>false</skipPOMs>
 							<dataSet>
 								<data>
 									<type>template</type>
