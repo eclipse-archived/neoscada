@@ -61,6 +61,7 @@
 									<goal>jdeb</goal>
 								</goals>
 								<configuration>
+									<skipPOMs>false</skipPOMs>
 									<dataSet>
 										<data>
 											<src>${project.build.directory}/unpack/${project.artifactId}</src>
