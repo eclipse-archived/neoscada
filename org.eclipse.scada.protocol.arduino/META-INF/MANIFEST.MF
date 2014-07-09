@@ -9,7 +9,7 @@ Export-Package: org.eclipse.scada.protocol.arduino;version="0.1.0";
    org.apache.mina.core.buffer,
    org.apache.mina.core.service,
    org.apache.mina.filter.codec"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.apache.mina.core;version="[2.0.7,3.0.0)",
  org.apache.mina.core.buffer;version="[2.0.7,3.0.0)",
  org.apache.mina.core.filterchain;version="[2.0.7,3.0.0)",

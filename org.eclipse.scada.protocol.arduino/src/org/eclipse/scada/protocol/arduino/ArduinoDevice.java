@@ -35,9 +35,11 @@ public class ArduinoDevice extends IoHandlerAdapter
 
     private final static Logger logger = LoggerFactory.getLogger ( ArduinoDevice.class );
 
-    private static final long TIMEOUT = 2000;
+    private static final long TIMEOUT = Long.getLong ( "org.eclipse.scada.protocol.arduino.timeout", 2_000 );
 
-    private static final long POLL_TIME = 100;
+    private static final long POLL_TIME = Long.getLong ( "org.eclipse.scada.protocol.arduino.pollTime", 100 );
+
+    private static final long POLL_TIMEOUT = Long.getLong ( "org.eclipse.scada.protocol.arduino.pollTimeout", 1_000 );
 
     private final InetSocketAddress address;
 
@@ -65,11 +67,32 @@ public class ArduinoDevice extends IoHandlerAdapter
 
     private final boolean activateLogger;
 
+    private long timeout = TIMEOUT;
+
+    private long pollTime = POLL_TIME;
+
+    private long pollTimeout = POLL_TIMEOUT;
+
     public ArduinoDevice ( final InetSocketAddress address, final ArduinoDeviceListener listener, final boolean activateLogger )
     {
         this.address = address;
         this.listener = listener;
         this.activateLogger = activateLogger;
+    }
+
+    public void setTimeout ( final long timeout )
+    {
+        this.timeout = timeout;
+    }
+
+    public void setPollTime ( final long pollTime )
+    {
+        this.pollTime = pollTime;
+    }
+
+    public void setPollTimeout ( final long pollTimeout )
+    {
+        this.pollTimeout = pollTimeout;
     }
 
     public synchronized void start ()
@@ -192,7 +215,7 @@ public class ArduinoDevice extends IoHandlerAdapter
             {
                 connect ();
             }
-        }, TIMEOUT, TimeUnit.MILLISECONDS );
+        }, this.timeout, TimeUnit.MILLISECONDS );
     }
 
     @Override
@@ -268,12 +291,12 @@ public class ArduinoDevice extends IoHandlerAdapter
                 checkTimeout ();
                 triggerRequest ();
             }
-        }, POLL_TIME, POLL_TIME, TimeUnit.MILLISECONDS );
+        }, this.pollTime, this.pollTime, TimeUnit.MILLISECONDS );
     }
 
     protected synchronized void checkTimeout ()
     {
-        if ( this.lastData != null && System.currentTimeMillis () - this.lastData.getTimeInMillis () > TIMEOUT )
+        if ( this.lastData != null && System.currentTimeMillis () - this.lastData.getTimeInMillis () > this.timeout )
         {
             handleTimeout ();
         }
@@ -295,7 +318,7 @@ public class ArduinoDevice extends IoHandlerAdapter
             return;
         }
 
-        if ( this.lastRequest == null || System.currentTimeMillis () - this.lastRequest.getTimeInMillis () > TIMEOUT / 300 )
+        if ( this.lastRequest == null || System.currentTimeMillis () - this.lastRequest.getTimeInMillis () > this.pollTimeout )
         {
             this.lastRequest = Calendar.getInstance ();
             this.session.write ( new CommonMessage ( this.sequence++, CommandCode.REQUEST_DATA ) );
