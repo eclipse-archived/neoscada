@@ -18,6 +18,7 @@ import java.util.Map;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.UnionSet;
 import org.eclipse.core.databinding.observable.set.WritableSet;
+import org.eclipse.scada.core.ui.connection.login.SessionManager;
 import org.eclipse.scada.utils.str.StringReplacer;
 import org.eclipse.scada.vi.data.SummaryProvider;
 import org.eclipse.scada.vi.details.model.AndTransformer;
@@ -74,7 +75,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
-import org.eclipse.scada.core.ui.connection.login.SessionManager;
 
 public class DetailComponentImpl implements DetailComponent
 {
@@ -264,6 +264,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final ProgressComposite progress = new ProgressComposite ( parent, SWT.NONE, progressItem, resolve ( component.getFormat (), properties ), component.getDecimal (), resolve ( component.getAttribute (), properties ), component.getMax (), component.getMin (), component.getFactor (), component.getWidth (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
+                progress.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( progress.getSummaryProvider () );
 
@@ -332,6 +333,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final TextComposite text = new TextComposite ( parent, SWT.NONE, textItem, resolve ( component.getFormat (), properties ), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getWidth (), component.getHeight (), component.isDate (), component.getTextHeight (), component.getTextMap (), resolve ( component.getHdConnectionId (), properties ), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
+                text.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( text.getSummaryProvider () );
 
@@ -356,6 +358,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final WriteableComposite valueSet = new TextInputComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), readItem, component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getWidth (), component.getHdQueryString () );
+                valueSet.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( valueSet.getSummaryProvider () );
 
@@ -380,6 +383,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final TextInputMultiComposite text = new TextInputMultiComposite ( parent, SWT.NONE, textInputItem, resolve ( component.getFormat (), properties ), resolve ( component.getAttribute (), properties ), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                text.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( text.getSummaryProvider () );
 
@@ -403,6 +407,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final ValueComposite value = new ValueComposite ( parent, SWT.NONE, item, resolve ( component.getFormat (), properties ), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getDate (), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ), component.getHdQueryString () );
+                value.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( value.getSummaryProvider () );
 
@@ -428,6 +433,7 @@ public class DetailComponentImpl implements DetailComponent
             public void create ()
             {
                 final ValueSetComposite valueSet = new ValueSetComposite ( parent, SWT.NONE, valueItem, setItem, resetItem, resolve ( component.getFormat (), properties ), component.getCeil (), component.getFloor (), component.getDecimal (), component.isIsText (), resolve ( component.getAttribute (), properties ), component.getHdConnectionId (), resolve ( component.getHdItemId (), properties ) );
+                valueSet.setNullReplacementValue ( component.getNullReplacementValue () );
 
                 setSummaryProvider ( valueSet.getSummaryProvider () );
 

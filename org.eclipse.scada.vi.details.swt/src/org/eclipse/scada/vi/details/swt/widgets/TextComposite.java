@@ -18,8 +18,8 @@ import java.util.Map;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.swt.CLabel;
 import org.eclipse.scada.vi.data.DataValue;
-import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.data.RegistrationManager.Listener;
+import org.eclipse.scada.vi.data.SummaryInformation;
 import org.eclipse.scada.vi.details.swt.data.DataItemDescriptor;
 import org.eclipse.scada.vi.details.swt.widgets.control.BlockControlImage;
 import org.eclipse.scada.vi.details.swt.widgets.control.ControlImage;
@@ -155,7 +155,7 @@ public class TextComposite extends ReadableComposite implements Listener
 
         if ( value == null )
         {
-            this.dataText.setText ( "" ); //$NON-NLS-1$
+            this.dataText.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
         }
         else if ( this.date == true )
         {
@@ -166,7 +166,7 @@ public class TextComposite extends ReadableComposite implements Listener
             String convertedText = this.map.get ( value.asString ( "" ) );
             if ( convertedText == null )
             {
-                convertedText = value.asString ( "" );
+                convertedText = value.asString ( getNullReplacementValue () == null ? "" : getNullReplacementValue () );
             }
             this.dataText.setText ( convertedText + " (" + value.asString ( "" ) + ")" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -176,7 +176,7 @@ public class TextComposite extends ReadableComposite implements Listener
         }
         else
         {
-            this.dataText.setText ( value.asString ( "" ) );
+            this.dataText.setText ( value.asString ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ) );
         }
     }
 

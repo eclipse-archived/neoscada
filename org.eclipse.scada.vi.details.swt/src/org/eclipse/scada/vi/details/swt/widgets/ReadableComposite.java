@@ -33,6 +33,8 @@ public abstract class ReadableComposite extends GenericComposite
 
     private final String attribute;
 
+    private String nullReplacementValue = null;
+
     public ReadableComposite ( final Composite parent, final int style, final String format, final String decimal, final boolean isText, final String attribute )
     {
         super ( parent, style, null, null );
@@ -89,11 +91,11 @@ public abstract class ReadableComposite extends GenericComposite
         }
         catch ( final NullValueException e )
         {
-            ret = "null"; //$NON-NLS-1$
+            ret = nullReplacementValue == null ? "null" : nullReplacementValue; //$NON-NLS-1$
         }
         catch ( final NullPointerException e )
         {
-            ret = "null"; //$NON-NLS-1$
+            ret = nullReplacementValue == null ? "null" : nullReplacementValue; //$NON-NLS-1$
         }
         return ret;
     }
@@ -195,7 +197,7 @@ public abstract class ReadableComposite extends GenericComposite
 
         if ( value == null )
         {
-            return "null"; //$NON-NLS-1$
+            return nullReplacementValue == null ? "null" : nullReplacementValue; //$NON-NLS-1$
         }
 
         String ret;
@@ -220,7 +222,7 @@ public abstract class ReadableComposite extends GenericComposite
         }
         catch ( final NullValueException e )
         {
-            ret = ""; //$NON-NLS-1$
+            ret = nullReplacementValue == null ? "null" : nullReplacementValue; //$NON-NLS-1$
             logger.info ( "No valid data to show value" ); //$NON-NLS-1$
         }
 
@@ -230,5 +232,15 @@ public abstract class ReadableComposite extends GenericComposite
     protected String getAttribute ()
     {
         return this.attribute;
+    }
+
+    public void setNullReplacementValue ( String nullReplacementValue )
+    {
+        this.nullReplacementValue = nullReplacementValue;
+    }
+
+    public String getNullReplacementValue ()
+    {
+        return nullReplacementValue;
     }
 }

@@ -206,19 +206,19 @@ public abstract class WriteableComposite extends ReadableComposite
             }
         }
 
-        text.setText ( value != null ? value.asString ( "" ) : "" ); //$NON-NLS-1$ //$NON-NLS-2$
+        text.setText ( value != null ? value.asString ( ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ) ) : ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ) ); //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     protected void setTextDecimal ( final Text text, final DataItemValue value )
     {
         if ( value == null )
         {
-            text.setText ( "" ); //$NON-NLS-1$
+            text.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
             return;
         }
         if ( value.getValue ().isNull () )
         {
-            text.setText ( "" ); //$NON-NLS-1$
+            text.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
             return;
         }
 
@@ -243,7 +243,7 @@ public abstract class WriteableComposite extends ReadableComposite
         }
         catch ( final NullValueException e )
         {
-            text.setText ( "null" ); //$NON-NLS-1$
+            text.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
             logger.info ( "No valid data to show value" ); //$NON-NLS-1$
         }
     }

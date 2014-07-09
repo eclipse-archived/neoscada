@@ -126,7 +126,7 @@ public class ValueComposite extends ReadableComposite
         }
         else if ( value.isNull () )
         {
-            this.dataLabel.setText ( "" ); //$NON-NLS-1$
+            this.dataLabel.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
         }
         else
         {

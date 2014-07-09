@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA VI SWT Details Views
 Bundle-SymbolicName: org.eclipse.scada.vi.details.swt;singleton:=true
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.vi.details.swt.Activator
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.vi.details.swt;version="0.1.0";
+Export-Package: org.eclipse.scada.vi.details.swt;version="0.2.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.jface.resource,
    org.eclipse.scada.vi.details.swt.impl.visibility,
@@ -13,7 +13,7 @@ Export-Package: org.eclipse.scada.vi.details.swt;version="0.1.0";
    org.osgi.framework,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl;version="0.1.0";
+ org.eclipse.scada.vi.details.swt.impl;version="0.2.0";
   uses:="org.eclipse.scada.vi.details,
    org.eclipse.core.runtime,
    org.eclipse.scada.vi.details.swt.impl.visibility,
@@ -28,12 +28,12 @@ Export-Package: org.eclipse.scada.vi.details.swt;version="0.1.0";
    org.eclipse.scada.vi.details.swt.source,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl.tab;version="0.1.0";
+ org.eclipse.scada.vi.details.swt.impl.tab;version="0.2.0";
   uses:="org.eclipse.jface.action,
    org.eclipse.scada.core.ui.styles,
    org.eclipse.swt.widgets,
    org.eclipse.scada.vi.data",
- org.eclipse.scada.vi.details.swt.impl.visibility;version="0.1.0";
+ org.eclipse.scada.vi.details.swt.impl.visibility;version="0.2.0";
   uses:="org.eclipse.core.databinding.observable.set,
    org.eclipse.scada.vi.details.swt.impl.tab,
    org.eclipse.scada.core.ui.connection.login,
@@ -48,7 +48,7 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
  org.eclipse.core.runtime;bundle-version="3.7.0",
  org.eclipse.scada.vi.details;bundle-version="0.1.0",
  org.eclipse.emf.ecore;bundle-version="2.7.0",
- org.eclipse.scada.vi.details.model;bundle-version="0.1.0",
+ org.eclipse.scada.vi.details.model;bundle-version="0.2.0",
  org.eclipse.emf.ecore.xmi;bundle-version="2.7.0",
  org.eclipse.scada.da.ui.widgets;bundle-version="0.1.0",
  org.eclipse.scada.da.ui.client.dataitem.details;bundle-version="0.1.0",

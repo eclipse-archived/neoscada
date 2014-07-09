@@ -172,7 +172,7 @@ public class ProgressComposite extends ReadableComposite
 
         if ( value == null )
         {
-            this.text.setText ( "" ); //$NON-NLS-1$
+            this.text.setText ( getNullReplacementValue () == null ? "" : getNullReplacementValue () ); //$NON-NLS-1$
         }
         else if ( value.isDouble () )
         {
