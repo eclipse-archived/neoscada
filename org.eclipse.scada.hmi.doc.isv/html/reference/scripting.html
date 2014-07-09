@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Scripting</title>
+</head>
+<body>
+
+<h1>Overview</h1>
+<p>
+The visual interface (VI) makes heavy use of scripting for creating a dynamic user interface, reflecting the
+actual process data. The following sections describe the scripting abilities
+and how to use them in order to create a dynamic user interface. The scripting system
+is based on the Java Scripting as defined in <a href="https://jcp.org/en/jsr/detail?id=223">JSR-223</a>.
+However the only script language that is supported at the moment is <q>JavaScript</q>. Java comes with two variants
+of JavaScript. <q>Rhino</q> for Java 7 and <q>Nashorn</q> for Java 8. The engine used depends on which Java version is running
+the actual application that contains the visualization.
+</p>
+
+<p>
+See also:
+</p>
+<ul>
+<li><a href="https://wiki.openjdk.java.net/display/Nashorn/Main">Wiki page of Nashorn for the OpenJDK</a></li>
+</ul>
+
+<h1>Script Context</h1>
+<p>
+The following global variables are defined in the script blocks that can be used in Dakara:
+</p>
+<ul>
+<li>controller – An instance of <a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/SymbolContext.html">org.eclipse.scada.vi.ui.draw2d.SymbolContext</a></li>
+<li>data – An instance of <a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/SymbolData.html">org.eclipse.scada.vi.ui.draw2d.SymbolData</a></li>
+<li>viewManager – An instance of <a href="../../reference/api/org/eclipse/scada/vi/ui/user/ViewManager.html">org.eclipse.scada.vi.ui.user.ViewManager</a> if the view is of type <code>VisualInterfaceViewInstance</code></li>
+<li>GSON – A predefined GSON parser (Googles JSON implementation)</li>
+</ul>
+
+<p>
+Using the method <code>controller.getElement(String)</code> it is possible to fetch an element from the current symbol. For this to work the element must have
+the <q>name></q> attribute set with a name that is unique for the symbol. The object returned is a controller object for the figure element. The following table
+shows how symbol elements are mapped to controllers. All public mehtods of the controller class and its parent
+classes are available from JavaScript.
+</p>
+
+<h2>Example</h2>
+<pre>
+var text = controller.getElement ( "textElement" ); // if the element is a Text element, it returns an TextController
+
+text.setText ( "Hello World" );
+</pre>
+
+<table>
+
+<tr><th>Element</th><th>Description</th><th>Controller</th></tr>
+
+<tr>
+	<td>Arc</td><td>An arc</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/ArcController.html">ArcController</a></td>
+</tr>
+
+<tr>
+	<td>Ellipse</td><td>An ellipse</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/EllipseController.html">EllipseController</a></td>
+</tr>
+
+<tr>
+	<td>Image</td><td>Display an image</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/ImageController.html">ImageController</a></td>
+</tr>
+
+<tr>
+	<td>Line</td><td>A line</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/LineController.html">LineController</a></td>
+</tr>
+
+<tr>
+	<td>Rectangle</td><td>A rectangle</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/RectangleController.html">RectangleController</a></td>
+</tr>
+
+<tr>
+	<td>SymbolReference</td><td>An embedded symbol</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/SymbolReferenceController.html">SymbolReferenceController</a></td>
+</tr>
+
+
+<tr>
+	<td>Text</td><td>A text label</td>
+	<td><a href="../../reference/api/org/eclipse/scada/vi/ui/draw2d/primitives/TextController.html">TextController</a></td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

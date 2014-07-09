@@ -32,9 +32,8 @@ import org.eclipse.scada.vi.data.SummaryInformation;
  * <q>ignoreSummary</q> set to <code>true</code> then the value of this dataitem
  * will not be considered for the summary state.
  * </p>
- * 
+ *
  * @author Jens Reimann
- * @since 0.17.0
  */
 public class SymbolData
 {

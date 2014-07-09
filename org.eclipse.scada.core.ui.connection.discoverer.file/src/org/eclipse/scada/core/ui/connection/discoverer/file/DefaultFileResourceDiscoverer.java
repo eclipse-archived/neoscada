@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add scada.eclipse.org as default content
  *******************************************************************************/
 package org.eclipse.scada.core.ui.connection.discoverer.file;
 
@@ -17,6 +18,7 @@ import java.io.PrintWriter;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
 import org.eclipse.scada.core.ui.connection.ConnectionStore;
 
@@ -27,7 +29,27 @@ public class DefaultFileResourceDiscoverer extends ResourceDiscoverer implements
     @Override
     protected void initialize ()
     {
-        load ( getFile () );
+        final File file = getFile ();
+        if ( file.exists () )
+        {
+            load ( getFile () );
+        }
+        else
+        {
+            createInitialFile ();
+        }
+    }
+
+    protected void createInitialFile ()
+    {
+        try
+        {
+            add ( new ConnectionDescriptor ( ConnectionInformation.fromURI ( "da:ngp://scada.eclipse.org:2101" ) ) ); //$NON-NLS-1$
+        }
+        catch ( final CoreException e )
+        {
+            Activator.getDefault ().getLog ().log ( new Status ( IStatus.INFO, Activator.PLUGIN_ID, "Failed to create initial file", e ) );
+        }
     }
 
     @Override
