@@ -33,18 +33,24 @@ public class BinaryPackageBuilderWrapper implements BinaryPackageBuilder
     }
 
     @Override
-    public void addFile ( final ContentProvider contentProvider, final String fileName, final EntryInformation entryInformation ) throws IOException
+    public void addFile ( final ContentProvider contentProvider, final String fileName, EntryInformation entryInformation ) throws IOException
     {
+        if ( entryInformation == null )
+        {
+            entryInformation = EntryInformation.DEFAULT_FILE;
+        }
+
         final File file = new File ( this.folder, fileName );
+        file.getParentFile ().mkdirs ();
         try ( InputStream is = contentProvider.createInputStream ();
                 OutputStream os = new FileOutputStream ( file ) )
-        {
+                {
             ByteStreams.copy ( is, os );
             if ( ( entryInformation.getMode () & 0444 ) > 0 )
             {
                 file.setExecutable ( true );
             }
-        }
+                }
     }
 
     @Override

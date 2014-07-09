@@ -25,15 +25,9 @@ import com.google.common.io.InputSupplier;
 
 public class Contents
 {
-
     private static Pattern PATTERN = Pattern.compile ( "\\$\\$(.*?)\\$\\$" ); //$NON-NLS-1$
 
     public static ContentProvider createContent ( final InputStream resource, final Map<String, String> replacements, final Pattern pattern ) throws IOException
-    {
-        return createContent ( resource, replacements, PATTERN );
-    }
-
-    public static ContentProvider createContent ( final InputStream resource, final Map<String, String> replacements ) throws IOException
     {
         String str = CharStreams.toString ( CharStreams.newReaderSupplier ( new InputSupplier<InputStream> () {
             @Override
@@ -43,8 +37,13 @@ public class Contents
             }
         }, Charset.forName ( "UTF-8" ) ) ); //$NON-NLS-1$
 
-        str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), PATTERN );
+        str = StringReplacer.replace ( str, StringReplacer.newSource ( replacements ), pattern );
 
         return new StaticContentProvider ( str );
+    }
+
+    public static ContentProvider createContent ( final InputStream resource, final Map<String, String> replacements ) throws IOException
+    {
+        return createContent ( resource, replacements, PATTERN );
     }
 }
