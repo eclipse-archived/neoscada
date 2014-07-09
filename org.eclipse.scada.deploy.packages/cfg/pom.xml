@@ -28,6 +28,10 @@
 				<artifactId>jdeb</artifactId>
 				<groupId>org.vafer</groupId>
 
+				<configuration>
+					<skipPOMs>false</skipPOMs>
+				</configuration>
+
 				<executions>
 					<execution>
 						<id>amd64</id>
@@ -38,7 +42,6 @@
 						<configuration>
 							<controlDir>${basedir}/src/linux-amd64/deb/control</controlDir>
 							<deb>${project.build.directory}/${project.artifactId}_[[version]]_amd64.deb</deb>
-							<skipPOMs>false</skipPOMs>
 							<dataSet>
 								<data>
 									<src>${srcBase}/default/eclipsescada.debian.x86_64</src>
