@@ -12,7 +12,8 @@
       disposableProviderFactory="true" generateModelWizard="false" extensibleProviderFactory="true"
       childCreationExtenders="true" ecorePackage="execComponents.ecore#/">
     <genClasses ecoreClass="execComponents.ecore#//ExecJob">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference execComponents.ecore#//ExecJob/runsOn"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="runtime" propertySortChoices="true"
+          ecoreFeature="ecore:EReference execComponents.ecore#//ExecJob/runsOn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute execComponents.ecore#//ExecJob/name"/>
       <genOperations ecoreOperation="execComponents.ecore#//ExecJob/hasExecDriver">
         <genParameters ecoreParameter="execComponents.ecore#//ExecJob/hasExecDriver/diagnostics"/>
