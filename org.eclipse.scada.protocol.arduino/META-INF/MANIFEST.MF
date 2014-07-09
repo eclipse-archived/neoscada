@@ -4,7 +4,7 @@ Bundle-Name: Arduino Protocol (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.protocol.arduino
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.protocol.arduino;version="0.1.0";
+Export-Package: org.eclipse.scada.protocol.arduino;version="0.2.0";
   uses:="org.apache.mina.core.session,
    org.apache.mina.core.buffer,
    org.apache.mina.core.service,
