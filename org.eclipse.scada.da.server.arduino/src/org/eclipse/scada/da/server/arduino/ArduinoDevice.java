@@ -19,12 +19,12 @@ import java.util.concurrent.Executor;
 import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.Variant;
 import org.eclipse.scada.da.data.IODirection;
-import org.eclipse.scada.protocol.arduino.ArduinoDeviceListener;
-import org.eclipse.scada.protocol.arduino.DeviceState;
-import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.eclipse.scada.da.server.common.DataItem;
 import org.eclipse.scada.da.server.common.DataItemInformationBase;
 import org.eclipse.scada.da.server.common.chain.DataItemInputChained;
+import org.eclipse.scada.protocol.arduino.ArduinoDeviceListener;
+import org.eclipse.scada.protocol.arduino.DeviceState;
+import org.eclipse.scada.utils.osgi.pool.ObjectPoolImpl;
 import org.osgi.framework.BundleContext;
 
 public class ArduinoDevice
@@ -84,6 +84,12 @@ public class ArduinoDevice
                 handleData ( data );
             }
         }, false );
+
+        final long timeout = cfg.getLong ( "timeout", 2_000 );
+        this.device.setTimeout ( timeout );
+        this.device.setPollTime ( cfg.getLong ( "pollTime", 100 ) );
+        this.device.setPollTimeout ( cfg.getLong ( "pollTimeout", (long) ( timeout * 0.66 ) ) );
+
         this.device.start ();
     }
 
