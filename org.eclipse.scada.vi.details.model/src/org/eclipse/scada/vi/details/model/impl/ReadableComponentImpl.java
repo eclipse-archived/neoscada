@@ -30,6 +30,7 @@ import org.eclipse.scada.vi.details.model.ReadableComponent;
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ReadableComponentImpl#getHdItemId <em>Hd Item Id</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ReadableComponentImpl#getHdQueryString <em>Hd Query String</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.impl.ReadableComponentImpl#isIsText <em>Is Text</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.impl.ReadableComponentImpl#getNullReplacementValue <em>Null Replacement Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -176,6 +177,26 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * @ordered
      */
     protected boolean isText = IS_TEXT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getNullReplacementValue() <em>Null Replacement Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNullReplacementValue()
+     * @generated
+     * @ordered
+     */
+    protected static final String NULL_REPLACEMENT_VALUE_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getNullReplacementValue() <em>Null Replacement Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getNullReplacementValue()
+     * @generated
+     * @ordered
+     */
+    protected String nullReplacementValue = NULL_REPLACEMENT_VALUE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -364,6 +385,29 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
      * <!-- end-user-doc -->
      * @generated
      */
+    public String getNullReplacementValue ()
+    {
+        return nullReplacementValue;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setNullReplacementValue ( String newNullReplacementValue )
+    {
+        String oldNullReplacementValue = nullReplacementValue;
+        nullReplacementValue = newNullReplacementValue;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE, oldNullReplacementValue, nullReplacementValue ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
@@ -383,6 +427,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
                 return getHdQueryString ();
             case DetailViewPackage.READABLE_COMPONENT__IS_TEXT:
                 return isIsText ();
+            case DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE:
+                return getNullReplacementValue ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -417,6 +463,9 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
                 return;
             case DetailViewPackage.READABLE_COMPONENT__IS_TEXT:
                 setIsText ( (Boolean)newValue );
+                return;
+            case DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE:
+                setNullReplacementValue ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -453,6 +502,9 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
             case DetailViewPackage.READABLE_COMPONENT__IS_TEXT:
                 setIsText ( IS_TEXT_EDEFAULT );
                 return;
+            case DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE:
+                setNullReplacementValue ( NULL_REPLACEMENT_VALUE_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -481,6 +533,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
                 return HD_QUERY_STRING_EDEFAULT == null ? hdQueryString != null : !HD_QUERY_STRING_EDEFAULT.equals ( hdQueryString );
             case DetailViewPackage.READABLE_COMPONENT__IS_TEXT:
                 return isText != IS_TEXT_EDEFAULT;
+            case DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE:
+                return NULL_REPLACEMENT_VALUE_EDEFAULT == null ? nullReplacementValue != null : !NULL_REPLACEMENT_VALUE_EDEFAULT.equals ( nullReplacementValue );
         }
         return super.eIsSet ( featureID );
     }
@@ -511,6 +565,8 @@ public abstract class ReadableComponentImpl extends ComponentImpl implements Rea
         result.append ( hdQueryString );
         result.append ( ", isText: " ); //$NON-NLS-1$
         result.append ( isText );
+        result.append ( ", nullReplacementValue: " ); //$NON-NLS-1$
+        result.append ( nullReplacementValue );
         result.append ( ')' );
         return result.toString ();
     }

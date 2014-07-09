@@ -1232,6 +1232,16 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getReadableComponent_NullReplacementValue ()
+    {
+        return (EAttribute)readableComponentEClass.getEStructuralFeatures ().get ( 7 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getTextComponent ()
     {
         return textComponentEClass;
@@ -1804,6 +1814,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_ITEM_ID );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__HD_QUERY_STRING );
         createEAttribute ( readableComponentEClass, READABLE_COMPONENT__IS_TEXT );
+        createEAttribute ( readableComponentEClass, READABLE_COMPONENT__NULL_REPLACEMENT_VALUE );
 
         textComponentEClass = createEClass ( TEXT_COMPONENT );
         createEAttribute ( textComponentEClass, TEXT_COMPONENT__DESCRIPTOR );
@@ -2031,6 +2042,7 @@ public class DetailViewPackageImpl extends EPackageImpl implements DetailViewPac
         initEAttribute ( getReadableComponent_HdItemId (), ecorePackage.getEString (), "hdItemId", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getReadableComponent_HdQueryString (), ecorePackage.getEString (), "hdQueryString", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getReadableComponent_IsText (), ecorePackage.getEBoolean (), "isText", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getReadableComponent_NullReplacementValue (), ecorePackage.getEString (), "nullReplacementValue", null, 0, 1, ReadableComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( textComponentEClass, TextComponent.class, "TextComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getTextComponent_Descriptor (), ecorePackage.getEString (), "descriptor", null, 1, 1, TextComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

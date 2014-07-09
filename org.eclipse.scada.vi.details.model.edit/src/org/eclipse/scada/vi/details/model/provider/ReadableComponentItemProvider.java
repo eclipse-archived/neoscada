@@ -66,6 +66,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
             addHdItemIdPropertyDescriptor ( object );
             addHdQueryStringPropertyDescriptor ( object );
             addIsTextPropertyDescriptor ( object );
+            addNullReplacementValuePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -223,6 +224,29 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
     }
 
     /**
+     * This adds a property descriptor for the Null Replacement Value feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addNullReplacementValuePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ReadableComponent_nullReplacementValue_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ReadableComponent_nullReplacementValue_feature", "_UI_ReadableComponent_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        DetailViewPackage.Literals.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -258,6 +282,7 @@ public class ReadableComponentItemProvider extends ComponentItemProvider impleme
             case DetailViewPackage.READABLE_COMPONENT__HD_ITEM_ID:
             case DetailViewPackage.READABLE_COMPONENT__HD_QUERY_STRING:
             case DetailViewPackage.READABLE_COMPONENT__IS_TEXT:
+            case DetailViewPackage.READABLE_COMPONENT__NULL_REPLACEMENT_VALUE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }

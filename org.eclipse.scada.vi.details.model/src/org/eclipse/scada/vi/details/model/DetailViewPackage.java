@@ -920,13 +920,22 @@ public interface DetailViewPackage extends EPackage
     int READABLE_COMPONENT__IS_TEXT = COMPONENT_FEATURE_COUNT + 6;
 
     /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int READABLE_COMPONENT__NULL_REPLACEMENT_VALUE = COMPONENT_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Readable Component</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int READABLE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 7;
+    int READABLE_COMPONENT_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.details.model.impl.WriteableComponentImpl <em>Writeable Component</em>}' class.
@@ -1009,6 +1018,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int WRITEABLE_COMPONENT__IS_TEXT = READABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int WRITEABLE_COMPONENT__NULL_REPLACEMENT_VALUE = READABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Ceil</b></em>' attribute.
@@ -1118,6 +1136,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int VALUE_SET_COMPONENT__IS_TEXT = WRITEABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_SET_COMPONENT__NULL_REPLACEMENT_VALUE = WRITEABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Ceil</b></em>' attribute.
@@ -1254,6 +1281,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int VALUE_COMPONENT__IS_TEXT = READABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int VALUE_COMPONENT__NULL_REPLACEMENT_VALUE = READABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -1449,6 +1485,15 @@ public interface DetailViewPackage extends EPackage
     int TEXT_INPUT_COMPONENT__IS_TEXT = WRITEABLE_COMPONENT__IS_TEXT;
 
     /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_INPUT_COMPONENT__NULL_REPLACEMENT_VALUE = WRITEABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
+
+    /**
      * The feature id for the '<em><b>Ceil</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1583,6 +1628,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int TEXT_COMPONENT__IS_TEXT = READABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_COMPONENT__NULL_REPLACEMENT_VALUE = READABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -1728,6 +1782,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int TEXT_INPUT_MULTI_COMPONENT__IS_TEXT = WRITEABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TEXT_INPUT_MULTI_COMPONENT__NULL_REPLACEMENT_VALUE = WRITEABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Ceil</b></em>' attribute.
@@ -2020,6 +2083,15 @@ public interface DetailViewPackage extends EPackage
      * @ordered
      */
     int PROGRESS_COMPONENT__IS_TEXT = READABLE_COMPONENT__IS_TEXT;
+
+    /**
+     * The feature id for the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROGRESS_COMPONENT__NULL_REPLACEMENT_VALUE = READABLE_COMPONENT__NULL_REPLACEMENT_VALUE;
 
     /**
      * The feature id for the '<em><b>Descriptor</b></em>' attribute.
@@ -3178,6 +3250,17 @@ public interface DetailViewPackage extends EPackage
      * @generated
      */
     EAttribute getReadableComponent_IsText ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.vi.details.model.ReadableComponent#getNullReplacementValue <em>Null Replacement Value</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Null Replacement Value</em>'.
+     * @see org.eclipse.scada.vi.details.model.ReadableComponent#getNullReplacementValue()
+     * @see #getReadableComponent()
+     * @generated
+     */
+    EAttribute getReadableComponent_NullReplacementValue ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.details.model.TextComponent <em>Text Component</em>}'.
@@ -4383,6 +4466,14 @@ public interface DetailViewPackage extends EPackage
          * @generated
          */
         EAttribute READABLE_COMPONENT__IS_TEXT = eINSTANCE.getReadableComponent_IsText ();
+
+        /**
+         * The meta object literal for the '<em><b>Null Replacement Value</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute READABLE_COMPONENT__NULL_REPLACEMENT_VALUE = eINSTANCE.getReadableComponent_NullReplacementValue ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.details.model.impl.TextComponentImpl <em>Text Component</em>}' class.

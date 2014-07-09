@@ -25,6 +25,7 @@ package org.eclipse.scada.vi.details.model;
  *   <li>{@link org.eclipse.scada.vi.details.model.ReadableComponent#getHdItemId <em>Hd Item Id</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.ReadableComponent#getHdQueryString <em>Hd Query String</em>}</li>
  *   <li>{@link org.eclipse.scada.vi.details.model.ReadableComponent#isIsText <em>Is Text</em>}</li>
+ *   <li>{@link org.eclipse.scada.vi.details.model.ReadableComponent#getNullReplacementValue <em>Null Replacement Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,5 +219,31 @@ public interface ReadableComponent extends Component
      * @generated
      */
     void setIsText ( boolean value );
+
+    /**
+     * Returns the value of the '<em><b>Null Replacement Value</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Null Replacement Value</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Null Replacement Value</em>' attribute.
+     * @see #setNullReplacementValue(String)
+     * @see org.eclipse.scada.vi.details.model.DetailViewPackage#getReadableComponent_NullReplacementValue()
+     * @model
+     * @generated
+     */
+    String getNullReplacementValue ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.vi.details.model.ReadableComponent#getNullReplacementValue <em>Null Replacement Value</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Null Replacement Value</em>' attribute.
+     * @see #getNullReplacementValue()
+     * @generated
+     */
+    void setNullReplacementValue ( String value );
 
 } // ReadableComponent
