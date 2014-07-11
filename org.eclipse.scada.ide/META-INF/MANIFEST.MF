@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Eclipse SCADA IDE (Incubation)
+Bundle-SymbolicName: org.eclipse.scada.ide;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Activator: org.eclipse.scada.ide.Activator
+Bundle-Vendor: Eclipse SCADA Project
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.ui;bundle-version="3.9.2",
+ org.eclipse.pde.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
