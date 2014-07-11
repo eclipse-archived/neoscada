@@ -108,4 +108,40 @@
              content="intro/migrate.xml">
        </configExtension>
     </extension>
+    
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.scada.hmi.app.adminclient.app.pers.DefaultPerspective"
+            icon="icons/releng_gears.gif"
+            id="org.eclipse.scada.ae.ui.perspectives.perspective"
+            name="%perspective.ae.name">
+      </perspective>
+   </extension>
+   
+    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <perspectiveShortcut
+               id="org.eclipse.scada.ae.ui.perspectives.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.ae.ui.perspectives.perspective">
+         <view
+               closeable="true"
+               id="org.eclipse.scada.core.ui.connection.ConnectionView"
+               minimized="false"
+               moveable="true"
+               ratio="0.35"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               standalone="false"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
 </plugin>
