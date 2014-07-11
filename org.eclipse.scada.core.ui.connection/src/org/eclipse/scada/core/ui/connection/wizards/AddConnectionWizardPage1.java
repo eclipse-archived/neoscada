@@ -14,6 +14,7 @@ package org.eclipse.scada.core.ui.connection.wizards;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.ui.connection.ConnectionDescriptor;
+import org.eclipse.scada.utils.ExceptionHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -116,11 +117,16 @@ public class AddConnectionWizardPage1 extends WizardPage
                 id = null;
             }
 
-            this.connectionInformation = new ConnectionDescriptor ( ConnectionInformation.fromURI ( this.uriText.getText () ), id, null );
+            final ConnectionInformation ci = ConnectionInformation.fromURI ( this.uriText.getText () );
+            if ( ci == null )
+            {
+                throw new IllegalArgumentException ( "Invalid syntax of URI" );
+            }
+            this.connectionInformation = new ConnectionDescriptor ( ci, id, null );
         }
         catch ( final Throwable e )
         {
-            errorMessage = e.getLocalizedMessage ();
+            errorMessage = ExceptionHelper.getMessage ( e );
         }
         setState ( errorMessage );
     }

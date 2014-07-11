@@ -115,6 +115,11 @@ public class AddConnectionWizard extends Wizard implements INewWizard
     @Override
     public boolean canFinish ()
     {
+        if ( !super.canFinish () )
+        {
+            return false;
+        }
+
         if ( getStore () == null )
         {
             return false;
