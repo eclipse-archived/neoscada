@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.scada.da.ui;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Activator: org.eclipse.scada.da.ui.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime

@@ -178,5 +178,53 @@
       </perspectiveExtension>
    </extension>
    
+    <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <perspectiveShortcut
+               id="org.eclipse.scada.da.ui.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.da.ui.perspective">
+         <view
+               closeable="true"
+               id="org.eclipse.scada.core.ui.connection.ConnectionView"
+               minimized="false"
+               moveable="true"
+               ratio="0.35"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               standalone="false"
+               visible="true">
+         </view>
+         <view
+               id="org.eclipse.scada.da.test.views.RealTimeList"
+               minimized="false"
+               relationship="right"
+               relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               minimized="false"
+               ratio="0.75"
+               relationship="bottom"
+               relative="org.eclipse.scada.da.test.views.RealTimeList"
+               visible="true">
+         </view>         
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.scada.hmi.app.adminclient.app.pers.DefaultPerspective"
+            icon="icons/da_perspective.gif"
+            id="org.eclipse.scada.da.ui.perspective"
+            name="DA">
+      </perspective>
+   </extension>
    
 </plugin>
