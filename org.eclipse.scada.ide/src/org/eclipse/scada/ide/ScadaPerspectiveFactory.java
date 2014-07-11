@@ -34,7 +34,7 @@ public class ScadaPerspectiveFactory implements IPerspectiveFactory
 
         factory.addView ( IPageLayout.ID_OUTLINE, IPageLayout.RIGHT, 0.75f, factory.getEditorArea () );
 
-        factory.addNewWizardShortcut ( "org.eclipse.pde.ui.NewProjectWizard" );
-        factory.addNewWizardShortcut ( "org.eclipse.pde.ui.NewFeatureProjectWizard" );
+        factory.addNewWizardShortcut ( "org.eclipse.pde.ui.NewProjectWizard" ); //$NON-NLS-1$
+        factory.addNewWizardShortcut ( "org.eclipse.pde.ui.NewFeatureProjectWizard" ); //$NON-NLS-1$
     }
 }
