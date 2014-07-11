@@ -144,4 +144,39 @@
       </perspectiveExtension>
    </extension>
    
+    <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="org.eclipse.scada.hmi.app.adminclient.app.pers.CAPerspectiveFactory"
+            icon="icons/ca_perspective.gif"
+            id="org.eclipse.scada.ca.ui.perspectives.perspective"
+            name="CA">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <perspectiveShortcut
+               id="org.eclipse.scada.ca.ui.perspectives.perspective">
+         </perspectiveShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.ca.ui.perspectives.perspective">
+         <view
+               closeable="true"
+               id="org.eclipse.scada.core.ui.connection.ConnectionView"
+               minimized="false"
+               moveable="true"
+               ratio="0.35"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               standalone="false"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
+   
 </plugin>

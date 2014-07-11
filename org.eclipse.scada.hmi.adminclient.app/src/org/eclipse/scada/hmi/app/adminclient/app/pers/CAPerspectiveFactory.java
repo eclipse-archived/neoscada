@@ -8,15 +8,15 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.ca.ui.perspectives;
+package org.eclipse.scada.hmi.app.adminclient.app.pers;
 
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
-public class PerspectiveFactory implements IPerspectiveFactory
+public class CAPerspectiveFactory implements IPerspectiveFactory
 {
+    @Override
     public void createInitialLayout ( final IPageLayout layout )
     {
     }
-
 }
