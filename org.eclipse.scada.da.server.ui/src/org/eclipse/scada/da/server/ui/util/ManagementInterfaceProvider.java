@@ -8,9 +8,11 @@
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  *******************************************************************************/
-package org.eclipse.scada.da.server.ui;
+package org.eclipse.scada.da.server.ui.util;
 
-public interface HostedServer
+import org.eclipse.swt.widgets.Composite;
+
+public interface ManagementInterfaceProvider
 {
-    public void dispose ();
+    public void create ( Composite parent );
 }

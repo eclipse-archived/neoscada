@@ -65,7 +65,7 @@ public class ServerLabelProvider extends ObservableMapStyledCellLabelProvider
 
         str.append ( element.getLabel () );
 
-        final String add = element.getAdditionalLabe ();
+        final String add = element.getAdditionalLabel ();
         if ( add != null )
         {
             str.append ( ' ' );

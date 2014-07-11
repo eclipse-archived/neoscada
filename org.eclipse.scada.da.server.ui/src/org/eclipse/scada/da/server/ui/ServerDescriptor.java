@@ -19,7 +19,7 @@ public interface ServerDescriptor extends ServerLifecycle
 {
     public String getLabel ();
 
-    public String getAdditionalLabe ();
+    public String getAdditionalLabel ();
 
     public ImageDescriptor getImageDescriptor ();
 

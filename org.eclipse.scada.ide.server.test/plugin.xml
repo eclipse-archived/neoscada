@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            class="org.eclipse.scada.ide.server.test.NewTestWizard"
+            icon="icons/new_server.gif"
+            id="org.eclipse.scada.ide.server.test.newTestServer"
+            name="New Test Server"
+            project="false">
+         <description>
+            Create a new instance of a test server.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.scada.da.server.ui.ServersView?after=additions">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               style="push">
+            <parameter
+                  name="newWizardId"
+                  value="org.eclipse.scada.ide.server.test.newTestServer">
+            </parameter>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.scada.da.server.ui.ServersView?after=additions">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               style="push">
+            <parameter
+                  name="newWizardId"
+                  value="org.eclipse.scada.ide.server.test.newTestServer">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+   </extension>
+
+</plugin>

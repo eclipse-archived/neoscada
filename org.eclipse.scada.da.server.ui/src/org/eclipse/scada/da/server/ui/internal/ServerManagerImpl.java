@@ -13,6 +13,7 @@ package org.eclipse.scada.da.server.ui.internal;
 import org.eclipse.core.databinding.observable.Realm;
 import org.eclipse.core.databinding.observable.set.IObservableSet;
 import org.eclipse.core.databinding.observable.set.WritableSet;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.scada.da.server.ui.ServerDescriptor;
 import org.eclipse.scada.da.server.ui.ServerManager;
 
@@ -64,6 +65,18 @@ public class ServerManagerImpl implements ServerManager
 
     public void dispose ()
     {
+        for ( final Object o : this.servers )
+        {
+            final ServerDescriptor desc = (ServerDescriptor)o;
+            try
+            {
+                desc.stop ();
+            }
+            catch ( final CoreException e )
+            {
+            }
+        }
+
         if ( !this.servers.isDisposed () )
         {
             this.servers.dispose ();

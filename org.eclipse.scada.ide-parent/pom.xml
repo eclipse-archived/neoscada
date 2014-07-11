@@ -136,10 +136,8 @@
 
 		<module>../org.eclipse.scada.configuration.script</module>
 		<module>../org.eclipse.scada.configuration.script.edit</module>
-
-		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
-		<module>../org.eclipse.scada.da.server.ui</module>
-		<module>../org.eclipse.scada.da.server.ui.launcher</module>
+		
+		
 		<module>../org.eclipse.scada.configuration.memory.manager.lib</module>
 		<module>../org.eclipse.scada.configuration.recipe</module>
 		<module>../org.eclipse.scada.configuration.recipe.edit</module>
@@ -150,6 +148,12 @@
 		<module>../org.eclipse.scada.configuration.component.common</module>
 		<module>../org.eclipse.scada.configuration.component.common.edit</module>
 		<module>../org.eclipse.scada.configuration.component.common.lib</module>
+		
+
+		<module>../org.eclipse.scada.protocol.ngp.model.additions</module>
+		<module>../org.eclipse.scada.da.server.ui</module>
+		<module>../org.eclipse.scada.da.server.ui.launcher</module>
+		<module>../org.eclipse.scada.ide.server.test</module>
 		
 		<module>../org.eclipse.scada.configuration.dave</module>
 		<module>../org.eclipse.scada.configuration.dave.edit</module>
@@ -176,5 +180,8 @@
 		
 		<module>../org.eclipse.scada.configuration.iec60870</module>
 		<module>../org.eclipse.scada.configuration.iec60870.edit</module>
-		<module>../org.eclipse.scada.configuration.iec60870.lib</module></modules>
+		<module>../org.eclipse.scada.configuration.iec60870.lib</module>
+		
+	</modules>
+
 </project>

@@ -20,14 +20,15 @@ import org.eclipse.core.databinding.observable.set.WritableSet;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.scada.da.core.server.Hive;
 import org.eclipse.scada.da.server.exporter.Export;
 import org.eclipse.scada.da.server.ui.HivesPlugin;
 import org.eclipse.scada.da.server.ui.ServerDescriptor;
+import org.eclipse.scada.ui.utils.status.StatusHelper;
 import org.eclipse.scada.utils.beans.AbstractPropertyChange;
+import org.eclipse.scada.utils.core.runtime.AdapterHelper;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.statushandlers.StatusManager;
-import org.eclipse.scada.da.core.server.Hive;
-import org.eclipse.scada.ui.utils.status.StatusHelper;
 
 public class ServerDescriptorImpl extends AbstractPropertyChange implements ServerDescriptor
 {
@@ -43,6 +44,8 @@ public class ServerDescriptorImpl extends AbstractPropertyChange implements Serv
 
     private Throwable error;
 
+    private final ManagementInterfaceProvider mgtProvider;
+
     public ServerDescriptorImpl ( final Realm realm, final Hive hive, final Set<Export> exporters, final String labelAddition )
     {
         this.hive = hive;
@@ -57,6 +60,8 @@ public class ServerDescriptorImpl extends AbstractPropertyChange implements Serv
                 addEndpoint ( endpoint );
             }
         }
+
+        this.mgtProvider = AdapterHelper.adapt ( hive, ManagementInterfaceProvider.class, true );
     }
 
     public void dispose ()
@@ -172,7 +177,7 @@ public class ServerDescriptorImpl extends AbstractPropertyChange implements Serv
     }
 
     @Override
-    public String getAdditionalLabe ()
+    public String getAdditionalLabel ()
     {
         return this.labelAddition;
     }
@@ -211,12 +216,13 @@ public class ServerDescriptorImpl extends AbstractPropertyChange implements Serv
     @Override
     public boolean hasManagementInterface ()
     {
-        return false;
+        return this.mgtProvider != null;
     }
 
     @Override
     public void createManagementInterface ( final Composite parent )
     {
+        this.mgtProvider.create ( parent );
     }
 
     protected void addEndpoint ( final ServerEndpointImpl endpoint )
