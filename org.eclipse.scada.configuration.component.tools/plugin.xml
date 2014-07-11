@@ -65,10 +65,22 @@
          <menu
                id="org.eclipse.scada.configuration.tools.convert"
                label="Convert">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="org.eclipse.scada.configuration.component.tools.menu">
+               </reference>
+            </visibleWhen>
          </menu>
          <menu
                id="org.eclipse.scada.configuration.tools.modify"
                label="Modify">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="org.eclipse.scada.configuration.component.tools.menu">
+               </reference>
+            </visibleWhen>
          </menu>
       </menuContribution>
       <menuContribution
@@ -128,6 +140,17 @@
                   </instanceof>
                </or>
             </iterate>
+         </with>
+      </definition>
+      <definition
+            id="org.eclipse.scada.configuration.component.tools.menu">
+         <with
+               variable="activeEditorId">
+            <or>
+               <equals
+                     value="org.eclipse.scada.configuration.component.presentation.ComponentEditorID">
+               </equals>
+            </or>
          </with>
       </definition>
    </extension>
