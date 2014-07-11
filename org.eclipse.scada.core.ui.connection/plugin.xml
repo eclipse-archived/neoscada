@@ -8,6 +8,7 @@
             allowMultiple="false"
             category="org.eclipse.scada.core.ui.category"
             class="org.eclipse.scada.core.ui.connection.views.ConnectionView"
+            icon="icons/connections.gif"
             id="org.eclipse.scada.core.ui.connection.ConnectionView"
             name="%view.connections.name"
             restorable="true">
