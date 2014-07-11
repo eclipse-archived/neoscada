@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - clean up subscription manager
+ *     IBH SYSTEMS GmbH - clean up subscription manager, change shutdown handling
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -25,6 +25,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -134,7 +135,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         }
     };
 
-    private boolean running;
+    private final AtomicBoolean running = new AtomicBoolean ();
 
     private SubscriptionValidator<String> subscriptionValidator;
 
@@ -173,13 +174,10 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     public void start () throws Exception
     {
         logger.info ( "Starting Hive" );
-        synchronized ( this )
+
+        if ( !this.running.compareAndSet ( false, true ) )
         {
-            if ( this.running )
-            {
-                return;
-            }
-            this.running = true;
+            return;
         }
 
         this.operationService = Executors.newFixedThreadPool ( 1, new NamedThreadFactory ( "HiveCommon/" + getHiveId () ) );
@@ -198,18 +196,24 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         logger.info ( "Stopping hive" );
 
-        synchronized ( this )
+        if ( !this.running.compareAndSet ( true, false ) )
         {
-            if ( !this.running )
-            {
-                return;
-            }
-            this.running = false;
+            return;
         }
 
         performStop ();
 
         disableStats ();
+
+        try
+        {
+            this.itemMapWriteLock.lock ();
+            this.itemMap.clear ();
+        }
+        finally
+        {
+            this.itemMapWriteLock.unlock ();
+        }
 
         if ( this.browser != null )
         {
@@ -388,7 +392,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     @Override
     public NotifyFuture<Session> createSession ( final Properties properties, final CallbackHandler callbackHandler )
     {
-        if ( !this.running )
+        if ( !this.running.get () )
         {
             return new InstantErrorFuture<> ( makeCheckRunningException () );
         }
@@ -501,7 +505,7 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     private void checkRunning ()
     {
-        if ( !this.running )
+        if ( !this.running.get () )
         {
             throw makeCheckRunningException ();
         }
@@ -583,10 +587,6 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
 
     /**
      * Remove an item from the hive.
-     * <p>
-     * Note that registering an item is only possible while the hive is running
-     * (started, not stopped).
-     * </p>
      *
      * @param item
      *            the item to remove
@@ -595,7 +595,11 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     {
         logger.debug ( "Unregister item: {}", item );
 
-        checkRunning ();
+        if ( !this.running.get () )
+        {
+            // we silently ignore this there, since everything should already be unregistered
+            return;
+        }
 
         try
         {
