@@ -18,6 +18,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 public class ScadaPerspectiveFactory implements IPerspectiveFactory
 {
 
+    @SuppressWarnings ( "deprecation" )
     @Override
     public void createInitialLayout ( final IPageLayout factory )
     {
