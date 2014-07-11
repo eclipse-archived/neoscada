@@ -12,7 +12,6 @@
 package org.eclipse.scada.ui.chart.model;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.swt.graphics.RGB;
 
 /**

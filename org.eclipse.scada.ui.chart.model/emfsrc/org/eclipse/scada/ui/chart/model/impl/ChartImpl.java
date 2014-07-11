@@ -15,19 +15,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.ChartFactory;
 import org.eclipse.scada.ui.chart.model.ChartPackage;
@@ -37,7 +32,6 @@ import org.eclipse.scada.ui.chart.model.Profile;
 import org.eclipse.scada.ui.chart.model.ProfileSwitcherType;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.YAxis;
-
 import org.eclipse.swt.graphics.RGB;
 
 /**

@@ -15,7 +15,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.scada.ui.chart.model.*;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Axis;

@@ -13,14 +13,12 @@ package org.eclipse.scada.ui.chart.model.impl;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.scada.ui.chart.model.*;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Chart;
@@ -30,6 +28,7 @@ import org.eclipse.scada.ui.chart.model.CompositeArchiveQualitySeries;
 import org.eclipse.scada.ui.chart.model.CurrentTimeController;
 import org.eclipse.scada.ui.chart.model.DataItemSeries;
 import org.eclipse.scada.ui.chart.model.IdItem;
+import org.eclipse.scada.ui.chart.model.LegendController;
 import org.eclipse.scada.ui.chart.model.LineProperties;
 import org.eclipse.scada.ui.chart.model.MouseController;
 import org.eclipse.scada.ui.chart.model.Profile;

@@ -14,11 +14,8 @@ package org.eclipse.scada.ui.chart.model.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.XAxis;
 import org.eclipse.scada.ui.chart.model.XAxisController;

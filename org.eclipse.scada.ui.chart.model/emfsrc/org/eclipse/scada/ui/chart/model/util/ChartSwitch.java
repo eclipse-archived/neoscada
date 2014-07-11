@@ -14,7 +14,6 @@ package org.eclipse.scada.ui.chart.model.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipse.scada.ui.chart.model.*;
 import org.eclipse.scada.ui.chart.model.ArchiveChannel;
 import org.eclipse.scada.ui.chart.model.ArchiveSeries;
 import org.eclipse.scada.ui.chart.model.Axis;

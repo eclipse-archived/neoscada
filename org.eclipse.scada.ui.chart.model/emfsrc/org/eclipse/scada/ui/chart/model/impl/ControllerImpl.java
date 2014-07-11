@@ -12,9 +12,7 @@
 package org.eclipse.scada.ui.chart.model.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.scada.ui.chart.model.ChartPackage;
 import org.eclipse.scada.ui.chart.model.Controller;
 
