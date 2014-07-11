@@ -65,6 +65,17 @@ public class ServerManagerImpl implements ServerManager
 
     public void dispose ()
     {
+        this.servers.getRealm ().asyncExec ( new Runnable () {
+            @Override
+            public void run ()
+            {
+                performDispose ();
+            }
+        } );
+    }
+
+    protected void performDispose ()
+    {
         for ( final Object o : this.servers )
         {
             final ServerDescriptor desc = (ServerDescriptor)o;
