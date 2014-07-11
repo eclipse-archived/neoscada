@@ -45,6 +45,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.scada.ui.chart.model.Chart;
 import org.eclipse.scada.ui.chart.model.provider.ChartItemProviderAdapterFactory;
 import org.eclipse.scada.ui.chart.viewer.ChartViewer;
 import org.eclipse.swt.dnd.DND;
@@ -55,7 +56,6 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.scada.ui.chart.model.Chart;
 
 public class ChartConfiguratorView extends AbstractChartManagePart implements IViewerProvider, IEditingDomainProvider, IMenuListener
 {
@@ -140,7 +140,7 @@ public class ChartConfiguratorView extends AbstractChartManagePart implements IV
         {
             final Chart element = chartViewer.getChartConfiguration ();
 
-            if ( element.eResource ().getURI () == null )
+            if ( element.eResource () == null || element.eResource ().getURI () == null )
             {
                 element.eResource ().setURI ( URI.createURI ( "urn:dummy" ) );
             }
@@ -221,7 +221,7 @@ public class ChartConfiguratorView extends AbstractChartManagePart implements IV
     /**
      * This sets the selection into whichever viewer is active. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void setSelectionToViewer ( final Collection<?> collection )
@@ -250,7 +250,7 @@ public class ChartConfiguratorView extends AbstractChartManagePart implements IV
     /**
      * This accesses a cached version of the property sheet. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public IPropertySheetPage getPropertySheetPage ()
