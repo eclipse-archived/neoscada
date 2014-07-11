@@ -347,8 +347,32 @@
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
-            targetID="*">
+            targetID="org.eclipse.scada.hmi.app.adminclient.app.perspective.perspective">
          <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.da.ui.perspective">
+         <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.ca.ui.perspectives.perspective">
+            <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.chart.ui.perspective">
+            <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+      </perspectiveExtension>
+      <perspectiveExtension
+            targetID="org.eclipse.scada.ae.ui.perspectives.perspective">
+            <newWizardShortcut
                id="org.eclipse.scada.core.ui.connection.AddConnection">
          </newWizardShortcut>
       </perspectiveExtension>
