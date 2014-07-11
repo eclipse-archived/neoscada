@@ -2,8 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Chart UI (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.chart.ui;singleton:=true
-Bundle-Version: 0.1.0.qualifier
-Bundle-Activator: org.eclipse.scada.chart.ui.Activator
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
