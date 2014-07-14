@@ -107,10 +107,12 @@
 						
 						<configuration>
 							<copyright>EPL</copyright>
-							<release>${maven.build.timestamp}</release>
 							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
+							<version>${unqualifiedVersion}</version>
+							<release>${maven.build.timestamp}</release>
+							
 							<mappings>
 							</mappings>
 						</configuration>

@@ -16,7 +16,7 @@
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 	<artifactId>equinox-SDK</artifactId>
-	<version>4.3.2.201402211700</version>
+	<version>4.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<profiles>
