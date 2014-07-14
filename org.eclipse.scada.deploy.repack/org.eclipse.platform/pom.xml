@@ -16,6 +16,27 @@
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
 	<artifactId>org.eclipse.platform-4.3.2</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>4.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
+
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<obsoletes>
+								<obsolete>org.eclipse.platform-4.3.0</obsolete>
+								<obsolete>org.eclipse.platform-4.3.2</obsolete>
+							</obsoletes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

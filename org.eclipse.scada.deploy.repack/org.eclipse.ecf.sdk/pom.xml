@@ -15,7 +15,27 @@
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>org.eclipse.ecf.sdk-3.6.1</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<artifactId>org.eclipse.ecf.sdk</artifactId>
+	<version>3.6.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<obsoletes>
+								<obsolete>org.eclipse.ecf.sdk-3.6.1</obsolete>
+							</obsoletes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

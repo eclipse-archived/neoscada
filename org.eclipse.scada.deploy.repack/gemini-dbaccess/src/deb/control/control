@@ -4,6 +4,8 @@ Section: misc
 Priority: optional
 Architecture: all
 Depends: org.eclipse.scada.p2
+Conflicts: gemini-dbaccess-1.1.0.RELEASE
+Replaces: gemini-dbaccess-1.1.0.RELEASE
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: Eclipse SCADA repack of [[artifactId]]
 Distribution: development

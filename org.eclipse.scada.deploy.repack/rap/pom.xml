@@ -15,7 +15,27 @@
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>rap-2.2.0-R-20131204-0942</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<artifactId>rap</artifactId>
+	<version>2.2.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+
+						<configuration>
+							<obsoletes>
+								<obsolete>rap-2.2.0-R-20131204-0942</obsolete>
+							</obsoletes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
