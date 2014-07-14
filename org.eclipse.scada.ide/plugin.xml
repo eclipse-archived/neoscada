@@ -5,6 +5,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="org.eclipse.scada.ide.ScadaPerspectiveFactory"
+            icon="icons/perspective.png"
             id="org.eclipse.scada.ide.scada"
             name="SCADA">
          <description>
