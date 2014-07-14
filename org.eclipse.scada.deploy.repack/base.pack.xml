@@ -96,6 +96,7 @@
 							<distribution>Eclipse SCADA %{version} (Incubation)</distribution>
 							<group>Application/Misc</group>
 							<changelogFile>rpm/changelog</changelogFile>
+							<release>${maven.build.timestamp}</release>
 
 							<defineStatements>
 								<!-- <defineStatement>_unpackaged_files_terminate_build 0</defineStatement> -->
