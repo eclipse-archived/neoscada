@@ -60,7 +60,7 @@ public abstract class AbstractObjectExporter implements Disposable
      * Create a new object factory
      * <p>
      * </p>
-     * 
+     *
      * @param itemFactory
      *            the item factory to use
      * @param readOnly
@@ -147,7 +147,7 @@ public abstract class AbstractObjectExporter implements Disposable
 
     /**
      * read the initial value of the property
-     * 
+     *
      * @param pd
      */
     protected void initAttribute ( final PropertyDescriptor pd )
@@ -208,7 +208,7 @@ public abstract class AbstractObjectExporter implements Disposable
      * <li>Check the write method</li>
      * </ol>
      * </p>
-     * 
+     *
      * @param pd
      *            the property descriptor to check
      * @param clazz
@@ -325,8 +325,8 @@ public abstract class AbstractObjectExporter implements Disposable
 
         logger.debug ( "ItemOptions - {}", options );
 
-        final boolean writeable = !this.readOnly && pd.getWriteMethod () != null;
-        final boolean readable = pd.getReadMethod () != null && !options.readonly ();
+        final boolean writeable = !this.readOnly && pd.getWriteMethod () != null && !options.readonly ();
+        final boolean readable = pd.getReadMethod () != null;
 
         final Map<String, Variant> properties = new HashMap<String, Variant> ();
 
@@ -412,7 +412,7 @@ public abstract class AbstractObjectExporter implements Disposable
 
     /**
      * Get the current target or <code>null</code> if there is none
-     * 
+     *
      * @return the current target
      */
     protected abstract Object getTarget ();
@@ -451,7 +451,7 @@ public abstract class AbstractObjectExporter implements Disposable
 
     /**
      * Convert the value to the target type if possible.
-     * 
+     *
      * @param targetType
      *            The expected target type
      * @param value
