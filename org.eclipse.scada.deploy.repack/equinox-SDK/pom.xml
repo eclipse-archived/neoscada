@@ -15,8 +15,28 @@
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
-	<artifactId>equinox-SDK-R-KeplerSR2-201402211700</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<artifactId>equinox-SDK</artifactId>
+	<version>4.3.2.201402211700</version>
 	<packaging>pom</packaging>
-	
+
+	<profiles>
+		<profile>
+			<id>rpm</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						
+						<configuration>
+							<conflicts>
+								<conflict>equinox-SDK-R-KeplerSR2-201402211700</conflict>
+							</conflicts>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
