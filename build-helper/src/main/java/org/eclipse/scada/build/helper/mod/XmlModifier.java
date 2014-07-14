@@ -59,7 +59,7 @@ public class XmlModifier
         this.inputFile = inputFile;
     }
 
-    public void set ( final String expression, final int skip, final String value ) throws IOException, XMLStreamException
+    public void set ( final String expression, final int targetElement, final String value ) throws IOException, XMLStreamException
     {
         int pos = 0;
 
@@ -100,7 +100,7 @@ public class XmlModifier
                     if ( inMatch && !match )
                     {
                         // end
-                        if ( pos >= skip )
+                        if ( pos == targetElement )
                         {
                             this.mods.add ( mod );
                         }
