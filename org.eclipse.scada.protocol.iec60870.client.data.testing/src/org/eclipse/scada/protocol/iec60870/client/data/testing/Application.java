@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.protocol.iec60870.client.data.testing;
 
-import java.net.InetSocketAddress;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -21,9 +20,9 @@ import org.eclipse.scada.protocol.iec60870.ProtocolOptions.Builder;
 import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
-import org.eclipse.scada.protocol.iec60870.client.Client;
+import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient;
+import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient.State;
 import org.eclipse.scada.protocol.iec60870.client.ClientModule;
-import org.eclipse.scada.protocol.iec60870.client.ConnectionStateListener;
 import org.eclipse.scada.protocol.iec60870.client.data.DataHandler;
 import org.eclipse.scada.protocol.iec60870.client.data.DataListener;
 import org.eclipse.scada.protocol.iec60870.client.data.DataModule;
@@ -56,33 +55,21 @@ public class Application
 
         final List<ClientModule> modules = Collections.singletonList ( (ClientModule)dataModule );
 
-        final ConnectionStateListener listener = new ConnectionStateListener () {
+        final AutoConnectClient.StateListener listener = new AutoConnectClient.StateListener () {
 
             @Override
-            public void connected ()
+            public void stateChanged ( final State state, final Throwable e )
             {
-                System.out.println ( "Connected..." );
-            }
-
-            @Override
-            public void disconnected ( final Throwable error )
-            {
-                System.out.println ( "Disconnected..." );
-                if ( error != null )
+                System.out.println ( "State: " + state );
+                if ( e != null )
                 {
-                    error.printStackTrace ();
-                    System.exit ( -1 );
-                }
-                else
-                {
-                    System.exit ( 0 );
+                    e.printStackTrace ();
                 }
             }
         };
-        try ( final Client client = new Client ( new InetSocketAddress ( args[0], port ), listener, options.build (), modules ) )
-        {
-            client.connect ();
 
+        try ( final AutoConnectClient client = new AutoConnectClient ( args[0], port, options.build (), modules, listener ) )
+        {
             while ( true )
             {
                 Thread.sleep ( 1_000 );
