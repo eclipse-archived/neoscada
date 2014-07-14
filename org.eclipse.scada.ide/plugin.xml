@@ -28,14 +28,20 @@
                relationship="stack"
                relative="org.eclipse.ui.views.TaskList">
          </view>
-         <newWizardShortcut
-               id="org.eclipse.scada.ide.newWizardShortcut1">
-         </newWizardShortcut>
          <view
                id="org.eclipse.scada.da.server.ui.ServersView"
                minimized="false"
                relationship="stack"
                relative="org.eclipse.ui.views.ContentOutline">
+         </view>
+         <newWizardShortcut
+               id="org.eclipse.scada.core.ui.connection.AddConnection">
+         </newWizardShortcut>
+         <view
+               id="org.eclipse.ui.views.PropertySheet"
+               minimized="false"
+               relationship="stack"
+               relative="org.eclipse.ui.views.TaskList">
          </view>
       </perspectiveExtension>
    </extension>
