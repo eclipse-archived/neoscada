@@ -29,9 +29,9 @@
 						<artifactId>rpm-maven-plugin</artifactId>
 						
 						<configuration>
-							<conflicts>
-								<conflict>equinox-SDK-R-KeplerSR2-201402211700</conflict>
-							</conflicts>
+							<obsoletes>
+								<obsolete>equinox-SDK-R-KeplerSR2-201402211700</obsolete>
+							</obsoletes>
 						</configuration>
 					</plugin>
 				</plugins>
