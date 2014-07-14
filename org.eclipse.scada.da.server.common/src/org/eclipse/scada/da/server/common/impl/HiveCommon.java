@@ -316,8 +316,15 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     }
 
     /**
-     * Set the root folder. The root folder can only be set once. All
-     * further set requests are ignored.
+     * Set the root folder. <br/>
+     * <p>
+     * <em>Note:</em>The root folder can only be set once. All further set
+     * requests are ignored.
+     * </p>
+     * <p>
+     * <em>Note:</em>The root folder must be set before the start method is
+     * called (e.g. in the constructor)
+     * </p>
      */
     protected synchronized void setRootFolder ( final Folder rootFolder )
     {
@@ -881,6 +888,13 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
         return this.validationStrategy;
     }
 
+    /**
+     * Set the validation strategy <br/>
+     * <em>Note:</em> The validation strategy has to be set before the hive is
+     * started (e.g. in the constructor of the hive).
+     *
+     * @param validatonStrategy
+     */
     protected void setValidatonStrategy ( final ValidationStrategy validatonStrategy )
     {
         this.validationStrategy = validatonStrategy;
