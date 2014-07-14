@@ -247,6 +247,12 @@ public abstract class AbstractObjectExporter implements Disposable
 
     protected ItemOptions getOptions ( final PropertyDescriptor pd, final Class<?> clazz )
     {
+        final ItemOptions an = findAnnotation ( pd, clazz, ItemOptions.class );
+        if ( an != null )
+        {
+            return an;
+        }
+
         return new ItemOptions () {
 
             @Override
