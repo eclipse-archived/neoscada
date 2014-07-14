@@ -75,7 +75,7 @@
 							</defineStatements>
 							<requires>
 								<require>emf-xsd-Update-2.9.2</require>
-								<require>equinox-SDK-R-KeplerSR2-201402211700</require>
+								<require>equinox-SDK &gt;= 4.3.2</require>
 								<require>gemini-dbaccess-1.1.0.RELEASE</require>
 								<require>org.eclipse.ecf.sdk-3.6.1</require>
 								<require>rap-2.2.0-R-20131204-0942</require>
