@@ -1,0 +1,1 @@
+ca:create org.eclipse.scada.da.server.iec60870.connection device1 {}

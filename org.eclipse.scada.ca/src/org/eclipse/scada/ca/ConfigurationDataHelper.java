@@ -558,6 +558,20 @@ public class ConfigurationDataHelper
     }
 
     /**
+     * Create a configuration data helper containing only the parameters having
+     * the provided prefix, including their prefix removed.
+     *
+     * @see #getPrefixed(String)
+     * @param prefix
+     *            the prefix
+     * @return the new set of data
+     */
+    public ConfigurationDataHelper getPrefixedHelper ( final String prefix )
+    {
+        return new ConfigurationDataHelper ( getPrefixed ( prefix ) );
+    }
+
+    /**
      * Convenience method to get prefixed attributes as {@link Properties}
      * object
      * <p>

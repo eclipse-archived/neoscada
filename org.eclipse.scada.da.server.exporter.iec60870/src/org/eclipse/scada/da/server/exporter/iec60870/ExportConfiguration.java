@@ -14,15 +14,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import java.util.TimeZone;
 
 import org.eclipse.scada.ca.ConfigurationDataHelper;
+import org.eclipse.scada.core.common.iec60870.Configurations;
 import org.eclipse.scada.da.server.exporter.iec60870.MappingEntry.ValueType;
-import org.eclipse.scada.protocol.iec60870.ASDUAddressType;
-import org.eclipse.scada.protocol.iec60870.CauseOfTransmissionType;
-import org.eclipse.scada.protocol.iec60870.InformationObjectAddressType;
 import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
-import org.eclipse.scada.protocol.iec60870.ProtocolOptions.Builder;
 import org.eclipse.scada.protocol.iec60870.server.data.DataModuleOptions;
 
 public class ExportConfiguration
@@ -123,18 +119,7 @@ public class ExportConfiguration
         result.setPort ( (short)cfg.getInteger ( "port", 2404 /* IEC 60870-5-104 default */) ); //$NON-NLS-1$
         result.setSpontaneous ( cfg.getBoolean ( "spontaneous", true ) ); //$NON-NLS-1$
 
-        final ProtocolOptions.Builder optionsBuilder = new Builder ();
-
-        optionsBuilder.setTimeout1 ( cfg.getInteger ( "t1", optionsBuilder.getTimeout1 () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeout2 ( cfg.getInteger ( "t2", optionsBuilder.getTimeout2 () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeout3 ( cfg.getInteger ( "t3", optionsBuilder.getTimeout3 () ) ); //$NON-NLS-1$
-        optionsBuilder.setAdsuAddressType ( cfg.getEnum ( "asduAddressType", ASDUAddressType.class, ASDUAddressType.SIZE_2 ) ); //$NON-NLS-1$
-        optionsBuilder.setCauseOfTransmissionType ( cfg.getEnum ( "causeOfTransmissionType", CauseOfTransmissionType.class, CauseOfTransmissionType.SIZE_2 ) ); //$NON-NLS-1$
-        optionsBuilder.setInformationObjectAddressType ( cfg.getEnum ( "informationObjectAddressType", InformationObjectAddressType.class, InformationObjectAddressType.SIZE_3 ) ); //$NON-NLS-1$
-        optionsBuilder.setAcknowledgeWindow ( (short)cfg.getInteger ( "w", optionsBuilder.getAcknowledgeWindow () ) ); //$NON-NLS-1$
-        optionsBuilder.setMaxUnacknowledged ( (short)cfg.getInteger ( "k", optionsBuilder.getMaxUnacknowledged () ) ); //$NON-NLS-1$
-        optionsBuilder.setTimeZone ( getTimeZone ( cfg, "timeZone" ) ); //$NON-NLS-1$
-        optionsBuilder.setIgnoreDaylightSavingTime ( cfg.getBoolean ( "ignoreDaylightSavingTime", false ) ); //$NON-NLS-1$
+        final ProtocolOptions.Builder optionsBuilder = Configurations.parseProtocolOptions ( cfg );
 
         result.setProtocolOptions ( optionsBuilder.build () );
 
@@ -157,17 +142,6 @@ public class ExportConfiguration
         result.setHiveProperties ( cfg.getPrefixedProperties ( "hive." ) ); //$NON-NLS-1$
 
         return result;
-    }
-
-    private static TimeZone getTimeZone ( final ConfigurationDataHelper cfg, final String name )
-    {
-        final String timeZoneId = cfg.getString ( name, null );
-        if ( timeZoneId == null || timeZoneId.isEmpty () )
-        {
-            return null;
-        }
-
-        return TimeZone.getTimeZone ( timeZoneId );
     }
 
     private static MappingEntry createEntry ( final String key, final String value )
