@@ -19,11 +19,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.da.server.browser.common.FolderCommon;
 import org.eclipse.scada.da.server.common.ValidationStrategy;
-import org.eclipse.scada.da.server.common.impl.HiveCommon;
+import org.eclipse.scada.da.server.common.osgi.AbstractOsgiHiveCommon;
 import org.eclipse.scada.da.server.iec60870.cfg.CAConfigurationFactory;
 import org.eclipse.scada.da.server.iec60870.cfg.ConfigurationFactory;
 import org.eclipse.scada.da.server.iec60870.cfg.ConfigurationFactory.Receiver;
 import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
+import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,7 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListenableFutureTask;
 
-public class Hive extends HiveCommon
+public class Hive extends AbstractOsgiHiveCommon
 {
     private final static Logger logger = LoggerFactory.getLogger ( Hive.class );
 
@@ -61,11 +62,13 @@ public class Hive extends HiveCommon
 
     public Hive ()
     {
-        this ( new CAConfigurationFactory ( FrameworkUtil.getBundle ( Hive.class ).getBundleContext () ) );
+        this ( new CAConfigurationFactory ( FrameworkUtil.getBundle ( Hive.class ).getBundleContext () ), FrameworkUtil.getBundle ( Hive.class ).getBundleContext () );
     }
 
-    public Hive ( final ConfigurationFactory factory )
+    public Hive ( final ConfigurationFactory factory, final BundleContext context )
     {
+        super ( context );
+
         this.factory = factory;
 
         setValidatonStrategy ( ValidationStrategy.GRANT_ALL );
@@ -83,6 +86,7 @@ public class Hive extends HiveCommon
     protected void performStart () throws Exception
     {
         this.executor = new ExportedExecutorService ( Hive.class.getName (), 0, 1, 1, TimeUnit.MINUTES );
+
         super.performStart ();
 
         this.factory.setReceiver ( this.configurationReceiver );
