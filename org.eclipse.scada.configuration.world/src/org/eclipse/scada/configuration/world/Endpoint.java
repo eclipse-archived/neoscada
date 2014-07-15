@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Endpoint</b></em>'.
@@ -20,6 +22,7 @@ package org.eclipse.scada.configuration.world;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getPortNumber <em>Port Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,12 +69,12 @@ public interface Endpoint extends NamedDocumentable
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Port Number</em>' attribute.
-     * @see #setPortNumber(short)
+     * @see #setPortNumber(int)
      * @see org.eclipse.scada.configuration.world.WorldPackage#getEndpoint_PortNumber()
      * @model required="true"
      * @generated
      */
-    short getPortNumber ();
+    int getPortNumber ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.world.Endpoint#getPortNumber <em>Port Number</em>}' attribute.
@@ -81,6 +84,32 @@ public interface Endpoint extends NamedDocumentable
      * @see #getPortNumber()
      * @generated
      */
-    void setPortNumber ( short value );
+    void setPortNumber ( int value );
+
+    /**
+     * Returns the value of the '<em><b>Bound Service</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Bound Service</em>' reference isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Bound Service</em>' reference.
+     * @see #setBoundService(EObject)
+     * @see org.eclipse.scada.configuration.world.WorldPackage#getEndpoint_BoundService()
+     * @model
+     * @generated
+     */
+    EObject getBoundService ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Bound Service</em>' reference.
+     * @see #getBoundService()
+     * @generated
+     */
+    void setBoundService ( EObject value );
 
 } // Endpoint

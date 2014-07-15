@@ -75,6 +75,7 @@ public class EndpointItemProvider
             addShortDescriptionPropertyDescriptor ( object );
             addNamePropertyDescriptor ( object );
             addPortNumberPropertyDescriptor ( object );
+            addBoundServicePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -149,6 +150,29 @@ public class EndpointItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Bound Service feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addBoundServicePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_Endpoint_boundService_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_Endpoint_boundService_feature", "_UI_Endpoint_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        WorldPackage.Literals.ENDPOINT__BOUND_SERVICE,
+                        true,
+                        false,
+                        true,
+                        null,
+                        null,
+                        null ) );
+    }
+
+    /**
      * This returns Endpoint.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -158,6 +182,17 @@ public class EndpointItemProvider
     public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Endpoint" ) ); //$NON-NLS-1$
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
     }
 
     /**

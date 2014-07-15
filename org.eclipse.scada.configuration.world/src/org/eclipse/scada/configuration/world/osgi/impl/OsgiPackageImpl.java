@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.ae.data.Severity;
 import org.eclipse.scada.configuration.security.SecurityPackage;
@@ -791,6 +792,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         isInited = true;
 
         // Initialize simple dependencies
+        EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 

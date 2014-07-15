@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013 IBH SYSTEMS GmbH.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -11,18 +11,29 @@
  */
 package org.eclipse.scada.configuration.world.deployment.tests;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
+
 import org.eclipse.scada.configuration.world.deployment.DeploymentFactory;
-import org.eclipse.scada.configuration.world.deployment.NodeMappings;
+import org.eclipse.scada.configuration.world.deployment.Mappings;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Node Mappings</b></em>'.
+ * A test case for the model object '<em><b>Mappings</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class NodeMappingsTest extends MappingsTest
+public class MappingsTest extends TestCase
 {
+
+    /**
+     * The fixture for this Mappings test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Mappings fixture = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -31,30 +42,40 @@ public class NodeMappingsTest extends MappingsTest
      */
     public static void main ( String[] args )
     {
-        TestRunner.run ( NodeMappingsTest.class );
+        TestRunner.run ( MappingsTest.class );
     }
 
     /**
-     * Constructs a new Node Mappings test case with the given name.
+     * Constructs a new Mappings test case with the given name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public NodeMappingsTest ( String name )
+    public MappingsTest ( String name )
     {
         super ( name );
     }
 
     /**
-     * Returns the fixture for this Node Mappings test case.
+     * Sets the fixture for this Mappings test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected NodeMappings getFixture ()
+    protected void setFixture ( Mappings fixture )
     {
-        return (NodeMappings)fixture;
+        this.fixture = fixture;
+    }
+
+    /**
+     * Returns the fixture for this Mappings test case.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected Mappings getFixture ()
+    {
+        return fixture;
     }
 
     /**
@@ -66,7 +87,7 @@ public class NodeMappingsTest extends MappingsTest
     @Override
     protected void setUp () throws Exception
     {
-        setFixture ( DeploymentFactory.eINSTANCE.createNodeMappings () );
+        setFixture ( DeploymentFactory.eINSTANCE.createMappings () );
     }
 
     /**
@@ -81,4 +102,4 @@ public class NodeMappingsTest extends MappingsTest
         setFixture ( null );
     }
 
-} //NodeMappingsTest
+} //MappingsTest

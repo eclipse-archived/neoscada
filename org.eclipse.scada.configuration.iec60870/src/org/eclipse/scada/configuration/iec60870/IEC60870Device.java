@@ -28,7 +28,8 @@ import org.eclipse.scada.configuration.infrastructure.Device;
  * </p>
  *
  * @see org.eclipse.scada.configuration.iec60870.IEC60870Package#getIEC60870Device()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='portCheck'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL portCheck='port > 0 and port < 65535'"
  * @generated
  */
 public interface IEC60870Device extends Device

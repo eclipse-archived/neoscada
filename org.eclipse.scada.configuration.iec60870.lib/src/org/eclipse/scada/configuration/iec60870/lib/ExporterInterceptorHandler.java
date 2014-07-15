@@ -90,7 +90,7 @@ public class ExporterInterceptorHandler extends AbstractItemInterceptorHandler
 
         device.setId ( id );
 
-        final Endpoint ep = Endpoints.registerEndpoint ( masterContext.getImplementation (), interceptor.getPort (), "IEC60870 exporter" );
+        final Endpoint ep = Endpoints.registerEndpoint ( masterContext.getImplementation (), interceptor.getPort (), device, "IEC60870 exporter" );
         device.setEndpoint ( ep );
 
         device.setDataModuleOptions ( EcoreUtil.copy ( interceptor.getDataModuleOptions () ) );

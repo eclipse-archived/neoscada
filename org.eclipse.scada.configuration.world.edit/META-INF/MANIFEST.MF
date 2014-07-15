@@ -14,6 +14,8 @@ Export-Package: org.eclipse.scada.configuration.world.deployment.provider;uses:=
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.world;visibility:=reexport;bundle-version="0.2.0",
  org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
  org.eclipse.scada.da.server.exec.edit;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport;bundle-version="0.1.0",

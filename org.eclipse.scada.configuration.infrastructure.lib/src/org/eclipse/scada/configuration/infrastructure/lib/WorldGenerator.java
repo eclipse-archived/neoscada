@@ -461,7 +461,7 @@ public class WorldGenerator
         final DriverHandler driverHandler = AdapterHelper.adapt ( driver, DriverHandler.class, true );
         if ( driverHandler != null )
         {
-            final Driver result = driverHandler.process ( driver );
+            final Driver result = driverHandler.process ( driver, nodes );
 
             finishDriver ( result, driver, node, true );
 
@@ -501,6 +501,11 @@ public class WorldGenerator
         {
             // create a connection for the driver
             throw new IllegalStateException ( String.format ( "Driver has no endpoints: %s", driver ) );
+        }
+
+        for ( final Endpoint ep : driver.getEndpoints () )
+        {
+            Endpoints.bind ( ep, driver );
         }
 
         node.getEndpoints ().addAll ( driver.getEndpoints () );
@@ -574,7 +579,7 @@ public class WorldGenerator
     {
         final Exporter exporter = (Exporter)EcoreUtil.create ( exporterClass );
 
-        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
+        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, exporter, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
         node.getEndpoints ().add ( ep );
 
         exporter.setName ( application.getName () + "/exporter" );

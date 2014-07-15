@@ -10,7 +10,10 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
+import java.util.Map;
+
 import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
+import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.utils.Containers;
@@ -22,15 +25,15 @@ import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
 
 public abstract class AbstractEquinoxDriverHandler<T extends org.eclipse.scada.configuration.infrastructure.Driver & EquinoxBase, S extends Driver & EquinoxApplication> implements DriverHandler
 {
-    protected abstract S createDriver ( T driver );
+    protected abstract S createDriver ( T driver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes );
 
     @SuppressWarnings ( "unchecked" )
     @Override
-    public Driver process ( final org.eclipse.scada.configuration.infrastructure.Driver infraDriver )
+    public Driver process ( final org.eclipse.scada.configuration.infrastructure.Driver infraDriver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes )
     {
         final T driver = (T)infraDriver;
 
-        final S result = createDriver ( driver );
+        final S result = createDriver ( driver, nodes );
 
         result.setName ( driver.getName () );
 

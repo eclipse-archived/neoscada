@@ -313,7 +313,53 @@ public class IEC60870Validator extends EObjectValidator
      */
     public boolean validateIEC60870Device ( IEC60870Device iec60870Device, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
-        return validate_EveryDefaultConstraint ( iec60870Device, diagnostics, context );
+        if ( !validate_NoCircularContainment ( iec60870Device, diagnostics, context ) )
+            return false;
+        boolean result = validate_EveryMultiplicityConforms ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryDataValueConforms ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryReferenceIsContained ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryBidirectionalReferenceIsPaired ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryProxyResolves ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_UniqueID ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryKeyUnique ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validate_EveryMapEntryUnique ( iec60870Device, diagnostics, context );
+        if ( result || diagnostics != null )
+            result &= validateIEC60870Device_portCheck ( iec60870Device, diagnostics, context );
+        return result;
+    }
+
+    /**
+     * The cached validation expression for the portCheck constraint of '<em>Device</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected static final String IEC60870_DEVICE__PORT_CHECK__EEXPRESSION = "port > 0 and port < 65535"; //$NON-NLS-1$
+
+    /**
+     * Validates the portCheck constraint of '<em>Device</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateIEC60870Device_portCheck ( IEC60870Device iec60870Device, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate ( IEC60870Package.Literals.IEC60870_DEVICE,
+                iec60870Device,
+                diagnostics,
+                context, "http://www.eclipse.org/emf/2002/Ecore/OCL", //$NON-NLS-1$
+                "portCheck", //$NON-NLS-1$
+                IEC60870_DEVICE__PORT_CHECK__EEXPRESSION,
+                Diagnostic.ERROR,
+                DIAGNOSTIC_SOURCE,
+                0 );
     }
 
     /**

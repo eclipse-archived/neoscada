@@ -10,8 +10,11 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.infrastructure.lib;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver;
+import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.world.CommonDriver;
 import org.eclipse.scada.configuration.world.Driver;
@@ -23,7 +26,7 @@ public abstract class AbstractCommonDriverHandler<T extends AbstractCommonDriver
 
     @SuppressWarnings ( "unchecked" )
     @Override
-    public Driver process ( final org.eclipse.scada.configuration.infrastructure.Driver infraDriver )
+    public Driver process ( final org.eclipse.scada.configuration.infrastructure.Driver infraDriver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes )
     {
         final T driver = (T)infraDriver;
         final S result = createDriver ( driver );

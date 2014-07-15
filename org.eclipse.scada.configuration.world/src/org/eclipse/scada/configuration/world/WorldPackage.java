@@ -516,13 +516,22 @@ public interface WorldPackage extends EPackage
     int ENDPOINT__PORT_NUMBER = NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Bound Service</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENDPOINT__BOUND_SERVICE = NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Endpoint</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ENDPOINT_FEATURE_COUNT = NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
+    int ENDPOINT_FEATURE_COUNT = NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
 
     /**
      * The number of operations of the '<em>Endpoint</em>' class.
@@ -1330,6 +1339,17 @@ public interface WorldPackage extends EPackage
     EAttribute getEndpoint_PortNumber ();
 
     /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Bound Service</em>'.
+     * @see org.eclipse.scada.configuration.world.Endpoint#getBoundService()
+     * @see #getEndpoint()
+     * @generated
+     */
+    EReference getEndpoint_BoundService ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.ExecDriver <em>Exec Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1817,6 +1837,14 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EAttribute ENDPOINT__PORT_NUMBER = eINSTANCE.getEndpoint_PortNumber ();
+
+        /**
+         * The meta object literal for the '<em><b>Bound Service</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ENDPOINT__BOUND_SERVICE = eINSTANCE.getEndpoint_BoundService ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.ExecDriverImpl <em>Exec Driver</em>}' class.

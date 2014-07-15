@@ -11,13 +11,13 @@
 package org.eclipse.scada.configuration.world.impl;
 
 import java.util.regex.Pattern;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.Application;
@@ -250,6 +250,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         isInited = true;
 
         // Initialize simple dependencies
+        EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 
@@ -474,6 +475,16 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
     public EAttribute getEndpoint_PortNumber ()
     {
         return (EAttribute)endpointEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getEndpoint_BoundService ()
+    {
+        return (EReference)endpointEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -848,6 +859,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         endpointEClass = createEClass ( ENDPOINT );
         createEReference ( endpointEClass, ENDPOINT__NODE );
         createEAttribute ( endpointEClass, ENDPOINT__PORT_NUMBER );
+        createEReference ( endpointEClass, ENDPOINT__BOUND_SERVICE );
 
         execDriverEClass = createEClass ( EXEC_DRIVER );
         createEReference ( execDriverEClass, EXEC_DRIVER__ROOT );
@@ -921,6 +933,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         // Obtain other dependent packages
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
         DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
+        EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
         ConfigurationPackage theConfigurationPackage = (ConfigurationPackage)EPackage.Registry.INSTANCE.getEPackage ( ConfigurationPackage.eNS_URI );
 
         // Add subpackages
@@ -972,7 +985,8 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         initEClass ( endpointEClass, Endpoint.class, "Endpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getEndpoint_Node (), this.getNode (), this.getNode_Endpoints (), "node", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getEndpoint_Node ().getEKeys ().add ( this.getNode_HostName () );
-        initEAttribute ( getEndpoint_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getEndpoint_PortNumber (), theEcorePackage.getEInt (), "portNumber", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEndpoint_BoundService (), theEcorePackage.getEObject (), null, "boundService", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( execDriverEClass, ExecDriver.class, "ExecDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExecDriver_Root (), theConfigurationPackage.getRootType (), null, "root", null, 0, 1, ExecDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

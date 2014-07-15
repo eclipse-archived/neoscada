@@ -188,6 +188,12 @@
         eType="#//IEC60870Device"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IEC60870Device" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="portCheck"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <details key="portCheck" value="port > 0 and port &lt; 65535"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
@@ -124,6 +125,7 @@ public class ProfilePackageImpl extends EPackageImpl implements ProfilePackage
         isInited = true;
 
         // Initialize simple dependencies
+        EcorePackage.eINSTANCE.eClass ();
         ConfigurationPackage.eINSTANCE.eClass ();
         SecurityPackage.eINSTANCE.eClass ();
 

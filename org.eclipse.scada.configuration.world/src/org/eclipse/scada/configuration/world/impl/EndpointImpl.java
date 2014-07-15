@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.world.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -32,6 +33,7 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getNode <em>Node</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getPortNumber <em>Port Number</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.impl.EndpointImpl#getBoundService <em>Bound Service</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,7 +90,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected static final short PORT_NUMBER_EDEFAULT = 0;
+    protected static final int PORT_NUMBER_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
@@ -98,7 +100,17 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * @generated
      * @ordered
      */
-    protected short portNumber = PORT_NUMBER_EDEFAULT;
+    protected int portNumber = PORT_NUMBER_EDEFAULT;
+
+    /**
+     * The cached value of the '{@link #getBoundService() <em>Bound Service</em>}' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getBoundService()
+     * @generated
+     * @ordered
+     */
+    protected EObject boundService;
 
     /**
      * <!-- begin-user-doc -->
@@ -231,7 +243,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public short getPortNumber ()
+    public int getPortNumber ()
     {
         return portNumber;
     }
@@ -241,12 +253,55 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPortNumber ( short newPortNumber )
+    public void setPortNumber ( int newPortNumber )
     {
-        short oldPortNumber = portNumber;
+        int oldPortNumber = portNumber;
         portNumber = newPortNumber;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__PORT_NUMBER, oldPortNumber, portNumber ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EObject getBoundService ()
+    {
+        if ( boundService != null && boundService.eIsProxy () )
+        {
+            InternalEObject oldBoundService = (InternalEObject)boundService;
+            boundService = eResolveProxy ( oldBoundService );
+            if ( boundService != oldBoundService )
+            {
+                if ( eNotificationRequired () )
+                    eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, boundService ) );
+            }
+        }
+        return boundService;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EObject basicGetBoundService ()
+    {
+        return boundService;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBoundService ( EObject newBoundService )
+    {
+        EObject oldBoundService = boundService;
+        boundService = newBoundService;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, boundService ) );
     }
 
     /**
@@ -322,6 +377,10 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
                 return basicGetNode ();
             case WorldPackage.ENDPOINT__PORT_NUMBER:
                 return getPortNumber ();
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                if ( resolve )
+                    return getBoundService ();
+                return basicGetBoundService ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -346,7 +405,10 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
                 setNode ( (Node)newValue );
                 return;
             case WorldPackage.ENDPOINT__PORT_NUMBER:
-                setPortNumber ( (Short)newValue );
+                setPortNumber ( (Integer)newValue );
+                return;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                setBoundService ( (EObject)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -374,6 +436,9 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
             case WorldPackage.ENDPOINT__PORT_NUMBER:
                 setPortNumber ( PORT_NUMBER_EDEFAULT );
                 return;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                setBoundService ( (EObject)null );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -396,6 +461,8 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
                 return basicGetNode () != null;
             case WorldPackage.ENDPOINT__PORT_NUMBER:
                 return portNumber != PORT_NUMBER_EDEFAULT;
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                return boundService != null;
         }
         return super.eIsSet ( featureID );
     }

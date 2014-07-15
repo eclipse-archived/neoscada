@@ -10,12 +10,15 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.iec60870.lib.hive;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.iec60870.ClientDevice;
 import org.eclipse.scada.configuration.iec60870.DriverApplication;
 import org.eclipse.scada.configuration.iec60870.IEC60870Device;
 import org.eclipse.scada.configuration.iec60870.IEC60870Driver;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
+import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverHandler;
 import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.world.Endpoint;
@@ -23,7 +26,7 @@ import org.eclipse.scada.configuration.world.Endpoint;
 public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<IEC60870Driver, DriverApplication>
 {
     @Override
-    protected DriverApplication createDriver ( final IEC60870Driver driver )
+    protected DriverApplication createDriver ( final IEC60870Driver driver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes )
     {
         final DriverApplication result = IEC60870Factory.eINSTANCE.createDriverApplication ();
 
@@ -37,6 +40,14 @@ public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<IEC60870Driv
 
             final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "IEC 60870-5-104 Device Endpoint" );
             clientDevice.setEndpoint ( ep );
+
+            // lookup node
+            final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
+            if ( node == null )
+            {
+                throw new IllegalStateException ( String.format ( "Node %s was not found in target model", device.getNode () ) );
+            }
+            node.getEndpoints ().add ( ep );
 
             result.getDevices ().add ( clientDevice );
         }

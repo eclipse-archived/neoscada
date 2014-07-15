@@ -10,16 +10,19 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.driver.parser.lib;
 
+import java.util.Map;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.driver.parser.ParserComponentHost;
 import org.eclipse.scada.configuration.driver.parser.ParserDriver;
 import org.eclipse.scada.configuration.driver.parser.ParserFactory;
+import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.lib.AbstractEquinoxDriverHandler;
 
 public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<ParserComponentHost, ParserDriver>
 {
     @Override
-    protected ParserDriver createDriver ( final ParserComponentHost driver )
+    protected ParserDriver createDriver ( final ParserComponentHost driver, final Map<Node, org.eclipse.scada.configuration.world.Node> nodes )
     {
         final ParserDriver result = ParserFactory.eINSTANCE.createParserDriver ();
 

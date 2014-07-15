@@ -1008,6 +1008,11 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
                 new String[]
                 {       "constraints", "asduAddressSizeCheck\ncauseOfTransmissionSizeCheck" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
+        addAnnotation ( iec60870DeviceEClass,
+                source,
+                new String[]
+                {       "constraints", "portCheck" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
     }
 
     /**
@@ -1025,6 +1030,11 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
                 {       "asduAddressSizeCheck", "asduAddressSize>=1 and asduAddressSize <=2", //$NON-NLS-1$ //$NON-NLS-2$
                         "causeOfTransmissionSizeCheck", "causeOfTransmissionSize>=1 and causeOfTransmissionSize<=2", //$NON-NLS-1$ //$NON-NLS-2$
                         "informationObjectAddressSizeCheck", "informationObjectAddressSize>=1 and informationObjectAddressSize<=3" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( iec60870DeviceEClass,
+                source,
+                new String[]
+                {       "portCheck", "port > 0 and port < 65535" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 
