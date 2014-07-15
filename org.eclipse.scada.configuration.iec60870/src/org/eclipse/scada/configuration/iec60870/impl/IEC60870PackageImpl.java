@@ -23,17 +23,23 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
 import org.eclipse.scada.configuration.iec60870.AddressInformation;
+import org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions;
+import org.eclipse.scada.configuration.iec60870.ClientDevice;
 import org.eclipse.scada.configuration.iec60870.DataModuleOptions;
 import org.eclipse.scada.configuration.iec60870.DataType;
 import org.eclipse.scada.configuration.iec60870.Device;
+import org.eclipse.scada.configuration.iec60870.DriverApplication;
 import org.eclipse.scada.configuration.iec60870.Exporter;
 import org.eclipse.scada.configuration.iec60870.ExporterItemInterceptor;
+import org.eclipse.scada.configuration.iec60870.IEC60870Device;
+import org.eclipse.scada.configuration.iec60870.IEC60870Driver;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.Item;
 
 import org.eclipse.scada.configuration.iec60870.ProtocolOptions;
 import org.eclipse.scada.configuration.iec60870.util.IEC60870Validator;
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
 import org.eclipse.scada.configuration.script.ScriptPackage;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
@@ -88,6 +94,41 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * @generated
      */
     private EClass dataModuleOptionsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass clientDeviceEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass driverApplicationEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass clientDataModuleOptionsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass iec60870DriverEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass iec60870DeviceEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -536,6 +577,156 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getClientDevice ()
+    {
+        return clientDeviceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getClientDevice_Endpoint ()
+    {
+        return (EReference)clientDeviceEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getClientDevice_ProtocolOptions ()
+    {
+        return (EReference)clientDeviceEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getClientDevice_DataModuleOptions ()
+    {
+        return (EReference)clientDeviceEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getClientDevice_Id ()
+    {
+        return (EAttribute)clientDeviceEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDriverApplication ()
+    {
+        return driverApplicationEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getDriverApplication_Devices ()
+    {
+        return (EReference)driverApplicationEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getClientDataModuleOptions ()
+    {
+        return clientDataModuleOptionsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getClientDataModuleOptions_IgnoreBackgroundScan ()
+    {
+        return (EAttribute)clientDataModuleOptionsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getIEC60870Driver ()
+    {
+        return iec60870DriverEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getIEC60870Driver_Devices ()
+    {
+        return (EReference)iec60870DriverEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getIEC60870Device ()
+    {
+        return iec60870DeviceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getIEC60870Device_DataModuleOptions ()
+    {
+        return (EReference)iec60870DeviceEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getIEC60870Device_ProtocolOptions ()
+    {
+        return (EReference)iec60870DeviceEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getIEC60870Device_Port ()
+    {
+        return (EAttribute)iec60870DeviceEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getDataType ()
     {
         return dataTypeEEnum;
@@ -623,6 +814,26 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_BOOLEAN );
         createEAttribute ( dataModuleOptionsEClass, DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT );
 
+        clientDeviceEClass = createEClass ( CLIENT_DEVICE );
+        createEReference ( clientDeviceEClass, CLIENT_DEVICE__ENDPOINT );
+        createEReference ( clientDeviceEClass, CLIENT_DEVICE__PROTOCOL_OPTIONS );
+        createEReference ( clientDeviceEClass, CLIENT_DEVICE__DATA_MODULE_OPTIONS );
+        createEAttribute ( clientDeviceEClass, CLIENT_DEVICE__ID );
+
+        driverApplicationEClass = createEClass ( DRIVER_APPLICATION );
+        createEReference ( driverApplicationEClass, DRIVER_APPLICATION__DEVICES );
+
+        clientDataModuleOptionsEClass = createEClass ( CLIENT_DATA_MODULE_OPTIONS );
+        createEAttribute ( clientDataModuleOptionsEClass, CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN );
+
+        iec60870DriverEClass = createEClass ( IEC60870_DRIVER );
+        createEReference ( iec60870DriverEClass, IEC60870_DRIVER__DEVICES );
+
+        iec60870DeviceEClass = createEClass ( IEC60870_DEVICE );
+        createEReference ( iec60870DeviceEClass, IEC60870_DEVICE__DATA_MODULE_OPTIONS );
+        createEReference ( iec60870DeviceEClass, IEC60870_DEVICE__PROTOCOL_OPTIONS );
+        createEAttribute ( iec60870DeviceEClass, IEC60870_DEVICE__PORT );
+
         // Create enums
         dataTypeEEnum = createEEnum ( DATA_TYPE );
 
@@ -660,6 +871,7 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         WorldPackage theWorldPackage = (WorldPackage)EPackage.Registry.INSTANCE.getEPackage ( WorldPackage.eNS_URI );
         ComponentPackage theComponentPackage = (ComponentPackage)EPackage.Registry.INSTANCE.getEPackage ( ComponentPackage.eNS_URI );
         ScriptPackage theScriptPackage = (ScriptPackage)EPackage.Registry.INSTANCE.getEPackage ( ScriptPackage.eNS_URI );
+        InfrastructurePackage theInfrastructurePackage = (InfrastructurePackage)EPackage.Registry.INSTANCE.getEPackage ( InfrastructurePackage.eNS_URI );
 
         // Create type parameters
 
@@ -668,6 +880,10 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         // Add supertypes to classes
         exporterEClass.getESuperTypes ().add ( theOsgiPackage.getApplicationModule () );
         exporterItemInterceptorEClass.getESuperTypes ().add ( theComponentPackage.getItemInterceptor () );
+        driverApplicationEClass.getESuperTypes ().add ( theWorldPackage.getDriver () );
+        driverApplicationEClass.getESuperTypes ().add ( theOsgiPackage.getEquinoxApplication () );
+        iec60870DriverEClass.getESuperTypes ().add ( theInfrastructurePackage.getAbstractEquinoxDriver () );
+        iec60870DeviceEClass.getESuperTypes ().add ( theInfrastructurePackage.getDevice () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( exporterEClass, Exporter.class, "Exporter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -710,6 +926,26 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
         initEAttribute ( getDataModuleOptions_SpontaneousItemBuffer (), ecorePackage.getEIntegerObject (), "spontaneousItemBuffer", "100", 0, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getDataModuleOptions_TimestampsForBoolean (), ecorePackage.getEBoolean (), "timestampsForBoolean", "true", 1, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getDataModuleOptions_TimestampsForFloat (), ecorePackage.getEBoolean (), "timestampsForFloat", "true", 1, 1, DataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( clientDeviceEClass, ClientDevice.class, "ClientDevice", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getClientDevice_Endpoint (), theWorldPackage.getEndpoint (), null, "endpoint", null, 1, 1, ClientDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getClientDevice_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, ClientDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getClientDevice_DataModuleOptions (), this.getClientDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, ClientDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getClientDevice_Id (), ecorePackage.getEString (), "id", null, 1, 1, ClientDevice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( driverApplicationEClass, DriverApplication.class, "DriverApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getDriverApplication_Devices (), this.getClientDevice (), null, "devices", null, 0, -1, DriverApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( clientDataModuleOptionsEClass, ClientDataModuleOptions.class, "ClientDataModuleOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getClientDataModuleOptions_IgnoreBackgroundScan (), ecorePackage.getEBoolean (), "ignoreBackgroundScan", "false", 1, 1, ClientDataModuleOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
+
+        initEClass ( iec60870DriverEClass, IEC60870Driver.class, "IEC60870Driver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getIEC60870Driver_Devices (), this.getIEC60870Device (), null, "devices", null, 0, -1, IEC60870Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( iec60870DeviceEClass, IEC60870Device.class, "IEC60870Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getIEC60870Device_DataModuleOptions (), this.getClientDataModuleOptions (), null, "dataModuleOptions", null, 0, 1, IEC60870Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getIEC60870Device_ProtocolOptions (), this.getProtocolOptions (), null, "protocolOptions", null, 0, 1, IEC60870Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getIEC60870Device_Port (), ecorePackage.getEInt (), "port", "2404", 1, 1, IEC60870Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         // Initialize enums and add enum literals
         initEEnum ( dataTypeEEnum, DataType.class, "DataType" ); //$NON-NLS-1$
@@ -873,6 +1109,11 @@ public class IEC60870PackageImpl extends EPackageImpl implements IEC60870Package
                 source,
                 new String[]
                 {       "name", "withTimestamp.float" //$NON-NLS-1$ //$NON-NLS-2$
+                } );
+        addAnnotation ( getClientDataModuleOptions_IgnoreBackgroundScan (),
+                source,
+                new String[]
+                {       "name", "ignoreBackgroundScan" //$NON-NLS-1$ //$NON-NLS-2$
                 } );
     }
 

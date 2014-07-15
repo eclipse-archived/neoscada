@@ -16,9 +16,7 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.generator.Profiles;
@@ -106,8 +104,8 @@ public class ExporterProcessor implements OscarProcessor
         final Map<String, String> data = new HashMap<String, String> ();
         data.put ( "port", Integer.toString ( device.getEndpoint ().getPortNumber () ) ); //$NON-NLS-1$
 
-        encode ( data, null, device.getProtocolOptions () );
-        encode ( data, null, device.getDataModuleOptions () );
+        Configurations.encode ( data, null, device.getProtocolOptions () );
+        Configurations.encode ( data, null, device.getDataModuleOptions () );
 
         // Add hive properties
         for ( final PropertyEntry property : device.getHiveProperties () )
@@ -122,63 +120,6 @@ public class ExporterProcessor implements OscarProcessor
             processItem ( data, item );
         }
         ctx.addData ( DEVICE_FACTORY_ID, id, data );
-    }
-
-    protected static void encode ( final Map<String, String> data, final String prefix, final EObject object )
-    {
-        if ( object == null )
-        {
-            return;
-        }
-
-        for ( final EStructuralFeature sf : object.eClass ().getEAllStructuralFeatures () )
-        {
-            if ( sf.isMany () )
-            {
-                continue;
-            }
-
-            final EAnnotation an = sf.getEAnnotation ( "http://eclipse.org/SCADA/CA/Descriptor" ); //$NON-NLS-1$
-            if ( an == null )
-            {
-                continue;
-            }
-            final String name = an.getDetails ().get ( "name" ); //$NON-NLS-1$
-            if ( name == null )
-            {
-                continue;
-            }
-            final String format = an.getDetails ().get ( "format" ); //$NON-NLS-1$
-
-            String key;
-            String value;
-
-            if ( prefix != null )
-            {
-                key = prefix + "." + name;
-            }
-            else
-            {
-                key = name;
-            }
-
-            final Object v = object.eGet ( sf );
-            if ( v == null )
-            {
-                continue;
-            }
-
-            if ( format != null )
-            {
-                value = String.format ( format, v );
-            }
-            else
-            {
-                value = v == null ? null : v.toString ();
-            }
-
-            data.put ( key, value );
-        }
     }
 
     private void processItem ( final Map<String, String> data, final Item item )

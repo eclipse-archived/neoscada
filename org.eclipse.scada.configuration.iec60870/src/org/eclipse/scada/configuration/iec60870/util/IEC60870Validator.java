@@ -112,6 +112,16 @@ public class IEC60870Validator extends EObjectValidator
                 return validateProtocolOptions ( (ProtocolOptions)value, diagnostics, context );
             case IEC60870Package.DATA_MODULE_OPTIONS:
                 return validateDataModuleOptions ( (DataModuleOptions)value, diagnostics, context );
+            case IEC60870Package.CLIENT_DEVICE:
+                return validateClientDevice ( (ClientDevice)value, diagnostics, context );
+            case IEC60870Package.DRIVER_APPLICATION:
+                return validateDriverApplication ( (DriverApplication)value, diagnostics, context );
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS:
+                return validateClientDataModuleOptions ( (ClientDataModuleOptions)value, diagnostics, context );
+            case IEC60870Package.IEC60870_DRIVER:
+                return validateIEC60870Driver ( (IEC60870Driver)value, diagnostics, context );
+            case IEC60870Package.IEC60870_DEVICE:
+                return validateIEC60870Device ( (IEC60870Device)value, diagnostics, context );
             case IEC60870Package.DATA_TYPE:
                 return validateDataType ( (DataType)value, diagnostics, context );
             case IEC60870Package.ADDRESS:
@@ -254,6 +264,56 @@ public class IEC60870Validator extends EObjectValidator
     public boolean validateDataModuleOptions ( DataModuleOptions dataModuleOptions, DiagnosticChain diagnostics, Map<Object, Object> context )
     {
         return validate_EveryDefaultConstraint ( dataModuleOptions, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateClientDevice ( ClientDevice clientDevice, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( clientDevice, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateDriverApplication ( DriverApplication driverApplication, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( driverApplication, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateClientDataModuleOptions ( ClientDataModuleOptions clientDataModuleOptions, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( clientDataModuleOptions, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateIEC60870Driver ( IEC60870Driver iec60870Driver, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( iec60870Driver, diagnostics, context );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public boolean validateIEC60870Device ( IEC60870Device iec60870Device, DiagnosticChain diagnostics, Map<Object, Object> context )
+    {
+        return validate_EveryDefaultConstraint ( iec60870Device, diagnostics, context );
     }
 
     /**

@@ -34,8 +34,13 @@
             uri="http://eclipse.org/SCADA/Configuration/Component"
             class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$ComponentChildCreationExtender"/>
       <extender
+            uri="http://eclipse.org/SCADA/Configuration/Infrastructure"
+            class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$InfrastructureChildCreationExtender"/>
+      <extender
+            uri="http://eclipse.org/SCADA/Configuration/World"
+            class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$WorldChildCreationExtender"/>
+      <extender
             uri="http://eclipse.org/SCADA/Configuration/World/OSGi"
             class="org.eclipse.scada.configuration.iec60870.provider.IEC60870ItemProviderAdapterFactory$OsgiChildCreationExtender"/>
    </extension>
-
 </plugin>

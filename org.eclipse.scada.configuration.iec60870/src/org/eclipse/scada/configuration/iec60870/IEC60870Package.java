@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.scada.configuration.component.ComponentPackage;
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 
 /**
@@ -521,6 +523,398 @@ public interface IEC60870Package extends EPackage
     int DATA_MODULE_OPTIONS_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.ClientDeviceImpl <em>Client Device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.ClientDeviceImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getClientDevice()
+     * @generated
+     */
+    int CLIENT_DEVICE = 6;
+
+    /**
+     * The feature id for the '<em><b>Endpoint</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE__ENDPOINT = 0;
+
+    /**
+     * The feature id for the '<em><b>Protocol Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE__PROTOCOL_OPTIONS = 1;
+
+    /**
+     * The feature id for the '<em><b>Data Module Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE__DATA_MODULE_OPTIONS = 2;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE__ID = 3;
+
+    /**
+     * The number of structural features of the '<em>Client Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE_FEATURE_COUNT = 4;
+
+    /**
+     * The number of operations of the '<em>Client Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DEVICE_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.DriverApplicationImpl <em>Driver Application</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.DriverApplicationImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDriverApplication()
+     * @generated
+     */
+    int DRIVER_APPLICATION = 7;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__SHORT_DESCRIPTION = WorldPackage.DRIVER__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__NAME = WorldPackage.DRIVER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Connections</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__CONNECTIONS = WorldPackage.DRIVER_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Exporter</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__EXPORTER = WorldPackage.DRIVER_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Customization Profile</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__CUSTOMIZATION_PROFILE = WorldPackage.DRIVER_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__SECURITY_CONFIGURATION = WorldPackage.DRIVER_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Modules</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__MODULES = WorldPackage.DRIVER_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Devices</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION__DEVICES = WorldPackage.DRIVER_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>Driver Application</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION_FEATURE_COUNT = WorldPackage.DRIVER_FEATURE_COUNT + 6;
+
+    /**
+     * The operation id for the '<em>Get Endpoints</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION___GET_ENDPOINTS = WorldPackage.DRIVER___GET_ENDPOINTS;
+
+    /**
+     * The operation id for the '<em>Get Profile</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION___GET_PROFILE = WorldPackage.DRIVER_OPERATION_COUNT + 0;
+
+    /**
+     * The number of operations of the '<em>Driver Application</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DRIVER_APPLICATION_OPERATION_COUNT = WorldPackage.DRIVER_OPERATION_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.ClientDataModuleOptionsImpl <em>Client Data Module Options</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.ClientDataModuleOptionsImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getClientDataModuleOptions()
+     * @generated
+     */
+    int CLIENT_DATA_MODULE_OPTIONS = 8;
+
+    /**
+     * The feature id for the '<em><b>Ignore Background Scan</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN = 0;
+
+    /**
+     * The number of structural features of the '<em>Client Data Module Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DATA_MODULE_OPTIONS_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Client Data Module Options</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CLIENT_DATA_MODULE_OPTIONS_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DriverImpl <em>Driver</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870DriverImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getIEC60870Driver()
+     * @generated
+     */
+    int IEC60870_DRIVER = 9;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__NAME = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__NAME;
+
+    /**
+     * The feature id for the '<em><b>Node</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__NODE = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__NODE;
+
+    /**
+     * The feature id for the '<em><b>Instance Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__INSTANCE_NUMBER = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__INSTANCE_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>User Service</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__USER_SERVICE = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__USER_SERVICE;
+
+    /**
+     * The feature id for the '<em><b>Security Configuration</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__SECURITY_CONFIGURATION = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__SECURITY_CONFIGURATION;
+
+    /**
+     * The feature id for the '<em><b>Access Credentials</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__ACCESS_CREDENTIALS = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER__ACCESS_CREDENTIALS;
+
+    /**
+     * The feature id for the '<em><b>Devices</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER__DEVICES = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Driver</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER_FEATURE_COUNT = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Driver</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DRIVER_OPERATION_COUNT = InfrastructurePackage.ABSTRACT_EQUINOX_DRIVER_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl <em>Device</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl
+     * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getIEC60870Device()
+     * @generated
+     */
+    int IEC60870_DEVICE = 10;
+
+    /**
+     * The feature id for the '<em><b>Short Description</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__SHORT_DESCRIPTION = InfrastructurePackage.DEVICE__SHORT_DESCRIPTION;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__NAME = InfrastructurePackage.DEVICE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Node</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__NODE = InfrastructurePackage.DEVICE__NODE;
+
+    /**
+     * The feature id for the '<em><b>Data Module Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__DATA_MODULE_OPTIONS = InfrastructurePackage.DEVICE_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Protocol Options</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__PROTOCOL_OPTIONS = InfrastructurePackage.DEVICE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Port</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE__PORT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE_FEATURE_COUNT = InfrastructurePackage.DEVICE_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Device</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IEC60870_DEVICE_OPERATION_COUNT = InfrastructurePackage.DEVICE_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -528,7 +922,7 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 6;
+    int DATA_TYPE = 11;
 
     /**
      * The meta object id for the '<em>Address</em>' data type.
@@ -538,7 +932,7 @@ public interface IEC60870Package extends EPackage
      * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getAddress()
      * @generated
      */
-    int ADDRESS = 7;
+    int ADDRESS = 12;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.Exporter <em>Exporter</em>}'.
@@ -920,6 +1314,166 @@ public interface IEC60870Package extends EPackage
     EAttribute getDataModuleOptions_TimestampsForFloat ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.ClientDevice <em>Client Device</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Client Device</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice
+     * @generated
+     */
+    EClass getClientDevice ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.iec60870.ClientDevice#getEndpoint <em>Endpoint</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Endpoint</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice#getEndpoint()
+     * @see #getClientDevice()
+     * @generated
+     */
+    EReference getClientDevice_Endpoint ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.ClientDevice#getProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Protocol Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice#getProtocolOptions()
+     * @see #getClientDevice()
+     * @generated
+     */
+    EReference getClientDevice_ProtocolOptions ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.ClientDevice#getDataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice#getDataModuleOptions()
+     * @see #getClientDevice()
+     * @generated
+     */
+    EReference getClientDevice_DataModuleOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ClientDevice#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice#getId()
+     * @see #getClientDevice()
+     * @generated
+     */
+    EAttribute getClientDevice_Id ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.DriverApplication <em>Driver Application</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Driver Application</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DriverApplication
+     * @generated
+     */
+    EClass getDriverApplication ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.iec60870.DriverApplication#getDevices <em>Devices</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Devices</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.DriverApplication#getDevices()
+     * @see #getDriverApplication()
+     * @generated
+     */
+    EReference getDriverApplication_Devices ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions <em>Client Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Client Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions
+     * @generated
+     */
+    EClass getClientDataModuleOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions#isIgnoreBackgroundScan <em>Ignore Background Scan</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Ignore Background Scan</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions#isIgnoreBackgroundScan()
+     * @see #getClientDataModuleOptions()
+     * @generated
+     */
+    EAttribute getClientDataModuleOptions_IgnoreBackgroundScan ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.IEC60870Driver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Driver</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Driver
+     * @generated
+     */
+    EClass getIEC60870Driver ();
+
+    /**
+     * Returns the meta object for the reference list '{@link org.eclipse.scada.configuration.iec60870.IEC60870Driver#getDevices <em>Devices</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference list '<em>Devices</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Driver#getDevices()
+     * @see #getIEC60870Driver()
+     * @generated
+     */
+    EReference getIEC60870Driver_Devices ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.iec60870.IEC60870Device <em>Device</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Device</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Device
+     * @generated
+     */
+    EClass getIEC60870Device ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.IEC60870Device#getDataModuleOptions <em>Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Data Module Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Device#getDataModuleOptions()
+     * @see #getIEC60870Device()
+     * @generated
+     */
+    EReference getIEC60870Device_DataModuleOptions ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.iec60870.IEC60870Device#getProtocolOptions <em>Protocol Options</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Protocol Options</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Device#getProtocolOptions()
+     * @see #getIEC60870Device()
+     * @generated
+     */
+    EReference getIEC60870Device_ProtocolOptions ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.iec60870.IEC60870Device#getPort <em>Port</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port</em>'.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Device#getPort()
+     * @see #getIEC60870Device()
+     * @generated
+     */
+    EAttribute getIEC60870Device_Port ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1255,6 +1809,136 @@ public interface IEC60870Package extends EPackage
          * @generated
          */
         EAttribute DATA_MODULE_OPTIONS__TIMESTAMPS_FOR_FLOAT = eINSTANCE.getDataModuleOptions_TimestampsForFloat ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ClientDeviceImpl <em>Client Device</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.ClientDeviceImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getClientDevice()
+         * @generated
+         */
+        EClass CLIENT_DEVICE = eINSTANCE.getClientDevice ();
+
+        /**
+         * The meta object literal for the '<em><b>Endpoint</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CLIENT_DEVICE__ENDPOINT = eINSTANCE.getClientDevice_Endpoint ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CLIENT_DEVICE__PROTOCOL_OPTIONS = eINSTANCE.getClientDevice_ProtocolOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Module Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CLIENT_DEVICE__DATA_MODULE_OPTIONS = eINSTANCE.getClientDevice_DataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_DEVICE__ID = eINSTANCE.getClientDevice_Id ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.DriverApplicationImpl <em>Driver Application</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.DriverApplicationImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getDriverApplication()
+         * @generated
+         */
+        EClass DRIVER_APPLICATION = eINSTANCE.getDriverApplication ();
+
+        /**
+         * The meta object literal for the '<em><b>Devices</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference DRIVER_APPLICATION__DEVICES = eINSTANCE.getDriverApplication_Devices ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.ClientDataModuleOptionsImpl <em>Client Data Module Options</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.ClientDataModuleOptionsImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getClientDataModuleOptions()
+         * @generated
+         */
+        EClass CLIENT_DATA_MODULE_OPTIONS = eINSTANCE.getClientDataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Ignore Background Scan</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute CLIENT_DATA_MODULE_OPTIONS__IGNORE_BACKGROUND_SCAN = eINSTANCE.getClientDataModuleOptions_IgnoreBackgroundScan ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DriverImpl <em>Driver</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870DriverImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getIEC60870Driver()
+         * @generated
+         */
+        EClass IEC60870_DRIVER = eINSTANCE.getIEC60870Driver ();
+
+        /**
+         * The meta object literal for the '<em><b>Devices</b></em>' reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference IEC60870_DRIVER__DEVICES = eINSTANCE.getIEC60870Driver_Devices ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl <em>Device</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870DeviceImpl
+         * @see org.eclipse.scada.configuration.iec60870.impl.IEC60870PackageImpl#getIEC60870Device()
+         * @generated
+         */
+        EClass IEC60870_DEVICE = eINSTANCE.getIEC60870Device ();
+
+        /**
+         * The meta object literal for the '<em><b>Data Module Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference IEC60870_DEVICE__DATA_MODULE_OPTIONS = eINSTANCE.getIEC60870Device_DataModuleOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Protocol Options</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference IEC60870_DEVICE__PROTOCOL_OPTIONS = eINSTANCE.getIEC60870Device_ProtocolOptions ();
+
+        /**
+         * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute IEC60870_DEVICE__PORT = eINSTANCE.getIEC60870Device_Port ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.iec60870.DataType <em>Data Type</em>}' enum.

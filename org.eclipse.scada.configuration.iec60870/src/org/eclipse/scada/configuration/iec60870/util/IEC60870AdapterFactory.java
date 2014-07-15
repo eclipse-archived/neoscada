@@ -21,7 +21,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.*;
 
+import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
+import org.eclipse.scada.configuration.world.Application;
+import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.Driver;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,6 +130,36 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseClientDevice ( ClientDevice object )
+                {
+                    return createClientDeviceAdapter ();
+                }
+
+                @Override
+                public Adapter caseDriverApplication ( DriverApplication object )
+                {
+                    return createDriverApplicationAdapter ();
+                }
+
+                @Override
+                public Adapter caseClientDataModuleOptions ( ClientDataModuleOptions object )
+                {
+                    return createClientDataModuleOptionsAdapter ();
+                }
+
+                @Override
+                public Adapter caseIEC60870Driver ( IEC60870Driver object )
+                {
+                    return createIEC60870DriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseIEC60870Device ( IEC60870Device object )
+                {
+                    return createIEC60870DeviceAdapter ();
+                }
+
+                @Override
                 public Adapter caseApplicationModule ( ApplicationModule object )
                 {
                     return createApplicationModuleAdapter ();
@@ -132,6 +169,60 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
                 public Adapter caseItemInterceptor ( ItemInterceptor object )
                 {
                     return createItemInterceptorAdapter ();
+                }
+
+                @Override
+                public Adapter caseDocumentable ( Documentable object )
+                {
+                    return createDocumentableAdapter ();
+                }
+
+                @Override
+                public Adapter caseNamedDocumentable ( NamedDocumentable object )
+                {
+                    return createNamedDocumentableAdapter ();
+                }
+
+                @Override
+                public Adapter caseApplication ( Application object )
+                {
+                    return createApplicationAdapter ();
+                }
+
+                @Override
+                public Adapter caseDriver ( Driver object )
+                {
+                    return createDriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseEquinoxApplication ( EquinoxApplication object )
+                {
+                    return createEquinoxApplicationAdapter ();
+                }
+
+                @Override
+                public Adapter caseInfrastructure_Driver ( org.eclipse.scada.configuration.infrastructure.Driver object )
+                {
+                    return createInfrastructure_DriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseEquinoxBase ( EquinoxBase object )
+                {
+                    return createEquinoxBaseAdapter ();
+                }
+
+                @Override
+                public Adapter caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+                {
+                    return createAbstractEquinoxDriverAdapter ();
+                }
+
+                @Override
+                public Adapter caseInfrastructure_Device ( org.eclipse.scada.configuration.infrastructure.Device object )
+                {
+                    return createInfrastructure_DeviceAdapter ();
                 }
 
                 @Override
@@ -246,6 +337,81 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
     }
 
     /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.ClientDevice <em>Client Device</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDevice
+     * @generated
+     */
+    public Adapter createClientDeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.DriverApplication <em>Driver Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.DriverApplication
+     * @generated
+     */
+    public Adapter createDriverApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions <em>Client Data Module Options</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions
+     * @generated
+     */
+    public Adapter createClientDataModuleOptionsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.IEC60870Driver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Driver
+     * @generated
+     */
+    public Adapter createIEC60870DriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.iec60870.IEC60870Device <em>Device</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.iec60870.IEC60870Device
+     * @generated
+     */
+    public Adapter createIEC60870DeviceAdapter ()
+    {
+        return null;
+    }
+
+    /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationModule <em>Application Module</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -271,6 +437,141 @@ public class IEC60870AdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createItemInterceptorAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Documentable <em>Documentable</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Documentable
+     * @generated
+     */
+    public Adapter createDocumentableAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.NamedDocumentable <em>Named Documentable</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.NamedDocumentable
+     * @generated
+     */
+    public Adapter createNamedDocumentableAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Application <em>Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Application
+     * @generated
+     */
+    public Adapter createApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Driver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Driver
+     * @generated
+     */
+    public Adapter createDriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.osgi.EquinoxApplication
+     * @generated
+     */
+    public Adapter createEquinoxApplicationAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Driver <em>Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.Driver
+     * @generated
+     */
+    public Adapter createInfrastructure_DriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.EquinoxBase <em>Equinox Base</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.EquinoxBase
+     * @generated
+     */
+    public Adapter createEquinoxBaseAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver <em>Abstract Equinox Driver</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver
+     * @generated
+     */
+    public Adapter createAbstractEquinoxDriverAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Device <em>Device</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.infrastructure.Device
+     * @generated
+     */
+    public Adapter createInfrastructure_DeviceAdapter ()
     {
         return null;
     }

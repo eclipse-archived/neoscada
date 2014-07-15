@@ -86,6 +86,51 @@ public interface IEC60870Factory extends EFactory
     DataModuleOptions createDataModuleOptions ();
 
     /**
+     * Returns a new object of class '<em>Client Device</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Client Device</em>'.
+     * @generated
+     */
+    ClientDevice createClientDevice ();
+
+    /**
+     * Returns a new object of class '<em>Driver Application</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Driver Application</em>'.
+     * @generated
+     */
+    DriverApplication createDriverApplication ();
+
+    /**
+     * Returns a new object of class '<em>Client Data Module Options</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Client Data Module Options</em>'.
+     * @generated
+     */
+    ClientDataModuleOptions createClientDataModuleOptions ();
+
+    /**
+     * Returns a new object of class '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Driver</em>'.
+     * @generated
+     */
+    IEC60870Driver createIEC60870Driver ();
+
+    /**
+     * Returns a new object of class '<em>Device</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Device</em>'.
+     * @generated
+     */
+    IEC60870Device createIEC60870Device ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

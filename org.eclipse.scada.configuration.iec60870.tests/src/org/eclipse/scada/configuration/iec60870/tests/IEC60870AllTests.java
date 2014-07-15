@@ -43,6 +43,7 @@ public class IEC60870AllTests extends TestSuite
     public static Test suite ()
     {
         TestSuite suite = new IEC60870AllTests ( "IEC60870 Tests" ); //$NON-NLS-1$
+        suite.addTest ( IEC60870Tests.suite () );
         return suite;
     }
 

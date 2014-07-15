@@ -19,7 +19,14 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.iec60870.*;
 
+import org.eclipse.scada.configuration.infrastructure.AbstractEquinoxDriver;
+import org.eclipse.scada.configuration.infrastructure.EquinoxBase;
+import org.eclipse.scada.configuration.world.Application;
+import org.eclipse.scada.configuration.world.Documentable;
+import org.eclipse.scada.configuration.world.Driver;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
+import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,6 +143,68 @@ public class IEC60870Switch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case IEC60870Package.CLIENT_DEVICE:
+            {
+                ClientDevice clientDevice = (ClientDevice)theEObject;
+                T result = caseClientDevice ( clientDevice );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.DRIVER_APPLICATION:
+            {
+                DriverApplication driverApplication = (DriverApplication)theEObject;
+                T result = caseDriverApplication ( driverApplication );
+                if ( result == null )
+                    result = caseDriver ( driverApplication );
+                if ( result == null )
+                    result = caseEquinoxApplication ( driverApplication );
+                if ( result == null )
+                    result = caseApplication ( driverApplication );
+                if ( result == null )
+                    result = caseNamedDocumentable ( driverApplication );
+                if ( result == null )
+                    result = caseDocumentable ( driverApplication );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS:
+            {
+                ClientDataModuleOptions clientDataModuleOptions = (ClientDataModuleOptions)theEObject;
+                T result = caseClientDataModuleOptions ( clientDataModuleOptions );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.IEC60870_DRIVER:
+            {
+                IEC60870Driver iec60870Driver = (IEC60870Driver)theEObject;
+                T result = caseIEC60870Driver ( iec60870Driver );
+                if ( result == null )
+                    result = caseAbstractEquinoxDriver ( iec60870Driver );
+                if ( result == null )
+                    result = caseInfrastructure_Driver ( iec60870Driver );
+                if ( result == null )
+                    result = caseEquinoxBase ( iec60870Driver );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case IEC60870Package.IEC60870_DEVICE:
+            {
+                IEC60870Device iec60870Device = (IEC60870Device)theEObject;
+                T result = caseIEC60870Device ( iec60870Device );
+                if ( result == null )
+                    result = caseInfrastructure_Device ( iec60870Device );
+                if ( result == null )
+                    result = caseNamedDocumentable ( iec60870Device );
+                if ( result == null )
+                    result = caseDocumentable ( iec60870Device );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -238,6 +307,86 @@ public class IEC60870Switch<T> extends Switch<T>
     }
 
     /**
+     * Returns the result of interpreting the object as an instance of '<em>Client Device</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Client Device</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseClientDevice ( ClientDevice object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDriverApplication ( DriverApplication object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Client Data Module Options</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Client Data Module Options</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseClientDataModuleOptions ( ClientDataModuleOptions object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseIEC60870Driver ( IEC60870Driver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Device</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseIEC60870Device ( IEC60870Device object )
+    {
+        return null;
+    }
+
+    /**
      * Returns the result of interpreting the object as an instance of '<em>Application Module</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -265,6 +414,150 @@ public class IEC60870Switch<T> extends Switch<T>
      * @generated
      */
     public T caseItemInterceptor ( ItemInterceptor object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Documentable</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDocumentable ( Documentable object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Named Documentable</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseNamedDocumentable ( NamedDocumentable object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseApplication ( Application object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDriver ( Driver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Application</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEquinoxApplication ( EquinoxApplication object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInfrastructure_Driver ( org.eclipse.scada.configuration.infrastructure.Driver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Equinox Base</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Equinox Base</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEquinoxBase ( EquinoxBase object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Equinox Driver</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractEquinoxDriver ( AbstractEquinoxDriver object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Device</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseInfrastructure_Device ( org.eclipse.scada.configuration.infrastructure.Device object )
     {
         return null;
     }

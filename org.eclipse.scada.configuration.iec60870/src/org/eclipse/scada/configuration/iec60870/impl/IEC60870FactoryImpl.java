@@ -86,6 +86,16 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
                 return createProtocolOptions ();
             case IEC60870Package.DATA_MODULE_OPTIONS:
                 return createDataModuleOptions ();
+            case IEC60870Package.CLIENT_DEVICE:
+                return createClientDevice ();
+            case IEC60870Package.DRIVER_APPLICATION:
+                return createDriverApplication ();
+            case IEC60870Package.CLIENT_DATA_MODULE_OPTIONS:
+                return createClientDataModuleOptions ();
+            case IEC60870Package.IEC60870_DRIVER:
+                return createIEC60870Driver ();
+            case IEC60870Package.IEC60870_DEVICE:
+                return createIEC60870Device ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -193,6 +203,61 @@ public class IEC60870FactoryImpl extends EFactoryImpl implements IEC60870Factory
     {
         DataModuleOptionsImpl dataModuleOptions = new DataModuleOptionsImpl ();
         return dataModuleOptions;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ClientDevice createClientDevice ()
+    {
+        ClientDeviceImpl clientDevice = new ClientDeviceImpl ();
+        return clientDevice;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public DriverApplication createDriverApplication ()
+    {
+        DriverApplicationImpl driverApplication = new DriverApplicationImpl ();
+        return driverApplication;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ClientDataModuleOptions createClientDataModuleOptions ()
+    {
+        ClientDataModuleOptionsImpl clientDataModuleOptions = new ClientDataModuleOptionsImpl ();
+        return clientDataModuleOptions;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IEC60870Driver createIEC60870Driver ()
+    {
+        IEC60870DriverImpl iec60870Driver = new IEC60870DriverImpl ();
+        return iec60870Driver;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public IEC60870Device createIEC60870Device ()
+    {
+        IEC60870DeviceImpl iec60870Device = new IEC60870DeviceImpl ();
+        return iec60870Device;
     }
 
     /**

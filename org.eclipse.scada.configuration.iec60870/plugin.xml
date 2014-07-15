@@ -29,5 +29,4 @@
             type="iec60870"
             class="org.eclipse.scada.configuration.iec60870.util.IEC60870ResourceFactoryImpl"/>
    </extension>
-
 </plugin>

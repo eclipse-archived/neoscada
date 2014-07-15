@@ -37,11 +37,9 @@ import org.eclipse.scada.configuration.iec60870.edit.TimeZoneCellEditor;
 import org.eclipse.swt.widgets.Composite;
 
 /**
- * This is the item provider adapter for a
- * {@link org.eclipse.scada.configuration.iec60870.ProtocolOptions} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.iec60870.ProtocolOptions} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
  * @generated
  */
 public class ProtocolOptionsItemProvider
@@ -57,10 +55,9 @@ public class ProtocolOptionsItemProvider
      * This constructs an instance from a factory and a notifier.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    public ProtocolOptionsItemProvider ( final AdapterFactory adapterFactory )
+    public ProtocolOptionsItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -69,13 +66,12 @@ public class ProtocolOptionsItemProvider
      * This returns the property descriptors for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors ( final Object object )
+    public List<IItemPropertyDescriptor> getPropertyDescriptors ( Object object )
     {
-        if ( this.itemPropertyDescriptors == null )
+        if ( itemPropertyDescriptors == null )
         {
             super.getPropertyDescriptors ( object );
 
@@ -90,21 +86,20 @@ public class ProtocolOptionsItemProvider
             addTargetTimeZonePropertyDescriptor ( object );
             addIgnoreDaylightSavingTimePropertyDescriptor ( object );
         }
-        return this.itemPropertyDescriptors;
+        return itemPropertyDescriptors;
     }
 
     /**
      * This adds a property descriptor for the Timeout1 feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addTimeout1PropertyDescriptor ( final Object object )
+    protected void addTimeout1PropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_timeout1_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout1_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -121,14 +116,13 @@ public class ProtocolOptionsItemProvider
      * This adds a property descriptor for the Timeout2 feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addTimeout2PropertyDescriptor ( final Object object )
+    protected void addTimeout2PropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_timeout2_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout2_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -145,14 +139,13 @@ public class ProtocolOptionsItemProvider
      * This adds a property descriptor for the Timeout3 feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addTimeout3PropertyDescriptor ( final Object object )
+    protected void addTimeout3PropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_timeout3_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_timeout3_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -263,14 +256,13 @@ public class ProtocolOptionsItemProvider
      * This adds a property descriptor for the W feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addWPropertyDescriptor ( final Object object )
+    protected void addWPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_w_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_w_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -287,14 +279,13 @@ public class ProtocolOptionsItemProvider
      * This adds a property descriptor for the K feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addKPropertyDescriptor ( final Object object )
+    protected void addKPropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_k_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_k_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -341,18 +332,16 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Ignore Daylight Saving Time
-     * feature.
+     * This adds a property descriptor for the Ignore Daylight Saving Time feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
-    protected void addIgnoreDaylightSavingTimePropertyDescriptor ( final Object object )
+    protected void addIgnoreDaylightSavingTimePropertyDescriptor ( Object object )
     {
-        this.itemPropertyDescriptors.add
+        itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)this.adapterFactory ).getRootAdapterFactory (),
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
                         getString ( "_UI_ProtocolOptions_ignoreDaylightSavingTime_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_ProtocolOptions_ignoreDaylightSavingTime_feature", "_UI_ProtocolOptions_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
@@ -369,11 +358,10 @@ public class ProtocolOptionsItemProvider
      * This returns ProtocolOptions.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object getImage ( final Object object )
+    public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ProtocolOptions" ) ); //$NON-NLS-1$
     }
@@ -392,17 +380,14 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
-     * This handles model notifications by calling {@link #updateChildren} to
-     * update any cached
-     * children and by creating a viewer notification, which it passes to
-     * {@link #fireNotifyChanged}.
+     * This handles model notifications by calling {@link #updateChildren} to update any cached
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void notifyChanged ( final Notification notification )
+    public void notifyChanged ( Notification notification )
     {
         updateChildren ( notification );
 
@@ -425,16 +410,14 @@ public class ProtocolOptionsItemProvider
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s
-     * describing the children
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
      * that can be created under this object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors ( final Collection<Object> newChildDescriptors, final Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }
@@ -443,13 +426,12 @@ public class ProtocolOptionsItemProvider
      * Return the resource locator for this item provider's resources.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public ResourceLocator getResourceLocator ()
     {
-        return ( (IChildCreationExtender)this.adapterFactory ).getResourceLocator ();
+        return ( (IChildCreationExtender)adapterFactory ).getResourceLocator ();
     }
 
 }

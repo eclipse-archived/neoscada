@@ -7,6 +7,15 @@
             class="org.eclipse.scada.configuration.iec60870.lib.ExporterProcessor">
       </oscarProcessor>
    </extension>
+   
+     <extension
+         point="org.eclipse.scada.configuration.world.lib.generator">
+      <nodeElementProcessor
+            factoryClass="org.eclipse.scada.configuration.iec60870.lib.hive.DriverProcessorFactory"
+            forClass="org.eclipse.scada.configuration.iec60870.DriverApplication">
+      </nodeElementProcessor>
+   </extension>
+   
   <extension
         point="org.eclipse.core.runtime.adapters">
   	<factory
@@ -14,6 +23,13 @@
          class="org.eclipse.scada.configuration.iec60870.lib.InterceptorAdapterFactory">
       <adapter
             type="org.eclipse.scada.configuration.component.lib.ItemInterceptorHandler">
+      </adapter>
+   </factory>
+   <factory
+         adaptableType="org.eclipse.scada.configuration.iec60870.IEC60870Driver"
+         class="org.eclipse.scada.configuration.iec60870.lib.hive.DriverAdapterFactoryImpl">
+      <adapter
+            type="org.eclipse.scada.configuration.infrastructure.lib.DriverHandler">
       </adapter>
    </factory>
         

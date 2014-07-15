@@ -59,5 +59,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/timestampsForBoolean"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//DataModuleOptions/timestampsForFloat"/>
     </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//ClientDevice">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference iec60870.ecore#//ClientDevice/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ClientDevice/protocolOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//ClientDevice/dataModuleOptions"/>
+    </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//DriverApplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//DriverApplication/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//ClientDataModuleOptions">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute iec60870.ecore#//ClientDataModuleOptions/ignoreBackgroundScan"/>
+    </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//IEC60870Driver">
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference iec60870.ecore#//IEC60870Driver/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="iec60870.ecore#//IEC60870Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//IEC60870Device/dataModuleOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference iec60870.ecore#//IEC60870Device/protocolOptions"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

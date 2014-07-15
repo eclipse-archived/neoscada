@@ -162,4 +162,37 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientDevice">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Endpoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DriverApplication" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Driver ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//osgi/EquinoxApplication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//ClientDevice" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClientDataModuleOptions">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreBackgroundScan" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false">
+      <eAnnotations source="http://eclipse.org/SCADA/CA/Descriptor">
+        <details key="name" value="ignoreBackgroundScan"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IEC60870Driver" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//AbstractEquinoxDriver">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="devices" upperBound="-1"
+        eType="#//IEC60870Device"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IEC60870Device" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Device">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataModuleOptions" eType="#//ClientDataModuleOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="protocolOptions" eType="#//ProtocolOptions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2404"/>
+  </eClassifiers>
 </ecore:EPackage>

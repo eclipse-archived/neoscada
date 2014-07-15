@@ -41,9 +41,16 @@ import org.eclipse.scada.configuration.component.util.ComponentSwitch;
 import org.eclipse.scada.configuration.iec60870.IEC60870Factory;
 import org.eclipse.scada.configuration.iec60870.IEC60870Package;
 import org.eclipse.scada.configuration.iec60870.util.IEC60870AdapterFactory;
+import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.infrastructure.Node;
+import org.eclipse.scada.configuration.infrastructure.SystemNode;
+import org.eclipse.scada.configuration.infrastructure.util.InfrastructureSwitch;
+import org.eclipse.scada.configuration.world.ApplicationNode;
+import org.eclipse.scada.configuration.world.WorldPackage;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
 import org.eclipse.scada.configuration.world.osgi.util.OsgiSwitch;
+import org.eclipse.scada.configuration.world.util.WorldSwitch;
 import org.eclipse.ui.views.properties.IPropertySource;
 
 /**
@@ -257,6 +264,131 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.iec60870.ClientDevice} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ClientDeviceItemProvider clientDeviceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.iec60870.ClientDevice}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createClientDeviceAdapter ()
+    {
+        if ( clientDeviceItemProvider == null )
+        {
+            clientDeviceItemProvider = new ClientDeviceItemProvider ( this );
+        }
+
+        return clientDeviceItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.iec60870.DriverApplication} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected DriverApplicationItemProvider driverApplicationItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.iec60870.DriverApplication}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createDriverApplicationAdapter ()
+    {
+        if ( driverApplicationItemProvider == null )
+        {
+            driverApplicationItemProvider = new DriverApplicationItemProvider ( this );
+        }
+
+        return driverApplicationItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ClientDataModuleOptionsItemProvider clientDataModuleOptionsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.iec60870.ClientDataModuleOptions}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createClientDataModuleOptionsAdapter ()
+    {
+        if ( clientDataModuleOptionsItemProvider == null )
+        {
+            clientDataModuleOptionsItemProvider = new ClientDataModuleOptionsItemProvider ( this );
+        }
+
+        return clientDataModuleOptionsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.iec60870.IEC60870Driver} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IEC60870DriverItemProvider iec60870DriverItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.iec60870.IEC60870Driver}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIEC60870DriverAdapter ()
+    {
+        if ( iec60870DriverItemProvider == null )
+        {
+            iec60870DriverItemProvider = new IEC60870DriverItemProvider ( this );
+        }
+
+        return iec60870DriverItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.iec60870.IEC60870Device} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected IEC60870DeviceItemProvider iec60870DeviceItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.iec60870.IEC60870Device}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createIEC60870DeviceAdapter ()
+    {
+        if ( iec60870DeviceItemProvider == null )
+        {
+            iec60870DeviceItemProvider = new IEC60870DeviceItemProvider ( this );
+        }
+
+        return iec60870DeviceItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -417,6 +549,16 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
             protocolOptionsItemProvider.dispose ();
         if ( dataModuleOptionsItemProvider != null )
             dataModuleOptionsItemProvider.dispose ();
+        if ( clientDeviceItemProvider != null )
+            clientDeviceItemProvider.dispose ();
+        if ( driverApplicationItemProvider != null )
+            driverApplicationItemProvider.dispose ();
+        if ( clientDataModuleOptionsItemProvider != null )
+            clientDataModuleOptionsItemProvider.dispose ();
+        if ( iec60870DriverItemProvider != null )
+            iec60870DriverItemProvider.dispose ();
+        if ( iec60870DeviceItemProvider != null )
+            iec60870DeviceItemProvider.dispose ();
     }
 
     /**
@@ -510,6 +652,212 @@ public class IEC60870ItemProviderAdapterFactory extends IEC60870AdapterFactory i
          * @generated
          */
         @Override
+        public ResourceLocator getResourceLocator ()
+        {
+            return IEC60870EditPlugin.INSTANCE;
+        }
+    }
+
+    /**
+     * A child creation extender for the {@link InfrastructurePackage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static class InfrastructureChildCreationExtender implements IChildCreationExtender
+    {
+        /**
+         * The switch for creating child descriptors specific to each extended class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected static class CreationSwitch extends InfrastructureSwitch<Object>
+        {
+            /**
+             * The child descriptors being populated.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            CreationSwitch ( List<Object> newChildDescriptors, EditingDomain editingDomain )
+            {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseNode ( Node object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( InfrastructurePackage.Literals.NODE__DEVICES,
+                                IEC60870Factory.eINSTANCE.createIEC60870Device () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseSystemNode ( SystemNode object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( InfrastructurePackage.Literals.SYSTEM_NODE__DRIVERS,
+                                IEC60870Factory.eINSTANCE.createIEC60870Driver () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected CommandParameter createChildParameter ( Object feature, Object child )
+            {
+                return new CommandParameter ( null, feature, child );
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
+        {
+            ArrayList<Object> result = new ArrayList<Object> ();
+            new CreationSwitch ( result, editingDomain ).doSwitch ( (EObject)object );
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ResourceLocator getResourceLocator ()
+        {
+            return IEC60870EditPlugin.INSTANCE;
+        }
+    }
+
+    /**
+     * A child creation extender for the {@link WorldPackage}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public static class WorldChildCreationExtender implements IChildCreationExtender
+    {
+        /**
+         * The switch for creating child descriptors specific to each extended class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected static class CreationSwitch extends WorldSwitch<Object>
+        {
+            /**
+             * The child descriptors being populated.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain.
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            CreationSwitch ( List<Object> newChildDescriptors, EditingDomain editingDomain )
+            {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            @Override
+            public Object caseApplicationNode ( ApplicationNode object )
+            {
+                newChildDescriptors.add
+                        ( createChildParameter
+                        ( WorldPackage.Literals.APPLICATION_NODE__APPLICATIONS,
+                                IEC60870Factory.eINSTANCE.createDriverApplication () ) );
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc -->
+             * <!-- end-user-doc -->
+             * @generated
+             */
+            protected CommandParameter createChildParameter ( Object feature, Object child )
+            {
+                return new CommandParameter ( null, feature, child );
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public Collection<Object> getNewChildDescriptors ( Object object, EditingDomain editingDomain )
+        {
+            ArrayList<Object> result = new ArrayList<Object> ();
+            new CreationSwitch ( result, editingDomain ).doSwitch ( (EObject)object );
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
         public ResourceLocator getResourceLocator ()
         {
             return IEC60870EditPlugin.INSTANCE;
