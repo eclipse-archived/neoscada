@@ -38,6 +38,16 @@ public class MeasuredValueShortFloatingPointSequence extends AbstractMessage
         this.values = values;
     }
 
+    public List<Value<Float>> getValues ()
+    {
+        return this.values;
+    }
+
+    public InformationObjectAddress getStartAddress ()
+    {
+        return this.startAddress;
+    }
+
     public static MeasuredValueShortFloatingPointSequence parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
         final InformationObjectAddress startAddress = InformationObjectAddress.parse ( options, data );

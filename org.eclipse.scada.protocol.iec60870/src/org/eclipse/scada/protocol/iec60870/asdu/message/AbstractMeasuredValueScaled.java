@@ -35,6 +35,11 @@ public abstract class AbstractMeasuredValueScaled extends AbstractMessage
         this.withTimestamp = withTimestamp;
     }
 
+    public List<InformationEntry<Short>> getEntries ()
+    {
+        return this.entries;
+    }
+
     @Override
     public void encode ( final ProtocolOptions options, final ByteBuf out )
     {

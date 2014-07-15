@@ -73,7 +73,7 @@ public class Value<T>
     @Override
     public String toString ()
     {
-        return String.format ( "[%s: %s - %s - %ty]", this.value.getClass ().getSimpleName (), this.value, this.qualityInformation, new Date ( this.timestamp ) );
+        return String.format ( "[%s: %s - %s - %4$tF %4$tH:%4$tM:%4$tS.%4$tL %4$tZ %4$tz", this.value.getClass ().getSimpleName (), this.value, this.qualityInformation, new Date ( this.timestamp ) );
     }
 
     @Override

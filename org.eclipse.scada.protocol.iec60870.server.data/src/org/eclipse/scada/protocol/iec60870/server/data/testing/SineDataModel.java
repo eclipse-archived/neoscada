@@ -145,7 +145,7 @@ public class SineDataModel extends AbstractBaseDataModel
     }
 
     @Override
-    public void forAllAsdu ( final Function<ASDUAddress, Void> function )
+    public void forAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
     {
         // we only have one
         function.apply ( ASDU_ADDRESS );

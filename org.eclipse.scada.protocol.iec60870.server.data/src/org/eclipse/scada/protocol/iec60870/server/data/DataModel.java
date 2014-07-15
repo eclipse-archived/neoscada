@@ -48,7 +48,7 @@ public interface DataModel
      * Read a specific value <br/>
      * The future will be called with the result of the read operation. If the
      * value is unknown the future must be called with <code>null</code>.
-     * 
+     *
      * @param address
      *            the address to read
      * @return a listener to the operation, <code>null</code> if the data model
@@ -60,7 +60,7 @@ public interface DataModel
      * Read all values from the internal structures <br/>
      * The data will not be returned by the future, but pushed to the
      * {@link DataListener}.
-     * 
+     *
      * @param asduAddress
      *            the ASDU common address
      * @param prepare
@@ -82,7 +82,7 @@ public interface DataModel
      * The background iterator instance <em>must not</em> cache values. As this
      * would cause a situation where more up-to-date values would get
      * overwritten by the cached values of the background iterator.
-     * 
+     *
      * @return the new background iterator or <code>null</code>
      */
     public BackgroundIterator createBackgroundIterator ();
@@ -96,11 +96,14 @@ public interface DataModel
      * <p>
      * The function call can be performed asynchronously.
      * </p>
-     * 
+     *
      * @param function
      *            the function to call for each known ASDU address
+     * @param ifNoneFound
+     *            will be called if there are no known common ASDU addresses,
+     *            may be <code>null</code>
      */
-    public void forAllAsdu ( Function<ASDUAddress, Void> function );
+    public void forAllAsdu ( Function<ASDUAddress, Void> function, Runnable ifNoneFound );
 
     public void dispose ();
 

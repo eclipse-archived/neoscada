@@ -12,6 +12,8 @@ package org.eclipse.scada.protocol.iec60870.server.data;
 
 import io.netty.channel.ChannelHandlerContext;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.scada.protocol.iec60870.apci.MessageChannel;
 import org.eclipse.scada.protocol.iec60870.asdu.ASDUHeader;
 import org.eclipse.scada.protocol.iec60870.asdu.message.DataTransmissionMessage;
@@ -97,38 +99,46 @@ public class DataModuleHandler extends AbstractModuleHandler
     {
         logger.debug ( "channelRead - msg: {}, ctx: {}", msg, ctx );
 
-        if ( msg == DataTransmissionMessage.REQUEST_START )
+        try
         {
-            startDataTransmission ( ctx );
+            if ( msg == DataTransmissionMessage.REQUEST_START )
+            {
+                startDataTransmission ( ctx );
+            }
+            else if ( msg == DataTransmissionMessage.REQUEST_STOP )
+            {
+                stopDataTransmission ( ctx );
+            }
+            else if ( msg instanceof ReadCommand )
+            {
+                handleReadCommand ( ctx, (ReadCommand)msg );
+            }
+            else if ( msg instanceof InterrogationCommand )
+            {
+                handleInterrogationCommand ( ctx, (InterrogationCommand)msg );
+            }
+            else if ( msg instanceof SingleCommand )
+            {
+                handleWriteCommand ( ctx, (SingleCommand)msg );
+            }
+            else if ( msg instanceof SetPointCommandShortFloatingPoint )
+            {
+                handleWriteValue ( ctx, (SetPointCommandShortFloatingPoint)msg );
+            }
+            else if ( msg instanceof SetPointCommandScaledValue )
+            {
+                handleWriteValue ( ctx, (SetPointCommandScaledValue)msg );
+            }
+            else
+            {
+                // otherwise pass the message on to the next handler
+                ctx.fireChannelRead ( msg );
+            }
         }
-        else if ( msg == DataTransmissionMessage.REQUEST_STOP )
+        catch ( final Exception e )
         {
-            stopDataTransmission ( ctx );
-        }
-        else if ( msg instanceof ReadCommand )
-        {
-            handleReadCommand ( ctx, (ReadCommand)msg );
-        }
-        else if ( msg instanceof InterrogationCommand )
-        {
-            handleInterrogationCommand ( ctx, (InterrogationCommand)msg );
-        }
-        else if ( msg instanceof SingleCommand )
-        {
-            handleWriteCommand ( ctx, (SingleCommand)msg );
-        }
-        else if ( msg instanceof SetPointCommandShortFloatingPoint )
-        {
-            handleWriteValue ( ctx, (SetPointCommandShortFloatingPoint)msg );
-        }
-        else if ( msg instanceof SetPointCommandScaledValue )
-        {
-            handleWriteValue ( ctx, (SetPointCommandScaledValue)msg );
-        }
-        else
-        {
-            // otherwise pass the message on to the next handler
-            ctx.fireChannelRead ( msg );
+            logger.warn ( "Failed to process message", e );
+            throw new InvocationTargetException ( e );
         }
     }
 

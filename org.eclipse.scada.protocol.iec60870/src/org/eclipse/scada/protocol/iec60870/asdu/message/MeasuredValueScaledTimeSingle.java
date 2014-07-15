@@ -34,7 +34,7 @@ public class MeasuredValueScaledTimeSingle extends AbstractMeasuredValueScaled
 
     public static MeasuredValueScaledTimeSingle parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
-        return new MeasuredValueScaledTimeSingle ( header, parseEntries ( options, length, data, false ) );
+        return new MeasuredValueScaledTimeSingle ( header, parseEntries ( options, length, data, true ) );
     }
 
     public static MeasuredValueScaledTimeSingle create ( final ASDUHeader header, final InformationObjectAddress address, final Value<Short> value )

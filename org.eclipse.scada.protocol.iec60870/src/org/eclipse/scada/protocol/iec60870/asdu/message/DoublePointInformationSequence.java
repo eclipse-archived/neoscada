@@ -39,6 +39,16 @@ public class DoublePointInformationSequence extends AbstractMessage
         this.values = values;
     }
 
+    public InformationObjectAddress getStartAddress ()
+    {
+        return this.startAddress;
+    }
+
+    public List<Value<DoublePoint>> getValues ()
+    {
+        return this.values;
+    }
+
     public static DoublePointInformationSequence parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
         final InformationObjectAddress startAddress = InformationObjectAddress.parse ( options, data );

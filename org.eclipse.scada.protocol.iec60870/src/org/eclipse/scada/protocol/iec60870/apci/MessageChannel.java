@@ -118,6 +118,13 @@ public class MessageChannel extends ChannelDuplexHandler
         super.channelActive ( ctx );
     }
 
+    @Override
+    public void channelInactive ( final ChannelHandlerContext ctx ) throws Exception
+    {
+        logger.info ( "Channel inactive" );
+        super.channelInactive ( ctx );
+    }
+
     protected void handleTimeout1 ()
     {
         // expiration of timer #1 -> close
@@ -363,7 +370,7 @@ public class MessageChannel extends ChannelDuplexHandler
         /*
          * we can directly send from the sources since either is the message buffer
          * not empty, but then also the ackBuffer full. Which it is not at this point.
-         * 
+         *
          * Or the ackBuffer has room, so there won't be any message in the message buffer left.
          */
 

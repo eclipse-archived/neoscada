@@ -20,12 +20,14 @@ import org.eclipse.scada.protocol.iec60870.client.ClientModule;
 
 public class DataModule implements ClientModule
 {
-
     private final DataHandler dataHandler;
 
-    public DataModule ( final DataHandler dataHandler )
+    private final DataModuleOptions options;
+
+    public DataModule ( final DataHandler dataHandler, final DataModuleOptions options )
     {
         this.dataHandler = dataHandler;
+        this.options = options;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class DataModule implements ClientModule
     @Override
     public void initializeChannel ( final SocketChannel channel, final MessageChannel messageChannel )
     {
-        channel.pipeline ().addLast ( new DataModuleHandler ( this.dataHandler ) );
+        channel.pipeline ().addLast ( new DataModuleHandler ( this.dataHandler, this.options ) );
     }
 
     @Override

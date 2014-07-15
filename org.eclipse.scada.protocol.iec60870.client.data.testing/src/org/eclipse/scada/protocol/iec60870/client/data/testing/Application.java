@@ -21,11 +21,13 @@ import org.eclipse.scada.protocol.iec60870.asdu.types.ASDUAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.InformationObjectAddress;
 import org.eclipse.scada.protocol.iec60870.asdu.types.Value;
 import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient;
+import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient.ModulesFactory;
 import org.eclipse.scada.protocol.iec60870.client.AutoConnectClient.State;
 import org.eclipse.scada.protocol.iec60870.client.ClientModule;
 import org.eclipse.scada.protocol.iec60870.client.data.DataHandler;
 import org.eclipse.scada.protocol.iec60870.client.data.DataListener;
 import org.eclipse.scada.protocol.iec60870.client.data.DataModule;
+import org.eclipse.scada.protocol.iec60870.client.data.DataModuleOptions;
 import org.eclipse.scada.protocol.iec60870.client.data.DataProcessor;
 
 public class Application
@@ -51,9 +53,16 @@ public class Application
                 System.out.println ( "DATA: Disconnected" );
             }
         } );
-        final DataModule dataModule = new DataModule ( handler );
+        final DataModule dataModule = new DataModule ( handler, new DataModuleOptions.Builder ().build () );
 
-        final List<ClientModule> modules = Collections.singletonList ( (ClientModule)dataModule );
+        final ModulesFactory modulesFactory = new ModulesFactory () {
+
+            @Override
+            public List<ClientModule> createModules ()
+            {
+                return Collections.singletonList ( (ClientModule)dataModule );
+            }
+        };
 
         final AutoConnectClient.StateListener listener = new AutoConnectClient.StateListener () {
 
@@ -68,7 +77,7 @@ public class Application
             }
         };
 
-        try ( final AutoConnectClient client = new AutoConnectClient ( args[0], port, options.build (), modules, listener ) )
+        try ( final AutoConnectClient client = new AutoConnectClient ( args[0], port, options.build (), modulesFactory, listener ) )
         {
             while ( true )
             {

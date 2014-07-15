@@ -38,6 +38,16 @@ public class MeasuredValueScaledSequence extends AbstractMessage
         this.values = values;
     }
 
+    public List<Value<Short>> getValues ()
+    {
+        return this.values;
+    }
+
+    public InformationObjectAddress getStartAddress ()
+    {
+        return this.startAddress;
+    }
+
     public static MeasuredValueScaledSequence parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
         final InformationObjectAddress startAddress = InformationObjectAddress.parse ( options, data );

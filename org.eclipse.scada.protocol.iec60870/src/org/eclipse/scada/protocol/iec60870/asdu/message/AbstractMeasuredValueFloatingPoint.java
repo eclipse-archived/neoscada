@@ -35,6 +35,11 @@ public abstract class AbstractMeasuredValueFloatingPoint extends AbstractMessage
         this.withTimestamp = withTimestamp;
     }
 
+    public List<InformationEntry<Float>> getEntries ()
+    {
+        return this.entries;
+    }
+
     @Override
     public void encode ( final ProtocolOptions options, final ByteBuf out )
     {

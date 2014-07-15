@@ -34,7 +34,7 @@ public class MeasuredValueShortFloatingPointTimeSingle extends AbstractMeasuredV
 
     public static MeasuredValueShortFloatingPointTimeSingle parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
-        return new MeasuredValueShortFloatingPointTimeSingle ( header, parseEntries ( options, length, data, false ) );
+        return new MeasuredValueShortFloatingPointTimeSingle ( header, parseEntries ( options, length, data, true ) );
     }
 
     public static MeasuredValueShortFloatingPointTimeSingle create ( final ASDUHeader header, final InformationObjectAddress address, final Value<Float> value )

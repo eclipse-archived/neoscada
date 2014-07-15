@@ -19,7 +19,7 @@ import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
 
 public class TypeHelper
 {
-    private static void encodeTimestamp ( final ProtocolOptions options, final ByteBuf out, final long timestamp )
+    static void encodeTimestamp ( final ProtocolOptions options, final ByteBuf out, final long timestamp )
     {
         final Calendar c = new GregorianCalendar ( options.getTimeZone () );
         c.setTimeInMillis ( timestamp );
@@ -49,7 +49,7 @@ public class TypeHelper
         out.writeByte ( year );
     }
 
-    private static long parseTimestamp ( final ProtocolOptions options, final ByteBuf data )
+    static long parseTimestamp ( final ProtocolOptions options, final ByteBuf data )
     {
         final int ms = data.readUnsignedShort ();
 
@@ -76,7 +76,7 @@ public class TypeHelper
         year = year + 2000;
 
         final Calendar c = new GregorianCalendar ( options.getTimeZone () );
-        c.set ( year, month, dayOfMonth, hours, minutes, ms / 1_000 );
+        c.set ( year, month - 1, dayOfMonth, hours, minutes, ms / 1_000 );
         c.set ( Calendar.MILLISECOND, ms % 1_000 );
         return c.getTimeInMillis ();
     }

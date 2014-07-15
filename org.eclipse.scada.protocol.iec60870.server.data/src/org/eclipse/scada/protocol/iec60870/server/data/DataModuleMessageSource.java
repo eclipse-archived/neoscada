@@ -239,7 +239,7 @@ public class DataModuleMessageSource implements MessageSource
 
     /**
      * Poll the next event from the next buffer
-     * 
+     *
      * @return the next message to send or <code>null</code> if no message is
      *         pending
      */
@@ -249,7 +249,7 @@ public class DataModuleMessageSource implements MessageSource
          * This loop cycles through all buffer and looks for a message to send.
          * If the buffer has a message it will return the message. Otherwise
          * it will check the next buffer.
-         * 
+         *
          * However the buffer index will be incremented each time. So if the buffer
          * returned a message the index is still incremented to give other buffers
          * a chance. We are not draining one buffer at a time since this might
@@ -394,7 +394,7 @@ public class DataModuleMessageSource implements MessageSource
 
     /**
      * Start the process of interrogation
-     * 
+     *
      * @param asduAddress
      * @param causeOfTransmission
      * @param qualifierOfInterrogation
@@ -417,22 +417,36 @@ public class DataModuleMessageSource implements MessageSource
 
         synchronized ( this )
         {
+            logger.debug ( "Starting interrogation" );
             if ( msg.getHeader ().getAsduAddress ().isBroadcast () )
             {
+                logger.debug ( "Broadcast interrogation" );
                 this.model.forAllAsdu ( new Function<ASDUAddress, Void> () {
 
                     @Override
                     public Void apply ( final ASDUAddress asduAddress )
                     {
+                        logger.debug ( "Broadcast member: {}", asduAddress );
                         final InterrogationRequest request = new InterrogationRequest ( asduAddress, cause, msg.getQualifierOfInterrogation (), msg.getHeader ().getCauseOfTransmission ().getSourceAddress () );
                         tryStartInterrogation ( msg, request );
                         return null;
                     }
 
+                }, new Runnable () {
+
+                    @Override
+                    public void run ()
+                    {
+                        logger.info ( "No ASDU common addresses registered" );
+                        DataModuleMessageSource.this.writer.write ( msg.mirror ( StandardCause.UNKNOWN_ASDU_ADDRESS ) );
+                        DataModuleMessageSource.this.writer.flush ();
+                    }
                 } );
             }
             else
             {
+                logger.debug ( "Interrogation for: {}", msg.getHeader ().getAsduAddress () );
+
                 final InterrogationRequest request = new InterrogationRequest ( msg.getHeader ().getAsduAddress (), cause, msg.getQualifierOfInterrogation (), msg.getHeader ().getCauseOfTransmission ().getSourceAddress () );
                 tryStartInterrogation ( msg, request );
             }
@@ -441,6 +455,8 @@ public class DataModuleMessageSource implements MessageSource
 
     private void tryStartInterrogation ( final InterrogationCommand msg, final InterrogationRequest request )
     {
+        logger.debug ( "tryStartInterrogation - msg: {}, request: {}", msg, request );
+
         if ( !this.currentInterrogation.containsKey ( request ) )
         {
             createNewInterrogation ( msg, request );
@@ -456,7 +472,7 @@ public class DataModuleMessageSource implements MessageSource
      * Create a new interrogation instance and kick off the process <br/>
      * This method may only be called when no other interrogation is currently
      * running.
-     * 
+     *
      * @param msg
      * @param asduAddress
      * @param causeOfTransmission
@@ -467,6 +483,8 @@ public class DataModuleMessageSource implements MessageSource
      */
     private void createNewInterrogation ( final InterrogationCommand msg, final InterrogationRequest request )
     {
+        logger.debug ( "Create new interrogation - msg: {}, request: {}", msg, request );
+
         final InterrogationInstance currentInterrogation = new InterrogationInstance ();
         currentInterrogation.state = InterrogationState.WAITING;
         currentInterrogation.asduAddress = request.asduAddress;
@@ -501,6 +519,7 @@ public class DataModuleMessageSource implements MessageSource
 
         if ( future == null )
         {
+            logger.info ( "Failed to start interrogation" );
             this.writer.write ( msg.mirror ( StandardCause.UNKNOWN_ASDU_ADDRESS ) );
             this.writer.flush ();
             return;

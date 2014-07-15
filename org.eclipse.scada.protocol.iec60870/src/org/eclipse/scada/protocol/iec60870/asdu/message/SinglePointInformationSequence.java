@@ -38,6 +38,16 @@ public class SinglePointInformationSequence extends AbstractMessage
         this.values = values;
     }
 
+    public InformationObjectAddress getStartAddress ()
+    {
+        return this.startAddress;
+    }
+
+    public List<Value<Boolean>> getValues ()
+    {
+        return this.values;
+    }
+
     public static SinglePointInformationSequence parse ( final ProtocolOptions options, final byte length, final ASDUHeader header, final ByteBuf data )
     {
         final InformationObjectAddress startAddress = InformationObjectAddress.parse ( options, data );

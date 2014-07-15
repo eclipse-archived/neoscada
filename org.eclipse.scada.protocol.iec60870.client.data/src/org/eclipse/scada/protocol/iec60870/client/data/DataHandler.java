@@ -12,6 +12,17 @@ package org.eclipse.scada.protocol.iec60870.client.data;
 
 import io.netty.channel.ChannelHandlerContext;
 
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.DoublePointInformationTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueScaledTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.MeasuredValueShortFloatingPointTimeSingle;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSequence;
+import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationSingle;
 import org.eclipse.scada.protocol.iec60870.asdu.message.SinglePointInformationTimeSingle;
 
 public interface DataHandler
@@ -21,4 +32,27 @@ public interface DataHandler
     public void disconnected ();
 
     public void process ( SinglePointInformationTimeSingle msg );
+
+    public void process ( SinglePointInformationSingle msg );
+
+    public void process ( SinglePointInformationSequence msg );
+
+    public void process ( DoublePointInformationTimeSingle msg );
+
+    public void process ( DoublePointInformationSequence msg );
+
+    public void process ( DoublePointInformationSingle msg );
+
+    public void process ( MeasuredValueShortFloatingPointTimeSingle msg );
+
+    public void process ( MeasuredValueShortFloatingPointSingle msg );
+
+    public void process ( MeasuredValueShortFloatingPointSequence msg );
+
+    public void process ( MeasuredValueScaledTimeSingle msg );
+
+    public void process ( MeasuredValueScaledSequence msg );
+
+    public void process ( MeasuredValueScaledSingle msg );
+
 }

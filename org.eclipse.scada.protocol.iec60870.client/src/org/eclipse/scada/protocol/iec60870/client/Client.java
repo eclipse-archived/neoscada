@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
 import org.eclipse.scada.protocol.iec60870.apci.APDUDecoder;
@@ -232,22 +231,7 @@ public class Client implements AutoCloseable
 
             if ( this.channel != null )
             {
-                final ChannelFuture future = this.channel.close ();
-
-                this.executor.execute ( new Runnable () {
-
-                    @Override
-                    public void run ()
-                    {
-                        try
-                        {
-                            future.await ();
-                        }
-                        catch ( final InterruptedException e )
-                        {
-                        }
-                    }
-                } );
+                this.channel.close ();
                 this.channel = null;
             }
         }
@@ -255,10 +239,8 @@ public class Client implements AutoCloseable
         if ( !this.executor.isShutdown () )
         {
             this.executor.shutdown ();
-            this.executor.awaitTermination ( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
         }
 
-        this.group.shutdownGracefully ().await ();
+        this.group.shutdownGracefully ();
     }
-
 }

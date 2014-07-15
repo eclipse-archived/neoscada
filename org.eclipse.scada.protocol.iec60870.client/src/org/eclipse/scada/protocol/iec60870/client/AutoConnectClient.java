@@ -56,14 +56,15 @@ public class AutoConnectClient implements AutoCloseable
 
     private final ProtocolOptions options;
 
-    private final List<ClientModule> modules;
-
     private final InetSocketAddress address;
 
     private Client client;
 
+    private final ModulesFactory modulesFactory;
+
     public static enum State
     {
+        SLEEPING,
         DISCONNECTED,
         LOOKUP,
         CONNECTING,
@@ -75,12 +76,17 @@ public class AutoConnectClient implements AutoCloseable
         public void stateChanged ( State state, Throwable e );
     }
 
-    public AutoConnectClient ( final String host, final int port, final ProtocolOptions options, final List<ClientModule> modules, final StateListener stateListener )
+    public interface ModulesFactory
+    {
+        public List<ClientModule> createModules ();
+    }
+
+    public AutoConnectClient ( final String host, final int port, final ProtocolOptions options, final ModulesFactory modulesFactory, final StateListener stateListener )
     {
         this.executor = new ScheduledExportedExecutorService ( makeName ( host, port ), 1 );
         this.stateListener = stateListener;
         this.options = options;
-        this.modules = modules;
+        this.modulesFactory = modulesFactory;
         this.address = makeAddress ( host, port );
 
         triggerConnect ( 0 );
@@ -104,25 +110,32 @@ public class AutoConnectClient implements AutoCloseable
     {
         logger.debug ( "Trigger reconnect: {} ms delay", delay );
 
-        fireState ( State.LOOKUP );
-        if ( this.address.isUnresolved () )
+        if ( delay > 0 )
         {
-            this.executor.schedule ( new Runnable () {
-                @Override
-                public void run ()
+            fireState ( State.SLEEPING );
+        }
+
+        this.executor.schedule ( new Runnable () {
+
+            @Override
+            public void run ()
+            {
+                if ( AutoConnectClient.this.address.isUnresolved () )
                 {
                     lookup ();
                 }
-            }, delay, TimeUnit.MILLISECONDS );
-        }
-        else
-        {
-            createClient ( this.address );
-        }
+                else
+                {
+                    createClient ( AutoConnectClient.this.address );
+                }
+            }
+        }, delay, TimeUnit.MILLISECONDS );
     }
 
     protected void lookup ()
     {
+        fireState ( State.LOOKUP );
+
         // performing lookup
         final InetSocketAddress address = new InetSocketAddress ( this.address.getHostString (), this.address.getPort () );
         if ( address.isUnresolved () )
@@ -154,7 +167,7 @@ public class AutoConnectClient implements AutoCloseable
         fireState ( State.CONNECTING );
         logger.debug ( "Creating new client instance" );
 
-        this.client = new Client ( resolvedAddress, this.listener, this.options, this.modules );
+        this.client = new Client ( resolvedAddress, this.listener, this.options, this.modulesFactory.createModules () );
         this.client.connect ();
     }
 
@@ -185,7 +198,7 @@ public class AutoConnectClient implements AutoCloseable
     }
 
     @Override
-    public synchronized void close () throws InterruptedException
+    public void close () throws InterruptedException
     {
         logger.debug ( "Closing instance" );
 
@@ -199,7 +212,6 @@ public class AutoConnectClient implements AutoCloseable
         finally
         {
             service.shutdown ();
-            service.awaitTermination ( Long.MAX_VALUE, TimeUnit.MILLISECONDS );
         }
     }
 
@@ -225,7 +237,7 @@ public class AutoConnectClient implements AutoCloseable
 
     private static String makeName ( final String host, final int port )
     {
-        return String.format ( "%s:%s/%s", host, port, counter.incrementAndGet () );
+        return String.format ( "%s/%s/%s", host, port, counter.incrementAndGet () );
     }
 
     protected synchronized void handleConnected ()
@@ -235,7 +247,7 @@ public class AutoConnectClient implements AutoCloseable
 
     private synchronized void handleDisconnected ( final Throwable error )
     {
-        logger.info ( "handleDisconnected", error );
+        logger.info ( "handleDisconnected" );
 
         fireState ( State.DISCONNECTED, error );
         closeClient ();
