@@ -259,6 +259,28 @@ public class ConfigurationDataHelper
     }
 
     /**
+     * Get a non-null, non-empty string from the configuration data
+     *
+     * @param name
+     *            the name of the parameter to get
+     * @param errorMessage
+     *            the error message if the string is not set or empty
+     * @return a not-null, non-empty string
+     * @throws IllegalArgumentException
+     *             if the string is not set or is empty
+     */
+    public String getStringNonEmptyChecked ( final String name, final String errorMessage ) throws IllegalArgumentException
+    {
+        final String str = this.data.get ( name );
+        if ( str != null && !str.isEmpty () )
+        {
+            return str;
+        }
+
+        throw new IllegalArgumentException ( errorMessage );
+    }
+
+    /**
      * Get a whitelisted string from the configuration data
      *
      * @param name
