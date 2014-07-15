@@ -5,4 +5,5 @@
    <service>
       <provide interface="org.eclipse.scada.ca.ConfigurationFactory"/>
    </service>
+   <property name="service.description" type="String" value="An IEC 60870-5-104 connection endpoint as controlled station."/>
 </scr:component>
