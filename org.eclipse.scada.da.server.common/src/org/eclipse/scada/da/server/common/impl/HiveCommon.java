@@ -27,6 +27,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.eclipse.scada.core.InvalidSessionException;
@@ -119,6 +120,8 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     private HiveCommonStatisticsGenerator statisticsGenerator;
 
     private boolean autoEnableStats = true;
+
+    private final ReadWriteLock browserLock = new ReentrantReadWriteLock ();
 
     private final AuthorizationProvider<AbstractSessionImpl> authorizationProvider = new AuthorizationProvider<AbstractSessionImpl> () {
 
@@ -215,10 +218,18 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
             this.itemMapWriteLock.unlock ();
         }
 
-        if ( this.browser != null )
+        this.browserLock.writeLock ().lock ();
+        try
         {
-            this.browser.stop ();
-            this.browser = null;
+            if ( this.browser != null )
+            {
+                this.browser.stop ();
+                this.browser = null;
+            }
+        }
+        finally
+        {
+            this.browserLock.writeLock ().unlock ();
         }
 
         if ( this.itemSubscriptionManager != null )
@@ -832,25 +843,44 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     }
 
     @Override
-    public synchronized HiveBrowser getBrowser ()
+    public HiveBrowser getBrowser ()
     {
-        if ( this.browser == null )
+        this.browserLock.readLock ().lock ();
+        try
         {
-            if ( this.rootFolder != null )
+            if ( this.browser != null || this.rootFolder == null )
             {
-                this.browser = new HiveBrowserCommon ( this ) {
-
-                    @Override
-                    public Folder getRootFolder ()
-                    {
-                        return HiveCommon.this.rootFolder;
-                    }
-                };
-                this.browser.start ();
+                return this.browser;
             }
         }
+        finally
+        {
+            this.browserLock.readLock ().unlock ();
+        }
 
-        return this.browser;
+        this.browserLock.writeLock ().lock ();
+        try
+        {
+            // we need to check again
+            if ( this.browser != null || this.rootFolder == null )
+            {
+                return this.browser;
+            }
+            this.browser = new HiveBrowserCommon ( this ) {
+
+                @Override
+                public Folder getRootFolder ()
+                {
+                    return HiveCommon.this.rootFolder;
+                }
+            };
+            this.browser.start ();
+            return this.browser;
+        }
+        finally
+        {
+            this.browserLock.writeLock ().unlock ();
+        }
     }
 
     public void addItemFactory ( final DataItemFactory factory )

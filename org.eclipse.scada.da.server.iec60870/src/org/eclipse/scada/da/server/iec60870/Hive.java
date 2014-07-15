@@ -10,17 +10,23 @@
  *******************************************************************************/
 package org.eclipse.scada.da.server.iec60870;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import org.eclipse.scada.da.server.browser.common.FolderCommon;
+import org.eclipse.scada.da.server.common.ValidationStrategy;
 import org.eclipse.scada.da.server.common.impl.HiveCommon;
 import org.eclipse.scada.da.server.iec60870.cfg.CAConfigurationFactory;
 import org.eclipse.scada.da.server.iec60870.cfg.ConfigurationFactory;
 import org.eclipse.scada.da.server.iec60870.cfg.ConfigurationFactory.Receiver;
 import org.eclipse.scada.utils.concurrent.ExportedExecutorService;
 import org.osgi.framework.FrameworkUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -28,6 +34,8 @@ import com.google.common.util.concurrent.ListenableFutureTask;
 
 public class Hive extends HiveCommon
 {
+    private final static Logger logger = LoggerFactory.getLogger ( Hive.class );
+
     private final Receiver configurationReceiver = new Receiver () {
 
         @Override
@@ -49,6 +57,8 @@ public class Hive extends HiveCommon
 
     private final Map<String, Connection> connections = new HashMap<> ();
 
+    private final FolderCommon rootFolder;
+
     public Hive ()
     {
         this ( new CAConfigurationFactory ( FrameworkUtil.getBundle ( Hive.class ).getBundleContext () ) );
@@ -57,6 +67,16 @@ public class Hive extends HiveCommon
     public Hive ( final ConfigurationFactory factory )
     {
         this.factory = factory;
+
+        setValidatonStrategy ( ValidationStrategy.GRANT_ALL );
+
+        this.rootFolder = new FolderCommon ();
+        setRootFolder ( this.rootFolder );
+    }
+
+    FolderCommon getRootFolder ()
+    {
+        return this.rootFolder;
     }
 
     @Override
@@ -64,6 +84,7 @@ public class Hive extends HiveCommon
     {
         this.executor = new ExportedExecutorService ( Hive.class.getName (), 0, 1, 1, TimeUnit.MINUTES );
         super.performStart ();
+
         this.factory.setReceiver ( this.configurationReceiver );
     }
 
@@ -99,19 +120,33 @@ public class Hive extends HiveCommon
 
     protected synchronized ListenableFuture<Void> performAddConnection ( final String id, final ConnectionConfiguration configuration )
     {
+        logger.debug ( "adding connection - id: {}, cfg: {}", id, configuration );
+
         if ( this.executor == null )
         {
+            logger.debug ( "Hive is not started" );
             return Futures.immediateFailedFuture ( new IllegalStateException ( "Hive is not started" ) );
         }
 
-        return ListenableFutureTask.create ( new Runnable () {
+        final ListenableFutureTask<Void> task = ListenableFutureTask.create ( new Callable<Void> () {
 
             @Override
-            public void run ()
+            public Void call () throws Exception
             {
-                handleAddConnection ( id, configuration );
+                try
+                {
+                    handleAddConnection ( id, configuration );
+                }
+                catch ( final Exception e )
+                {
+                    logger.warn ( "Failed to create connection", e );
+                    throw new InvocationTargetException ( e );
+                }
+                return null;
             }
-        }, null );
+        } );
+        this.executor.execute ( task );
+        return task;
     }
 
     protected void performRemoveConnection ( final String id )
@@ -135,16 +170,20 @@ public class Hive extends HiveCommon
 
     protected synchronized void handleAddConnection ( final String id, final ConnectionConfiguration configuration )
     {
+        logger.debug ( "Handling: add connection, id: {}, cfg: {}", id, configuration );
         final Connection old = this.connections.remove ( id );
         if ( old != null )
         {
             old.dispose ();
         }
-        this.connections.put ( id, new Connection ( configuration ) );
+
+        this.connections.put ( id, new Connection ( id, this, this.executor, configuration ) );
     }
 
     protected synchronized void handleRemoveConnection ( final String id )
     {
+        logger.debug ( "Handling: remove connection, id: {}", id );
+
         final Connection connection = this.connections.remove ( id );
         if ( connection != null )
         {

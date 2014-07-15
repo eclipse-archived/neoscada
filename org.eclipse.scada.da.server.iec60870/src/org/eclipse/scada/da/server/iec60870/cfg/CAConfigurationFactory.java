@@ -20,13 +20,17 @@ import org.eclipse.scada.ca.ConfigurationDataHelper;
 import org.eclipse.scada.core.common.iec60870.Configurations;
 import org.eclipse.scada.da.server.iec60870.ConnectionConfiguration;
 import org.eclipse.scada.protocol.iec60870.ProtocolOptions.Builder;
+import org.eclipse.scada.protocol.iec60870.client.data.DataModuleOptions;
 import org.eclipse.scada.sec.UserInformation;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceRegistration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CAConfigurationFactory implements ConfigurationFactory, org.eclipse.scada.ca.ConfigurationFactory
 {
+    private final static Logger logger = LoggerFactory.getLogger ( CAConfigurationFactory.class );
 
     private Receiver receiver;
 
@@ -51,37 +55,74 @@ public class CAConfigurationFactory implements ConfigurationFactory, org.eclipse
     }
 
     @Override
-    public void setReceiver ( final Receiver receiver )
+    public synchronized void setReceiver ( final Receiver receiver )
     {
+        logger.debug ( "Setting receiver: {}", receiver );
+
         this.receiver = receiver;
+
+        if ( receiver != null )
+        {
+            logger.debug ( "Pushing stored configuration" );
+            for ( final Map.Entry<String, ConnectionConfiguration> entry : this.configurations.entrySet () )
+            {
+                logger.debug ( "\t{}", entry.getKey () );
+                // we don't wait here for the result
+                receiver.addConnection ( entry.getKey (), entry.getValue () );
+            }
+        }
     }
 
     private ConnectionConfiguration parse ( final Map<String, String> properties )
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( properties );
 
-        final String host = cfg.getStringNonEmpty ( "hostname" );
+        final String host = cfg.getStringNonEmptyChecked ( "host", "'host' must be set" );
         final int port = cfg.getInteger ( "port", 2404 );
 
         final Builder builder = Configurations.parseProtocolOptions ( cfg.getPrefixedHelper ( "protocol" ) );
+        final DataModuleOptions dataModuleOptions = parseDataModuleOptions ( cfg.getPrefixedHelper ( "dataModule" ) );
 
-        return new ConnectionConfiguration ( host, port, builder.build () );
+        return new ConnectionConfiguration ( host, port, builder.build (), dataModuleOptions );
+    }
+
+    private DataModuleOptions parseDataModuleOptions ( final ConfigurationDataHelper cfg )
+    {
+        final DataModuleOptions.Builder builder = new DataModuleOptions.Builder ();
+
+        builder.setIgnoreBackgroundScan ( cfg.getBoolean ( "ignoreBackgroundScan", true ) );
+
+        return builder.build ();
     }
 
     @Override
     public synchronized void update ( final UserInformation userInformation, final String configurationId, final Map<String, String> properties ) throws Exception
     {
-        this.receiver.removeConnection ( configurationId );
+        logger.debug ( "Request to update configuration: {}", configurationId );
+
+        delete ( userInformation, configurationId );
 
         final ConnectionConfiguration cfg = parse ( properties );
+        this.configurations.put ( configurationId, cfg );
+        logger.debug ( "Configuration cached internally: {}", cfg );
 
-        this.receiver.addConnection ( configurationId, cfg ).get ();
+        if ( this.receiver != null )
+        {
+            logger.debug ( "Forwarding update to receiver" );
+            this.receiver.addConnection ( configurationId, cfg ).get ();
+        }
     }
 
     @Override
     public synchronized void delete ( final UserInformation userInformation, final String configurationId ) throws Exception
     {
-        this.receiver.removeConnection ( configurationId );
+        logger.debug ( "Request to delete configuration: {}", configurationId );
+
+        if ( this.receiver != null )
+        {
+            logger.debug ( "Forwarding deletion to receiver" );
+            this.receiver.removeConnection ( configurationId );
+        }
         this.configurations.remove ( configurationId );
     }
 

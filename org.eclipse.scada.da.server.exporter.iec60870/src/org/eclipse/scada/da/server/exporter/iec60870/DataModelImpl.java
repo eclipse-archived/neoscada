@@ -419,20 +419,26 @@ public class DataModelImpl extends AbstractBaseDataModel
     }
 
     @Override
-    public void forAllAsdu ( final Function<ASDUAddress, Void> function )
+    public void forAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
     {
         this.executor.execute ( new Runnable () {
 
             @Override
             public void run ()
             {
-                performForAllAsdu ( function );
+                performForAllAsdu ( function, ifNoneFound );
             }
         } );
     }
 
-    protected synchronized void performForAllAsdu ( final Function<ASDUAddress, Void> function )
+    protected synchronized void performForAllAsdu ( final Function<ASDUAddress, Void> function, final Runnable ifNoneFound )
     {
+        if ( this.cache.isEmpty () )
+        {
+            this.executor.execute ( ifNoneFound );
+            return;
+        }
+
         for ( final Integer asdu : this.cache.keySet () )
         {
             this.executor.execute ( new Runnable () {

@@ -1,0 +1,10 @@
+ca:create org.eclipse.scada.sec.osgi.manager allowAll serviceType=script priority=100000 "properties.script=true;"
+
+ca:create da.connection c1 connection.uri=da:ngp://demo.openscada.org:2101?user=admin&password=admin12
+
+ca:create da.datasource.dataitem s1 connection.id=c1 item.id=ES.DEMO.ARDUINO001.LUX.V
+ca:create master.item m1 datasource.id=s1
+ca:create da.dataitem.datasource i1 datasource.id=m1 item.id=ES.DEMO.ARDUINO001.LUX.V
+
+ca:create org.eclipse.scada.da.server.exporter.iec60870.device iec1 entry.1-1.1-1-1=FLOAT#ES.DEMO.ARDUINO001.LUX.V
+

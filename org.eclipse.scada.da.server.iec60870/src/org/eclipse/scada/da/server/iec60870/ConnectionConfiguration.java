@@ -11,6 +11,7 @@
 package org.eclipse.scada.da.server.iec60870;
 
 import org.eclipse.scada.protocol.iec60870.ProtocolOptions;
+import org.eclipse.scada.protocol.iec60870.client.data.DataModuleOptions;
 
 public class ConnectionConfiguration
 {
@@ -20,11 +21,14 @@ public class ConnectionConfiguration
 
     private final ProtocolOptions protocolOptions;
 
-    public ConnectionConfiguration ( final String host, final int port, final ProtocolOptions protocolOptions )
+    private final DataModuleOptions dataModuleOptions;
+
+    public ConnectionConfiguration ( final String host, final int port, final ProtocolOptions protocolOptions, final DataModuleOptions dataModuleOptions )
     {
         this.host = host;
         this.port = port;
         this.protocolOptions = protocolOptions;
+        this.dataModuleOptions = dataModuleOptions;
     }
 
     public String getHost ()
@@ -40,5 +44,16 @@ public class ConnectionConfiguration
     public ProtocolOptions getProtocolOptions ()
     {
         return this.protocolOptions;
+    }
+
+    @Override
+    public String toString ()
+    {
+        return String.format ( "[%s:%s]", this.host, this.port );
+    }
+
+    public DataModuleOptions getDataModuleOptions ()
+    {
+        return this.dataModuleOptions;
     }
 }
