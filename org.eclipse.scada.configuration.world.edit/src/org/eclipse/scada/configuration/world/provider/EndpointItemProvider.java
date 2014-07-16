@@ -164,7 +164,7 @@ public class EndpointItemProvider
                         getString ( "_UI_Endpoint_boundService_feature" ), //$NON-NLS-1$
                         getString ( "_UI_PropertyDescriptor_description", "_UI_Endpoint_boundService_feature", "_UI_Endpoint_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
                         WorldPackage.Literals.ENDPOINT__BOUND_SERVICE,
-                        true,
+                        false,
                         false,
                         true,
                         null,

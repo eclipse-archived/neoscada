@@ -36,7 +36,8 @@
     <genClasses ecoreClass="configuration.ecore#//Endpoint">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Endpoint/portNumber"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/boundService"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/boundService"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ExecDriver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ExecDriver/root"/>
