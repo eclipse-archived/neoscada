@@ -16,6 +16,7 @@ import java.util.LinkedList;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -31,7 +32,7 @@ public class RemoveAction extends Action implements ISelectionChangedListener, I
 
     public RemoveAction ( final RealtimeListAdapter view )
     {
-        super ( Messages.RemoveAction_Name, Action.AS_PUSH_BUTTON );
+        super ( Messages.RemoveAction_Name, ImageDescriptor.createFromFile ( RemoveAction.class, "icons/delete_obj.gif" ) );
 
         this.view = view;
     }
@@ -46,11 +47,13 @@ public class RemoveAction extends Action implements ISelectionChangedListener, I
         this.view.remove ( this.entries );
     }
 
+    @Override
     public void selectionChanged ( final SelectionChangedEvent event )
     {
         setSelection ( event.getSelection () );
     }
 
+    @Override
     public void setActiveEditor ( final IAction action, final IEditorPart targetEditor )
     {
         if ( targetEditor instanceof RealtimeListAdapter )
@@ -59,11 +62,13 @@ public class RemoveAction extends Action implements ISelectionChangedListener, I
         }
     }
 
+    @Override
     public void run ( final IAction action )
     {
         run ();
     }
 
+    @Override
     public void selectionChanged ( final IAction action, final ISelection selection )
     {
         setSelection ( selection );
