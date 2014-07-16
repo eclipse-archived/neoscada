@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -84,6 +84,10 @@ public class GeneratorProcessor
         this.worldGenerator = worldGenerator;
     }
 
+    private static final int STEP_COUNT = 10;
+
+    private static final int RUN_MULTI = 10;
+
     public void process ( final IProgressMonitor monitor )
     {
         final Map<Object, Set<Generator>> generatorMap = new HashMap<> ();
@@ -111,32 +115,47 @@ public class GeneratorProcessor
         final PreparationContext pctx = new PreparationContext () {};
         final LocalGenerationContextImpl gctx = new LocalGenerationContextImpl ( ctx, remainingGenerators, generatorMap );
 
+        monitor.beginTask ( "Generating world model", ( 3 + RUN_MULTI ) * generators.size () * STEP_COUNT + 1 );
+
+        monitor.setTaskName ( "Initializing generators" );
         logger.debug ( "Initializing {} generators", generators.size () );
         for ( final Generator generator : generators )
         {
             generator.initialize ( ctx );
+            monitor.worked ( STEP_COUNT ); // COUNT:STEP_COUNT*generators.size()
         }
 
+        monitor.setTaskName ( "Preparing generators" );
         logger.debug ( "Preparing {} generators", generators.size () );
         for ( final Generator generator : generators )
         {
             generator.prepare ( pctx );
+            monitor.worked ( STEP_COUNT ); // COUNT:STEP_COUNT*generators.size()
         }
 
+        monitor.setTaskName ( "Running generators" );
         logger.debug ( "Running {} generators", generators.size () );
         for ( final Generator generator : generators )
         {
+            monitor.subTask ( String.format ( "Running generator (%s)", generator.getClass ().getSimpleName () ) );
             runGenerator ( remainingGenerators, gctx, generator );
+            monitor.worked ( STEP_COUNT * RUN_MULTI ); // COUNT:STEP_COUNT*RUN_MULTI*generators.size()
         }
 
+        monitor.setTaskName ( "Finishing generators" );
         logger.debug ( "Finishing {} generators", generators.size () );
         for ( final Generator generator : generators )
         {
             generator.finish ( gctx.createFinishContext () );
+            monitor.worked ( STEP_COUNT ); // COUNT:STEP_COUNT*generators.size()
         }
 
+        monitor.setTaskName ( "Processing post triggers" );
         logger.debug ( "Processing post triggers" );
         ctx.processPostTriggers ();
+        monitor.worked ( 1 ); // COUNT:1
+
+        monitor.done ();
     }
 
     private void runGenerator ( final Set<Generator> remainingGenerators, final GenerationContext gctx, final Generator generator )

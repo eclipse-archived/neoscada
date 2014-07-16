@@ -18,6 +18,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.scada.configuration.recipe.Definition;
 import org.eclipse.scada.configuration.recipe.Profile;
 import org.eclipse.scada.configuration.recipe.lib.Builder;
@@ -30,16 +31,16 @@ public final class RecipeHelper
     {
     }
 
-    public static final int MONITOR_FILE_AMOUNT = 100_000;
-
     public static void processFile ( final IContainer parent, final Definition definition, final Profile profile, final IProgressMonitor monitor ) throws Exception
     {
+        monitor.beginTask ( makeJobLabel ( definition, profile ), 100 );
+
         final IFolder output = parent.getFolder ( new Path ( "output" ) ); //$NON-NLS-1$
         if ( output.exists () )
         {
-            output.delete ( true, monitor );
+            output.delete ( true, new SubProgressMonitor ( monitor, 9 ) );
         }
-        output.create ( true, true, monitor );
+        output.create ( true, true, new SubProgressMonitor ( monitor, 1 ) );
 
         final Builder builder = new Builder ( definition, profile );
         final Recipe recipe = builder.build ();
@@ -47,14 +48,27 @@ public final class RecipeHelper
         try
         {
             final Map<String, Object> initialContent = new HashMap<String, Object> ();
-            initialContent.put ( "progressMonitor", monitor ); //$NON-NLS-1$
             initialContent.put ( "output", output ); //$NON-NLS-1$
 
-            recipe.execute ( initialContent, monitor );
+            recipe.execute ( initialContent, new SubProgressMonitor ( monitor, 90 ) );
         }
         finally
         {
             monitor.done ();
+        }
+    }
+
+    protected static String makeJobLabel ( final Definition definition, final Profile profile )
+    {
+        final String name = definition.getName () == null ? definition.getId () : definition.getName ();
+
+        if ( profile == null )
+        {
+            return String.format ( "Running recipe: %s", name );
+        }
+        else
+        {
+            return String.format ( "Running recipe: %s (%s)", name, profile.getName () );
         }
     }
 

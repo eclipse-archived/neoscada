@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,12 +15,13 @@ import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.scada.configuration.recipe.lib.Recipe;
 
 public class RecipeImpl implements Recipe
 {
 
-    private static final int MONITOR_AMOUNT = 10_000;
+    private static final int MONITOR_AMOUNT = 10;
 
     private final List<TaskRunner> tasks;
 
@@ -54,9 +55,8 @@ public class RecipeImpl implements Recipe
         {
             for ( final TaskRunner task : this.tasks )
             {
-                monitor.setTaskName ( task.getName () );
-                task.run ( ctx );
-                monitor.worked ( MONITOR_AMOUNT );
+                monitor.subTask ( task.getName () );
+                task.run ( ctx, new SubProgressMonitor ( monitor, MONITOR_AMOUNT ) );
             }
         }
         finally
