@@ -6,4 +6,4 @@ Architecture: armhf
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
 Description: [[description]]
 Distribution: development
-Depends: oracle-java7-jdk | java7-runtime
+Depends: oracle-java7-jdk | java7-runtime-headless
