@@ -36,6 +36,7 @@
 								<architecture>i386</architecture>
 								<architecture>amd64</architecture>
 								<architecture>armhf</architecture>
+								<architecture>armel</architecture>
 							</architectures>
 						</configuration>
 					</execution>
