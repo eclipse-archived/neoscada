@@ -84,7 +84,7 @@ public class ExternalValueItemProvider extends SingleValueItemProvider implement
                         false,
                         true,
                         null,
-                        null,
+                        getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -107,7 +107,7 @@ public class ExternalValueItemProvider extends SingleValueItemProvider implement
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_externalPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 

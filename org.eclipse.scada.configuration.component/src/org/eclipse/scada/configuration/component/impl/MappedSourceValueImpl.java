@@ -82,6 +82,7 @@ public class MappedSourceValueImpl extends SingleValueImpl implements MappedSour
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public DataMapperService getMapper ()
     {
         if ( mapper != null && mapper.eIsProxy () )
@@ -112,6 +113,7 @@ public class MappedSourceValueImpl extends SingleValueImpl implements MappedSour
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setMapper ( DataMapperService newMapper )
     {
         DataMapperService oldMapper = mapper;
@@ -125,6 +127,7 @@ public class MappedSourceValueImpl extends SingleValueImpl implements MappedSour
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public InputDefinition getInput ()
     {
         if ( input != null && input.eIsProxy () )
@@ -183,6 +186,7 @@ public class MappedSourceValueImpl extends SingleValueImpl implements MappedSour
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     public void setInput ( InputDefinition newInput )
     {
         if ( newInput != input )
@@ -243,7 +247,6 @@ public class MappedSourceValueImpl extends SingleValueImpl implements MappedSour
      * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings ( "unchecked" )
     @Override
     public void eSet ( int featureID, Object newValue )
     {
