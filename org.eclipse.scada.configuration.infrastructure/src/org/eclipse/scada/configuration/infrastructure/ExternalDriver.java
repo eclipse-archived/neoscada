@@ -22,6 +22,7 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#getAccessCredentials <em>Access Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#isBinding <em>Binding</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,12 +41,12 @@ public interface ExternalDriver extends Driver
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Port Number</em>' attribute.
-     * @see #setPortNumber(short)
+     * @see #setPortNumber(int)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getExternalDriver_PortNumber()
      * @model required="true"
      * @generated
      */
-    short getPortNumber ();
+    int getPortNumber ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#getPortNumber <em>Port Number</em>}' attribute.
@@ -55,7 +56,7 @@ public interface ExternalDriver extends Driver
      * @see #getPortNumber()
      * @generated
      */
-    void setPortNumber ( short value );
+    void setPortNumber ( int value );
 
     /**
      * Returns the value of the '<em><b>Access Credentials</b></em>' containment reference.
@@ -82,5 +83,31 @@ public interface ExternalDriver extends Driver
      * @generated
      */
     void setAccessCredentials ( Credentials value );
+
+    /**
+     * Returns the value of the '<em><b>Binding</b></em>' attribute.
+     * The default value is <code>"true"</code>.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * Defines wether the external driver instance will block the port by binding as a service.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Binding</em>' attribute.
+     * @see #setBinding(boolean)
+     * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getExternalDriver_Binding()
+     * @model default="true" required="true"
+     * @generated
+     */
+    boolean isBinding ();
+
+    /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#isBinding <em>Binding</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Binding</em>' attribute.
+     * @see #isBinding()
+     * @generated
+     */
+    void setBinding ( boolean value );
 
 } // ExternalDriver

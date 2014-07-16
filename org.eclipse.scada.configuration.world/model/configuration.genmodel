@@ -79,10 +79,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//ServiceBinding"/>
     <genClasses ecoreClass="configuration.ecore#//ContainedServiceBinding">
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ContainedServiceBinding/service"/>
+      <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ContainedServiceBinding/service"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ReferencedServiceBinding">
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+      <genFeatures property="Readonly" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference configuration.ecore#//ReferencedServiceBinding/service"/>
     </genClasses>
     <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"

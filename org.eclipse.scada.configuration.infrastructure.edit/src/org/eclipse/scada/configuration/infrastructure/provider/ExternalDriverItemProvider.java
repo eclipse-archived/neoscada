@@ -62,6 +62,7 @@ public class ExternalDriverItemProvider extends DriverItemProvider implements IE
             super.getPropertyDescriptors ( object );
 
             addPortNumberPropertyDescriptor ( object );
+            addBindingPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
@@ -85,6 +86,29 @@ public class ExternalDriverItemProvider extends DriverItemProvider implements IE
                         false,
                         false,
                         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Binding feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addBindingPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_ExternalDriver_binding_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_ExternalDriver_binding_feature", "_UI_ExternalDriver_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        InfrastructurePackage.Literals.EXTERNAL_DRIVER__BINDING,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -164,6 +188,7 @@ public class ExternalDriverItemProvider extends DriverItemProvider implements IE
         switch ( notification.getFeatureID ( ExternalDriver.class ) )
         {
             case InfrastructurePackage.EXTERNAL_DRIVER__PORT_NUMBER:
+            case InfrastructurePackage.EXTERNAL_DRIVER__BINDING:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
             case InfrastructurePackage.EXTERNAL_DRIVER__ACCESS_CREDENTIALS:

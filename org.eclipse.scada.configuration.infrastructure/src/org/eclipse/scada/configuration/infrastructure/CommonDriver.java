@@ -70,12 +70,12 @@ public interface CommonDriver extends AbstractFactoryDriver
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Port Number</em>' attribute.
-     * @see #setPortNumber(short)
+     * @see #setPortNumber(int)
      * @see org.eclipse.scada.configuration.infrastructure.InfrastructurePackage#getCommonDriver_PortNumber()
      * @model required="true"
      * @generated
      */
-    short getPortNumber ();
+    int getPortNumber ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.infrastructure.CommonDriver#getPortNumber <em>Port Number</em>}' attribute.
@@ -85,6 +85,6 @@ public interface CommonDriver extends AbstractFactoryDriver
      * @see #getPortNumber()
      * @generated
      */
-    void setPortNumber ( short value );
+    void setPortNumber ( int value );
 
 } // CommonDriver

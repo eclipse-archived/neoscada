@@ -54,18 +54,9 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ArduinoDrive
         con.setName ( device.getName () );
         con.setShortDescription ( device.getShortDescription () );
 
-        final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "Arduino Endpoint" );
+        final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( device.getNode () ), device.getPort (), null, "Arduino Endpoint" );
         con.setEndpoint ( ep );
-
-        // lookup node
-        final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
-        if ( node == null )
-        {
-            throw new IllegalStateException ( String.format ( "Node %s was not found in target model", device.getNode () ) );
-        }
-        node.getEndpoints ().add ( ep );
 
         driver.getArduinoConnections ().add ( con );
     }
-
 }

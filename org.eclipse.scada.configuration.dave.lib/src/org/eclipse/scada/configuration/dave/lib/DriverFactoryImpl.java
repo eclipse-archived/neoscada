@@ -100,16 +100,8 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<DaveDriver>
 
         result.getDevices ().add ( cp );
 
-        final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "S7 Device Endpoint" );
+        final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( device.getNode () ), device.getPort (), null, "S7 Device Endpoint" );
         cp.setEndpoint ( ep );
-
-        // lookup node
-        final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
-        if ( node == null )
-        {
-            throw new IllegalStateException ( String.format ( "Node %s was not found in target model", device.getNode () ) );
-        }
-        node.getEndpoints ().add ( ep );
 
         final Map<String, Integer> blockCounters = new HashMap<> ();
 

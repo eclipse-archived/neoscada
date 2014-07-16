@@ -165,7 +165,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_RZGMeGi2EeOHrO1eEeyYMQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="infrastructure.ecore#//CommonDriver"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RZGMeWi2EeOHrO1eEeyYMQ" x="-816" y="252"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RZGMeWi2EeOHrO1eEeyYMQ" x="-984" y="252"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_RZGMemi2EeOHrO1eEeyYMQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_RZGMe2i2EeOHrO1eEeyYMQ" type="4001"/>
@@ -325,6 +325,10 @@
       <children xmi:type="notation:Node" xmi:id="_RZJP0Wi2EeOHrO1eEeyYMQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ExternalDriver/portNumber"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_RZJP0mi2EeOHrO1eEeyYMQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_hE1akA0PEeS5CvTfLN8rPw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="infrastructure.ecore#//ExternalDriver/binding"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hE1akQ0PEeS5CvTfLN8rPw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_RZJP02i2EeOHrO1eEeyYMQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_RZJP1Gi2EeOHrO1eEeyYMQ"/>

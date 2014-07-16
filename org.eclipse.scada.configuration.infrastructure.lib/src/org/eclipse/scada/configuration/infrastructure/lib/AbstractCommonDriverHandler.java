@@ -35,9 +35,8 @@ public abstract class AbstractCommonDriverHandler<T extends AbstractCommonDriver
 
         result.setPassword ( EcoreUtil.copy ( Worlds.findCommonDriverPassword ( driver ) ) );
 
-        final Endpoint ep = Endpoints.createEndpoint ( driver.getPortNumber (), String.format ( "Driver Endpoint: %s", driver.getName () ) );
+        final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), driver.getPortNumber (), Endpoints.reference ( result ), String.format ( "Driver Endpoint: %s", driver.getName () ) );
         result.getEndpoints ().add ( ep );
-        // no need to register the endpoint, this will be done by the world generator
 
         return result;
     }

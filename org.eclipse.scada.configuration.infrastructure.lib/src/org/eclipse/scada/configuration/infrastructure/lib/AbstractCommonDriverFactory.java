@@ -23,6 +23,7 @@ import org.eclipse.emf.validation.model.ConstraintStatus;
 import org.eclipse.scada.configuration.infrastructure.AbstractFactoryDriver;
 import org.eclipse.scada.configuration.infrastructure.Node;
 import org.eclipse.scada.configuration.infrastructure.World;
+import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.world.CommonDriver;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.Endpoint;
@@ -68,7 +69,7 @@ public abstract class AbstractCommonDriverFactory<T extends CommonDriver> implem
 
         driver.setPassword ( EcoreUtil.copy ( Worlds.findCommonDriverPassword ( (org.eclipse.scada.configuration.infrastructure.CommonDriver)infraDriver ) ) );
 
-        final Endpoint ep = Worlds.createDaEndpoint ( world.getOptions (), infraDriver );
+        final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( infraDriver.getNode () ), ( (org.eclipse.scada.configuration.infrastructure.CommonDriver)infraDriver ).getPortNumber (), Endpoints.reference ( driver ), "CommonDriver Endpoint: " + driver.getName () );
         driver.getEndpoints ().add ( ep );
 
         configureDriver ( world, infraDriver, driver );

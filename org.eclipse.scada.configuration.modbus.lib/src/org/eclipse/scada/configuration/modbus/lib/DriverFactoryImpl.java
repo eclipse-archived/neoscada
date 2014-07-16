@@ -93,18 +93,10 @@ public class DriverFactoryImpl extends AbstractEquinoxDriverFactory<ModbusDriver
         master.setId ( device.getName () );
         result.getMasters ().add ( master );
 
-        final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "Modbus Device Endpoint" );
+        final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( device.getNode () ), device.getPort (), null, "Modbus Device Endpoint" );
         master.setEndpoint ( ep );
         master.setProtocolType ( device.getProtocolType () );
         master.setInterFrameDelay ( device.getInterFrameDelay () );
-
-        // lookup node
-        final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
-        if ( node == null )
-        {
-            throw new IllegalStateException ( String.format ( "Node %s was not found in target model", device.getNode () ) );
-        }
-        node.getEndpoints ().add ( ep );
 
         master.getSlaves ().addAll ( EcoreUtil.copyAll ( device.getSlaves () ) );
     }

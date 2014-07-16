@@ -1445,13 +1445,22 @@ public interface InfrastructurePackage extends EPackage
     int EXTERNAL_DRIVER__ACCESS_CREDENTIALS = DRIVER_FEATURE_COUNT + 1;
 
     /**
+     * The feature id for the '<em><b>Binding</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_DRIVER__BINDING = DRIVER_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>External Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EXTERNAL_DRIVER_FEATURE_COUNT = DRIVER_FEATURE_COUNT + 2;
+    int EXTERNAL_DRIVER_FEATURE_COUNT = DRIVER_FEATURE_COUNT + 3;
 
     /**
      * The number of operations of the '<em>External Driver</em>' class.
@@ -3054,6 +3063,17 @@ public interface InfrastructurePackage extends EPackage
     EReference getExternalDriver_AccessCredentials ();
 
     /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.ExternalDriver#isBinding <em>Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Binding</em>'.
+     * @see org.eclipse.scada.configuration.infrastructure.ExternalDriver#isBinding()
+     * @see #getExternalDriver()
+     * @generated
+     */
+    EAttribute getExternalDriver_Binding ();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Driver <em>Driver</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4155,6 +4175,14 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference EXTERNAL_DRIVER__ACCESS_CREDENTIALS = eINSTANCE.getExternalDriver_AccessCredentials ();
+
+        /**
+         * The meta object literal for the '<em><b>Binding</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EXTERNAL_DRIVER__BINDING = eINSTANCE.getExternalDriver_Binding ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.DriverImpl <em>Driver</em>}' class.

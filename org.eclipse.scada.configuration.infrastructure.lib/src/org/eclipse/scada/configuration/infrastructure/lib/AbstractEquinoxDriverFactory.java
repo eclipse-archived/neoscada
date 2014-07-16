@@ -72,12 +72,12 @@ public abstract class AbstractEquinoxDriverFactory<T extends Driver & org.eclips
         final DataAccessExporter exporter = OsgiFactory.eINSTANCE.createDataAccessExporter ();
         exporter.setName ( "exporter" ); //$NON-NLS-1$
         result.getExporter ().add ( exporter );
-        exporter.getEndpoints ().add ( Worlds.createDaEndpoint ( world.getOptions (), driver ) );
+        exporter.getEndpoints ().add ( Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), world.getOptions ().getBaseDaNgpPort () + eDriver.getInstanceNumber (), Endpoints.reference ( exporter ), "EquinoxDriver Endpoint: " + driver.getName () ) );
 
         final ConfigurationAdministratorExporter caExporter = OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter ();
         caExporter.setName ( "caExporter" ); //$NON-NLS-1$
-        caExporter.getEndpoints ().add ( Endpoints.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), "CA Exporter" ) );
         result.getExporter ().add ( caExporter );
+        caExporter.getEndpoints ().add ( Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), world.getOptions ().getBaseCaNgpPort () + eDriver.getInstanceNumber (), Endpoints.reference ( caExporter ), "CA Exporter: " + driver.getName () ) );
 
         Worlds.addUserService ( result, eDriver );
 

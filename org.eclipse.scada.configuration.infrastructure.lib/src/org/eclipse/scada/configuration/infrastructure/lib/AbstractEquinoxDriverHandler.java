@@ -45,12 +45,12 @@ public abstract class AbstractEquinoxDriverHandler<T extends org.eclipse.scada.c
         final DataAccessExporter exporter = OsgiFactory.eINSTANCE.createDataAccessExporter ();
         exporter.setName ( "exporter" ); //$NON-NLS-1$
         result.getExporter ().add ( exporter );
-        exporter.getEndpoints ().add ( Worlds.createDaEndpoint ( world.getOptions (), driver ) );
+        exporter.getEndpoints ().add ( Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), world.getOptions ().getBaseDaNgpPort () + driver.getInstanceNumber (), Endpoints.reference ( exporter ), "EquinoxDriver Endpoint: " + driver.getName () ) );
 
         final ConfigurationAdministratorExporter caExporter = OsgiFactory.eINSTANCE.createConfigurationAdministratorExporter ();
         caExporter.setName ( "caExporter" ); //$NON-NLS-1$
-        caExporter.getEndpoints ().add ( Endpoints.createEndpoint ( world.getOptions ().getBaseCaNgpPort () + driver.getInstanceNumber (), "CA Exporter" ) );
         result.getExporter ().add ( caExporter );
+        caExporter.getEndpoints ().add ( Endpoints.registerEndpoint ( nodes.get ( driver.getNode () ), world.getOptions ().getBaseCaNgpPort () + driver.getInstanceNumber (), Endpoints.reference ( caExporter ), "CA Exporter: " + driver.getName () ) );
 
         return result;
     }

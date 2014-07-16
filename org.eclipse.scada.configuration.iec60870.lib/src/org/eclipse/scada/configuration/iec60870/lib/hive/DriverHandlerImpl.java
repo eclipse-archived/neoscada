@@ -38,16 +38,8 @@ public class DriverHandlerImpl extends AbstractEquinoxDriverHandler<IEC60870Driv
             clientDevice.setProtocolOptions ( EcoreUtil.copy ( device.getProtocolOptions () ) );
             clientDevice.setId ( device.getName () );
 
-            final Endpoint ep = Endpoints.createEndpoint ( device.getPort (), "IEC 60870-5-104 Device Endpoint" );
+            final Endpoint ep = Endpoints.registerEndpoint ( nodes.get ( device.getNode () ), device.getPort (), null, "IEC 60870-5-104 Device Endpoint" );
             clientDevice.setEndpoint ( ep );
-
-            // lookup node
-            final org.eclipse.scada.configuration.world.Node node = nodes.get ( device.getNode () );
-            if ( node == null )
-            {
-                throw new IllegalStateException ( String.format ( "Node %s was not found in target model", device.getNode () ) );
-            }
-            node.getEndpoints ().add ( ep );
 
             result.getDevices ().add ( clientDevice );
         }

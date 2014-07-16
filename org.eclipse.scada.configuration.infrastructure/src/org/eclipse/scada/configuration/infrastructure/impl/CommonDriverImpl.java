@@ -53,7 +53,7 @@ public class CommonDriverImpl extends AbstractFactoryDriverImpl implements Commo
      * @generated
      * @ordered
      */
-    protected static final short PORT_NUMBER_EDEFAULT = 0;
+    protected static final int PORT_NUMBER_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
@@ -63,7 +63,7 @@ public class CommonDriverImpl extends AbstractFactoryDriverImpl implements Commo
      * @generated
      * @ordered
      */
-    protected short portNumber = PORT_NUMBER_EDEFAULT;
+    protected int portNumber = PORT_NUMBER_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -173,7 +173,7 @@ public class CommonDriverImpl extends AbstractFactoryDriverImpl implements Commo
      * @generated
      */
     @Override
-    public short getPortNumber ()
+    public int getPortNumber ()
     {
         return portNumber;
     }
@@ -183,10 +183,9 @@ public class CommonDriverImpl extends AbstractFactoryDriverImpl implements Commo
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void setPortNumber ( short newPortNumber )
+    public void setPortNumber ( int newPortNumber )
     {
-        short oldPortNumber = portNumber;
+        int oldPortNumber = portNumber;
         portNumber = newPortNumber;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.COMMON_DRIVER__PORT_NUMBER, oldPortNumber, portNumber ) );
@@ -242,7 +241,7 @@ public class CommonDriverImpl extends AbstractFactoryDriverImpl implements Commo
                 setPassword ( (PasswordCredentials)newValue );
                 return;
             case InfrastructurePackage.COMMON_DRIVER__PORT_NUMBER:
-                setPortNumber ( (Short)newValue );
+                setPortNumber ( (Integer)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );

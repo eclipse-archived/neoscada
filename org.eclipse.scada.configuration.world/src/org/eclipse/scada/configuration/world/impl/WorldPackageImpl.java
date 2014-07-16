@@ -831,6 +831,16 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EOperation getServiceBinding__GetService ()
+    {
+        return serviceBindingEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getContainedServiceBinding ()
     {
         return containedServiceBindingEClass;
@@ -976,6 +986,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
 
         serviceBindingEClass = createEClass ( SERVICE_BINDING );
+        createEOperation ( serviceBindingEClass, SERVICE_BINDING___GET_SERVICE );
 
         containedServiceBindingEClass = createEClass ( CONTAINED_SERVICE_BINDING );
         createEReference ( containedServiceBindingEClass, CONTAINED_SERVICE_BINDING__SERVICE );
@@ -1114,6 +1125,8 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( serviceBindingEClass, ServiceBinding.class, "ServiceBinding", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEOperation ( getServiceBinding__GetService (), theEcorePackage.getEObject (), "getService", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( containedServiceBindingEClass, ContainedServiceBinding.class, "ContainedServiceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getContainedServiceBinding_Service (), theEcorePackage.getEObject (), null, "service", null, 1, 1, ContainedServiceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

@@ -92,7 +92,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ServiceBinding" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceBinding" abstract="true" interface="true">
+    <eOperations name="getService" lowerBound="1" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ContainedServiceBinding" eSuperTypes="#//ServiceBinding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
         eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"

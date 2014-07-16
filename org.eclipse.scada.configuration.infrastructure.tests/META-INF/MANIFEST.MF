@@ -11,6 +11,7 @@ Export-Package: org.eclipse.scada.configuration.infrastructure.tests;uses:="juni
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
  org.eclipse.scada.configuration.globalization;visibility:=reexport,
  org.eclipse.scada.configuration.item;visibility:=reexport,

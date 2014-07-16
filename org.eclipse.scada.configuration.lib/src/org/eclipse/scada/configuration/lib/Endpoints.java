@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ContainedServiceBinding;
 import org.eclipse.scada.configuration.world.Endpoint;
+import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.ReferencedServiceBinding;
 import org.eclipse.scada.configuration.world.ServiceBinding;
@@ -53,10 +54,17 @@ public final class Endpoints
      */
     public static Endpoint registerEndpoint ( final Node node, final int port, final ServiceBinding serviceBinding, final String name )
     {
+        if ( node == null )
+        {
+            throw new IllegalArgumentException ( String.format ( "Trying to add port %d (%s) to void node", port, name ) );
+        }
+
         Endpoint ep = Endpoints.findEndpoint ( node, port );
         if ( ep != null && ep.getBoundService () != null && serviceBinding != null )
         {
-            throw new IllegalStateException ( String.format ( "Endpoint %s already exists on node %s and is bound by %s (re-binding service: %s)", port, Nodes.makeName ( node ), ep.getBoundService (), serviceBinding ) );
+            final String oldService = makeLabel ( ep.getBoundService () );
+            final String newService = makeLabel ( serviceBinding );
+            throw new IllegalStateException ( String.format ( "Endpoint %s already exists on node %s and is bound by %s (re-binding service: %s)", port, Nodes.makeName ( node ), oldService, newService ) );
         }
 
         if ( ep == null )
@@ -74,6 +82,35 @@ public final class Endpoints
         return ep;
     }
 
+    protected static String makeLabel ( final ServiceBinding serviceBinding )
+    {
+        final EObject s = serviceBinding.getService ();
+        if ( s == null )
+        {
+            return "<unknown>";
+        }
+
+        if ( s instanceof NamedDocumentable )
+        {
+            final StringBuilder sb = new StringBuilder ();
+
+            final NamedDocumentable nd = (NamedDocumentable)s;
+
+            sb.append ( s.eClass ().getName () );
+            sb.append ( " (" );
+            sb.append ( nd.getName () );
+            if ( nd.getShortDescription () != null )
+            {
+                sb.append ( " - " ).append ( nd.getShortDescription () );
+            }
+            sb.append ( ')' );
+
+            return sb.toString ();
+        }
+
+        return serviceBinding.getService ().toString ();
+    }
+
     public static ServiceBinding reference ( final EObject service )
     {
         final ReferencedServiceBinding result = WorldFactory.eINSTANCE.createReferencedServiceBinding ();
@@ -88,10 +125,10 @@ public final class Endpoints
         return result;
     }
 
-    public static Endpoint createEndpoint ( final int port, final String name )
+    private static Endpoint createEndpoint ( final int port, final String name )
     {
         final Endpoint ep = WorldFactory.eINSTANCE.createEndpoint ();
-        ep.setPortNumber ( (short)port );
+        ep.setPortNumber ( port );
         ep.setName ( name );
         return ep;
     }
@@ -150,6 +187,11 @@ public final class Endpoints
 
     public static ServiceBinding binding ( final EObject service )
     {
+        if ( service == null )
+        {
+            return null;
+        }
+
         if ( service.eContainer () != null )
         {
             return reference ( service );

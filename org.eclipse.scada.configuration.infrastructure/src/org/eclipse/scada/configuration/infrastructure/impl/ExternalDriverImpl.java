@@ -28,6 +28,7 @@ import org.eclipse.scada.configuration.world.Credentials;
  * <ul>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#getPortNumber <em>Port Number</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#getAccessCredentials <em>Access Credentials</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.infrastructure.impl.ExternalDriverImpl#isBinding <em>Binding</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,7 +44,7 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * @generated
      * @ordered
      */
-    protected static final short PORT_NUMBER_EDEFAULT = 0;
+    protected static final int PORT_NUMBER_EDEFAULT = 0;
 
     /**
      * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
@@ -53,7 +54,7 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * @generated
      * @ordered
      */
-    protected short portNumber = PORT_NUMBER_EDEFAULT;
+    protected int portNumber = PORT_NUMBER_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getAccessCredentials() <em>Access Credentials</em>}' containment reference.
@@ -64,6 +65,26 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * @ordered
      */
     protected Credentials accessCredentials;
+
+    /**
+     * The default value of the '{@link #isBinding() <em>Binding</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isBinding()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean BINDING_EDEFAULT = true;
+
+    /**
+     * The cached value of the '{@link #isBinding() <em>Binding</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isBinding()
+     * @generated
+     * @ordered
+     */
+    protected boolean binding = BINDING_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -91,7 +112,7 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * <!-- end-user-doc -->
      * @generated
      */
-    public short getPortNumber ()
+    public int getPortNumber ()
     {
         return portNumber;
     }
@@ -101,9 +122,9 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setPortNumber ( short newPortNumber )
+    public void setPortNumber ( int newPortNumber )
     {
-        short oldPortNumber = portNumber;
+        int oldPortNumber = portNumber;
         portNumber = newPortNumber;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EXTERNAL_DRIVER__PORT_NUMBER, oldPortNumber, portNumber ) );
@@ -194,6 +215,29 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isBinding ()
+    {
+        return binding;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBinding ( boolean newBinding )
+    {
+        boolean oldBinding = binding;
+        binding = newBinding;
+        if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, InfrastructurePackage.EXTERNAL_DRIVER__BINDING, oldBinding, binding ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
     {
@@ -221,6 +265,8 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
                 if ( resolve )
                     return getAccessCredentials ();
                 return basicGetAccessCredentials ();
+            case InfrastructurePackage.EXTERNAL_DRIVER__BINDING:
+                return isBinding ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -236,10 +282,13 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
         switch ( featureID )
         {
             case InfrastructurePackage.EXTERNAL_DRIVER__PORT_NUMBER:
-                setPortNumber ( (Short)newValue );
+                setPortNumber ( (Integer)newValue );
                 return;
             case InfrastructurePackage.EXTERNAL_DRIVER__ACCESS_CREDENTIALS:
                 setAccessCredentials ( (Credentials)newValue );
+                return;
+            case InfrastructurePackage.EXTERNAL_DRIVER__BINDING:
+                setBinding ( (Boolean)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -261,6 +310,9 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
             case InfrastructurePackage.EXTERNAL_DRIVER__ACCESS_CREDENTIALS:
                 setAccessCredentials ( (Credentials)null );
                 return;
+            case InfrastructurePackage.EXTERNAL_DRIVER__BINDING:
+                setBinding ( BINDING_EDEFAULT );
+                return;
         }
         super.eUnset ( featureID );
     }
@@ -279,6 +331,8 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
                 return portNumber != PORT_NUMBER_EDEFAULT;
             case InfrastructurePackage.EXTERNAL_DRIVER__ACCESS_CREDENTIALS:
                 return accessCredentials != null;
+            case InfrastructurePackage.EXTERNAL_DRIVER__BINDING:
+                return binding != BINDING_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -297,6 +351,8 @@ public class ExternalDriverImpl extends DriverImpl implements ExternalDriver
         StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (portNumber: " ); //$NON-NLS-1$
         result.append ( portNumber );
+        result.append ( ", binding: " ); //$NON-NLS-1$
+        result.append ( binding );
         result.append ( ')' );
         return result.toString ();
     }

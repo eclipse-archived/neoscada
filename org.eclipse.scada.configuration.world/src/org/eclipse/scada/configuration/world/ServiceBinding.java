@@ -25,4 +25,12 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ServiceBinding extends EObject
 {
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @model kind="operation" required="true"
+     * @generated
+     */
+    EObject getService ();
 } // ServiceBinding

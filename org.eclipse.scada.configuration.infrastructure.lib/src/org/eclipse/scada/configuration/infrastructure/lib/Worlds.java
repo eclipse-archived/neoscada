@@ -28,12 +28,10 @@ import org.eclipse.scada.configuration.infrastructure.SystemPropertyUserService;
 import org.eclipse.scada.configuration.infrastructure.UserService;
 import org.eclipse.scada.configuration.infrastructure.World;
 import org.eclipse.scada.configuration.infrastructure.lib.internal.SystemPropertiesUserServiceProcessor;
-import org.eclipse.scada.configuration.lib.Endpoints;
 import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.security.Configuration;
 import org.eclipse.scada.configuration.utils.Containers;
 import org.eclipse.scada.configuration.world.Credentials;
-import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
@@ -234,23 +232,6 @@ public final class Worlds
             return masterImport.getCredentials ();
         }
         return findInterconnectCredentials ( masterImport.getImportedMaster () );
-    }
-
-    public static Endpoint createDaEndpoint ( final Options options, final Driver driver )
-    {
-        if ( driver instanceof CommonDriver )
-        {
-            return Endpoints.createEndpoint ( ( (CommonDriver)driver ).getPortNumber (), "CommonDriver Endpoint: " + driver.getName () );
-        }
-        else if ( driver instanceof EquinoxBase )
-        {
-            return Endpoints.createEndpoint ( options.getBaseDaNgpPort () + ( (EquinoxBase)driver ).getInstanceNumber (), "EquinoxDriver Endpoint: " + driver.getName () );
-        }
-        else if ( driver instanceof ExternalDriver )
-        {
-            return Endpoints.createEndpoint ( ( (ExternalDriver)driver ).getPortNumber (), "ExternalDriver Endpoint: " + driver.getName () );
-        }
-        throw new IllegalStateException ( String.format ( "Unable to create DA endpoint for driver type: %s", driver.getClass ().getName () ) );
     }
 
     public static Configuration findSecurityConfiguration ( final EquinoxBase eDriver )

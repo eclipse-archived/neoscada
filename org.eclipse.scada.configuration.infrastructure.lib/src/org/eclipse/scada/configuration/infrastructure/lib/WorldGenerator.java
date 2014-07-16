@@ -55,6 +55,7 @@ import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.ServiceBinding;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
@@ -483,7 +484,9 @@ public class WorldGenerator
         else if ( driver instanceof ExternalDriver )
         {
             final ExternalDriverPlaceholder result = InfrastructureFactory.eINSTANCE.createExternalDriverPlaceholder ();
-            result.getEndpoints ().add ( Worlds.createDaEndpoint ( this.options, driver ) );
+            result.setName ( driver.getName () );
+            final ServiceBinding bindingService = ( (ExternalDriver)driver ).isBinding () ? Endpoints.contain ( result ) : null;
+            result.getEndpoints ().add ( Endpoints.registerEndpoint ( node, ( (ExternalDriver)driver ).getPortNumber (), bindingService, "ExternalDriver Endpoint: " + driver.getName () ) );
 
             finishDriver ( result, driver, node, false );
 
@@ -500,11 +503,6 @@ public class WorldGenerator
         {
             // create a connection for the driver
             throw new IllegalStateException ( String.format ( "Driver has no endpoints: %s", driver ) );
-        }
-
-        for ( final Endpoint ep : driver.getEndpoints () )
-        {
-            Endpoints.bind ( ep, Endpoints.binding ( driver ) );
         }
 
         node.getEndpoints ().addAll ( driver.getEndpoints () );
@@ -578,7 +576,7 @@ public class WorldGenerator
     {
         final Exporter exporter = (Exporter)EcoreUtil.create ( exporterClass );
 
-        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, Endpoints.reference ( exporter ), String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
+        final Endpoint ep = Endpoints.registerEndpoint ( node, port, Endpoints.reference ( exporter ), String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
         node.getEndpoints ().add ( ep );
 
         exporter.setName ( application.getName () + "/exporter" );

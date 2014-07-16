@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.infrastructure.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.security.provider.SecurityEditPlugin;
 import org.eclipse.scada.da.exec.configuration.provider.ExecEditPlugin;
@@ -55,6 +56,7 @@ public final class InfrastructureEditPlugin extends EMFPlugin
                 GlobalizeEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
+                EcoreEditPlugin.INSTANCE,
         } );
     }
 

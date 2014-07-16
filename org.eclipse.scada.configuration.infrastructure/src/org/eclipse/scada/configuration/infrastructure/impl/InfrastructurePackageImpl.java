@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.globalization.GlobalizePackage;
 import org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver;
@@ -1177,6 +1178,16 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      * <!-- end-user-doc -->
      * @generated
      */
+    public EAttribute getExternalDriver_Binding ()
+    {
+        return (EAttribute)externalDriverEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EClass getDriver ()
     {
@@ -1751,6 +1762,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         externalDriverEClass = createEClass ( EXTERNAL_DRIVER );
         createEAttribute ( externalDriverEClass, EXTERNAL_DRIVER__PORT_NUMBER );
         createEReference ( externalDriverEClass, EXTERNAL_DRIVER__ACCESS_CREDENTIALS );
+        createEAttribute ( externalDriverEClass, EXTERNAL_DRIVER__BINDING );
 
         driverEClass = createEClass ( DRIVER );
         createEAttribute ( driverEClass, DRIVER__NAME );
@@ -1846,6 +1858,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         ProfilePackage theProfilePackage = (ProfilePackage)EPackage.Registry.INSTANCE.getEPackage ( ProfilePackage.eNS_URI );
         OsgiPackage theOsgiPackage = (OsgiPackage)EPackage.Registry.INSTANCE.getEPackage ( OsgiPackage.eNS_URI );
         GlobalizePackage theGlobalizePackage = (GlobalizePackage)EPackage.Registry.INSTANCE.getEPackage ( GlobalizePackage.eNS_URI );
+        EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage ( EcorePackage.eNS_URI );
         DeploymentPackage theDeploymentPackage = (DeploymentPackage)EPackage.Registry.INSTANCE.getEPackage ( DeploymentPackage.eNS_URI );
 
         // Create type parameters
@@ -1928,7 +1941,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
 
         initEClass ( commonDriverEClass, CommonDriver.class, "CommonDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getCommonDriver_Password (), theWorldPackage.getPasswordCredentials (), null, "password", null, 0, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getCommonDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getCommonDriver_PortNumber (), theEcorePackage.getEInt (), "portNumber", null, 1, 1, CommonDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( externalNodeEClass, ExternalNode.class, "ExternalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
@@ -1967,8 +1980,9 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
         initEReference ( getEquinoxDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, EquinoxDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( externalDriverEClass, ExternalDriver.class, "ExternalDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getExternalDriver_PortNumber (), ecorePackage.getEShort (), "portNumber", null, 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExternalDriver_PortNumber (), theEcorePackage.getEInt (), "portNumber", null, 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getExternalDriver_AccessCredentials (), theWorldPackage.getCredentials (), null, "accessCredentials", null, 0, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getExternalDriver_Binding (), theEcorePackage.getEBoolean (), "binding", "true", 1, 1, ExternalDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( driverEClass, Driver.class, "Driver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getDriver_Name (), ecorePackage.getEString (), "name", null, 1, 1, Driver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -2078,7 +2092,7 @@ public class InfrastructurePackageImpl extends EPackageImpl implements Infrastru
      */
     protected void createExclusiveGroupAnnotations ()
     {
-        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																					
+        String source = "http://eclipse.org/SCADA/Configuration/World/ExclusiveGroup"; //$NON-NLS-1$																						
         addAnnotation ( oracleVMSettingsEClass,
                 source,
                 new String[]
