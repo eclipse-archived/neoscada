@@ -36,7 +36,8 @@
         eOpposite="#//Node/endpoints" eKeys="#//Node/hostName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" lowerBound="1"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="boundService" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="boundService" eType="#//ServiceBinding"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExecDriver" eSuperTypes="#//CommonDriver">
     <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="ecore:EClass ../../org.eclipse.scada.da.server.exec/model/configuration.ecore#//RootType"
@@ -90,6 +91,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="PropertyEntry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ServiceBinding" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainedServiceBinding" eSuperTypes="#//ServiceBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferencedServiceBinding" eSuperTypes="#//ServiceBinding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
   </eClassifiers>
   <eSubpackages name="osgi" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi"
       nsPrefix="osgi">

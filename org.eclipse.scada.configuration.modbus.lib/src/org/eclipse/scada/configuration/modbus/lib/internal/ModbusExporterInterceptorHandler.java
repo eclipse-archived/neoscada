@@ -110,7 +110,7 @@ public class ModbusExporterInterceptorHandler extends AbstractItemInterceptorHan
         device.setSlaveId ( slaveId );
         device.getProperties ().addAll ( EcoreUtil.copyAll ( interceptor.getSettings ().getProperties () ) );
 
-        device.setPort ( Endpoints.registerEndpoint ( masterContext.getImplementation (), (short)port, device, String.format ( "Modbus Exporter: %s", masterContext.getDefinition ().getName () ) ) );
+        device.setPort ( Endpoints.registerEndpoint ( masterContext.getImplementation (), (short)port, Endpoints.reference ( device ), String.format ( "Modbus Exporter: %s", masterContext.getDefinition ().getName () ) ) );
 
         exporter.getDevices ().add ( device );
         return device;

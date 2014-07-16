@@ -382,10 +382,10 @@ public class WorldGenerator
 
         // process application configurations
 
-        result.addAll ( this.infrastructure.getApplicationConfigurations () );
+        result.addAll ( EcoreUtil.copyAll ( this.infrastructure.getApplicationConfigurations () ) );
 
         ExclusiveGroups.removeGroups ( result, app.getConfigurations () );
-        result.addAll ( app.getConfigurations () );
+        result.addAll ( EcoreUtil.copyAll ( app.getConfigurations () ) );
 
         // process infrastructure configuration
 
@@ -394,11 +394,10 @@ public class WorldGenerator
         if ( cfg != null )
         {
             ExclusiveGroups.removeGroups ( result, cfg.getConfigurations () );
-            result.addAll ( cfg.getConfigurations () );
+            result.addAll ( EcoreUtil.copyAll ( cfg.getConfigurations () ) );
 
             for ( final Module m : cfg.getModules () )
             {
-
                 final ModuleHandler mh = AdapterHelper.adapt ( m, ModuleHandler.class );
                 if ( mh == null )
                 {
@@ -411,7 +410,7 @@ public class WorldGenerator
 
         // final check is done in the target model
 
-        return EcoreUtil.copyAll ( result );
+        return result; // we don't copy here, since the module handlers might have created actual objects
     }
 
     public Credentials findLocalCredentials ( final org.eclipse.scada.configuration.infrastructure.EquinoxApplication app )
@@ -505,7 +504,7 @@ public class WorldGenerator
 
         for ( final Endpoint ep : driver.getEndpoints () )
         {
-            Endpoints.bind ( ep, driver );
+            Endpoints.bind ( ep, Endpoints.binding ( driver ) );
         }
 
         node.getEndpoints ().addAll ( driver.getEndpoints () );
@@ -579,7 +578,7 @@ public class WorldGenerator
     {
         final Exporter exporter = (Exporter)EcoreUtil.create ( exporterClass );
 
-        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, exporter, String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
+        final Endpoint ep = Endpoints.registerEndpoint ( node, (short)port, Endpoints.reference ( exporter ), String.format ( "Exporter Endpoint: %s - %s", exporter.getTypeTag (), exporter.getName () ) );
         node.getEndpoints ().add ( ep );
 
         exporter.setName ( application.getName () + "/exporter" );

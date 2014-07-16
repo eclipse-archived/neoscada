@@ -13,13 +13,13 @@ package org.eclipse.scada.configuration.world.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
+import org.eclipse.scada.configuration.world.ServiceBinding;
 import org.eclipse.scada.configuration.world.WorldPackage;
 
 /**
@@ -103,14 +103,14 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
     protected int portNumber = PORT_NUMBER_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getBoundService() <em>Bound Service</em>}' reference.
+     * The cached value of the '{@link #getBoundService() <em>Bound Service</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @see #getBoundService()
      * @generated
      * @ordered
      */
-    protected EObject boundService;
+    protected ServiceBinding boundService;
 
     /**
      * <!-- begin-user-doc -->
@@ -266,14 +266,22 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public EObject getBoundService ()
+    public ServiceBinding getBoundService ()
     {
         if ( boundService != null && boundService.eIsProxy () )
         {
             InternalEObject oldBoundService = (InternalEObject)boundService;
-            boundService = eResolveProxy ( oldBoundService );
+            boundService = (ServiceBinding)eResolveProxy ( oldBoundService );
             if ( boundService != oldBoundService )
             {
+                InternalEObject newBoundService = (InternalEObject)boundService;
+                NotificationChain msgs = oldBoundService.eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, null );
+                if ( newBoundService.eInternalContainer () == null )
+                {
+                    msgs = newBoundService.eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+                }
+                if ( msgs != null )
+                    msgs.dispatch ();
                 if ( eNotificationRequired () )
                     eNotify ( new ENotificationImpl ( this, Notification.RESOLVE, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, boundService ) );
             }
@@ -286,7 +294,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public EObject basicGetBoundService ()
+    public ServiceBinding basicGetBoundService ()
     {
         return boundService;
     }
@@ -296,12 +304,41 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setBoundService ( EObject newBoundService )
+    public NotificationChain basicSetBoundService ( ServiceBinding newBoundService, NotificationChain msgs )
     {
-        EObject oldBoundService = boundService;
+        ServiceBinding oldBoundService = boundService;
         boundService = newBoundService;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, boundService ) );
+        {
+            ENotificationImpl notification = new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, oldBoundService, newBoundService );
+            if ( msgs == null )
+                msgs = notification;
+            else
+                msgs.add ( notification );
+        }
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setBoundService ( ServiceBinding newBoundService )
+    {
+        if ( newBoundService != boundService )
+        {
+            NotificationChain msgs = null;
+            if ( boundService != null )
+                msgs = ( (InternalEObject)boundService ).eInverseRemove ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+            if ( newBoundService != null )
+                msgs = ( (InternalEObject)newBoundService ).eInverseAdd ( this, EOPPOSITE_FEATURE_BASE - WorldPackage.ENDPOINT__BOUND_SERVICE, null, msgs );
+            msgs = basicSetBoundService ( newBoundService, msgs );
+            if ( msgs != null )
+                msgs.dispatch ();
+        }
+        else if ( eNotificationRequired () )
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ENDPOINT__BOUND_SERVICE, newBoundService, newBoundService ) );
     }
 
     /**
@@ -336,6 +373,8 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
         {
             case WorldPackage.ENDPOINT__NODE:
                 return basicSetNode ( null, msgs );
+            case WorldPackage.ENDPOINT__BOUND_SERVICE:
+                return basicSetBoundService ( null, msgs );
         }
         return super.eInverseRemove ( otherEnd, featureID, msgs );
     }
@@ -408,7 +447,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
                 setPortNumber ( (Integer)newValue );
                 return;
             case WorldPackage.ENDPOINT__BOUND_SERVICE:
-                setBoundService ( (EObject)newValue );
+                setBoundService ( (ServiceBinding)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -437,7 +476,7 @@ public class EndpointImpl extends MinimalEObjectImpl.Container implements
                 setPortNumber ( PORT_NUMBER_EDEFAULT );
                 return;
             case WorldPackage.ENDPOINT__BOUND_SERVICE:
-                setBoundService ( (EObject)null );
+                setBoundService ( (ServiceBinding)null );
                 return;
         }
         super.eUnset ( featureID );

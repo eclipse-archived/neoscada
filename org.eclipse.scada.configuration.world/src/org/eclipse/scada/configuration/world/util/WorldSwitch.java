@@ -311,6 +311,34 @@ public class WorldSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case WorldPackage.SERVICE_BINDING:
+            {
+                ServiceBinding serviceBinding = (ServiceBinding)theEObject;
+                T result = caseServiceBinding ( serviceBinding );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.CONTAINED_SERVICE_BINDING:
+            {
+                ContainedServiceBinding containedServiceBinding = (ContainedServiceBinding)theEObject;
+                T result = caseContainedServiceBinding ( containedServiceBinding );
+                if ( result == null )
+                    result = caseServiceBinding ( containedServiceBinding );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.REFERENCED_SERVICE_BINDING:
+            {
+                ReferencedServiceBinding referencedServiceBinding = (ReferencedServiceBinding)theEObject;
+                T result = caseReferencedServiceBinding ( referencedServiceBinding );
+                if ( result == null )
+                    result = caseServiceBinding ( referencedServiceBinding );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -616,6 +644,54 @@ public class WorldSwitch<T> extends Switch<T>
      * @generated
      */
     public T casePropertyEntry ( PropertyEntry object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Service Binding</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Service Binding</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseServiceBinding ( ServiceBinding object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Contained Service Binding</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Contained Service Binding</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseContainedServiceBinding ( ContainedServiceBinding object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Referenced Service Binding</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Referenced Service Binding</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseReferencedServiceBinding ( ReferencedServiceBinding object )
     {
         return null;
     }

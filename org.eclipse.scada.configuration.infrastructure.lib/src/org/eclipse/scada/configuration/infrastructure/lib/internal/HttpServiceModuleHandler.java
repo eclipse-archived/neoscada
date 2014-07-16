@@ -17,9 +17,7 @@ import org.eclipse.scada.configuration.infrastructure.HttpServiceModule;
 import org.eclipse.scada.configuration.infrastructure.Module;
 import org.eclipse.scada.configuration.infrastructure.lib.ModuleHandler;
 import org.eclipse.scada.configuration.lib.Endpoints;
-import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.world.Endpoint;
-import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.HttpService;
 import org.eclipse.scada.configuration.world.osgi.OsgiFactory;
@@ -31,9 +29,9 @@ public class HttpServiceModuleHandler implements ModuleHandler
     public void process ( final Module module, final Collection<ApplicationModule> modules, final EquinoxApplication app, final org.eclipse.scada.configuration.world.osgi.EquinoxApplication implApp )
     {
         final HttpService s = OsgiFactory.eINSTANCE.createHttpService ();
-        final Endpoint ep = Endpoints.createEndpoint ( ( (HttpServiceModule)module ).getPort (), "HTTP Endpoint" );
-        final Node node = Nodes.fromApp ( implApp );
-        node.getEndpoints ().add ( ep );
+
+        final Endpoint ep = Endpoints.registerEndpoint ( implApp, ( (HttpServiceModule)module ).getPort (), Endpoints.reference ( s ), "HTTP Endpoint" );
+
         s.setEndpoint ( ep );
         modules.add ( s );
     }

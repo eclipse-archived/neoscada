@@ -12,8 +12,11 @@ package org.eclipse.scada.configuration.lib;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.world.Application;
+import org.eclipse.scada.configuration.world.ContainedServiceBinding;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.Node;
+import org.eclipse.scada.configuration.world.ReferencedServiceBinding;
+import org.eclipse.scada.configuration.world.ServiceBinding;
 import org.eclipse.scada.configuration.world.WorldFactory;
 
 public final class Endpoints
@@ -29,9 +32,9 @@ public final class Endpoints
      *
      * @return the newly created endpoint
      */
-    public static Endpoint registerEndpoint ( final Application app, final int port, final EObject bindingService, final String name )
+    public static Endpoint registerEndpoint ( final Application app, final int port, final ServiceBinding serviceBinding, final String name )
     {
-        return registerEndpoint ( Nodes.fromApp ( app ), port, bindingService, name );
+        return registerEndpoint ( Nodes.fromApp ( app ), port, serviceBinding, name );
     }
 
     /**
@@ -43,17 +46,17 @@ public final class Endpoints
      *            the node to which this endpoint belongs
      * @param port
      *            the port number
-     * @param bind
-     *            whether the service wants to bind to this endpoint
+     * @param serviceBinding
+     *            the service that is bound to this endpoint
      * @param name
      *            an informative name
      */
-    public static Endpoint registerEndpoint ( final Node node, final int port, final EObject bindingService, final String name )
+    public static Endpoint registerEndpoint ( final Node node, final int port, final ServiceBinding serviceBinding, final String name )
     {
         Endpoint ep = Endpoints.findEndpoint ( node, port );
-        if ( ep != null && ep.getBoundService () != null && bindingService != null )
+        if ( ep != null && ep.getBoundService () != null && serviceBinding != null )
         {
-            throw new IllegalStateException ( String.format ( "Endpoint %s already exists on node %s and is bound by %s (re-binding service: %s)", port, Nodes.makeName ( node ), ep.getBoundService (), bindingService ) );
+            throw new IllegalStateException ( String.format ( "Endpoint %s already exists on node %s and is bound by %s (re-binding service: %s)", port, Nodes.makeName ( node ), ep.getBoundService (), serviceBinding ) );
         }
 
         if ( ep == null )
@@ -62,13 +65,27 @@ public final class Endpoints
             node.getEndpoints ().add ( ep );
         }
 
-        Endpoints.bind ( ep, bindingService );
-        if ( bindingService != null )
+        Endpoints.bind ( ep, serviceBinding );
+        if ( serviceBinding != null )
         {
             ep.setName ( name ); // overwrite the name with the binding service endpoint name
         }
 
         return ep;
+    }
+
+    public static ServiceBinding reference ( final EObject service )
+    {
+        final ReferencedServiceBinding result = WorldFactory.eINSTANCE.createReferencedServiceBinding ();
+        result.setService ( service );
+        return result;
+    }
+
+    public static ServiceBinding contain ( final EObject service )
+    {
+        final ContainedServiceBinding result = WorldFactory.eINSTANCE.createContainedServiceBinding ();
+        result.setService ( service );
+        return result;
     }
 
     public static Endpoint createEndpoint ( final int port, final String name )
@@ -121,11 +138,25 @@ public final class Endpoints
         return null;
     }
 
-    public static void bind ( final Endpoint ep, final EObject bindingService )
+    public static void bind ( final Endpoint ep, final ServiceBinding serviceBinding )
     {
-        if ( bindingService != null )
+        if ( serviceBinding == null )
         {
-            ep.setBoundService ( bindingService );
+            return;
+        }
+
+        ep.setBoundService ( serviceBinding );
+    }
+
+    public static ServiceBinding binding ( final EObject service )
+    {
+        if ( service.eContainer () != null )
+        {
+            return reference ( service );
+        }
+        else
+        {
+            return contain ( service );
         }
     }
 }

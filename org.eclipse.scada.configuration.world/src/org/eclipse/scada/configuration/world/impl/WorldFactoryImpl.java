@@ -105,6 +105,10 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
                 return createExternalNode ();
             case WorldPackage.PROPERTY_ENTRY:
                 return createPropertyEntry ();
+            case WorldPackage.CONTAINED_SERVICE_BINDING:
+                return createContainedServiceBinding ();
+            case WorldPackage.REFERENCED_SERVICE_BINDING:
+                return createReferencedServiceBinding ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -273,6 +277,28 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     {
         PropertyEntryImpl propertyEntry = new PropertyEntryImpl ();
         return propertyEntry;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ContainedServiceBinding createContainedServiceBinding ()
+    {
+        ContainedServiceBindingImpl containedServiceBinding = new ContainedServiceBindingImpl ();
+        return containedServiceBinding;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ReferencedServiceBinding createReferencedServiceBinding ()
+    {
+        ReferencedServiceBindingImpl referencedServiceBinding = new ReferencedServiceBindingImpl ();
+        return referencedServiceBinding;
     }
 
     /**

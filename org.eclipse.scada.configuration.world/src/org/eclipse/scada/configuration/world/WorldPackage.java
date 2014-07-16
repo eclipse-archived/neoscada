@@ -516,7 +516,7 @@ public interface WorldPackage extends EPackage
     int ENDPOINT__PORT_NUMBER = NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Bound Service</b></em>' reference.
+     * The feature id for the '<em><b>Bound Service</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1139,6 +1139,108 @@ public interface WorldPackage extends EPackage
     int PROPERTY_ENTRY_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.ServiceBinding <em>Service Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.ServiceBinding
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getServiceBinding()
+     * @generated
+     */
+    int SERVICE_BINDING = 19;
+
+    /**
+     * The number of structural features of the '<em>Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_BINDING_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SERVICE_BINDING_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.ContainedServiceBindingImpl <em>Contained Service Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.ContainedServiceBindingImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getContainedServiceBinding()
+     * @generated
+     */
+    int CONTAINED_SERVICE_BINDING = 20;
+
+    /**
+     * The feature id for the '<em><b>Service</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINED_SERVICE_BINDING__SERVICE = SERVICE_BINDING_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Contained Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINED_SERVICE_BINDING_FEATURE_COUNT = SERVICE_BINDING_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Contained Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int CONTAINED_SERVICE_BINDING_OPERATION_COUNT = SERVICE_BINDING_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.ReferencedServiceBindingImpl <em>Referenced Service Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.ReferencedServiceBindingImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getReferencedServiceBinding()
+     * @generated
+     */
+    int REFERENCED_SERVICE_BINDING = 21;
+
+    /**
+     * The feature id for the '<em><b>Service</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENCED_SERVICE_BINDING__SERVICE = SERVICE_BINDING_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Referenced Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENCED_SERVICE_BINDING_FEATURE_COUNT = SERVICE_BINDING_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Referenced Service Binding</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int REFERENCED_SERVICE_BINDING_OPERATION_COUNT = SERVICE_BINDING_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1146,7 +1248,7 @@ public interface WorldPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 19;
+    int PATTERN = 22;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
@@ -1339,10 +1441,10 @@ public interface WorldPackage extends EPackage
     EAttribute getEndpoint_PortNumber ();
 
     /**
-     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}'.
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the reference '<em>Bound Service</em>'.
+     * @return the meta object for the containment reference '<em>Bound Service</em>'.
      * @see org.eclipse.scada.configuration.world.Endpoint#getBoundService()
      * @see #getEndpoint()
      * @generated
@@ -1646,6 +1748,58 @@ public interface WorldPackage extends EPackage
     EAttribute getPropertyEntry_Value ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.ServiceBinding <em>Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Service Binding</em>'.
+     * @see org.eclipse.scada.configuration.world.ServiceBinding
+     * @generated
+     */
+    EClass getServiceBinding ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.ContainedServiceBinding <em>Contained Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Contained Service Binding</em>'.
+     * @see org.eclipse.scada.configuration.world.ContainedServiceBinding
+     * @generated
+     */
+    EClass getContainedServiceBinding ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.configuration.world.ContainedServiceBinding#getService <em>Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Service</em>'.
+     * @see org.eclipse.scada.configuration.world.ContainedServiceBinding#getService()
+     * @see #getContainedServiceBinding()
+     * @generated
+     */
+    EReference getContainedServiceBinding_Service ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.ReferencedServiceBinding <em>Referenced Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Referenced Service Binding</em>'.
+     * @see org.eclipse.scada.configuration.world.ReferencedServiceBinding
+     * @generated
+     */
+    EClass getReferencedServiceBinding ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.ReferencedServiceBinding#getService <em>Service</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Service</em>'.
+     * @see org.eclipse.scada.configuration.world.ReferencedServiceBinding#getService()
+     * @see #getReferencedServiceBinding()
+     * @generated
+     */
+    EReference getReferencedServiceBinding_Service ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1839,7 +1993,7 @@ public interface WorldPackage extends EPackage
         EAttribute ENDPOINT__PORT_NUMBER = eINSTANCE.getEndpoint_PortNumber ();
 
         /**
-         * The meta object literal for the '<em><b>Bound Service</b></em>' reference feature.
+         * The meta object literal for the '<em><b>Bound Service</b></em>' containment reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -2093,6 +2247,52 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EAttribute PROPERTY_ENTRY__VALUE = eINSTANCE.getPropertyEntry_Value ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.ServiceBinding <em>Service Binding</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.ServiceBinding
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getServiceBinding()
+         * @generated
+         */
+        EClass SERVICE_BINDING = eINSTANCE.getServiceBinding ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.ContainedServiceBindingImpl <em>Contained Service Binding</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.ContainedServiceBindingImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getContainedServiceBinding()
+         * @generated
+         */
+        EClass CONTAINED_SERVICE_BINDING = eINSTANCE.getContainedServiceBinding ();
+
+        /**
+         * The meta object literal for the '<em><b>Service</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference CONTAINED_SERVICE_BINDING__SERVICE = eINSTANCE.getContainedServiceBinding_Service ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.ReferencedServiceBindingImpl <em>Referenced Service Binding</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.ReferencedServiceBindingImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getReferencedServiceBinding()
+         * @generated
+         */
+        EClass REFERENCED_SERVICE_BINDING = eINSTANCE.getReferencedServiceBinding ();
+
+        /**
+         * The meta object literal for the '<em><b>Service</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference REFERENCED_SERVICE_BINDING__SERVICE = eINSTANCE.getReferencedServiceBinding_Service ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Endpoint</b></em>'.
@@ -87,29 +85,29 @@ public interface Endpoint extends NamedDocumentable
     void setPortNumber ( int value );
 
     /**
-     * Returns the value of the '<em><b>Bound Service</b></em>' reference.
+     * Returns the value of the '<em><b>Bound Service</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Bound Service</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Bound Service</em>' reference.
-     * @see #setBoundService(EObject)
+     * @return the value of the '<em>Bound Service</em>' containment reference.
+     * @see #setBoundService(ServiceBinding)
      * @see org.eclipse.scada.configuration.world.WorldPackage#getEndpoint_BoundService()
-     * @model
+     * @model containment="true" resolveProxies="true"
      * @generated
      */
-    EObject getBoundService ();
+    ServiceBinding getBoundService ();
 
     /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}' reference.
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.Endpoint#getBoundService <em>Bound Service</em>}' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Bound Service</em>' reference.
+     * @param value the new value of the '<em>Bound Service</em>' containment reference.
      * @see #getBoundService()
      * @generated
      */
-    void setBoundService ( EObject value );
+    void setBoundService ( ServiceBinding value );
 
 } // Endpoint

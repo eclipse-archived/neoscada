@@ -36,7 +36,7 @@
     <genClasses ecoreClass="configuration.ecore#//Endpoint">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/node"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Endpoint/portNumber"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference configuration.ecore#//Endpoint/boundService"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ExecDriver">
@@ -76,6 +76,14 @@
     <genClasses ecoreClass="configuration.ecore#//PropertyEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//ServiceBinding"/>
+    <genClasses ecoreClass="configuration.ecore#//ContainedServiceBinding">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ContainedServiceBinding/service"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//ReferencedServiceBinding">
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference configuration.ecore#//ReferencedServiceBinding/service"/>
     </genClasses>
     <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"

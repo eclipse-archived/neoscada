@@ -130,6 +130,24 @@ public interface WorldFactory extends EFactory
     PropertyEntry createPropertyEntry ();
 
     /**
+     * Returns a new object of class '<em>Contained Service Binding</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Contained Service Binding</em>'.
+     * @generated
+     */
+    ContainedServiceBinding createContainedServiceBinding ();
+
+    /**
+     * Returns a new object of class '<em>Referenced Service Binding</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Referenced Service Binding</em>'.
+     * @generated
+     */
+    ReferencedServiceBinding createReferencedServiceBinding ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

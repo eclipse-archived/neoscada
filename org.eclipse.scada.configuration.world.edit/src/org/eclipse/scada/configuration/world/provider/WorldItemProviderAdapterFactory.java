@@ -356,6 +356,56 @@ public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.ContainedServiceBinding} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ContainedServiceBindingItemProvider containedServiceBindingItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.ContainedServiceBinding}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createContainedServiceBindingAdapter ()
+    {
+        if ( containedServiceBindingItemProvider == null )
+        {
+            containedServiceBindingItemProvider = new ContainedServiceBindingItemProvider ( this );
+        }
+
+        return containedServiceBindingItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.ReferencedServiceBinding} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ReferencedServiceBindingItemProvider referencedServiceBindingItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.ReferencedServiceBinding}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createReferencedServiceBindingAdapter ()
+    {
+        if ( referencedServiceBindingItemProvider == null )
+        {
+            referencedServiceBindingItemProvider = new ReferencedServiceBindingItemProvider ( this );
+        }
+
+        return referencedServiceBindingItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

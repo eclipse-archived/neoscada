@@ -23,6 +23,7 @@ import org.eclipse.scada.configuration.security.SecurityPackage;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.CommonDriver;
+import org.eclipse.scada.configuration.world.ContainedServiceBinding;
 import org.eclipse.scada.configuration.world.Credentials;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
@@ -36,7 +37,9 @@ import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.Options;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
 import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.ReferencedServiceBinding;
 import org.eclipse.scada.configuration.world.Service;
+import org.eclipse.scada.configuration.world.ServiceBinding;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
@@ -189,6 +192,27 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * @generated
      */
     private EClass propertyEntryEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass serviceBindingEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass containedServiceBindingEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass referencedServiceBindingEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -797,6 +821,56 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getServiceBinding ()
+    {
+        return serviceBindingEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getContainedServiceBinding ()
+    {
+        return containedServiceBindingEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getContainedServiceBinding_Service ()
+    {
+        return (EReference)containedServiceBindingEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getReferencedServiceBinding ()
+    {
+        return referencedServiceBindingEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getReferencedServiceBinding_Service ()
+    {
+        return (EReference)referencedServiceBindingEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getPattern ()
     {
@@ -901,6 +975,14 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__KEY );
         createEAttribute ( propertyEntryEClass, PROPERTY_ENTRY__VALUE );
 
+        serviceBindingEClass = createEClass ( SERVICE_BINDING );
+
+        containedServiceBindingEClass = createEClass ( CONTAINED_SERVICE_BINDING );
+        createEReference ( containedServiceBindingEClass, CONTAINED_SERVICE_BINDING__SERVICE );
+
+        referencedServiceBindingEClass = createEClass ( REFERENCED_SERVICE_BINDING );
+        createEReference ( referencedServiceBindingEClass, REFERENCED_SERVICE_BINDING__SERVICE );
+
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
     }
@@ -958,6 +1040,8 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         externalNodeEClass.getESuperTypes ().add ( this.getNode () );
         serviceEClass.getESuperTypes ().add ( this.getNamedDocumentable () );
         namedDocumentableEClass.getESuperTypes ().add ( this.getDocumentable () );
+        containedServiceBindingEClass.getESuperTypes ().add ( this.getServiceBinding () );
+        referencedServiceBindingEClass.getESuperTypes ().add ( this.getServiceBinding () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -986,7 +1070,7 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         initEReference ( getEndpoint_Node (), this.getNode (), this.getNode_Endpoints (), "node", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         getEndpoint_Node ().getEKeys ().add ( this.getNode_HostName () );
         initEAttribute ( getEndpoint_PortNumber (), theEcorePackage.getEInt (), "portNumber", null, 1, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getEndpoint_BoundService (), theEcorePackage.getEObject (), null, "boundService", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getEndpoint_BoundService (), this.getServiceBinding (), null, "boundService", null, 0, 1, Endpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( execDriverEClass, ExecDriver.class, "ExecDriver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getExecDriver_Root (), theConfigurationPackage.getRootType (), null, "root", null, 0, 1, ExecDriver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
@@ -1028,6 +1112,14 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         initEClass ( propertyEntryEClass, PropertyEntry.class, "PropertyEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getPropertyEntry_Key (), ecorePackage.getEString (), "key", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getPropertyEntry_Value (), ecorePackage.getEString (), "value", null, 1, 1, PropertyEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( serviceBindingEClass, ServiceBinding.class, "ServiceBinding", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( containedServiceBindingEClass, ContainedServiceBinding.class, "ContainedServiceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getContainedServiceBinding_Service (), theEcorePackage.getEObject (), null, "service", null, 1, 1, ContainedServiceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( referencedServiceBindingEClass, ReferencedServiceBinding.class, "ReferencedServiceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getReferencedServiceBinding_Service (), theEcorePackage.getEObject (), null, "service", null, 1, 1, ReferencedServiceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

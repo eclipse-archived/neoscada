@@ -214,6 +214,24 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseServiceBinding ( ServiceBinding object )
+        {
+            return createServiceBindingAdapter ();
+        }
+
+        @Override
+        public Adapter caseContainedServiceBinding ( ContainedServiceBinding object )
+        {
+            return createContainedServiceBindingAdapter ();
+        }
+
+        @Override
+        public Adapter caseReferencedServiceBinding ( ReferencedServiceBinding object )
+        {
+            return createReferencedServiceBindingAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -551,6 +569,51 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createPropertyEntryAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ServiceBinding <em>Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.ServiceBinding
+     * @generated
+     */
+    public Adapter createServiceBindingAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ContainedServiceBinding <em>Contained Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.ContainedServiceBinding
+     * @generated
+     */
+    public Adapter createContainedServiceBindingAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.ReferencedServiceBinding <em>Referenced Service Binding</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.ReferencedServiceBinding
+     * @generated
+     */
+    public Adapter createReferencedServiceBindingAdapter ()
     {
         return null;
     }
