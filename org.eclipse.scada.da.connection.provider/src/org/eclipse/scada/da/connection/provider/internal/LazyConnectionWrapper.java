@@ -27,9 +27,6 @@ import org.eclipse.scada.core.client.ConnectionStateListener;
 import org.eclipse.scada.core.client.NoConnectionException;
 import org.eclipse.scada.core.client.PrivilegeListener;
 import org.eclipse.scada.core.data.OperationParameters;
-import org.eclipse.scada.utils.stats.StatisticEntry;
-import org.eclipse.scada.utils.stats.StatisticsImpl;
-import org.eclipse.scada.utils.stats.StatisticsProvider;
 import org.eclipse.scada.da.client.BrowseOperationCallback;
 import org.eclipse.scada.da.client.Connection;
 import org.eclipse.scada.da.client.FolderListener;
@@ -42,6 +39,9 @@ import org.eclipse.scada.da.core.WriteResult;
 import org.eclipse.scada.sec.callback.CallbackFactory;
 import org.eclipse.scada.sec.callback.CallbackHandler;
 import org.eclipse.scada.utils.concurrent.NotifyFuture;
+import org.eclipse.scada.utils.stats.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
+import org.eclipse.scada.utils.stats.StatisticsProvider;
 
 public abstract class LazyConnectionWrapper implements Connection, StatisticsProvider
 {
@@ -165,12 +165,14 @@ public abstract class LazyConnectionWrapper implements Connection, StatisticsPro
         this.connection.browse ( location, callback );
     }
 
+    @SuppressWarnings ( "deprecation" )
     @Override
     public void write ( final String itemId, final Variant value, final OperationParameters operationParameters, final WriteOperationCallback callback )
     {
         this.connection.write ( itemId, value, operationParameters, callback );
     }
 
+    @SuppressWarnings ( "deprecation" )
     @Override
     public void writeAttributes ( final String itemId, final Map<String, Variant> attributes, final OperationParameters operationParameters, final WriteAttributeOperationCallback callback )
     {
@@ -255,7 +257,7 @@ public abstract class LazyConnectionWrapper implements Connection, StatisticsPro
             }
             else
             {
-                // start lingering ... 
+                // start lingering ...
                 this.disconnectTimestamp = System.currentTimeMillis ();
                 this.statistics.setCurrentValue ( STATS_LINGERING_CLOSE, 1 );
                 this.connection.getExecutor ().schedule ( this.performConnectionCheck, this.lingeringTimeout, TimeUnit.MILLISECONDS );
