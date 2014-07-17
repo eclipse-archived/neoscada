@@ -25,6 +25,7 @@ mvn org.eclipse.scada.releng:build-helper:${buildHelperVersion}:set-version \
 	-llr \
 	-Dpackagings=pom \
 	-Dpoms=org.eclipse.scada.releng/aggregator/pom.xml,org.eclipse.scada.releng/superParent/pom.xml \
+	'-DignoredModules=org.eclipse.scada.deploy.repack.modules.*:' \
 	-DnewVersion=$version
 
 section Commit result
