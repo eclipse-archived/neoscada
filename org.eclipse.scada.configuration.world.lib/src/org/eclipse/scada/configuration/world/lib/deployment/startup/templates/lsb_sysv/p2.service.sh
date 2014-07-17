@@ -40,7 +40,9 @@ start (){
       log_end_msg 3
    else
       log_daemon_msg "Starting application instance: @@appName@@"
+      set +e
       start-stop-daemon --start --quiet --pidfile "$pidfile" --chuid eclipsescada --exec "$prog"
+      set -e
       log_end_msg $?
    fi
 }
@@ -51,7 +53,9 @@ stop () {
       log_failure_msg "Must be stopped with root permissions"
       log_end_msg 1
    else
+      set +e
       start-stop-daemon --stop --quiet --pidfile "$pidfile"
+      set -e
       log_end_msg $?
       rm -f "$pidfile"
    fi
