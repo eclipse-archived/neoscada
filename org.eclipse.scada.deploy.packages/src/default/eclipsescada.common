@@ -37,10 +37,10 @@ function testJvm () {
 }
 
 for i in 7 8; do
-	testJvm "/usr/lib/jvm/jdk-$i-oracle-armhf" || return
-
-	testJvm "/usr/lib/jvm/java-$i-openjdk-amd64" || return
-	testJvm "/usr/lib/jvm/java-$i-openjdk-i386" || return
+	for a in amd64 i386 armhf armel; do
+		testJvm "/usr/lib/jvm/jdk-$i-oracle-$a" || return
+		testJvm "/usr/lib/jvm/java-$i-openjdk-$a" || return
+	done
 	
 	testJvm "/usr/lib64/jvm/jre-1.$i.0" || return
 	testJvm "/usr/lib/jvm/jre-1.$i.0" || return
