@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -32,14 +32,9 @@ import org.eclipse.scada.da.datasource.data.DataItemValueRange.DataItemValueRang
 import org.eclipse.scada.utils.osgi.pool.ObjectPoolTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker;
 import org.eclipse.scada.utils.osgi.pool.SingleObjectPoolServiceTracker.ServiceListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ChangeCounterDataSource extends AbstractInputDataSource implements BufferedDataSourceListener, ServiceListener<BufferedDataSource>
 {
-
-    private final static Logger logger = LoggerFactory.getLogger ( ChangeCounterDataSource.class );
-
     // initialized by constructor
 
     private final ScheduledExecutorService scheduler;
@@ -59,7 +54,7 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
 
     private BufferedDataSource bufferedDataSource;
 
-    public ChangeCounterDataSource ( final ScheduledExecutorService scheduler, ObjectPoolTracker<BufferedDataSource> poolTracker )
+    public ChangeCounterDataSource ( final ScheduledExecutorService scheduler, final ObjectPoolTracker<BufferedDataSource> poolTracker )
     {
         super ();
         this.scheduler = scheduler;
@@ -84,35 +79,35 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
         this.objectPoolTracker.open ();
     }
 
-    private void sendUpdate ( DataItemValueRangeState dataItemValueRangeState )
+    private void sendUpdate ( final DataItemValueRangeState dataItemValueRangeState )
     {
         // if no value is given, every value update is considered as change
-        if ( values.isEmpty () )
+        if ( this.values.isEmpty () )
         {
-            this.updateData ( new DataItemValue ( Variant.valueOf ( dataItemValueRangeState.getValues ().size () ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
+            updateData ( new DataItemValue ( Variant.valueOf ( dataItemValueRangeState.getValues ().size () ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
         }
         try
         {
             int numOfChanges = 0;
-            switch ( type )
+            switch ( this.type )
             {
                 case DELTA:
-                    numOfChanges = ChangeCounterEvaluator.handleDelta ( values, dataItemValueRangeState, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleDelta ( this.values, dataItemValueRangeState, this.errorHandling );
                     break;
                 case SET:
-                    numOfChanges = ChangeCounterEvaluator.handleSet ( values, dataItemValueRangeState, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleSet ( this.values, dataItemValueRangeState, this.errorHandling );
                     break;
                 case DIRECTION:
-                    numOfChanges = ChangeCounterEvaluator.handleDirection ( values, dataItemValueRangeState, errorHandling );
+                    numOfChanges = ChangeCounterEvaluator.handleDirection ( this.values, dataItemValueRangeState, this.errorHandling );
                     break;
             }
-            this.updateData ( new DataItemValue ( Variant.valueOf ( numOfChanges ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
+            updateData ( new DataItemValue ( Variant.valueOf ( numOfChanges ), Collections.<String, Variant> emptyMap (), SubscriptionState.CONNECTED ) );
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             final Map<String, Variant> attr = new HashMap<String, Variant> ();
             attr.put ( "org.eclipse.scada.da.datasource.changecounter.error", Variant.valueOf ( true ) );
-            this.updateData ( new DataItemValue ( Variant.NULL, attr, SubscriptionState.CONNECTED ) );
+            updateData ( new DataItemValue ( Variant.NULL, attr, SubscriptionState.CONNECTED ) );
         }
     }
 
@@ -122,11 +117,11 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
         sendUpdate ( dataItemValueRange.getState () );
     }
 
-    private List<Variant> toVariants ( ConfigurationDataHelper cfg, String name )
+    private List<Variant> toVariants ( final ConfigurationDataHelper cfg, final String name )
     {
-        List<Variant> result = new ArrayList<Variant> ();
-        Map<String, String> prefixed = cfg.getPrefixed ( name );
-        for ( String v : prefixed.values () )
+        final List<Variant> result = new ArrayList<Variant> ();
+        final Map<String, String> prefixed = cfg.getPrefixed ( name );
+        for ( final String v : prefixed.values () )
         {
             result.add ( VariantEditor.toVariant ( v ) );
         }
@@ -144,12 +139,12 @@ public class ChangeCounterDataSource extends AbstractInputDataSource implements 
     }
 
     @Override
-    public void serviceChange ( BufferedDataSource service, Dictionary<?, ?> properties )
+    public void serviceChange ( final BufferedDataSource service, final Dictionary<?, ?> properties )
     {
         setBufferedDataSource ( service );
     }
 
-    private synchronized void setBufferedDataSource ( BufferedDataSource service )
+    private synchronized void setBufferedDataSource ( final BufferedDataSource service )
     {
         if ( service == null && this.bufferedDataSource != null )
         {
