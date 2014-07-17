@@ -76,7 +76,7 @@
 											<directoryIncluded>false</directoryIncluded>
 											<sources>
 												<source>
-													<location>${srcBase}/default/eclipsescada.centos</location>
+													<location>${srcBase}/default/eclipsescada.common</location>
 													<destination>eclipsescada</destination>
 												</source>
 											</sources>

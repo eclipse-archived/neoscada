@@ -1,0 +1,49 @@
+#
+# detect java 7+ installations in the local system
+#
+
+# You can override this by uncommenting the following two lines.
+# Or by setting JAVA_HOME before starting Eclipse SCADA applications.
+
+function die () {
+	echo "$@" >&2 # echo to stderr
+	exit 1
+}
+
+function debug () {
+	test ! -z "$DEBUG" && echo "`date --rfc-3339=seconds` - $@"
+}
+
+# first test if we already have a JAVA_HOME
+if [ ! -z "$JAVA_HOME" ]; then
+	debug "Testing for java executable at '$JAVA_HOME/bin/java'"
+	test -x "$JAVA_HOME/bin/java" || die "'java' not found in '$JAVA_HOME/bin'"
+	debug "Found and return"
+	return
+fi
+
+function testJvm () {
+	local dir=$1
+	
+	debug "Testing $dir/bin/java"
+	test -x "$dir/bin/java" || return 0
+	
+	JAVA_HOME="$dir/bin/java"
+	export JAVA_HOME
+	
+	debug "Found java in '$JAVA_HOME'"
+	
+	return 1
+}
+
+for i in 7 8; do
+	testJvm "/usr/lib/jvm/jdk-$i-oracle-armhf" || return
+
+	testJvm "/usr/lib/jvm/java-$i-openjdk-amd64" || return
+	testJvm "/usr/lib/jvm/java-$i-openjdk-i386" || return
+	
+	testJvm "/usr/lib64/jvm/jre-1.$i.0" || return
+	testJvm "/usr/lib/jvm/jre-1.$i.0" || return
+done
+
+die "No JVM found. Please check '$0'"

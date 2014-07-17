@@ -34,63 +34,14 @@
 
 				<executions>
 					<execution>
-						<id>amd64</id>
 						<phase>package</phase>
 						<goals>
 							<goal>jdeb</goal>
 						</goals>
 						<configuration>
-							<controlDir>${basedir}/src/linux-amd64/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_[[version]]_amd64.deb</deb>
 							<dataSet>
 								<data>
-									<src>${srcBase}/default/eclipsescada.debian.x86_64</src>
-									<dst>eclipsescada</dst>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/default</prefix>
-									</mapper>
-								</data>
-							</dataSet>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>i386</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jdeb</goal>
-						</goals>
-						<configuration>
-							<controlDir>${basedir}/src/linux-i386/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_[[version]]_i386.deb</deb>
-							<dataSet>
-								<data>
-									<src>${srcBase}/default/eclipsescada.debian.i386</src>
-									<dst>eclipsescada</dst>
-									<type>file</type>
-									<mapper>
-										<type>perm</type>
-										<prefix>/etc/default</prefix>
-									</mapper>
-								</data>
-							</dataSet>
-						</configuration>
-					</execution>
-
-					<execution>
-						<id>armhf</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jdeb</goal>
-						</goals>
-						<configuration>
-							<controlDir>${basedir}/src/linux-armhf/deb/control</controlDir>
-							<deb>${project.build.directory}/${project.artifactId}_[[version]]_armhf.deb</deb>
-							<dataSet>
-								<data>
-									<src>${srcBase}/default/eclipsescada.debian.armhf</src>
+									<src>${srcBase}/default/eclipsescada.common</src>
 									<dst>eclipsescada</dst>
 									<type>file</type>
 									<mapper>

@@ -74,14 +74,8 @@
 									<directoryIncluded>false</directoryIncluded>
 									<sources>
 										<source>
-											<location>${srcBase}/default/eclipsescada.suse.i386</location>
+											<location>${srcBase}/default/eclipsescada.common</location>
 											<destination>eclipsescada</destination>
-											<targetArchitecture>i386</targetArchitecture>
-										</source>
-										<source>
-											<location>${srcBase}/default/eclipsescada.suse.x86_64</location>
-											<destination>eclipsescada</destination>
-											<targetArchitecture>x86_64</targetArchitecture>
 										</source>
 									</sources>
 								</mapping>

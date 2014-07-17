@@ -4,6 +4,6 @@ Section: misc
 Priority: optional
 Architecture: all
 Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: Eclipse SCADA base package
+Description: [[description]]
 Distribution: default
-Depends: adduser, perl (>=5.0), org.eclipse.scada.configuration, jsvc
+Depends: oracle-java7-jdk | java7-runtime-headless | java7-runtime
