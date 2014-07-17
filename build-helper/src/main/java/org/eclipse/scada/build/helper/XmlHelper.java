@@ -29,6 +29,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.maven.plugin.MojoExecutionException;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -163,7 +164,14 @@ public final class XmlHelper
     public static Document parse ( final File file ) throws Exception
     {
         final DocumentBuilder db = dbf.newDocumentBuilder ();
-        return db.parse ( file );
+        try
+        {
+            return db.parse ( file );
+        }
+        catch ( final Exception e )
+        {
+            throw new MojoExecutionException ( String.format ( "Failed to parse: %s", file ), e );
+        }
     }
 
 }

@@ -52,12 +52,20 @@ public class SetVersionMojo extends AbstractHelperMojo
     @Parameter ( property = "providedVersions" )
     private final Set<String> providedVersions = new HashSet<> ();
 
+    @Parameter ( property = "ignoredModules" )
+    private final Set<String> ignoredModules = new HashSet<> ();
+
+    private final Set<PomId> ignoredModulesParsed = new HashSet<> ();
+
+    private final Map<PomId, String> versions = new HashMap<> ();
+
     @Override
     public void execute () throws MojoExecutionException, MojoFailureException
     {
         getLog ().info ( "Setting version: " + this.newVersion );
 
         parseProvidedVersions ();
+        parseIgnoredModules ();
 
         final Set<File> pomFiles = new HashSet<> ();
 
@@ -95,6 +103,17 @@ public class SetVersionMojo extends AbstractHelperMojo
         }
     }
 
+    private void parseIgnoredModules ()
+    {
+        for ( final String entry : this.ignoredModules )
+        {
+            final String[] tok = entry.split ( ":", 2 );
+            final String groupId = tok[0].isEmpty () ? null : tok[0];
+            final String artifactId = tok.length < 2 || tok[1].isEmpty () ? null : tok[1];
+            this.ignoredModulesParsed.add ( new PomId ( groupId, artifactId ) );
+        }
+    }
+
     private void parseProvidedVersions () throws MojoFailureException
     {
         for ( final String v : this.providedVersions )
@@ -108,8 +127,6 @@ public class SetVersionMojo extends AbstractHelperMojo
             this.versions.put ( new PomId ( toks[0], toks[1] ), toks[2] );
         }
     }
-
-    private final Map<PomId, String> versions = new HashMap<> ();
 
     private void preparePomFile ( final File localPom ) throws Exception
     {
@@ -170,10 +187,11 @@ public class SetVersionMojo extends AbstractHelperMojo
         }
 
         final String version = XmlHelper.getText ( doc, "/project/version" );
-        if ( version != null )
+        if ( version != null ) // only if plugin has a version
         {
-            // only if plugin has a version
-            if ( isSelected ( doc ) )
+            final PomId pomId = getPomId ( "/project/", doc );
+
+            if ( !isIgnored ( pomId ) && isSelected ( doc ) )
             {
                 mod.set ( "/project/version", this.newVersion );
                 getLog ().info ( String.format ( "Setting version of %s to %s", localPom, this.newVersion ) );
@@ -184,6 +202,49 @@ public class SetVersionMojo extends AbstractHelperMojo
         processDependencies ( doc, mod, "/project/profiles/profile/dependencies/dependency" );
 
         mod.write ( localPom );
+    }
+
+    private boolean isIgnored ( final PomId pomId )
+    {
+        for ( final PomId entry : this.ignoredModulesParsed )
+        {
+            if ( entry.equals ( pomId ) )
+            {
+                getLog ().info ( "Ignore: direct match: " + pomId );
+                return true;
+            }
+
+            if ( entry.getGroupId () != null )
+            {
+                if ( pomId.getGroupId ().matches ( entry.getGroupId () ) )
+                {
+                    getLog ().info ( String.format ( "Ignore: groupId %s matches pattern %s ", pomId.getGroupId (), entry.getGroupId () ) );
+                    return true;
+                }
+            }
+
+            if ( entry.getArtifactId () != null )
+            {
+                if ( pomId.getArtifactId ().matches ( entry.getArtifactId () ) )
+                {
+                    getLog ().info ( String.format ( "Ignore: artifactId %s matches pattern %s ", pomId.getArtifactId (), entry.getArtifactId () ) );
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public PomId getPomId ( final Node node ) throws XPathExpressionException
+    {
+        return getPomId ( "", node );
+    }
+
+    public PomId getPomId ( final String prefix, final Node node ) throws XPathExpressionException
+    {
+        final String groupId = XmlHelper.getText ( node, prefix + "groupId" );
+        final String artifactId = XmlHelper.getText ( node, prefix + "artifactId" );
+        return new PomId ( groupId, artifactId );
     }
 
     private void processDependencies ( final Document doc, final XmlModifier mod, final String expression ) throws XPathExpressionException, IOException, XMLStreamException
@@ -198,19 +259,33 @@ public class SetVersionMojo extends AbstractHelperMojo
 
             pos++;
 
-            final String groupId = XmlHelper.getText ( node, "groupId" );
-            final String artifactId = XmlHelper.getText ( node, "artifactId" );
+            final PomId id = getPomId ( node );
 
-            final PomId id = new PomId ( groupId, artifactId );
+            final String currentVersion = XmlHelper.getText ( node, "version" );
+            if ( isPropertyOrNull ( currentVersion ) )
+            {
+                getLog ().info ( String.format ( "Skipping %s since version is a property or null: %s", id, currentVersion ) );
+                continue;
+            }
+
             final String version = this.versions.get ( id );
 
             if ( version == null )
             {
                 continue;
             }
-            getLog ().info ( String.format ( "Processing dependency #%d - %s:%s -> %s", pos - 1, groupId, artifactId, version ) );
+            getLog ().info ( String.format ( "Processing dependency #%d - %s -> %s", pos - 1, id, version ) );
             mod.set ( expression + "/version", pos - 1, version );
         }
+    }
+
+    private boolean isPropertyOrNull ( final String currentVersion )
+    {
+        if ( currentVersion == null )
+        {
+            return true;
+        }
+        return currentVersion.matches ( "^\\$\\{.*\\}$" );
     }
 
 }
