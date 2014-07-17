@@ -14,7 +14,7 @@
 		<srcFile>emf-xsd-Update-2.9.2.zip</srcFile>
 	</properties>
 
-	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
+	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
 	<artifactId>emf-xsd</artifactId>
 	<version>2.9.2-SNAPSHOT</version>
 	<packaging>pom</packaging>

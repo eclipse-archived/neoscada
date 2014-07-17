@@ -14,7 +14,7 @@
 		<srcFile>org.eclipse.ecf.sdk_3.6.1.v20130605-1748.zip</srcFile>
 	</properties>
 
-	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
+	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
 	<artifactId>org.eclipse.ecf.sdk</artifactId>
 	<version>3.6.1-SNAPSHOT</version>
 	<packaging>pom</packaging>

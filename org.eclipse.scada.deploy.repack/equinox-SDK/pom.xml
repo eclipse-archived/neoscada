@@ -14,7 +14,7 @@
 		<srcFile>equinox-SDK-KeplerSR2.zip</srcFile>
 	</properties>
 
-	<groupId>org.eclipse.scada.deploy.repack-incubation</groupId>
+	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
 	<artifactId>equinox-SDK</artifactId>
 	<version>4.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
