@@ -35,20 +35,29 @@ def searchPath(filename, pathToSearch):
 def findJava():
     """ Find a valid java installation
     """
+    
+    """ start with the local jre, if provided
+    """
     java = "jre/bin/java"
     if ( exists(java)):
         return java
     
+    """ next try JAVA_HOME
+    """
     if os.environ.get("JAVA_HOME",None):
         java = os.environ.get("JAVA_HOME",None) + os.sep + "bin"  + os.sep + "java"
         if os.path.exists(java):
             return java
-        
+    
+    """ next try JRE_HOME
+    """    
     if os.environ.get("JRE_HOME",None):
         java = os.environ.get("JRE_HOME",None) + os.sep + "bin"  + os.sep + "java"
         if os.path.exists(java):
             return java
         
+    """ use java from the path
+    """
     java = searchPath("java",os.environ.get("PATH"))
     if java:
         return java

@@ -9,6 +9,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - also respect JRE_HOME
 ##################################################################################
 
 # Reading system configuration
@@ -23,6 +24,7 @@ export ECLIPSE_SCADA_HOME
 export ECLIPSE_SCADA_CONFIGURATION_ROOT
 
 [ ! -z "$JAVA_HOME" ] && export JAVA_HOME
+[ ! -z "$JRE_HOME" ] && export JRE_HOME
 
 export PATH="$PATH:$ECLIPSE_SCADA_HOME/bin"
 
