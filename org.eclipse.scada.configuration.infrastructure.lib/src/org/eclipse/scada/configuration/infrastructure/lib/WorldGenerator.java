@@ -563,7 +563,7 @@ public class WorldGenerator
                     local.setId ( masterImport.getId () );
                     local.setLocal ( this.ctxMap.get ( masterImport.getImportedMaster () ).getImplementation () );
                     local.getAuthoratives ().addAll ( EcoreUtil.copyAll ( masterImport.getImportedMaster ().getAuthoratives () ) );
-                    local.setLogonCredentials ( Worlds.findConnectionCredentials ( masterImport ) );
+                    local.setLogonCredentials ( EcoreUtil.copy ( Worlds.findConnectionCredentials ( masterImport ) ) );
 
                     final MasterContext importedMaster = this.ctxMap.get ( masterImport.getImportedMaster () );
                     importedMaster.getGlobalContext ().add ( new GlobalContext ( local, masterImport ) );
