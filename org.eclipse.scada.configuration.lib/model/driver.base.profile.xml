@@ -2,19 +2,10 @@
 <profile:profile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:profile="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
 	xsi:schemaLocation="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile http://eclipse.org/SCADA/Configuration/World#//osgi/profile"
-	includes="common.profile.xml#/"
+	includes="common.profile.xml#/ driver.plain.osgi.profile#/"
 	name="Common Equinox Driver Setup">
 
-	<start>org.eclipse.scada.da.server.exporter.ngp</start>
-	<start>org.eclipse.scada.da.server.exporter.osgi</start>
+	<!-- start the default OSGi Hive -->
 	<start>org.eclipse.scada.da.server.osgi</start>
-
-	<start>org.eclipse.scada.da.server.common.osgi</start>
-
-	<start>org.eclipse.scada.sec.audit.log.slf4j</start>
 	
-	<feature>org.eclipse.scada.core.protocols.feature.group</feature>
-	<feature>org.eclipse.scada.core.server.feature.group</feature>
-	<feature>org.eclipse.scada.core.client.feature.group</feature>
-	<feature>org.eclipse.scada.core.common.feature.group</feature>
 </profile:profile>
