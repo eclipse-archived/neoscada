@@ -15,7 +15,7 @@
 	</properties>
 
 	<groupId>org.eclipse.scada.deploy.repack.modules-incubation</groupId>
-	<artifactId>org.eclipse.platform-4.3.2</artifactId>
+	<artifactId>org.eclipse.platform</artifactId>
 	<version>4.3.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
