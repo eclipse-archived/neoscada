@@ -1,5 +1,5 @@
 ##################################################################################
-# Copyright (c) 2011, 2013 TH4 SYSTEMS GmbH and others.
+# Copyright (c) 2011, 2014 TH4 SYSTEMS GmbH and others.
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v1.0
 # which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
 # 
 # Contributors:
 #      TH4 SYSTEMS GmbH - initial API and implementation
+#      IBH SYSTEMS GmbH - remove default JVM settings
 ##################################################################################
 package EclipseSCADA::JavaApplication;
 
@@ -23,7 +24,7 @@ require Exporter;
 # Do not simply export all your public functions/methods/constants.
 @EXPORT = qw(
 );
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 sub new {
     my $class = shift;
@@ -42,13 +43,6 @@ sub new {
 
     bless $self, $class;
 
-    # default add GC arguments
-    push @{$self->{'javaArgs'}}, "-XX:+UseConcMarkSweepGC", "-XX:+UseParNewGC";
-    push @{$self->{'javaArgs'}}, "-Xms128m", "-Xmx128m";
-    push @{$self->{'javaArgs'}}, "-XX:NewSize=64m", "-XX:MaxNewSize=64m", "-XX:SurvivorRatio=8";
-    push @{$self->{'javaArgs'}}, "-XX:PermSize=32m", "-XX:MaxPermSize=32m";
-    push @{$self->{'javaArgs'}}, "-XX:ReservedCodeCacheSize=8m";
-    
     return $self;
 }
 
