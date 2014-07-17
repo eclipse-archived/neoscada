@@ -2,7 +2,7 @@ buildType=S
 
 release=0.2
 microVersion=0
-qualifier=.M1
+qualifier=.M3
 buildHelperVersion=0.0.16
 
 branch="$release.x-release"
