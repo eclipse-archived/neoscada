@@ -1,9 +1,0 @@
-Package: [[name]]
-Version: [[version]]
-Section: misc
-Priority: optional
-Architecture: amd64
-Maintainer: Jens Reimann <jens.reimann@ibh-systems.com>
-Description: [[description]]
-Distribution: development
-Depends: java7-runtime-headless

@@ -1,7 +1,0 @@
-/files
-/org.eclipse.scada
-/org.eclipse.scada-p2
-/*.log
-/*.substvars
-/tmp
-/stamp-makefile-*
