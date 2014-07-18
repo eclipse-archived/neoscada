@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add constructor
  *******************************************************************************/
 package org.eclipse.scada.utils.concurrent;
 
@@ -23,9 +24,20 @@ import java.util.concurrent.TimeoutException;
 
 public class ScheduledExportedExecutorService implements ScheduledExecutorService
 {
-    private final ScheduledExecutorService executor;
+    private final ScheduledThreadPoolExecutor executor;
 
     private final ExecutorServiceExporterImpl executorExporter;
+
+    /**
+     * Create a scheduled executor service with a maximum of 1 thread
+     *
+     * @param name
+     *            the base name of the threads
+     */
+    public ScheduledExportedExecutorService ( final String name )
+    {
+        this ( name, 1 );
+    }
 
     public ScheduledExportedExecutorService ( final String name, final int corePoolSize )
     {
