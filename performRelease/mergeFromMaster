@@ -21,7 +21,7 @@ for i in $repos; do
   pushd "$repo" &>/dev/null
   git fetch origin
   set +e
-  git rebase origin/master >../logs/merge.${repo}.log || echo "WARNING: Failed to merge: $i"
+  git merge origin/master >../logs/merge.${repo}.log || echo "WARNING: Failed to merge: $i"
   set -e
   popd &>/dev/null
 done
