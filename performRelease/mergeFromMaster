@@ -18,10 +18,12 @@ section Merging
 for i in $repos; do
   repo="org.eclipse.scada.${i}"
   echo $repo
-  pushd "$repo"
+  pushd "$repo" &>/dev/null
   git fetch origin
-  git merge origin/master >../logs/merge.${repo}.log
-  popd
+  set +e
+  git merge origin/master >../logs/merge.${repo}.log || echo "WARNING: Failed to merge: $i"
+  set -e
+  popd &>/dev/null
 done
 
 echo

@@ -18,7 +18,7 @@ section Clone repositories
 
 for i in $repos; do
   repo="org.eclipse.scada.${i}"
-  cloneRepository "$repo"
+  cloneRepository "$repo" "$branch"
   echo
 done
 

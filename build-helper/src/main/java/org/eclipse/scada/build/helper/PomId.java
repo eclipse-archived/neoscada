@@ -83,4 +83,10 @@ public class PomId
         return true;
     }
 
+    @Override
+    public String toString ()
+    {
+        return this.groupId + ":" + this.artifactId;
+    }
+
 }

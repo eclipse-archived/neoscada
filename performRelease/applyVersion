@@ -23,8 +23,9 @@ mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get \
 mvn org.eclipse.scada.releng:build-helper:${buildHelperVersion}:set-version \
 	-U \
 	-llr \
-	-Dpackagings=pom \
+	-Dpackagings=pom,eclipse-repository \
 	-Dpoms=org.eclipse.scada.releng/aggregator/pom.xml,org.eclipse.scada.releng/superParent/pom.xml \
+	'-DignoredModules=org.eclipse.scada.deploy.repack.modules.*:' \
 	-DnewVersion=$version
 
 section Commit result
@@ -44,4 +45,4 @@ popd # workspace
 
 echo
 echo
-echo Now build the tag locally using "buildLocally"
+echo Now tag the result using "createTag"
