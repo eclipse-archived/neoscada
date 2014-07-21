@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - change color scheme
  *******************************************************************************/
 package org.eclipse.scada.da.client.dataitem.details.extra.part;
 
@@ -19,7 +20,9 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.LayeredPane;
 import org.eclipse.scada.da.client.dataitem.details.VisibilityController;
 import org.eclipse.scada.da.client.dataitem.details.part.AbstractBaseDetailsPart;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 
 public abstract class AbstractBaseDraw2DDetailsPart extends AbstractBaseDetailsPart
 {
@@ -37,6 +40,7 @@ public abstract class AbstractBaseDraw2DDetailsPart extends AbstractBaseDetailsP
         super.createPart ( parent );
 
         this.canvas = new FigureCanvas ( parent );
+        this.canvas.setBackground ( Display.getDefault ().getSystemColor ( SWT.COLOR_LIST_BACKGROUND ) );
 
         this.canvas.setContents ( createRoot () );
     }
@@ -54,7 +58,7 @@ public abstract class AbstractBaseDraw2DDetailsPart extends AbstractBaseDetailsP
 
     /**
      * Check if the functionality of this tab is available or not
-     * 
+     *
      * @return <code>true</code> if the functionality can be provided,
      *         <code>false</code> otherwise
      */
