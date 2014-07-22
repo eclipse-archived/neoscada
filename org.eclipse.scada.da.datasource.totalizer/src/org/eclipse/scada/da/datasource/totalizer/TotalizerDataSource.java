@@ -70,6 +70,8 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
 
     private String nodeId;
 
+    private NegativeHandling negativeHandling = NegativeHandling.ADD;
+
     public TotalizerDataSource ( final ScheduledExecutorService scheduler, final ObjectPoolTracker<BufferedDataSource> poolTracker, final DataNodeTracker dataNodeTracker )
     {
         super ();
@@ -101,6 +103,7 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
         }
 
         this.nodeId = cfg.getString ( "node.id", "org.eclipse.scada.da.datasource.totalizer/" + this.bufferedDataSourceId );
+        this.negativeHandling = cfg.getEnum ( "negativeHandling", NegativeHandling.class, NegativeHandling.ADD );
 
         this.objectPoolTracker = new SingleObjectPoolServiceTracker<BufferedDataSource> ( this.poolTracker, this.bufferedDataSourceId, this );
         this.objectPoolTracker.open ();
@@ -138,7 +141,7 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
                 final double factor = delta.doubleValue () / baseUnit.doubleValue ();
                 final double v = di.getValue ().asDouble ( 0.0 ) * factor;
                 logger.trace ( "range: update total, delta t = {}, baseUnit = {}, factor = {}, v = {}", delta, baseUnit, factor, v );
-                total += v;
+                addToTotal ( v );
                 lastTimestamp = di.getTimestamp ();
             }
             diLast = di;
@@ -150,7 +153,7 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
             final double factor = delta.doubleValue () / baseUnit.doubleValue ();
             final double v = diLast.getValue ().asDouble ( 0.0 ) * factor;
             logger.trace ( "last: update total, delta t = {}, baseUnit = {}, factor = {}, v = {}", delta, baseUnit, factor, v );
-            total += v;
+            addToTotal ( v );
             lastTimestamp = now;
         }
 
@@ -158,6 +161,28 @@ public class TotalizerDataSource extends AbstractInputDataSource implements Buff
         attributes.put ( "timestamp", Variant.valueOf ( lastTimestamp ) );
         dataNodeTracker.write ( new DataNode ( nodeId, new TotalizerState ( lastTimestamp, total ) ) );
         this.updateData ( new DataItemValue ( Variant.valueOf ( total ), attributes, SubscriptionState.CONNECTED ) );
+    }
+
+    private void addToTotal ( double v )
+    {
+        switch ( negativeHandling )
+        {
+            case ADD:
+                total += v;
+                break;
+            case ABS:
+                total += Math.abs ( v );
+                break;
+            case ONLY_NEGATIVE:
+                total += ( v < 0 ? v : 0.0 );
+                break;
+            case ONLY_POSITIVE:
+                total += ( v > 0 ? v : 0.0 );
+                break;
+            default:
+                logger.debug ( "addToTotal for '{}' fell through; should never happen!", this.bufferedDataSourceId );
+                break;
+        }
     }
 
     @Override
