@@ -219,7 +219,7 @@ public class YAxisDynamicRenderer extends AbstractRenderer
             }
             else
             {
-                tx = this.rect.x + this.textPadding + this.rect.width - size.x;
+                tx = this.rect.x + this.rect.width - ( size.y + this.textPadding );
             }
             final int ty = this.rect.y + this.rect.height - this.rect.height / 2 + size.x / 2;
             g.drawText ( label, -ty, tx, -90.0f );
