@@ -25,18 +25,10 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Parser
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getServerUri
- * <em>Server Uri</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getClientId
- * <em>Client Id</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getTopic
- * <em>Topic</em>}</li>
- * <li>
- * {@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getQos
- * <em>Qos</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getServerUri <em>Server Uri</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getClientId <em>Client Id</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getTopic <em>Topic</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl#getQos <em>Qos</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,11 +37,9 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Parser
 public class MqttInputImpl extends AbstractInputImpl implements MqttInput
 {
     /**
-     * The default value of the '{@link #getServerUri() <em>Server Uri</em>}'
-     * attribute.
+     * The default value of the '{@link #getServerUri() <em>Server Uri</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getServerUri()
      * @generated
      * @ordered
@@ -57,11 +47,9 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     protected static final String SERVER_URI_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getServerUri() <em>Server Uri</em>}'
-     * attribute.
+     * The cached value of the '{@link #getServerUri() <em>Server Uri</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getServerUri()
      * @generated
      * @ordered
@@ -69,11 +57,9 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     protected String serverUri = SERVER_URI_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getClientId() <em>Client Id</em>}'
-     * attribute.
+     * The default value of the '{@link #getClientId() <em>Client Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getClientId()
      * @generated
      * @ordered
@@ -81,11 +67,9 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     protected static final String CLIENT_ID_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getClientId() <em>Client Id</em>}'
-     * attribute.
+     * The cached value of the '{@link #getClientId() <em>Client Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getClientId()
      * @generated
      * @ordered
@@ -96,7 +80,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
      * The default value of the '{@link #getTopic() <em>Topic</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getTopic()
      * @generated
      * @ordered
@@ -107,7 +90,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
      * The cached value of the '{@link #getTopic() <em>Topic</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getTopic()
      * @generated
      * @ordered
@@ -118,7 +100,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
      * The default value of the '{@link #getQos() <em>Qos</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getQos()
      * @generated
      * @ordered
@@ -129,7 +110,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
      * The cached value of the '{@link #getQos() <em>Qos</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @see #getQos()
      * @generated
      * @ordered
@@ -139,7 +119,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected MqttInputImpl ()
@@ -150,7 +129,6 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
@@ -162,117 +140,101 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public String getServerUri ()
     {
-        return this.serverUri;
+        return serverUri;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void setServerUri ( final String newServerUri )
+    public void setServerUri ( String newServerUri )
     {
-        final String oldServerUri = this.serverUri;
-        this.serverUri = newServerUri;
+        String oldServerUri = serverUri;
+        serverUri = newServerUri;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__SERVER_URI, oldServerUri, this.serverUri ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__SERVER_URI, oldServerUri, serverUri ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public String getClientId ()
     {
-        return this.clientId;
+        return clientId;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void setClientId ( final String newClientId )
+    public void setClientId ( String newClientId )
     {
-        final String oldClientId = this.clientId;
-        this.clientId = newClientId;
+        String oldClientId = clientId;
+        clientId = newClientId;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__CLIENT_ID, oldClientId, this.clientId ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__CLIENT_ID, oldClientId, clientId ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public String getTopic ()
     {
-        return this.topic;
+        return topic;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void setTopic ( final String newTopic )
+    public void setTopic ( String newTopic )
     {
-        final String oldTopic = this.topic;
-        this.topic = newTopic;
+        String oldTopic = topic;
+        topic = newTopic;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__TOPIC, oldTopic, this.topic ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__TOPIC, oldTopic, topic ) );
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public int getQos ()
     {
-        return this.qos;
+        return qos;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void setQos ( final int newQos )
+    public void setQos ( int newQos )
     {
-        final int oldQos = this.qos;
-        this.qos = newQos;
+        int oldQos = qos;
+        qos = newQos;
         if ( eNotificationRequired () )
-        {
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__QOS, oldQos, this.qos ) );
-        }
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.MQTT_INPUT__QOS, oldQos, qos ) );
     }
 
     /**
@@ -292,11 +254,10 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
+    public Object eGet ( int featureID, boolean resolve, boolean coreType )
     {
         switch ( featureID )
         {
@@ -315,11 +276,10 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void eSet ( final int featureID, final Object newValue )
+    public void eSet ( int featureID, Object newValue )
     {
         switch ( featureID )
         {
@@ -342,11 +302,10 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public void eUnset ( final int featureID )
+    public void eUnset ( int featureID )
     {
         switch ( featureID )
         {
@@ -369,22 +328,21 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
-    public boolean eIsSet ( final int featureID )
+    public boolean eIsSet ( int featureID )
     {
         switch ( featureID )
         {
             case ParserPackage.MQTT_INPUT__SERVER_URI:
-                return SERVER_URI_EDEFAULT == null ? this.serverUri != null : !SERVER_URI_EDEFAULT.equals ( this.serverUri );
+                return SERVER_URI_EDEFAULT == null ? serverUri != null : !SERVER_URI_EDEFAULT.equals ( serverUri );
             case ParserPackage.MQTT_INPUT__CLIENT_ID:
-                return CLIENT_ID_EDEFAULT == null ? this.clientId != null : !CLIENT_ID_EDEFAULT.equals ( this.clientId );
+                return CLIENT_ID_EDEFAULT == null ? clientId != null : !CLIENT_ID_EDEFAULT.equals ( clientId );
             case ParserPackage.MQTT_INPUT__TOPIC:
-                return TOPIC_EDEFAULT == null ? this.topic != null : !TOPIC_EDEFAULT.equals ( this.topic );
+                return TOPIC_EDEFAULT == null ? topic != null : !TOPIC_EDEFAULT.equals ( topic );
             case ParserPackage.MQTT_INPUT__QOS:
-                return this.qos != QOS_EDEFAULT;
+                return qos != QOS_EDEFAULT;
         }
         return super.eIsSet ( featureID );
     }
@@ -392,26 +350,23 @@ public class MqttInputImpl extends AbstractInputImpl implements MqttInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
-        {
             return super.toString ();
-        }
 
-        final StringBuffer result = new StringBuffer ( super.toString () );
+        StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (serverUri: " ); //$NON-NLS-1$
-        result.append ( this.serverUri );
+        result.append ( serverUri );
         result.append ( ", clientId: " ); //$NON-NLS-1$
-        result.append ( this.clientId );
+        result.append ( clientId );
         result.append ( ", topic: " ); //$NON-NLS-1$
-        result.append ( this.topic );
+        result.append ( topic );
         result.append ( ", qos: " ); //$NON-NLS-1$
-        result.append ( this.qos );
+        result.append ( qos );
         result.append ( ')' );
         return result.toString ();
     }

@@ -44,7 +44,7 @@ public interface Component extends EObject
      * @return the value of the '<em>Id</em>' attribute.
      * @see #setId(String)
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getComponent_Id()
-     * @model id="true" required="true"
+     * @model required="true"
      * @generated
      */
     String getId ();
