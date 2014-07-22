@@ -5,27 +5,6 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="popup:org.eclipse.scada.configuration">
-            <command
-               commandId="org.eclipse.scada.configuration.generator.ui.RunSystemGenerator"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-		<command
-               commandId="org.eclipse.scada.configuration.generator.ui.RunWorldGenerator"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
-		<command
-               commandId="org.eclipse.scada.configuration.generator.ui.RunInfrastructureGenerator"
-               style="push">
-            <visibleWhen
-                  checkEnabled="true">
-            </visibleWhen>
-         </command>
          <command
                commandId="org.eclipse.scada.configuration.generator.ui.ValidateOscar"
                style="push">
@@ -37,72 +16,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
-      <handler
-            class="org.eclipse.scada.configuration.generator.ui.RunSystemGeneratorHandler"
-            commandId="org.eclipse.scada.configuration.generator.ui.RunSystemGenerator">
-         <enabledWhen>
-            <with
-                  variable="selection">
-               <iterate
-                     ifEmpty="false"
-                     operator="and">
-                  <adapt
-                        type="org.eclipse.core.resources.IFile">
-                     <test
-                           property="org.eclipse.core.resources.contentTypeId"
-                           value="org.eclipse.scada.configuration.component">
-                     </test>
-                  </adapt>
-               </iterate>
-            </with>
-         </enabledWhen>
-      </handler>
-	<handler
-            class="org.eclipse.scada.configuration.generator.ui.RunWorldGeneratorHandler"
-            commandId="org.eclipse.scada.configuration.generator.ui.RunWorldGenerator">
-         <enabledWhen>
-            <with
-                  variable="selection">
-               <iterate
-                     ifEmpty="false"
-                     operator="and">
-                  <adapt
-                        type="org.eclipse.core.resources.IFile">
-                     <test
-                           property="org.eclipse.core.resources.contentTypeId"
-                           value="org.eclipse.scada.configuration.world">
-                     </test>
-                  </adapt>
-                  <or>
-                     <and></and>
-                  </or>
-               </iterate>
-            </with>
-         </enabledWhen>
-      </handler>
-      <handler
-            class="org.eclipse.scada.configuration.generator.ui.RunInfrastructureGeneratorHandler"
-            commandId="org.eclipse.scada.configuration.generator.ui.RunInfrastructureGenerator">
-         <enabledWhen>
-            <with
-                  variable="selection">
-               <iterate
-                     ifEmpty="false"
-                     operator="and">
-                  <adapt
-                        type="org.eclipse.core.resources.IFile">
-                     <test
-                           property="org.eclipse.core.resources.contentTypeId"
-                           value="org.eclipse.scada.configuration.infrastructure">
-                     </test>
-                  </adapt>
-                  <or>
-                     <and></and>
-                  </or>
-               </iterate>
-            </with>
-         </enabledWhen>
-      </handler>
       <handler
             class="org.eclipse.scada.configuration.generator.ui.OscarValidatorHandler"
             commandId="org.eclipse.scada.configuration.generator.ui.ValidateOscar">
@@ -135,21 +48,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.commands">
-      <command
-            categoryId="org.eclipse.scada.configuration"
-            id="org.eclipse.scada.configuration.generator.ui.RunSystemGenerator"
-            name="Create Configuration">
-      </command>
-	 <command
-            categoryId="org.eclipse.scada.configuration"
-            id="org.eclipse.scada.configuration.generator.ui.RunWorldGenerator"
-            name="Create Configuration">
-      </command>
- 	 <command
-            categoryId="org.eclipse.scada.configuration"
-            id="org.eclipse.scada.configuration.generator.ui.RunInfrastructureGenerator"
-            name="Create World Model">
-      </command>
  	<command
             categoryId="org.eclipse.scada.configuration"
             id="org.eclipse.scada.configuration.generator.ui.ValidateOscar"
