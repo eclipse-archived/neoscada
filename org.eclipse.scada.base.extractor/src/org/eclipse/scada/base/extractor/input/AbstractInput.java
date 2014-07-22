@@ -11,6 +11,8 @@
 package org.eclipse.scada.base.extractor.input;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
@@ -29,7 +31,7 @@ public abstract class AbstractInput implements Input
 
     private Data lastData;
 
-    private Set<Transformer> transformers;
+    private final List<Transformer> transformers = new LinkedList<> ();
 
     public AbstractInput ( final Executor executor )
     {
@@ -38,20 +40,11 @@ public abstract class AbstractInput implements Input
 
     public synchronized void addTransformer ( final Transformer transformer )
     {
-        if ( this.transformers == null )
-        {
-            this.transformers = new HashSet<> ();
-        }
         this.transformers.add ( transformer );
     }
 
     public synchronized void removeTransformer ( final Transformer transformer )
     {
-        if ( this.transformers == null )
-        {
-            return;
-        }
-
         this.transformers.remove ( transformer );
     }
 
@@ -110,7 +103,7 @@ public abstract class AbstractInput implements Input
 
     protected Data transform ( Data data )
     {
-        if ( this.transformers == null || this.transformers.isEmpty () )
+        if ( this.transformers.isEmpty () )
         {
             return data;
         }
