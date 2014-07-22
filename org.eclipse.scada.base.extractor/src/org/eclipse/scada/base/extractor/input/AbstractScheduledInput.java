@@ -88,7 +88,7 @@ public abstract class AbstractScheduledInput extends AbstractInput
                 }
             }
 
-            fireData ( new Data ( null, new InputDisposed () ) );
+            fireDisposed ();
             this.job = null;
         }
     }
