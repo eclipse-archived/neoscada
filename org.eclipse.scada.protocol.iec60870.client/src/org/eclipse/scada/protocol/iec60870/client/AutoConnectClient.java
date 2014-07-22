@@ -249,8 +249,8 @@ public class AutoConnectClient implements AutoCloseable
     {
         logger.info ( "handleDisconnected" );
 
-        fireState ( State.DISCONNECTED, error );
         closeClient ();
+        fireState ( State.DISCONNECTED, error );
 
         triggerConnect ( 10_000 );
     }

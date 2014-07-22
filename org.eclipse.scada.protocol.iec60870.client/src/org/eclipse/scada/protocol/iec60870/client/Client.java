@@ -236,11 +236,7 @@ public class Client implements AutoCloseable
             }
         }
 
-        if ( !this.executor.isShutdown () )
-        {
-            this.executor.shutdown ();
-        }
-
+        this.executor.shutdown ();
         this.group.shutdownGracefully ();
     }
 }
