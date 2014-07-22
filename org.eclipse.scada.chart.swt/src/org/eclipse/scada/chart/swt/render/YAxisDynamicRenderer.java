@@ -190,6 +190,13 @@ public class YAxisDynamicRenderer extends AbstractRenderer
                 }
 
                 final int ty = y - labelSize.y / 2;
+
+                if ( y < this.rect.y || y > this.rect.y + this.rect.height )
+                {
+                    // out of bounds
+                    continue;
+                }
+
                 g.drawText ( marker.label, tx, ty, null );
             }
         }
@@ -232,9 +239,6 @@ public class YAxisDynamicRenderer extends AbstractRenderer
                 if ( y < this.rect.y || y > this.rect.y + this.rect.height )
                 {
                     // out of bounds
-                    /* We do allow the marker labels to overlap, but the not he marker
-                     * lines
-                     */
                     continue;
                 }
 
