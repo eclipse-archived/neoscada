@@ -57,6 +57,7 @@
 
 		<module>../org.eclipse.scada.base.extractor</module>
 		<module>../org.eclipse.scada.base.extractor.test</module>
+		<module>../org.eclipse.scada.base.extractor.mqtt</module>
 
 		<module>../org.eclipse.scada.base.doc.isv</module>
 		<module>../org.eclipse.scada.core</module>

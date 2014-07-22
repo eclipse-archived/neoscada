@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit tests for org.eclipse.scada.base.extractor.mqtt
+Bundle-SymbolicName: org.eclipse.scada.base.extractor.mqtt.test
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Import-Package: com.google.common.util.concurrent;version="15.0.0",
+ org.eclipse.scada.base.extractor.input;version="0.2.0",
+ org.eclipse.scada.base.extractor.mqtt.input;version="0.2.0",
+ org.eclipse.scada.base.extractor.transform;version="0.2.0"
+Require-Bundle: org.junit;bundle-version="4.11.0"
