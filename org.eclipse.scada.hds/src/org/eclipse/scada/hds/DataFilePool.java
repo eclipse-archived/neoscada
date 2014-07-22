@@ -157,7 +157,7 @@ public class DataFilePool
 
     /**
      * Create a new data file pool
-     * 
+     *
      * @param timeout
      *            in milliseconds
      */
@@ -182,7 +182,7 @@ public class DataFilePool
      * If the parameter <code>create</code> is <code>true</code> then start and
      * end must not be null
      * </p>
-     * 
+     *
      * @param file
      *            the file to get access to
      * @param start
@@ -309,7 +309,7 @@ public class DataFilePool
             return;
         }
 
-        logger.info ( "Trying to reduce by {}", num );
+        logger.debug ( "Trying to reduce by {}", num );
 
         final LinkedList<AccessorWrapper> entries = new LinkedList<AccessorWrapper> ( this.freePool.values () );
 
@@ -327,7 +327,7 @@ public class DataFilePool
         {
             final AccessorWrapper entry = entries.pollLast ();
 
-            logger.info ( "Removing {} from pool", entry.getFile () );
+            logger.debug ( "Removing {} from pool", entry.getFile () );
             this.freePool.remove ( entry.getFile () );
             entry.getTarget ().dispose ();
 
