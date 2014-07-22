@@ -280,6 +280,9 @@ public class LegendRenderer implements Renderer
 
     private void renderData ( final Graphics g, final Rectangle chartRect, final DataSet data )
     {
+        // reset clipping
+        g.setClipping ( null );
+
         int y = chartRect.y + this.margin;
         int x = chartRect.x + this.margin;
 
