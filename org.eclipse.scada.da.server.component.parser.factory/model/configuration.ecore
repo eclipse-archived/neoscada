@@ -14,6 +14,8 @@
     <eOperations name="createInput" lowerBound="1" eType="#//Input">
       <eParameters name="creationContext" eType="#//CreationContext"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformers" upperBound="-1"
+        eType="#//TransformerDefinition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Input" instanceClassName="org.eclipse.scada.base.extractor.input.Input"
       serializable="false"/>
@@ -37,7 +39,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Extractor" instanceClassName="org.eclipse.scada.base.extractor.extract.Extractor"
       serializable="false"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractPeriodInput" abstract="true"
-      eSuperTypes="#//InputDefinition">
+      eSuperTypes="#//AbstractInput">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="1000"/>
   </eClassifiers>
@@ -100,4 +102,24 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransformerDefinition" abstract="true"
+      interface="true">
+    <eOperations name="createTransformer" lowerBound="1" eType="#//Transformer">
+      <eParameters name="creationContext" eType="#//CreationContext"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringTransformer" eSuperTypes="#//TransformerDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="charset" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MqttInput" eSuperTypes="#//AbstractInput">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverUri" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qos" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Transformer" instanceClassName="org.eclipse.scada.base.extractor.transform.Transformer"
+      serializable="false"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractInput" abstract="true" eSuperTypes="#//InputDefinition"/>
 </ecore:EPackage>

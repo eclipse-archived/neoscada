@@ -8,19 +8,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.scada.da.server.component.parser.factory;version="0.2.0",
- org.eclipse.scada.da.server.component.parser.factory.configuration;version="0.2.0";uses:="org.eclipse.emf.ecore,org.eclipse.scada.base.extractor.input",
- org.eclipse.scada.da.server.component.parser.factory.configuration.impl;version="0.2.0";
-  uses:="org.eclipse.scada.da.server.component.parser.factory.configuration,
-   org.eclipse.emf.ecore,
-   org.eclipse.emf.ecore.impl,
-   org.eclipse.emf.common.notify,
-   org.eclipse.scada.base.extractor.input",
- org.eclipse.scada.da.server.component.parser.factory.configuration.util;version="0.2.0";
-  uses:="org.eclipse.scada.da.server.component.parser.factory.configuration,
-   org.eclipse.emf.ecore.util,
-   org.eclipse.emf.ecore,
-   org.eclipse.emf.common.notify.impl,
-   org.eclipse.emf.common.notify"
+ org.eclipse.scada.da.server.component.parser.factory.configuration;uses:="org.eclipse.emf.ecore,org.eclipse.scada.base.extractor.input";version="0.2.0",
+ org.eclipse.scada.da.server.component.parser.factory.configuration.impl;uses:="org.eclipse.scada.da.server.component.parser.factory.configuration,  org.eclipse.emf.ecore,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.notify,  org.eclipse.scada.base.extractor.input";version="0.2.0",
+ org.eclipse.scada.da.server.component.parser.factory.configuration.util;uses:="org.eclipse.scada.da.server.component.parser.factory.configuration,  org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  org.eclipse.emf.common.notify";version="0.2.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
@@ -37,6 +27,7 @@ Import-Package: org.eclipse.emf.ecore.resource,
  org.eclipse.scada.base.extractor.input.file;version="0.2.0",
  org.eclipse.scada.base.extractor.input.process;version="0.2.0",
  org.eclipse.scada.base.extractor.input.url;version="0.2.0",
+ org.eclipse.scada.base.extractor.mqtt.input;version="0.2.0",
  org.eclipse.scada.base.extractor.transform;version="0.2.0",
  org.eclipse.scada.ca;version="0.2.0",
  org.eclipse.scada.ca.common.factory;version="0.1.0",

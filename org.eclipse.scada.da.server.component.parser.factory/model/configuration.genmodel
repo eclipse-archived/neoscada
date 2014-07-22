@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="Copyright (c) 2014 IBH SYSTEMS GmbH and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;    IBH SYSTEMS GmbH - initial API and implementation"
-    modelDirectory="/org.eclipse.scada.da.server.component.parser.factory/src" creationSubmenus="true"
-    modelPluginID="org.eclipse.scada.da.server.component.parser.factory" modelName="Configuration"
-    nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelDirectory="/org.eclipse.scada.da.server.component.parser.factory/src" creationIcons="false"
+    creationSubmenus="true" modelPluginID="org.eclipse.scada.da.server.component.parser.factory"
+    modelName="Configuration" nonNLSMarkers="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" containmentProxies="true"
     complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true"
     decoration="Live">
@@ -23,12 +23,14 @@
     <genDataTypes ecoreDataType="configuration.ecore#//CreationContext"/>
     <genDataTypes ecoreDataType="configuration.ecore#//Extractor"/>
     <genDataTypes ecoreDataType="configuration.ecore#//Pattern"/>
+    <genDataTypes ecoreDataType="configuration.ecore#//Transformer"/>
     <genClasses ecoreClass="configuration.ecore#//Component">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//Component/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Component/input"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//Component/extractors"/>
     </genClasses>
     <genClasses image="false" ecoreClass="configuration.ecore#//InputDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//InputDefinition/transformers"/>
       <genOperations ecoreOperation="configuration.ecore#//InputDefinition/createInput">
         <genParameters ecoreParameter="configuration.ecore#//InputDefinition/createInput/creationContext"/>
       </genOperations>
@@ -56,6 +58,7 @@
     <genClasses ecoreClass="configuration.ecore#//SinglePattern">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/pattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SinglePattern/fullMatch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//SinglePattern/value"/>
     </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ValueDescriptor">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//ValueDescriptor/primaryValue"/>
@@ -75,5 +78,24 @@
     <genClasses ecoreClass="configuration.ecore#//NumericGroupField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//NumericGroupField/groupNumber"/>
     </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//SplitTable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/lineSeparatorPattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/fieldSeparatorPattern"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/idColumn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//SplitTable/fields"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//TransformerDefinition">
+      <genOperations ecoreOperation="configuration.ecore#//TransformerDefinition/createTransformer">
+        <genParameters ecoreParameter="configuration.ecore#//TransformerDefinition/createTransformer/creationContext"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//StringTransformer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//StringTransformer/charset"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//MqttInput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MqttInput/serverUri"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//MqttInput/clientId"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractInput"/>
   </genPackages>
 </genmodel:GenModel>

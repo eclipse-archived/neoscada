@@ -26,7 +26,7 @@ package org.eclipse.scada.da.server.component.parser.factory.configuration;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractPeriodInput extends InputDefinition
+public interface AbstractPeriodInput extends AbstractInput
 {
     /**
      * Returns the value of the '<em><b>Period</b></em>' attribute.

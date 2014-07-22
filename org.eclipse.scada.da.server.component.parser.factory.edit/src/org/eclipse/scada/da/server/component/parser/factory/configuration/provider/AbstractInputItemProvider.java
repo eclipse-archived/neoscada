@@ -20,7 +20,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -28,21 +27,20 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentItemProvider
+public class AbstractInputItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +55,7 @@ public class ComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComponentItemProvider ( AdapterFactory adapterFactory )
+    public AbstractInputItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,32 +73,8 @@ public class ComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Id feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addIdPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Component_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_id_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.COMPONENT__ID,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -117,8 +91,7 @@ public class ComponentItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__INPUT );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__EXTRACTORS );
+            childrenFeatures.add ( ParserPackage.Literals.INPUT_DEFINITION__TRANSFORMERS );
         }
         return childrenFeatures;
     }
@@ -135,18 +108,6 @@ public class ComponentItemProvider
         // adding (see {@link AddCommand}) it as a child.
 
         return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns Component.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Object getImage ( Object object )
-    {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Component" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -169,10 +130,7 @@ public class ComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Component)object ).getId ();
-        return label == null || label.length () == 0 ?
-                getString ( "_UI_Component_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Component_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+        return getString ( "_UI_AbstractInput_type" ); //$NON-NLS-1$
     }
 
     /**
@@ -187,13 +145,9 @@ public class ComponentItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Component.class ) )
+        switch ( notification.getFeatureID ( AbstractInput.class ) )
         {
-            case ParserPackage.COMPONENT__ID:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ParserPackage.COMPONENT__INPUT:
-            case ParserPackage.COMPONENT__EXTRACTORS:
+            case ParserPackage.ABSTRACT_INPUT__TRANSFORMERS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -214,33 +168,8 @@ public class ComponentItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createFileInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createUrlInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createMqttInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createPlainText () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSinglePattern () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSplitTable () ) );
+                ( ParserPackage.Literals.INPUT_DEFINITION__TRANSFORMERS,
+                        ParserFactory.eINSTANCE.createStringTransformer () ) );
     }
 
     /**

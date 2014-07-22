@@ -10,54 +10,60 @@
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.Charset;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.scada.base.extractor.transform.Transformer;
+import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Period Input</b></em>
- * '.
+ * An implementation of the model object '<em><b>String Transformer</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl#getPeriod <em>Period</em>}</li>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringTransformerImpl#getCharset <em>Charset</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implements AbstractPeriodInput
+public class StringTransformerImpl extends MinimalEObjectImpl.Container implements StringTransformer
 {
     /**
-     * The default value of the '{@link #getPeriod() <em>Period</em>}' attribute.
+     * The default value of the '{@link #getCharset() <em>Charset</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPeriod()
+     * @see #getCharset()
      * @generated
      * @ordered
      */
-    protected static final long PERIOD_EDEFAULT = 1000L;
+    protected static final String CHARSET_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
+     * The cached value of the '{@link #getCharset() <em>Charset</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getPeriod()
+     * @see #getCharset()
      * @generated
      * @ordered
      */
-    protected long period = PERIOD_EDEFAULT;
+    protected String charset = CHARSET_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected AbstractPeriodInputImpl ()
+    protected StringTransformerImpl ()
     {
         super ();
     }
@@ -70,7 +76,7 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
     @Override
     protected EClass eStaticClass ()
     {
-        return ParserPackage.Literals.ABSTRACT_PERIOD_INPUT;
+        return ParserPackage.Literals.STRING_TRANSFORMER;
     }
 
     /**
@@ -79,9 +85,9 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
      * @generated
      */
     @Override
-    public long getPeriod ()
+    public String getCharset ()
     {
-        return period;
+        return charset;
     }
 
     /**
@@ -90,12 +96,24 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
      * @generated
      */
     @Override
-    public void setPeriod ( long newPeriod )
+    public void setCharset ( String newCharset )
     {
-        long oldPeriod = period;
-        period = newPeriod;
+        String oldCharset = charset;
+        charset = newCharset;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD, oldPeriod, period ) );
+            eNotify ( new ENotificationImpl ( this, Notification.SET, ParserPackage.STRING_TRANSFORMER__CHARSET, oldCharset, charset ) );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated NOT
+     */
+    @Override
+    public Transformer createTransformer ( final CreationContext creationContext )
+    {
+        return new org.eclipse.scada.base.extractor.transform.StringTransformer ( Charset.forName ( this.charset ) );
     }
 
     /**
@@ -108,8 +126,8 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
     {
         switch ( featureID )
         {
-            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
-                return getPeriod ();
+            case ParserPackage.STRING_TRANSFORMER__CHARSET:
+                return getCharset ();
         }
         return super.eGet ( featureID, resolve, coreType );
     }
@@ -124,8 +142,8 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
     {
         switch ( featureID )
         {
-            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
-                setPeriod ( (Long)newValue );
+            case ParserPackage.STRING_TRANSFORMER__CHARSET:
+                setCharset ( (String)newValue );
                 return;
         }
         super.eSet ( featureID, newValue );
@@ -141,8 +159,8 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
     {
         switch ( featureID )
         {
-            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
-                setPeriod ( PERIOD_EDEFAULT );
+            case ParserPackage.STRING_TRANSFORMER__CHARSET:
+                setCharset ( CHARSET_EDEFAULT );
                 return;
         }
         super.eUnset ( featureID );
@@ -158,10 +176,26 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
     {
         switch ( featureID )
         {
-            case ParserPackage.ABSTRACT_PERIOD_INPUT__PERIOD:
-                return period != PERIOD_EDEFAULT;
+            case ParserPackage.STRING_TRANSFORMER__CHARSET:
+                return CHARSET_EDEFAULT == null ? charset != null : !CHARSET_EDEFAULT.equals ( charset );
         }
         return super.eIsSet ( featureID );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    {
+        switch ( operationID )
+        {
+            case ParserPackage.STRING_TRANSFORMER___CREATE_TRANSFORMER__CREATIONCONTEXT:
+                return createTransformer ( (CreationContext)arguments.get ( 0 ) );
+        }
+        return super.eInvoke ( operationID, arguments );
     }
 
     /**
@@ -176,10 +210,10 @@ public abstract class AbstractPeriodInputImpl extends AbstractInputImpl implemen
             return super.toString ();
 
         StringBuffer result = new StringBuffer ( super.toString () );
-        result.append ( " (period: " ); //$NON-NLS-1$
-        result.append ( period );
+        result.append ( " (charset: " ); //$NON-NLS-1$
+        result.append ( charset );
         result.append ( ')' );
         return result.toString ();
     }
 
-} //AbstractPeriodInputImpl
+} //StringTransformerImpl

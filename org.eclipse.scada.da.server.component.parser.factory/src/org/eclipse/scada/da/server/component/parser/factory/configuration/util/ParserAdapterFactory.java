@@ -173,6 +173,30 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter caseTransformerDefinition ( TransformerDefinition object )
+                {
+                    return createTransformerDefinitionAdapter ();
+                }
+
+                @Override
+                public Adapter caseStringTransformer ( StringTransformer object )
+                {
+                    return createStringTransformerAdapter ();
+                }
+
+                @Override
+                public Adapter caseMqttInput ( MqttInput object )
+                {
+                    return createMqttInputAdapter ();
+                }
+
+                @Override
+                public Adapter caseAbstractInput ( AbstractInput object )
+                {
+                    return createAbstractInputAdapter ();
+                }
+
+                @Override
                 public Adapter defaultCase ( EObject object )
                 {
                     return createEObjectAdapter ();
@@ -414,6 +438,66 @@ public class ParserAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createSplitTableAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition <em>Transformer Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition
+     * @generated
+     */
+    public Adapter createTransformerDefinitionAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer <em>String Transformer</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer
+     * @generated
+     */
+    public Adapter createStringTransformerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput <em>Mqtt Input</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput
+     * @generated
+     */
+    public Adapter createMqttInputAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput <em>Abstract Input</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput
+     * @generated
+     */
+    public Adapter createAbstractInputAdapter ()
     {
         return null;
     }

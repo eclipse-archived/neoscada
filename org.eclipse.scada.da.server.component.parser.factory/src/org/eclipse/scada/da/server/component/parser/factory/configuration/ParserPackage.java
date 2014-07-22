@@ -134,13 +134,22 @@ public interface ParserPackage extends EPackage
     int INPUT_DEFINITION = 1;
 
     /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int INPUT_DEFINITION__TRANSFORMERS = 0;
+
+    /**
      * The number of structural features of the '<em>Input Definition</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int INPUT_DEFINITION_FEATURE_COUNT = 0;
+    int INPUT_DEFINITION_FEATURE_COUNT = 1;
 
     /**
      * The operation id for the '<em>Create Input</em>' operation.
@@ -161,6 +170,52 @@ public interface ParserPackage extends EPackage
     int INPUT_DEFINITION_OPERATION_COUNT = 1;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractInputImpl <em>Abstract Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractInputImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAbstractInput()
+     * @generated
+     */
+    int ABSTRACT_INPUT = 18;
+
+    /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_INPUT__TRANSFORMERS = INPUT_DEFINITION__TRANSFORMERS;
+
+    /**
+     * The number of structural features of the '<em>Abstract Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_INPUT_FEATURE_COUNT = INPUT_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Create Input</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_INPUT___CREATE_INPUT__CREATIONCONTEXT = INPUT_DEFINITION___CREATE_INPUT__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Abstract Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_INPUT_OPERATION_COUNT = INPUT_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractPeriodInputImpl <em>Abstract Period Input</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -171,13 +226,22 @@ public interface ParserPackage extends EPackage
     int ABSTRACT_PERIOD_INPUT = 5;
 
     /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_PERIOD_INPUT__TRANSFORMERS = ABSTRACT_INPUT__TRANSFORMERS;
+
+    /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_PERIOD_INPUT__PERIOD = INPUT_DEFINITION_FEATURE_COUNT + 0;
+    int ABSTRACT_PERIOD_INPUT__PERIOD = ABSTRACT_INPUT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Abstract Period Input</em>' class.
@@ -186,7 +250,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_PERIOD_INPUT_FEATURE_COUNT = INPUT_DEFINITION_FEATURE_COUNT + 1;
+    int ABSTRACT_PERIOD_INPUT_FEATURE_COUNT = ABSTRACT_INPUT_FEATURE_COUNT + 1;
 
     /**
      * The operation id for the '<em>Create Input</em>' operation.
@@ -195,7 +259,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT = INPUT_DEFINITION___CREATE_INPUT__CREATIONCONTEXT;
+    int ABSTRACT_PERIOD_INPUT___CREATE_INPUT__CREATIONCONTEXT = ABSTRACT_INPUT___CREATE_INPUT__CREATIONCONTEXT;
 
     /**
      * The number of operations of the '<em>Abstract Period Input</em>' class.
@@ -204,7 +268,7 @@ public interface ParserPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_PERIOD_INPUT_OPERATION_COUNT = INPUT_DEFINITION_OPERATION_COUNT + 0;
+    int ABSTRACT_PERIOD_INPUT_OPERATION_COUNT = ABSTRACT_INPUT_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.FileInputImpl <em>File Input</em>}' class.
@@ -215,6 +279,15 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     int FILE_INPUT = 2;
+
+    /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FILE_INPUT__TRANSFORMERS = ABSTRACT_PERIOD_INPUT__TRANSFORMERS;
 
     /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -371,6 +444,15 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     int URL_INPUT = 6;
+
+    /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int URL_INPUT__TRANSFORMERS = ABSTRACT_PERIOD_INPUT__TRANSFORMERS;
 
     /**
      * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -849,6 +931,171 @@ public interface ParserPackage extends EPackage
     int SPLIT_TABLE_OPERATION_COUNT = EXTRACTOR_DEFINITION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition <em>Transformer Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getTransformerDefinition()
+     * @generated
+     */
+    int TRANSFORMER_DEFINITION = 15;
+
+    /**
+     * The number of structural features of the '<em>Transformer Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORMER_DEFINITION_FEATURE_COUNT = 0;
+
+    /**
+     * The operation id for the '<em>Create Transformer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORMER_DEFINITION___CREATE_TRANSFORMER__CREATIONCONTEXT = 0;
+
+    /**
+     * The number of operations of the '<em>Transformer Definition</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRANSFORMER_DEFINITION_OPERATION_COUNT = 1;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringTransformerImpl <em>String Transformer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringTransformerImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getStringTransformer()
+     * @generated
+     */
+    int STRING_TRANSFORMER = 16;
+
+    /**
+     * The feature id for the '<em><b>Charset</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TRANSFORMER__CHARSET = TRANSFORMER_DEFINITION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>String Transformer</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TRANSFORMER_FEATURE_COUNT = TRANSFORMER_DEFINITION_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Create Transformer</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TRANSFORMER___CREATE_TRANSFORMER__CREATIONCONTEXT = TRANSFORMER_DEFINITION___CREATE_TRANSFORMER__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>String Transformer</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STRING_TRANSFORMER_OPERATION_COUNT = TRANSFORMER_DEFINITION_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl <em>Mqtt Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getMqttInput()
+     * @generated
+     */
+    int MQTT_INPUT = 17;
+
+    /**
+     * The feature id for the '<em><b>Transformers</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT__TRANSFORMERS = ABSTRACT_INPUT__TRANSFORMERS;
+
+    /**
+     * The feature id for the '<em><b>Server Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT__SERVER_URI = ABSTRACT_INPUT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Client Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT__CLIENT_ID = ABSTRACT_INPUT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Topic</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT__TOPIC = ABSTRACT_INPUT_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Qos</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT__QOS = ABSTRACT_INPUT_FEATURE_COUNT + 3;
+
+    /**
+     * The number of structural features of the '<em>Mqtt Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT_FEATURE_COUNT = ABSTRACT_INPUT_FEATURE_COUNT + 4;
+
+    /**
+     * The operation id for the '<em>Create Input</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT___CREATE_INPUT__CREATIONCONTEXT = ABSTRACT_INPUT___CREATE_INPUT__CREATIONCONTEXT;
+
+    /**
+     * The number of operations of the '<em>Mqtt Input</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int MQTT_INPUT_OPERATION_COUNT = ABSTRACT_INPUT_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -856,7 +1103,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getVariantType()
      * @generated
      */
-    int VARIANT_TYPE = 15;
+    int VARIANT_TYPE = 19;
 
     /**
      * The meta object id for the '<em>Input</em>' data type.
@@ -866,7 +1113,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getInput()
      * @generated
      */
-    int INPUT = 16;
+    int INPUT = 20;
 
     /**
      * The meta object id for the '<em>Creation Context</em>' data type.
@@ -876,7 +1123,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getCreationContext()
      * @generated
      */
-    int CREATION_CONTEXT = 17;
+    int CREATION_CONTEXT = 21;
 
     /**
      * The meta object id for the '<em>Extractor</em>' data type.
@@ -886,7 +1133,7 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getExtractor()
      * @generated
      */
-    int EXTRACTOR = 18;
+    int EXTRACTOR = 22;
 
     /**
      * The meta object id for the '<em>Pattern</em>' data type.
@@ -896,7 +1143,17 @@ public interface ParserPackage extends EPackage
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 19;
+    int PATTERN = 23;
+
+    /**
+     * The meta object id for the '<em>Transformer</em>' data type.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.base.extractor.transform.Transformer
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getTransformer()
+     * @generated
+     */
+    int TRANSFORMER = 24;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component <em>Component</em>}'.
@@ -950,6 +1207,17 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EClass getInputDefinition ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#getTransformers <em>Transformers</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Transformers</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#getTransformers()
+     * @see #getInputDefinition()
+     * @generated
+     */
+    EReference getInputDefinition_Transformers ();
 
     /**
      * Returns the meta object for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#createInput(org.eclipse.scada.da.server.component.parser.factory.CreationContext) <em>Create Input</em>}' operation.
@@ -1333,6 +1601,111 @@ public interface ParserPackage extends EPackage
     EAttribute getSplitTable_Fields ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition <em>Transformer Definition</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Transformer Definition</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition
+     * @generated
+     */
+    EClass getTransformerDefinition ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition#createTransformer(org.eclipse.scada.da.server.component.parser.factory.CreationContext) <em>Create Transformer</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Create Transformer</em>' operation.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition#createTransformer(org.eclipse.scada.da.server.component.parser.factory.CreationContext)
+     * @generated
+     */
+    EOperation getTransformerDefinition__CreateTransformer__CreationContext ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer <em>String Transformer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>String Transformer</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer
+     * @generated
+     */
+    EClass getStringTransformer ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer#getCharset <em>Charset</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Charset</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer#getCharset()
+     * @see #getStringTransformer()
+     * @generated
+     */
+    EAttribute getStringTransformer_Charset ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput <em>Mqtt Input</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Mqtt Input</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput
+     * @generated
+     */
+    EClass getMqttInput ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getServerUri <em>Server Uri</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Server Uri</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getServerUri()
+     * @see #getMqttInput()
+     * @generated
+     */
+    EAttribute getMqttInput_ServerUri ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getClientId <em>Client Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Client Id</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getClientId()
+     * @see #getMqttInput()
+     * @generated
+     */
+    EAttribute getMqttInput_ClientId ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getTopic <em>Topic</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Topic</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getTopic()
+     * @see #getMqttInput()
+     * @generated
+     */
+    EAttribute getMqttInput_Topic ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getQos <em>Qos</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Qos</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput#getQos()
+     * @see #getMqttInput()
+     * @generated
+     */
+    EAttribute getMqttInput_Qos ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput <em>Abstract Input</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Abstract Input</em>'.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput
+     * @generated
+     */
+    EClass getAbstractInput ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1385,6 +1758,17 @@ public interface ParserPackage extends EPackage
      * @generated
      */
     EDataType getPattern ();
+
+    /**
+     * Returns the meta object for data type '{@link org.eclipse.scada.base.extractor.transform.Transformer <em>Transformer</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for data type '<em>Transformer</em>'.
+     * @see org.eclipse.scada.base.extractor.transform.Transformer
+     * @model instanceClass="org.eclipse.scada.base.extractor.transform.Transformer" serializeable="false"
+     * @generated
+     */
+    EDataType getTransformer ();
 
     /**
      * Returns the factory that creates the instances of the model.
@@ -1453,6 +1837,14 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EClass INPUT_DEFINITION = eINSTANCE.getInputDefinition ();
+
+        /**
+         * The meta object literal for the '<em><b>Transformers</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference INPUT_DEFINITION__TRANSFORMERS = eINSTANCE.getInputDefinition_Transformers ();
 
         /**
          * The meta object literal for the '<em><b>Create Input</b></em>' operation.
@@ -1769,6 +2161,94 @@ public interface ParserPackage extends EPackage
         EAttribute SPLIT_TABLE__FIELDS = eINSTANCE.getSplitTable_Fields ();
 
         /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition <em>Transformer Definition</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getTransformerDefinition()
+         * @generated
+         */
+        EClass TRANSFORMER_DEFINITION = eINSTANCE.getTransformerDefinition ();
+
+        /**
+         * The meta object literal for the '<em><b>Create Transformer</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation TRANSFORMER_DEFINITION___CREATE_TRANSFORMER__CREATIONCONTEXT = eINSTANCE.getTransformerDefinition__CreateTransformer__CreationContext ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringTransformerImpl <em>String Transformer</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.StringTransformerImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getStringTransformer()
+         * @generated
+         */
+        EClass STRING_TRANSFORMER = eINSTANCE.getStringTransformer ();
+
+        /**
+         * The meta object literal for the '<em><b>Charset</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute STRING_TRANSFORMER__CHARSET = eINSTANCE.getStringTransformer_Charset ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl <em>Mqtt Input</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.MqttInputImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getMqttInput()
+         * @generated
+         */
+        EClass MQTT_INPUT = eINSTANCE.getMqttInput ();
+
+        /**
+         * The meta object literal for the '<em><b>Server Uri</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MQTT_INPUT__SERVER_URI = eINSTANCE.getMqttInput_ServerUri ();
+
+        /**
+         * The meta object literal for the '<em><b>Client Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MQTT_INPUT__CLIENT_ID = eINSTANCE.getMqttInput_ClientId ();
+
+        /**
+         * The meta object literal for the '<em><b>Topic</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MQTT_INPUT__TOPIC = eINSTANCE.getMqttInput_Topic ();
+
+        /**
+         * The meta object literal for the '<em><b>Qos</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute MQTT_INPUT__QOS = eINSTANCE.getMqttInput_Qos ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractInputImpl <em>Abstract Input</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.AbstractInputImpl
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getAbstractInput()
+         * @generated
+         */
+        EClass ABSTRACT_INPUT = eINSTANCE.getAbstractInput ();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType <em>Variant Type</em>}' enum.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -1817,6 +2297,16 @@ public interface ParserPackage extends EPackage
          * @generated
          */
         EDataType PATTERN = eINSTANCE.getPattern ();
+
+        /**
+         * The meta object literal for the '<em>Transformer</em>' data type.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.base.extractor.transform.Transformer
+         * @see org.eclipse.scada.da.server.component.parser.factory.configuration.impl.ParserPackageImpl#getTransformer()
+         * @generated
+         */
+        EDataType TRANSFORMER = eINSTANCE.getTransformer ();
 
     }
 

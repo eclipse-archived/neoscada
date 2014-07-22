@@ -18,8 +18,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -32,17 +30,16 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
-import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentItemProvider
+public class StringTransformerItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +54,7 @@ public class ComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComponentItemProvider ( AdapterFactory adapterFactory )
+    public StringTransformerItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,26 +72,26 @@ public class ComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
+            addCharsetPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Charset feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addCharsetPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Component_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_id_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.COMPONENT__ID,
+                        getString ( "_UI_StringTransformer_charset_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_StringTransformer_charset_feature", "_UI_StringTransformer_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.STRING_TRANSFORMER__CHARSET,
                         true,
                         false,
                         false,
@@ -104,41 +101,7 @@ public class ComponentItemProvider
     }
 
     /**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures ( Object object )
-    {
-        if ( childrenFeatures == null )
-        {
-            super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__INPUT );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__EXTRACTORS );
-        }
-        return childrenFeatures;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    protected EStructuralFeature getChildFeature ( Object object, Object child )
-    {
-        // Check the type of the specified child object and return the proper feature to use for
-        // adding (see {@link AddCommand}) it as a child.
-
-        return super.getChildFeature ( object, child );
-    }
-
-    /**
-     * This returns Component.gif.
+     * This returns StringTransformer.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -146,7 +109,7 @@ public class ComponentItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Component" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/StringTransformer" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -169,10 +132,10 @@ public class ComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Component)object ).getId ();
+        String label = ( (StringTransformer)object ).getCharset ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_Component_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Component_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_StringTransformer_type" ) : //$NON-NLS-1$
+                getString ( "_UI_StringTransformer_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,14 +150,10 @@ public class ComponentItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Component.class ) )
+        switch ( notification.getFeatureID ( StringTransformer.class ) )
         {
-            case ParserPackage.COMPONENT__ID:
+            case ParserPackage.STRING_TRANSFORMER__CHARSET:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
-                return;
-            case ParserPackage.COMPONENT__INPUT:
-            case ParserPackage.COMPONENT__EXTRACTORS:
-                fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
         super.notifyChanged ( notification );
@@ -211,36 +170,6 @@ public class ComponentItemProvider
     protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createFileInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createUrlInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createMqttInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createPlainText () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSinglePattern () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSplitTable () ) );
     }
 
     /**

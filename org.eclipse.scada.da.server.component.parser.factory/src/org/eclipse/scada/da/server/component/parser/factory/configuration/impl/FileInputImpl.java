@@ -4,13 +4,14 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- * 
+ *
  * Contributors:
  *     IBH SYSTEMS GmbH - initial API and implementation
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration.impl;
 
 import java.io.File;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -103,13 +104,13 @@ public class FileInputImpl extends AbstractPeriodInputImpl implements FileInput
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated NOT
      */
     @Override
     public Input createInput ( final CreationContext creationContext )
     {
-        return new org.eclipse.scada.base.extractor.input.file.FileInput ( creationContext.getExecutor (), new File ( getFileName () ), getPeriod () );
+        return applyTransformers ( new org.eclipse.scada.base.extractor.input.file.FileInput ( creationContext.getExecutor (), new File ( getFileName () ), getPeriod () ), creationContext );
     }
 
     /**

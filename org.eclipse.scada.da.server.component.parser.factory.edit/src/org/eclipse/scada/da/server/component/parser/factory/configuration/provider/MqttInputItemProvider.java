@@ -32,17 +32,17 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.Component} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentItemProvider
+public class MqttInputItemProvider
         extends ItemProviderAdapter
         implements
         IEditingDomainItemProvider,
@@ -57,7 +57,7 @@ public class ComponentItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public ComponentItemProvider ( AdapterFactory adapterFactory )
+    public MqttInputItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -75,30 +75,102 @@ public class ComponentItemProvider
         {
             super.getPropertyDescriptors ( object );
 
-            addIdPropertyDescriptor ( object );
+            addServerUriPropertyDescriptor ( object );
+            addClientIdPropertyDescriptor ( object );
+            addTopicPropertyDescriptor ( object );
+            addQosPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Id feature.
+     * This adds a property descriptor for the Server Uri feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addIdPropertyDescriptor ( Object object )
+    protected void addServerUriPropertyDescriptor ( Object object )
     {
         itemPropertyDescriptors.add
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_Component_id_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Component_id_feature", "_UI_Component_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        ParserPackage.Literals.COMPONENT__ID,
+                        getString ( "_UI_MqttInput_serverUri_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MqttInput_serverUri_feature", "_UI_MqttInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.MQTT_INPUT__SERVER_URI,
                         true,
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Client Id feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addClientIdPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MqttInput_clientId_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MqttInput_clientId_feature", "_UI_MqttInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.MQTT_INPUT__CLIENT_ID,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Topic feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addTopicPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MqttInput_topic_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MqttInput_topic_feature", "_UI_MqttInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.MQTT_INPUT__TOPIC,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Qos feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addQosPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_MqttInput_qos_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_MqttInput_qos_feature", "_UI_MqttInput_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        ParserPackage.Literals.MQTT_INPUT__QOS,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
                         null,
                         null ) );
     }
@@ -117,8 +189,7 @@ public class ComponentItemProvider
         if ( childrenFeatures == null )
         {
             super.getChildrenFeatures ( object );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__INPUT );
-            childrenFeatures.add ( ParserPackage.Literals.COMPONENT__EXTRACTORS );
+            childrenFeatures.add ( ParserPackage.Literals.INPUT_DEFINITION__TRANSFORMERS );
         }
         return childrenFeatures;
     }
@@ -138,7 +209,7 @@ public class ComponentItemProvider
     }
 
     /**
-     * This returns Component.gif.
+     * This returns MqttInput.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -146,7 +217,7 @@ public class ComponentItemProvider
     @Override
     public Object getImage ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/Component" ) ); //$NON-NLS-1$
+        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/MqttInput" ) ); //$NON-NLS-1$
     }
 
     /**
@@ -169,10 +240,10 @@ public class ComponentItemProvider
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Component)object ).getId ();
+        String label = ( (MqttInput)object ).getServerUri ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_Component_type" ) : //$NON-NLS-1$
-                getString ( "_UI_Component_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_MqttInput_type" ) : //$NON-NLS-1$
+                getString ( "_UI_MqttInput_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -187,13 +258,15 @@ public class ComponentItemProvider
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( Component.class ) )
+        switch ( notification.getFeatureID ( MqttInput.class ) )
         {
-            case ParserPackage.COMPONENT__ID:
+            case ParserPackage.MQTT_INPUT__SERVER_URI:
+            case ParserPackage.MQTT_INPUT__CLIENT_ID:
+            case ParserPackage.MQTT_INPUT__TOPIC:
+            case ParserPackage.MQTT_INPUT__QOS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
-            case ParserPackage.COMPONENT__INPUT:
-            case ParserPackage.COMPONENT__EXTRACTORS:
+            case ParserPackage.MQTT_INPUT__TRANSFORMERS:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), true, false ) );
                 return;
         }
@@ -214,33 +287,8 @@ public class ComponentItemProvider
 
         newChildDescriptors.add
                 ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createFileInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createUrlInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__INPUT,
-                        ParserFactory.eINSTANCE.createMqttInput () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createPlainText () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSinglePattern () ) );
-
-        newChildDescriptors.add
-                ( createChildParameter
-                ( ParserPackage.Literals.COMPONENT__EXTRACTORS,
-                        ParserFactory.eINSTANCE.createSplitTable () ) );
+                ( ParserPackage.Literals.INPUT_DEFINITION__TRANSFORMERS,
+                        ParserFactory.eINSTANCE.createStringTransformer () ) );
     }
 
     /**

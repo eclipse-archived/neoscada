@@ -130,6 +130,24 @@ public interface ParserFactory extends EFactory
     SplitTable createSplitTable ();
 
     /**
+     * Returns a new object of class '<em>String Transformer</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>String Transformer</em>'.
+     * @generated
+     */
+    StringTransformer createStringTransformer ();
+
+    /**
+     * Returns a new object of class '<em>Mqtt Input</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Mqtt Input</em>'.
+     * @generated
+     */
+    MqttInput createMqttInput ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

@@ -374,6 +374,56 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StringTransformerItemProvider stringTransformerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createStringTransformerAdapter ()
+    {
+        if ( stringTransformerItemProvider == null )
+        {
+            stringTransformerItemProvider = new StringTransformerItemProvider ( this );
+        }
+
+        return stringTransformerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected MqttInputItemProvider mqttInputItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createMqttInputAdapter ()
+    {
+        if ( mqttInputItemProvider == null )
+        {
+            mqttInputItemProvider = new MqttInputItemProvider ( this );
+        }
+
+        return mqttInputItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -536,6 +586,10 @@ public class ParserItemProviderAdapterFactory extends ParserAdapterFactory imple
             numericGroupFieldItemProvider.dispose ();
         if ( splitTableItemProvider != null )
             splitTableItemProvider.dispose ();
+        if ( stringTransformerItemProvider != null )
+            stringTransformerItemProvider.dispose ();
+        if ( mqttInputItemProvider != null )
+            mqttInputItemProvider.dispose ();
     }
 
 }

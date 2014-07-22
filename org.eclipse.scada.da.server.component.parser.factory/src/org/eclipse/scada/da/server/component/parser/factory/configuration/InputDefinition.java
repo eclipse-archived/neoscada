@@ -10,6 +10,7 @@
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.scada.base.extractor.input.Input;
@@ -20,6 +21,12 @@ import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
  * A representation of the model object '<em><b>Input Definition</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#getTransformers <em>Transformers</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getInputDefinition()
  * @model interface="true" abstract="true"
@@ -27,6 +34,22 @@ import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
  */
 public interface InputDefinition extends EObject
 {
+    /**
+     * Returns the value of the '<em><b>Transformers</b></em>' containment reference list.
+     * The list contents are of type {@link org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Transformers</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Transformers</em>' containment reference list.
+     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getInputDefinition_Transformers()
+     * @model containment="true" resolveProxies="true"
+     * @generated
+     */
+    EList<TransformerDefinition> getTransformers ();
+
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

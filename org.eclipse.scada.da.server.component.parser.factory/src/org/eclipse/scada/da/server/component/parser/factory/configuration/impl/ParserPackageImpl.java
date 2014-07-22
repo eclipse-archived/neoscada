@@ -21,7 +21,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.base.extractor.extract.Extractor;
 import org.eclipse.scada.base.extractor.input.Input;
+import org.eclipse.scada.base.extractor.transform.Transformer;
 import org.eclipse.scada.da.server.component.parser.factory.CreationContext;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AttributeValue;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.Component;
@@ -30,6 +32,7 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.Field;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.FileInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.MainGroupField;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.MqttInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.NumericGroupField;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserFactory;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage;
@@ -37,6 +40,8 @@ import org.eclipse.scada.da.server.component.parser.factory.configuration.PlainT
 import org.eclipse.scada.da.server.component.parser.factory.configuration.SinglePattern;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.SplitTable;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.StringGroupField;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.StringTransformer;
+import org.eclipse.scada.da.server.component.parser.factory.configuration.TransformerDefinition;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.UrlInput;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.ValueDescriptor;
 import org.eclipse.scada.da.server.component.parser.factory.configuration.VariantType;
@@ -159,6 +164,34 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    private EClass transformerDefinitionEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stringTransformerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass mqttInputEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractInputEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     private EEnum variantTypeEEnum = null;
 
     /**
@@ -188,6 +221,13 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * @generated
      */
     private EDataType patternEDataType = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EDataType transformerEDataType = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -300,6 +340,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
     public EClass getInputDefinition ()
     {
         return inputDefinitionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getInputDefinition_Transformers ()
+    {
+        return (EReference)inputDefinitionEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -667,6 +717,106 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getTransformerDefinition ()
+    {
+        return transformerDefinitionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getTransformerDefinition__CreateTransformer__CreationContext ()
+    {
+        return transformerDefinitionEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getStringTransformer ()
+    {
+        return stringTransformerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getStringTransformer_Charset ()
+    {
+        return (EAttribute)stringTransformerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getMqttInput ()
+    {
+        return mqttInputEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMqttInput_ServerUri ()
+    {
+        return (EAttribute)mqttInputEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMqttInput_ClientId ()
+    {
+        return (EAttribute)mqttInputEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMqttInput_Topic ()
+    {
+        return (EAttribute)mqttInputEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getMqttInput_Qos ()
+    {
+        return (EAttribute)mqttInputEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAbstractInput ()
+    {
+        return abstractInputEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EEnum getVariantType ()
     {
         return variantTypeEEnum;
@@ -717,6 +867,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EDataType getTransformer ()
+    {
+        return transformerEDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public ParserFactory getParserFactory ()
     {
         return (ParserFactory)getEFactoryInstance ();
@@ -749,6 +909,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEReference ( componentEClass, COMPONENT__EXTRACTORS );
 
         inputDefinitionEClass = createEClass ( INPUT_DEFINITION );
+        createEReference ( inputDefinitionEClass, INPUT_DEFINITION__TRANSFORMERS );
         createEOperation ( inputDefinitionEClass, INPUT_DEFINITION___CREATE_INPUT__CREATIONCONTEXT );
 
         fileInputEClass = createEClass ( FILE_INPUT );
@@ -799,6 +960,20 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         createEAttribute ( splitTableEClass, SPLIT_TABLE__ID_COLUMN );
         createEAttribute ( splitTableEClass, SPLIT_TABLE__FIELDS );
 
+        transformerDefinitionEClass = createEClass ( TRANSFORMER_DEFINITION );
+        createEOperation ( transformerDefinitionEClass, TRANSFORMER_DEFINITION___CREATE_TRANSFORMER__CREATIONCONTEXT );
+
+        stringTransformerEClass = createEClass ( STRING_TRANSFORMER );
+        createEAttribute ( stringTransformerEClass, STRING_TRANSFORMER__CHARSET );
+
+        mqttInputEClass = createEClass ( MQTT_INPUT );
+        createEAttribute ( mqttInputEClass, MQTT_INPUT__SERVER_URI );
+        createEAttribute ( mqttInputEClass, MQTT_INPUT__CLIENT_ID );
+        createEAttribute ( mqttInputEClass, MQTT_INPUT__TOPIC );
+        createEAttribute ( mqttInputEClass, MQTT_INPUT__QOS );
+
+        abstractInputEClass = createEClass ( ABSTRACT_INPUT );
+
         // Create enums
         variantTypeEEnum = createEEnum ( VARIANT_TYPE );
 
@@ -807,6 +982,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         creationContextEDataType = createEDataType ( CREATION_CONTEXT );
         extractorEDataType = createEDataType ( EXTRACTOR );
         patternEDataType = createEDataType ( PATTERN );
+        transformerEDataType = createEDataType ( TRANSFORMER );
     }
 
     /**
@@ -841,13 +1017,16 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         // Add supertypes to classes
         fileInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
         plainTextEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
-        abstractPeriodInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
+        abstractPeriodInputEClass.getESuperTypes ().add ( this.getAbstractInput () );
         urlInputEClass.getESuperTypes ().add ( this.getAbstractPeriodInput () );
         singlePatternEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
         mainGroupFieldEClass.getESuperTypes ().add ( this.getField () );
         stringGroupFieldEClass.getESuperTypes ().add ( this.getField () );
         numericGroupFieldEClass.getESuperTypes ().add ( this.getField () );
         splitTableEClass.getESuperTypes ().add ( this.getExtractorDefinition () );
+        stringTransformerEClass.getESuperTypes ().add ( this.getTransformerDefinition () );
+        mqttInputEClass.getESuperTypes ().add ( this.getAbstractInput () );
+        abstractInputEClass.getESuperTypes ().add ( this.getInputDefinition () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -856,6 +1035,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEReference ( getComponent_Extractors (), this.getExtractorDefinition (), null, "extractors", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( inputDefinitionEClass, InputDefinition.class, "InputDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getInputDefinition_Transformers (), this.getTransformerDefinition (), null, "transformers", null, 0, -1, InputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         EOperation op = initEOperation ( getInputDefinition__CreateInput__CreationContext (), this.getInput (), "createInput", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
         addEParameter ( op, this.getCreationContext (), "creationContext", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
@@ -910,6 +1090,22 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEAttribute ( getSplitTable_IdColumn (), ecorePackage.getEInt (), "idColumn", null, 1, 1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getSplitTable_Fields (), ecorePackage.getEString (), "fields", null, 0, -1, SplitTable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
+        initEClass ( transformerDefinitionEClass, TransformerDefinition.class, "TransformerDefinition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        op = initEOperation ( getTransformerDefinition__CreateTransformer__CreationContext (), this.getTransformer (), "createTransformer", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        addEParameter ( op, this.getCreationContext (), "creationContext", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( stringTransformerEClass, StringTransformer.class, "StringTransformer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getStringTransformer_Charset (), ecorePackage.getEString (), "charset", null, 1, 1, StringTransformer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( mqttInputEClass, MqttInput.class, "MqttInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getMqttInput_ServerUri (), ecorePackage.getEString (), "serverUri", null, 1, 1, MqttInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMqttInput_ClientId (), ecorePackage.getEString (), "clientId", null, 0, 1, MqttInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMqttInput_Topic (), ecorePackage.getEString (), "topic", null, 1, 1, MqttInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getMqttInput_Qos (), ecorePackage.getEInt (), "qos", null, 1, 1, MqttInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( abstractInputEClass, AbstractInput.class, "AbstractInput", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
         // Initialize enums and add enum literals
         initEEnum ( variantTypeEEnum, VariantType.class, "VariantType" ); //$NON-NLS-1$
         addEEnumLiteral ( variantTypeEEnum, VariantType.DEFAULT );
@@ -924,6 +1120,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         initEDataType ( creationContextEDataType, CreationContext.class, "CreationContext", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( extractorEDataType, Extractor.class, "Extractor", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEDataType ( transformerEDataType, Transformer.class, "Transformer", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Create resource
         createResource ( eNS_URI );
