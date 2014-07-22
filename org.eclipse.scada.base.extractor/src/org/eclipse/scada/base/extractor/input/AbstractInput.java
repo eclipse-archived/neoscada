@@ -26,6 +26,8 @@ public abstract class AbstractInput implements Input
 
     private final Executor executor;
 
+    private Data lastData;
+
     public AbstractInput ( final Executor executor )
     {
         this.executor = executor;
@@ -36,22 +38,27 @@ public abstract class AbstractInput implements Input
     {
         if ( this.listeners.add ( listener ) )
         {
-            // do something
+            final Data data = this.lastData;
+            this.executor.execute ( new Runnable () {
+                @Override
+                public void run ()
+                {
+                    processFireData ( new Listener[] { listener }, data );
+                }
+            } );
         }
     }
 
     @Override
     public synchronized void removeInputListener ( final Listener listener )
     {
-        if ( this.listeners.remove ( listener ) )
-        {
-            // do something
-        }
+        this.listeners.remove ( listener );
     }
 
     protected synchronized void fireData ( final Data data )
     {
         final Listener[] listeners = this.listeners.toArray ( new Listener[this.listeners.size ()] );
+        this.lastData = data;
         try
         {
             this.executor.execute ( new Runnable () {
