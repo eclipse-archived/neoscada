@@ -132,7 +132,7 @@ public class ImageItemProvider extends FigureItemProvider implements IEditingDom
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Image)object ).getName ();
+        String label = ( (Image)object ).getUri ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_Image_type" ) : //$NON-NLS-1$
                 getString ( "_UI_Image_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$

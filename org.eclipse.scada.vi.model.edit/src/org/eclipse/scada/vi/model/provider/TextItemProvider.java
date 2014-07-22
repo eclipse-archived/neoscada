@@ -300,7 +300,7 @@ public class TextItemProvider extends FigureItemProvider implements IEditingDoma
     @Override
     public String getText ( Object object )
     {
-        String label = ( (Text)object ).getName ();
+        String label = ( (Text)object ).getText ();
         return label == null || label.length () == 0 ?
                 getString ( "_UI_Text_type" ) : //$NON-NLS-1$
                 getString ( "_UI_Text_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
