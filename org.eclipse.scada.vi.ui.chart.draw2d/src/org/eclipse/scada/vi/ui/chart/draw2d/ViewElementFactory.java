@@ -29,7 +29,7 @@ public class ViewElementFactory implements org.eclipse.scada.vi.ui.draw2d.ViewEl
         try
         {
             final ChartView view = (ChartView)element;
-            return new ChartController ( controller, manager, view );
+            return new ChartController ( controller, manager, view, symbolLoader );
         }
         catch ( final Exception e )
         {

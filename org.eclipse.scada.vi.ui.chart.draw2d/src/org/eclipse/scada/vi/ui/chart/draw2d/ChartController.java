@@ -18,6 +18,7 @@ import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.vi.chart.model.ChartView;
 import org.eclipse.scada.vi.ui.draw2d.ErrorFigure;
 import org.eclipse.scada.vi.ui.draw2d.SymbolController;
+import org.eclipse.scada.vi.ui.draw2d.loader.SymbolLoader;
 import org.eclipse.scada.vi.ui.draw2d.primitives.FigureController;
 import org.eclipse.swt.widgets.Display;
 
@@ -29,9 +30,13 @@ public class ChartController extends FigureController
 
     private final ErrorFigure errorFigure;
 
-    public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view )
+    private final SymbolLoader symbolLoader;
+
+    public ChartController ( final SymbolController symbolController, final ResourceManager resourceManager, final ChartView view, final SymbolLoader symbolLoader )
     {
         super ( symbolController, resourceManager );
+
+        this.symbolLoader = symbolLoader;
 
         this.wrapperFigure = new Figure () {
             @Override
@@ -78,7 +83,7 @@ public class ChartController extends FigureController
         {
             try
             {
-                this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( configurationUri ) );
+                this.figure.setConfiguration ( ChartHelper.loadConfiguraton ( this.symbolLoader.resolveUri ( configurationUri ) ) );
             }
             catch ( final Exception e )
             {

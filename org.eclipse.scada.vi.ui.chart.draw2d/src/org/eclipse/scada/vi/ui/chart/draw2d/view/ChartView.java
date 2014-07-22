@@ -89,6 +89,7 @@ public class ChartView extends AbstractViewInstance
 
         this.chartArea = new ChartArea ( subWrapper, SWT.NONE );
         this.chartArea.setLayoutData ( new GridData ( SWT.FILL, SWT.FILL, true, true ) );
+
         this.configuration = ChartHelper.loadConfiguraton ( this.descriptor.getUri ().toString () );
         this.chart = new ChartViewer ( this.chartArea.getDisplay (), this.chartArea.getChartRenderer (), this.configuration, new CompositeExtensionSpace ( extensionSpace ), new ResetHandler () {
 
