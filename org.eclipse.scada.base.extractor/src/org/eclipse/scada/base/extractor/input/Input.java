@@ -10,6 +10,8 @@
  *******************************************************************************/
 package org.eclipse.scada.base.extractor.input;
 
+import org.eclipse.scada.base.extractor.transform.Transformer;
+
 public interface Input
 {
     public interface Listener
@@ -20,6 +22,12 @@ public interface Input
     public void addInputListener ( Listener listener );
 
     public void removeInputListener ( Listener listener );
+
+    public void setTransformers ( final Transformer[] transformers );
+
+    public void addTransformer ( final Transformer transformer );
+
+    public void removeTransformer ( final Transformer transformer );
 
     public void start ();
 

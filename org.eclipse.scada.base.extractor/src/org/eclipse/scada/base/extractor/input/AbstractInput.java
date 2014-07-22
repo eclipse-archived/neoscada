@@ -10,6 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.base.extractor.input;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,14 +39,22 @@ public abstract class AbstractInput implements Input
         this.executor = executor;
     }
 
+    @Override
     public synchronized void addTransformer ( final Transformer transformer )
     {
         this.transformers.add ( transformer );
     }
 
+    @Override
     public synchronized void removeTransformer ( final Transformer transformer )
     {
         this.transformers.remove ( transformer );
+    }
+
+    public synchronized void setTransformers ( final Transformer[] transformers )
+    {
+        this.transformers.clear ();
+        this.transformers.addAll ( Arrays.asList ( transformers ) );
     }
 
     @Override
