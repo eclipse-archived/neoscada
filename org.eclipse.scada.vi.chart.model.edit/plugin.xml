@@ -16,7 +16,7 @@
 
    <extension point="org.eclipse.emf.edit.childCreationExtenders">
       <extender
-            uri="http://eclipse.org/SCADA/VisualInterface/Chart"
+            uri="http://eclipse.org/SCADA/VisualInterface"
             class="org.eclipse.scada.vi.chart.model.provider.ChartItemProviderAdapterFactory$VisualInterfaceChildCreationExtender"/>
    </extension>
 
