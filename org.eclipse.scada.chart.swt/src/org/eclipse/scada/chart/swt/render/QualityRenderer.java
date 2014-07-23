@@ -25,6 +25,8 @@ import org.eclipse.swt.graphics.Rectangle;
 
 public class QualityRenderer extends AbstractDataSeriesRenderer
 {
+    private final RGB color = new RGB ( 255, 0, 0 );
+
     public QualityRenderer ( final ChartRenderer chartArea, final SeriesData abstractSeriesData )
     {
         super ( chartArea, abstractSeriesData );
@@ -36,7 +38,7 @@ public class QualityRenderer extends AbstractDataSeriesRenderer
         final XAxis xAxis = this.seriesData.getXAxis ();
         final YAxis yAxis = this.seriesData.getYAxis ();
 
-        g.setBackground ( new RGB ( 255, 0, 0 ) );
+        g.setBackground ( this.color );
         g.setAlpha ( 128 );
 
         final SortedSet<DataEntry> entries = this.seriesData.getViewData ().getEntries ();

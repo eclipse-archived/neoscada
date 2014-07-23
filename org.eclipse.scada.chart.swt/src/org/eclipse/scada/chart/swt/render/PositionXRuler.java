@@ -12,17 +12,14 @@
 package org.eclipse.scada.chart.swt.render;
 
 import org.eclipse.scada.chart.XAxis;
-import org.eclipse.swt.graphics.RGB;
 
 public class PositionXRuler extends AbstractPositionXRuler
 {
-
     private long position;
 
     public PositionXRuler ( final XAxis axis )
     {
         super ( axis );
-        this.color = new RGB ( 0, 0, 0 );
     }
 
     public void setPosition ( final long position )

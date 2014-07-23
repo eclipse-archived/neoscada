@@ -43,6 +43,10 @@ public class LegendRenderer implements Renderer
 
     private static final Point EMPTY_POINT = new Point ( 0, 0 );
 
+    private final RGB backgroundColor = new RGB ( 240, 240, 240 );
+
+    private final RGB foregroundColor = new RGB ( 180, 180, 180 );
+
     private final IObservableList infos;
 
     private IListChangeListener listener;
@@ -287,8 +291,8 @@ public class LegendRenderer implements Renderer
         int x = chartRect.x + this.margin;
 
         g.setAntialias ( true );
-        g.setForeground ( new RGB ( 180, 180, 180 ) );
-        g.setBackground ( new RGB ( 240, 240, 240 ) );
+        g.setForeground ( this.foregroundColor );
+        g.setBackground ( this.backgroundColor );
 
         // draw the frame
         g.fillRoundRectangle ( x, y, data.width + this.padding * 2, data.height + this.padding * 2, 10, 10 );

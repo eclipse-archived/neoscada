@@ -31,6 +31,8 @@ public class MouseHover extends AbstractRuler implements ChartMouseMoveListener
 
     private Integer position;
 
+    private final RGB color = new RGB ( 0, 0, 0 );
+
     public MouseHover ( final ChartRenderer chart )
     {
         this.chart = chart;
@@ -90,7 +92,7 @@ public class MouseHover extends AbstractRuler implements ChartMouseMoveListener
         }
 
         final int x = this.position;
-        g.setForeground ( new RGB ( 0, 0, 0 ) );
+        g.setForeground ( this.color );
         g.drawLine ( x, clientRectangle.y, x, clientRectangle.y + clientRectangle.height );
     }
 
