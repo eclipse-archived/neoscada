@@ -369,6 +369,34 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case VisualInterfacePackage.POLYGON:
+            {
+                Polygon polygon = (Polygon)theEObject;
+                T result = casePolygon ( polygon );
+                if ( result == null )
+                    result = caseShape ( polygon );
+                if ( result == null )
+                    result = caseFigure ( polygon );
+                if ( result == null )
+                    result = casePrimitive ( polygon );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case VisualInterfacePackage.ROUNDED_RECTANGLE:
+            {
+                RoundedRectangle roundedRectangle = (RoundedRectangle)theEObject;
+                T result = caseRoundedRectangle ( roundedRectangle );
+                if ( result == null )
+                    result = caseShape ( roundedRectangle );
+                if ( result == null )
+                    result = caseFigure ( roundedRectangle );
+                if ( result == null )
+                    result = casePrimitive ( roundedRectangle );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -802,6 +830,38 @@ public class VisualInterfaceSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseStackContainer ( StackContainer object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Polygon</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Polygon</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePolygon ( Polygon object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Rounded Rectangle</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Rounded Rectangle</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseRoundedRectangle ( RoundedRectangle object )
     {
         return null;
     }

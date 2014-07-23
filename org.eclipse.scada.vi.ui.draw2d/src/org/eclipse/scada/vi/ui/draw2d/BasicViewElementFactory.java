@@ -36,9 +36,11 @@ import org.eclipse.scada.vi.model.FigureContainer;
 import org.eclipse.scada.vi.model.GridContainer;
 import org.eclipse.scada.vi.model.Image;
 import org.eclipse.scada.vi.model.Line;
+import org.eclipse.scada.vi.model.Polygon;
 import org.eclipse.scada.vi.model.Position;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Rectangle;
+import org.eclipse.scada.vi.model.RoundedRectangle;
 import org.eclipse.scada.vi.model.StackContainer;
 import org.eclipse.scada.vi.model.SymbolReference;
 import org.eclipse.scada.vi.model.Text;
@@ -52,7 +54,9 @@ import org.eclipse.scada.vi.ui.draw2d.primitives.FigureContainerController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.GridContainerController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.ImageController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.LineController;
+import org.eclipse.scada.vi.ui.draw2d.primitives.PolygonController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.RectangleController;
+import org.eclipse.scada.vi.ui.draw2d.primitives.RoundedRectangleController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.StackContainerController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.SymbolReferenceController;
 import org.eclipse.scada.vi.ui.draw2d.primitives.TextController;
@@ -109,6 +113,10 @@ public class BasicViewElementFactory
         {
             return new LineController ( controller, (Line)element, this.manager );
         }
+        else if ( element instanceof Polygon )
+        {
+            return new PolygonController ( controller, (Polygon)element, this.manager );
+        }
         else if ( element instanceof Arc )
         {
             return new ArcController ( controller, (Arc)element, this.manager );
@@ -121,6 +129,10 @@ public class BasicViewElementFactory
         else if ( element instanceof Rectangle )
         {
             return new RectangleController ( controller, (Rectangle)element, this.manager );
+        }
+        else if ( element instanceof RoundedRectangle )
+        {
+            return new RoundedRectangleController ( controller, (RoundedRectangle)element, this.manager );
         }
         else if ( element instanceof Ellipse )
         {

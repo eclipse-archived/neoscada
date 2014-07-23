@@ -215,6 +215,16 @@ public class FigureContainerItemProvider extends FigureItemProvider implements I
                 ( createChildParameter
                 ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
                         VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.FIGURE_CONTAINER__CONTENT,
+                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
 }

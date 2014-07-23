@@ -247,6 +247,18 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
                 }
 
                 @Override
+                public Adapter casePolygon ( Polygon object )
+                {
+                    return createPolygonAdapter ();
+                }
+
+                @Override
+                public Adapter caseRoundedRectangle ( RoundedRectangle object )
+                {
+                    return createRoundedRectangleAdapter ();
+                }
+
+                @Override
                 public Adapter defaultCase ( EObject object )
                 {
                     return createEObjectAdapter ();
@@ -668,6 +680,36 @@ public class VisualInterfaceAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createStackContainerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.model.Polygon <em>Polygon</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.vi.model.Polygon
+     * @generated
+     */
+    public Adapter createPolygonAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.vi.model.RoundedRectangle <em>Rounded Rectangle</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.vi.model.RoundedRectangle
+     * @generated
+     */
+    public Adapter createRoundedRectangleAdapter ()
     {
         return null;
     }

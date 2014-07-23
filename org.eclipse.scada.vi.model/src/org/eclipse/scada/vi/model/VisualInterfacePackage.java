@@ -2793,6 +2793,440 @@ public interface VisualInterfacePackage extends EPackage
     int STACK_CONTAINER_FEATURE_COUNT = CONTAINER_FEATURE_COUNT + 1;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.vi.model.impl.PolygonImpl <em>Polygon</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.vi.model.impl.PolygonImpl
+     * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getPolygon()
+     * @generated
+     */
+    int POLYGON = 27;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__TOOL_TIP = SHAPE__TOOL_TIP;
+
+    /**
+     * The feature id for the '<em><b>On Mouse In</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_MOUSE_IN = SHAPE__ON_MOUSE_IN;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Out</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_MOUSE_OUT = SHAPE__ON_MOUSE_OUT;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Move</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_MOUSE_MOVE = SHAPE__ON_MOUSE_MOVE;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Hover</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_MOUSE_HOVER = SHAPE__ON_MOUSE_HOVER;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Drag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ON_MOUSE_DRAG = SHAPE__ON_MOUSE_DRAG;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__OUTLINE = SHAPE__OUTLINE;
+
+    /**
+     * The feature id for the '<em><b>Points</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON__POINTS = SHAPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Polygon</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POLYGON_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.vi.model.impl.RoundedRectangleImpl <em>Rounded Rectangle</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.vi.model.impl.RoundedRectangleImpl
+     * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getRoundedRectangle()
+     * @generated
+     */
+    int ROUNDED_RECTANGLE = 28;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__NAME = SHAPE__NAME;
+
+    /**
+     * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__FOREGROUND_COLOR = SHAPE__FOREGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Background Color</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__BACKGROUND_COLOR = SHAPE__BACKGROUND_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Size</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__SIZE = SHAPE__SIZE;
+
+    /**
+     * The feature id for the '<em><b>On Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_CLICK = SHAPE__ON_CLICK;
+
+    /**
+     * The feature id for the '<em><b>On Double Click</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_DOUBLE_CLICK = SHAPE__ON_DOUBLE_CLICK;
+
+    /**
+     * The feature id for the '<em><b>Cursor</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__CURSOR = SHAPE__CURSOR;
+
+    /**
+     * The feature id for the '<em><b>Visible</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__VISIBLE = SHAPE__VISIBLE;
+
+    /**
+     * The feature id for the '<em><b>Border</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__BORDER = SHAPE__BORDER;
+
+    /**
+     * The feature id for the '<em><b>Opaque</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__OPAQUE = SHAPE__OPAQUE;
+
+    /**
+     * The feature id for the '<em><b>Tool Tip</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__TOOL_TIP = SHAPE__TOOL_TIP;
+
+    /**
+     * The feature id for the '<em><b>On Mouse In</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_MOUSE_IN = SHAPE__ON_MOUSE_IN;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Out</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_MOUSE_OUT = SHAPE__ON_MOUSE_OUT;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Move</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_MOUSE_MOVE = SHAPE__ON_MOUSE_MOVE;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Hover</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_MOUSE_HOVER = SHAPE__ON_MOUSE_HOVER;
+
+    /**
+     * The feature id for the '<em><b>On Mouse Drag</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ON_MOUSE_DRAG = SHAPE__ON_MOUSE_DRAG;
+
+    /**
+     * The feature id for the '<em><b>Line Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__LINE_WIDTH = SHAPE__LINE_WIDTH;
+
+    /**
+     * The feature id for the '<em><b>Antialias</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ANTIALIAS = SHAPE__ANTIALIAS;
+
+    /**
+     * The feature id for the '<em><b>Alpha</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__ALPHA = SHAPE__ALPHA;
+
+    /**
+     * The feature id for the '<em><b>Fill</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__FILL = SHAPE__FILL;
+
+    /**
+     * The feature id for the '<em><b>Outline</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__OUTLINE = SHAPE__OUTLINE;
+
+    /**
+     * The feature id for the '<em><b>Corner</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE__CORNER = SHAPE_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Rounded Rectangle</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ROUNDED_RECTANGLE_FEATURE_COUNT = SHAPE_FEATURE_COUNT + 1;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2800,7 +3234,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getAlignment()
      * @generated
      */
-    int ALIGNMENT = 27;
+    int ALIGNMENT = 29;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.Orientation <em>Orientation</em>}' enum.
@@ -2810,7 +3244,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getOrientation()
      * @generated
      */
-    int ORIENTATION = 28;
+    int ORIENTATION = 30;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.SystemCursorType <em>System Cursor Type</em>}' enum.
@@ -2820,7 +3254,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getSystemCursorType()
      * @generated
      */
-    int SYSTEM_CURSOR_TYPE = 29;
+    int SYSTEM_CURSOR_TYPE = 31;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.vi.model.GridAlignment <em>Grid Alignment</em>}' enum.
@@ -2830,7 +3264,7 @@ public interface VisualInterfacePackage extends EPackage
      * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getGridAlignment()
      * @generated
      */
-    int GRID_ALIGNMENT = 30;
+    int GRID_ALIGNMENT = 32;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Symbol <em>Symbol</em>}'.
@@ -4029,6 +4463,48 @@ public interface VisualInterfacePackage extends EPackage
     EReference getStackContainer_Children ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.vi.model.Polygon <em>Polygon</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Polygon</em>'.
+     * @see org.eclipse.scada.vi.model.Polygon
+     * @generated
+     */
+    EClass getPolygon ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.vi.model.Polygon#getPoints <em>Points</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Points</em>'.
+     * @see org.eclipse.scada.vi.model.Polygon#getPoints()
+     * @see #getPolygon()
+     * @generated
+     */
+    EReference getPolygon_Points ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.vi.model.RoundedRectangle <em>Rounded Rectangle</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Rounded Rectangle</em>'.
+     * @see org.eclipse.scada.vi.model.RoundedRectangle
+     * @generated
+     */
+    EClass getRoundedRectangle ();
+
+    /**
+     * Returns the meta object for the containment reference '{@link org.eclipse.scada.vi.model.RoundedRectangle#getCorner <em>Corner</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference '<em>Corner</em>'.
+     * @see org.eclipse.scada.vi.model.RoundedRectangle#getCorner()
+     * @see #getRoundedRectangle()
+     * @generated
+     */
+    EReference getRoundedRectangle_Corner ();
+
+    /**
      * Returns the meta object for enum '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5032,6 +5508,42 @@ public interface VisualInterfacePackage extends EPackage
          * @generated
          */
         EReference STACK_CONTAINER__CHILDREN = eINSTANCE.getStackContainer_Children ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.vi.model.impl.PolygonImpl <em>Polygon</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.vi.model.impl.PolygonImpl
+         * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getPolygon()
+         * @generated
+         */
+        EClass POLYGON = eINSTANCE.getPolygon ();
+
+        /**
+         * The meta object literal for the '<em><b>Points</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference POLYGON__POINTS = eINSTANCE.getPolygon_Points ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.vi.model.impl.RoundedRectangleImpl <em>Rounded Rectangle</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.vi.model.impl.RoundedRectangleImpl
+         * @see org.eclipse.scada.vi.model.impl.VisualInterfacePackageImpl#getRoundedRectangle()
+         * @generated
+         */
+        EClass ROUNDED_RECTANGLE = eINSTANCE.getRoundedRectangle ();
+
+        /**
+         * The meta object literal for the '<em><b>Corner</b></em>' containment reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ROUNDED_RECTANGLE__CORNER = eINSTANCE.getRoundedRectangle_Corner ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.vi.model.Alignment <em>Alignment</em>}' enum.

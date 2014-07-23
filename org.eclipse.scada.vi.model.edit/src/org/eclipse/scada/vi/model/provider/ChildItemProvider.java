@@ -247,6 +247,16 @@ public class ChildItemProvider extends ItemProviderAdapter implements IEditingDo
                 ( createChildParameter
                 ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
                         VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.CHILD__ELEMENT,
+                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
     /**

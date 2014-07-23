@@ -38,9 +38,11 @@ import org.eclipse.scada.vi.model.GridContainer;
 import org.eclipse.scada.vi.model.Image;
 import org.eclipse.scada.vi.model.Line;
 import org.eclipse.scada.vi.model.Orientation;
+import org.eclipse.scada.vi.model.Polygon;
 import org.eclipse.scada.vi.model.Position;
 import org.eclipse.scada.vi.model.Primitive;
 import org.eclipse.scada.vi.model.Rectangle;
+import org.eclipse.scada.vi.model.RoundedRectangle;
 import org.eclipse.scada.vi.model.Shape;
 import org.eclipse.scada.vi.model.StackContainer;
 import org.eclipse.scada.vi.model.Symbol;
@@ -249,6 +251,20 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * @generated
      */
     private EClass stackContainerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass polygonEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass roundedRectangleEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -1568,6 +1584,46 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getPolygon ()
+    {
+        return polygonEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getPolygon_Points ()
+    {
+        return (EReference)polygonEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getRoundedRectangle ()
+    {
+        return roundedRectangleEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getRoundedRectangle_Corner ()
+    {
+        return (EReference)roundedRectangleEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EEnum getAlignment ()
     {
@@ -1777,6 +1833,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         stackContainerEClass = createEClass ( STACK_CONTAINER );
         createEReference ( stackContainerEClass, STACK_CONTAINER__CHILDREN );
 
+        polygonEClass = createEClass ( POLYGON );
+        createEReference ( polygonEClass, POLYGON__POINTS );
+
+        roundedRectangleEClass = createEClass ( ROUNDED_RECTANGLE );
+        createEReference ( roundedRectangleEClass, ROUNDED_RECTANGLE__CORNER );
+
         // Create enums
         alignmentEEnum = createEEnum ( ALIGNMENT );
         orientationEEnum = createEEnum ( ORIENTATION );
@@ -1833,6 +1895,8 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
         ellipseEClass.getESuperTypes ().add ( this.getShape () );
         arcEClass.getESuperTypes ().add ( this.getShape () );
         stackContainerEClass.getESuperTypes ().add ( this.getContainer () );
+        polygonEClass.getESuperTypes ().add ( this.getShape () );
+        roundedRectangleEClass.getESuperTypes ().add ( this.getShape () );
 
         // Initialize classes and features; add operations and parameters
         initEClass ( symbolEClass, Symbol.class, "Symbol", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1973,6 +2037,12 @@ public class VisualInterfacePackageImpl extends EPackageImpl implements VisualIn
 
         initEClass ( stackContainerEClass, StackContainer.class, "StackContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getStackContainer_Children (), this.getPrimitive (), null, "children", null, 0, -1, StackContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( polygonEClass, Polygon.class, "Polygon", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getPolygon_Points (), this.getPosition (), null, "points", null, 0, -1, Polygon.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( roundedRectangleEClass, RoundedRectangle.class, "RoundedRectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getRoundedRectangle_Corner (), this.getDimension (), null, "corner", null, 0, 1, RoundedRectangle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         // Initialize enums and add enum literals
         initEEnum ( alignmentEEnum, Alignment.class, "Alignment" ); //$NON-NLS-1$

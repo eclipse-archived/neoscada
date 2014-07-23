@@ -247,6 +247,16 @@ public class StackContainerItemProvider extends ItemProviderAdapter implements I
                 ( createChildParameter
                 ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
                         VisualInterfaceFactory.eINSTANCE.createStackContainer () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
+                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.STACK_CONTAINER__CHILDREN,
+                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
     }
 
     /**

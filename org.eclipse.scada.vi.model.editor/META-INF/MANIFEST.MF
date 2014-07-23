@@ -7,33 +7,8 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.scada.vi.model.presentation.VisualInterfaceEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.eclipse.scada.vi.model.presentation;version="0.2.0";
-  uses:="org.eclipse.jface.wizard,
-   org.eclipse.core.runtime,
-   org.eclipse.emf.edit.ui.provider,
-   org.eclipse.emf.common.notify,
-   org.eclipse.ui.ide,
-   org.eclipse.jface.action,
-   org.eclipse.emf.ecore.util,
-   org.eclipse.emf.ecore,
-   org.eclipse.ui.views.contentoutline,
-   org.eclipse.core.resources,
-   org.eclipse.jface.viewers,
-   org.eclipse.ui.dialogs,
-   org.eclipse.emf.ecore.resource,
-   org.eclipse.emf.common.ui.viewer,
-   org.eclipse.emf.edit.ui.action,
-   org.eclipse.emf.common.util,
-   org.eclipse.swt.events,
-   org.eclipse.ui,
-   org.eclipse.ui.views.properties,
-   org.eclipse.ui.part,
-   org.eclipse.scada.vi.model,
-   org.eclipse.emf.common,
-   org.eclipse.emf.edit.provider,
-   org.eclipse.swt.widgets,
-   org.eclipse.emf.common.ui,
-   org.eclipse.emf.edit.domain"
+Export-Package: org.eclipse.scada.vi.model.presentation;uses:="org.eclipse.jface.wizard,  org.eclipse.core.runtime,  org.eclipse.emf.edit.ui.provider,  org.eclipse.emf.common.notify,  org.eclipse.ui.ide,  org.eclipse.jface.action,  org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.ui.views.contentoutline,  org.eclipse.core.resources,  org.eclipse.jface.viewers,  
+ org.eclipse.ui.dialogs,  org.eclipse.emf.ecore.resource,  org.eclipse.emf.common.ui.viewer,  org.eclipse.emf.edit.ui.action,  org.eclipse.emf.common.util,  org.eclipse.swt.events,  org.eclipse.ui,  org.eclipse.ui.views.properties,  org.eclipse.ui.part,  org.eclipse.scada.vi.model,  org.eclipse.emf.common,  org.eclipse.emf.edit.provider,  org.eclipse.swt.widgets,  org.eclipse.emf.common.ui,  org.eclipse.emf.edit.domain";version="0.2.0"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.eclipse.scada.vi.model.edit;visibility:=reexport;bundle-version="0.1.0",

@@ -220,6 +220,24 @@ public interface VisualInterfaceFactory extends EFactory
     StackContainer createStackContainer ();
 
     /**
+     * Returns a new object of class '<em>Polygon</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Polygon</em>'.
+     * @generated
+     */
+    Polygon createPolygon ();
+
+    /**
+     * Returns a new object of class '<em>Rounded Rectangle</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Rounded Rectangle</em>'.
+     * @generated
+     */
+    RoundedRectangle createRoundedRectangle ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

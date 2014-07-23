@@ -119,6 +119,10 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
                 return createConnection ();
             case VisualInterfacePackage.STACK_CONTAINER:
                 return createStackContainer ();
+            case VisualInterfacePackage.POLYGON:
+                return createPolygon ();
+            case VisualInterfacePackage.ROUNDED_RECTANGLE:
+                return createRoundedRectangle ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -410,6 +414,28 @@ public class VisualInterfaceFactoryImpl extends EFactoryImpl implements VisualIn
     {
         StackContainerImpl stackContainer = new StackContainerImpl ();
         return stackContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public Polygon createPolygon ()
+    {
+        PolygonImpl polygon = new PolygonImpl ();
+        return polygon;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public RoundedRectangle createRoundedRectangle ()
+    {
+        RoundedRectangleImpl roundedRectangle = new RoundedRectangleImpl ();
+        return roundedRectangle;
     }
 
     /**

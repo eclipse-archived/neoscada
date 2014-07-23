@@ -643,6 +643,56 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.vi.model.Polygon} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PolygonItemProvider polygonItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.vi.model.Polygon}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPolygonAdapter ()
+    {
+        if ( polygonItemProvider == null )
+        {
+            polygonItemProvider = new PolygonItemProvider ( this );
+        }
+
+        return polygonItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.vi.model.RoundedRectangle} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected RoundedRectangleItemProvider roundedRectangleItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.vi.model.RoundedRectangle}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createRoundedRectangleAdapter ()
+    {
+        if ( roundedRectangleItemProvider == null )
+        {
+            roundedRectangleItemProvider = new RoundedRectangleItemProvider ( this );
+        }
+
+        return roundedRectangleItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -835,6 +885,10 @@ public class VisualInterfaceItemProviderAdapterFactory extends VisualInterfaceAd
             connectionItemProvider.dispose ();
         if ( stackContainerItemProvider != null )
             stackContainerItemProvider.dispose ();
+        if ( polygonItemProvider != null )
+            polygonItemProvider.dispose ();
+        if ( roundedRectangleItemProvider != null )
+            roundedRectangleItemProvider.dispose ();
     }
 
 }

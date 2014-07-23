@@ -359,6 +359,16 @@ public class SymbolItemProvider extends ItemProviderAdapter implements IEditingD
 
         newChildDescriptors.add
                 ( createChildParameter
+                ( VisualInterfacePackage.Literals.SYMBOL__ROOT,
+                        VisualInterfaceFactory.eINSTANCE.createPolygon () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( VisualInterfacePackage.Literals.SYMBOL__ROOT,
+                        VisualInterfaceFactory.eINSTANCE.createRoundedRectangle () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
                 ( VisualInterfacePackage.Literals.SYMBOL__PROPERTIES,
                         VisualInterfaceFactory.eINSTANCE.create ( VisualInterfacePackage.Literals.STRING_TO_STRING_MAP ) ) );
 
