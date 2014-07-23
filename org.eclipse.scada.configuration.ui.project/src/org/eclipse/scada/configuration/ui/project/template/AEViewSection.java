@@ -311,6 +311,8 @@ public class AEViewSection extends BaseTemplate
     protected void fillDependencies ( final Collection<IPluginReference> dependencies, final String schemaVersion )
     {
         dependencies.add ( new PluginReference ( "org.eclipse.scada.ae.ui.views", "0.1.0", 0 ) ); //$NON-NLS-1$
+        // add for the showView command
+        dependencies.add ( new PluginReference ( "org.eclipse.scada.ui.utils.handler", "0.1.0", 0 ) ); //$NON-NLS-1$
     }
 
 }
