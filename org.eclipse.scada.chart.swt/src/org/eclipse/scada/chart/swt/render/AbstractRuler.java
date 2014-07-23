@@ -21,7 +21,7 @@ public abstract class AbstractRuler implements Renderer
 {
     private static final LineAttributes DEFAULT_LINE_ATTRIBUTES = new LineAttributes ( 1.0f );
 
-    protected RGB color = new RGB ( 255, 255, 255 ); // default to black
+    protected RGB color = new RGB ( 0, 0, 0 ); // default to black
 
     protected boolean visible = true;
 
