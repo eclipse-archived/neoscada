@@ -119,6 +119,11 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
         final Image img = this.previews.get ( p );
         if ( img == null )
         {
+            RGB rgb = getLineRenderer ().getLineColor ();
+            if ( rgb == null )
+            {
+                rgb = new RGB ( 255, 255, 255 );
+            }
             final Color color = this.resourceManager.createColor ( getLineRenderer ().getLineColor () );
             final Image newImage = makePreview ( Display.getDefault (), getLineRenderer ().getLineAttributes (), color, p );
             this.previews.put ( p, newImage );
