@@ -153,6 +153,7 @@ public class DetailsPart implements org.eclipse.scada.da.client.dataitem.details
 
         chartModel.getSelectedXAxis ().add ( x );
         chartModel.getSelectedYAxis ().add ( y );
+        chartModel.setTimeRulerAxis ( x );
 
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createMouseController () );
         chartModel.getControllers ().add ( ChartFactory.eINSTANCE.createTimeNowAction () );
