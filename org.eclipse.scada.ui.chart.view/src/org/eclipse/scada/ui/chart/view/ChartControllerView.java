@@ -127,7 +127,7 @@ public class ChartControllerView extends AbstractChartManagePart
                 public void update ( final ViewerCell cell )
                 {
                     final Calendar timestamp = ( (ChartInput)cell.getElement () ).getSelectedTimestamp ();
-                    cell.setText ( timestamp == null ? null : DateFormat.getDateTimeInstance ().format ( timestamp ) );
+                    cell.setText ( timestamp == null ? null : DateFormat.getDateTimeInstance ().format ( timestamp.getTime () ) );
                 }
             } );
         }
