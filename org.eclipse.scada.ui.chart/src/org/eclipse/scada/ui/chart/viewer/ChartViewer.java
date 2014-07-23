@@ -590,13 +590,13 @@ public class ChartViewer extends AbstractSelectionProvider
         this.chart.getInputs ().add ( input );
     }
 
-    private static RGB[] DEFAULT_COLORS = new RGB[] { // 
-    new RGB ( 255, 0, 0 ), // red
-    new RGB ( 0, 255, 0 ), // green
-    new RGB ( 0, 255, 255 ), // blue
-    new RGB ( 255, 194, 0 ), // yellow
-    new RGB ( 255, 0, 255 ), // magenta
-    new RGB ( 0, 255, 255 ), // cyan
+    private static RGB[] DEFAULT_COLORS = new RGB[] { //
+        new RGB ( 255, 0, 0 ), // red
+        new RGB ( 0, 255, 0 ), // green
+        new RGB ( 0, 255, 255 ), // blue
+        new RGB ( 255, 194, 0 ), // yellow
+        new RGB ( 255, 0, 255 ), // magenta
+        new RGB ( 0, 255, 255 ), // cyan
     };
 
     private RGB nextFreeColor ()
@@ -758,8 +758,10 @@ public class ChartViewer extends AbstractSelectionProvider
 
     private void handleDrop ()
     {
+        logger.debug ( "Handle drop" );
         if ( !this.mutable )
         {
+            logger.debug ( "Drop, but we are not mutable" );
             return;
         }
 
