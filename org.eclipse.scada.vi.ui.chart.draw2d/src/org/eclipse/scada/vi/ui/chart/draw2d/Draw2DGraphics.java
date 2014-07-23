@@ -86,7 +86,18 @@ public class Draw2DGraphics implements Graphics
     @Override
     public void setClipping ( final Rectangle rect )
     {
-        this.g.setClip ( new org.eclipse.draw2d.geometry.Rectangle ( rect.x, rect.y, rect.width, rect.height ) );
+        if ( rect == null )
+        {
+            /*
+             * As it seems the only way to reset clipping is to set it to null using the Path variant of setClip.
+             * Since the rectangle version requires an object instance.
+             */
+            this.g.setClip ( (Path)null );
+        }
+        else
+        {
+            this.g.setClip ( new org.eclipse.draw2d.geometry.Rectangle ( rect.x, rect.y, rect.width, rect.height ) );
+        }
     }
 
     @Override
