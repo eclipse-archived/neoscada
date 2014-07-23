@@ -58,7 +58,7 @@
       <genFeatures createChild="false" propertyCategory="shape" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Shape/outline"/>
     </genClasses>
     <genClasses ecoreClass="VisualInterface.ecore#//Rectangle"/>
-    <genClasses ecoreClass="VisualInterface.ecore#//Text">
+    <genClasses ecoreClass="VisualInterface.ecore#//Text" labelFeature="#//model/Text/text">
       <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/text"/>
       <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/labelAlignment"/>
       <genFeatures createChild="false" propertyCategory="text" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Text/iconAlignment"/>
@@ -163,7 +163,7 @@
     <genClasses ecoreClass="VisualInterface.ecore#//FigureContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference VisualInterface.ecore#//FigureContainer/content"/>
     </genClasses>
-    <genClasses ecoreClass="VisualInterface.ecore#//Image">
+    <genClasses ecoreClass="VisualInterface.ecore#//Image" labelFeature="#//model/Image/uri">
       <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/uri"/>
       <genFeatures createChild="false" propertyCategory="image" ecoreFeature="ecore:EAttribute VisualInterface.ecore#//Image/imageAlignment"/>
     </genClasses>
