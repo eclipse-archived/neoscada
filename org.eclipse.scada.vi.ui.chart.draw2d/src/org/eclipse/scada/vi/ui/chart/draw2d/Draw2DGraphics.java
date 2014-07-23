@@ -14,10 +14,12 @@ package org.eclipse.scada.vi.ui.chart.draw2d;
 
 import org.eclipse.draw2d.TextUtilities;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.jface.resource.ColorDescriptor;
 import org.eclipse.jface.resource.DeviceResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.scada.chart.swt.Graphics;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontMetrics;
@@ -72,13 +74,13 @@ public class Draw2DGraphics implements Graphics
     @Override
     public void setForeground ( final RGB color )
     {
-        this.g.setForegroundColor ( this.resourceManager.createColor ( color ) );
+        this.g.setForegroundColor ( (Color)this.resourceManager.get ( ColorDescriptor.createFrom ( color ) ) );
     }
 
     @Override
     public void setBackground ( final RGB color )
     {
-        this.g.setBackgroundColor ( this.resourceManager.createColor ( color ) );
+        this.g.setBackgroundColor ( (Color)this.resourceManager.get ( ColorDescriptor.createFrom ( color ) ) );
     }
 
     @Override
