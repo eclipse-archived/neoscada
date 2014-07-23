@@ -29,6 +29,8 @@ import org.eclipse.swt.widgets.Display;
 
 public abstract class LineInput extends AbstractInput implements LinePropertiesSupporter
 {
+    private static final RGB DEFAULT_COLOR = new RGB ( 0, 0, 0 );
+
     private final LocalResourceManager resourceManager;
 
     private RGB lineColor;
@@ -122,7 +124,7 @@ public abstract class LineInput extends AbstractInput implements LinePropertiesS
             RGB rgb = getLineRenderer ().getLineColor ();
             if ( rgb == null )
             {
-                rgb = new RGB ( 255, 255, 255 );
+                rgb = DEFAULT_COLOR;
             }
             final Color color = this.resourceManager.createColor ( getLineRenderer ().getLineColor () );
             final Image newImage = makePreview ( Display.getDefault (), getLineRenderer ().getLineAttributes (), color, p );
