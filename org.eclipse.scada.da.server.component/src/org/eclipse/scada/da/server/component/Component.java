@@ -86,10 +86,14 @@ public abstract class Component
 
     private final ComponentHost componentHost;
 
+    private final String name;
+
     public Component ( final Executor executor, final ComponentHost componentHost, final String activationPrefix )
     {
         this.executor = executor;
         this.componentHost = componentHost;
+
+        this.name = activationPrefix;
 
         this.subscriptionListener = new PatternActivationListener ( Pattern.compile ( "^" + Pattern.quote ( activationPrefix ) ) );
 
@@ -104,7 +108,7 @@ public abstract class Component
 
     public ActivationHandle activate ()
     {
-        return register ( new ActivationHandle () {
+        final ActivationHandle result = register ( new ActivationHandle () {
 
             @Override
             public void dispose ()
@@ -112,6 +116,10 @@ public abstract class Component
                 unregister ( this );
             }
         } );
+
+        logger.debug ( "Request to activate component: {} -> {}", this.name, result );
+
+        return result;
     }
 
     private final Set<ActivationHandle> handles = new HashSet<> ();
@@ -132,6 +140,8 @@ public abstract class Component
 
     private synchronized void unregister ( final ActivationHandle activationHandle )
     {
+        logger.debug ( "Unregistering activation: {} -> {}", this.name, activationHandle );
+
         final boolean wasEmpty = this.handles.isEmpty ();
         this.handles.remove ( activationHandle );
 
@@ -171,4 +181,9 @@ public abstract class Component
 
     protected abstract void performStop ();
 
+    @Override
+    public String toString ()
+    {
+        return String.format ( "[Component: %s]", this.name );
+    }
 }

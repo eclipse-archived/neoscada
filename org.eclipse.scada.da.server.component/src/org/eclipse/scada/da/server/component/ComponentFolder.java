@@ -91,7 +91,7 @@ public class ComponentFolder implements Folder
 
     private void deactivate ()
     {
-        logger.info ( "Deactivate" );
+        logger.info ( "Deactivate: {}", this );
         if ( this.handle != null )
         {
             this.handle.dispose ();
@@ -102,7 +102,7 @@ public class ComponentFolder implements Folder
 
     private void activate ()
     {
-        logger.info ( "Activate" );
+        logger.info ( "Activate: {}", this );
         this.active = true;
         if ( this.handle == null )
         {
@@ -125,6 +125,12 @@ public class ComponentFolder implements Folder
     public FolderCommon getFolderImpl ()
     {
         return this.folderImpl;
+    }
+
+    @Override
+    public String toString ()
+    {
+        return String.format ( "[ComponentFolder: %s]", this.component );
     }
 
 }
