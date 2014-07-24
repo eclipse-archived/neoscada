@@ -122,7 +122,7 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
 
             callbackHandler = createCallbackHandlerFromMessage ( message );
 
-            final Map<String, Object> contextInformation = new HashMap<String, Object> ();
+            final Map<String, Object> contextInformation = new HashMap<String, Object> ( 1 );
             contextInformation.put ( "remoteAddress", this.ioSession.getRemoteAddress () );
 
             final NotifyFuture<T> future = performCreateSession ( message.getProperties (), contextInformation, callbackHandler );
