@@ -368,7 +368,7 @@ public class MqttExporter implements LifecycleAware
 
     private void realizeSubscriptions ( final Hive hive, final ObjectPool<MqttItemToTopic> pool ) throws InterruptedException, ExecutionException, TimeoutException, MqttException
     {
-        // set up session for openSCADA item subscriptions
+        // set up session for item subscriptions
         final Properties sessionProperties = new Properties ();
         sessionProperties.put ( "user", this.username );
         sessionProperties.put ( "password", this.password );
@@ -572,7 +572,7 @@ public class MqttExporter implements LifecycleAware
 
     /**
      * convert received mqtt message and write it to item
-     * 
+     *
      * @param hive
      * @param session
      * @param itemId
@@ -600,7 +600,7 @@ public class MqttExporter implements LifecycleAware
 
     /**
      * merge last DataItemValue with new value and publish it on topic
-     * 
+     *
      * @param itemId
      * @param topic
      * @param value
@@ -624,7 +624,7 @@ public class MqttExporter implements LifecycleAware
     /**
      * merge last DataItemValue with new subscription state and publish it on
      * topic
-     * 
+     *
      * @param itemId
      * @param topic
      * @param subscriptionState
@@ -645,7 +645,7 @@ public class MqttExporter implements LifecycleAware
 
     /**
      * send DataItemValue to topic
-     * 
+     *
      * @param topic
      * @param div
      */
@@ -707,7 +707,7 @@ public class MqttExporter implements LifecycleAware
     /**
      * converts item name to topic, or just uses the topic given in
      * configuration
-     * 
+     *
      * @param itemToTopic
      * @return
      */
@@ -730,7 +730,7 @@ public class MqttExporter implements LifecycleAware
     /**
      * converts item name to topic, or just uses the topic given in
      * configuration
-     * 
+     *
      * @param itemToTopic
      * @return
      */
@@ -756,7 +756,7 @@ public class MqttExporter implements LifecycleAware
      */
     private String getDefaultClientId ()
     {
-        return System.getProperty ( "org.openscada.da.server.mqtt.exporter.clientId", defaultClientId );
+        return System.getProperty ( "org.eclipse.scada.da.server.mqtt.exporter.clientId", defaultClientId );
     }
 
     /**
@@ -764,7 +764,7 @@ public class MqttExporter implements LifecycleAware
      */
     private File getDefaultPersistencePath ()
     {
-        return new File ( System.getProperty ( "org.openscada.da.server.mqtt.exporter.persistence", System.getProperty ( "user.home" ) + File.separator + ".openscada" + File.separator + "mqtt" ) );
+        return new File ( System.getProperty ( "org.eclipse.scada.da.server.mqtt.exporter.persistence", System.getProperty ( "user.home" ) + File.separator + ".eclipse.scada" + File.separator + "mqtt" ) );
     }
 
     /**
@@ -772,7 +772,7 @@ public class MqttExporter implements LifecycleAware
      */
     private URI getDefaultUri ()
     {
-        return URI.create ( System.getProperty ( "org.openscada.da.server.mqtt.exporter.uri", "tcp://localhost:1883" ) );
+        return URI.create ( System.getProperty ( "org.eclipse.scada.da.server.mqtt.exporter.uri", "tcp://localhost:1883" ) );
     }
 
 }
