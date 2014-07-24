@@ -96,8 +96,10 @@ public class MqttInput extends AbstractInput
     @Override
     public synchronized void start ()
     {
+        logger.info ( "Request to start component: {}", this );
         if ( this.started )
         {
+            logger.debug ( "Component already started" );
             return;
         }
 
@@ -108,8 +110,10 @@ public class MqttInput extends AbstractInput
     @Override
     public synchronized void stop ()
     {
+        logger.info ( "Request to stop component: {}", this );
         if ( !this.started )
         {
+            logger.debug ( "Component already stopped" );
             return;
         }
 
