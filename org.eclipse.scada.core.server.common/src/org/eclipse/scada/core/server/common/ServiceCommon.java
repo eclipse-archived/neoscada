@@ -108,7 +108,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
     /**
      * Wraps the call to {@link #authenticate(Properties)} so that the correct
      * exceptions are thrown for a {@link #createSession(Properties)} call.
-     * 
+     *
      * @param properties
      *            the user session properties
      * @param callbackHandler
@@ -118,7 +118,6 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      * @return the user information returned by
      *         {@link #authenticate(Properties)}
      * @see #authenticate(Properties)
-     * @since 1.1
      */
     protected NotifyFuture<UserInformation> loginUser ( final Properties properties, final CallbackHandler callbackHandler )
     {
@@ -142,9 +141,6 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         };
     }
 
-    /**
-     * @since 1.1
-     */
     protected void fillSessionProperties ( final UserInformation userInformation, final Map<String, String> sessionResultProperties )
     {
         if ( userInformation != null && !userInformation.isAnonymous () )
@@ -160,9 +156,6 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         }
     }
 
-    /**
-     * @since 1.1
-     */
     protected NotifyFuture<AuthorizationReply> authorize ( final AuthorizationRequest request, final CallbackHandler callbackHandler )
     {
         return authorize ( request, callbackHandler, DEFAULT_RESULT );
@@ -174,7 +167,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      * The default implementation grants everything. Override to change
      * according to your needs.
      * </p>
-     * 
+     *
      * @param objectType
      *            the type of the object the operation takes place
      * @param objectId
@@ -187,7 +180,6 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      *            the default result that should be returned if no one votes,
      *            must not be <code>null</code>
      * @return the authorization result, never returns <code>null</code>
-     * @since 1.1
      */
     protected NotifyFuture<AuthorizationReply> authorize ( final AuthorizationRequest request, final CallbackHandler callbackHandler, final AuthorizationResult defaultResult )
     {
@@ -220,9 +212,6 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
         return result;
     }
 
-    /**
-     * @since 1.1
-     */
     protected NotifyFuture<UserInformation> makeEffectiveUserInformation ( final AbstractSessionImpl session, final String targetUser, final CallbackHandler handler )
     {
         UserInformation sessionUser = session.getUserInformation ();
