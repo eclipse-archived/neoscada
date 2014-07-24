@@ -24,8 +24,8 @@ import org.eclipse.scada.core.server.Session;
 import org.eclipse.scada.core.server.common.AuthorizationProvider;
 import org.eclipse.scada.core.server.common.ServiceCommon;
 import org.eclipse.scada.core.server.common.session.AbstractSessionImpl;
-import org.eclipse.scada.core.server.common.session.PrivilegeListenerImpl;
 import org.eclipse.scada.core.server.common.session.AbstractSessionImpl.DisposeListener;
+import org.eclipse.scada.core.server.common.session.PrivilegeListenerImpl;
 import org.eclipse.scada.sec.AuthorizationReply;
 import org.eclipse.scada.sec.AuthorizationRequest;
 import org.eclipse.scada.sec.AuthorizationResult;
@@ -135,9 +135,6 @@ public abstract class AbstractServiceImpl<S extends Session, SI extends Abstract
     {
     }
 
-    /**
-     * @since 1.1
-     */
     @Override
     public NotifyFuture<S> createSession ( final Properties properties, final CallbackHandler callbackHandler )
     {
@@ -153,9 +150,6 @@ public abstract class AbstractServiceImpl<S extends Session, SI extends Abstract
         };
     }
 
-    /**
-     * @since 1.1
-     */
     @SuppressWarnings ( "unchecked" )
     protected S createSession ( final Future<UserInformation> loginFuture, final Properties properties, final CallbackHandler callbackHandler ) throws Exception
     {
