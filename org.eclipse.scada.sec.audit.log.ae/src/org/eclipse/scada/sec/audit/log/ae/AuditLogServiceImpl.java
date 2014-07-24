@@ -63,6 +63,14 @@ public class AuditLogServiceImpl implements AuditLogService
 
             evt.attribute ( Event.Fields.EVENT_TYPE, "SEC" );
             evt.attribute ( Event.Fields.MONITOR_TYPE, "AUDIT" );
+
+            if ( request.getContext () != null )
+            {
+                for ( final Map.Entry<String, Object> entry : request.getContext ().entrySet () )
+                {
+                    evt.attribute ( "request." + entry.getKey (), entry.getValue () );
+                }
+            }
         }
 
         if ( value != null )
