@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA NextGenerationProtocol Core Server (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.server.ngp
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.core.server.ngp;version="0.1.0"
+Export-Package: org.eclipse.scada.core.server.ngp;version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: javax.net.ssl,
  org.apache.mina.core.filterchain;version="[2.0.2,3.0.0)",
@@ -17,7 +17,7 @@ Import-Package: javax.net.ssl,
  org.eclipse.scada.core.data;version="0.1.0",
  org.eclipse.scada.core.data.message;version="0.1.0",
  org.eclipse.scada.core.ngp;version="0.1.0",
- org.eclipse.scada.core.server;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.2.0",
  org.eclipse.scada.core.server.common;version="0.1.0",
  org.eclipse.scada.core.server.common.stats;version="0.1.0",
  org.eclipse.scada.protocol.common;version="0.1.0",

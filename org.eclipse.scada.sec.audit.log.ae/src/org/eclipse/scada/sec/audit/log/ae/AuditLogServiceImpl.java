@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jens Reimann and others.
+ * Copyright (c) 2013, 2014 Jens Reimann and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,10 +7,12 @@
  *
  * Contributors:
  *     Jens Reimann - initial API and implementation
+ *     IBH SYSTEMS GmbH - add context information
  *******************************************************************************/
 package org.eclipse.scada.sec.audit.log.ae;
 
 import java.util.Date;
+import java.util.Map;
 
 import org.eclipse.scada.ae.Event;
 import org.eclipse.scada.ae.Event.EventBuilder;
@@ -75,8 +77,11 @@ public class AuditLogServiceImpl implements AuditLogService
 
         if ( context != null )
         {
-            evt.attribute ( "signature", context.getContext ().get ( "signature" ) );
-            evt.attribute ( "failedSignature", context.getContext ().get ( "failedSignature" ) );
+            // copy all attributes from the context
+            for ( final Map.Entry<String, Object> entry : context.getContext ().entrySet () )
+            {
+                evt.attribute ( entry.getKey (), entry.getValue () );
+            }
         }
 
         final Event event = evt.build ();

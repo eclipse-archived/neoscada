@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2013, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add context information
  *******************************************************************************/
 package org.eclipse.scada.core.server.common.osgi;
 
@@ -136,9 +137,9 @@ public abstract class AbstractServiceImpl<S extends Session, SI extends Abstract
     }
 
     @Override
-    public NotifyFuture<S> createSession ( final Properties properties, final CallbackHandler callbackHandler )
+    public NotifyFuture<S> createSession ( final Properties properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
-        final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, callbackHandler );
+        final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, contextInformation, callbackHandler );
 
         return new CallingFuture<UserInformation, S> ( loginFuture ) {
 

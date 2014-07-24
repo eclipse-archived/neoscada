@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: HD - JSON over HTTP Exporter (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.exporter.http.server
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.hd.exporter.http.server.Activator
 Import-Package: com.google.gson;version="1.4.0",
  javax.servlet;version="2.5.0",
  javax.servlet.http;version="2.5.0",
  org.eclipse.scada.core;version="0.1.0",
- org.eclipse.scada.core.server;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.2.0",
  org.eclipse.scada.hd;version="0.1.0",
  org.eclipse.scada.hd.client;version="0.1.0",
  org.eclipse.scada.hd.data;version="0.1.0",

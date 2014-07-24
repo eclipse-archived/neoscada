@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add context information
  *******************************************************************************/
 package org.eclipse.scada.core.server.common;
 
@@ -111,6 +112,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      *
      * @param properties
      *            the user session properties
+     * @param contextInformation
      * @param callbackHandler
      *            the callback handler which handles callbacks
      * @param sessionResultProperties
@@ -119,9 +121,9 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      *         {@link #authenticate(Properties)}
      * @see #authenticate(Properties)
      */
-    protected NotifyFuture<UserInformation> loginUser ( final Properties properties, final CallbackHandler callbackHandler )
+    protected NotifyFuture<UserInformation> loginUser ( final Properties properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
-        final NotifyFuture<AuthorizationReply> future = authorize ( new AuthorizationRequest ( "SESSION", null, "CONNECT", UserInformation.ANONYMOUS, null ), callbackHandler );
+        final NotifyFuture<AuthorizationReply> future = authorize ( new AuthorizationRequest ( "SESSION", null, "CONNECT", UserInformation.ANONYMOUS, contextInformation ), callbackHandler );
         return new CallingFuture<AuthorizationReply, UserInformation> ( future ) {
 
             @Override

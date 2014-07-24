@@ -6,7 +6,7 @@ Bundle-Version: 0.2.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.scada.core;version="0.1.0",
  org.eclipse.scada.core.data;version="0.1.0",
- org.eclipse.scada.core.server;version="0.1.0",
+ org.eclipse.scada.core.server;version="0.2.0",
  org.eclipse.scada.da.client;version="0.1.0",
  org.eclipse.scada.da.core;version="0.1.0",
  org.eclipse.scada.da.core.server;version="0.1.0",

@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA Core Server Common (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.core.server.common
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.core.server.common;version="0.1.0",
- org.eclipse.scada.core.server.common.osgi;version="0.1.0",
- org.eclipse.scada.core.server.common.session;version="0.1.0",
- org.eclipse.scada.core.server.common.stats;version="0.1.0"
+Export-Package: org.eclipse.scada.core.server.common;version="0.2.0",
+ org.eclipse.scada.core.server.common.osgi;version="0.2.0",
+ org.eclipse.scada.core.server.common.session;version="0.2.0",
+ org.eclipse.scada.core.server.common.stats;version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: javax.management,
  org.apache.mina.core.service;version="2.0.2",

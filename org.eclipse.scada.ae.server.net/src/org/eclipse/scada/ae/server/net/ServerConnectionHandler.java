@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - generic subscription manager
+ *     IBH SYSTEMS GmbH - add additional context information
  *******************************************************************************/
 package org.eclipse.scada.ae.server.net;
 
@@ -191,7 +192,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
 
     /**
      * Extract the query id from the message
-     * 
+     *
      * @param message
      *            the message
      * @return the extracted query id or <code>null</code> if there was none
@@ -508,7 +509,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
             return;
         }
 
-        this.service.createSession ( props, new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
+        this.service.createSession ( props, createDefaultContext (), new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
 
             @Override
             public void complete ( final Future<Session> future )

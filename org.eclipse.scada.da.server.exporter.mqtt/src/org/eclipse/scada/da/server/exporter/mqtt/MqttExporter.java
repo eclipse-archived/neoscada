@@ -372,7 +372,7 @@ public class MqttExporter implements LifecycleAware
         final Properties sessionProperties = new Properties ();
         sessionProperties.put ( "user", this.username );
         sessionProperties.put ( "password", this.password );
-        final NotifyFuture<Session> sessionFuture = hive.createSession ( sessionProperties, null );
+        final NotifyFuture<Session> sessionFuture = hive.createSession ( sessionProperties, null, null );
         this.session = sessionFuture.get ( 30, TimeUnit.SECONDS );
 
         setupMqtt ( hive, this.session );

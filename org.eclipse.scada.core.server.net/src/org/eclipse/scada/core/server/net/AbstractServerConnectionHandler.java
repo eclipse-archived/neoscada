@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add context information
  *******************************************************************************/
 package org.eclipse.scada.core.server.net;
 
@@ -21,16 +22,16 @@ import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.handler.multiton.SingleSessionIoHandler;
 import org.eclipse.scada.core.ConnectionInformation;
-import org.eclipse.scada.utils.stats.StatisticEntry;
-import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.eclipse.scada.core.net.ConnectionHelper;
 import org.eclipse.scada.core.net.MessageHelper;
+import org.eclipse.scada.core.server.common.stats.ManagedConnection;
 import org.eclipse.scada.net.Constants;
 import org.eclipse.scada.net.base.PingService;
 import org.eclipse.scada.net.base.data.Message;
 import org.eclipse.scada.net.mina.IoSessionSender;
 import org.eclipse.scada.net.mina.Messenger;
-import org.eclipse.scada.core.server.common.stats.ManagedConnection;
+import org.eclipse.scada.utils.stats.StatisticEntry;
+import org.eclipse.scada.utils.stats.StatisticsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,6 +115,13 @@ public abstract class AbstractServerConnectionHandler implements SingleSessionIo
         modifyFilterChain ( this.ioSession, properties );
     }
 
+    protected Map<String, Object> createDefaultContext ()
+    {
+        final Map<String, Object> result = new HashMap<String, Object> ( 1 );
+        result.put ( "remoteAddress", this.ioSession.getRemoteAddress () );
+        return result;
+    }
+
     protected void sendPrivilegeChange ( final Set<String> privileges )
     {
         this.privileges = privileges;
@@ -173,7 +181,7 @@ public abstract class AbstractServerConnectionHandler implements SingleSessionIo
         if ( !originalProperties.containsKey ( MessageHelper.PROP_USING_SESSION_START ) )
         {
             logger.debug ( "Starting session directly" );
-            // we are using an old version, start directly 
+            // we are using an old version, start directly
             startSession ();
         }
     }

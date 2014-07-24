@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - clean up subscription manager, change shutdown handling
+ *     IBH SYSTEMS GmbH - add context information
  *******************************************************************************/
 package org.eclipse.scada.da.server.common.impl;
 
@@ -408,14 +409,14 @@ public abstract class HiveCommon extends ServiceCommon<Session, SessionCommon> i
     // implementation of hive interface
 
     @Override
-    public NotifyFuture<Session> createSession ( final Properties properties, final CallbackHandler callbackHandler )
+    public NotifyFuture<Session> createSession ( final Properties properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
         if ( !this.running.get () )
         {
             return new InstantErrorFuture<> ( makeCheckRunningException () );
         }
 
-        final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, callbackHandler );
+        final NotifyFuture<UserInformation> loginFuture = loginUser ( properties, contextInformation, callbackHandler );
 
         return new CallingFuture<UserInformation, Session> ( loginFuture ) {
 

@@ -94,7 +94,7 @@ public abstract class AbstractSubscriptionManager
 
     /**
      * Create a new subscription manager
-     * 
+     *
      * @param hiveSource
      *            the source of the hive to attach to
      * @param properties
@@ -176,7 +176,7 @@ public abstract class AbstractSubscriptionManager
 
         logger.debug ( "Start creating a new session" );
 
-        this.createSessionFuture = this.hive.createSession ( this.properties, new PropertiesCredentialsCallback ( this.properties ) );
+        this.createSessionFuture = this.hive.createSession ( this.properties, null, new PropertiesCredentialsCallback ( this.properties ) );
         this.createSessionFuture.addListener ( new FutureListener<Session> () {
 
             @Override
@@ -273,7 +273,7 @@ public abstract class AbstractSubscriptionManager
      * Subscriptions may only be made after the manager was started using
      * {@link #start()}.
      * </p>
-     * 
+     *
      * @param itemId
      *            id of the item to subscribe to
      */
@@ -304,7 +304,7 @@ public abstract class AbstractSubscriptionManager
      * Subscriptions may only be made after the manager was started using
      * {@link #start()}.
      * </p>
-     * 
+     *
      * @param itemIds
      *            the ids of the items to subscribe to
      */

@@ -11,6 +11,7 @@
  *******************************************************************************/
 package org.eclipse.scada.core.server.ngp;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -73,9 +74,12 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         }
     };
 
+    private final IoSession ioSession;
+
     public ServiceServerConnection ( final IoSession session, final S service )
     {
         super ( session );
+        this.ioSession = session;
         this.service = service;
         this.responseManager = new ResponseManager ( this.statistics, this.messageSender, DirectExecutor.INSTANCE );
         this.responseManager.connected ();
@@ -118,7 +122,10 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
 
             callbackHandler = createCallbackHandlerFromMessage ( message );
 
-            final NotifyFuture<T> future = performCreateSession ( message.getProperties (), callbackHandler );
+            final Map<String, Object> contextInformation = new HashMap<String, Object> ();
+            contextInformation.put ( "remoteAddress", this.ioSession.getRemoteAddress () );
+
+            final NotifyFuture<T> future = performCreateSession ( message.getProperties (), contextInformation, callbackHandler );
 
             future.addListener ( new FutureListener<T> () {
 
@@ -210,7 +217,7 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
         return new SessionRejected ( e.getMessage () );
     }
 
-    private NotifyFuture<T> performCreateSession ( final Map<String, String> properties, final CallbackHandler callbackHandler )
+    private NotifyFuture<T> performCreateSession ( final Map<String, String> properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
         if ( this.session != null )
         {
@@ -219,16 +226,18 @@ public abstract class ServiceServerConnection<T extends Session, S extends Servi
 
         final Properties p = new Properties ();
         p.putAll ( properties );
-        return createSession ( p, callbackHandler );
+        return createSession ( p, contextInformation, callbackHandler );
     }
 
     /**
+     * @param contextInformation
+     *            additional context information, e.g. source host name
      * @param callbackHandler
-     * @since 1.1
+     *            handler receiving callbacks
      */
-    protected NotifyFuture<T> createSession ( final Properties properties, final CallbackHandler callbackHandler )
+    protected NotifyFuture<T> createSession ( final Properties properties, final Map<String, Object> contextInformation, final CallbackHandler callbackHandler )
     {
-        return this.service.createSession ( properties, callbackHandler );
+        return this.service.createSession ( properties, contextInformation, callbackHandler );
     }
 
     @Override

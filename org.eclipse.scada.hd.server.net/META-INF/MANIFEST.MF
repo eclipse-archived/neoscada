@@ -4,7 +4,7 @@ Bundle-Name: Eclipse SCADA HD Server NET (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.hd.server.net
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Eclipse SCADA Project
-Export-Package: org.eclipse.scada.hd.server.net;version="0.1.0"
+Export-Package: org.eclipse.scada.hd.server.net;version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.mina.core.session;version="[2.0.2,3.0.0)",
  org.apache.mina.handler.multiton;version="[2.0.2,3.0.0)",

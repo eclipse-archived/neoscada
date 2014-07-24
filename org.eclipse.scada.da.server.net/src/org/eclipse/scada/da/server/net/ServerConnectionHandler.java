@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add additional context information
  *******************************************************************************/
 package org.eclipse.scada.da.server.net;
 
@@ -26,6 +27,7 @@ import org.eclipse.scada.core.data.OperationParameters;
 import org.eclipse.scada.core.data.SubscriptionState;
 import org.eclipse.scada.core.net.MessageHelper;
 import org.eclipse.scada.core.server.Session.SessionListener;
+import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.eclipse.scada.da.core.Location;
 import org.eclipse.scada.da.core.WriteAttributeResults;
 import org.eclipse.scada.da.core.WriteResult;
@@ -53,7 +55,6 @@ import org.eclipse.scada.utils.concurrent.task.ResultFutureHandler;
 import org.eclipse.scada.utils.concurrent.task.ResultHandler;
 import org.eclipse.scada.utils.concurrent.task.TaskHandler;
 import org.eclipse.scada.utils.lang.Holder;
-import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -189,7 +190,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
             return;
         }
 
-        this.hive.createSession ( props, new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
+        this.hive.createSession ( props, createDefaultContext (), new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
 
             @Override
             public void complete ( final Future<Session> future )

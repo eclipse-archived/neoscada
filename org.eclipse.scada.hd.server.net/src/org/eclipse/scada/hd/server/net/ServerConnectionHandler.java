@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2009, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2009, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add additional context information
  *******************************************************************************/
 package org.eclipse.scada.hd.server.net;
 
@@ -25,6 +26,7 @@ import org.eclipse.scada.core.ConnectionInformation;
 import org.eclipse.scada.core.InvalidSessionException;
 import org.eclipse.scada.core.net.MessageHelper;
 import org.eclipse.scada.core.server.Session.SessionListener;
+import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.eclipse.scada.hd.InvalidItemException;
 import org.eclipse.scada.hd.ItemListListener;
 import org.eclipse.scada.hd.Query;
@@ -47,7 +49,6 @@ import org.eclipse.scada.net.utils.MessageCreator;
 import org.eclipse.scada.sec.callback.PropertiesCredentialsCallback;
 import org.eclipse.scada.utils.concurrent.FutureListener;
 import org.eclipse.scada.utils.concurrent.NamedThreadFactory;
-import org.eclipse.scada.core.server.net.AbstractServerConnectionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.profiler.Profiler;
@@ -412,7 +413,7 @@ public class ServerConnectionHandler extends AbstractServerConnectionHandler imp
             return;
         }
 
-        this.service.createSession ( props, new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
+        this.service.createSession ( props, createDefaultContext (), new PropertiesCredentialsCallback ( props ) ).addListener ( new FutureListener<Session> () {
 
             @Override
             public void complete ( final Future<Session> future )

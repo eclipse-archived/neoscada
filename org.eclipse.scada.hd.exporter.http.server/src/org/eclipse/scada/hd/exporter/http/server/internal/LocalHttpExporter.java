@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013, 2014 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -9,6 +9,7 @@
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
  *     IBH SYSTEMS GmbH - some bugfixes and modifications
+ *     IBH SYSTEMS GmbH - add additional context information
  *******************************************************************************/
 package org.eclipse.scada.hd.exporter.http.server.internal;
 
@@ -79,7 +80,7 @@ public class LocalHttpExporter implements HttpExporter
         @Override
         public void updateState ( final QueryState state )
         {
-            if ( ( state == QueryState.COMPLETE ) || ( state == QueryState.DISCONNECTED ) )
+            if ( state == QueryState.COMPLETE || state == QueryState.DISCONNECTED )
             {
                 setResult ( this.result );
             }
@@ -140,7 +141,7 @@ public class LocalHttpExporter implements HttpExporter
             if ( this.session == null )
             {
                 final Properties props = makeProperties ();
-                this.session = this.hdService.createSession ( props, new PropertiesCredentialsCallback ( props ) ).get ( 30, TimeUnit.SECONDS );
+                this.session = this.hdService.createSession ( props, null, new PropertiesCredentialsCallback ( props ) ).get ( 30, TimeUnit.SECONDS );
             }
         }
         catch ( final Exception e )
@@ -168,7 +169,7 @@ public class LocalHttpExporter implements HttpExporter
     @Override
     public void dispose () throws Exception
     {
-        if ( ( this.session != null ) && ( this.hdService != null ) )
+        if ( this.session != null && this.hdService != null )
         {
             this.hdService.closeSession ( this.session );
         }
