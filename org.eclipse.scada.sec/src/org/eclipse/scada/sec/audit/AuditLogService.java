@@ -14,12 +14,8 @@ import org.eclipse.scada.sec.AuthorizationReply;
 import org.eclipse.scada.sec.AuthorizationRequest;
 import org.eclipse.scada.sec.authz.AuthorizationContext;
 
-/**
- * @since 1.1
- */
 public interface AuditLogService
 {
-
     public void info ( String message, Object... arguments );
 
     public void debug ( String message, Object... arguments );
