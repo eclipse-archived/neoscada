@@ -1096,7 +1096,7 @@ public class ParserPackageImpl extends EPackageImpl implements ParserPackage
         addEParameter ( op, this.getCreationContext (), "creationContext", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( stringTransformerEClass, StringTransformer.class, "StringTransformer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getStringTransformer_Charset (), ecorePackage.getEString (), "charset", null, 1, 1, StringTransformer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getStringTransformer_Charset (), ecorePackage.getEString (), "charset", "UTF-8", 1, 1, StringTransformer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
 
         initEClass ( mqttInputEClass, MqttInput.class, "MqttInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getMqttInput_ServerUri (), ecorePackage.getEString (), "serverUri", null, 1, 1, MqttInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$

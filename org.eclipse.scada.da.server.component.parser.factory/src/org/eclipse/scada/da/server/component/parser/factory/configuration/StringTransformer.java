@@ -30,6 +30,7 @@ public interface StringTransformer extends TransformerDefinition
 {
     /**
      * Returns the value of the '<em><b>Charset</b></em>' attribute.
+     * The default value is <code>"UTF-8"</code>.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Charset</em>' attribute isn't clear,
@@ -39,7 +40,7 @@ public interface StringTransformer extends TransformerDefinition
      * @return the value of the '<em>Charset</em>' attribute.
      * @see #setCharset(String)
      * @see org.eclipse.scada.da.server.component.parser.factory.configuration.ParserPackage#getStringTransformer_Charset()
-     * @model required="true"
+     * @model default="UTF-8" required="true"
      * @generated
      */
     String getCharset ();

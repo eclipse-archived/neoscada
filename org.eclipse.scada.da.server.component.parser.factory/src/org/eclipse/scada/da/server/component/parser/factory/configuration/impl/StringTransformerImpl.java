@@ -46,7 +46,7 @@ public class StringTransformerImpl extends MinimalEObjectImpl.Container implemen
      * @generated
      * @ordered
      */
-    protected static final String CHARSET_EDEFAULT = null;
+    protected static final String CHARSET_EDEFAULT = "UTF-8";
 
     /**
      * The cached value of the '{@link #getCharset() <em>Charset</em>}' attribute.

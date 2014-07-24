@@ -47,6 +47,8 @@ public class ParserTests extends TestSuite
         suite.addTestSuite ( UrlInputTest.class );
         suite.addTestSuite ( SinglePatternTest.class );
         suite.addTestSuite ( SplitTableTest.class );
+        suite.addTestSuite ( StringTransformerTest.class );
+        suite.addTestSuite ( MqttInputTest.class );
         return suite;
     }
 

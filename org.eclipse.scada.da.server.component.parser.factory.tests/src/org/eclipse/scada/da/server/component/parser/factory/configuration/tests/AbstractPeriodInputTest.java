@@ -10,32 +10,16 @@
  */
 package org.eclipse.scada.da.server.component.parser.factory.configuration.tests;
 
-import junit.framework.TestCase;
-
 import org.eclipse.scada.da.server.component.parser.factory.configuration.AbstractPeriodInput;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Abstract Period Input</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#createInput(org.eclipse.scada.da.server.component.parser.factory.CreationContext) <em>Create Input</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
-public abstract class AbstractPeriodInputTest extends TestCase
+public abstract class AbstractPeriodInputTest extends AbstractInputTest
 {
-
-    /**
-     * The fixture for this Abstract Period Input test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected AbstractPeriodInput fixture = null;
 
     /**
      * Constructs a new Abstract Period Input test case with the given name.
@@ -49,39 +33,15 @@ public abstract class AbstractPeriodInputTest extends TestCase
     }
 
     /**
-     * Sets the fixture for this Abstract Period Input test case.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void setFixture ( AbstractPeriodInput fixture )
-    {
-        this.fixture = fixture;
-    }
-
-    /**
      * Returns the fixture for this Abstract Period Input test case.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
+    @Override
     protected AbstractPeriodInput getFixture ()
     {
-        return fixture;
-    }
-
-    /**
-     * Tests the '{@link org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#createInput(org.eclipse.scada.da.server.component.parser.factory.CreationContext) <em>Create Input</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.da.server.component.parser.factory.configuration.InputDefinition#createInput(org.eclipse.scada.da.server.component.parser.factory.CreationContext)
-     * @generated
-     */
-    public void testCreateInput__CreationContext ()
-    {
-        // TODO: implement this operation test method
-        // Ensure that you remove @generated or mark it @generated NOT
-        fail ();
+        return (AbstractPeriodInput)fixture;
     }
 
 } //AbstractPeriodInputTest
