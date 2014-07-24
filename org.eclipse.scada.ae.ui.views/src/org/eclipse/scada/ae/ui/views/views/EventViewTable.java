@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2010, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add details dialog
  *******************************************************************************/
 package org.eclipse.scada.ae.ui.views.views;
 
@@ -25,6 +26,9 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
 import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -32,9 +36,11 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.scada.ae.Event.Fields;
 import org.eclipse.scada.ae.ui.views.Settings;
 import org.eclipse.scada.ae.ui.views.config.ColumnLabelProviderInformation;
+import org.eclipse.scada.ae.ui.views.dialog.EventDetailsDialog;
 import org.eclipse.scada.ae.ui.views.dialog.SearchType;
 import org.eclipse.scada.ae.ui.views.filter.EventViewerFilter;
 import org.eclipse.scada.ae.ui.views.model.DecoratedEvent;
+import org.eclipse.scada.ui.utils.SelectionHelper;
 import org.eclipse.scada.utils.lang.Pair;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -126,7 +132,7 @@ public class EventViewTable extends Composite
         }
         columns.add ( EventTableColumn.reservedColumnEntryTimestamp );
     }
-    */
+     */
 
     public EventViewTable ( final Composite parent, final IViewSite viewSite, final int style, final WritableSet events, final List<ColumnProperties> columnSettings )
     {
@@ -155,6 +161,14 @@ public class EventViewTable extends Composite
         this.tableViewer.getTable ().setSortDirection ( SWT.DOWN );
 
         hookContextMenu ( this.tableViewer.getControl (), this.tableViewer, viewSite );
+        this.tableViewer.addDoubleClickListener ( new IDoubleClickListener () {
+
+            @Override
+            public void doubleClick ( final DoubleClickEvent event )
+            {
+                handleDoubleClick ( event.getSelection () );
+            }
+        } );
 
         viewSite.setSelectionProvider ( this.tableViewer );
 
@@ -174,12 +188,24 @@ public class EventViewTable extends Composite
         } );
     }
 
+    protected void handleDoubleClick ( final ISelection selection )
+    {
+        final DecoratedEvent event = SelectionHelper.first ( selection, DecoratedEvent.class );
+        if ( event == null || event.getEvent () == null )
+        {
+            return;
+        }
+
+        new EventDetailsDialog ( getShell () ).open ( event.getEvent () );
+    }
+
     /**
      * Create column informations if none where provided
-     * 
+     *
      * @param columnInformations
      *            provided informations
-     * @return the created or provided informations, must never return <code>null</code>.
+     * @return the created or provided informations, must never return
+     *         <code>null</code>.
      */
     private static List<ColumnLabelProviderInformation> makeColumnInformations ( final List<ColumnLabelProviderInformation> columnInformations )
     {
