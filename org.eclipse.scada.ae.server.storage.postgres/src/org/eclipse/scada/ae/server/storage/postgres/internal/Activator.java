@@ -55,7 +55,7 @@ public class Activator implements BundleActivator
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext
      * )
@@ -115,7 +115,7 @@ public class Activator implements BundleActivator
 
         final Dictionary<String, Object> properties = new Hashtable<String, Object> ( 2 );
         properties.put ( Constants.SERVICE_DESCRIPTION, "PostgreSQL specific JDBC implementation for org.eclipse.scada.ae.server.storage.Storage" );
-        properties.put ( Constants.SERVICE_VENDOR, "IBH SYSTEMS GmbH" );
+        properties.put ( Constants.SERVICE_VENDOR, "Eclipse SCADA Project" );
         this.jdbcStorageHandle = context.registerService ( new String[] { JdbcStorage.class.getName (), Storage.class.getName () }, this.jdbcStorage, properties );
     }
 
@@ -153,7 +153,7 @@ public class Activator implements BundleActivator
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
      */
@@ -165,7 +165,7 @@ public class Activator implements BundleActivator
             this.dataSouceFactoryTracker.close ();
         }
         deactivate (); // redundant, but if something happened with the tracker
-                       // we are sure it is shut down
+        // we are sure it is shut down
         Activator.context = null;
     }
 }
