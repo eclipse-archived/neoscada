@@ -75,7 +75,39 @@ public abstract class ModbusExport
 
     private ObjectExporter exporter;
 
-    private String logName;
+    private final String logName;
+
+    /**
+     * Create a new modbus exporter
+     *
+     * @param executor
+     *            the executor used for
+     * @param processor
+     *            the IO processor
+     * @param hiveSource
+     *            the source of the hive to export
+     * @param itemFactory
+     *            an optional item factory for publishing statistics
+     * @param logName
+     *            an optional name for logging
+     */
+    public ModbusExport ( final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ObjectPoolDataItemFactory itemFactory, final String logName )
+    {
+        this.executor = executor;
+        this.hiveSource = hiveSource;
+        this.processor = processor;
+        this.logName = logName != null ? logName : toString ();
+
+        if ( itemFactory != null )
+        {
+            this.exporter = new ObjectExporter ( itemFactory, true, true );
+            this.exporter.attachTarget ( this.info );
+        }
+        else
+        {
+            this.exporter = null;
+        }
+    }
 
     /**
      * Create a new modbus exporter
@@ -91,25 +123,12 @@ public abstract class ModbusExport
      */
     public ModbusExport ( final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ObjectPoolDataItemFactory itemFactory )
     {
-        this.executor = executor;
-        this.hiveSource = hiveSource;
-        this.processor = processor;
-
-        if ( itemFactory != null )
-        {
-            this.exporter = new ObjectExporter ( itemFactory, true, true );
-            this.exporter.attachTarget ( this.info );
-        }
-        else
-        {
-            this.exporter = null;
-        }
+        this ( executor, processor, hiveSource, itemFactory, null );
     }
 
     public ModbusExport ( final String id, final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ManageableObjectPool<DataItem> itemObjectPool )
     {
-        this ( executor, processor, hiveSource, new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ) ); //$NON-NLS-1$
-        this.logName = id;
+        this ( executor, processor, hiveSource, new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ), "ModbusExporter/" + id ); //$NON-NLS-1$
     }
 
     public void dispose ()
