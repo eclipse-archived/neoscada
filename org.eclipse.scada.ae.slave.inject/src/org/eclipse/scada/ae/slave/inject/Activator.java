@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - clean up system properties
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject;
 
@@ -81,7 +82,7 @@ public class Activator implements BundleActivator
         {
             try
             {
-                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( "org.eclipse.scada.ae.slave.inject.loopDelay", 10 * 1000 ) );
+                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ) );
             }
             catch ( final SQLException e )
             {

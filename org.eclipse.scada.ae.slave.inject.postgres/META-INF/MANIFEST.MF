@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse SCADA AE Slave Import Bundle (Incubation)
 Bundle-SymbolicName: org.eclipse.scada.ae.slave.inject.postgres
-Bundle-Version: 0.1.0.qualifier
+Bundle-Version: 0.2.0.qualifier
 Bundle-Activator: org.eclipse.scada.ae.slave.inject.postgres.Activator
 Bundle-Vendor: Eclipse SCADA Project
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
