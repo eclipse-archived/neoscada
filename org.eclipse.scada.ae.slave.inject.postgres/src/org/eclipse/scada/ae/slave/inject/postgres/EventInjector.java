@@ -53,7 +53,7 @@ public class EventInjector extends BaseStorage
 
     private static final String eventExistsSql = "SELECT count(id) FROM %sES_AE_EVENTS_HSTORE WHERE ID = ?::UUID;";
 
-    private final boolean deleteFailed = Boolean.getBoolean ( "org.eclipse.scada.ae.slave.inject.deleteFailed" );
+    private final boolean deleteFailed = Boolean.getBoolean ( Activator.SPECIFIC_PREFIX + ".deleteFailed" );
 
     private final CommonConnectionAccessor accessor;
 
@@ -75,7 +75,7 @@ public class EventInjector extends BaseStorage
                 return EventInjector.this.getNodeId ();
             }
         } );
-        this.scheduler = new ScheduledExportedExecutorService ( "org.eclipse.scada.ae.slave.inject", 1 ); //$NON-NLS-1$
+        this.scheduler = new ScheduledExportedExecutorService ( "org.eclipse.scada.ae.slave.inject.postgres", 1 ); //$NON-NLS-1$
 
         this.scheduler.scheduleWithFixedDelay ( new Runnable () {
 
@@ -140,7 +140,7 @@ public class EventInjector extends BaseStorage
 
     private Integer getLimit ()
     {
-        return Integer.getInteger ( "org.eclipse.scada.ae.slave.inject.limit", 2000 );
+        return Integer.getInteger ( Activator.SPECIFIC_PREFIX + ".limit", 2000 );
     }
 
     private void processRow ( final ResultSet resultSet, final ConnectionContext connectionContext ) throws SQLException

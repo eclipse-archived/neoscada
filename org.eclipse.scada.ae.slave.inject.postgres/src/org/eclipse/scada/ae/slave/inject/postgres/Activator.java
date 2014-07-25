@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class Activator implements BundleActivator
 {
 
-    private static final String SPECIFIC_PREFIX = "org.eclipse.scada.ae.slave.inject.postgres";
+    public static final String SPECIFIC_PREFIX = "org.eclipse.scada.ae.slave.inject.postgres";
 
     private static final String PROP_SCHEMA = SPECIFIC_PREFIX + ".schema";
 
