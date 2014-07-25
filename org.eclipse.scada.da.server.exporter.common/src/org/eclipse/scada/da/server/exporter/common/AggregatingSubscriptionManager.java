@@ -30,37 +30,41 @@ public class AggregatingSubscriptionManager extends AbstractSubscriptionManager
 
     /**
      * Create a new subscription manager
-     * 
+     *
      * @param executor
      *            a single threaded executor
      * @param hiveSource
      *            the source of the hive to attach to
      * @param properties
      *            the session properties for the hive
+     * @param logName
+     *            An optional name of the actor, which will be used for logging
      * @param listener
      *            optionally a listener that will get a call when any of the
      *            values in the cache changed
      */
-    public AggregatingSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final Listener listener )
+    public AggregatingSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final String logName, final Listener listener )
     {
-        super ( hiveSource, properties, executor );
+        super ( hiveSource, properties, executor, logName );
         this.executor = executor;
         this.listener = listener;
     }
 
     /**
      * Create a new subscription manager
-     * 
+     *
      * @param executor
      *            a single threaded executor
      * @param hiveSource
      *            the source of the hive to attach to
      * @param properties
      *            the session properties for the hive
+     * @param logName
+     *            An optional name of the actor, which will be used for logging
      */
-    public AggregatingSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties )
+    public AggregatingSubscriptionManager ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final String logName )
     {
-        this ( executor, hiveSource, properties, null );
+        this ( executor, hiveSource, properties, logName, null );
     }
 
     @Override

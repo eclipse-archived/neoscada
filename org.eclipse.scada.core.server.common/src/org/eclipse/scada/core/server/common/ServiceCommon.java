@@ -113,6 +113,7 @@ public abstract class ServiceCommon<S extends Session, SI extends AbstractSessio
      * @param properties
      *            the user session properties
      * @param contextInformation
+     *            additional context information
      * @param callbackHandler
      *            the callback handler which handles callbacks
      * @param sessionResultProperties

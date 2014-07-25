@@ -73,7 +73,7 @@ public class ConfigurationFactoryImpl implements ConfigurationFactory, DataConte
     @Override
     public void update ( final UserInformation userInformation, final String configurationId, final Map<String, String> properties ) throws Exception
     {
-        final DataContext context = new DataContext ( this.executor, this.hiveSource, properties );
+        final DataContext context = new DataContext ( this.executor, this.hiveSource, properties, "REST/" + configurationId );
 
         final DataContext oldContext;
 

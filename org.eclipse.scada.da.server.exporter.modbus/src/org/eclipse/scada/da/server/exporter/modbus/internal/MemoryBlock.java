@@ -47,13 +47,25 @@ public class MemoryBlock
 
     private final Map<Integer, SourceDefinition> writeMap = new TreeMap<> ();
 
-    public MemoryBlock ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties )
+    /**
+     * Create a new memory block
+     * 
+     * @param executor
+     *            a single threaded executor for sending out events
+     * @param hiveSource
+     *            the source of the hive to export
+     * @param properties
+     *            properties to log on to the hive
+     * @param logName
+     *            an optional logging name
+     */
+    public MemoryBlock ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Properties properties, final String logName )
     {
         final ReadWriteLock lock = new ReentrantReadWriteLock ();
         this.readLock = lock.readLock ();
         this.writeLock = lock.writeLock ();
 
-        this.manager = new SingleSubscriptionManager ( executor, hiveSource, properties );
+        this.manager = new SingleSubscriptionManager ( executor, hiveSource, properties, logName );
         this.manager.start ();
     }
 

@@ -27,12 +27,12 @@ public class DataContext
 {
     private final AggregatingSubscriptionManager subscriptionManager;
 
-    public DataContext ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Map<String, String> properties )
+    public DataContext ( final ScheduledExecutorService executor, final HiveSource hiveSource, final Map<String, String> properties, final String logName )
     {
         final ConfigurationDataHelper cfg = new ConfigurationDataHelper ( properties );
 
         final Properties hiveProperties = cfg.getPrefixedProperties ( "hive." );
-        this.subscriptionManager = new AggregatingSubscriptionManager ( executor, hiveSource, hiveProperties );
+        this.subscriptionManager = new AggregatingSubscriptionManager ( executor, hiveSource, hiveProperties, logName );
 
         this.subscriptionManager.start ();
 

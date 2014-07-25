@@ -75,6 +75,8 @@ public abstract class ModbusExport
 
     private ObjectExporter exporter;
 
+    private String logName;
+
     /**
      * Create a new modbus exporter
      *
@@ -107,6 +109,7 @@ public abstract class ModbusExport
     public ModbusExport ( final String id, final ScheduledExecutorService executor, final IoProcessor<NioSession> processor, final HiveSource hiveSource, final ManageableObjectPool<DataItem> itemObjectPool )
     {
         this ( executor, processor, hiveSource, new ObjectPoolDataItemFactory ( executor, itemObjectPool, String.format ( "org.eclipse.scada.da.server.exporter.modbus.export.%s.information.", id ) ) ); //$NON-NLS-1$
+        this.logName = id;
     }
 
     public void dispose ()
@@ -229,7 +232,7 @@ public abstract class ModbusExport
         if ( this.block == null )
         {
             logger.debug ( "Create new block" ); //$NON-NLS-1$
-            this.block = new MemoryBlock ( this.executor, this.hiveSource, properties );
+            this.block = new MemoryBlock ( this.executor, this.hiveSource, properties, this.logName );
         }
         else if ( !this.properties.equals ( properties ) )
         {
@@ -237,7 +240,7 @@ public abstract class ModbusExport
             logger.debug ( "Re-create block" ); //$NON-NLS-1$
             this.block.dispose ();
             this.block = null;
-            this.block = new MemoryBlock ( this.executor, this.hiveSource, properties );
+            this.block = new MemoryBlock ( this.executor, this.hiveSource, properties, this.logName );
         }
         this.properties = properties;
     }

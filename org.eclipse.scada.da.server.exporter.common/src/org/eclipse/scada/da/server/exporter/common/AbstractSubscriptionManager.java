@@ -92,6 +92,8 @@ public abstract class AbstractSubscriptionManager
 
     private ScheduledFuture<?> sessionJob;
 
+    private final String logName;
+
     /**
      * Create a new subscription manager
      *
@@ -99,12 +101,15 @@ public abstract class AbstractSubscriptionManager
      *            the source of the hive to attach to
      * @param properties
      *            the hive connection properties
+     * @param logName
+     *            An optional name of the actor, which will be used for logging
      */
-    public AbstractSubscriptionManager ( final HiveSource hiveSource, final Properties properties, final ScheduledExecutorService executor )
+    public AbstractSubscriptionManager ( final HiveSource hiveSource, final Properties properties, final ScheduledExecutorService executor, final String logName )
     {
         this.properties = properties;
         this.hiveSource = hiveSource;
         this.executor = executor;
+        this.logName = logName;
     }
 
     public synchronized void start ()
@@ -176,7 +181,11 @@ public abstract class AbstractSubscriptionManager
 
         logger.debug ( "Start creating a new session" );
 
-        this.createSessionFuture = this.hive.createSession ( this.properties, null, new PropertiesCredentialsCallback ( this.properties ) );
+        final Map<String, Object> contextInformation = new HashMap<> ( 2 );
+        contextInformation.put ( "actorType", "SYSTEM" );
+        contextInformation.put ( "actorName", this.logName );
+
+        this.createSessionFuture = this.hive.createSession ( this.properties, contextInformation, new PropertiesCredentialsCallback ( this.properties ) );
         this.createSessionFuture.addListener ( new FutureListener<Session> () {
 
             @Override

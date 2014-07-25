@@ -176,7 +176,7 @@ public class DataModelImpl extends AbstractBaseDataModel
 
         this.info = info;
 
-        this.manager = new SingleSubscriptionManager ( this.executor, hiveSource, hiveProperties );
+        this.manager = new SingleSubscriptionManager ( this.executor, hiveSource, hiveProperties, "IEC60870/DataModel" );
         this.manager.start ();
 
         for ( final MappingEntry entry : entries )
