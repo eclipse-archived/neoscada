@@ -64,7 +64,9 @@ public class EventInjector extends BaseStorage
 
     private String schema;
 
-    public EventInjector ( final DataSourceFactory dataSourceFactory, final Properties dataSourceProperties, final Integer delay, final boolean usePool, final Long loginTimeout, final String schema, final String instance ) throws SQLException
+    private String replicationSchema;
+
+    public EventInjector ( final DataSourceFactory dataSourceFactory, final Properties dataSourceProperties, final Integer delay, final boolean usePool, final Long loginTimeout, final String schema, final String replicationSchema, final String instance ) throws SQLException
     {
         logger.info ( "Starting event injector" ); //$NON-NLS-1$
         this.schema = schema;
@@ -230,7 +232,7 @@ public class EventInjector extends BaseStorage
         logger.debug ( "Checking if entry already exists" );
 
         final List<Number> result;
-        result = connectionContext.query ( new SingleColumnRowMapper<Number> ( Number.class ), String.format ( eventExistsSql, this.schema ), id );
+        result = connectionContext.query ( new SingleColumnRowMapper<Number> ( Number.class ), String.format ( eventExistsSql, this.replicationSchema ), id );
         if ( result.isEmpty () )
         {
             return false;

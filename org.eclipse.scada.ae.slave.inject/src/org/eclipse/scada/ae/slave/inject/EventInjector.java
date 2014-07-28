@@ -33,6 +33,12 @@ public class EventInjector
     {
         logger.info ( "Starting event injector" ); //$NON-NLS-1$
         this.storage = new JdbcStorageDao ( factory, properties, false, loginTimeout, null );
+
+        if ( !System.getProperty ( Activator.SPECIFIC_PREFIX + ".schema", "" ).trim ().isEmpty () )
+        {
+            this.storage.setSchema ( System.getProperty ( Activator.SPECIFIC_PREFIX + ".schema" ) + "." );
+        }
+
         this.scheduler = new ScheduledExportedExecutorService ( "org.eclipse.scada.ae.slave.inject", 1 ); //$NON-NLS-1$
 
         this.scheduler.scheduleWithFixedDelay ( new Runnable () {

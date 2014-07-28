@@ -86,7 +86,7 @@ public class JdbcStorageDao extends AbstractJdbcStorageDao
 
     private String getReplicationSchema ()
     {
-        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".schema", "" );
+        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".replicationSchema", "" );
     }
 
     protected int runOnce ()

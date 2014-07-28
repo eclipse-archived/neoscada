@@ -31,6 +31,8 @@ public class Activator implements BundleActivator
 
     private static final String PROP_SCHEMA = SPECIFIC_PREFIX + ".schema";
 
+    private static final String PROP_REPLICATION_SCHEMA = SPECIFIC_PREFIX + ".replicationSchema";
+
     private final static Logger logger = LoggerFactory.getLogger ( Activator.class );
 
     private static BundleContext context;
@@ -85,10 +87,11 @@ public class Activator implements BundleActivator
             try
             {
                 final String schema = getSchema ();
+                final String replicationSchema = getReplicationSchema ();
                 final String instance = getInstance ();
                 final Long loginTimeout = DataSourceHelper.getLoginTimeout ( System.getProperties (), SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
                 final boolean usePool = DataSourceHelper.isConnectionPool ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX, false );
-                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ), usePool, loginTimeout, schema, instance );
+                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ), usePool, loginTimeout, schema, replicationSchema, instance );
             }
             catch ( final SQLException e )
             {
@@ -120,6 +123,15 @@ public class Activator implements BundleActivator
         if ( !System.getProperty ( PROP_SCHEMA, "" ).trim ().isEmpty () )
         {
             return System.getProperty ( PROP_SCHEMA ) + ".";
+        }
+        return "";
+    }
+
+    private String getReplicationSchema ()
+    {
+        if ( !System.getProperty ( PROP_REPLICATION_SCHEMA, "" ).trim ().isEmpty () )
+        {
+            return System.getProperty ( PROP_REPLICATION_SCHEMA ) + ".";
         }
         return "";
     }
