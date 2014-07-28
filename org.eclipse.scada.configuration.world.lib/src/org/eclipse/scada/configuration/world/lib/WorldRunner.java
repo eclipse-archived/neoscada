@@ -72,7 +72,7 @@ public class WorldRunner
     {
         logger.debug ( "Processing file: {}", input ); //$NON-NLS-1$
 
-        monitor.setTaskName ( "Loading model" );
+        monitor.subTask ( "Loading model" );
 
         process ( null, new ModelLoader<World> ( World.class ).load ( input ), output, monitor );
     }
@@ -86,11 +86,11 @@ public class WorldRunner
 
         for ( final Node node : world.getNodes () )
         {
+            monitor.subTask ( String.format ( "Processing node: %s", Nodes.makeName ( node ) ) );
             if ( node instanceof ApplicationNode )
             {
                 processNode ( phase, world, (ApplicationNode)node, output, new SubProgressMonitor ( monitor, 1 ) );
             }
-            monitor.worked ( 1 );
         }
 
         monitor.done ();
