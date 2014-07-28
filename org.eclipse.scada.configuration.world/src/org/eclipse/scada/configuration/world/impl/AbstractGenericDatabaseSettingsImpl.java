@@ -40,14 +40,30 @@ import org.eclipse.scada.configuration.world.WorldPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getUsername <em>Username</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getPassword <em>Password</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getLoginTimeout <em>Login Timeout</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getAdditionalProperties <em>Additional Properties</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getDatabaseName <em>Database Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getServerName <em>Server Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getPortNumber <em>Port Number</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getId
+ * <em>Id</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getUsername
+ * <em>Username</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getPassword
+ * <em>Password</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getLoginTimeout
+ * <em>Login Timeout</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getAdditionalProperties
+ * <em>Additional Properties</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getDatabaseName
+ * <em>Database Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getServerName
+ * <em>Server Name</em>}</li>
+ * <li>
+ * {@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl#getPortNumber
+ * <em>Port Number</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,6 +75,7 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
      * The default value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -69,6 +86,7 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
      * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -76,9 +94,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected String id = ID_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+     * The default value of the '{@link #getUsername() <em>Username</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getUsername()
      * @generated
      * @ordered
@@ -86,9 +106,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final String USERNAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+     * The cached value of the '{@link #getUsername() <em>Username</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getUsername()
      * @generated
      * @ordered
@@ -96,9 +118,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected String username = USERNAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
+     * The default value of the '{@link #getPassword() <em>Password</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getPassword()
      * @generated
      * @ordered
@@ -106,9 +130,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final String PASSWORD_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
+     * The cached value of the '{@link #getPassword() <em>Password</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getPassword()
      * @generated
      * @ordered
@@ -116,9 +142,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected String password = PASSWORD_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getLoginTimeout() <em>Login Timeout</em>}' attribute.
+     * The default value of the '{@link #getLoginTimeout()
+     * <em>Login Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getLoginTimeout()
      * @generated
      * @ordered
@@ -126,9 +154,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final Integer LOGIN_TIMEOUT_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getLoginTimeout() <em>Login Timeout</em>}' attribute.
+     * The cached value of the '{@link #getLoginTimeout()
+     * <em>Login Timeout</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getLoginTimeout()
      * @generated
      * @ordered
@@ -136,9 +166,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected Integer loginTimeout = LOGIN_TIMEOUT_EDEFAULT;
 
     /**
-     * The cached value of the '{@link #getAdditionalProperties() <em>Additional Properties</em>}' containment reference list.
+     * The cached value of the '{@link #getAdditionalProperties()
+     * <em>Additional Properties</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getAdditionalProperties()
      * @generated
      * @ordered
@@ -146,9 +178,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected EList<PropertyEntry> additionalProperties;
 
     /**
-     * The default value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
+     * The default value of the '{@link #getDatabaseName()
+     * <em>Database Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getDatabaseName()
      * @generated
      * @ordered
@@ -156,9 +190,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final String DATABASE_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getDatabaseName() <em>Database Name</em>}' attribute.
+     * The cached value of the '{@link #getDatabaseName()
+     * <em>Database Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getDatabaseName()
      * @generated
      * @ordered
@@ -166,9 +202,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected String databaseName = DATABASE_NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getServerName() <em>Server Name</em>}' attribute.
+     * The default value of the '{@link #getServerName() <em>Server Name</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getServerName()
      * @generated
      * @ordered
@@ -176,9 +214,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final String SERVER_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getServerName() <em>Server Name</em>}' attribute.
+     * The cached value of the '{@link #getServerName() <em>Server Name</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getServerName()
      * @generated
      * @ordered
@@ -186,9 +226,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected String serverName = SERVER_NAME_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * The default value of the '{@link #getPortNumber() <em>Port Number</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getPortNumber()
      * @generated
      * @ordered
@@ -196,9 +238,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     protected static final Integer PORT_NUMBER_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}' attribute.
+     * The cached value of the '{@link #getPortNumber() <em>Port Number</em>}'
+     * attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @see #getPortNumber()
      * @generated
      * @ordered
@@ -208,6 +252,7 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     protected AbstractGenericDatabaseSettingsImpl ()
@@ -218,6 +263,7 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -229,76 +275,88 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String getId ()
     {
-        return id;
+        return this.id;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void setId ( String newId )
+    public void setId ( final String newId )
     {
-        String oldId = id;
-        id = newId;
+        final String oldId = this.id;
+        this.id = newId;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ID, oldId, id ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ID, oldId, this.id ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String getUsername ()
     {
-        return username;
+        return this.username;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void setUsername ( String newUsername )
+    public void setUsername ( final String newUsername )
     {
-        String oldUsername = username;
-        username = newUsername;
+        final String oldUsername = this.username;
+        this.username = newUsername;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME, oldUsername, username ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME, oldUsername, this.username ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String getPassword ()
     {
-        return password;
+        return this.password;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void setPassword ( String newPassword )
+    public void setPassword ( final String newPassword )
     {
-        String oldPassword = password;
-        password = newPassword;
+        final String oldPassword = this.password;
+        this.password = newPassword;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD, oldPassword, password ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD, oldPassword, this.password ) );
+        }
     }
 
     /**
@@ -360,6 +418,18 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
         {
             properties.put ( "password", this.password );
         }
+        if ( this.databaseName != null )
+        {
+            properties.put ( "databaseName", this.databaseName );
+        }
+        if ( this.serverName != null )
+        {
+            properties.put ( "serverName", this.serverName );
+        }
+        if ( this.portNumber != null )
+        {
+            properties.put ( "portNumber", "" + this.portNumber );
+        }
     }
 
     protected abstract Map<String, String> getSpecificProperties ();
@@ -388,10 +458,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove ( InternalEObject otherEnd, int featureID, NotificationChain msgs )
+    public NotificationChain eInverseRemove ( final InternalEObject otherEnd, final int featureID, final NotificationChain msgs )
     {
         switch ( featureID )
         {
@@ -404,119 +475,143 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public Integer getLoginTimeout ()
     {
-        return loginTimeout;
+        return this.loginTimeout;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void setLoginTimeout ( Integer newLoginTimeout )
+    public void setLoginTimeout ( final Integer newLoginTimeout )
     {
-        Integer oldLoginTimeout = loginTimeout;
-        loginTimeout = newLoginTimeout;
+        final Integer oldLoginTimeout = this.loginTimeout;
+        this.loginTimeout = newLoginTimeout;
         if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT, oldLoginTimeout, loginTimeout ) );
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT, oldLoginTimeout, this.loginTimeout ) );
+        }
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public EList<PropertyEntry> getAdditionalProperties ()
     {
-        if ( additionalProperties == null )
+        if ( this.additionalProperties == null )
         {
-            additionalProperties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES );
+            this.additionalProperties = new EObjectContainmentEList.Resolving<PropertyEntry> ( PropertyEntry.class, this, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES );
         }
-        return additionalProperties;
+        return this.additionalProperties;
     }
 
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getDatabaseName ()
-    {
-        return databaseName;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setDatabaseName ( String newDatabaseName )
-    {
-        String oldDatabaseName = databaseName;
-        databaseName = newDatabaseName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME, oldDatabaseName, databaseName ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String getServerName ()
-    {
-        return serverName;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setServerName ( String newServerName )
-    {
-        String oldServerName = serverName;
-        serverName = newServerName;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME, oldServerName, serverName ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public Integer getPortNumber ()
-    {
-        return portNumber;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPortNumber ( Integer newPortNumber )
-    {
-        Integer oldPortNumber = portNumber;
-        portNumber = newPortNumber;
-        if ( eNotificationRequired () )
-            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER, oldPortNumber, portNumber ) );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet ( int featureID, boolean resolve, boolean coreType )
+    public String getDatabaseName ()
+    {
+        return this.databaseName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDatabaseName ( final String newDatabaseName )
+    {
+        final String oldDatabaseName = this.databaseName;
+        this.databaseName = newDatabaseName;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME, oldDatabaseName, this.databaseName ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getServerName ()
+    {
+        return this.serverName;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setServerName ( final String newServerName )
+    {
+        final String oldServerName = this.serverName;
+        this.serverName = newServerName;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME, oldServerName, this.serverName ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Integer getPortNumber ()
+    {
+        return this.portNumber;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setPortNumber ( final Integer newPortNumber )
+    {
+        final Integer oldPortNumber = this.portNumber;
+        this.portNumber = newPortNumber;
+        if ( eNotificationRequired () )
+        {
+            eNotify ( new ENotificationImpl ( this, Notification.SET, WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER, oldPortNumber, this.portNumber ) );
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet ( final int featureID, final boolean resolve, final boolean coreType )
     {
         switch ( featureID )
         {
@@ -543,11 +638,12 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings ( "unchecked" )
     @Override
-    public void eSet ( int featureID, Object newValue )
+    public void eSet ( final int featureID, final Object newValue )
     {
         switch ( featureID )
         {
@@ -583,10 +679,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset ( int featureID )
+    public void eUnset ( final int featureID )
     {
         switch ( featureID )
         {
@@ -621,29 +718,30 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet ( int featureID )
+    public boolean eIsSet ( final int featureID )
     {
         switch ( featureID )
         {
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ID:
-                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals ( id );
+                return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals ( this.id );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME:
-                return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals ( username );
+                return USERNAME_EDEFAULT == null ? this.username != null : !USERNAME_EDEFAULT.equals ( this.username );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD:
-                return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals ( password );
+                return PASSWORD_EDEFAULT == null ? this.password != null : !PASSWORD_EDEFAULT.equals ( this.password );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT:
-                return LOGIN_TIMEOUT_EDEFAULT == null ? loginTimeout != null : !LOGIN_TIMEOUT_EDEFAULT.equals ( loginTimeout );
+                return LOGIN_TIMEOUT_EDEFAULT == null ? this.loginTimeout != null : !LOGIN_TIMEOUT_EDEFAULT.equals ( this.loginTimeout );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES:
-                return additionalProperties != null && !additionalProperties.isEmpty ();
+                return this.additionalProperties != null && !this.additionalProperties.isEmpty ();
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME:
-                return DATABASE_NAME_EDEFAULT == null ? databaseName != null : !DATABASE_NAME_EDEFAULT.equals ( databaseName );
+                return DATABASE_NAME_EDEFAULT == null ? this.databaseName != null : !DATABASE_NAME_EDEFAULT.equals ( this.databaseName );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME:
-                return SERVER_NAME_EDEFAULT == null ? serverName != null : !SERVER_NAME_EDEFAULT.equals ( serverName );
+                return SERVER_NAME_EDEFAULT == null ? this.serverName != null : !SERVER_NAME_EDEFAULT.equals ( this.serverName );
             case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER:
-                return PORT_NUMBER_EDEFAULT == null ? portNumber != null : !PORT_NUMBER_EDEFAULT.equals ( portNumber );
+                return PORT_NUMBER_EDEFAULT == null ? this.portNumber != null : !PORT_NUMBER_EDEFAULT.equals ( this.portNumber );
         }
         return super.eIsSet ( featureID );
     }
@@ -651,10 +749,11 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eInvoke ( int operationID, EList<?> arguments ) throws InvocationTargetException
+    public Object eInvoke ( final int operationID, final EList<?> arguments ) throws InvocationTargetException
     {
         switch ( operationID )
         {
@@ -673,29 +772,32 @@ public abstract class AbstractGenericDatabaseSettingsImpl extends MinimalEObject
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
     public String toString ()
     {
         if ( eIsProxy () )
+        {
             return super.toString ();
+        }
 
-        StringBuffer result = new StringBuffer ( super.toString () );
+        final StringBuffer result = new StringBuffer ( super.toString () );
         result.append ( " (id: " ); //$NON-NLS-1$
-        result.append ( id );
+        result.append ( this.id );
         result.append ( ", username: " ); //$NON-NLS-1$
-        result.append ( username );
+        result.append ( this.username );
         result.append ( ", password: " ); //$NON-NLS-1$
-        result.append ( password );
+        result.append ( this.password );
         result.append ( ", loginTimeout: " ); //$NON-NLS-1$
-        result.append ( loginTimeout );
+        result.append ( this.loginTimeout );
         result.append ( ", databaseName: " ); //$NON-NLS-1$
-        result.append ( databaseName );
+        result.append ( this.databaseName );
         result.append ( ", serverName: " ); //$NON-NLS-1$
-        result.append ( serverName );
+        result.append ( this.serverName );
         result.append ( ", portNumber: " ); //$NON-NLS-1$
-        result.append ( portNumber );
+        result.append ( this.portNumber );
         result.append ( ')' );
         return result.toString ();
     }
