@@ -13,8 +13,6 @@ package org.eclipse.scada.configuration.driver.jdbc;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.eclipse.scada.configuration.infrastructure.DatabaseSettings;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Query Base</b></em>'.
@@ -71,12 +69,12 @@ public interface QueryBase extends EObject
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Database</em>' reference.
-     * @see #setDatabase(DatabaseSettings)
+     * @see #setDatabase(org.eclipse.scada.configuration.world.DatabaseSettings)
      * @see org.eclipse.scada.configuration.driver.jdbc.JdbcPackage#getQueryBase_Database()
      * @model required="true"
      * @generated
      */
-    DatabaseSettings getDatabase ();
+    org.eclipse.scada.configuration.world.DatabaseSettings getDatabase ();
 
     /**
      * Sets the value of the '{@link org.eclipse.scada.configuration.driver.jdbc.QueryBase#getDatabase <em>Database</em>}' reference.
@@ -86,7 +84,7 @@ public interface QueryBase extends EObject
      * @see #getDatabase()
      * @generated
      */
-    void setDatabase ( DatabaseSettings value );
+    void setDatabase ( org.eclipse.scada.configuration.world.DatabaseSettings value );
 
     /**
      * Returns the value of the '<em><b>Query Timeout</b></em>' attribute.

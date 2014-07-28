@@ -507,7 +507,7 @@ public class JdbcPackageImpl extends EPackageImpl implements JdbcPackage
 
         initEClass ( queryBaseEClass, QueryBase.class, "QueryBase", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getQueryBase_Sql (), ecorePackage.getEString (), "sql", null, 1, 1, QueryBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEReference ( getQueryBase_Database (), theInfrastructurePackage.getDatabaseSettings (), null, "database", null, 1, 1, QueryBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getQueryBase_Database (), theWorldPackage.getDatabaseSettings (), null, "database", null, 1, 1, QueryBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getQueryBase_QueryTimeout (), ecorePackage.getEIntegerObject (), "queryTimeout", null, 0, 1, QueryBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEReference ( getQueryBase_RunsOn (), this.getJdbcDriver (), null, "runsOn", null, 1, 1, QueryBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 

@@ -12,29 +12,20 @@
 package org.eclipse.scada.configuration.driver.jdbc.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.scada.configuration.component.impl.SingleValueImpl;
-
 import org.eclipse.scada.configuration.driver.jdbc.JdbcDriver;
 import org.eclipse.scada.configuration.driver.jdbc.JdbcPackage;
 import org.eclipse.scada.configuration.driver.jdbc.QueryBase;
 import org.eclipse.scada.configuration.driver.jdbc.UpdateCommand;
 import org.eclipse.scada.configuration.driver.jdbc.UpdateMapping;
-
-import org.eclipse.scada.configuration.infrastructure.DatabaseSettings;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +74,7 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
      * @generated
      * @ordered
      */
-    protected DatabaseSettings database;
+    protected org.eclipse.scada.configuration.world.DatabaseSettings database;
 
     /**
      * The default value of the '{@link #getQueryTimeout() <em>Query Timeout</em>}' attribute.
@@ -174,12 +165,12 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
      * <!-- end-user-doc -->
      * @generated
      */
-    public DatabaseSettings getDatabase ()
+    public org.eclipse.scada.configuration.world.DatabaseSettings getDatabase ()
     {
         if ( database != null && database.eIsProxy () )
         {
             InternalEObject oldDatabase = (InternalEObject)database;
-            database = (DatabaseSettings)eResolveProxy ( oldDatabase );
+            database = (org.eclipse.scada.configuration.world.DatabaseSettings)eResolveProxy ( oldDatabase );
             if ( database != oldDatabase )
             {
                 if ( eNotificationRequired () )
@@ -194,7 +185,7 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
      * <!-- end-user-doc -->
      * @generated
      */
-    public DatabaseSettings basicGetDatabase ()
+    public org.eclipse.scada.configuration.world.DatabaseSettings basicGetDatabase ()
     {
         return database;
     }
@@ -204,9 +195,9 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setDatabase ( DatabaseSettings newDatabase )
+    public void setDatabase ( org.eclipse.scada.configuration.world.DatabaseSettings newDatabase )
     {
-        DatabaseSettings oldDatabase = database;
+        org.eclipse.scada.configuration.world.DatabaseSettings oldDatabase = database;
         database = newDatabase;
         if ( eNotificationRequired () )
             eNotify ( new ENotificationImpl ( this, Notification.SET, JdbcPackage.UPDATE_COMMAND__DATABASE, oldDatabase, database ) );
@@ -351,7 +342,7 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
                 setSql ( (String)newValue );
                 return;
             case JdbcPackage.UPDATE_COMMAND__DATABASE:
-                setDatabase ( (DatabaseSettings)newValue );
+                setDatabase ( (org.eclipse.scada.configuration.world.DatabaseSettings)newValue );
                 return;
             case JdbcPackage.UPDATE_COMMAND__QUERY_TIMEOUT:
                 setQueryTimeout ( (Integer)newValue );
@@ -381,7 +372,7 @@ public class UpdateCommandImpl extends SingleValueImpl implements UpdateCommand
                 setSql ( SQL_EDEFAULT );
                 return;
             case JdbcPackage.UPDATE_COMMAND__DATABASE:
-                setDatabase ( (DatabaseSettings)null );
+                setDatabase ( (org.eclipse.scada.configuration.world.DatabaseSettings)null );
                 return;
             case JdbcPackage.UPDATE_COMMAND__QUERY_TIMEOUT:
                 setQueryTimeout ( QUERY_TIMEOUT_EDEFAULT );

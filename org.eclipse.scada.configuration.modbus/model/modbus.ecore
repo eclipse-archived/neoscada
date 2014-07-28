@@ -99,7 +99,7 @@
     <eLiterals name="BIG_ENDIAN"/>
     <eLiterals name="LITTLE_ENDIAN" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterModule" eSuperTypes="../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Settings">
+  <eClassifiers xsi:type="ecore:EClass" name="ModbusExporterModule" eSuperTypes="../../org.eclipse.scada.configuration.world/model/configuration.ecore#//Settings">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataOrder" lowerBound="1"
         eType="#//ByteOrder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"

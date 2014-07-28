@@ -94,7 +94,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -117,7 +117,7 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
                         false,
                         false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
+                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
                         null ) );
     }
 
@@ -256,6 +256,17 @@ public class ModbusDeviceItemProvider extends ItemProviderAdapter implements IEd
     public Object getImage ( Object object )
     {
         return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/ModbusDevice" ) ); //$NON-NLS-1$
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
     }
 
     /**

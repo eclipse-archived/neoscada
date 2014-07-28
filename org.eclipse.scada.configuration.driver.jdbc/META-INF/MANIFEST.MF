@@ -18,7 +18,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.globalization;visibility:=reexport,
  org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
  org.eclipse.scada.configuration.item;visibility:=reexport,
- org.eclipse.scada.da.server.jdbc;visibility:=reexport,
+ org.eclipse.scada.da.server.jdbc;bundle-version="0.2.0";visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
- org.eclipse.scada.configuration.world;visibility:=reexport
+ org.eclipse.scada.configuration.world;bundle-version="0.2.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

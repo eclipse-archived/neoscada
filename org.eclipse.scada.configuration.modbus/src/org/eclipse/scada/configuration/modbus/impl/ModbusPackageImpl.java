@@ -1032,7 +1032,7 @@ public class ModbusPackageImpl extends EPackageImpl implements ModbusPackage
         modbusSInt32EClass.getESuperTypes ().add ( this.getModbusDataType () );
         modbusUInt16EClass.getESuperTypes ().add ( this.getModbusDataType () );
         modbusUInt32EClass.getESuperTypes ().add ( this.getModbusDataType () );
-        modbusExporterModuleEClass.getESuperTypes ().add ( theInfrastructurePackage.getSettings () );
+        modbusExporterModuleEClass.getESuperTypes ().add ( theWorldPackage.getSettings () );
         modbusExporterInterceptorEClass.getESuperTypes ().add ( theComponentPackage.getItemInterceptor () );
 
         // Initialize classes, features, and operations; add parameters

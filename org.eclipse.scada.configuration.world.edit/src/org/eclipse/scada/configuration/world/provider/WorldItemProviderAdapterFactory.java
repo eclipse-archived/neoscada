@@ -406,6 +406,81 @@ public class WorldItemProviderAdapterFactory extends WorldAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.GenericSettingsContainer} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GenericSettingsContainerItemProvider genericSettingsContainerItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.GenericSettingsContainer}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGenericSettingsContainerAdapter ()
+    {
+        if ( genericSettingsContainerItemProvider == null )
+        {
+            genericSettingsContainerItemProvider = new GenericSettingsContainerItemProvider ( this );
+        }
+
+        return genericSettingsContainerItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.GenericDatabaseSettings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected GenericDatabaseSettingsItemProvider genericDatabaseSettingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.GenericDatabaseSettings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createGenericDatabaseSettingsAdapter ()
+    {
+        if ( genericDatabaseSettingsItemProvider == null )
+        {
+            genericDatabaseSettingsItemProvider = new GenericDatabaseSettingsItemProvider ( this );
+        }
+
+        return genericDatabaseSettingsItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.PostgresDatabaseSettings} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected PostgresDatabaseSettingsItemProvider postgresDatabaseSettingsItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.PostgresDatabaseSettings}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createPostgresDatabaseSettingsAdapter ()
+    {
+        if ( postgresDatabaseSettingsItemProvider == null )
+        {
+            postgresDatabaseSettingsItemProvider = new PostgresDatabaseSettingsItemProvider ( this );
+        }
+
+        return postgresDatabaseSettingsItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

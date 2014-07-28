@@ -339,6 +339,72 @@ public class WorldSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case WorldPackage.SETTINGS:
+            {
+                Settings settings = (Settings)theEObject;
+                T result = caseSettings ( settings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.DATABASE_SETTINGS:
+            {
+                DatabaseSettings databaseSettings = (DatabaseSettings)theEObject;
+                T result = caseDatabaseSettings ( databaseSettings );
+                if ( result == null )
+                    result = caseSettings ( databaseSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.GENERIC_SETTINGS_CONTAINER:
+            {
+                GenericSettingsContainer genericSettingsContainer = (GenericSettingsContainer)theEObject;
+                T result = caseGenericSettingsContainer ( genericSettingsContainer );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.GENERIC_DATABASE_SETTINGS:
+            {
+                GenericDatabaseSettings genericDatabaseSettings = (GenericDatabaseSettings)theEObject;
+                T result = caseGenericDatabaseSettings ( genericDatabaseSettings );
+                if ( result == null )
+                    result = caseAbstractGenericDatabaseSettings ( genericDatabaseSettings );
+                if ( result == null )
+                    result = caseDatabaseSettings ( genericDatabaseSettings );
+                if ( result == null )
+                    result = caseSettings ( genericDatabaseSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.ABSTRACT_GENERIC_DATABASE_SETTINGS:
+            {
+                AbstractGenericDatabaseSettings abstractGenericDatabaseSettings = (AbstractGenericDatabaseSettings)theEObject;
+                T result = caseAbstractGenericDatabaseSettings ( abstractGenericDatabaseSettings );
+                if ( result == null )
+                    result = caseDatabaseSettings ( abstractGenericDatabaseSettings );
+                if ( result == null )
+                    result = caseSettings ( abstractGenericDatabaseSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case WorldPackage.POSTGRES_DATABASE_SETTINGS:
+            {
+                PostgresDatabaseSettings postgresDatabaseSettings = (PostgresDatabaseSettings)theEObject;
+                T result = casePostgresDatabaseSettings ( postgresDatabaseSettings );
+                if ( result == null )
+                    result = caseAbstractGenericDatabaseSettings ( postgresDatabaseSettings );
+                if ( result == null )
+                    result = caseDatabaseSettings ( postgresDatabaseSettings );
+                if ( result == null )
+                    result = caseSettings ( postgresDatabaseSettings );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -692,6 +758,102 @@ public class WorldSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseReferencedServiceBinding ( ReferencedServiceBinding object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseSettings ( Settings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Database Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseDatabaseSettings ( DatabaseSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic Settings Container</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic Settings Container</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericSettingsContainer ( GenericSettingsContainer object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic Database Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericDatabaseSettings ( GenericDatabaseSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Abstract Generic Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Abstract Generic Database Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseAbstractGenericDatabaseSettings ( AbstractGenericDatabaseSettings object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Postgres Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Postgres Database Settings</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePostgresDatabaseSettings ( PostgresDatabaseSettings object )
     {
         return null;
     }

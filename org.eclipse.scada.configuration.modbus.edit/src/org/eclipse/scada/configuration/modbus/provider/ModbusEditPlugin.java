@@ -12,6 +12,7 @@ package org.eclipse.scada.configuration.modbus.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.component.provider.ComponentEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
@@ -65,6 +66,7 @@ public final class ModbusEditPlugin extends EMFPlugin
                 ScriptEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
+                EcoreEditPlugin.INSTANCE,
         } );
     }
 

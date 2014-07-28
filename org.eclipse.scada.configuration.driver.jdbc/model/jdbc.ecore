@@ -27,7 +27,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="QueryBase" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sql" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
-        eType="ecore:EClass ../../org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//DatabaseSettings"/>
+        eType="ecore:EClass ../../org.eclipse.scada.configuration.world/model/configuration.ecore#//DatabaseSettings"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="queryTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The query timeout in seconds."/>

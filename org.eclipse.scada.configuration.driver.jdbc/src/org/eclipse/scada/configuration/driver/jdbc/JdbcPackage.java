@@ -690,6 +690,15 @@ public interface JdbcPackage extends EPackage
     int JDBC_DRIVER__PORT_NUMBER = InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PORT_NUMBER;
 
     /**
+     * The feature id for the '<em><b>Password</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int JDBC_DRIVER__PASSWORD = InfrastructurePackage.ABSTRACT_COMMON_DRIVER__PASSWORD;
+
+    /**
      * The number of structural features of the '<em>Driver</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

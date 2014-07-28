@@ -376,14 +376,6 @@ public class InfrastructureSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
-            case InfrastructurePackage.SETTINGS:
-            {
-                Settings settings = (Settings)theEObject;
-                T result = caseSettings ( settings );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
             case InfrastructurePackage.WEB_ADMIN_CONSOLE:
             {
                 WebAdminConsole webAdminConsole = (WebAdminConsole)theEObject;
@@ -430,16 +422,6 @@ public class InfrastructureSwitch<T> extends Switch<T>
             {
                 EquinoxBase equinoxBase = (EquinoxBase)theEObject;
                 T result = caseEquinoxBase ( equinoxBase );
-                if ( result == null )
-                    result = defaultCase ( theEObject );
-                return result;
-            }
-            case InfrastructurePackage.DATABASE_SETTINGS:
-            {
-                DatabaseSettings databaseSettings = (DatabaseSettings)theEObject;
-                T result = caseDatabaseSettings ( databaseSettings );
-                if ( result == null )
-                    result = caseSettings ( databaseSettings );
                 if ( result == null )
                     result = defaultCase ( theEObject );
                 return result;
@@ -876,22 +858,6 @@ public class InfrastructureSwitch<T> extends Switch<T>
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Settings</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Settings</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseSettings ( Settings object )
-    {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Web Admin Console</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -967,22 +933,6 @@ public class InfrastructureSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseEquinoxBase ( EquinoxBase object )
-    {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Database Settings</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Database Settings</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseDatabaseSettings ( DatabaseSettings object )
     {
         return null;
     }

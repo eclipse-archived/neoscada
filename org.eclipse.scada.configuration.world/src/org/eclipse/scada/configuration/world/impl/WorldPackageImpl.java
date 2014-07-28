@@ -20,26 +20,32 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.scada.configuration.security.SecurityPackage;
+import org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.ApplicationNode;
 import org.eclipse.scada.configuration.world.CommonDriver;
 import org.eclipse.scada.configuration.world.ContainedServiceBinding;
 import org.eclipse.scada.configuration.world.Credentials;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.Endpoint;
 import org.eclipse.scada.configuration.world.ExecDriver;
 import org.eclipse.scada.configuration.world.ExternalNode;
+import org.eclipse.scada.configuration.world.GenericDatabaseSettings;
+import org.eclipse.scada.configuration.world.GenericSettingsContainer;
 import org.eclipse.scada.configuration.world.HandlerPriorityRule;
 import org.eclipse.scada.configuration.world.MasterHandlerPriorities;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.Node;
 import org.eclipse.scada.configuration.world.Options;
 import org.eclipse.scada.configuration.world.PasswordCredentials;
+import org.eclipse.scada.configuration.world.PostgresDatabaseSettings;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.ReferencedServiceBinding;
 import org.eclipse.scada.configuration.world.Service;
 import org.eclipse.scada.configuration.world.ServiceBinding;
+import org.eclipse.scada.configuration.world.Settings;
 import org.eclipse.scada.configuration.world.UsernamePasswordCredentials;
 import org.eclipse.scada.configuration.world.World;
 import org.eclipse.scada.configuration.world.WorldFactory;
@@ -213,6 +219,48 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * @generated
      */
     private EClass referencedServiceBindingEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass settingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass databaseSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass genericSettingsContainerEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass genericDatabaseSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass abstractGenericDatabaseSettingsEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass postgresDatabaseSettingsEClass = null;
 
     /**
      * <!-- begin-user-doc -->
@@ -881,6 +929,236 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EClass getSettings ()
+    {
+        return settingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getDatabaseSettings ()
+    {
+        return databaseSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getDatabaseSettings_Id ()
+    {
+        return (EAttribute)databaseSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getDatabaseSettings__GetDriverName ()
+    {
+        return databaseSettingsEClass.getEOperations ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getDatabaseSettings__GetProperties ()
+    {
+        return databaseSettingsEClass.getEOperations ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getDatabaseSettings__GetUrl ()
+    {
+        return databaseSettingsEClass.getEOperations ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getDatabaseSettings__GetLoginTimeout ()
+    {
+        return databaseSettingsEClass.getEOperations ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EOperation getDatabaseSettings__GetBundles ()
+    {
+        return databaseSettingsEClass.getEOperations ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGenericSettingsContainer ()
+    {
+        return genericSettingsContainerEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getGenericSettingsContainer_Settings ()
+    {
+        return (EReference)genericSettingsContainerEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getGenericDatabaseSettings ()
+    {
+        return genericDatabaseSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGenericDatabaseSettings_Url ()
+    {
+        return (EAttribute)genericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGenericDatabaseSettings_DriverName ()
+    {
+        return (EAttribute)genericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getGenericDatabaseSettings_Bundles ()
+    {
+        return (EAttribute)genericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getAbstractGenericDatabaseSettings ()
+    {
+        return abstractGenericDatabaseSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_Username ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 0 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_Password ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 1 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_LoginTimeout ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 2 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EReference getAbstractGenericDatabaseSettings_AdditionalProperties ()
+    {
+        return (EReference)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 3 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_DatabaseName ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 4 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_ServerName ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 5 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getAbstractGenericDatabaseSettings_PortNumber ()
+    {
+        return (EAttribute)abstractGenericDatabaseSettingsEClass.getEStructuralFeatures ().get ( 6 );
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getPostgresDatabaseSettings ()
+    {
+        return postgresDatabaseSettingsEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EDataType getPattern ()
     {
@@ -994,6 +1272,35 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         referencedServiceBindingEClass = createEClass ( REFERENCED_SERVICE_BINDING );
         createEReference ( referencedServiceBindingEClass, REFERENCED_SERVICE_BINDING__SERVICE );
 
+        settingsEClass = createEClass ( SETTINGS );
+
+        databaseSettingsEClass = createEClass ( DATABASE_SETTINGS );
+        createEAttribute ( databaseSettingsEClass, DATABASE_SETTINGS__ID );
+        createEOperation ( databaseSettingsEClass, DATABASE_SETTINGS___GET_DRIVER_NAME );
+        createEOperation ( databaseSettingsEClass, DATABASE_SETTINGS___GET_PROPERTIES );
+        createEOperation ( databaseSettingsEClass, DATABASE_SETTINGS___GET_URL );
+        createEOperation ( databaseSettingsEClass, DATABASE_SETTINGS___GET_LOGIN_TIMEOUT );
+        createEOperation ( databaseSettingsEClass, DATABASE_SETTINGS___GET_BUNDLES );
+
+        genericSettingsContainerEClass = createEClass ( GENERIC_SETTINGS_CONTAINER );
+        createEReference ( genericSettingsContainerEClass, GENERIC_SETTINGS_CONTAINER__SETTINGS );
+
+        genericDatabaseSettingsEClass = createEClass ( GENERIC_DATABASE_SETTINGS );
+        createEAttribute ( genericDatabaseSettingsEClass, GENERIC_DATABASE_SETTINGS__URL );
+        createEAttribute ( genericDatabaseSettingsEClass, GENERIC_DATABASE_SETTINGS__DRIVER_NAME );
+        createEAttribute ( genericDatabaseSettingsEClass, GENERIC_DATABASE_SETTINGS__BUNDLES );
+
+        abstractGenericDatabaseSettingsEClass = createEClass ( ABSTRACT_GENERIC_DATABASE_SETTINGS );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT );
+        createEReference ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME );
+        createEAttribute ( abstractGenericDatabaseSettingsEClass, ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER );
+
+        postgresDatabaseSettingsEClass = createEClass ( POSTGRES_DATABASE_SETTINGS );
+
         // Create data types
         patternEDataType = createEDataType ( PATTERN );
     }
@@ -1053,6 +1360,10 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
         namedDocumentableEClass.getESuperTypes ().add ( this.getDocumentable () );
         containedServiceBindingEClass.getESuperTypes ().add ( this.getServiceBinding () );
         referencedServiceBindingEClass.getESuperTypes ().add ( this.getServiceBinding () );
+        databaseSettingsEClass.getESuperTypes ().add ( this.getSettings () );
+        genericDatabaseSettingsEClass.getESuperTypes ().add ( this.getAbstractGenericDatabaseSettings () );
+        abstractGenericDatabaseSettingsEClass.getESuperTypes ().add ( this.getDatabaseSettings () );
+        postgresDatabaseSettingsEClass.getESuperTypes ().add ( this.getAbstractGenericDatabaseSettings () );
 
         // Initialize classes, features, and operations; add parameters
         initEClass ( worldEClass, World.class, "World", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
@@ -1133,6 +1444,40 @@ public class WorldPackageImpl extends EPackageImpl implements WorldPackage
 
         initEClass ( referencedServiceBindingEClass, ReferencedServiceBinding.class, "ReferencedServiceBinding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEReference ( getReferencedServiceBinding_Service (), theEcorePackage.getEObject (), null, "service", null, 1, 1, ReferencedServiceBinding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( settingsEClass, Settings.class, "Settings", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+
+        initEClass ( databaseSettingsEClass, DatabaseSettings.class, "DatabaseSettings", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getDatabaseSettings_Id (), theEcorePackage.getEString (), "id", null, 1, 1, DatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDatabaseSettings__GetDriverName (), ecorePackage.getEString (), "getDriverName", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDatabaseSettings__GetProperties (), this.getPropertyEntry (), "getProperties", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDatabaseSettings__GetUrl (), ecorePackage.getEString (), "getUrl", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDatabaseSettings__GetLoginTimeout (), theEcorePackage.getEIntegerObject (), "getLoginTimeout", 0, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEOperation ( getDatabaseSettings__GetBundles (), ecorePackage.getEString (), "getBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( genericSettingsContainerEClass, GenericSettingsContainer.class, "GenericSettingsContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEReference ( getGenericSettingsContainer_Settings (), this.getSettings (), null, "settings", null, 0, 1, GenericSettingsContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( genericDatabaseSettingsEClass, GenericDatabaseSettings.class, "GenericDatabaseSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getGenericDatabaseSettings_Url (), ecorePackage.getEString (), "url", null, 1, 1, GenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getGenericDatabaseSettings_DriverName (), theEcorePackage.getEString (), "driverName", null, 1, 1, GenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getGenericDatabaseSettings_Bundles (), ecorePackage.getEString (), "bundles", null, 0, -1, GenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( abstractGenericDatabaseSettingsEClass, AbstractGenericDatabaseSettings.class, "AbstractGenericDatabaseSettings", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_Username (), theEcorePackage.getEString (), "username", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_Password (), theEcorePackage.getEString (), "password", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_LoginTimeout (), theEcorePackage.getEIntegerObject (), "loginTimeout", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAbstractGenericDatabaseSettings_AdditionalProperties (), this.getPropertyEntry (), null, "additionalProperties", null, 0, -1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_DatabaseName (), ecorePackage.getEString (), "databaseName", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_ServerName (), ecorePackage.getEString (), "serverName", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+        initEAttribute ( getAbstractGenericDatabaseSettings_PortNumber (), ecorePackage.getEIntegerObject (), "portNumber", null, 0, 1, AbstractGenericDatabaseSettings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
+
+        initEClass ( postgresDatabaseSettingsEClass, PostgresDatabaseSettings.class, "PostgresDatabaseSettings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         // Initialize data types
         initEDataType ( patternEDataType, Pattern.class, "Pattern", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$

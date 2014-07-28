@@ -14,7 +14,7 @@ import org.eclipse.scada.configuration.component.DataComponent;
 import org.eclipse.scada.configuration.component.generator.DriverGenerator;
 import org.eclipse.scada.configuration.driver.jdbc.JdbcDriverInstance;
 import org.eclipse.scada.configuration.driver.jdbc.QueryBase;
-import org.eclipse.scada.configuration.infrastructure.DatabaseSettings;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.da.server.jdbc.configuration.ConfigurationFactory;
 import org.eclipse.scada.da.server.jdbc.configuration.ConnectionType;
@@ -73,9 +73,12 @@ public abstract class QueryGenerator<T extends QueryBase & DataComponent> extend
 
         con.setId ( database.getId () );
         con.setConnectionClass ( database.getDriverName () );
-        con.setUsername ( database.getUser () );
-        con.setPassword ( database.getPassword () );
-        con.setUri ( database.getUri () );
+        con.setUri ( database.getUrl () );
+
+        if ( database.getLoginTimeout () != null )
+        {
+            con.setTimeout ( database.getLoginTimeout () );
+        }
 
         // convert types
         for ( final PropertyEntry pe : database.getProperties () )
@@ -84,6 +87,16 @@ public abstract class QueryGenerator<T extends QueryBase & DataComponent> extend
             npe.setKey ( pe.getKey () );
             npe.setValue ( pe.getValue () );
             con.getProperty ().add ( npe );
+
+            // for backwards compatibility
+            if ( "user".equals ( pe.getKey () ) )
+            {
+                con.setUsername ( pe.getValue () );
+            }
+            if ( "password".equals ( pe.getKey () ) )
+            {
+                con.setPassword ( pe.getValue () );
+            }
         }
 
         root.getConnection ().add ( con );

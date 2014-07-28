@@ -16,12 +16,28 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.scada.configuration.component.ItemInterceptor;
 import org.eclipse.scada.configuration.infrastructure.Device;
-import org.eclipse.scada.configuration.infrastructure.Settings;
-import org.eclipse.scada.configuration.modbus.*;
+import org.eclipse.scada.configuration.modbus.ModbusBlock;
+import org.eclipse.scada.configuration.modbus.ModbusDataType;
+import org.eclipse.scada.configuration.modbus.ModbusDevice;
+import org.eclipse.scada.configuration.modbus.ModbusDouble;
+import org.eclipse.scada.configuration.modbus.ModbusDriver;
+import org.eclipse.scada.configuration.modbus.ModbusExporter;
+import org.eclipse.scada.configuration.modbus.ModbusExporterDevice;
+import org.eclipse.scada.configuration.modbus.ModbusExporterInterceptor;
+import org.eclipse.scada.configuration.modbus.ModbusExporterItem;
+import org.eclipse.scada.configuration.modbus.ModbusExporterModule;
+import org.eclipse.scada.configuration.modbus.ModbusMaster;
+import org.eclipse.scada.configuration.modbus.ModbusPackage;
+import org.eclipse.scada.configuration.modbus.ModbusSInt16;
+import org.eclipse.scada.configuration.modbus.ModbusSInt32;
+import org.eclipse.scada.configuration.modbus.ModbusSlave;
+import org.eclipse.scada.configuration.modbus.ModbusUInt16;
+import org.eclipse.scada.configuration.modbus.ModbusUInt32;
 import org.eclipse.scada.configuration.world.Application;
 import org.eclipse.scada.configuration.world.Documentable;
 import org.eclipse.scada.configuration.world.Driver;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
+import org.eclipse.scada.configuration.world.Settings;
 import org.eclipse.scada.configuration.world.osgi.ApplicationModule;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
@@ -648,13 +664,13 @@ public class ModbusAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}'.
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Settings <em>Settings</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
      * it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see org.eclipse.scada.configuration.infrastructure.Settings
+     * @see org.eclipse.scada.configuration.world.Settings
      * @generated
      */
     public Adapter createSettingsAdapter ()

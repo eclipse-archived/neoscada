@@ -267,12 +267,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
-        public Adapter caseSettings ( Settings object )
-        {
-            return createSettingsAdapter ();
-        }
-
-        @Override
         public Adapter caseWebAdminConsole ( WebAdminConsole object )
         {
             return createWebAdminConsoleAdapter ();
@@ -300,12 +294,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
         public Adapter caseEquinoxBase ( EquinoxBase object )
         {
             return createEquinoxBaseAdapter ();
-        }
-
-        @Override
-        public Adapter caseDatabaseSettings ( DatabaseSettings object )
-        {
-            return createDatabaseSettingsAdapter ();
         }
 
         @Override
@@ -802,21 +790,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.infrastructure.Settings
-     * @generated
-     */
-    public Adapter createSettingsAdapter ()
-    {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole <em>Web Admin Console</em>}'.
      * <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases;
@@ -887,21 +860,6 @@ public class InfrastructureAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createEquinoxBaseAdapter ()
-    {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings <em>Database Settings</em>}'.
-     * <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases;
-     * it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     * @return the new adapter.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings
-     * @generated
-     */
-    public Adapter createDatabaseSettingsAdapter ()
     {
         return null;
     }

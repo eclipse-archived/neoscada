@@ -232,6 +232,42 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
         }
 
         @Override
+        public Adapter caseSettings ( Settings object )
+        {
+            return createSettingsAdapter ();
+        }
+
+        @Override
+        public Adapter caseDatabaseSettings ( DatabaseSettings object )
+        {
+            return createDatabaseSettingsAdapter ();
+        }
+
+        @Override
+        public Adapter caseGenericSettingsContainer ( GenericSettingsContainer object )
+        {
+            return createGenericSettingsContainerAdapter ();
+        }
+
+        @Override
+        public Adapter caseGenericDatabaseSettings ( GenericDatabaseSettings object )
+        {
+            return createGenericDatabaseSettingsAdapter ();
+        }
+
+        @Override
+        public Adapter caseAbstractGenericDatabaseSettings ( AbstractGenericDatabaseSettings object )
+        {
+            return createAbstractGenericDatabaseSettingsAdapter ();
+        }
+
+        @Override
+        public Adapter casePostgresDatabaseSettings ( PostgresDatabaseSettings object )
+        {
+            return createPostgresDatabaseSettingsAdapter ();
+        }
+
+        @Override
         public Adapter defaultCase ( EObject object )
         {
             return createEObjectAdapter ();
@@ -614,6 +650,96 @@ public class WorldAdapterFactory extends AdapterFactoryImpl
      * @generated
      */
     public Adapter createReferencedServiceBindingAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.Settings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.Settings
+     * @generated
+     */
+    public Adapter createSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.DatabaseSettings <em>Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings
+     * @generated
+     */
+    public Adapter createDatabaseSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.GenericSettingsContainer <em>Generic Settings Container</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.GenericSettingsContainer
+     * @generated
+     */
+    public Adapter createGenericSettingsContainerAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.GenericDatabaseSettings <em>Generic Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.GenericDatabaseSettings
+     * @generated
+     */
+    public Adapter createGenericDatabaseSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings <em>Abstract Generic Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings
+     * @generated
+     */
+    public Adapter createAbstractGenericDatabaseSettingsAdapter ()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '{@link org.eclipse.scada.configuration.world.PostgresDatabaseSettings <em>Postgres Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
+     * @return the new adapter.
+     * @see org.eclipse.scada.configuration.world.PostgresDatabaseSettings
+     * @generated
+     */
+    public Adapter createPostgresDatabaseSettingsAdapter ()
     {
         return null;
     }

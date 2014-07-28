@@ -108,33 +108,6 @@
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.component/model/component.ecore#//SingleValue"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZOLwMvtwEeOow7-3lVX_Gw" x="372" y="336"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_TNMBoPtxEeOow7-3lVX_Gw" type="1001">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TOQYoPtxEeOow7-3lVX_Gw" source="Shortcut">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TOQYoftxEeOow7-3lVX_Gw" key="modelID" value="EcoreTools"/>
-    </eAnnotations>
-    <children xmi:type="notation:Node" xmi:id="_TN82oPtxEeOow7-3lVX_Gw" type="4001"/>
-    <children xmi:type="notation:Node" xmi:id="_TN82oftxEeOow7-3lVX_Gw" type="5001">
-      <children xmi:type="notation:Node" xmi:id="__qJqYPtxEeOow7-3lVX_Gw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//DatabaseSettings/id"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="__qJqYftxEeOow7-3lVX_Gw"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_TN-r0PtxEeOow7-3lVX_Gw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//DatabaseSettings/driverName"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_TN-r0ftxEeOow7-3lVX_Gw"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_TN82ovtxEeOow7-3lVX_Gw"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_TN82o_txEeOow7-3lVX_Gw"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_TN82pPtxEeOow7-3lVX_Gw"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_TN82pftxEeOow7-3lVX_Gw" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_TN82pvtxEeOow7-3lVX_Gw"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_TN82p_txEeOow7-3lVX_Gw"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_TN82qPtxEeOow7-3lVX_Gw"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_TNMBoftxEeOow7-3lVX_Gw" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//DatabaseSettings"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TNMBovtxEeOow7-3lVX_Gw" x="-276" y="432"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_RoqeYPtyEeOow7-3lVX_Gw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_RpasUPtyEeOow7-3lVX_Gw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_RpasUftyEeOow7-3lVX_Gw" type="5001">
@@ -322,18 +295,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_aG5g4vtwEeOow7-3lVX_Gw" fontName="Sans"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aG5g4_twEeOow7-3lVX_Gw" points="[-6, 21, 7, -55]$[-6, 52, 7, -24]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_UP-7YPtxEeOow7-3lVX_Gw" type="3002" source="_X3oiEPtyEeOow7-3lVX_Gw" target="_TNMBoPtxEeOow7-3lVX_Gw">
-    <children xmi:type="notation:Node" xmi:id="_UP-7ZPtxEeOow7-3lVX_Gw" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_UP-7ZftxEeOow7-3lVX_Gw" x="-10" y="-10"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_UP-7ZvtxEeOow7-3lVX_Gw" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_UP-7Z_txEeOow7-3lVX_Gw" x="10" y="10"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_UP-7YftxEeOow7-3lVX_Gw" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_UP-7YvtxEeOow7-3lVX_Gw" fontColor="4210752" fontName="Sans" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="jdbc.ecore#//QueryBase/database"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UP-7Y_txEeOow7-3lVX_Gw" points="[-8, 21, 48, -196]$[-138, 210, -82, -7]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_fUWyUPtyEeOow7-3lVX_Gw" type="3003" source="_PDSpgPtwEeOow7-3lVX_Gw" target="_ZOLwMPtwEeOow7-3lVX_Gw">
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_fUWyUftyEeOow7-3lVX_Gw" routing="Rectilinear" lineColor="4210752"/>

@@ -48,7 +48,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.scada.configuration.component;visibility:=reexport,
- org.eclipse.scada.configuration.world;visibility:=reexport,
+ org.eclipse.scada.configuration.world;bundle-version="0.2.0";visibility:=reexport,
  org.eclipse.scada.da.server.exec;visibility:=reexport,
  org.eclipse.scada.configuration.globalization;visibility:=reexport,
  org.eclipse.scada.configuration.infrastructure;visibility:=reexport,
@@ -58,4 +58,4 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.configuration.security;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.scada.da.server.osgi.modbus
+Import-Package: org.eclipse.scada.da.server.osgi.modbus;version="0.1.0"

@@ -1848,34 +1848,6 @@ public interface InfrastructurePackage extends EPackage
     int VALUE_ARCHIVE_SLAVE_OPERATION_COUNT = EQUINOX_APPLICATION_OPERATION_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.infrastructure.Settings
-     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSettings()
-     * @generated
-     */
-    int SETTINGS = 26;
-
-    /**
-     * The number of structural features of the '<em>Settings</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SETTINGS_FEATURE_COUNT = 0;
-
-    /**
-     * The number of operations of the '<em>Settings</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int SETTINGS_OPERATION_COUNT = 0;
-
-    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl <em>Web Admin Console</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1883,7 +1855,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getWebAdminConsole()
      * @generated
      */
-    int WEB_ADMIN_CONSOLE = 27;
+    int WEB_ADMIN_CONSOLE = 26;
 
     /**
      * The feature id for the '<em><b>Http Service</b></em>' reference.
@@ -1920,7 +1892,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getOracleVMSettings()
      * @generated
      */
-    int ORACLE_VM_SETTINGS = 28;
+    int ORACLE_VM_SETTINGS = 27;
 
     /**
      * The feature id for the '<em><b>Initial Heap Size</b></em>' attribute.
@@ -1966,7 +1938,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getGenericVMSettings()
      * @generated
      */
-    int GENERIC_VM_SETTINGS = 29;
+    int GENERIC_VM_SETTINGS = 28;
 
     /**
      * The feature id for the '<em><b>Arguments</b></em>' attribute list.
@@ -2003,7 +1975,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getAbstractEquinoxDriver()
      * @generated
      */
-    int ABSTRACT_EQUINOX_DRIVER = 30;
+    int ABSTRACT_EQUINOX_DRIVER = 29;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2085,7 +2057,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getEquinoxBase()
      * @generated
      */
-    int EQUINOX_BASE = 31;
+    int EQUINOX_BASE = 30;
 
     /**
      * The feature id for the '<em><b>Instance Number</b></em>' attribute.
@@ -2133,88 +2105,6 @@ public interface InfrastructurePackage extends EPackage
     int EQUINOX_BASE_OPERATION_COUNT = 0;
 
     /**
-     * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.DatabaseSettingsImpl <em>Database Settings</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.scada.configuration.infrastructure.impl.DatabaseSettingsImpl
-     * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getDatabaseSettings()
-     * @generated
-     */
-    int DATABASE_SETTINGS = 32;
-
-    /**
-     * The feature id for the '<em><b>Id</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__ID = SETTINGS_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Driver Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__DRIVER_NAME = SETTINGS_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__PROPERTIES = SETTINGS_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Uri</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__URI = SETTINGS_FEATURE_COUNT + 3;
-
-    /**
-     * The feature id for the '<em><b>User</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__USER = SETTINGS_FEATURE_COUNT + 4;
-
-    /**
-     * The feature id for the '<em><b>Password</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS__PASSWORD = SETTINGS_FEATURE_COUNT + 5;
-
-    /**
-     * The number of structural features of the '<em>Database Settings</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS_FEATURE_COUNT = SETTINGS_FEATURE_COUNT + 6;
-
-    /**
-     * The number of operations of the '<em>Database Settings</em>' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int DATABASE_SETTINGS_OPERATION_COUNT = SETTINGS_OPERATION_COUNT + 0;
-
-    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl <em>Abstract Common Driver</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2222,7 +2112,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getAbstractCommonDriver()
      * @generated
      */
-    int ABSTRACT_COMMON_DRIVER = 33;
+    int ABSTRACT_COMMON_DRIVER = 31;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2286,7 +2176,7 @@ public interface InfrastructurePackage extends EPackage
      * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSlaveStorageLayout()
      * @generated
      */
-    int SLAVE_STORAGE_LAYOUT = 34;
+    int SLAVE_STORAGE_LAYOUT = 32;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.World <em>World</em>}'.
@@ -3275,16 +3165,6 @@ public interface InfrastructurePackage extends EPackage
     EAttribute getValueArchiveSlave_StorageLayout ();
 
     /**
-     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Settings</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.Settings
-     * @generated
-     */
-    EClass getSettings ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.WebAdminConsole <em>Web Admin Console</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3421,82 +3301,6 @@ public interface InfrastructurePackage extends EPackage
      * @generated
      */
     EReference getEquinoxBase_SecurityConfiguration ();
-
-    /**
-     * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings <em>Database Settings</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Database Settings</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings
-     * @generated
-     */
-    EClass getDatabaseSettings ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getId <em>Id</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Id</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getId()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EAttribute getDatabaseSettings_Id ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getDriverName <em>Driver Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Driver Name</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getDriverName()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EAttribute getDatabaseSettings_DriverName ();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getProperties <em>Properties</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Properties</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getProperties()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EReference getDatabaseSettings_Properties ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getUri <em>Uri</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Uri</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getUri()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EAttribute getDatabaseSettings_Uri ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getUser <em>User</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>User</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getUser()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EAttribute getDatabaseSettings_User ();
-
-    /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getPassword <em>Password</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Password</em>'.
-     * @see org.eclipse.scada.configuration.infrastructure.DatabaseSettings#getPassword()
-     * @see #getDatabaseSettings()
-     * @generated
-     */
-    EAttribute getDatabaseSettings_Password ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.infrastructure.AbstractCommonDriver <em>Abstract Common Driver</em>}'.
@@ -4353,16 +4157,6 @@ public interface InfrastructurePackage extends EPackage
         EAttribute VALUE_ARCHIVE_SLAVE__STORAGE_LAYOUT = eINSTANCE.getValueArchiveSlave_StorageLayout ();
 
         /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.Settings <em>Settings</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.infrastructure.Settings
-         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getSettings()
-         * @generated
-         */
-        EClass SETTINGS = eINSTANCE.getSettings ();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.WebAdminConsoleImpl <em>Web Admin Console</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4475,64 +4269,6 @@ public interface InfrastructurePackage extends EPackage
          * @generated
          */
         EReference EQUINOX_BASE__SECURITY_CONFIGURATION = eINSTANCE.getEquinoxBase_SecurityConfiguration ();
-
-        /**
-         * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.DatabaseSettingsImpl <em>Database Settings</em>}' class.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see org.eclipse.scada.configuration.infrastructure.impl.DatabaseSettingsImpl
-         * @see org.eclipse.scada.configuration.infrastructure.impl.InfrastructurePackageImpl#getDatabaseSettings()
-         * @generated
-         */
-        EClass DATABASE_SETTINGS = eINSTANCE.getDatabaseSettings ();
-
-        /**
-         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DATABASE_SETTINGS__ID = eINSTANCE.getDatabaseSettings_Id ();
-
-        /**
-         * The meta object literal for the '<em><b>Driver Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DATABASE_SETTINGS__DRIVER_NAME = eINSTANCE.getDatabaseSettings_DriverName ();
-
-        /**
-         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference DATABASE_SETTINGS__PROPERTIES = eINSTANCE.getDatabaseSettings_Properties ();
-
-        /**
-         * The meta object literal for the '<em><b>Uri</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DATABASE_SETTINGS__URI = eINSTANCE.getDatabaseSettings_Uri ();
-
-        /**
-         * The meta object literal for the '<em><b>User</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DATABASE_SETTINGS__USER = eINSTANCE.getDatabaseSettings_User ();
-
-        /**
-         * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute DATABASE_SETTINGS__PASSWORD = eINSTANCE.getDatabaseSettings_Password ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.infrastructure.impl.AbstractCommonDriverImpl <em>Abstract Common Driver</em>}' class.

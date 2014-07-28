@@ -18,6 +18,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.scada.da.server.jdbc;visibility:=reexport,
  org.eclipse.scada.configuration.security;visibility:=reexport,
  org.eclipse.scada.configuration.world;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.junit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

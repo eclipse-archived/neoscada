@@ -135,8 +135,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
                 return createOracleVMSettings ();
             case InfrastructurePackage.GENERIC_VM_SETTINGS:
                 return createGenericVMSettings ();
-            case InfrastructurePackage.DATABASE_SETTINGS:
-                return createDatabaseSettings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -446,17 +444,6 @@ public class InfrastructureFactoryImpl extends EFactoryImpl implements Infrastru
     {
         GenericVMSettingsImpl genericVMSettings = new GenericVMSettingsImpl ();
         return genericVMSettings;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public DatabaseSettings createDatabaseSettings ()
-    {
-        DatabaseSettingsImpl databaseSettings = new DatabaseSettingsImpl ();
-        return databaseSettings;
     }
 
     /**

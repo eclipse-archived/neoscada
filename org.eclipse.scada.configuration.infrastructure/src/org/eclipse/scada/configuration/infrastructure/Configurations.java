@@ -13,6 +13,7 @@ package org.eclipse.scada.configuration.infrastructure;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.scada.configuration.world.Settings;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,11 +58,11 @@ public interface Configurations extends EObject
 
     /**
      * Returns the value of the '<em><b>Settings</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.infrastructure.Settings}.
+     * The list contents are of type {@link org.eclipse.scada.configuration.world.Settings}.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Settings</em>' containment reference list
-     * isn't clear, there really should be more of a description here...
+     * If the meaning of the '<em>Settings</em>' containment reference isn't clear,
+     * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Settings</em>' containment reference list.

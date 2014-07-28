@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.modbus;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.scada.configuration.world.osgi.Item;
 
 /**

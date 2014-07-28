@@ -1268,6 +1268,615 @@ public interface WorldPackage extends EPackage
     int REFERENCED_SERVICE_BINDING_OPERATION_COUNT = SERVICE_BINDING_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.Settings <em>Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.Settings
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getSettings()
+     * @generated
+     */
+    int SETTINGS = 22;
+
+    /**
+     * The number of structural features of the '<em>Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SETTINGS_FEATURE_COUNT = 0;
+
+    /**
+     * The number of operations of the '<em>Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SETTINGS_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings <em>Database Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getDatabaseSettings()
+     * @generated
+     */
+    int DATABASE_SETTINGS = 23;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS__ID = SETTINGS_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS_FEATURE_COUNT = SETTINGS_FEATURE_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get Driver Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS___GET_DRIVER_NAME = SETTINGS_OPERATION_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Properties</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS___GET_PROPERTIES = SETTINGS_OPERATION_COUNT + 1;
+
+    /**
+     * The operation id for the '<em>Get Url</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS___GET_URL = SETTINGS_OPERATION_COUNT + 2;
+
+    /**
+     * The operation id for the '<em>Get Login Timeout</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS___GET_LOGIN_TIMEOUT = SETTINGS_OPERATION_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>Get Bundles</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS___GET_BUNDLES = SETTINGS_OPERATION_COUNT + 4;
+
+    /**
+     * The number of operations of the '<em>Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int DATABASE_SETTINGS_OPERATION_COUNT = SETTINGS_OPERATION_COUNT + 5;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.GenericSettingsContainerImpl <em>Generic Settings Container</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.GenericSettingsContainerImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getGenericSettingsContainer()
+     * @generated
+     */
+    int GENERIC_SETTINGS_CONTAINER = 24;
+
+    /**
+     * The feature id for the '<em><b>Settings</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_SETTINGS_CONTAINER__SETTINGS = 0;
+
+    /**
+     * The number of structural features of the '<em>Generic Settings Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_SETTINGS_CONTAINER_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Generic Settings Container</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_SETTINGS_CONTAINER_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl <em>Abstract Generic Database Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS = 26;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__ID = DATABASE_SETTINGS__ID;
+
+    /**
+     * The feature id for the '<em><b>Username</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME = DATABASE_SETTINGS_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD = DATABASE_SETTINGS_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Login Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT = DATABASE_SETTINGS_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Additional Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES = DATABASE_SETTINGS_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Database Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME = DATABASE_SETTINGS_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Server Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME = DATABASE_SETTINGS_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER = DATABASE_SETTINGS_FEATURE_COUNT + 6;
+
+    /**
+     * The number of structural features of the '<em>Abstract Generic Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT = DATABASE_SETTINGS_FEATURE_COUNT + 7;
+
+    /**
+     * The operation id for the '<em>Get Driver Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_DRIVER_NAME = DATABASE_SETTINGS___GET_DRIVER_NAME;
+
+    /**
+     * The operation id for the '<em>Get Properties</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_PROPERTIES = DATABASE_SETTINGS___GET_PROPERTIES;
+
+    /**
+     * The operation id for the '<em>Get Url</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_URL = DATABASE_SETTINGS___GET_URL;
+
+    /**
+     * The operation id for the '<em>Get Login Timeout</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_LOGIN_TIMEOUT = DATABASE_SETTINGS___GET_LOGIN_TIMEOUT;
+
+    /**
+     * The operation id for the '<em>Get Bundles</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_BUNDLES = DATABASE_SETTINGS___GET_BUNDLES;
+
+    /**
+     * The number of operations of the '<em>Abstract Generic Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_GENERIC_DATABASE_SETTINGS_OPERATION_COUNT = DATABASE_SETTINGS_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl <em>Generic Database Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getGenericDatabaseSettings()
+     * @generated
+     */
+    int GENERIC_DATABASE_SETTINGS = 25;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__ID = ABSTRACT_GENERIC_DATABASE_SETTINGS__ID;
+
+    /**
+     * The feature id for the '<em><b>Username</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__USERNAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__PASSWORD = ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD;
+
+    /**
+     * The feature id for the '<em><b>Login Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT = ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT;
+
+    /**
+     * The feature id for the '<em><b>Additional Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES = ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Database Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__DATABASE_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME;
+
+    /**
+     * The feature id for the '<em><b>Server Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__SERVER_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__PORT_NUMBER = ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER;
+
+    /**
+     * The feature id for the '<em><b>Url</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__URL = ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Driver Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__DRIVER_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Bundles</b></em>' attribute list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS__BUNDLES = ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Generic Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS_FEATURE_COUNT = ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT + 3;
+
+    /**
+     * The operation id for the '<em>Get Driver Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS___GET_DRIVER_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_DRIVER_NAME;
+
+    /**
+     * The operation id for the '<em>Get Properties</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS___GET_PROPERTIES = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_PROPERTIES;
+
+    /**
+     * The operation id for the '<em>Get Url</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS___GET_URL = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_URL;
+
+    /**
+     * The operation id for the '<em>Get Login Timeout</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS___GET_LOGIN_TIMEOUT = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_LOGIN_TIMEOUT;
+
+    /**
+     * The operation id for the '<em>Get Bundles</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS___GET_BUNDLES = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_BUNDLES;
+
+    /**
+     * The number of operations of the '<em>Generic Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int GENERIC_DATABASE_SETTINGS_OPERATION_COUNT = ABSTRACT_GENERIC_DATABASE_SETTINGS_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.impl.PostgresDatabaseSettingsImpl <em>Postgres Database Settings</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.impl.PostgresDatabaseSettingsImpl
+     * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPostgresDatabaseSettings()
+     * @generated
+     */
+    int POSTGRES_DATABASE_SETTINGS = 27;
+
+    /**
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__ID = ABSTRACT_GENERIC_DATABASE_SETTINGS__ID;
+
+    /**
+     * The feature id for the '<em><b>Username</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__USERNAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME;
+
+    /**
+     * The feature id for the '<em><b>Password</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__PASSWORD = ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD;
+
+    /**
+     * The feature id for the '<em><b>Login Timeout</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__LOGIN_TIMEOUT = ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT;
+
+    /**
+     * The feature id for the '<em><b>Additional Properties</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES = ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Database Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__DATABASE_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME;
+
+    /**
+     * The feature id for the '<em><b>Server Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__SERVER_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME;
+
+    /**
+     * The feature id for the '<em><b>Port Number</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS__PORT_NUMBER = ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER;
+
+    /**
+     * The number of structural features of the '<em>Postgres Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS_FEATURE_COUNT = ABSTRACT_GENERIC_DATABASE_SETTINGS_FEATURE_COUNT + 0;
+
+    /**
+     * The operation id for the '<em>Get Driver Name</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS___GET_DRIVER_NAME = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_DRIVER_NAME;
+
+    /**
+     * The operation id for the '<em>Get Properties</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS___GET_PROPERTIES = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_PROPERTIES;
+
+    /**
+     * The operation id for the '<em>Get Url</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS___GET_URL = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_URL;
+
+    /**
+     * The operation id for the '<em>Get Login Timeout</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS___GET_LOGIN_TIMEOUT = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_LOGIN_TIMEOUT;
+
+    /**
+     * The operation id for the '<em>Get Bundles</em>' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS___GET_BUNDLES = ABSTRACT_GENERIC_DATABASE_SETTINGS___GET_BUNDLES;
+
+    /**
+     * The number of operations of the '<em>Postgres Database Settings</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int POSTGRES_DATABASE_SETTINGS_OPERATION_COUNT = ABSTRACT_GENERIC_DATABASE_SETTINGS_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '<em>Pattern</em>' data type.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1275,7 +1884,7 @@ public interface WorldPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPattern()
      * @generated
      */
-    int PATTERN = 22;
+    int PATTERN = 28;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.World <em>World</em>}'.
@@ -1837,6 +2446,248 @@ public interface WorldPackage extends EPackage
     EReference getReferencedServiceBinding_Service ();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.Settings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.Settings
+     * @generated
+     */
+    EClass getSettings ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.DatabaseSettings <em>Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Database Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings
+     * @generated
+     */
+    EClass getDatabaseSettings ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getId <em>Id</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Id</em>'.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getId()
+     * @see #getDatabaseSettings()
+     * @generated
+     */
+    EAttribute getDatabaseSettings_Id ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getDriverName() <em>Get Driver Name</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Driver Name</em>' operation.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getDriverName()
+     * @generated
+     */
+    EOperation getDatabaseSettings__GetDriverName ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getProperties() <em>Get Properties</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Properties</em>' operation.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getProperties()
+     * @generated
+     */
+    EOperation getDatabaseSettings__GetProperties ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getUrl() <em>Get Url</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Url</em>' operation.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getUrl()
+     * @generated
+     */
+    EOperation getDatabaseSettings__GetUrl ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getLoginTimeout() <em>Get Login Timeout</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Login Timeout</em>' operation.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getLoginTimeout()
+     * @generated
+     */
+    EOperation getDatabaseSettings__GetLoginTimeout ();
+
+    /**
+     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings#getBundles() <em>Get Bundles</em>}' operation.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the '<em>Get Bundles</em>' operation.
+     * @see org.eclipse.scada.configuration.world.DatabaseSettings#getBundles()
+     * @generated
+     */
+    EOperation getDatabaseSettings__GetBundles ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.GenericSettingsContainer <em>Generic Settings Container</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Generic Settings Container</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericSettingsContainer
+     * @generated
+     */
+    EClass getGenericSettingsContainer ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.GenericSettingsContainer#getSettings <em>Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericSettingsContainer#getSettings()
+     * @see #getGenericSettingsContainer()
+     * @generated
+     */
+    EReference getGenericSettingsContainer_Settings ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.GenericDatabaseSettings <em>Generic Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Generic Database Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericDatabaseSettings
+     * @generated
+     */
+    EClass getGenericDatabaseSettings ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.GenericDatabaseSettings#getUrl <em>Url</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Url</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericDatabaseSettings#getUrl()
+     * @see #getGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getGenericDatabaseSettings_Url ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.GenericDatabaseSettings#getDriverName <em>Driver Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Driver Name</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericDatabaseSettings#getDriverName()
+     * @see #getGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getGenericDatabaseSettings_DriverName ();
+
+    /**
+     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.GenericDatabaseSettings#getBundles <em>Bundles</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute list '<em>Bundles</em>'.
+     * @see org.eclipse.scada.configuration.world.GenericDatabaseSettings#getBundles()
+     * @see #getGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getGenericDatabaseSettings_Bundles ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings <em>Abstract Generic Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Abstract Generic Database Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings
+     * @generated
+     */
+    EClass getAbstractGenericDatabaseSettings ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getUsername <em>Username</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Username</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getUsername()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_Username ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPassword <em>Password</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Password</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPassword()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_Password ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getLoginTimeout <em>Login Timeout</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Login Timeout</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getLoginTimeout()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_LoginTimeout ();
+
+    /**
+     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getAdditionalProperties <em>Additional Properties</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Additional Properties</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getAdditionalProperties()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EReference getAbstractGenericDatabaseSettings_AdditionalProperties ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getDatabaseName <em>Database Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Database Name</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getDatabaseName()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_DatabaseName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getServerName <em>Server Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Server Name</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getServerName()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_ServerName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPortNumber <em>Port Number</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Port Number</em>'.
+     * @see org.eclipse.scada.configuration.world.AbstractGenericDatabaseSettings#getPortNumber()
+     * @see #getAbstractGenericDatabaseSettings()
+     * @generated
+     */
+    EAttribute getAbstractGenericDatabaseSettings_PortNumber ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.PostgresDatabaseSettings <em>Postgres Database Settings</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Postgres Database Settings</em>'.
+     * @see org.eclipse.scada.configuration.world.PostgresDatabaseSettings
+     * @generated
+     */
+    EClass getPostgresDatabaseSettings ();
+
+    /**
      * Returns the meta object for data type '{@link java.util.regex.Pattern <em>Pattern</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2338,6 +3189,202 @@ public interface WorldPackage extends EPackage
          * @generated
          */
         EReference REFERENCED_SERVICE_BINDING__SERVICE = eINSTANCE.getReferencedServiceBinding_Service ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.Settings <em>Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.Settings
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getSettings()
+         * @generated
+         */
+        EClass SETTINGS = eINSTANCE.getSettings ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.DatabaseSettings <em>Database Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.DatabaseSettings
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getDatabaseSettings()
+         * @generated
+         */
+        EClass DATABASE_SETTINGS = eINSTANCE.getDatabaseSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute DATABASE_SETTINGS__ID = eINSTANCE.getDatabaseSettings_Id ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Driver Name</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATABASE_SETTINGS___GET_DRIVER_NAME = eINSTANCE.getDatabaseSettings__GetDriverName ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Properties</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATABASE_SETTINGS___GET_PROPERTIES = eINSTANCE.getDatabaseSettings__GetProperties ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Url</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATABASE_SETTINGS___GET_URL = eINSTANCE.getDatabaseSettings__GetUrl ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Login Timeout</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATABASE_SETTINGS___GET_LOGIN_TIMEOUT = eINSTANCE.getDatabaseSettings__GetLoginTimeout ();
+
+        /**
+         * The meta object literal for the '<em><b>Get Bundles</b></em>' operation.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EOperation DATABASE_SETTINGS___GET_BUNDLES = eINSTANCE.getDatabaseSettings__GetBundles ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.GenericSettingsContainerImpl <em>Generic Settings Container</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.GenericSettingsContainerImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getGenericSettingsContainer()
+         * @generated
+         */
+        EClass GENERIC_SETTINGS_CONTAINER = eINSTANCE.getGenericSettingsContainer ();
+
+        /**
+         * The meta object literal for the '<em><b>Settings</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference GENERIC_SETTINGS_CONTAINER__SETTINGS = eINSTANCE.getGenericSettingsContainer_Settings ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl <em>Generic Database Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.GenericDatabaseSettingsImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getGenericDatabaseSettings()
+         * @generated
+         */
+        EClass GENERIC_DATABASE_SETTINGS = eINSTANCE.getGenericDatabaseSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERIC_DATABASE_SETTINGS__URL = eINSTANCE.getGenericDatabaseSettings_Url ();
+
+        /**
+         * The meta object literal for the '<em><b>Driver Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERIC_DATABASE_SETTINGS__DRIVER_NAME = eINSTANCE.getGenericDatabaseSettings_DriverName ();
+
+        /**
+         * The meta object literal for the '<em><b>Bundles</b></em>' attribute list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute GENERIC_DATABASE_SETTINGS__BUNDLES = eINSTANCE.getGenericDatabaseSettings_Bundles ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl <em>Abstract Generic Database Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.AbstractGenericDatabaseSettingsImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getAbstractGenericDatabaseSettings()
+         * @generated
+         */
+        EClass ABSTRACT_GENERIC_DATABASE_SETTINGS = eINSTANCE.getAbstractGenericDatabaseSettings ();
+
+        /**
+         * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__USERNAME = eINSTANCE.getAbstractGenericDatabaseSettings_Username ();
+
+        /**
+         * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__PASSWORD = eINSTANCE.getAbstractGenericDatabaseSettings_Password ();
+
+        /**
+         * The meta object literal for the '<em><b>Login Timeout</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__LOGIN_TIMEOUT = eINSTANCE.getAbstractGenericDatabaseSettings_LoginTimeout ();
+
+        /**
+         * The meta object literal for the '<em><b>Additional Properties</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference ABSTRACT_GENERIC_DATABASE_SETTINGS__ADDITIONAL_PROPERTIES = eINSTANCE.getAbstractGenericDatabaseSettings_AdditionalProperties ();
+
+        /**
+         * The meta object literal for the '<em><b>Database Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__DATABASE_NAME = eINSTANCE.getAbstractGenericDatabaseSettings_DatabaseName ();
+
+        /**
+         * The meta object literal for the '<em><b>Server Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__SERVER_NAME = eINSTANCE.getAbstractGenericDatabaseSettings_ServerName ();
+
+        /**
+         * The meta object literal for the '<em><b>Port Number</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute ABSTRACT_GENERIC_DATABASE_SETTINGS__PORT_NUMBER = eINSTANCE.getAbstractGenericDatabaseSettings_PortNumber ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.impl.PostgresDatabaseSettingsImpl <em>Postgres Database Settings</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.impl.PostgresDatabaseSettingsImpl
+         * @see org.eclipse.scada.configuration.world.impl.WorldPackageImpl#getPostgresDatabaseSettings()
+         * @generated
+         */
+        EClass POSTGRES_DATABASE_SETTINGS = eINSTANCE.getPostgresDatabaseSettings ();
 
         /**
          * The meta object literal for the '<em>Pattern</em>' data type.

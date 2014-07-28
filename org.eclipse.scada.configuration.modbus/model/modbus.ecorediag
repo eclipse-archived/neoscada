@@ -507,25 +507,6 @@
     <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.script/model/script.ecore#//Script"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T1nJ8teKEeOHdLWi_9q-gQ" x="1368" y="1356"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_GOmJANmrEeOHdLWi_9q-gQ" type="1001">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GPSFgNmrEeOHdLWi_9q-gQ" source="Shortcut">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_GPSFgdmrEeOHdLWi_9q-gQ" key="modelID" value="EcoreTools"/>
-    </eAnnotations>
-    <children xmi:type="notation:Node" xmi:id="_GPAYsNmrEeOHdLWi_9q-gQ" type="4001"/>
-    <children xmi:type="notation:Node" xmi:id="_GPAYsdmrEeOHdLWi_9q-gQ" type="5001">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_GPAYstmrEeOHdLWi_9q-gQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_GPAYs9mrEeOHdLWi_9q-gQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_GPAYtNmrEeOHdLWi_9q-gQ"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_GPAYtdmrEeOHdLWi_9q-gQ" type="5002">
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_GPAYttmrEeOHdLWi_9q-gQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_GPAYt9mrEeOHdLWi_9q-gQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_GPAYuNmrEeOHdLWi_9q-gQ"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_GOmwENmrEeOHdLWi_9q-gQ" fontColor="4210752" fontName="Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EClass" href="platform:/resource/org.eclipse.scada.configuration.infrastructure/model/infrastructure.ecore#//Settings"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GOmwEdmrEeOHdLWi_9q-gQ" x="1392" y="888"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_10raEBPbEeS5CvTfLN8rPw" type="1001">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_10t2URPbEeS5CvTfLN8rPw" source="Shortcut">
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_10t2UhPbEeS5CvTfLN8rPw" key="modelID" value="EcoreTools"/>
@@ -777,12 +758,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_nCGc0rsWEeOF3saO75bl9w" fontColor="4210752" fontName="Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="modbus.ecore#//ModbusExporterItem/source"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nCGc07sWEeOF3saO75bl9w" points="[0, 0, 78, 73]$[-78, -73, 0, 0]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_7fwsUNd8EeOHdLWi_9q-gQ" type="3003" source="_5VWDMNd8EeOHdLWi_9q-gQ" target="_GOmJANmrEeOHdLWi_9q-gQ">
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_7fwsUdd8EeOHdLWi_9q-gQ" routing="Rectilinear" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_7fwsUtd8EeOHdLWi_9q-gQ" fontName="Sans"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7fwsU9d8EeOHdLWi_9q-gQ" points="[-26, -24, -6, 175]$[-26, -170, -6, 29]"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_G6w6kNd-EeOHdLWi_9q-gQ" type="3002" source="_Fu_D8Nd-EeOHdLWi_9q-gQ" target="_5VWDMNd8EeOHdLWi_9q-gQ">
     <children xmi:type="notation:Node" xmi:id="_G6w6lNd-EeOHdLWi_9q-gQ" type="4011">

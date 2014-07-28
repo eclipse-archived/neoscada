@@ -12,7 +12,6 @@
 package org.eclipse.scada.configuration.infrastructure.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.scada.configuration.infrastructure.ApplicationConfiguration;
 import org.eclipse.scada.configuration.infrastructure.Configurations;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
-import org.eclipse.scada.configuration.infrastructure.Settings;
+import org.eclipse.scada.configuration.world.Settings;
 
 /**
  * <!-- begin-user-doc -->
@@ -102,7 +101,6 @@ public class ConfigurationsImpl extends MinimalEObjectImpl.Container implements 
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
     public EList<Settings> getSettings ()
     {
         if ( settings == null )

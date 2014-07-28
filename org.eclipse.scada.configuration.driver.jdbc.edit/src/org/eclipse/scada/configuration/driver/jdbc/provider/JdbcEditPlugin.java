@@ -15,6 +15,7 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 import org.eclipse.scada.configuration.component.provider.ComponentEditPlugin;
 import org.eclipse.scada.configuration.globalization.provider.GlobalizeEditPlugin;
 import org.eclipse.scada.configuration.infrastructure.provider.InfrastructureEditPlugin;
@@ -67,6 +68,7 @@ public final class JdbcEditPlugin extends EMFPlugin
                 org.eclipse.scada.da.server.jdbc.configuration.provider.JdbcEditPlugin.INSTANCE,
                 SecurityEditPlugin.INSTANCE,
                 WorldEditPlugin.INSTANCE,
+                EcoreEditPlugin.INSTANCE,
         } );
     }
 

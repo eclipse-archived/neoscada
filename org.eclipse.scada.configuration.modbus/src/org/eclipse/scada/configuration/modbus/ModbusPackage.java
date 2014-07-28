@@ -975,7 +975,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_EXPORTER_MODULE__DATA_ORDER = InfrastructurePackage.SETTINGS_FEATURE_COUNT + 0;
+    int MODBUS_EXPORTER_MODULE__DATA_ORDER = WorldPackage.SETTINGS_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -984,7 +984,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_EXPORTER_MODULE__PROPERTIES = InfrastructurePackage.SETTINGS_FEATURE_COUNT + 1;
+    int MODBUS_EXPORTER_MODULE__PROPERTIES = WorldPackage.SETTINGS_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Exporter Module</em>' class.
@@ -993,7 +993,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_EXPORTER_MODULE_FEATURE_COUNT = InfrastructurePackage.SETTINGS_FEATURE_COUNT + 2;
+    int MODBUS_EXPORTER_MODULE_FEATURE_COUNT = WorldPackage.SETTINGS_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Exporter Module</em>' class.
@@ -1002,7 +1002,7 @@ public interface ModbusPackage extends EPackage
      * @generated
      * @ordered
      */
-    int MODBUS_EXPORTER_MODULE_OPERATION_COUNT = InfrastructurePackage.SETTINGS_OPERATION_COUNT + 0;
+    int MODBUS_EXPORTER_MODULE_OPERATION_COUNT = WorldPackage.SETTINGS_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.modbus.impl.ModbusExporterInterceptorImpl <em>Exporter Interceptor</em>}' class.

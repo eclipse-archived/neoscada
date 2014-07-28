@@ -646,31 +646,6 @@ public class InfrastructureItemProviderAdapterFactory extends InfrastructureAdap
     }
 
     /**
-     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings} instances.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected DatabaseSettingsItemProvider databaseSettingsItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.eclipse.scada.configuration.infrastructure.DatabaseSettings}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public Adapter createDatabaseSettingsAdapter ()
-    {
-        if ( databaseSettingsItemProvider == null )
-        {
-            databaseSettingsItemProvider = new DatabaseSettingsItemProvider ( this );
-        }
-
-        return databaseSettingsItemProvider;
-    }
-
-    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

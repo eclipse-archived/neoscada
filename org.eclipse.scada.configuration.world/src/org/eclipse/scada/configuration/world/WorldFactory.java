@@ -148,6 +148,33 @@ public interface WorldFactory extends EFactory
     ReferencedServiceBinding createReferencedServiceBinding ();
 
     /**
+     * Returns a new object of class '<em>Generic Settings Container</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Generic Settings Container</em>'.
+     * @generated
+     */
+    GenericSettingsContainer createGenericSettingsContainer ();
+
+    /**
+     * Returns a new object of class '<em>Generic Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Generic Database Settings</em>'.
+     * @generated
+     */
+    GenericDatabaseSettings createGenericDatabaseSettings ();
+
+    /**
+     * Returns a new object of class '<em>Postgres Database Settings</em>'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Postgres Database Settings</em>'.
+     * @generated
+     */
+    PostgresDatabaseSettings createPostgresDatabaseSettings ();
+
+    /**
      * Returns the package supported by this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

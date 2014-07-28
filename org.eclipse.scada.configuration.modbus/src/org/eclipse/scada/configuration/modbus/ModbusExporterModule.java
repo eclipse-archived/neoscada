@@ -12,8 +12,8 @@
 package org.eclipse.scada.configuration.modbus;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.scada.configuration.infrastructure.Settings;
 import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.Settings;
 
 /**
  * <!-- begin-user-doc -->

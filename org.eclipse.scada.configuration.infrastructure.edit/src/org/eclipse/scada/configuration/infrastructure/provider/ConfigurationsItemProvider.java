@@ -30,6 +30,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.eclipse.scada.configuration.infrastructure.Configurations;
 import org.eclipse.scada.configuration.infrastructure.InfrastructureFactory;
 import org.eclipse.scada.configuration.infrastructure.InfrastructurePackage;
+import org.eclipse.scada.configuration.world.WorldFactory;
 
 /**
  * This is the item provider adapter for a {@link org.eclipse.scada.configuration.infrastructure.Configurations} object.
@@ -121,6 +122,17 @@ public class ConfigurationsItemProvider
     }
 
     /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected boolean shouldComposeCreationImage ()
+    {
+        return true;
+    }
+
+    /**
      * This returns the label text for the adapted class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -174,7 +186,12 @@ public class ConfigurationsItemProvider
         newChildDescriptors.add
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
-                        InfrastructureFactory.eINSTANCE.createDatabaseSettings () ) );
+                        WorldFactory.eINSTANCE.createGenericDatabaseSettings () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.CONFIGURATIONS__SETTINGS,
+                        WorldFactory.eINSTANCE.createPostgresDatabaseSettings () ) );
     }
 
     /**

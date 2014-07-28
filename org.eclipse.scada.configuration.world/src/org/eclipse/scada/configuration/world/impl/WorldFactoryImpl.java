@@ -109,6 +109,12 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
                 return createContainedServiceBinding ();
             case WorldPackage.REFERENCED_SERVICE_BINDING:
                 return createReferencedServiceBinding ();
+            case WorldPackage.GENERIC_SETTINGS_CONTAINER:
+                return createGenericSettingsContainer ();
+            case WorldPackage.GENERIC_DATABASE_SETTINGS:
+                return createGenericDatabaseSettings ();
+            case WorldPackage.POSTGRES_DATABASE_SETTINGS:
+                return createPostgresDatabaseSettings ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -299,6 +305,39 @@ public class WorldFactoryImpl extends EFactoryImpl implements WorldFactory
     {
         ReferencedServiceBindingImpl referencedServiceBinding = new ReferencedServiceBindingImpl ();
         return referencedServiceBinding;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GenericSettingsContainer createGenericSettingsContainer ()
+    {
+        GenericSettingsContainerImpl genericSettingsContainer = new GenericSettingsContainerImpl ();
+        return genericSettingsContainer;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public GenericDatabaseSettings createGenericDatabaseSettings ()
+    {
+        GenericDatabaseSettingsImpl genericDatabaseSettings = new GenericDatabaseSettingsImpl ();
+        return genericDatabaseSettings;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public PostgresDatabaseSettings createPostgresDatabaseSettings ()
+    {
+        PostgresDatabaseSettingsImpl postgresDatabaseSettings = new PostgresDatabaseSettingsImpl ();
+        return postgresDatabaseSettings;
     }
 
     /**
