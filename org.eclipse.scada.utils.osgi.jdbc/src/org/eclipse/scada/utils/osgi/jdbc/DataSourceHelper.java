@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.utils.osgi.jdbc;
 
@@ -41,6 +42,24 @@ public final class DataSourceHelper
     public static String getDriver ( final Properties properties, final String specificPrefix, final String defaultPrefix )
     {
         return properties.getProperty ( specificPrefix + ".driver", properties.getProperty ( defaultPrefix + ".driver", null ) );
+    }
+
+    public static Long getLoginTimeout ( final Properties properties, final String specificPrefix, final String defaultPrefix )
+    {
+        final String stringValue = properties.getProperty ( specificPrefix + ".loginTimeout", properties.getProperty ( defaultPrefix + ".loginTimeout", null ) );
+        if ( stringValue == null || stringValue.isEmpty () )
+        {
+            return null;
+        }
+        try
+        {
+            return Long.parseLong ( stringValue );
+        }
+        catch ( final Exception e )
+        {
+            logger.warn ( "Failed to parse connection timeout", e );
+        }
+        return null;
     }
 
     public static Properties getDataSourceProperties ( final String specificPrefix, final String defaultPrefix )

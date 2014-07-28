@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2006, 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2006, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.utils.osgi.jdbc;
 
@@ -29,8 +30,21 @@ public class DataSourceConnectionAccessor extends CommonConnectionAccessor
 
     public DataSourceConnectionAccessor ( final DataSourceFactory dataSourceFactory, final Properties paramProperties ) throws SQLException
     {
+        this ( dataSourceFactory, paramProperties, null );
+    }
+
+    /**
+     * @since 0.2.0
+     */
+    public DataSourceConnectionAccessor ( final DataSourceFactory dataSourceFactory, final Properties paramProperties, final Long loginTimeout ) throws SQLException
+    {
         logger.debug ( "Creating default data source accessor" );
         this.dataSource = dataSourceFactory.createDataSource ( paramProperties );
+
+        if ( loginTimeout != null && loginTimeout > 0 )
+        {
+            this.dataSource.setLoginTimeout ( (int) ( loginTimeout / 1000 ) );
+        }
     }
 
     public DataSource getDataSource ()
