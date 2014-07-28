@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject;
 
@@ -59,33 +60,33 @@ public class JdbcStorageDao extends AbstractJdbcStorageDao
         }
     }
 
-    private final boolean deleteFailed = Boolean.getBoolean ( "org.eclipse.scada.ae.slave.inject.deleteFailed" );
+    private final boolean deleteFailed = Boolean.getBoolean ( Activator.SPECIFIC_PREFIX + ".deleteFailed" );
 
     private final static Logger logger = LoggerFactory.getLogger ( JdbcStorageDao.class );
 
-    public JdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Interner<String> stringInterner ) throws SQLException
+    public JdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Long loginTimeout, final Interner<String> stringInterner ) throws SQLException
     {
-        super ( dataSourceFactory, properties, usePool, stringInterner );
+        super ( dataSourceFactory, properties, usePool, loginTimeout, stringInterner );
     }
 
     private String getReplicationSelectSql ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.selectSql", String.format ( "SELECT ID, ENTRY_TIMESTAMP, NODE_ID, DATA FROM %sES_AE_REP", getReplicationSchema () ) );
+        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".selectSql", String.format ( "SELECT ID, ENTRY_TIMESTAMP, NODE_ID, DATA FROM %sES_AE_REP", getReplicationSchema () ) );
     }
 
     private String getReplicationDeleteSql ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.deleteSql", String.format ( "DELETE FROM %sES_AE_REP where ID=?", getReplicationSchema () ) );
+        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".deleteSql", String.format ( "DELETE FROM %sES_AE_REP where ID=?", getReplicationSchema () ) );
     }
 
     private String getEntryExistsSql ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.existsSql", String.format ( "SELECT COUNT(*) FROM %sES_AE_EVENTS WHERE ID=?", getSchema () ) );
+        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".existsSql", String.format ( "SELECT COUNT(*) FROM %sES_AE_EVENTS WHERE ID=?", getSchema () ) );
     }
 
     private String getReplicationSchema ()
     {
-        return System.getProperty ( "org.eclipse.scada.ae.slave.inject.schema", "" );
+        return System.getProperty ( Activator.SPECIFIC_PREFIX + ".schema", "" );
     }
 
     protected int runOnce ()

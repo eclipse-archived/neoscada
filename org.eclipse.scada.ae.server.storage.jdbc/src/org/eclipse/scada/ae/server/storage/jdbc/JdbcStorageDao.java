@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.jdbc;
 
@@ -32,9 +33,9 @@ public class JdbcStorageDao extends AbstractJdbcStorageDao
 
     private final ScheduledExecutorService executor;
 
-    public JdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Interner<String> stringInterner ) throws SQLException
+    public JdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Long loginTimeout, final Interner<String> stringInterner ) throws SQLException
     {
-        super ( dataSourceFactory, properties, usePool, stringInterner );
+        super ( dataSourceFactory, properties, usePool, loginTimeout, stringInterner );
 
         this.executor = Executors.newSingleThreadScheduledExecutor ( new NamedThreadFactory ( "org.eclipse.scada.ae.server.storage.jdbc/CleanupThread" ) );
         this.executor.scheduleWithFixedDelay ( new Runnable () {

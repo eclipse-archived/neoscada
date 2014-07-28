@@ -8,7 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
- *     IBH SYSTEMS GmbH - clean up system properties
+ *     IBH SYSTEMS GmbH - clean up system properties, add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject;
 
@@ -26,8 +26,7 @@ import org.slf4j.LoggerFactory;
 
 public class Activator implements BundleActivator
 {
-
-    private static final String SPECIFIC_PREFIX = "org.eclipse.scada.ae.slave.inject";
+    public static final String SPECIFIC_PREFIX = "org.eclipse.scada.ae.slave.inject";
 
     private final static Logger logger = LoggerFactory.getLogger ( Activator.class );
 
@@ -82,7 +81,8 @@ public class Activator implements BundleActivator
         {
             try
             {
-                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ) );
+                final Long loginTimeout = DataSourceHelper.getLoginTimeout ( System.getProperties (), SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
+                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ), loginTimeout );
             }
             catch ( final SQLException e )
             {

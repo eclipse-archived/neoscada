@@ -8,7 +8,7 @@
  * Contributors:
  *     Jens Reimann - initial API and implementation
  *     Jürgen Rose - additional work
- *     IBH SYSTEMS GmbH - clean up system properties
+ *     IBH SYSTEMS GmbH - clean up system properties, add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject.postgres;
 
@@ -86,7 +86,9 @@ public class Activator implements BundleActivator
             {
                 final String schema = getSchema ();
                 final String instance = getInstance ();
-                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ), DataSourceHelper.isConnectionPool ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX, false ), schema, instance );
+                final Long loginTimeout = DataSourceHelper.getLoginTimeout ( System.getProperties (), SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
+                final boolean usePool = DataSourceHelper.isConnectionPool ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX, false );
+                this.injector = new EventInjector ( service, DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX ), Integer.getInteger ( SPECIFIC_PREFIX + ".loopDelay", 10 * 1000 ), usePool, loginTimeout, schema, instance );
             }
             catch ( final SQLException e )
             {

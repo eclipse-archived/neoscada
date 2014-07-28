@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.jdbc;
 
@@ -14,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -40,9 +42,9 @@ public abstract class BaseStorageDao implements StorageDao
 
     protected final CommonConnectionAccessor accessor;
 
-    public BaseStorageDao ( final DataSourceFactory dataSourceFactory, final Properties paramProperties, final boolean usePool ) throws SQLException
+    public BaseStorageDao ( final DataSourceFactory dataSourceFactory, final Properties paramProperties, final boolean usePool, final Long loginTimeout ) throws SQLException
     {
-        this.accessor = usePool ? new PoolConnectionAccessor ( dataSourceFactory, paramProperties ) : new DataSourceConnectionAccessor ( dataSourceFactory, paramProperties );
+        this.accessor = usePool ? new PoolConnectionAccessor ( dataSourceFactory, paramProperties ) : new DataSourceConnectionAccessor ( dataSourceFactory, paramProperties, loginTimeout );
     }
 
     @Override
@@ -157,8 +159,8 @@ public abstract class BaseStorageDao implements StorageDao
                 stm2.setString ( 2, Event.Fields.COMMENT.getName () );
                 stm2.setString ( 3, VariantType.STRING.name () );
                 stm2.setString ( 4, clip ( getMaxLength (), comment ) );
-                stm2.setLong ( 5, (Long)null );
-                stm2.setDouble ( 6, (Double)null );
+                stm2.setNull ( 5, Types.INTEGER );
+                stm2.setNull ( 6, Types.DOUBLE );
                 stm2.addBatch ();
                 stm2.execute ();
 

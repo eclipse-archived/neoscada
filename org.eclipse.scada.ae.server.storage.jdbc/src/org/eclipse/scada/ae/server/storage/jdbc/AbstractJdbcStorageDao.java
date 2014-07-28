@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jürgen Rose - additional work
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.jdbc;
 
@@ -84,7 +85,7 @@ public abstract class AbstractJdbcStorageDao extends BaseStorageDao
 
     private final String insertReplicationEventSql = "INSERT INTO %sES_AE_REP " //
             + "(ID, ENTRY_TIMESTAMP, NODE_ID, DATA)" //
-            + " VALUES " // 
+            + " VALUES " //
             + "(?, ?, ?, ?)";
 
     private final String whereSql = " WHERE E.INSTANCE_ID = ? ";
@@ -99,9 +100,9 @@ public abstract class AbstractJdbcStorageDao extends BaseStorageDao
 
     private String hostName;
 
-    public AbstractJdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Interner<String> stringInterner ) throws SQLException
+    public AbstractJdbcStorageDao ( final DataSourceFactory dataSourceFactory, final Properties properties, final boolean usePool, final Long loginTimeout, final Interner<String> stringInterner ) throws SQLException
     {
-        super ( dataSourceFactory, properties, usePool );
+        super ( dataSourceFactory, properties, usePool, loginTimeout );
         this.stringInterner = stringInterner == null ? InternerHelper.makeNoOpInterner () : stringInterner;
     }
 
@@ -560,7 +561,7 @@ public abstract class AbstractJdbcStorageDao extends BaseStorageDao
 
     /**
      * Cleanup the archive
-     * 
+     *
      * @param days
      *            days in the past that should remain in the archive
      * @return the number of entries deleted or -1 if the parameters <q>days</q>

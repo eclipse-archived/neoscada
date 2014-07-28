@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject;
 
@@ -28,10 +29,10 @@ public class EventInjector
 
     private final ScheduledExportedExecutorService scheduler;
 
-    public EventInjector ( final DataSourceFactory factory, final Properties properties, final int delay ) throws SQLException
+    public EventInjector ( final DataSourceFactory factory, final Properties properties, final int delay, final Long loginTimeout ) throws SQLException
     {
         logger.info ( "Starting event injector" ); //$NON-NLS-1$
-        this.storage = new JdbcStorageDao ( factory, properties, false, null );
+        this.storage = new JdbcStorageDao ( factory, properties, false, loginTimeout, null );
         this.scheduler = new ScheduledExportedExecutorService ( "org.eclipse.scada.ae.slave.inject", 1 ); //$NON-NLS-1$
 
         this.scheduler.scheduleWithFixedDelay ( new Runnable () {

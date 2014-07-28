@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 Jürgen Rose and others.
+ * Copyright (c) 2013, 2014 Jürgen Rose and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     Jürgen Rose - initial API and implementation
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.slave.inject.postgres;
 
@@ -63,11 +64,11 @@ public class EventInjector extends BaseStorage
 
     private String schema;
 
-    public EventInjector ( final DataSourceFactory dataSourceFactory, final Properties dataSourceProperties, final Integer delay, final boolean usePool, final String schema, final String instance ) throws SQLException
+    public EventInjector ( final DataSourceFactory dataSourceFactory, final Properties dataSourceProperties, final Integer delay, final boolean usePool, final Long loginTimeout, final String schema, final String instance ) throws SQLException
     {
         logger.info ( "Starting event injector" ); //$NON-NLS-1$
         this.schema = schema;
-        this.accessor = usePool ? new PoolConnectionAccessor ( dataSourceFactory, dataSourceProperties ) : new DataSourceConnectionAccessor ( dataSourceFactory, dataSourceProperties );
+        this.accessor = usePool ? new PoolConnectionAccessor ( dataSourceFactory, dataSourceProperties ) : new DataSourceConnectionAccessor ( dataSourceFactory, dataSourceProperties, loginTimeout );
         this.jdbcDao = new JdbcDao ( this.accessor, schema, instance, new NodeIdProvider () {
             @Override
             public String getNodeId ()

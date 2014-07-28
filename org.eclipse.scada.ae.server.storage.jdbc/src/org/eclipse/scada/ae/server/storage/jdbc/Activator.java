@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2012, 2013 TH4 SYSTEMS GmbH and others.
+ * Copyright (c) 2012, 2014 TH4 SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -8,6 +8,7 @@
  * Contributors:
  *     TH4 SYSTEMS GmbH - initial API and implementation
  *     Jens Reimann - additional work
+ *     IBH SYSTEMS GmbH - add login timeout
  *******************************************************************************/
 package org.eclipse.scada.ae.server.storage.jdbc;
 
@@ -114,7 +115,8 @@ public class Activator implements BundleActivator
 
         final Properties dbProperties = DataSourceHelper.getDataSourceProperties ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
 
-        this.jdbcStorage = createJdbcStorage ( dataSourceFactory, dbProperties, DataSourceHelper.isConnectionPool ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX, false ) );
+        final Long loginTimeout = DataSourceHelper.getLoginTimeout ( System.getProperties (), SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX );
+        this.jdbcStorage = createJdbcStorage ( dataSourceFactory, dbProperties, DataSourceHelper.isConnectionPool ( SPECIFIC_PREFIX, DataSourceHelper.DEFAULT_PREFIX, false ), loginTimeout );
         this.jdbcStorage.start ();
 
         final Dictionary<String, Object> properties = new Hashtable<String, Object> ( 2 );
@@ -156,9 +158,9 @@ public class Activator implements BundleActivator
         Activator.context = null;
     }
 
-    private JdbcStorage createJdbcStorage ( final DataSourceFactory dataSourceFactory, final Properties dbParameters, final boolean usePool ) throws SQLException
+    private JdbcStorage createJdbcStorage ( final DataSourceFactory dataSourceFactory, final Properties dbParameters, final boolean usePool, final Long loginTimeout ) throws SQLException
     {
-        final AbstractJdbcStorageDao jdbcStorageDao = new JdbcStorageDao ( dataSourceFactory, dbParameters, usePool, this.stringInterner );
+        final AbstractJdbcStorageDao jdbcStorageDao = new JdbcStorageDao ( dataSourceFactory, dbParameters, usePool, loginTimeout, this.stringInterner );
         jdbcStorageDao.setInstance ( System.getProperty ( "org.eclipse.scada.ae.server.storage.jdbc.instance", "default" ) );
         jdbcStorageDao.setMaxLength ( Integer.getInteger ( "org.eclipse.scada.ae.server.storage.jdbc.maxlength", this.maxLength ) );
         if ( !System.getProperty ( "org.eclipse.scada.ae.server.storage.jdbc.schema", "" ).trim ().isEmpty () )
