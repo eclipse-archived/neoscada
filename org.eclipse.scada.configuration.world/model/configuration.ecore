@@ -692,13 +692,11 @@
           defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PullEvents" eSuperTypes="#//NamedDocumentable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriverName" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcProperties" upperBound="-1"
-          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="customSelectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="customDeleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JdbcUserServiceModule" eSuperTypes="#//osgi/ApplicationModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="userServices" upperBound="-1"
@@ -896,6 +894,23 @@
           defaultValueLiteral="localhost"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EShort"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjector" abstract="true" eSuperTypes="#//osgi/IndependentConfiguration">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="loopDelay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="replicationSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteFailed" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorPostgres" eSuperTypes="#//osgi/EventInjector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="limit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EventInjectorJdbc" eSuperTypes="#//osgi/EventInjector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selectSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="deleteSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="existsSql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eSubpackages name="profile" nsURI="http://eclipse.org/SCADA/Configuration/World/OSGi/Profile"
         nsPrefix="profile">

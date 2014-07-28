@@ -1,20 +1,24 @@
-/*******************************************************************************
- * Copyright (c) 2013, 2014 IBH SYSTEMS GmbH and others.
+/**
+ * Copyright (c) 2014 IBH SYSTEMS GmbH.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *
+ * 
  * Contributors:
- *     IBH SYSTEMS GmbH - initial API and implementation
- *******************************************************************************/
+ *     IBH SYSTEMS GmbH - initial API and implementation and/or initial documentation
+ * 
+ */
 package org.eclipse.scada.configuration.world.osgi.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -27,19 +31,24 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.eclipse.scada.configuration.world.WorldPackage;
+
+import org.eclipse.scada.configuration.world.osgi.EventInjector;
 import org.eclipse.scada.configuration.world.osgi.OsgiPackage;
-import org.eclipse.scada.configuration.world.osgi.PullEvents;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.PullEvents} object.
+ * This is the item provider adapter for a {@link org.eclipse.scada.configuration.world.osgi.EventInjector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PullEventsItemProvider extends ItemProviderAdapter implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider,
-        ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
+public class EventInjectorItemProvider
+        extends ItemProviderAdapter
+        implements
+        IEditingDomainItemProvider,
+        IStructuredItemContentProvider,
+        ITreeItemContentProvider,
+        IItemLabelProvider,
+        IItemPropertySource,
         ITableItemLabelProvider
 {
     /**
@@ -48,7 +57,7 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
      * <!-- end-user-doc -->
      * @generated
      */
-    public PullEventsItemProvider ( AdapterFactory adapterFactory )
+    public EventInjectorItemProvider ( AdapterFactory adapterFactory )
     {
         super ( adapterFactory );
     }
@@ -66,129 +75,14 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
         {
             super.getPropertyDescriptors ( object );
 
-            addShortDescriptionPropertyDescriptor ( object );
-            addNamePropertyDescriptor ( object );
-            addJobIntervalPropertyDescriptor ( object );
-            addCustomSelectSqlPropertyDescriptor ( object );
-            addCustomDeleteSqlPropertyDescriptor ( object );
             addDatabasePropertyDescriptor ( object );
+            addLoopDelayPropertyDescriptor ( object );
+            addInstanceNamePropertyDescriptor ( object );
+            addSchemaPropertyDescriptor ( object );
+            addReplicationSchemaPropertyDescriptor ( object );
+            addDeleteFailedPropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Short Description feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addShortDescriptionPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_Documentable_shortDescription_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_Documentable_shortDescription_feature", "_UI_Documentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.DOCUMENTABLE__SHORT_DESCRIPTION,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addNamePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_NamedDocumentable_name_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_NamedDocumentable_name_feature", "_UI_NamedDocumentable_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        WorldPackage.Literals.NAMED_DOCUMENTABLE__NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        getString ( "_UI_namingPropertyCategory" ), //$NON-NLS-1$
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Job Interval feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addJobIntervalPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PullEvents_jobInterval_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PullEvents_jobInterval_feature", "_UI_PullEvents_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PULL_EVENTS__JOB_INTERVAL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Custom Select Sql feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addCustomSelectSqlPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PullEvents_customSelectSql_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PullEvents_customSelectSql_feature", "_UI_PullEvents_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PULL_EVENTS__CUSTOM_SELECT_SQL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Custom Delete Sql feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addCustomDeleteSqlPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_PullEvents_customDeleteSql_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PullEvents_customDeleteSql_feature", "_UI_PullEvents_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PULL_EVENTS__CUSTOM_DELETE_SQL,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -203,9 +97,9 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
                 ( createItemPropertyDescriptor
                 ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
                         getResourceLocator (),
-                        getString ( "_UI_PullEvents_database_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_PullEvents_database_feature", "_UI_PullEvents_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.PULL_EVENTS__DATABASE,
+                        getString ( "_UI_EventInjector_database_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_database_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__DATABASE,
                         true,
                         false,
                         true,
@@ -215,15 +109,118 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
     }
 
     /**
-     * This returns PullEvents.gif.
+     * This adds a property descriptor for the Loop Delay feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object getImage ( Object object )
+    protected void addLoopDelayPropertyDescriptor ( Object object )
     {
-        return overlayImage ( object, getResourceLocator ().getImage ( "full/obj16/PullEvents" ) ); //$NON-NLS-1$
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventInjector_loopDelay_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_loopDelay_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__LOOP_DELAY,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Instance Name feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addInstanceNamePropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventInjector_instanceName_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_instanceName_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__INSTANCE_NAME,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Schema feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSchemaPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventInjector_schema_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_schema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__SCHEMA,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Replication Schema feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReplicationSchemaPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventInjector_replicationSchema_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_replicationSchema_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__REPLICATION_SCHEMA,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                        null,
+                        null ) );
+    }
+
+    /**
+     * This adds a property descriptor for the Delete Failed feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addDeleteFailedPropertyDescriptor ( Object object )
+    {
+        itemPropertyDescriptors.add
+                ( createItemPropertyDescriptor
+                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
+                        getResourceLocator (),
+                        getString ( "_UI_EventInjector_deleteFailed_feature" ), //$NON-NLS-1$
+                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventInjector_deleteFailed_feature", "_UI_EventInjector_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+                        OsgiPackage.Literals.EVENT_INJECTOR__DELETE_FAILED,
+                        true,
+                        false,
+                        false,
+                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                        null,
+                        null ) );
     }
 
     /**
@@ -246,10 +243,10 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
     @Override
     public String getText ( Object object )
     {
-        String label = ( (PullEvents)object ).getName ();
+        String label = ( (EventInjector)object ).getInstanceName ();
         return label == null || label.length () == 0 ?
-                getString ( "_UI_PullEvents_type" ) : //$NON-NLS-1$
-                getString ( "_UI_PullEvents_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
+                getString ( "_UI_EventInjector_type" ) : //$NON-NLS-1$
+                getString ( "_UI_EventInjector_type" ) + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
     }
 
     /**
@@ -264,13 +261,13 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
     {
         updateChildren ( notification );
 
-        switch ( notification.getFeatureID ( PullEvents.class ) )
+        switch ( notification.getFeatureID ( EventInjector.class ) )
         {
-            case OsgiPackage.PULL_EVENTS__SHORT_DESCRIPTION:
-            case OsgiPackage.PULL_EVENTS__NAME:
-            case OsgiPackage.PULL_EVENTS__JOB_INTERVAL:
-            case OsgiPackage.PULL_EVENTS__CUSTOM_SELECT_SQL:
-            case OsgiPackage.PULL_EVENTS__CUSTOM_DELETE_SQL:
+            case OsgiPackage.EVENT_INJECTOR__LOOP_DELAY:
+            case OsgiPackage.EVENT_INJECTOR__INSTANCE_NAME:
+            case OsgiPackage.EVENT_INJECTOR__SCHEMA:
+            case OsgiPackage.EVENT_INJECTOR__REPLICATION_SCHEMA:
+            case OsgiPackage.EVENT_INJECTOR__DELETE_FAILED:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
                 return;
         }
@@ -285,8 +282,7 @@ public class PullEventsItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors (
-            Collection<Object> newChildDescriptors, Object object )
+    protected void collectNewChildDescriptors ( Collection<Object> newChildDescriptors, Object object )
     {
         super.collectNewChildDescriptors ( newChildDescriptors, object );
     }

@@ -12,12 +12,12 @@ package org.eclipse.scada.configuration.generator;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.PropertyEntry;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.profile.BundleStartLevel;
@@ -126,10 +126,22 @@ public final class Profiles
         }
     }
 
-    public static void addJdbcSystemProperties ( final Profile profile, final String prefix, final String jdbcDriverName, final List<PropertyEntry> jdbcProperties )
+    public static void addJdbcSystemProperties ( final Profile profile, final String prefix, final DatabaseSettings database )
     {
-        addSystemProperty ( profile, prefix + ".driver", jdbcDriverName );
-        for ( final PropertyEntry entry : jdbcProperties )
+        if ( database.getBundles () != null )
+        {
+            for ( final String bundle : database.getBundles () )
+            {
+                Profiles.addStartBundle ( profile, bundle );
+            }
+
+            profile.getInstallationUnits ().addAll ( database.getBundles () );
+        }
+
+        addSystemProperty ( profile, prefix + ".driver", database.getDriverName () );
+        addSystemProperty ( profile, prefix + ".loginTimeout", database.getLoginTimeout () );
+
+        for ( final PropertyEntry entry : database.getProperties () )
         {
             addSystemProperty ( profile, prefix + ".properties." + entry.getKey (), entry.getValue () );
         }

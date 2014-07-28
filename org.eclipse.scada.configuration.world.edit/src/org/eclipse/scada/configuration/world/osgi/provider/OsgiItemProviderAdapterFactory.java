@@ -1999,6 +1999,56 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
     }
 
     /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorPostgresItemProvider eventInjectorPostgresItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorPostgresAdapter ()
+    {
+        if ( eventInjectorPostgresItemProvider == null )
+        {
+            eventInjectorPostgresItemProvider = new EventInjectorPostgresItemProvider ( this );
+        }
+
+        return eventInjectorPostgresItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all {@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected EventInjectorJdbcItemProvider eventInjectorJdbcItemProvider;
+
+    /**
+     * This creates an adapter for a {@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createEventInjectorJdbcAdapter ()
+    {
+        if ( eventInjectorJdbcItemProvider == null )
+        {
+            eventInjectorJdbcItemProvider = new EventInjectorJdbcItemProvider ( this );
+        }
+
+        return eventInjectorJdbcItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2293,6 +2343,10 @@ public class OsgiItemProviderAdapterFactory extends OsgiAdapterFactory
             bufferedValueItemProvider.dispose ();
         if ( telnetConsoleItemProvider != null )
             telnetConsoleItemProvider.dispose ();
+        if ( eventInjectorPostgresItemProvider != null )
+            eventInjectorPostgresItemProvider.dispose ();
+        if ( eventInjectorJdbcItemProvider != null )
+            eventInjectorJdbcItemProvider.dispose ();
     }
 
 }

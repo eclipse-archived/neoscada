@@ -14,12 +14,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.scada.configuration.generator.Profiles;
 import org.eclipse.scada.configuration.lib.Locator;
 import org.eclipse.scada.configuration.lib.Names;
 import org.eclipse.scada.configuration.lib.Nodes;
 import org.eclipse.scada.configuration.lib.Properties;
 import org.eclipse.scada.configuration.utils.TypeVisitor;
 import org.eclipse.scada.configuration.utils.TypeWalker;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.NamedDocumentable;
 import org.eclipse.scada.configuration.world.osgi.AknProxy;
 import org.eclipse.scada.configuration.world.osgi.AlarmsEventsConnection;
@@ -30,6 +32,7 @@ import org.eclipse.scada.configuration.world.osgi.MasterServer;
 import org.eclipse.scada.configuration.world.osgi.MonitorPool;
 import org.eclipse.scada.configuration.world.osgi.MonitorPoolProxy;
 import org.eclipse.scada.configuration.world.osgi.PullEvents;
+import org.eclipse.scada.configuration.world.osgi.profile.Profile;
 
 public class AlarmsEventsModuleProcessor extends BasicOscarProcessor
 {
@@ -91,13 +94,22 @@ public class AlarmsEventsModuleProcessor extends BasicOscarProcessor
     {
         final Map<String, String> data = new HashMap<String, String> ();
 
-        data.put ( "driverName", pull.getJdbcDriverName () );
+        final DatabaseSettings db = pull.getDatabase ();
+
+        data.put ( "driverName", db.getDriverName () );
+        if ( db.getLoginTimeout () != null )
+        {
+            data.put ( "loginTimeout", "" + db.getLoginTimeout () );
+        }
         Helper.addOptional ( data, "customDeleteSql", pull.getCustomDeleteSql () );
         Helper.addOptional ( data, "customSelectSql", pull.getCustomSelectSql () );
-        data.putAll ( Properties.makeAttributes ( "jdbcProperties", pull.getJdbcProperties () ) );
+        data.putAll ( Properties.makeAttributes ( "jdbcProperties", db.getProperties () ) );
         Helper.addOptional ( data, "delay", pull.getJobInterval () );
 
         addData ( Factories.FACTORY_AE_PULL_EVENTS, Names.makeName ( pull ), data );
+
+        final Profile p = Profiles.createOrGetCustomizationProfile ( this.app );
+        p.getInstallationUnits ().addAll ( db.getBundles () );
     }
 
     private void processAknProxy ( final AknProxy proxy )

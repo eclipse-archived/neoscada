@@ -5153,31 +5153,13 @@ public interface OsgiPackage extends EPackage
     int PULL_EVENTS__NAME = WorldPackage.NAMED_DOCUMENTABLE__NAME;
 
     /**
-     * The feature id for the '<em><b>Jdbc Driver Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PULL_EVENTS__JDBC_DRIVER_NAME = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PULL_EVENTS__JDBC_PROPERTIES = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
-
-    /**
      * The feature id for the '<em><b>Job Interval</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PULL_EVENTS__JOB_INTERVAL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
+    int PULL_EVENTS__JOB_INTERVAL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Custom Select Sql</b></em>' attribute.
@@ -5186,7 +5168,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PULL_EVENTS__CUSTOM_SELECT_SQL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
+    int PULL_EVENTS__CUSTOM_SELECT_SQL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Custom Delete Sql</b></em>' attribute.
@@ -5195,7 +5177,16 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PULL_EVENTS__CUSTOM_DELETE_SQL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
+    int PULL_EVENTS__CUSTOM_DELETE_SQL = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PULL_EVENTS__DATABASE = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Pull Events</em>' class.
@@ -5204,7 +5195,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int PULL_EVENTS_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 5;
+    int PULL_EVENTS_FEATURE_COUNT = WorldPackage.NAMED_DOCUMENTABLE_FEATURE_COUNT + 4;
 
     /**
      * The number of operations of the '<em>Pull Events</em>' class.
@@ -6586,6 +6577,288 @@ public interface OsgiPackage extends EPackage
     int TELNET_CONSOLE_OPERATION_COUNT = INDEPENDENT_CONFIGURATION_OPERATION_COUNT + 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl <em>Event Injector</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjector()
+     * @generated
+     */
+    int EVENT_INJECTOR = 90;
+
+    /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__DATABASE = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Loop Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__LOOP_DELAY = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Instance Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__INSTANCE_NAME = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__SCHEMA = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Replication Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__REPLICATION_SCHEMA = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Delete Failed</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR__DELETE_FAILED = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 5;
+
+    /**
+     * The number of structural features of the '<em>Event Injector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_FEATURE_COUNT = INDEPENDENT_CONFIGURATION_FEATURE_COUNT + 6;
+
+    /**
+     * The number of operations of the '<em>Event Injector</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_OPERATION_COUNT = INDEPENDENT_CONFIGURATION_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorPostgresImpl <em>Event Injector Postgres</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorPostgresImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorPostgres()
+     * @generated
+     */
+    int EVENT_INJECTOR_POSTGRES = 91;
+
+    /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__DATABASE = EVENT_INJECTOR__DATABASE;
+
+    /**
+     * The feature id for the '<em><b>Loop Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__LOOP_DELAY = EVENT_INJECTOR__LOOP_DELAY;
+
+    /**
+     * The feature id for the '<em><b>Instance Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__INSTANCE_NAME = EVENT_INJECTOR__INSTANCE_NAME;
+
+    /**
+     * The feature id for the '<em><b>Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__SCHEMA = EVENT_INJECTOR__SCHEMA;
+
+    /**
+     * The feature id for the '<em><b>Replication Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__REPLICATION_SCHEMA = EVENT_INJECTOR__REPLICATION_SCHEMA;
+
+    /**
+     * The feature id for the '<em><b>Delete Failed</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__DELETE_FAILED = EVENT_INJECTOR__DELETE_FAILED;
+
+    /**
+     * The feature id for the '<em><b>Limit</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES__LIMIT = EVENT_INJECTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Event Injector Postgres</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES_FEATURE_COUNT = EVENT_INJECTOR_FEATURE_COUNT + 1;
+
+    /**
+     * The number of operations of the '<em>Event Injector Postgres</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_POSTGRES_OPERATION_COUNT = EVENT_INJECTOR_OPERATION_COUNT + 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl <em>Event Injector Jdbc</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl
+     * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorJdbc()
+     * @generated
+     */
+    int EVENT_INJECTOR_JDBC = 92;
+
+    /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__DATABASE = EVENT_INJECTOR__DATABASE;
+
+    /**
+     * The feature id for the '<em><b>Loop Delay</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__LOOP_DELAY = EVENT_INJECTOR__LOOP_DELAY;
+
+    /**
+     * The feature id for the '<em><b>Instance Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__INSTANCE_NAME = EVENT_INJECTOR__INSTANCE_NAME;
+
+    /**
+     * The feature id for the '<em><b>Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__SCHEMA = EVENT_INJECTOR__SCHEMA;
+
+    /**
+     * The feature id for the '<em><b>Replication Schema</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__REPLICATION_SCHEMA = EVENT_INJECTOR__REPLICATION_SCHEMA;
+
+    /**
+     * The feature id for the '<em><b>Delete Failed</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__DELETE_FAILED = EVENT_INJECTOR__DELETE_FAILED;
+
+    /**
+     * The feature id for the '<em><b>Select Sql</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__SELECT_SQL = EVENT_INJECTOR_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Delete Sql</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__DELETE_SQL = EVENT_INJECTOR_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Exists Sql</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC__EXISTS_SQL = EVENT_INJECTOR_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Event Injector Jdbc</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC_FEATURE_COUNT = EVENT_INJECTOR_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Event Injector Jdbc</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_INJECTOR_JDBC_OPERATION_COUNT = EVENT_INJECTOR_OPERATION_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6593,7 +6866,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getAverageReferenceType()
      * @generated
      */
-    int AVERAGE_REFERENCE_TYPE = 90;
+    int AVERAGE_REFERENCE_TYPE = 93;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.MovingAverageReferenceType <em>Moving Average Reference Type</em>}' enum.
@@ -6603,7 +6876,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getMovingAverageReferenceType()
      * @generated
      */
-    int MOVING_AVERAGE_REFERENCE_TYPE = 91;
+    int MOVING_AVERAGE_REFERENCE_TYPE = 94;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.RoundingType <em>Rounding Type</em>}' enum.
@@ -6613,7 +6886,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getRoundingType()
      * @generated
      */
-    int ROUNDING_TYPE = 92;
+    int ROUNDING_TYPE = 95;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.DataType <em>Data Type</em>}' enum.
@@ -6623,7 +6896,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getDataType()
      * @generated
      */
-    int DATA_TYPE = 93;
+    int DATA_TYPE = 96;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.PasswordType <em>Password Type</em>}' enum.
@@ -6633,7 +6906,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPasswordType()
      * @generated
      */
-    int PASSWORD_TYPE = 94;
+    int PASSWORD_TYPE = 97;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.Persistence <em>Persistence</em>}' enum.
@@ -6643,7 +6916,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getPersistence()
      * @generated
      */
-    int PERSISTENCE = 95;
+    int PERSISTENCE = 98;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ErrorHandling <em>Error Handling</em>}' enum.
@@ -6653,7 +6926,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getErrorHandling()
      * @generated
      */
-    int ERROR_HANDLING = 96;
+    int ERROR_HANDLING = 99;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.ChangeType <em>Change Type</em>}' enum.
@@ -6663,7 +6936,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getChangeType()
      * @generated
      */
-    int CHANGE_TYPE = 97;
+    int CHANGE_TYPE = 100;
 
     /**
      * The meta object id for the '<em>Severity</em>' data type.
@@ -6673,7 +6946,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getSeverity()
      * @generated
      */
-    int SEVERITY = 98;
+    int SEVERITY = 101;
 
     /**
      * The meta object id for the '<em>Variant</em>' data type.
@@ -6683,7 +6956,7 @@ public interface OsgiPackage extends EPackage
      * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getVariant()
      * @generated
      */
-    int VARIANT = 99;
+    int VARIANT = 102;
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EquinoxApplication <em>Equinox Application</em>}'.
@@ -9244,28 +9517,6 @@ public interface OsgiPackage extends EPackage
     EClass getPullEvents ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getJdbcDriverName <em>Jdbc Driver Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Jdbc Driver Name</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.PullEvents#getJdbcDriverName()
-     * @see #getPullEvents()
-     * @generated
-     */
-    EAttribute getPullEvents_JdbcDriverName ();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getJdbcProperties <em>Jdbc Properties</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Jdbc Properties</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.PullEvents#getJdbcProperties()
-     * @see #getPullEvents()
-     * @generated
-     */
-    EReference getPullEvents_JdbcProperties ();
-
-    /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getJobInterval <em>Job Interval</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9297,6 +9548,17 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EAttribute getPullEvents_CustomDeleteSql ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.PullEvents#getDatabase <em>Database</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Database</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.PullEvents#getDatabase()
+     * @see #getPullEvents()
+     * @generated
+     */
+    EReference getPullEvents_Database ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.JdbcUserServiceModule <em>Jdbc User Service Module</em>}'.
@@ -9935,6 +10197,146 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EAttribute getTelnetConsole_Port ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EventInjector <em>Event Injector</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Event Injector</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector
+     * @generated
+     */
+    EClass getEventInjector ();
+
+    /**
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getDatabase <em>Database</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the reference '<em>Database</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#getDatabase()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EReference getEventInjector_Database ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getLoopDelay <em>Loop Delay</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Loop Delay</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#getLoopDelay()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EAttribute getEventInjector_LoopDelay ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getInstanceName <em>Instance Name</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Instance Name</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#getInstanceName()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EAttribute getEventInjector_InstanceName ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getSchema <em>Schema</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Schema</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#getSchema()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EAttribute getEventInjector_Schema ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#getReplicationSchema <em>Replication Schema</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Replication Schema</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#getReplicationSchema()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EAttribute getEventInjector_ReplicationSchema ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjector#isDeleteFailed <em>Delete Failed</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Delete Failed</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjector#isDeleteFailed()
+     * @see #getEventInjector()
+     * @generated
+     */
+    EAttribute getEventInjector_DeleteFailed ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres <em>Event Injector Postgres</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Event Injector Postgres</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres
+     * @generated
+     */
+    EClass getEventInjectorPostgres ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres#getLimit <em>Limit</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Limit</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorPostgres#getLimit()
+     * @see #getEventInjectorPostgres()
+     * @generated
+     */
+    EAttribute getEventInjectorPostgres_Limit ();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc <em>Event Injector Jdbc</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Event Injector Jdbc</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc
+     * @generated
+     */
+    EClass getEventInjectorJdbc ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getSelectSql <em>Select Sql</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Select Sql</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getSelectSql()
+     * @see #getEventInjectorJdbc()
+     * @generated
+     */
+    EAttribute getEventInjectorJdbc_SelectSql ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getDeleteSql <em>Delete Sql</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Delete Sql</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getDeleteSql()
+     * @see #getEventInjectorJdbc()
+     * @generated
+     */
+    EAttribute getEventInjectorJdbc_DeleteSql ();
+
+    /**
+     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getExistsSql <em>Exists Sql</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Exists Sql</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.EventInjectorJdbc#getExistsSql()
+     * @see #getEventInjectorJdbc()
+     * @generated
+     */
+    EAttribute getEventInjectorJdbc_ExistsSql ();
 
     /**
      * Returns the meta object for enum '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}'.
@@ -12134,22 +12536,6 @@ public interface OsgiPackage extends EPackage
         EClass PULL_EVENTS = eINSTANCE.getPullEvents ();
 
         /**
-         * The meta object literal for the '<em><b>Jdbc Driver Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PULL_EVENTS__JDBC_DRIVER_NAME = eINSTANCE.getPullEvents_JdbcDriverName ();
-
-        /**
-         * The meta object literal for the '<em><b>Jdbc Properties</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference PULL_EVENTS__JDBC_PROPERTIES = eINSTANCE.getPullEvents_JdbcProperties ();
-
-        /**
          * The meta object literal for the '<em><b>Job Interval</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12172,6 +12558,14 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute PULL_EVENTS__CUSTOM_DELETE_SQL = eINSTANCE.getPullEvents_CustomDeleteSql ();
+
+        /**
+         * The meta object literal for the '<em><b>Database</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PULL_EVENTS__DATABASE = eINSTANCE.getPullEvents_Database ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.JdbcUserServiceModuleImpl <em>Jdbc User Service Module</em>}' class.
@@ -12692,6 +13086,116 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EAttribute TELNET_CONSOLE__PORT = eINSTANCE.getTelnetConsole_Port ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl <em>Event Injector</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjector()
+         * @generated
+         */
+        EClass EVENT_INJECTOR = eINSTANCE.getEventInjector ();
+
+        /**
+         * The meta object literal for the '<em><b>Database</b></em>' reference feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference EVENT_INJECTOR__DATABASE = eINSTANCE.getEventInjector_Database ();
+
+        /**
+         * The meta object literal for the '<em><b>Loop Delay</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR__LOOP_DELAY = eINSTANCE.getEventInjector_LoopDelay ();
+
+        /**
+         * The meta object literal for the '<em><b>Instance Name</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR__INSTANCE_NAME = eINSTANCE.getEventInjector_InstanceName ();
+
+        /**
+         * The meta object literal for the '<em><b>Schema</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR__SCHEMA = eINSTANCE.getEventInjector_Schema ();
+
+        /**
+         * The meta object literal for the '<em><b>Replication Schema</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR__REPLICATION_SCHEMA = eINSTANCE.getEventInjector_ReplicationSchema ();
+
+        /**
+         * The meta object literal for the '<em><b>Delete Failed</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR__DELETE_FAILED = eINSTANCE.getEventInjector_DeleteFailed ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorPostgresImpl <em>Event Injector Postgres</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorPostgresImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorPostgres()
+         * @generated
+         */
+        EClass EVENT_INJECTOR_POSTGRES = eINSTANCE.getEventInjectorPostgres ();
+
+        /**
+         * The meta object literal for the '<em><b>Limit</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR_POSTGRES__LIMIT = eINSTANCE.getEventInjectorPostgres_Limit ();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl <em>Event Injector Jdbc</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see org.eclipse.scada.configuration.world.osgi.impl.EventInjectorJdbcImpl
+         * @see org.eclipse.scada.configuration.world.osgi.impl.OsgiPackageImpl#getEventInjectorJdbc()
+         * @generated
+         */
+        EClass EVENT_INJECTOR_JDBC = eINSTANCE.getEventInjectorJdbc ();
+
+        /**
+         * The meta object literal for the '<em><b>Select Sql</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR_JDBC__SELECT_SQL = eINSTANCE.getEventInjectorJdbc_SelectSql ();
+
+        /**
+         * The meta object literal for the '<em><b>Delete Sql</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR_JDBC__DELETE_SQL = eINSTANCE.getEventInjectorJdbc_DeleteSql ();
+
+        /**
+         * The meta object literal for the '<em><b>Exists Sql</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute EVENT_INJECTOR_JDBC__EXISTS_SQL = eINSTANCE.getEventInjectorJdbc_ExistsSql ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.AverageReferenceType <em>Average Reference Type</em>}' enum.

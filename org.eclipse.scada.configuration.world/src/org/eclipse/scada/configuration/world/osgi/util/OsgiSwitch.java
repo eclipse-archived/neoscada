@@ -1103,6 +1103,52 @@ public class OsgiSwitch<T> extends Switch<T>
                     result = defaultCase ( theEObject );
                 return result;
             }
+            case OsgiPackage.EVENT_INJECTOR:
+            {
+                EventInjector eventInjector = (EventInjector)theEObject;
+                T result = caseEventInjector ( eventInjector );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( eventInjector );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( eventInjector );
+                if ( result == null )
+                    result = caseApplicationModule ( eventInjector );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.EVENT_INJECTOR_POSTGRES:
+            {
+                EventInjectorPostgres eventInjectorPostgres = (EventInjectorPostgres)theEObject;
+                T result = caseEventInjectorPostgres ( eventInjectorPostgres );
+                if ( result == null )
+                    result = caseEventInjector ( eventInjectorPostgres );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( eventInjectorPostgres );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( eventInjectorPostgres );
+                if ( result == null )
+                    result = caseApplicationModule ( eventInjectorPostgres );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
+            case OsgiPackage.EVENT_INJECTOR_JDBC:
+            {
+                EventInjectorJdbc eventInjectorJdbc = (EventInjectorJdbc)theEObject;
+                T result = caseEventInjectorJdbc ( eventInjectorJdbc );
+                if ( result == null )
+                    result = caseEventInjector ( eventInjectorJdbc );
+                if ( result == null )
+                    result = caseIndependentConfiguration ( eventInjectorJdbc );
+                if ( result == null )
+                    result = caseApplicationConfiguration ( eventInjectorJdbc );
+                if ( result == null )
+                    result = caseApplicationModule ( eventInjectorJdbc );
+                if ( result == null )
+                    result = defaultCase ( theEObject );
+                return result;
+            }
             default:
                 return defaultCase ( theEObject );
         }
@@ -2545,6 +2591,54 @@ public class OsgiSwitch<T> extends Switch<T>
      * @generated
      */
     public T caseTelnetConsole ( TelnetConsole object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjector ( EventInjector object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector Postgres</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector Postgres</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjectorPostgres ( EventInjectorPostgres object )
+    {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Event Injector Jdbc</em>'.
+     * <!-- begin-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Event Injector Jdbc</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEventInjectorJdbc ( EventInjectorJdbc object )
     {
         return null;
     }

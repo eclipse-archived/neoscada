@@ -225,6 +225,10 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
                 return createBufferedValue ();
             case OsgiPackage.TELNET_CONSOLE:
                 return createTelnetConsole ();
+            case OsgiPackage.EVENT_INJECTOR_POSTGRES:
+                return createEventInjectorPostgres ();
+            case OsgiPackage.EVENT_INJECTOR_JDBC:
+                return createEventInjectorJdbc ();
             default:
                 throw new IllegalArgumentException ( "The class '" + eClass.getName () + "' is not a valid classifier" ); //$NON-NLS-1$ //$NON-NLS-2$
         }
@@ -1134,6 +1138,28 @@ public class OsgiFactoryImpl extends EFactoryImpl implements OsgiFactory
     {
         TelnetConsoleImpl telnetConsole = new TelnetConsoleImpl ();
         return telnetConsole;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventInjectorPostgres createEventInjectorPostgres ()
+    {
+        EventInjectorPostgresImpl eventInjectorPostgres = new EventInjectorPostgresImpl ();
+        return eventInjectorPostgres;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EventInjectorJdbc createEventInjectorJdbc ()
+    {
+        EventInjectorJdbcImpl eventInjectorJdbc = new EventInjectorJdbcImpl ();
+        return eventInjectorJdbc;
     }
 
     /**

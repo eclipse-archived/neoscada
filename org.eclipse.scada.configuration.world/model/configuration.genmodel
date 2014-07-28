@@ -77,7 +77,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//PropertyEntry/value"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="configuration.ecore#//ServiceBinding"/>
+    <genClasses image="false" ecoreClass="configuration.ecore#//ServiceBinding">
+      <genOperations ecoreOperation="configuration.ecore#//ServiceBinding/getService"/>
+    </genClasses>
     <genClasses ecoreClass="configuration.ecore#//ContainedServiceBinding">
       <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference configuration.ecore#//ContainedServiceBinding/service"/>
     </genClasses>
@@ -85,6 +87,33 @@
       <genFeatures property="Readonly" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference configuration.ecore#//ReferencedServiceBinding/service"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//Settings"/>
+    <genClasses image="false" ecoreClass="configuration.ecore#//DatabaseSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//DatabaseSettings/id"/>
+      <genOperations ecoreOperation="configuration.ecore#//DatabaseSettings/getDriverName"/>
+      <genOperations ecoreOperation="configuration.ecore#//DatabaseSettings/getProperties"/>
+      <genOperations ecoreOperation="configuration.ecore#//DatabaseSettings/getUrl"/>
+      <genOperations ecoreOperation="configuration.ecore#//DatabaseSettings/getLoginTimeout"/>
+      <genOperations ecoreOperation="configuration.ecore#//DatabaseSettings/getBundles"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//GenericSettingsContainer">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference configuration.ecore#//GenericSettingsContainer/settings"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//GenericDatabaseSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//GenericDatabaseSettings/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//GenericDatabaseSettings/driverName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//GenericDatabaseSettings/bundles"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="configuration.ecore#//AbstractGenericDatabaseSettings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/loginTimeout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//AbstractGenericDatabaseSettings/additionalProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/databaseName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/serverName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//AbstractGenericDatabaseSettings/portNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="configuration.ecore#//PostgresDatabaseSettings"/>
     <nestedGenPackages prefix="Osgi" basePackage="org.eclipse.scada.configuration.world"
         resource="XMI" disposableProviderFactory="true" generateModelWizard="false"
         extensibleProviderFactory="true" childCreationExtenders="true" ecorePackage="configuration.ecore#//osgi">
@@ -483,11 +512,11 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AknProxy/authorative"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/PullEvents">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/jdbcDriverName"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/PullEvents/jdbcProperties"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/jobInterval"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/customSelectSql"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/PullEvents/customDeleteSql"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/PullEvents/database"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/JdbcUserServiceModule">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/JdbcUserServiceModule/userServices"/>
@@ -520,26 +549,20 @@
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/EventStorage"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/EventStorageJdbc">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/jdbcDriverName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/driverBundles"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/maxFieldLength"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStorageJdbc/queryFetchSize"/>
       </genClasses>
       <genClasses ecoreClass="configuration.ecore#//osgi/EventStoragePostgres">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStoragePostgres/batchSize"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventStoragePostgres/postgresDriverBundles"/>
-        <genOperations ecoreOperation="configuration.ecore#//osgi/EventStoragePostgres/getJdbcDriverName"/>
-        <genOperations ecoreOperation="configuration.ecore#//osgi/EventStoragePostgres/getDriverBundles"/>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/AbstractEventStorageJdbc">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference configuration.ecore#//osgi/AbstractEventStorageJdbc/jdbcProperties"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/schema"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/instanceName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/enableReplication"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/archiveDays"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/AbstractEventStorageJdbc/cleanupPeriodSeconds"/>
-        <genOperations ecoreOperation="configuration.ecore#//osgi/AbstractEventStorageJdbc/getJdbcDriverName"/>
-        <genOperations ecoreOperation="configuration.ecore#//osgi/AbstractEventStorageJdbc/getDriverBundles"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/AbstractEventStorageJdbc/database"/>
       </genClasses>
       <genClasses image="false" ecoreClass="configuration.ecore#//osgi/ApplicationConfiguration"/>
       <genClasses ecoreClass="configuration.ecore#//osgi/RestExporter">
@@ -577,6 +600,23 @@
       <genClasses ecoreClass="configuration.ecore#//osgi/TelnetConsole">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/TelnetConsole/host"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/TelnetConsole/port"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="configuration.ecore#//osgi/EventInjector">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference configuration.ecore#//osgi/EventInjector/database"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjector/loopDelay"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjector/instanceName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjector/schema"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjector/replicationSchema"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjector/deleteFailed"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventInjectorPostgres">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorPostgres/limit"/>
+      </genClasses>
+      <genClasses ecoreClass="configuration.ecore#//osgi/EventInjectorJdbc">
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorJdbc/selectSql"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorJdbc/deleteSql"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute configuration.ecore#//osgi/EventInjectorJdbc/existsSql"/>
       </genClasses>
       <nestedGenPackages prefix="Profile" basePackage="org.eclipse.scada.configuration.world.osgi"
           resource="XML" disposableProviderFactory="true" generateModelWizard="false"

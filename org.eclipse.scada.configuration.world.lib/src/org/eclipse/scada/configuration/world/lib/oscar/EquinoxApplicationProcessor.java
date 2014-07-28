@@ -48,7 +48,7 @@ public abstract class EquinoxApplicationProcessor extends AbstractFolderProcesso
     @Override
     public void processLocal ( final IFolder output, final IProgressMonitor parentMonitor ) throws Exception
     {
-        final IProgressMonitor monitor = new SubProgressMonitor ( parentMonitor, 11 );
+        final IProgressMonitor monitor = new SubProgressMonitor ( parentMonitor, 13 );
 
         // create context
 
@@ -56,19 +56,21 @@ public abstract class EquinoxApplicationProcessor extends AbstractFolderProcesso
 
         // generate common content
 
-        new SecurityProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) );
-        new JdbcUserServiceModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) );
-        new EventStoragePostgresModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) );
-        new EventStorageJdbcModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) );
+        new SecurityProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
+        new JdbcUserServiceModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
+        new EventStoragePostgresModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
+        new EventStorageJdbcModuleProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
+        new EventInjectorJdbcProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
+        new EventInjectorPostgresProcessor ( this.app, ctx ).process ( new SubProgressMonitor ( monitor, 1 ) ); // COUNT:1
         new ConnectionProcessor ( this.app, ctx ).process ();
         new ExporterProcessor ( this.app, ctx ).process ();
 
         // generate based on processors
 
         final Collection<OscarProcessor> processors = createProcessors ();
-        monitor.worked ( 1 );
+        monitor.worked ( 1 ); // COUNT:1
         {
-            final SubProgressMonitor subMonitor = new SubProgressMonitor ( monitor, 1 );
+            final SubProgressMonitor subMonitor = new SubProgressMonitor ( monitor, 1 ); // COUNT:1
             subMonitor.beginTask ( "Process application modules", processors.size () );
 
             for ( final OscarProcessor processor : processors )
@@ -86,25 +88,25 @@ public abstract class EquinoxApplicationProcessor extends AbstractFolderProcesso
         // write out oscar context
 
         final OscarWriter writer = new OscarWriter ( ctx.getData (), ctx.getIgnoreFields () );
-        monitor.worked ( 1 );
+        monitor.worked ( 1 ); // COUNT:1
 
         final IFile file = output.getFile ( "configuration.oscar" ); //$NON-NLS-1$
-        try (FileOutputStream fos = new FileOutputStream ( file.getRawLocation ().toOSString () ))
+        try ( FileOutputStream fos = new FileOutputStream ( file.getRawLocation ().toOSString () ) )
         {
             writer.write ( fos );
         }
-        monitor.worked ( 1 );
+        monitor.worked ( 1 ); // COUNT:1
 
         final IFile jsonFile = output.getFile ( "data.json" ); //$NON-NLS-1$
-        try (final FileOutputStream fos = new FileOutputStream ( jsonFile.getRawLocation ().toOSString () ))
+        try ( final FileOutputStream fos = new FileOutputStream ( jsonFile.getRawLocation ().toOSString () ) )
         {
             OscarWriter.writeData ( ctx.getData (), fos );
         }
-        monitor.worked ( 1 );
+        monitor.worked ( 1 ); // COUNT:1
 
         // write out profile
         new P2ProfileProcessor ( this.app ).process ( output.getLocation ().toFile (), monitor );
-        monitor.worked ( 1 );
+        monitor.worked ( 1 ); // COUNT:1
 
         // refresh
         output.refreshLocal ( IResource.DEPTH_INFINITE, monitor );

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2013 IBH SYSTEMS GmbH and others.
+ * Copyright (c) 2014 IBH SYSTEMS GmbH and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -17,10 +17,9 @@ import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 
 public abstract class BasicTypedOscarProcessor<T> extends BasicOscarProcessor
 {
-
     private final Class<T> clazz;
 
-    private final EquinoxApplication app;
+    protected final EquinoxApplication app;
 
     public BasicTypedOscarProcessor ( final EquinoxApplication app, final OscarContext ctx, final Class<T> clazz )
     {
