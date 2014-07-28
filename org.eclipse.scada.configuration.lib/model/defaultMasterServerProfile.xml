@@ -56,5 +56,4 @@
 
   <setbsl level="5">org.eclipse.scada.da.server.osgi.exporter.net</setbsl>
   <setbsl level="5">org.eclipse.scada.ae.server.exporter.net</setbsl>
-  <note>If you move the installation directory also remember to fix the property &quot;logback.configurationFile&quot;</note>
 </profile:profile>
