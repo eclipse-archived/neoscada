@@ -267,13 +267,13 @@ public class WorldGenerator
                     final Credentials credentials = findLocalCredentials ( infraArchive );
                     if ( credentials instanceof PasswordCredentials )
                     {
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "", false );
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "" );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword () );
                     }
                     else if ( credentials instanceof UsernamePasswordCredentials )
                     {
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername (), false );
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername () );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword () );
                     }
 
                     final DataAccessConnection con = EcoreUtil.copy ( entry.getValue () );
@@ -307,23 +307,23 @@ public class WorldGenerator
                 switch ( slave.getStorageLayout () )
                 {
                     case MULTI:
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", "@" + slave.getStoragePath (), false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", "@" + slave.getStoragePath () );
                         break;
                     case SINGLE:
-                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", slave.getStoragePath (), false );
+                        Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.server.storage.slave.hds.basePath", slave.getStoragePath () );
                         break;
                 }
 
                 final Credentials credentials = findLocalCredentials ( slave );
                 if ( credentials instanceof PasswordCredentials )
                 {
-                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "", false );
-                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", "" );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", PasswordCredentials.class.cast ( credentials ).getPassword () );
                 }
                 else if ( credentials instanceof UsernamePasswordCredentials )
                 {
-                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername (), false );
-                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword (), false );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.user", UsernamePasswordCredentials.class.cast ( credentials ).getUsername () );
+                    Profiles.addSystemProperty ( profile, "org.eclipse.scada.hd.exporter.http.server.password", UsernamePasswordCredentials.class.cast ( credentials ).getPassword () );
                 }
 
                 app.getModules ().addAll ( makeModules ( slave, app ) );

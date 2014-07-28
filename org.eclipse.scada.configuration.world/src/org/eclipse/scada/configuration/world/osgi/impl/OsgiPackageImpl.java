@@ -3774,7 +3774,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     @Override
-    public EAttribute getEventStorageJdbc_JdbcDriverName ()
+    public EAttribute getEventStorageJdbc_MaxFieldLength ()
     {
         return (EAttribute)eventStorageJdbcEClass.getEStructuralFeatures ().get ( 0 );
     }
@@ -3785,31 +3785,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     @Override
-    public EAttribute getEventStorageJdbc_DriverBundles ()
-    {
-        return (EAttribute)eventStorageJdbcEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EAttribute getEventStorageJdbc_MaxFieldLength ()
-    {
-        return (EAttribute)eventStorageJdbcEClass.getEStructuralFeatures ().get ( 2 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getEventStorageJdbc_QueryFetchSize ()
     {
-        return (EAttribute)eventStorageJdbcEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)eventStorageJdbcEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -3840,39 +3818,6 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     @Override
-    public EAttribute getEventStoragePostgres_PostgresDriverBundles ()
-    {
-        return (EAttribute)eventStoragePostgresEClass.getEStructuralFeatures ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getEventStoragePostgres__GetJdbcDriverName ()
-    {
-        return eventStoragePostgresEClass.getEOperations ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getEventStoragePostgres__GetDriverBundles ()
-    {
-        return eventStoragePostgresEClass.getEOperations ().get ( 1 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EClass getAbstractEventStorageJdbc ()
     {
         return abstractEventStorageJdbcEClass;
@@ -3884,20 +3829,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * @generated
      */
     @Override
-    public EReference getAbstractEventStorageJdbc_JdbcProperties ()
-    {
-        return (EReference)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
     public EAttribute getAbstractEventStorageJdbc_Schema ()
     {
-        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 1 );
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 0 );
     }
 
     /**
@@ -3908,7 +3842,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     @Override
     public EAttribute getAbstractEventStorageJdbc_InstanceName ()
     {
-        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 2 );
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 1 );
     }
 
     /**
@@ -3919,7 +3853,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     @Override
     public EAttribute getAbstractEventStorageJdbc_EnableReplication ()
     {
-        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 3 );
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 2 );
     }
 
     /**
@@ -3930,7 +3864,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     @Override
     public EAttribute getAbstractEventStorageJdbc_ArchiveDays ()
     {
-        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 4 );
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 3 );
     }
 
     /**
@@ -3941,7 +3875,7 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
     @Override
     public EAttribute getAbstractEventStorageJdbc_CleanupPeriodSeconds ()
     {
-        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 5 );
+        return (EAttribute)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 4 );
     }
 
     /**
@@ -3949,21 +3883,9 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public EOperation getAbstractEventStorageJdbc__GetJdbcDriverName ()
+    public EReference getAbstractEventStorageJdbc_Database ()
     {
-        return abstractEventStorageJdbcEClass.getEOperations ().get ( 0 );
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public EOperation getAbstractEventStorageJdbc__GetDriverBundles ()
-    {
-        return abstractEventStorageJdbcEClass.getEOperations ().get ( 1 );
+        return (EReference)abstractEventStorageJdbcEClass.getEStructuralFeatures ().get ( 5 );
     }
 
     /**
@@ -4734,26 +4656,19 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         eventStorageEClass = createEClass ( EVENT_STORAGE );
 
         eventStorageJdbcEClass = createEClass ( EVENT_STORAGE_JDBC );
-        createEAttribute ( eventStorageJdbcEClass, EVENT_STORAGE_JDBC__JDBC_DRIVER_NAME );
-        createEAttribute ( eventStorageJdbcEClass, EVENT_STORAGE_JDBC__DRIVER_BUNDLES );
         createEAttribute ( eventStorageJdbcEClass, EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH );
         createEAttribute ( eventStorageJdbcEClass, EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE );
 
         eventStoragePostgresEClass = createEClass ( EVENT_STORAGE_POSTGRES );
         createEAttribute ( eventStoragePostgresEClass, EVENT_STORAGE_POSTGRES__BATCH_SIZE );
-        createEAttribute ( eventStoragePostgresEClass, EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES );
-        createEOperation ( eventStoragePostgresEClass, EVENT_STORAGE_POSTGRES___GET_JDBC_DRIVER_NAME );
-        createEOperation ( eventStoragePostgresEClass, EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES );
 
         abstractEventStorageJdbcEClass = createEClass ( ABSTRACT_EVENT_STORAGE_JDBC );
-        createEReference ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__JDBC_PROPERTIES );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__SCHEMA );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__INSTANCE_NAME );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS );
         createEAttribute ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS );
-        createEOperation ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC___GET_JDBC_DRIVER_NAME );
-        createEOperation ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC___GET_DRIVER_BUNDLES );
+        createEReference ( abstractEventStorageJdbcEClass, ABSTRACT_EVENT_STORAGE_JDBC__DATABASE );
 
         applicationConfigurationEClass = createEClass ( APPLICATION_CONFIGURATION );
 
@@ -5288,30 +5203,19 @@ public class OsgiPackageImpl extends EPackageImpl implements OsgiPackage
         initEClass ( eventStorageEClass, EventStorage.class, "EventStorage", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 
         initEClass ( eventStorageJdbcEClass, EventStorageJdbc.class, "EventStorageJdbc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEAttribute ( getEventStorageJdbc_JdbcDriverName (), ecorePackage.getEString (), "jdbcDriverName", null, 1, 1, EventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEventStorageJdbc_DriverBundles (), ecorePackage.getEString (), "driverBundles", null, 0, -1, EventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getEventStorageJdbc_MaxFieldLength (), ecorePackage.getEIntegerObject (), "maxFieldLength", null, 0, 1, EventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getEventStorageJdbc_QueryFetchSize (), ecorePackage.getEIntegerObject (), "queryFetchSize", null, 0, 1, EventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( eventStoragePostgresEClass, EventStoragePostgres.class, "EventStoragePostgres", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
         initEAttribute ( getEventStoragePostgres_BatchSize (), ecorePackage.getEIntegerObject (), "batchSize", null, 0, 1, EventStoragePostgres.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-        initEAttribute ( getEventStoragePostgres_PostgresDriverBundles (), ecorePackage.getEString (), "postgresDriverBundles", null, 0, -1, EventStoragePostgres.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-
-        initEOperation ( getEventStoragePostgres__GetJdbcDriverName (), ecorePackage.getEString (), "getJdbcDriverName", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-
-        initEOperation ( getEventStoragePostgres__GetDriverBundles (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( abstractEventStorageJdbcEClass, AbstractEventStorageJdbc.class, "AbstractEventStorageJdbc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
-        initEReference ( getAbstractEventStorageJdbc_JdbcProperties (), theWorldPackage.getPropertyEntry (), null, "jdbcProperties", null, 0, -1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_Schema (), ecorePackage.getEString (), "schema", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_InstanceName (), ecorePackage.getEString (), "instanceName", "default", 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getAbstractEventStorageJdbc_EnableReplication (), ecorePackage.getEBoolean (), "enableReplication", "false", 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$ //$NON-NLS-2$
         initEAttribute ( getAbstractEventStorageJdbc_ArchiveDays (), ecorePackage.getEIntegerObject (), "archiveDays", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
         initEAttribute ( getAbstractEventStorageJdbc_CleanupPeriodSeconds (), ecorePackage.getEIntegerObject (), "cleanupPeriodSeconds", null, 0, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
-
-        initEOperation ( getAbstractEventStorageJdbc__GetJdbcDriverName (), ecorePackage.getEString (), "getJdbcDriverName", 1, 1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
-
-        initEOperation ( getAbstractEventStorageJdbc__GetDriverBundles (), ecorePackage.getEString (), "getDriverBundles", 0, -1, IS_UNIQUE, IS_ORDERED ); //$NON-NLS-1$
+        initEReference ( getAbstractEventStorageJdbc_Database (), theWorldPackage.getDatabaseSettings (), null, "database", null, 1, 1, AbstractEventStorageJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED ); //$NON-NLS-1$
 
         initEClass ( applicationConfigurationEClass, ApplicationConfiguration.class, "ApplicationConfiguration", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS ); //$NON-NLS-1$
 

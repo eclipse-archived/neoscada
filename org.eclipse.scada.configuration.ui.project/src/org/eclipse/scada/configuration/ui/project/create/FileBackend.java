@@ -38,7 +38,7 @@ public class FileBackend implements PersistentBackend
     public void configure ( final ResourceSet rs, final Profile profile, final String appName )
     {
         Profiles.addStartBundle ( profile, this.bundle );
-        Profiles.addSystemProperty ( profile, this.key, String.format ( this.location, appName ), false );
+        Profiles.addSystemProperty ( profile, this.key, String.format ( this.location, appName ) );
     }
 
 }

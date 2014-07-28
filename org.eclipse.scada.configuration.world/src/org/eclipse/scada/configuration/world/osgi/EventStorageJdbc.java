@@ -10,8 +10,6 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.osgi;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Event Storage Jdbc</b></em>'.
@@ -20,8 +18,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getJdbcDriverName <em>Jdbc Driver Name</em>}</li>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getDriverBundles <em>Driver Bundles</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getMaxFieldLength <em>Max Field Length</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getQueryFetchSize <em>Query Fetch Size</em>}</li>
  * </ul>
@@ -33,47 +29,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EventStorageJdbc extends AbstractEventStorageJdbc
 {
-
-    /**
-     * Returns the value of the '<em><b>Jdbc Driver Name</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Jdbc Driver Name</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Jdbc Driver Name</em>' attribute.
-     * @see #setJdbcDriverName(String)
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventStorageJdbc_JdbcDriverName()
-     * @model required="true"
-     * @generated
-     */
-    String getJdbcDriverName ();
-
-    /**
-     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getJdbcDriverName <em>Jdbc Driver Name</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Jdbc Driver Name</em>' attribute.
-     * @see #getJdbcDriverName()
-     * @generated
-     */
-    void setJdbcDriverName ( String value );
-
-    /**
-     * Returns the value of the '<em><b>Driver Bundles</b></em>' attribute list.
-     * The list contents are of type {@link java.lang.String}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * Defines a list of OSGi bundles to start automatically.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Driver Bundles</em>' attribute list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getEventStorageJdbc_DriverBundles()
-     * @model
-     * @generated
-     */
-    EList<String> getDriverBundles ();
 
     /**
      * Returns the value of the '<em><b>Max Field Length</b></em>' attribute.

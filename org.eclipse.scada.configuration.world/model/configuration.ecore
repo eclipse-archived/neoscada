@@ -781,38 +781,14 @@
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventStorageJdbc" eSuperTypes="#//osgi/AbstractEventStorageJdbc">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jdbcDriverName" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="driverBundles" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="Defines a list of OSGi bundles to start automatically."/>
-        </eAnnotations>
-      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxFieldLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="queryFetchSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventStoragePostgres" eSuperTypes="#//osgi/AbstractEventStorageJdbc">
-      <eOperations name="getJdbcDriverName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return &quot;org.postgresql.Driver&quot;;"/>
-        </eAnnotations>
-      </eOperations>
-      <eOperations name="getDriverBundles" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="body" value="return getPostgresDriverBundles();"/>
-        </eAnnotations>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="batchSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="postgresDriverBundles"
-          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractEventStorageJdbc" abstract="true"
         eSuperTypes="#//osgi/EventStorage">
-      <eOperations name="getJdbcDriverName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="getDriverBundles" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="jdbcProperties" upperBound="-1"
-          eType="#//PropertyEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="An optional database schema."/>
@@ -827,6 +803,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="archiveDays" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="cleanupPeriodSeconds"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" lowerBound="1"
+          eType="#//DatabaseSettings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationConfiguration" abstract="true"
         interface="true" eSuperTypes="#//osgi/ApplicationModule">

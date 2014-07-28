@@ -33,7 +33,7 @@ public class EventStorageJdbcModuleProcessor extends AbstractEventStorageJdbcMod
         processCommon ( module );
 
         Profiles.addStartBundle ( profile, "org.eclipse.scada.ae.server.storage.jdbc" ); //$NON-NLS-1$
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.maxlength", module.getMaxFieldLength (), false );
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.query.fetchSize", module.getQueryFetchSize (), false );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.maxlength", module.getMaxFieldLength () );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.query.fetchSize", module.getQueryFetchSize () );
     }
 }

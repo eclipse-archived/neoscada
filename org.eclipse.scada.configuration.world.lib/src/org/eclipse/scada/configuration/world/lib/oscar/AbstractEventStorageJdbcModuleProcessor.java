@@ -11,6 +11,7 @@
 package org.eclipse.scada.configuration.world.lib.oscar;
 
 import org.eclipse.scada.configuration.generator.Profiles;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 import org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc;
 import org.eclipse.scada.configuration.world.osgi.EquinoxApplication;
 import org.eclipse.scada.configuration.world.osgi.profile.Profile;
@@ -30,20 +31,23 @@ public abstract class AbstractEventStorageJdbcModuleProcessor<T> extends BasicTy
     {
         final Profile profile = Profiles.createOrGetCustomizationProfile ( this.app );
 
-        for ( final String bundle : module.getDriverBundles () )
+        final DatabaseSettings db = module.getDatabase ();
+
+        for ( final String bundle : db.getBundles () )
         {
             Profiles.addStartBundle ( profile, bundle );
             profile.getInstallationUnits ().add ( bundle );
         }
 
-        Profiles.addJdbcSystemProperties ( profile, "org.eclipse.scada.ae.server.storage.jdbc", module.getJdbcDriverName (), module.getJdbcProperties () );
+        Profiles.addJdbcSystemProperties ( profile, "org.eclipse.scada.ae.server.storage.jdbc", db.getDriverName (), db.getProperties () );
 
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.schema", module.getSchema (), false );
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.instance", module.getInstanceName (), false );
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.enableReplication", module.isEnableReplication (), false );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.loginTimeout", db.getLoginTimeout () );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.schema", module.getSchema () );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.instance", module.getInstanceName () );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.enableReplication", module.isEnableReplication () );
 
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.cleanupPeriodSeconds", module.getCleanupPeriodSeconds (), false );
-        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.archiveDays", module.getArchiveDays (), false );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.cleanupPeriodSeconds", module.getCleanupPeriodSeconds () );
+        Profiles.addSystemProperty ( profile, "org.eclipse.scada.ae.server.storage.jdbc.archiveDays", module.getArchiveDays () );
     }
 
 }

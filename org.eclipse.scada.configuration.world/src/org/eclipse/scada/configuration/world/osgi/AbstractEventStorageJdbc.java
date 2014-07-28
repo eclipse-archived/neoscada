@@ -10,8 +10,7 @@
  *******************************************************************************/
 package org.eclipse.scada.configuration.world.osgi;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.scada.configuration.world.PropertyEntry;
+import org.eclipse.scada.configuration.world.DatabaseSettings;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,12 +20,12 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcProperties <em>Jdbc Properties</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getSchema <em>Schema</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getInstanceName <em>Instance Name</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#isEnableReplication <em>Enable Replication</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getArchiveDays <em>Archive Days</em>}</li>
  *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getCleanupPeriodSeconds <em>Cleanup Period Seconds</em>}</li>
+ *   <li>{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase <em>Database</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,22 +35,6 @@ import org.eclipse.scada.configuration.world.PropertyEntry;
  */
 public interface AbstractEventStorageJdbc extends EventStorage
 {
-    /**
-     * Returns the value of the '<em><b>Jdbc Properties</b></em>' containment reference list.
-     * The list contents are of type {@link org.eclipse.scada.configuration.world.PropertyEntry}.
-     * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Jdbc Properties</em>' containment reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     * @return the value of the '<em>Jdbc Properties</em>' containment reference list.
-     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAbstractEventStorageJdbc_JdbcProperties()
-     * @model containment="true" resolveProxies="true"
-     * @generated
-     */
-    EList<PropertyEntry> getJdbcProperties ();
-
     /**
      * Returns the value of the '<em><b>Schema</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -184,23 +167,29 @@ public interface AbstractEventStorageJdbc extends EventStorage
     void setCleanupPeriodSeconds ( Integer value );
 
     /**
+     * Returns the value of the '<em><b>Database</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Jdbc Driver Name</em>' attribute isn't clear,
+     * If the meaning of the '<em>Database</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @model kind="operation" required="true"
+     * @return the value of the '<em>Database</em>' reference.
+     * @see #setDatabase(DatabaseSettings)
+     * @see org.eclipse.scada.configuration.world.osgi.OsgiPackage#getAbstractEventStorageJdbc_Database()
+     * @model required="true"
      * @generated
      */
-    String getJdbcDriverName ();
+    DatabaseSettings getDatabase ();
 
     /**
+     * Sets the value of the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase <em>Database</em>}' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @model kind="operation"
+     * @param value the new value of the '<em>Database</em>' reference.
+     * @see #getDatabase()
      * @generated
      */
-    EList<String> getDriverBundles ();
+    void setDatabase ( DatabaseSettings value );
 
 } // AbstractEventStorageJdbc

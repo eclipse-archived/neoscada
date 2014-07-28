@@ -5830,22 +5830,13 @@ public interface OsgiPackage extends EPackage
     int ABSTRACT_EVENT_STORAGE_JDBC = 80;
 
     /**
-     * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ABSTRACT_EVENT_STORAGE_JDBC__JDBC_PROPERTIES = EVENT_STORAGE_FEATURE_COUNT + 0;
-
-    /**
      * The feature id for the '<em><b>Schema</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC__SCHEMA = EVENT_STORAGE_FEATURE_COUNT + 1;
+    int ABSTRACT_EVENT_STORAGE_JDBC__SCHEMA = EVENT_STORAGE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Instance Name</b></em>' attribute.
@@ -5854,7 +5845,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC__INSTANCE_NAME = EVENT_STORAGE_FEATURE_COUNT + 2;
+    int ABSTRACT_EVENT_STORAGE_JDBC__INSTANCE_NAME = EVENT_STORAGE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Enable Replication</b></em>' attribute.
@@ -5863,7 +5854,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION = EVENT_STORAGE_FEATURE_COUNT + 3;
+    int ABSTRACT_EVENT_STORAGE_JDBC__ENABLE_REPLICATION = EVENT_STORAGE_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Archive Days</b></em>' attribute.
@@ -5872,7 +5863,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS = EVENT_STORAGE_FEATURE_COUNT + 4;
+    int ABSTRACT_EVENT_STORAGE_JDBC__ARCHIVE_DAYS = EVENT_STORAGE_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Cleanup Period Seconds</b></em>' attribute.
@@ -5881,7 +5872,16 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS = EVENT_STORAGE_FEATURE_COUNT + 5;
+    int ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS = EVENT_STORAGE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ABSTRACT_EVENT_STORAGE_JDBC__DATABASE = EVENT_STORAGE_FEATURE_COUNT + 5;
 
     /**
      * The number of structural features of the '<em>Abstract Event Storage Jdbc</em>' class.
@@ -5893,31 +5893,13 @@ public interface OsgiPackage extends EPackage
     int ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT = EVENT_STORAGE_FEATURE_COUNT + 6;
 
     /**
-     * The operation id for the '<em>Get Jdbc Driver Name</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ABSTRACT_EVENT_STORAGE_JDBC___GET_JDBC_DRIVER_NAME = EVENT_STORAGE_OPERATION_COUNT + 0;
-
-    /**
-     * The operation id for the '<em>Get Driver Bundles</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int ABSTRACT_EVENT_STORAGE_JDBC___GET_DRIVER_BUNDLES = EVENT_STORAGE_OPERATION_COUNT + 1;
-
-    /**
      * The number of operations of the '<em>Abstract Event Storage Jdbc</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT = EVENT_STORAGE_OPERATION_COUNT + 2;
+    int ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT = EVENT_STORAGE_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.EventStorageJdbcImpl <em>Event Storage Jdbc</em>}' class.
@@ -5928,15 +5910,6 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     int EVENT_STORAGE_JDBC = 78;
-
-    /**
-     * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_JDBC__JDBC_PROPERTIES = ABSTRACT_EVENT_STORAGE_JDBC__JDBC_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Schema</b></em>' attribute.
@@ -5984,22 +5957,13 @@ public interface OsgiPackage extends EPackage
     int EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS = ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS;
 
     /**
-     * The feature id for the '<em><b>Jdbc Driver Name</b></em>' attribute.
+     * The feature id for the '<em><b>Database</b></em>' reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_JDBC__JDBC_DRIVER_NAME = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Driver Bundles</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_JDBC__DRIVER_BUNDLES = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
+    int EVENT_STORAGE_JDBC__DATABASE = ABSTRACT_EVENT_STORAGE_JDBC__DATABASE;
 
     /**
      * The feature id for the '<em><b>Max Field Length</b></em>' attribute.
@@ -6008,7 +5972,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 2;
+    int EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Query Fetch Size</b></em>' attribute.
@@ -6017,7 +5981,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 3;
+    int EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Event Storage Jdbc</em>' class.
@@ -6026,25 +5990,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_JDBC_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 4;
-
-    /**
-     * The operation id for the '<em>Get Jdbc Driver Name</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_JDBC___GET_JDBC_DRIVER_NAME = ABSTRACT_EVENT_STORAGE_JDBC___GET_JDBC_DRIVER_NAME;
-
-    /**
-     * The operation id for the '<em>Get Driver Bundles</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_JDBC___GET_DRIVER_BUNDLES = ABSTRACT_EVENT_STORAGE_JDBC___GET_DRIVER_BUNDLES;
+    int EVENT_STORAGE_JDBC_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 2;
 
     /**
      * The number of operations of the '<em>Event Storage Jdbc</em>' class.
@@ -6064,15 +6010,6 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     int EVENT_STORAGE_POSTGRES = 79;
-
-    /**
-     * The feature id for the '<em><b>Jdbc Properties</b></em>' containment reference list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_POSTGRES__JDBC_PROPERTIES = ABSTRACT_EVENT_STORAGE_JDBC__JDBC_PROPERTIES;
 
     /**
      * The feature id for the '<em><b>Schema</b></em>' attribute.
@@ -6120,6 +6057,15 @@ public interface OsgiPackage extends EPackage
     int EVENT_STORAGE_POSTGRES__CLEANUP_PERIOD_SECONDS = ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS;
 
     /**
+     * The feature id for the '<em><b>Database</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int EVENT_STORAGE_POSTGRES__DATABASE = ABSTRACT_EVENT_STORAGE_JDBC__DATABASE;
+
+    /**
      * The feature id for the '<em><b>Batch Size</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6129,40 +6075,13 @@ public interface OsgiPackage extends EPackage
     int EVENT_STORAGE_POSTGRES__BATCH_SIZE = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Postgres Driver Bundles</b></em>' attribute list.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
-
-    /**
      * The number of structural features of the '<em>Event Storage Postgres</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_POSTGRES_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 2;
-
-    /**
-     * The operation id for the '<em>Get Jdbc Driver Name</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_POSTGRES___GET_JDBC_DRIVER_NAME = ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT + 0;
-
-    /**
-     * The operation id for the '<em>Get Driver Bundles</em>' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT + 1;
+    int EVENT_STORAGE_POSTGRES_FEATURE_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_FEATURE_COUNT + 1;
 
     /**
      * The number of operations of the '<em>Event Storage Postgres</em>' class.
@@ -6171,7 +6090,7 @@ public interface OsgiPackage extends EPackage
      * @generated
      * @ordered
      */
-    int EVENT_STORAGE_POSTGRES_OPERATION_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT + 2;
+    int EVENT_STORAGE_POSTGRES_OPERATION_COUNT = ABSTRACT_EVENT_STORAGE_JDBC_OPERATION_COUNT + 0;
 
     /**
      * The meta object id for the '{@link org.eclipse.scada.configuration.world.osgi.impl.RestExporterImpl <em>Rest Exporter</em>}' class.
@@ -9622,28 +9541,6 @@ public interface OsgiPackage extends EPackage
     EClass getEventStorageJdbc ();
 
     /**
-     * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getJdbcDriverName <em>Jdbc Driver Name</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Jdbc Driver Name</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getJdbcDriverName()
-     * @see #getEventStorageJdbc()
-     * @generated
-     */
-    EAttribute getEventStorageJdbc_JdbcDriverName ();
-
-    /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getDriverBundles <em>Driver Bundles</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Driver Bundles</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getDriverBundles()
-     * @see #getEventStorageJdbc()
-     * @generated
-     */
-    EAttribute getEventStorageJdbc_DriverBundles ();
-
-    /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.EventStorageJdbc#getMaxFieldLength <em>Max Field Length</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9687,37 +9584,6 @@ public interface OsgiPackage extends EPackage
     EAttribute getEventStoragePostgres_BatchSize ();
 
     /**
-     * Returns the meta object for the attribute list '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getPostgresDriverBundles <em>Postgres Driver Bundles</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute list '<em>Postgres Driver Bundles</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getPostgresDriverBundles()
-     * @see #getEventStoragePostgres()
-     * @generated
-     */
-    EAttribute getEventStoragePostgres_PostgresDriverBundles ();
-
-    /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get Jdbc Driver Name</em>' operation.
-     * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getJdbcDriverName()
-     * @generated
-     */
-    EOperation getEventStoragePostgres__GetJdbcDriverName ();
-
-    /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getDriverBundles() <em>Get Driver Bundles</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get Driver Bundles</em>' operation.
-     * @see org.eclipse.scada.configuration.world.osgi.EventStoragePostgres#getDriverBundles()
-     * @generated
-     */
-    EOperation getEventStoragePostgres__GetDriverBundles ();
-
-    /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc <em>Abstract Event Storage Jdbc</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -9726,17 +9592,6 @@ public interface OsgiPackage extends EPackage
      * @generated
      */
     EClass getAbstractEventStorageJdbc ();
-
-    /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcProperties <em>Jdbc Properties</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Jdbc Properties</em>'.
-     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcProperties()
-     * @see #getAbstractEventStorageJdbc()
-     * @generated
-     */
-    EReference getAbstractEventStorageJdbc_JdbcProperties ();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getSchema <em>Schema</em>}'.
@@ -9794,24 +9649,15 @@ public interface OsgiPackage extends EPackage
     EAttribute getAbstractEventStorageJdbc_CleanupPeriodSeconds ();
 
     /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName() <em>Get Jdbc Driver Name</em>}' operation.
+     * Returns the meta object for the reference '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase <em>Database</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get Jdbc Driver Name</em>' operation.
-     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getJdbcDriverName()
+     * @return the meta object for the reference '<em>Database</em>'.
+     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDatabase()
+     * @see #getAbstractEventStorageJdbc()
      * @generated
      */
-    EOperation getAbstractEventStorageJdbc__GetJdbcDriverName ();
-
-    /**
-     * Returns the meta object for the '{@link org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles() <em>Get Driver Bundles</em>}' operation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the '<em>Get Driver Bundles</em>' operation.
-     * @see org.eclipse.scada.configuration.world.osgi.AbstractEventStorageJdbc#getDriverBundles()
-     * @generated
-     */
-    EOperation getAbstractEventStorageJdbc__GetDriverBundles ();
+    EReference getAbstractEventStorageJdbc_Database ();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration <em>Application Configuration</em>}'.
@@ -12530,22 +12376,6 @@ public interface OsgiPackage extends EPackage
         EClass EVENT_STORAGE_JDBC = eINSTANCE.getEventStorageJdbc ();
 
         /**
-         * The meta object literal for the '<em><b>Jdbc Driver Name</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EVENT_STORAGE_JDBC__JDBC_DRIVER_NAME = eINSTANCE.getEventStorageJdbc_JdbcDriverName ();
-
-        /**
-         * The meta object literal for the '<em><b>Driver Bundles</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EVENT_STORAGE_JDBC__DRIVER_BUNDLES = eINSTANCE.getEventStorageJdbc_DriverBundles ();
-
-        /**
          * The meta object literal for the '<em><b>Max Field Length</b></em>' attribute feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12580,30 +12410,6 @@ public interface OsgiPackage extends EPackage
         EAttribute EVENT_STORAGE_POSTGRES__BATCH_SIZE = eINSTANCE.getEventStoragePostgres_BatchSize ();
 
         /**
-         * The meta object literal for the '<em><b>Postgres Driver Bundles</b></em>' attribute list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute EVENT_STORAGE_POSTGRES__POSTGRES_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres_PostgresDriverBundles ();
-
-        /**
-         * The meta object literal for the '<em><b>Get Jdbc Driver Name</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation EVENT_STORAGE_POSTGRES___GET_JDBC_DRIVER_NAME = eINSTANCE.getEventStoragePostgres__GetJdbcDriverName ();
-
-        /**
-         * The meta object literal for the '<em><b>Get Driver Bundles</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation EVENT_STORAGE_POSTGRES___GET_DRIVER_BUNDLES = eINSTANCE.getEventStoragePostgres__GetDriverBundles ();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.impl.AbstractEventStorageJdbcImpl <em>Abstract Event Storage Jdbc</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -12612,14 +12418,6 @@ public interface OsgiPackage extends EPackage
          * @generated
          */
         EClass ABSTRACT_EVENT_STORAGE_JDBC = eINSTANCE.getAbstractEventStorageJdbc ();
-
-        /**
-         * The meta object literal for the '<em><b>Jdbc Properties</b></em>' containment reference list feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EReference ABSTRACT_EVENT_STORAGE_JDBC__JDBC_PROPERTIES = eINSTANCE.getAbstractEventStorageJdbc_JdbcProperties ();
 
         /**
          * The meta object literal for the '<em><b>Schema</b></em>' attribute feature.
@@ -12662,20 +12460,12 @@ public interface OsgiPackage extends EPackage
         EAttribute ABSTRACT_EVENT_STORAGE_JDBC__CLEANUP_PERIOD_SECONDS = eINSTANCE.getAbstractEventStorageJdbc_CleanupPeriodSeconds ();
 
         /**
-         * The meta object literal for the '<em><b>Get Jdbc Driver Name</b></em>' operation.
+         * The meta object literal for the '<em><b>Database</b></em>' reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EOperation ABSTRACT_EVENT_STORAGE_JDBC___GET_JDBC_DRIVER_NAME = eINSTANCE.getAbstractEventStorageJdbc__GetJdbcDriverName ();
-
-        /**
-         * The meta object literal for the '<em><b>Get Driver Bundles</b></em>' operation.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EOperation ABSTRACT_EVENT_STORAGE_JDBC___GET_DRIVER_BUNDLES = eINSTANCE.getAbstractEventStorageJdbc__GetDriverBundles ();
+        EReference ABSTRACT_EVENT_STORAGE_JDBC__DATABASE = eINSTANCE.getAbstractEventStorageJdbc_Database ();
 
         /**
          * The meta object literal for the '{@link org.eclipse.scada.configuration.world.osgi.ApplicationConfiguration <em>Application Configuration</em>}' class.

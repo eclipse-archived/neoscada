@@ -35,7 +35,6 @@ public class PostgresDatabaseSettingsImpl extends AbstractGenericDatabaseSetting
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     protected PostgresDatabaseSettingsImpl ()
@@ -78,7 +77,6 @@ public class PostgresDatabaseSettingsImpl extends AbstractGenericDatabaseSetting
     /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
      * @generated
      */
     @Override

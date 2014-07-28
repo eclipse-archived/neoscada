@@ -81,7 +81,7 @@ public final class Profiles
         profile.getStart ().add ( sb );
     }
 
-    public static void addSystemProperty ( final Profile profile, final String key, final Object value, final boolean eval )
+    public static void addSystemProperty ( final Profile profile, final String key, final Object value )
     {
         for ( final Iterator<SystemProperty> i = profile.getProperty ().iterator (); i.hasNext (); )
         {
@@ -95,7 +95,6 @@ public final class Profiles
         // now add
 
         final SystemProperty prop = ProfileFactory.eINSTANCE.createSystemProperty ();
-        prop.setEval ( eval );
         prop.setKey ( key );
         if ( value != null )
         {
@@ -129,10 +128,10 @@ public final class Profiles
 
     public static void addJdbcSystemProperties ( final Profile profile, final String prefix, final String jdbcDriverName, final List<PropertyEntry> jdbcProperties )
     {
-        addSystemProperty ( profile, prefix + ".driver", jdbcDriverName, false );
+        addSystemProperty ( profile, prefix + ".driver", jdbcDriverName );
         for ( final PropertyEntry entry : jdbcProperties )
         {
-            addSystemProperty ( profile, prefix + ".properties." + entry.getKey (), entry.getValue (), false );
+            addSystemProperty ( profile, prefix + ".properties." + entry.getKey (), entry.getValue () );
         }
     }
 

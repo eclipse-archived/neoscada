@@ -64,58 +64,10 @@ public class EventStorageJdbcItemProvider extends
         {
             super.getPropertyDescriptors ( object );
 
-            addJdbcDriverNamePropertyDescriptor ( object );
-            addDriverBundlesPropertyDescriptor ( object );
             addMaxFieldLengthPropertyDescriptor ( object );
             addQueryFetchSizePropertyDescriptor ( object );
         }
         return itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Jdbc Driver Name feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addJdbcDriverNamePropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventStorageJdbc_jdbcDriverName_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_jdbcDriverName_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_STORAGE_JDBC__JDBC_DRIVER_NAME,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
-    }
-
-    /**
-     * This adds a property descriptor for the Driver Bundles feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addDriverBundlesPropertyDescriptor ( Object object )
-    {
-        itemPropertyDescriptors.add
-                ( createItemPropertyDescriptor
-                ( ( (ComposeableAdapterFactory)adapterFactory ).getRootAdapterFactory (),
-                        getResourceLocator (),
-                        getString ( "_UI_EventStorageJdbc_driverBundles_feature" ), //$NON-NLS-1$
-                        getString ( "_UI_PropertyDescriptor_description", "_UI_EventStorageJdbc_driverBundles_feature", "_UI_EventStorageJdbc_type" ), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-                        OsgiPackage.Literals.EVENT_STORAGE_JDBC__DRIVER_BUNDLES,
-                        true,
-                        false,
-                        false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                        null,
-                        null ) );
     }
 
     /**
@@ -216,8 +168,6 @@ public class EventStorageJdbcItemProvider extends
 
         switch ( notification.getFeatureID ( EventStorageJdbc.class ) )
         {
-            case OsgiPackage.EVENT_STORAGE_JDBC__JDBC_DRIVER_NAME:
-            case OsgiPackage.EVENT_STORAGE_JDBC__DRIVER_BUNDLES:
             case OsgiPackage.EVENT_STORAGE_JDBC__MAX_FIELD_LENGTH:
             case OsgiPackage.EVENT_STORAGE_JDBC__QUERY_FETCH_SIZE:
                 fireNotifyChanged ( new ViewerNotification ( notification, notification.getNotifier (), false, true ) );
