@@ -275,6 +275,16 @@ public class ApplicationConfigurationItemProvider
                 ( createChildParameter
                 ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
                         OsgiFactory.eINSTANCE.createTelnetConsole () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createEventInjectorPostgres () ) );
+
+        newChildDescriptors.add
+                ( createChildParameter
+                ( InfrastructurePackage.Literals.APPLICATION_CONFIGURATION__CONFIGURATIONS,
+                        OsgiFactory.eINSTANCE.createEventInjectorJdbc () ) );
     }
 
     /**
