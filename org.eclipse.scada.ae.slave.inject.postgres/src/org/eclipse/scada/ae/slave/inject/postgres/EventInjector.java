@@ -62,14 +62,15 @@ public class EventInjector extends BaseStorage
 
     private final ScheduledExportedExecutorService scheduler;
 
-    private String schema;
+    private final String schema;
 
-    private String replicationSchema;
+    private final String replicationSchema;
 
     public EventInjector ( final DataSourceFactory dataSourceFactory, final Properties dataSourceProperties, final Integer delay, final boolean usePool, final Long loginTimeout, final String schema, final String replicationSchema, final String instance ) throws SQLException
     {
         logger.info ( "Starting event injector" ); //$NON-NLS-1$
         this.schema = schema;
+        this.replicationSchema = replicationSchema;
         this.accessor = usePool ? new PoolConnectionAccessor ( dataSourceFactory, dataSourceProperties ) : new DataSourceConnectionAccessor ( dataSourceFactory, dataSourceProperties, loginTimeout );
         this.jdbcDao = new JdbcDao ( this.accessor, schema, instance, new NodeIdProvider () {
             @Override
